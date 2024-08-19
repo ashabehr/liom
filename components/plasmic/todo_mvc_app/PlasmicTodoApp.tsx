@@ -70,6 +70,7 @@ import ضصث from "../../\u0636\u0635\u062B"; // plasmic-import: jRRQtDe8tllq/c
 import Task from "../../Task"; // plasmic-import: TB3wx1w_IrFj/component
 import Footer from "../../Footer"; // plasmic-import: sxxS2rEPgX_V/component
 import Asd from "../../Asd"; // plasmic-import: 4dA70KmcJjpi/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
@@ -105,6 +106,7 @@ export type PlasmicTodoApp__OverridesType = {
   footer?: Flex__<typeof Footer>;
   fakeStack?: Flex__<"div">;
   asd?: Flex__<typeof Asd>;
+  fragmentApiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultTodoAppProps {}
@@ -155,6 +157,24 @@ function PlasmicTodoApp__RenderFunc(props: {
         path: "footer.shownType",
         type: "private",
         variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentApiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentApiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentApiRequest.loading",
+        type: "private",
+        variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -426,6 +446,47 @@ function PlasmicTodoApp__RenderFunc(props: {
             data-plasmic-override={overrides.asd}
             className={classNames("__wab_instance", sty.asd)}
           />
+
+          <ApiRequest
+            data-plasmic-name={"fragmentApiRequest"}
+            data-plasmic-override={overrides.fragmentApiRequest}
+            className={classNames("__wab_instance", sty.fragmentApiRequest)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__dIvo
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__kjRdg
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, [
+              "fragmentApiRequest",
+              "error"
+            ])}
+            onLoading={generateStateOnChangeProp($state, [
+              "fragmentApiRequest",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, [
+              "fragmentApiRequest",
+              "data"
+            ])}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -443,7 +504,8 @@ const PlasmicDescendants = {
     "task",
     "footer",
     "fakeStack",
-    "asd"
+    "asd",
+    "fragmentApiRequest"
   ],
   appTitle: ["appTitle"],
   appBody: [
@@ -460,7 +522,8 @@ const PlasmicDescendants = {
   task: ["task"],
   footer: ["footer"],
   fakeStack: ["fakeStack"],
-  asd: ["asd"]
+  asd: ["asd"],
+  fragmentApiRequest: ["fragmentApiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -476,6 +539,7 @@ type NodeDefaultElementType = {
   footer: typeof Footer;
   fakeStack: "div";
   asd: typeof Asd;
+  fragmentApiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -572,6 +636,7 @@ export const PlasmicTodoApp = Object.assign(
     footer: makeNodeComponent("footer"),
     fakeStack: makeNodeComponent("fakeStack"),
     asd: makeNodeComponent("asd"),
+    fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
 
     // Metadata about props expected for PlasmicTodoApp
     internalVariantProps: PlasmicTodoApp__VariantProps,

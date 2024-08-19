@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -132,9 +132,34 @@
           "cssFilePath": "plasmic/todo_mvc_app/PlasmicAsd2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "ErJEaLhimwjN",
+          "name": "Sssssssssssssssssssssss",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/todo_mvc_app/PlasmicSssssssssssssssssssssss.tsx",
+          "importSpec": {
+            "modulePath": "Sssssssssssssssssssssss.tsx"
+          },
+          "cssFilePath": "plasmic/todo_mvc_app/PlasmicSssssssssssssssssssssss.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
         }
       ],
-      "icons": [],
+      "icons": [
+        {
+          "id": "rMWZc9fpVIkj",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "plasmic/todo_mvc_app/icons/PlasmicIcon__Checksvg.tsx"
+        },
+        {
+          "id": "EwJmqOfKx7up",
+          "name": "Icon2Icon",
+          "moduleFilePath": "plasmic/todo_mvc_app/icons/PlasmicIcon__Icon2.tsx"
+        }
+      ],
       "images": [],
       "indirect": false,
       "globalContextsFilePath": "plasmic/todo_mvc_app/PlasmicGlobalContextsProvider.tsx",
