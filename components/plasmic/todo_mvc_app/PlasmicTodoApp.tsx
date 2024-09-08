@@ -267,8 +267,10 @@ function PlasmicTodoApp__RenderFunc(props: {
               }
             )}
           >
-            {"sasdasdasdasd"}
+            {"-----------"}
           </div>
+          <div className={classNames(projectcss.all, sty.freeBox__vRGlW)} />
+
           <div
             className={classNames(projectcss.all, sty.freeBox__wsiK, {
               [sty.freeBoxglobal_theme_dark__wsiKfQxap]: hasVariant(

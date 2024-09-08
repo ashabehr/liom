@@ -150,7 +150,20 @@ function PlasmicAbc__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicAbc.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicAbc.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicAbc.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -319,7 +332,7 @@ export const PlasmicAbc = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "asdasdsad",
       description: "",
       ogImageSrc: "",
       canonical: ""

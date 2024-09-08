@@ -154,7 +154,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicAbc.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/new-pageasd.tsx"
+            "modulePath": "../src/pages/new.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicAbc.module.css",
           "scheme": "blackbox",
