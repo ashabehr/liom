@@ -127,7 +127,9 @@ function PlasmicTask__RenderFunc(props: {
         {
           task: { id: "fake-id", description: "Play with plasmic" }
         },
-        props.args
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
       ),
     [props.args]
   );

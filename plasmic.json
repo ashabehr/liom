@@ -24,7 +24,7 @@
     {
       "projectId": "suVPi77vb6vv9K5rYJwyxC",
       "projectApiToken": "cCkcsT23rq0psh1GSchX2yUBokXgsy0I93Fz3epL1pxFubRnDOz8vWaelTq1QkogCUSIK54GVz8d4rvw8A",
-      "projectName": "TodoMVC app",
+      "projectName": "liom hamyar",
       "version": "latest",
       "cssFilePath": "plasmic/todo_mvc_app/plasmic.module.css",
       "components": [
@@ -151,8 +151,8 @@
       "icons": [
         {
           "id": "rMWZc9fpVIkj",
-          "name": "ChecksvgIcon",
-          "moduleFilePath": "plasmic/todo_mvc_app/icons/PlasmicIcon__Checksvg.tsx"
+          "name": "CheckSvgIcon",
+          "moduleFilePath": "plasmic/todo_mvc_app/icons/PlasmicIcon__CheckSvg.tsx"
         },
         {
           "id": "EwJmqOfKx7up",

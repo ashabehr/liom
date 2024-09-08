@@ -100,7 +100,7 @@ export type PlasmicTodoApp__OverridesType = {
   appTitle?: Flex__<"div">;
   appBody?: Flex__<"div">;
   link?: Flex__<"a"> & Partial<LinkProps>;
-  ضصش?: Flex__<typeof ضصث>;
+  ضصیش?: Flex__<typeof ضصث>;
   tasksContainer?: Flex__<"div">;
   task?: Flex__<typeof Task>;
   footer?: Flex__<typeof Footer>;
@@ -128,7 +128,16 @@ function PlasmicTodoApp__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -258,7 +267,7 @@ function PlasmicTodoApp__RenderFunc(props: {
               }
             )}
           >
-            {"todos"}
+            {"sasdasdasdasd"}
           </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__wsiK, {
@@ -290,15 +299,15 @@ function PlasmicTodoApp__RenderFunc(props: {
                 platform={"nextjs"}
               >
                 <ضصث
-                  data-plasmic-name={"\u0636\u0635\u0634"}
-                  data-plasmic-override={overrides.ضصش}
-                  className={classNames("__wab_instance", sty.ضصش, {
-                    [sty.ضصشglobal_theme_dark]: hasVariant(
+                  data-plasmic-name={"\u0636\u0635\u06cc\u0634"}
+                  data-plasmic-override={overrides.ضصیش}
+                  className={classNames("__wab_instance", sty.ضصیش, {
+                    [sty.ضصیشglobal_theme_dark]: hasVariant(
                       globalVariants,
                       "theme",
                       "dark"
                     ),
-                    [sty.ضصشstate_empty]: hasVariant($state, "state", "empty")
+                    [sty.ضصیشstate_empty]: hasVariant($state, "state", "empty")
                   })}
                   state={
                     hasVariant($state, "state", "empty") ? "empty" : undefined
@@ -499,7 +508,7 @@ const PlasmicDescendants = {
     "appTitle",
     "appBody",
     "link",
-    "\u0636\u0635\u0634",
+    "\u0636\u0635\u06cc\u0634",
     "tasksContainer",
     "task",
     "footer",
@@ -511,13 +520,13 @@ const PlasmicDescendants = {
   appBody: [
     "appBody",
     "link",
-    "\u0636\u0635\u0634",
+    "\u0636\u0635\u06cc\u0634",
     "tasksContainer",
     "task",
     "footer"
   ],
-  link: ["link", "\u0636\u0635\u0634"],
-  ضصش: ["\u0636\u0635\u0634"],
+  link: ["link", "\u0636\u0635\u06cc\u0634"],
+  ضصیش: ["\u0636\u0635\u06cc\u0634"],
   tasksContainer: ["tasksContainer", "task"],
   task: ["task"],
   footer: ["footer"],
@@ -533,7 +542,7 @@ type NodeDefaultElementType = {
   appTitle: "div";
   appBody: "div";
   link: "a";
-  ضصش: typeof ضصث;
+  ضصیش: typeof ضصث;
   tasksContainer: "div";
   task: typeof Task;
   footer: typeof Footer;
@@ -630,7 +639,7 @@ export const PlasmicTodoApp = Object.assign(
     appTitle: makeNodeComponent("appTitle"),
     appBody: makeNodeComponent("appBody"),
     link: makeNodeComponent("link"),
-    ضصش: makeNodeComponent("\u0636\u0635\u0634"),
+    ضصیش: makeNodeComponent("\u0636\u0635\u06cc\u0634"),
     tasksContainer: makeNodeComponent("tasksContainer"),
     task: makeNodeComponent("task"),
     footer: makeNodeComponent("footer"),

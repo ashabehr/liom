@@ -66,7 +66,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSssssssssssssssssssssss.module.css"; // plasmic-import: ErJEaLhimwjN/css
 
-import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: EwJmqOfKx7up/icon
 
 createPlasmicElementProxy;
@@ -190,7 +190,16 @@ function PlasmicSssssssssssssssssssssss__RenderFunc(props: {
 }) {
   const { variants, overrides, forNode } = props;
 
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        Object.fromEntries(
+          Object.entries(props.args).filter(([_, v]) => v !== undefined)
+        )
+      ),
+    [props.args]
+  );
 
   const $props = {
     ...args,
@@ -358,7 +367,7 @@ function PlasmicSssssssssssssssssssssss__RenderFunc(props: {
         >
           {renderPlasmicSlot({
             defaultContents: (
-              <ChecksvgIcon
+              <CheckSvgIcon
                 className={classNames(projectcss.all, sty.svg__asAy4)}
                 role={"img"}
               />
