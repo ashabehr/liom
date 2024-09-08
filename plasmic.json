@@ -146,6 +146,34 @@
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "button"
+        },
+        {
+          "id": "vd7hikTiLMT9",
+          "name": "Abc",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicAbc.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/new-pageasd.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicAbc.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-pageasd"
+        },
+        {
+          "id": "cOSV4CnhD7mN",
+          "name": "TextInput",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicTextInput.tsx",
+          "importSpec": {
+            "modulePath": "TextInput.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicTextInput.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "text-input"
         }
       ],
       "icons": [
@@ -158,6 +186,11 @@
           "id": "EwJmqOfKx7up",
           "name": "Icon2Icon",
           "moduleFilePath": "plasmic/todo_mvc_app/icons/PlasmicIcon__Icon2.tsx"
+        },
+        {
+          "id": "Hrcd2gLhG27X",
+          "name": "SearchSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__SearchSvg.tsx"
         }
       ],
       "images": [],

@@ -120,6 +120,31 @@
           "assetId": "suVPi77vb6vv9K5rYJwyxC",
           "type": "projectCss",
           "checksum": "f5b41d72daa50ad9a431d1608db130c0"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "vd7hikTiLMT9",
+          "checksum": "43292ef37d537c2cd89d112310cdd647"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "vd7hikTiLMT9",
+          "checksum": "43292ef37d537c2cd89d112310cdd647"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "cOSV4CnhD7mN",
+          "checksum": "9efe4b6247ee93e4b67c026254e82125"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "cOSV4CnhD7mN",
+          "checksum": "9efe4b6247ee93e4b67c026254e82125"
+        },
+        {
+          "type": "icon",
+          "assetId": "Hrcd2gLhG27X",
+          "checksum": "c8a72add3fe7bf379384248eb94edb2e"
         }
       ],
       "codegenVersion": "0.0.1"
