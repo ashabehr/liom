@@ -176,14 +176,14 @@
         },
         {
           "id": "ErJEaLhimwjN",
-          "name": "Sssssssssssssssssssssss",
+          "name": "Button",
           "type": "managed",
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSssssssssssssssssssssss.tsx",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicButton.tsx",
           "importSpec": {
-            "modulePath": "Sssssssssssssssssssssss.tsx"
+            "modulePath": "Button.tsx"
           },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSssssssssssssssssssssss.module.css",
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicButton.module.css",
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "button"

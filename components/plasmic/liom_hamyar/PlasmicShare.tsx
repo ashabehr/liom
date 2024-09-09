@@ -66,7 +66,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
-import Sssssssssssssssssssssss from "../../Sssssssssssssssssssssss"; // plasmic-import: ErJEaLhimwjN/component
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -93,7 +93,7 @@ export const PlasmicShare__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicShare__OverridesType = {
   root?: Flex__<"div">;
-  sssssssssssssssssssssss?: Flex__<typeof Sssssssssssssssssssssss>;
+  button?: Flex__<typeof Button>;
   lottie?: Flex__<typeof LottieWrapper>;
 };
 
@@ -243,13 +243,11 @@ function PlasmicShare__RenderFunc(props: {
         )}
       >
         <div className={classNames(projectcss.all, sty.freeBox__mQai)}>
-          <Sssssssssssssssssssssss
-            data-plasmic-name={"sssssssssssssssssssssss"}
-            data-plasmic-override={overrides.sssssssssssssssssssssss}
-            className={classNames(
-              "__wab_instance",
-              sty.sssssssssssssssssssssss
-            )}
+          <Button
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames("__wab_instance", sty.button)}
+            link={"https://liom.app/link/man"}
             onClick={async event => {
               const $steps = {};
 
@@ -282,6 +280,7 @@ function PlasmicShare__RenderFunc(props: {
                 ];
               }
             }}
+            target={true}
           >
             <div
               className={classNames(
@@ -294,7 +293,7 @@ function PlasmicShare__RenderFunc(props: {
                 "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646"
               }
             </div>
-          </Sssssssssssssssssssssss>
+          </Button>
           <div
             className={classNames(
               projectcss.all,
@@ -457,7 +456,7 @@ function PlasmicShare__RenderFunc(props: {
               op: 210,
               w: 800,
               h: 600,
-              nm: "\u00c3\u00a5\u00c2\u0090\u00c2\u0088\u00c3\u00a6\u00c2\u0088\u00c2\u0090 1",
+              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
               ddd: 0,
               assets: [
                 {
@@ -467,7 +466,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 1,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 18",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 18",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -486,7 +485,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -509,7 +508,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -517,10 +516,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -529,7 +525,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -542,10 +538,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -563,7 +559,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 2,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 17",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 17",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -582,7 +578,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -605,7 +601,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -613,10 +609,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -625,7 +618,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -638,10 +631,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -659,7 +652,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 3,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 16",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 16",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -678,7 +671,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -701,7 +694,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -709,10 +702,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -721,7 +711,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -734,10 +724,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -755,7 +745,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 4,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 15",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 15",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -774,7 +764,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -797,7 +787,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -805,10 +795,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -817,7 +804,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -830,10 +817,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -851,7 +838,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 5,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 14",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 14",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -870,7 +857,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -893,7 +880,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -901,10 +888,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -913,7 +897,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -926,10 +910,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -947,7 +931,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 6,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 13",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 13",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -966,7 +950,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -989,7 +973,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -997,10 +981,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -1009,7 +990,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -1022,10 +1003,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -1043,7 +1024,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 7,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 12",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 12",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -1062,7 +1043,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -1085,7 +1066,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -1093,10 +1074,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -1105,7 +1083,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -1118,10 +1096,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -1139,7 +1117,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 8,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 11",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 11",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -1158,7 +1136,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -1181,7 +1159,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -1189,10 +1167,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -1201,7 +1176,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -1214,10 +1189,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -1235,7 +1210,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 9,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 10",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 10",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -1254,7 +1229,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -1277,7 +1252,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -1285,10 +1260,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -1297,7 +1269,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -1310,10 +1282,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -1331,7 +1303,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 10,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 9",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 9",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -1350,7 +1322,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -1373,7 +1345,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -1381,10 +1353,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -1393,7 +1362,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -1406,10 +1375,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -1427,7 +1396,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 11,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 8",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 8",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -1446,7 +1415,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -1469,7 +1438,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -1477,10 +1446,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -1489,7 +1455,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -1502,10 +1468,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -1523,7 +1489,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 12,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 7",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 7",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -1542,7 +1508,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -1565,7 +1531,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -1573,10 +1539,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -1585,7 +1548,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -1598,10 +1561,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -1619,7 +1582,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 13,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 6",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 6",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -1638,7 +1601,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -1661,7 +1624,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -1669,10 +1632,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -1681,7 +1641,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -1694,10 +1654,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -1715,7 +1675,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 14,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 5",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 5",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -1734,7 +1694,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -1757,7 +1717,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -1765,10 +1725,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -1777,7 +1734,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -1790,10 +1747,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -1811,7 +1768,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 15,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 4",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 4",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -1830,7 +1787,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -1853,7 +1810,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -1861,10 +1818,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -1873,7 +1827,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -1886,10 +1840,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -1907,7 +1861,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 16,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 3",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 3",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -1926,7 +1880,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -1949,7 +1903,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -1957,10 +1911,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -1969,7 +1920,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -1982,10 +1933,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -2003,7 +1954,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 17,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 2",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 2",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -2022,7 +1973,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -2045,7 +1996,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -2053,10 +2004,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -2065,7 +2013,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -2078,10 +2026,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -2099,7 +2047,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 18,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 1",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 1",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -2118,7 +2066,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -2141,7 +2089,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -2149,10 +2097,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -2161,7 +2106,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -2174,10 +2119,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -2195,7 +2140,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 19,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 24",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 24",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -2214,7 +2159,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -2237,7 +2182,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -2245,10 +2190,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -2257,7 +2199,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -2270,10 +2212,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -2291,7 +2233,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 20,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 23",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 23",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -2310,7 +2252,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -2333,7 +2275,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -2341,10 +2283,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -2353,7 +2292,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -2366,10 +2305,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -2387,7 +2326,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 21,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 22",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 22",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -2406,7 +2345,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -2429,7 +2368,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -2437,10 +2376,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -2449,7 +2385,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -2462,10 +2398,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -2483,7 +2419,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 22,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 21",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 21",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -2502,7 +2438,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -2525,7 +2461,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -2533,10 +2469,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -2545,7 +2478,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -2558,10 +2491,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -2579,7 +2512,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 23,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 20",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 20",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -2598,7 +2531,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -2621,7 +2554,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -2629,10 +2562,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -2641,7 +2571,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -2654,10 +2584,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -2675,7 +2605,7 @@ function PlasmicShare__RenderFunc(props: {
                       ddd: 0,
                       ind: 24,
                       ty: 4,
-                      nm: "\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u00b1\u00c2\u0082 19",
+                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 19",
                       sr: 1,
                       ks: {
                         o: { a: 0, k: 100, ix: 11 },
@@ -2694,7 +2624,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "el",
                               s: { a: 0, k: [200, 200], ix: 2 },
                               p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Shape - Ellipse",
                               hd: false
                             },
@@ -2717,7 +2647,7 @@ function PlasmicShare__RenderFunc(props: {
                               },
                               m: 1,
                               ix: 2,
-                              nm: "\u00c3\u00a4\u00c2\u00bf\u00c2\u00ae\u00c3\u00a5\u00c2\u0089\u00c2\u00aa\u00c3\u00a8\u00c2\u00b7\u00c2\u00af\u00c3\u00a5\u00c2\u00be\u00c2\u0084 1",
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
                               mn: "ADBE Vector Filter - Trim",
                               hd: false
                             },
@@ -2725,10 +2655,7 @@ function PlasmicShare__RenderFunc(props: {
                               ty: "st",
                               c: {
                                 a: 0,
-                                k: [
-                                  0.09019607843137255, 0.3843137254901961,
-                                  0.8745098039215686, 1
-                                ],
+                                k: [0.5098, 0.3294, 0.7765, 1],
                                 ix: 3
                               },
                               o: { a: 0, k: 100, ix: 4 },
@@ -2737,7 +2664,7 @@ function PlasmicShare__RenderFunc(props: {
                               lj: 1,
                               ml: 4,
                               bm: 0,
-                              nm: "\u00c3\u00a6\u00c2\u008f\u00c2\u008f\u00c3\u00a8\u00c2\u00be\u00c2\u00b9 1",
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
                               mn: "ADBE Vector Graphic - Stroke",
                               hd: false
                             },
@@ -2750,10 +2677,10 @@ function PlasmicShare__RenderFunc(props: {
                               o: { a: 0, k: 100, ix: 7 },
                               sk: { a: 0, k: 0, ix: 4 },
                               sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u008d\u00c2\u00a2"
+                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                             }
                           ],
-                          nm: "\u00c3\u00a6\u00c2\u00a4\u00c2\u00ad\u00c3\u00a5\u00c2\u009c\u00c2\u0086 1",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
                           np: 4,
                           cix: 2,
                           bm: 0,
@@ -2775,7 +2702,7 @@ function PlasmicShare__RenderFunc(props: {
                   ddd: 0,
                   ind: 1,
                   ty: 0,
-                  nm: "\u00c3\u00a9\u00c2\u00a2\u00c2\u0084\u00c3\u00a5\u00c2\u0090\u00c2\u0088\u00c3\u00a6\u00c2\u0088\u00c2\u0090 1",
+                  nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
                   refId: "comp_0",
                   sr: 1,
                   ks: {
@@ -2789,7 +2716,7 @@ function PlasmicShare__RenderFunc(props: {
                   ef: [
                     {
                       ty: 5,
-                      nm: "\u00c3\u00a7\u00c2\u00ae\u00c2\u0080\u00c3\u00a5\u00c2\u008d\u00c2\u0095\u00c3\u00a9\u00c2\u0098\u00c2\u00bb\u00c3\u00a5\u00c2\u00a1\u00c2\u009e\u00c3\u00a5\u00c2\u00b7\u00c2\u00a5\u00c3\u00a5\u00c2\u0085\u00c2\u00b7",
+                      nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
                       np: 4,
                       mn: "ADBE Simple Choker",
                       ix: 1,
@@ -2797,14 +2724,14 @@ function PlasmicShare__RenderFunc(props: {
                       ef: [
                         {
                           ty: 7,
-                          nm: "\u00c3\u00a8\u00c2\u00a7\u00c2\u0086\u00c3\u00a5\u00c2\u009b\u00c2\u00be",
+                          nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
                           mn: "ADBE Simple Choker-0001",
                           ix: 1,
                           v: { a: 0, k: 1, ix: 1 }
                         },
                         {
                           ty: 0,
-                          nm: "\u00c3\u00a9\u00c2\u0098\u00c2\u00bb\u00c3\u00a5\u00c2\u00a1\u00c2\u009e\u00c3\u00a9\u00c2\u0081\u00c2\u00ae\u00c3\u00a7\u00c2\u00bd\u00c2\u00a9",
+                          nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
                           mn: "ADBE Simple Choker-0002",
                           ix: 2,
                           v: { a: 0, k: 14, ix: 2 }
@@ -2813,7 +2740,7 @@ function PlasmicShare__RenderFunc(props: {
                     },
                     {
                       ty: 5,
-                      nm: "\u00c3\u00a6\u00c2\u00a2\u00c2\u00af\u00c3\u00a5\u00c2\u00ba\u00c2\u00a6\u00c3\u00a6\u00c2\u00b8\u00c2\u0090\u00c3\u00a5\u00c2\u008f\u00c2\u0098",
+                      nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
                       np: 10,
                       mn: "ADBE Ramp",
                       ix: 2,
@@ -2821,57 +2748,49 @@ function PlasmicShare__RenderFunc(props: {
                       ef: [
                         {
                           ty: 3,
-                          nm: "\u00c3\u00a6\u00c2\u00b8\u00c2\u0090\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a8\u00c2\u00b5\u00c2\u00b7\u00c3\u00a7\u00c2\u0082\u00c2\u00b9",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
                           mn: "ADBE Ramp-0001",
                           ix: 1,
                           v: { a: 0, k: [400, 0], ix: 1 }
                         },
                         {
                           ty: 2,
-                          nm: "\u00c3\u00a8\u00c2\u00b5\u00c2\u00b7\u00c3\u00a5\u00c2\u00a7\u00c2\u008b\u00c3\u00a9\u00c2\u00a2\u00c2\u009c\u00c3\u00a8\u00c2\u0089\u00c2\u00b2",
+                          nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
                           mn: "ADBE Ramp-0002",
                           ix: 2,
-                          v: {
-                            a: 0,
-                            k: [0.263066768646, 1, 0.867243647575, 1],
-                            ix: 2
-                          }
+                          v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
                         },
                         {
                           ty: 3,
-                          nm: "\u00c3\u00a6\u00c2\u00b8\u00c2\u0090\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a7\u00c2\u00bb\u00c2\u0088\u00c3\u00a7\u00c2\u0082\u00c2\u00b9",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
                           mn: "ADBE Ramp-0003",
                           ix: 3,
                           v: { a: 0, k: [400, 600], ix: 3 }
                         },
                         {
                           ty: 2,
-                          nm: "\u00c3\u00a7\u00c2\u00bb\u00c2\u0093\u00c3\u00a6\u00c2\u009d\u00c2\u009f\u00c3\u00a9\u00c2\u00a2\u00c2\u009c\u00c3\u00a8\u00c2\u0089\u00c2\u00b2",
+                          nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
                           mn: "ADBE Ramp-0004",
                           ix: 4,
-                          v: {
-                            a: 0,
-                            k: [0.354580283165, 1, 0.820018112659, 1],
-                            ix: 4
-                          }
+                          v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
                         },
                         {
                           ty: 7,
-                          nm: "\u00c3\u00a6\u00c2\u00b8\u00c2\u0090\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
                           mn: "ADBE Ramp-0005",
                           ix: 5,
                           v: { a: 0, k: 1, ix: 5 }
                         },
                         {
                           ty: 0,
-                          nm: "\u00c3\u00a6\u00c2\u00b8\u00c2\u0090\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u0095\u00c2\u00a3\u00c3\u00a5\u00c2\u00b0\u00c2\u0084",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
                           mn: "ADBE Ramp-0006",
                           ix: 6,
                           v: { a: 0, k: 0, ix: 6 }
                         },
                         {
                           ty: 0,
-                          nm: "\u00c3\u00a4\u00c2\u00b8\u00c2\u008e\u00c3\u00a5\u00c2\u008e\u00c2\u009f\u00c3\u00a5\u00c2\u00a7\u00c2\u008b\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u0083\u00c2\u008f\u00c3\u00a6\u00c2\u00b7\u00c2\u00b7\u00c3\u00a5\u00c2\u0090\u00c2\u0088",
+                          nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
                           mn: "ADBE Ramp-0007",
                           ix: 7,
                           v: { a: 0, k: 0, ix: 7 }
@@ -2891,7 +2810,7 @@ function PlasmicShare__RenderFunc(props: {
                   ddd: 0,
                   ind: 2,
                   ty: 0,
-                  nm: "\u00c3\u00a9\u00c2\u00a2\u00c2\u0084\u00c3\u00a5\u00c2\u0090\u00c2\u0088\u00c3\u00a6\u00c2\u0088\u00c2\u0090 1",
+                  nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
                   refId: "comp_0",
                   sr: 1,
                   ks: {
@@ -2905,7 +2824,7 @@ function PlasmicShare__RenderFunc(props: {
                   ef: [
                     {
                       ty: 5,
-                      nm: "\u00c3\u00a7\u00c2\u00ae\u00c2\u0080\u00c3\u00a5\u00c2\u008d\u00c2\u0095\u00c3\u00a9\u00c2\u0098\u00c2\u00bb\u00c3\u00a5\u00c2\u00a1\u00c2\u009e\u00c3\u00a5\u00c2\u00b7\u00c2\u00a5\u00c3\u00a5\u00c2\u0085\u00c2\u00b7",
+                      nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
                       np: 4,
                       mn: "ADBE Simple Choker",
                       ix: 1,
@@ -2913,14 +2832,14 @@ function PlasmicShare__RenderFunc(props: {
                       ef: [
                         {
                           ty: 7,
-                          nm: "\u00c3\u00a8\u00c2\u00a7\u00c2\u0086\u00c3\u00a5\u00c2\u009b\u00c2\u00be",
+                          nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
                           mn: "ADBE Simple Choker-0001",
                           ix: 1,
                           v: { a: 0, k: 1, ix: 1 }
                         },
                         {
                           ty: 0,
-                          nm: "\u00c3\u00a9\u00c2\u0098\u00c2\u00bb\u00c3\u00a5\u00c2\u00a1\u00c2\u009e\u00c3\u00a9\u00c2\u0081\u00c2\u00ae\u00c3\u00a7\u00c2\u00bd\u00c2\u00a9",
+                          nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
                           mn: "ADBE Simple Choker-0002",
                           ix: 2,
                           v: { a: 0, k: 14, ix: 2 }
@@ -2929,7 +2848,7 @@ function PlasmicShare__RenderFunc(props: {
                     },
                     {
                       ty: 5,
-                      nm: "\u00c3\u00a6\u00c2\u00a2\u00c2\u00af\u00c3\u00a5\u00c2\u00ba\u00c2\u00a6\u00c3\u00a6\u00c2\u00b8\u00c2\u0090\u00c3\u00a5\u00c2\u008f\u00c2\u0098",
+                      nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
                       np: 10,
                       mn: "ADBE Ramp",
                       ix: 2,
@@ -2937,57 +2856,49 @@ function PlasmicShare__RenderFunc(props: {
                       ef: [
                         {
                           ty: 3,
-                          nm: "\u00c3\u00a6\u00c2\u00b8\u00c2\u0090\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a8\u00c2\u00b5\u00c2\u00b7\u00c3\u00a7\u00c2\u0082\u00c2\u00b9",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
                           mn: "ADBE Ramp-0001",
                           ix: 1,
                           v: { a: 0, k: [400, 0], ix: 1 }
                         },
                         {
                           ty: 2,
-                          nm: "\u00c3\u00a8\u00c2\u00b5\u00c2\u00b7\u00c3\u00a5\u00c2\u00a7\u00c2\u008b\u00c3\u00a9\u00c2\u00a2\u00c2\u009c\u00c3\u00a8\u00c2\u0089\u00c2\u00b2",
+                          nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
                           mn: "ADBE Ramp-0002",
                           ix: 2,
-                          v: {
-                            a: 0,
-                            k: [0.263066768646, 1, 0.867243647575, 1],
-                            ix: 2
-                          }
+                          v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
                         },
                         {
                           ty: 3,
-                          nm: "\u00c3\u00a6\u00c2\u00b8\u00c2\u0090\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a7\u00c2\u00bb\u00c2\u0088\u00c3\u00a7\u00c2\u0082\u00c2\u00b9",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
                           mn: "ADBE Ramp-0003",
                           ix: 3,
                           v: { a: 0, k: [400, 600], ix: 3 }
                         },
                         {
                           ty: 2,
-                          nm: "\u00c3\u00a7\u00c2\u00bb\u00c2\u0093\u00c3\u00a6\u00c2\u009d\u00c2\u009f\u00c3\u00a9\u00c2\u00a2\u00c2\u009c\u00c3\u00a8\u00c2\u0089\u00c2\u00b2",
+                          nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
                           mn: "ADBE Ramp-0004",
                           ix: 4,
-                          v: {
-                            a: 0,
-                            k: [0.354580283165, 1, 0.820018112659, 1],
-                            ix: 4
-                          }
+                          v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
                         },
                         {
                           ty: 7,
-                          nm: "\u00c3\u00a6\u00c2\u00b8\u00c2\u0090\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a5\u00c2\u00bd\u00c2\u00a2\u00c3\u00a7\u00c2\u008a\u00c2\u00b6",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
                           mn: "ADBE Ramp-0005",
                           ix: 5,
                           v: { a: 0, k: 1, ix: 5 }
                         },
                         {
                           ty: 0,
-                          nm: "\u00c3\u00a6\u00c2\u00b8\u00c2\u0090\u00c3\u00a5\u00c2\u008f\u00c2\u0098\u00c3\u00a6\u00c2\u0095\u00c2\u00a3\u00c3\u00a5\u00c2\u00b0\u00c2\u0084",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
                           mn: "ADBE Ramp-0006",
                           ix: 6,
                           v: { a: 0, k: 0, ix: 6 }
                         },
                         {
                           ty: 0,
-                          nm: "\u00c3\u00a4\u00c2\u00b8\u00c2\u008e\u00c3\u00a5\u00c2\u008e\u00c2\u009f\u00c3\u00a5\u00c2\u00a7\u00c2\u008b\u00c3\u00a5\u00c2\u009b\u00c2\u00be\u00c3\u00a5\u00c2\u0083\u00c2\u008f\u00c3\u00a6\u00c2\u00b7\u00c2\u00b7\u00c3\u00a5\u00c2\u0090\u00c2\u0088",
+                          nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
                           mn: "ADBE Ramp-0007",
                           ix: 7,
                           v: { a: 0, k: 0, ix: 7 }
@@ -2997,7 +2908,7 @@ function PlasmicShare__RenderFunc(props: {
                     },
                     {
                       ty: 29,
-                      nm: "\u00c3\u00a9\u00c2\u00ab\u00c2\u0098\u00c3\u00a6\u00c2\u0096\u00c2\u00af\u00c3\u00a6\u00c2\u00a8\u00c2\u00a1\u00c3\u00a7\u00c2\u00b3\u00c2\u008a",
+                      nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00ab\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a",
                       np: 5,
                       mn: "ADBE Gaussian Blur 2",
                       ix: 3,
@@ -3005,21 +2916,21 @@ function PlasmicShare__RenderFunc(props: {
                       ef: [
                         {
                           ty: 0,
-                          nm: "\u00c3\u00a6\u00c2\u00a8\u00c2\u00a1\u00c3\u00a7\u00c2\u00b3\u00c2\u008a\u00c3\u00a5\u00c2\u00ba\u00c2\u00a6",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6",
                           mn: "ADBE Gaussian Blur 2-0001",
                           ix: 1,
                           v: { a: 0, k: 41.3, ix: 1 }
                         },
                         {
                           ty: 7,
-                          nm: "\u00c3\u00a6\u00c2\u00a8\u00c2\u00a1\u00c3\u00a7\u00c2\u00b3\u00c2\u008a\u00c3\u00a6\u00c2\u0096\u00c2\u00b9\u00c3\u00a5\u00c2\u0090\u00c2\u0091",
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0091",
                           mn: "ADBE Gaussian Blur 2-0002",
                           ix: 2,
                           v: { a: 0, k: 1, ix: 2 }
                         },
                         {
                           ty: 7,
-                          nm: "\u00c3\u00a9\u00c2\u0087\u00c2\u008d\u00c3\u00a5\u00c2\u00a4\u00c2\u008d\u00c3\u00a8\u00c2\u00be\u00c2\u00b9\u00c3\u00a7\u00c2\u00bc\u00c2\u0098\u00c3\u00a5\u00c2\u0083\u00c2\u008f\u00c3\u00a7\u00c2\u00b4\u00c2\u00a0",
+                          nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0087\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bc\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b4\u00c3\u0082\u00c2\u00a0",
                           mn: "ADBE Gaussian Blur 2-0003",
                           ix: 3,
                           v: { a: 0, k: 0, ix: 3 }
@@ -3049,8 +2960,8 @@ function PlasmicShare__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "sssssssssssssssssssssss", "lottie"],
-  sssssssssssssssssssssss: ["sssssssssssssssssssssss"],
+  root: ["root", "button", "lottie"],
+  button: ["button"],
   lottie: ["lottie"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -3058,7 +2969,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  sssssssssssssssssssssss: typeof Sssssssssssssssssssssss;
+  button: typeof Button;
   lottie: typeof LottieWrapper;
 };
 
@@ -3147,7 +3058,7 @@ export const PlasmicShare = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    sssssssssssssssssssssss: makeNodeComponent("sssssssssssssssssssssss"),
+    button: makeNodeComponent("button"),
     lottie: makeNodeComponent("lottie"),
 
     // Metadata about props expected for PlasmicShare
