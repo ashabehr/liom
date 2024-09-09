@@ -66,15 +66,17 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import Sssssssssssssssssssssss from "../../Sssssssssssssssssssssss"; // plasmic-import: ErJEaLhimwjN/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShare.module.css"; // plasmic-import: 66ihQPjKw_0A/css
 
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon2Icon from "../todo_mvc_app/icons/PlasmicIcon__Icon2"; // plasmic-import: EwJmqOfKx7up/icon
 import LiLogoSvgIcon from "./icons/PlasmicIcon__LiLogoSvg"; // plasmic-import: g2Wd0rn3Z11c/icon
 import LetterOpenedSvgrepoComSvgIcon from "./icons/PlasmicIcon__LetterOpenedSvgrepoComSvg"; // plasmic-import: Up_IU2WZLnua/icon
 
@@ -91,6 +93,7 @@ export const PlasmicShare__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicShare__OverridesType = {
   root?: Flex__<"div">;
+  sssssssssssssssssssssss?: Flex__<typeof Sssssssssssssssssssssss>;
   lottie?: Flex__<typeof LottieWrapper>;
 };
 
@@ -236,11 +239,62 @@ function PlasmicShare__RenderFunc(props: {
           projectcss.plasmic_default_styles,
           projectcss.plasmic_mixins,
           projectcss.plasmic_tokens,
-          plasmic_antd_5_hostless_css.plasmic_tokens,
           sty.root
         )}
       >
         <div className={classNames(projectcss.all, sty.freeBox__mQai)}>
+          <Sssssssssssssssssssssss
+            data-plasmic-name={"sssssssssssssssssssssss"}
+            data-plasmic-override={overrides.sssssssssssssssssssssss}
+            className={classNames(
+              "__wab_instance",
+              sty.sssssssssssssssssssssss
+            )}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["goToHttpsLiomAppLinkMan"] = true
+                ? (() => {
+                    const actionArgs = {
+                      destination: "https://liom.app/link/man"
+                    };
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["goToHttpsLiomAppLinkMan"] != null &&
+                typeof $steps["goToHttpsLiomAppLinkMan"] === "object" &&
+                typeof $steps["goToHttpsLiomAppLinkMan"].then === "function"
+              ) {
+                $steps["goToHttpsLiomAppLinkMan"] = await $steps[
+                  "goToHttpsLiomAppLinkMan"
+                ];
+              }
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__bbnMl
+              )}
+            >
+              {
+                "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646"
+              }
+            </div>
+          </Sssssssssssssssssssssss>
           <div
             className={classNames(
               projectcss.all,
@@ -2995,7 +3049,8 @@ function PlasmicShare__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "lottie"],
+  root: ["root", "sssssssssssssssssssssss", "lottie"],
+  sssssssssssssssssssssss: ["sssssssssssssssssssssss"],
   lottie: ["lottie"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -3003,6 +3058,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  sssssssssssssssssssssss: typeof Sssssssssssssssssssssss;
   lottie: typeof LottieWrapper;
 };
 
@@ -3091,6 +3147,7 @@ export const PlasmicShare = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    sssssssssssssssssssssss: makeNodeComponent("sssssssssssssssssssssss"),
     lottie: makeNodeComponent("lottie"),
 
     // Metadata about props expected for PlasmicShare

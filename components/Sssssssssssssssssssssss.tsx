@@ -2,7 +2,7 @@ import * as React from "react";
 import {
   PlasmicSssssssssssssssssssssss,
   DefaultSssssssssssssssssssssssProps
-} from "./plasmic/todo_mvc_app/PlasmicSssssssssssssssssssssss";
+} from "./plasmic/liom_hamyar/PlasmicSssssssssssssssssssssss";
 
 import {
   ButtonRef,

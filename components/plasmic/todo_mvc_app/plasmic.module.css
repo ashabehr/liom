@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B0%2C900%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C900&family=Inter%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Vazirmatn%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C700%3B0%2C900%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C900&family=Inter%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Vazirmatn%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&display=swap");
 
 .plasmic_tokens {
   --token-gCi4wau0q9pg: rgba(175, 47, 47, 0.15);
@@ -35,26 +35,6 @@
   --plasmic-token-placeholder: var(--token-NvjhYtqAYhiP);
   --token-EmQk5DERlmjM: rgb(79, 79, 79);
   --plasmic-token-placeholder-dark: var(--token-EmQk5DERlmjM);
-  --token-0Vc7AhWleUkI: var(--antd-marginLG);
-  --plasmic-token-system-margin-lg: var(--token-0Vc7AhWleUkI);
-  --token-pGmzc7HRbBOF: var(--antd-fontSizeHeading4);
-  --plasmic-token-system-heading-4: var(--token-pGmzc7HRbBOF);
-  --token-hNUDgaJdJBmB: var(--antd-margin);
-  --plasmic-token-system-margin-m: var(--token-hNUDgaJdJBmB);
-  --token-dTG41iXUYSg-: var(--antd-marginSM);
-  --plasmic-token-system-margin-sm: var(--token-dTG41iXUYSg-);
-  --token-jhJak-5RyxYZ: var(--antd-fontSizeHeading4);
-  --plasmic-token-system-heading-4-2: var(--token-jhJak-5RyxYZ);
-  --token-HpkFYkBeLdBd: var(--antd-marginSM);
-  --plasmic-token-system-margin-sm-2: var(--token-HpkFYkBeLdBd);
-  --token-b9QOTxN8JlBn: var(--antd-fontSize);
-  --plasmic-token-system-m: var(--token-b9QOTxN8JlBn);
-  --token-bF85ph0zEueN: var(--antd-fontSizeHeading5);
-  --plasmic-token-system-heading-5: var(--token-bF85ph0zEueN);
-  --token-fRKxFRRpjkbd: var(--antd-fontSizeSM);
-  --plasmic-token-system-sm: var(--token-fRKxFRRpjkbd);
-  --token-S26X7miI7Lxo: var(--antd-fontSizeSM);
-  --plasmic-token-system-sm-2: var(--token-S26X7miI7Lxo);
 }
 
 .plasmic_tokens {

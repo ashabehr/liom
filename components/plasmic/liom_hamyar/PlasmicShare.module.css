@@ -1,7 +1,6 @@
 .root {
   display: grid;
   flex-direction: column;
-  position: relative;
   align-content: center;
   justify-items: center;
   justify-content: flex-start;
@@ -10,6 +9,7 @@
   overflow: auto;
   height: 100vh;
   width: 100%;
+  position: relative;
   min-width: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
@@ -39,6 +39,26 @@
   box-shadow: 0px 4px 16px 0px #37262633;
   padding: 8px;
   border-bottom: 1px solid #e4e4e4;
+}
+.sssssssssssssssssssssss:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__aa1O7 {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__bbnMl {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+}
+.svg__ebVcy {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
 }
 .text__sMugf {
   position: relative;
