@@ -4,23 +4,23 @@ import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
 import { ThemeContext } from "../../components/plasmic/todo_mvc_app/PlasmicGlobalVariant__Theme";
-import { PlasmicAbc } from "../../components/plasmic/liom_hamyar/PlasmicAbc";
+import { PlasmicShare } from "../../components/plasmic/liom_hamyar/PlasmicShare";
 import { useRouter } from "next/router";
 
-function Abc() {
-  // Use PlasmicAbc to render this component as it was
+function Share() {
+  // Use PlasmicShare to render this component as it was
   // designed in Plasmic, by activating the appropriate variants,
   // attaching the appropriate event handlers, etc.  You
   // can also install whatever React hooks you need here to manage state or
   // fetch data.
   //
-  // Props you can pass into PlasmicAbc are:
+  // Props you can pass into PlasmicShare are:
   // 1. Variants you want to activate,
   // 2. Contents for slots you want to fill,
   // 3. Overrides for any named node in the component to attach behavior and data,
   // 4. Props to set on the root node.
   //
-  // By default, PlasmicAbc is wrapped by your project's global
+  // By default, PlasmicShare is wrapped by your project's global
   // variant context providers. These wrappers may be moved to
   // Next.js Custom App component
   // (https://nextjs.org/docs/advanced-features/custom-app).
@@ -32,11 +32,11 @@ function Abc() {
           params={useRouter()?.query}
           query={useRouter()?.query}
         >
-          <PlasmicAbc />
+          <PlasmicShare />
         </PageParamsProvider__>
       </GlobalContextsProvider>
     </ThemeContext.Provider>
   );
 }
 
-export default Abc;
+export default Share;

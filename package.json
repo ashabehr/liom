@@ -13,6 +13,7 @@
     "@plasmicapp/cli": "^0.1.331",
     "@plasmicapp/host": "^1.0.196",
     "@plasmicapp/react-web": "^0.2.337",
+    "@plasmicpkgs/plasmic-basic-components": "^0.0.228",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-slider": "^1.2.0",
