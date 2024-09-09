@@ -134,20 +134,6 @@
           "componentType": "component"
         },
         {
-          "id": "ErJEaLhimwjN",
-          "name": "Sssssssssssssssssssssss",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/todo_mvc_app/PlasmicSssssssssssssssssssssss.tsx",
-          "importSpec": {
-            "modulePath": "Sssssssssssssssssssssss.tsx"
-          },
-          "cssFilePath": "plasmic/todo_mvc_app/PlasmicSssssssssssssssssssssss.module.css",
-          "scheme": "blackbox",
-          "componentType": "component",
-          "plumeType": "button"
-        },
-        {
           "id": "cOSV4CnhD7mN",
           "name": "TextInput",
           "type": "managed",
@@ -174,6 +160,33 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/share"
+        },
+        {
+          "id": "ErJEaLhimwjN",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicButton.tsx",
+          "importSpec": {
+            "modulePath": "Button.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
+        },
+        {
+          "id": "YNaBK8DkP1Hu",
+          "name": "Card",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCard.tsx",
+          "importSpec": {
+            "modulePath": "Card.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCard.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -196,9 +209,25 @@
           "id": "Up_IU2WZLnua",
           "name": "LetterOpenedSvgrepoComSvgIcon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__LetterOpenedSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "g2Wd0rn3Z11c",
+          "name": "LiLogoSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__LiLogoSvg.tsx"
+        },
+        {
+          "id": "REtJo3bdbdAT",
+          "name": "Loading3SvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Loading3SvgrepoComSvg.tsx"
         }
       ],
-      "images": [],
+      "images": [
+        {
+          "id": "g2m6GnkNCLhd",
+          "name": "loading-3-svgrepo-com.svg 2",
+          "filePath": "../public/plasmic/liom_hamyar/images/loading3SvgrepoComSvg2.svg"
+        }
+      ],
       "indirect": false,
       "globalContextsFilePath": "plasmic/todo_mvc_app/PlasmicGlobalContextsProvider.tsx",
       "splitsProviderFilePath": "",
@@ -318,6 +347,34 @@
       ],
       "customFunctions": [],
       "jsBundleThemes": []
+    },
+    {
+      "projectId": "5dGW8Awro3qq8Hh5MveXLP",
+      "projectApiToken": "wVHvHSTRyoO1MQddr5ypmW8AfwiMMy7h0Iaj4Q2YmYLLEo2A4L6pLn8Fydm8wQkTAJV9uAD5bJPo8bmGg",
+      "projectName": "lottie-react",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/lottie_react/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "BPNsJ2qis6",
+          "name": "LottieWrapper",
+          "displayName": "hostless-lottie-react",
+          "componentImportPath": "@plasmicpkgs/lottie-react"
+        },
+        {
+          "id": "vbTFHH9P-cuM",
+          "name": "AsyncLottieWrapper",
+          "displayName": "hostless-lottie-async-react",
+          "componentImportPath": "@plasmicpkgs/lottie-react"
+        }
+      ],
+      "customFunctions": []
     }
   ],
   "globalVariants": {
