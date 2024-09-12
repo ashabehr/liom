@@ -291,6 +291,26 @@
       }
     },
     {
+      "name": "System: Heading4",
+      "type": "fontsize",
+      "value": "var(--antd-fontSizeHeading4)",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "tjteaUKFnUfH"
+      }
+    },
+    {
+      "name": "System: Heading4 2",
+      "type": "fontsize",
+      "value": "var(--antd-fontSizeHeading4)",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "8PISgdrHznbv"
+      }
+    },
+    {
       "name": "System: Heading5",
       "type": "fontsize",
       "value": "var(--antd-fontSizeHeading5)",
@@ -308,6 +328,16 @@
       "meta": {
         "projectId": "ohDidvG9XsCeFumugENU3J",
         "id": "FixeSDxCoolc"
+      }
+    },
+    {
+      "name": "System: Heading5",
+      "type": "fontsize",
+      "value": "var(--antd-fontSizeHeading5)",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "2xQ-Ews6Hwx4"
       }
     },
     {
@@ -491,6 +521,16 @@
       }
     },
     {
+      "name": "System: M",
+      "type": "fontsize",
+      "value": "var(--antd-fontSize)",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "zBqorBrdaMNr"
+      }
+    },
+    {
       "name": "System: Margin LG",
       "type": "spacing",
       "value": "var(--antd-marginLG)",
@@ -501,6 +541,16 @@
       }
     },
     {
+      "name": "System: Margin LG",
+      "type": "spacing",
+      "value": "var(--antd-marginLG)",
+      "category": "spacing",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "VmvIyNmCXbhh"
+      }
+    },
+    {
       "name": "System: Margin M",
       "type": "spacing",
       "value": "var(--antd-margin)",
@@ -508,6 +558,16 @@
       "meta": {
         "projectId": "ohDidvG9XsCeFumugENU3J",
         "id": "_m46Z7TakRfI"
+      }
+    },
+    {
+      "name": "System: Margin M",
+      "type": "spacing",
+      "value": "var(--antd-margin)",
+      "category": "spacing",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "8irlKe4dtuKs"
       }
     },
     {
@@ -528,6 +588,26 @@
       "meta": {
         "projectId": "ohDidvG9XsCeFumugENU3J",
         "id": "2ZPCvclvmwq9"
+      }
+    },
+    {
+      "name": "System: Margin SM",
+      "type": "spacing",
+      "value": "var(--antd-marginSM)",
+      "category": "spacing",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "81l0SCMdhZN_"
+      }
+    },
+    {
+      "name": "System: Margin SM 2",
+      "type": "spacing",
+      "value": "var(--antd-marginSM)",
+      "category": "spacing",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "P3rKN-lxH5a0"
       }
     },
     {
@@ -758,6 +838,26 @@
       "meta": {
         "projectId": "ohDidvG9XsCeFumugENU3J",
         "id": "wxMcxZBYnxHD"
+      }
+    },
+    {
+      "name": "System: SM",
+      "type": "fontsize",
+      "value": "var(--antd-fontSizeSM)",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "7WXNdURMr8wH"
+      }
+    },
+    {
+      "name": "System: SM 2",
+      "type": "fontsize",
+      "value": "var(--antd-fontSizeSM)",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "HgOK3Qz1NWYR"
       }
     },
     {
