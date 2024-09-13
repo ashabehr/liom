@@ -347,6 +347,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicHeader2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "IYTV9bVTkPai",
+          "name": "HeaderV2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHeaderV2.tsx",
+          "importSpec": {
+            "modulePath": "HeaderV2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHeaderV2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -1131,7 +1144,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-cms"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "mqxdhm5p6WHAt7hW1mdcCX",
@@ -1146,7 +1160,8 @@
       "globalContextsFilePath": "",
       "splitsProviderFilePath": "",
       "codeComponents": [],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "8PtdGodUbexNYgkuyBUcWu",
@@ -1168,7 +1183,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-embed-css"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {

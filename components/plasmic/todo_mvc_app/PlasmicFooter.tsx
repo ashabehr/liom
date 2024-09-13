@@ -178,7 +178,14 @@ function PlasmicFooter__RenderFunc(props: {
         projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
-        sty.footerContainer
+        sty.footerContainer,
+        {
+          [sty.footerContainerstate_hasCompleted]: hasVariant(
+            $state,
+            "state",
+            "hasCompleted"
+          )
+        }
       )}
     >
       {(
@@ -335,7 +342,13 @@ function PlasmicFooter__RenderFunc(props: {
           {"Completed"}
         </ToggleButton>
         <ToggleButton
-          className={classNames("__wab_instance", sty.toggleButton__aTmT1)}
+          className={classNames("__wab_instance", sty.toggleButton__aTmT1, {
+            [sty.toggleButtonstate_hasCompleted__aTmT1Ud2M]: hasVariant(
+              $state,
+              "state",
+              "hasCompleted"
+            )
+          })}
           onClick={async () => {
             const $steps = {};
 

@@ -432,6 +432,12 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "circlePeriod.cycle",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "fertility"
       }
     ],
     [$props, $ctx, $refs]
@@ -605,6 +611,71 @@ function PlasmicHamyar__RenderFunc(props: {
                       data-plasmic-name={"circlePeriod"}
                       data-plasmic-override={overrides.circlePeriod}
                       className={classNames("__wab_instance", sty.circlePeriod)}
+                      cycle={generateStateValueProp($state, [
+                        "circlePeriod",
+                        "cycle"
+                      ])}
+                      fertility={(() => {
+                        try {
+                          return (() => {
+                            if ($state.circlePeriod.cycle == "fertility") {
+                              return true;
+                            } else {
+                              return false;
+                            }
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      onCycleChange={generateStateOnChangeProp($state, [
+                        "circlePeriod",
+                        "cycle"
+                      ])}
+                      period={(() => {
+                        try {
+                          return (() => {
+                            if ($state.circlePeriod.cycle == "period") {
+                              return true;
+                            } else {
+                              return false;
+                            }
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      pms={(() => {
+                        try {
+                          return (() => {
+                            if ($state.circlePeriod.cycle == "pms") {
+                              return true;
+                            } else {
+                              return false;
+                            }
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
                     />
 
                     <div
@@ -614,38 +685,73 @@ function PlasmicHamyar__RenderFunc(props: {
                         sty.text__f8KI9
                       )}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (() => {
-                              switch ($state.user.data.result.userStatus) {
-                                case null:
-                                  return (
-                                    $state.user.data.result.user.name +
-                                    " الان در وضعیت عادی است."
-                                  );
-                                case "fertility":
-                                  return (
-                                    $state.user.data.result.user.name +
-                                    " الان در وضعیت تخمک گذاری است."
-                                  );
-                                case "fertility":
-                                  return "ملیکا الان در وضعیت تخمک گذاری است . ";
-                                default:
-                                  return "Unknown user status";
+                      {hasVariant(globalVariants, "screen", "mobile") ? (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                switch ($state.user.data.result.userStatus) {
+                                  case null:
+                                    return (
+                                      $state.user.data.result.user.name +
+                                      " الان در دوره عادی است."
+                                    );
+                                  case "fertility":
+                                    return (
+                                      $state.user.data.result.user.name +
+                                      " الان در دوره تخمک گذاری است."
+                                    );
+                                  case "fertility":
+                                    return "ملیکا الان در وضعیت تخمک گذاری است . ";
+                                  default:
+                                    return "وضعیت فعلی";
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "lgd;h";
                               }
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "\u0645\u0644\u06cc\u06a9\u0627 \u0627\u0644\u0627\u0646 \u062f\u0631 \u0648\u0636\u0639\u06cc\u062a pms \u0627\u0633\u062a ";
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
+                          })()}
+                        </React.Fragment>
+                      ) : (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                switch ($state.user.data.result.userStatus) {
+                                  case null:
+                                    return (
+                                      $state.user.data.result.user.name +
+                                      " الان در وضعیت عادی است."
+                                    );
+                                  case "fertility":
+                                    return (
+                                      $state.user.data.result.user.name +
+                                      " الان در وضعیت تخمک گذاری است."
+                                    );
+                                  case "fertility":
+                                    return "ملیکا الان در وضعیت تخمک گذاری است . ";
+                                  default:
+                                    return "وضعیت فعلی";
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0645\u0644\u06cc\u06a9\u0627 \u0627\u0644\u0627\u0646 \u062f\u0631 \u0648\u0636\u0639\u06cc\u062a pms \u0627\u0633\u062a ";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      )}
                     </div>
                   </Stack__>
                   <div
@@ -695,12 +801,20 @@ function PlasmicHamyar__RenderFunc(props: {
                 <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img___3LnQl)}
-                  displayHeight={"100px"}
+                  displayHeight={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? "85px"
+                      : "150px"
+                  }
                   displayMaxHeight={"none"}
                   displayMaxWidth={"100%"}
                   displayMinHeight={"0"}
                   displayMinWidth={"0"}
-                  displayWidth={"100px"}
+                  displayWidth={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? "85px"
+                      : "150px"
+                  }
                   loading={"lazy"}
                   src={{
                     src: "/plasmic/liom_hamyar/images/_72508101Png.png",
@@ -1198,30 +1312,9 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.text__eKx
                         )}
                       >
-                        {hasVariant(globalVariants, "screen", "mobile") ? (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  "فعال سازی " +
-                                  $state.subscription2[
-                                    $state.subscriptionCurrentIndex
-                                  ].title
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        ) : (
+                        {
                           "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
-                        )}
+                        }
                       </div>
                     </AntdButton>
                     <PlasmicLink__
@@ -1397,49 +1490,172 @@ function PlasmicHamyar__RenderFunc(props: {
                   </Stack__>
                 </div>
               </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__mdVrf)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bQyyx
-                  )}
-                >
-                  {
-                    "\u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0645\u0631\u0648\u0632 \u0645\u0644\u06cc\u06a9\u0627 \u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 :"
+              {(() => {
+                try {
+                  return (
+                    !$state.user.data.result.todoNotTodoLists.todo.length == 0
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
                   }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__i8DoG
-                  )}
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__mdVrf)}
                 >
-                  {
-                    "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__bQyyx
+                    )}
+                  >
+                    {
+                      "\u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0645\u0631\u0648\u0632 \u0645\u0644\u06cc\u06a9\u0627 \u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 :"
+                    }
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__i8DoG
+                    )}
+                  >
+                    {
+                      "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
+                    }
+                  </div>
+                  <Reveal
+                    data-plasmic-name={"reveal"}
+                    data-plasmic-override={overrides.reveal}
+                    className={classNames("__wab_instance", sty.reveal)}
+                    triggerOnce={true}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__tkGdc)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.user.data.result.todoNotTodoLists
+                              .todo;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (() => {
+                          const child$Props = {
+                            className: classNames("__wab_instance", sty.useful),
+                            key: currentIndex,
+                            onTextChange: generateStateOnChangeProp($state, [
+                              "useful",
+                              __plasmic_idx_0,
+                              "text"
+                            ]),
+                            text: generateStateValueProp($state, [
+                              "useful",
+                              __plasmic_idx_0,
+                              "text"
+                            ])
+                          };
+
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "useful[].text",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  `شکلات${currentItem.icon + currentItem.title}`
+                              }
+                            ],
+                            [__plasmic_idx_0]
+                          );
+                          return (
+                            <Useful
+                              data-plasmic-name={"useful"}
+                              data-plasmic-override={overrides.useful}
+                              {...child$Props}
+                            />
+                          );
+                        })();
+                      })}
+                    </Stack__>
+                  </Reveal>
+                </Stack__>
+              ) : null}
+              {(() => {
+                try {
+                  return (
+                    !$state.user.data.result.todoNotTodoLists.notToDo.length ==
+                    0
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
                   }
-                </div>
-                <Reveal
-                  data-plasmic-name={"reveal"}
-                  data-plasmic-override={overrides.reveal}
-                  className={classNames("__wab_instance", sty.reveal)}
-                  triggerOnce={true}
+                  throw e;
+                }
+              })() ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__zg2Fg)}
                 >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__sfnFu
+                    )}
+                  >
+                    {
+                      "\u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0645\u0631\u0648\u0632 \u0645\u0644\u06cc\u06a9\u0627 \u0646\u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 :"
+                    }
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___9LLi
+                    )}
+                  >
+                    {
+                      "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
+                    }
+                  </div>
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__tkGdc)}
+                    className={classNames(projectcss.all, sty.freeBox__qskKw)}
                   >
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
                         try {
-                          return [2, 3, 4, 5, 6, 7, 8];
+                          return $state.user.data.result.todoNotTodoLists
+                            .notToDo;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -1453,105 +1669,18 @@ function PlasmicHamyar__RenderFunc(props: {
                     ).map((__plasmic_item_0, __plasmic_idx_0) => {
                       const currentItem = __plasmic_item_0;
                       const currentIndex = __plasmic_idx_0;
-                      return (() => {
-                        const child$Props = {
-                          className: classNames("__wab_instance", sty.useful),
-                          key: currentIndex,
-                          onTextChange: generateStateOnChangeProp($state, [
-                            "useful",
-                            __plasmic_idx_0,
-                            "text"
-                          ]),
-                          text: generateStateValueProp($state, [
-                            "useful",
-                            __plasmic_idx_0,
-                            "text"
-                          ])
-                        };
-
-                        initializePlasmicStates(
-                          $state,
-                          [
-                            {
-                              name: "useful[].text",
-                              initFunc: ({ $props, $state, $queries }) =>
-                                "\u0634\u06a9\u0644\u0627\u062a"
-                            }
-                          ],
-                          [__plasmic_idx_0]
-                        );
-                        return (
-                          <Useful
-                            data-plasmic-name={"useful"}
-                            data-plasmic-override={overrides.useful}
-                            {...child$Props}
-                          />
-                        );
-                      })();
+                      return (
+                        <Harmful
+                          data-plasmic-name={"harmful"}
+                          data-plasmic-override={overrides.harmful}
+                          className={classNames("__wab_instance", sty.harmful)}
+                          key={currentIndex}
+                        />
+                      );
                     })}
                   </Stack__>
-                </Reveal>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__zg2Fg)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__sfnFu
-                  )}
-                >
-                  {
-                    "\u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0645\u0631\u0648\u0632 \u0645\u0644\u06cc\u06a9\u0627 \u0646\u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 :"
-                  }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___9LLi
-                  )}
-                >
-                  {
-                    "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
-                  }
-                </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__qskKw)}
-                >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return [2, 3, 4, 5, 6, 7, 8];
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (
-                      <Harmful
-                        data-plasmic-name={"harmful"}
-                        data-plasmic-override={overrides.harmful}
-                        className={classNames("__wab_instance", sty.harmful)}
-                        key={currentIndex}
-                      />
-                    );
-                  })}
                 </Stack__>
-              </Stack__>
+              ) : null}
               <AntdModal
                 data-plasmic-name={"shopModalWeb"}
                 data-plasmic-override={overrides.shopModalWeb}

@@ -22,63 +22,12 @@
 .root > * {
   grid-column: 4;
 }
-.freeBox__mQai {
-  display: flex;
-  flex-direction: row;
+.headerV2:global(.__wab_instance) {
   position: fixed;
-  align-items: center;
-  justify-content: flex-end;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  background: #ffffff;
-  left: 0;
   top: 0;
-  z-index: 1;
+  left: 0;
   right: 0;
-  box-shadow: 0px 4px 16px 0px #37262633;
-  padding: 8px;
-  border-bottom: 1px solid #e4e4e4;
-}
-.button:global(.__wab_instance) {
-  max-width: 100%;
-}
-.svg__aa1O7 {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.text__bbnMl {
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 700;
-}
-.svg__ebVcy {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.text__sMugf {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  color: #8f8f8f;
-  font-family: "Vazirmatn", sans-serif;
-  font-size: 20px;
-  text-align: right;
-  font-weight: 800;
-  min-width: 0;
-  margin: 0px 20px 0px 0px;
-}
-.svg___6OgKc {
-  object-fit: cover;
-  max-width: 100%;
-  color: #000000;
-  height: 40px;
-  box-shadow: none;
+  z-index: 1;
 }
 .freeBox___6CnX5 {
   display: flex;
@@ -134,7 +83,7 @@
   min-width: 0;
   padding: 10px;
 }
-.svg__tWygo {
+.svg {
   object-fit: cover;
   max-width: 100%;
   color: #303e86;
