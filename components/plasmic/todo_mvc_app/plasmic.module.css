@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B0%2C900%3B1%2C100%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C900&family=Inter%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C200%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Vazirmatn%3Aital%2Cwght%400%2C100%3B0%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C700%3B0%2C900%3B1%2C300%3B1%2C400%3B1%2C500%3B1%2C700%3B1%2C900&family=Inter%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Inconsolata%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&family=Vazirmatn%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800%3B0%2C900&display=swap");
 
 .plasmic_tokens {
   --token-gCi4wau0q9pg: rgba(175, 47, 47, 0.15);
@@ -55,6 +55,14 @@
   --plasmic-token-system-sm: var(--token-7WXNdURMr8wH);
   --token-HgOK3Qz1NWYR: var(--antd-fontSizeSM);
   --plasmic-token-system-sm-2: var(--token-HgOK3Qz1NWYR);
+  --token-55cSeNPovQFh: #8254c6;
+  --plasmic-token-purple: var(--token-55cSeNPovQFh);
+  --token-_Tqr-iwbEpLO: #8254c61a;
+  --plasmic-token-light-purple: var(--token-_Tqr-iwbEpLO);
+  --token-G-IZ_XhVdlqp: #00c371;
+  --plasmic-token-green: var(--token-G-IZ_XhVdlqp);
+  --token-4RAe7M2gInqR: #eb464a;
+  --plasmic-token-red: var(--token-4RAe7M2gInqR);
 }
 
 .plasmic_tokens {

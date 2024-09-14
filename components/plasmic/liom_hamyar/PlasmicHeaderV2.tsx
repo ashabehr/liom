@@ -67,9 +67,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHeaderV2.module.css"; // plasmic-import: IYTV9bVTkPai/css
 
+import LiLogoSvgIcon from "./icons/PlasmicIcon__LiLogoSvg"; // plasmic-import: g2Wd0rn3Z11c/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon2Icon from "../todo_mvc_app/icons/PlasmicIcon__Icon2"; // plasmic-import: EwJmqOfKx7up/icon
-import LiLogoSvgIcon from "./icons/PlasmicIcon__LiLogoSvg"; // plasmic-import: g2Wd0rn3Z11c/icon
 
 createPlasmicElementProxy;
 
@@ -84,8 +84,8 @@ export const PlasmicHeaderV2__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHeaderV2__OverridesType = {
   root?: Flex__<"div">;
-  button?: Flex__<typeof Button>;
   svg?: Flex__<"svg">;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultHeaderV2Props {
@@ -148,6 +148,25 @@ function PlasmicHeaderV2__RenderFunc(props: {
         sty.root
       )}
     >
+      <LiLogoSvgIcon
+        data-plasmic-name={"svg"}
+        data-plasmic-override={overrides.svg}
+        className={classNames(projectcss.all, sty.svg)}
+        onClick={async event => {
+          const $steps = {};
+        }}
+        role={"img"}
+      />
+
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__oI1X3
+        )}
+      >
+        {"\u0644\u06cc\u0648\u0645"}
+      </div>
       <Button
         data-plasmic-name={"button"}
         data-plasmic-override={overrides.button}
@@ -197,40 +216,22 @@ function PlasmicHeaderV2__RenderFunc(props: {
           }
         </div>
       </Button>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__oI1X3
-        )}
-      >
-        {"\u0644\u06cc\u0648\u0645"}
-      </div>
-      <LiLogoSvgIcon
-        data-plasmic-name={"svg"}
-        data-plasmic-override={overrides.svg}
-        className={classNames(projectcss.all, sty.svg)}
-        onClick={async event => {
-          const $steps = {};
-        }}
-        role={"img"}
-      />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "svg"],
-  button: ["button"],
-  svg: ["svg"]
+  root: ["root", "svg", "button"],
+  svg: ["svg"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  button: typeof Button;
   svg: "svg";
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -293,8 +294,8 @@ export const PlasmicHeaderV2 = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    button: makeNodeComponent("button"),
     svg: makeNodeComponent("svg"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicHeaderV2
     internalVariantProps: PlasmicHeaderV2__VariantProps,

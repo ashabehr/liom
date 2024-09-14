@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -72,15 +74,38 @@ export type PlasmicHarmful__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHarmful__VariantsArgs;
 export const PlasmicHarmful__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicHarmful__ArgsType = {};
+export type PlasmicHarmful__ArgsType = {
+  title?: string;
+  onTitleChange?: (val: string) => void;
+  text?: string;
+  onTextChange?: (val: string) => void;
+  icon?: string;
+  onIconChange?: (val: string) => void;
+  onClick?: (event: any) => void;
+};
 type ArgPropType = keyof PlasmicHarmful__ArgsType;
-export const PlasmicHarmful__ArgProps = new Array<ArgPropType>();
+export const PlasmicHarmful__ArgProps = new Array<ArgPropType>(
+  "title",
+  "onTitleChange",
+  "text",
+  "onTextChange",
+  "icon",
+  "onIconChange",
+  "onClick"
+);
 
 export type PlasmicHarmful__OverridesType = {
   root?: Flex__<"div">;
 };
 
 export interface DefaultHarmfulProps {
+  title?: string;
+  onTitleChange?: (val: string) => void;
+  text?: string;
+  onTextChange?: (val: string) => void;
+  icon?: string;
+  onIconChange?: (val: string) => void;
+  onClick?: (event: any) => void;
   className?: string;
 }
 
@@ -124,6 +149,46 @@ function PlasmicHarmful__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "title",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "title",
+        onChangeProp: "onTitleChange"
+      },
+      {
+        path: "text",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "text",
+        onChangeProp: "onTextChange"
+      },
+      {
+        path: "icon",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "icon",
+        onChangeProp: "onIconChange"
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
+  });
+
   return (
     <Stack__
       as={"div"}
@@ -141,7 +206,31 @@ function PlasmicHarmful__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         sty.root
       )}
+      onClick={args.onClick}
     >
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__iaPw6
+        )}
+      >
+        <React.Fragment>
+          {(() => {
+            try {
+              return $state.icon;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
+      </div>
       <div
         className={classNames(
           projectcss.all,
@@ -149,7 +238,21 @@ function PlasmicHarmful__RenderFunc(props: {
           sty.text__wESlb
         )}
       >
-        {"\u062e\u0648\u0631\u062f\u0646 \u0634\u06a9\u0644\u0627\u062a"}
+        <React.Fragment>
+          {(() => {
+            try {
+              return $state.title;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "\u062e\u0648\u0631\u062f\u0646 \u0634\u06a9\u0644\u0627\u062a";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
       </div>
       <div
         className={classNames(

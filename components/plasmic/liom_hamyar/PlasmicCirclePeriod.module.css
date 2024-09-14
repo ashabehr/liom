@@ -3,18 +3,19 @@
   width: 15px;
   height: 15px;
   max-width: 100%;
-  background: #00ff2d;
-  box-shadow: 0px 0px 5px 2px #ffffff78;
+  background: #26ff00;
+  box-shadow: none;
   position: relative;
   border-radius: 50%;
   padding: 0px;
+  border: 2px solid var(--token-jgohepLVeKvh);
 }
 .rootpms {
   background: #ff00fb;
 }
 .rootperiod {
-  background: var(--token--ypw6enySR1T);
+  background: #ff0033;
 }
 .rootfertility {
-  background: #eeff00;
+  background: #ffff3c;
 }

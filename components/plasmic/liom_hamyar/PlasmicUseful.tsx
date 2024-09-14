@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -76,12 +78,16 @@ export type PlasmicUseful__ArgsType = {
   text?: string;
   onTextChange?: (val: string) => void;
   onClick?: (event: any) => void;
+  icon?: string;
+  onIconChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicUseful__ArgsType;
 export const PlasmicUseful__ArgProps = new Array<ArgPropType>(
   "text",
   "onTextChange",
-  "onClick"
+  "onClick",
+  "icon",
+  "onIconChange"
 );
 
 export type PlasmicUseful__OverridesType = {
@@ -92,6 +98,8 @@ export interface DefaultUsefulProps {
   text?: string;
   onTextChange?: (val: string) => void;
   onClick?: (event: any) => void;
+  icon?: string;
+  onIconChange?: (val: string) => void;
   className?: string;
 }
 
@@ -144,6 +152,14 @@ function PlasmicUseful__RenderFunc(props: {
 
         valueProp: "text",
         onChangeProp: "onTextChange"
+      },
+      {
+        path: "icon",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "icon",
+        onChangeProp: "onIconChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -153,6 +169,10 @@ function PlasmicUseful__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
   });
 
   return (
@@ -179,6 +199,47 @@ function PlasmicUseful__RenderFunc(props: {
           projectcss.all,
           projectcss.__wab_text,
           sty.text__xjkag
+        )}
+      >
+        {hasVariant(globalVariants, "screen", "mobile") ? (
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.icon;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "\u062e\u0648\u0631\u062f\u0646 \u0634\u06a9\u0644\u0627\u062a";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.icon;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "\u062e\u0648\u0631\u062f\u0646 \u0634\u06a9\u0644\u0627\u062a";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        )}
+      </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__vplSx
         )}
       >
         <React.Fragment>

@@ -22,6 +22,12 @@
 .root > * {
   grid-column: 4;
 }
+.rootglobal_theme_dark {
+  background: #1c0f0f;
+}
+.rootglobal_theme_dark > * {
+  grid-column: 4;
+}
 .headerV2:global(.__wab_instance) {
   position: fixed;
   top: 0;

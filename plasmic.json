@@ -360,6 +360,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicHeaderV2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "OtnhoECot57j",
+          "name": "Expired",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicExpired.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/expired.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicExpired.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/expired"
         }
       ],
       "icons": [
@@ -427,6 +441,11 @@
           "id": "Q3Pe1WB-oirR",
           "name": "Icon9Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon9.tsx"
+        },
+        {
+          "id": "V1QgQzmgWP2T",
+          "name": "Icon10Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon10.tsx"
         }
       ],
       "images": [
@@ -454,6 +473,11 @@
           "id": "NZ8iuA4XtiLe",
           "name": "7250810_1.png",
           "filePath": "../public/plasmic/liom_hamyar/images/_72508101Png.png"
+        },
+        {
+          "id": "Gn0OJq_hp86R",
+          "name": "Screenshot 2024-09-14 121333.png",
+          "filePath": "../public/plasmic/liom_hamyar/images/screenshot20240914121333Png.png"
         }
       ],
       "indirect": false,

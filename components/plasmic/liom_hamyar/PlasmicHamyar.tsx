@@ -77,7 +77,6 @@ import Navbaricon from "../../Navbaricon"; // plasmic-import: rrvRSiS3qm7y/compo
 import Navbaricon2 from "../../Navbaricon2"; // plasmic-import: yohgcniRcj2Q/component
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -89,7 +88,7 @@ import sty from "./PlasmicHamyar.module.css"; // plasmic-import: TOxGOz1ONYz_/cs
 
 import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: 8spC6Q9XOGVd/icon
 import Icon4Icon from "./icons/PlasmicIcon__Icon4"; // plasmic-import: halWdf8bhZV9/icon
-import Icon5Icon from "./icons/PlasmicIcon__Icon5"; // plasmic-import: QcP3sT1bBj2d/icon
+import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 
 createPlasmicElementProxy;
 
@@ -176,7 +175,10 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.user.data.result.user.hamyarStatus;
+              return (
+                $state.user.data.result.user.hamyarStatus ||
+                $state.user.data.result.man.selfHamyarSm
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -293,10 +295,10 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "indexusefull",
+        path: "itemtodo",
         type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
         path: "refCode",
@@ -437,7 +439,46 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "circlePeriod.cycle",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "fertility"
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.user.data.result.userStatus.periodStatus;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "useful[].icon",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "visiblebox",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "harmful[].title",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "harmful[].text",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "harmful[].icon",
+        type: "private",
+        variableType: "text"
       }
     ],
     [$props, $ctx, $refs]
@@ -463,321 +504,355 @@ function PlasmicHamyar__RenderFunc(props: {
         }
       `}</style>
 
-      <div
-        data-plasmic-name={"root"}
-        data-plasmic-override={overrides.root}
-        data-plasmic-root={true}
-        data-plasmic-for-node={forNode}
-        className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens,
-          plasmic_antd_5_hostless_css.plasmic_tokens,
-          sty.root
-        )}
-      >
-        {(() => {
-          try {
-            return !($state.shop.loading && $state.user.loading);
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
+      <div className={projectcss.plasmic_page_wrapper}>
+        <div
+          data-plasmic-name={"root"}
+          data-plasmic-override={overrides.root}
+          data-plasmic-root={true}
+          data-plasmic-for-node={forNode}
+          className={classNames(
+            projectcss.all,
+            projectcss.root_reset,
+            projectcss.plasmic_default_styles,
+            projectcss.plasmic_mixins,
+            projectcss.plasmic_tokens,
+            plasmic_antd_5_hostless_css.plasmic_tokens,
+            sty.root
+          )}
+        >
+          {(() => {
+            try {
+              return !($state.shop.loading && $state.user.loading);
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
             }
-            throw e;
-          }
-        })() ? (
-          <div className={classNames(projectcss.all, sty.freeBox__kJv6J)}>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__tNnSf)}
-            >
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__kJv6J)}>
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__d2GZw)}
+                className={classNames(projectcss.all, sty.freeBox__tNnSf)}
               >
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img__grb0Y)}
-                  displayHeight={"50px"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"50px"}
-                  loading={"lazy"}
-                  src={(() => {
-                    try {
-                      return $state.user.data.result.user.image;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                />
-
-                <div className={classNames(projectcss.all, sty.freeBox__vjsSc)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___7ZQo
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.user.data.result.user.name;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "05455";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__kpKeP)}>
-                  <Switchbest
-                    data-plasmic-name={"switchbest"}
-                    data-plasmic-override={overrides.switchbest}
-                    className={classNames("__wab_instance", sty.switchbest)}
-                    isChecked={
-                      generateStateValueProp($state, [
-                        "switchbest",
-                        "isChecked"
-                      ]) ?? false
-                    }
-                    isDisabled={(() => {
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__d2GZw)}
+                >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__grb0Y)}
+                    displayHeight={"50px"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"50px"}
+                    loading={"lazy"}
+                    src={(() => {
                       try {
-                        return !$state.user.data.result.user.hamyarStatus;
+                        return $state.user.data.result.user.image;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return [];
+                          return undefined;
                         }
                         throw e;
                       }
                     })()}
-                    onChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, [
-                        "switchbest",
-                        "isChecked"
-                      ])(eventArgs[0]);
-                    }}
                   />
-                </div>
-              </Stack__>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__lFbQr
-                )}
-              >
-                {
-                  "\u062f\u0648\u0631\u0647 \u062c\u0627\u0631\u06cc \u062f\u0631 \u06cc\u06a9 \u0646\u06af\u0627\u0647 : "
-                }
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__y17Gh)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__p1Bc2)}
+
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__vjsSc)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___7ZQo
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.user.data.result.user.name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "05455";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__kpKeP)}
+                  >
+                    <Switchbest
+                      data-plasmic-name={"switchbest"}
+                      data-plasmic-override={overrides.switchbest}
+                      className={classNames("__wab_instance", sty.switchbest)}
+                      isChecked={
+                        generateStateValueProp($state, [
+                          "switchbest",
+                          "isChecked"
+                        ]) ?? false
+                      }
+                      isDisabled={(() => {
+                        try {
+                          return !(
+                            $state.user.data.result.user.hamyarStatus ||
+                            $state.user.data.result.man.selfHamyarSms
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      onChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "switchbest",
+                          "isChecked"
+                        ])(eventArgs[0]);
+                      }}
+                    />
+                  </div>
+                </Stack__>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__lFbQr
+                  )}
                 >
+                  {
+                    "\u062f\u0648\u0631\u0647 \u062c\u0627\u0631\u06cc \u062f\u0631 \u06cc\u06a9 \u0646\u06af\u0627\u0647 : "
+                  }
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__y17Gh)}>
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__gejpv)}
+                    className={classNames(projectcss.all, sty.freeBox__p1Bc2)}
                   >
-                    <CirclePeriod
-                      data-plasmic-name={"circlePeriod"}
-                      data-plasmic-override={overrides.circlePeriod}
-                      className={classNames("__wab_instance", sty.circlePeriod)}
-                      cycle={generateStateValueProp($state, [
-                        "circlePeriod",
-                        "cycle"
-                      ])}
-                      fertility={(() => {
-                        try {
-                          return (() => {
-                            if ($state.circlePeriod.cycle == "fertility") {
-                              return true;
-                            } else {
-                              return false;
-                            }
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
-                      onCycleChange={generateStateOnChangeProp($state, [
-                        "circlePeriod",
-                        "cycle"
-                      ])}
-                      period={(() => {
-                        try {
-                          return (() => {
-                            if ($state.circlePeriod.cycle == "period") {
-                              return true;
-                            } else {
-                              return false;
-                            }
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
-                      pms={(() => {
-                        try {
-                          return (() => {
-                            if ($state.circlePeriod.cycle == "pms") {
-                              return true;
-                            } else {
-                              return false;
-                            }
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
-                    />
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__f8KI9
-                      )}
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__gejpv)}
                     >
-                      {hasVariant(globalVariants, "screen", "mobile") ? (
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                switch ($state.user.data.result.userStatus) {
-                                  case null:
-                                    return (
-                                      $state.user.data.result.user.name +
-                                      " الان در دوره عادی است."
-                                    );
-                                  case "fertility":
-                                    return (
-                                      $state.user.data.result.user.name +
-                                      " الان در دوره تخمک گذاری است."
-                                    );
-                                  case "fertility":
-                                    return "ملیکا الان در وضعیت تخمک گذاری است . ";
-                                  default:
-                                    return "وضعیت فعلی";
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "lgd;h";
+                      <CirclePeriod
+                        data-plasmic-name={"circlePeriod"}
+                        data-plasmic-override={overrides.circlePeriod}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.circlePeriod
+                        )}
+                        cycle={generateStateValueProp($state, [
+                          "circlePeriod",
+                          "cycle"
+                        ])}
+                        fertility={(() => {
+                          try {
+                            return (() => {
+                              if ($state.circlePeriod.cycle == "fertility") {
+                                return true;
+                              } else {
+                                return false;
                               }
-                              throw e;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
                             }
-                          })()}
-                        </React.Fragment>
-                      ) : (
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                switch ($state.user.data.result.userStatus) {
-                                  case null:
-                                    return (
-                                      $state.user.data.result.user.name +
-                                      " الان در وضعیت عادی است."
-                                    );
-                                  case "fertility":
-                                    return (
-                                      $state.user.data.result.user.name +
-                                      " الان در وضعیت تخمک گذاری است."
-                                    );
-                                  case "fertility":
-                                    return "ملیکا الان در وضعیت تخمک گذاری است . ";
-                                  default:
-                                    return "وضعیت فعلی";
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0645\u0644\u06cc\u06a9\u0627 \u0627\u0644\u0627\u0646 \u062f\u0631 \u0648\u0636\u0639\u06cc\u062a pms \u0627\u0633\u062a ";
+                            throw e;
+                          }
+                        })()}
+                        onCycleChange={generateStateOnChangeProp($state, [
+                          "circlePeriod",
+                          "cycle"
+                        ])}
+                        period={(() => {
+                          try {
+                            return (() => {
+                              if ($state.circlePeriod.cycle == "period") {
+                                return true;
+                              } else {
+                                return false;
                               }
-                              throw e;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
                             }
-                          })()}
-                        </React.Fragment>
-                      )}
+                            throw e;
+                          }
+                        })()}
+                        pms={(() => {
+                          try {
+                            return (() => {
+                              if ($state.circlePeriod.cycle == "pms") {
+                                return true;
+                              } else {
+                                return false;
+                              }
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__f8KI9
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  switch (
+                                    $state.user.data.result.userStatus
+                                      .periodStatus
+                                  ) {
+                                    case null:
+                                      return (
+                                        $state.user.data.result.user.name +
+                                        " الان در وضعیت عادی است."
+                                      );
+                                    case "fertility":
+                                      return (
+                                        $state.user.data.result.user.name +
+                                        " الان در وضعیت تخمک گذاری است."
+                                      );
+                                    case "pms":
+                                      return (
+                                        $state.user.data.result.user.name +
+                                        " الان در وضعیت pms است."
+                                      );
+                                    case "period":
+                                      return (
+                                        $state.user.data.result.user.name +
+                                        " الان در وضعیت پریود است."
+                                      );
+                                    default:
+                                      return "وضعیت فعلی";
+                                  }
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "lgd;h";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  switch (
+                                    $state.user.data.result.userStatus
+                                      .periodStatus
+                                  ) {
+                                    case null:
+                                      return (
+                                        $state.user.data.result.user.name +
+                                        " الان در وضعیت عادی است."
+                                      );
+                                    case "fertility":
+                                      return (
+                                        $state.user.data.result.user.name +
+                                        " الان در وضعیت تخمک گذاری است."
+                                      );
+                                    case "pms":
+                                      return (
+                                        $state.user.data.result.user.name +
+                                        " الان در وضعیت pms است."
+                                      );
+                                    case "period":
+                                      return (
+                                        $state.user.data.result.user.name +
+                                        " الان در وضعیت پریود است."
+                                      );
+                                    default:
+                                      return "وضعیت فعلی";
+                                  }
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0645\u0644\u06cc\u06a9\u0627 \u0627\u0644\u0627\u0646 \u062f\u0631 \u0648\u0636\u0639\u06cc\u062a pms \u0627\u0633\u062a ";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
+                      </div>
+                    </Stack__>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__lxj56)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__liau
+                        )}
+                      >
+                        {
+                          "\u0637\u0648\u0644 \u0627\u06cc\u0646 \u0648\u0636\u0639\u06cc\u062a :  "
+                        }
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___3GtB9
+                        )}
+                      >
+                        {"5 \u0631\u0648\u0632"}
+                      </div>
                     </div>
                   </Stack__>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__lxj56)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__liau
-                      )}
-                    >
-                      {
-                        "\u0637\u0648\u0644 \u0627\u06cc\u0646 \u0648\u0636\u0639\u06cc\u062a :  "
-                      }
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___3GtB9
-                      )}
-                    >
-                      {"5 \u0631\u0648\u0632"}
-                    </div>
-                  </div>
                   <PlasmicLink__
                     className={classNames(
                       projectcss.all,
@@ -797,285 +872,199 @@ function PlasmicHamyar__RenderFunc(props: {
                       </span>
                     </React.Fragment>
                   </PlasmicLink__>
-                </Stack__>
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img___3LnQl)}
-                  displayHeight={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "85px"
-                      : "150px"
-                  }
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "85px"
-                      : "150px"
-                  }
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/_72508101Png.png",
-                    fullWidth: 491,
-                    fullHeight: 450,
-                    aspectRatio: undefined
-                  }}
-                />
-              </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__ztbQr)}
-              >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img___3LnQl)}
+                    displayHeight={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? "85px"
+                        : "150px"
+                    }
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? "85px"
+                        : "150px"
+                    }
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/_72508101Png.png",
+                      fullWidth: 491,
+                      fullHeight: 450,
+                      aspectRatio: undefined
+                    }}
+                  />
+                </div>
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__vXdnm)}
+                  className={classNames(projectcss.all, sty.freeBox__ztbQr)}
                 >
-                  <Icon3Icon
-                    className={classNames(projectcss.all, sty.svg__oaXvf)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zwcWp
-                    )}
-                  >
-                    {
-                      "\u0631\u0648\u0632\u0647\u0627\u06cc \u067e\u0631\u06cc\u0648\u062f\u06cc"
-                    }
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rdcxn
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.user.data.result.user.length + " روز";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "5 \u0631\u0648\u0632";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__dZlCa)}
-                >
-                  <Icon4Icon
-                    className={classNames(projectcss.all, sty.svg__eOpc2)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__pSXtV
-                    )}
-                  >
-                    {"\u0637\u0648\u0644 \u06a9\u0644 \u062f\u0648\u0631\u0647"}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__v9Vi8
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $state.user.data.result.user.cycle + " روز";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "5 \u0631\u0648\u0632";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                </Stack__>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__ebGwv)}
-              >
-                <div className={classNames(projectcss.all, sty.freeBox__uC58N)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zYUfS
-                    )}
-                  >
-                    {"\u0627\u0634\u062a\u0631\u0627\u06a9"}
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__zIo72)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__uvPii
-                    )}
-                  >
-                    {
-                      "\u062e\u0627\u0644\u062f \u062d\u0633\u06cc\u0646\u06cc \u062a\u0648 \u0631\u0645\u0627\u0646 \u0628\u0627\u062f \u0628\u0627\u062f\u06a9 \u0628\u0627\u0632 \u0645\u06cc\u0646\u0648\u06cc\u0633\u0647 : \ufee3\ufeae\ufea9 \ufe81\ufeeb\ufeb4\ufe98\ufeea \ufea9\ufead \ufb94\ufeee\ufeb5 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufe97\ufe8e\ufeaf\ufee9 \ufe91\ufeea \ufe91\ufee0\ufeee\ufecd \ufead\ufeb3\ufbff\ufeaa\ufee9 \ufe8d\ufeb5 \ufe91\ufeae\ufe8d\ufbfc \ufb58\ufee8\ufeaa \ufb7c\ufee8\ufbff\ufee6 \ufee7\ufea0\ufeee\ufe8d \ufb90\ufeae\ufea9 : \u201d \ufb58\ufeb4\ufeae\ufee1 \ufea9\ufead \ufeaf\ufee7\ufeaa\ufb94\ufbfd \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeaf\ufea9\ufbfc \ufee7\ufb91\ufee6 \u201d \ufb58\ufeb4\ufeae \ufee3\ufe98\ufecc\ufea0\ufe90 \ufeed \ufee3\ufe92\ufeec\ufeee\ufe95 \ufe91\ufeea \ufb58\ufeaa\ufead \ufee7\ufb95\ufe8e\ufee9 \ufb90\ufeae\ufea9 \ufe91\ufeaa\ufbfe\ufee6 \ufee3\ufecc\ufee8\ufe8e \ufb90\ufeea \ufe8d\ufeed \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeb3\ufe96 \ufb90\ufe9e \ufee7\ufeaa\ufe8d\ufeb7\ufe98\ufeea \ufb58\ufeaa\ufead \ufe91\ufeea \ufee7\ufb95\ufe8e\ufee9 \ufee3\ufe98\ufecc\ufea0\ufe90 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufedf\ufe92\ufea8\ufee8\ufeaa\ufbfc \ufeaf\ufea9 \ufeed \ufe8d\ufea9\ufe8d\ufee3\ufeea \ufea9\ufe8d\ufea9."
-                    }
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__x08Rs)}>
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox___0Y0A8)}
+                    className={classNames(projectcss.all, sty.freeBox__vXdnm)}
+                  >
+                    <Icon3Icon
+                      className={classNames(projectcss.all, sty.svg__oaXvf)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zwcWp
+                      )}
+                    >
+                      {
+                        "\u0631\u0648\u0632\u0647\u0627\u06cc \u067e\u0631\u06cc\u0648\u062f\u06cc"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rdcxn
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.user.data.result.user.length + " روز";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "5 \u0631\u0648\u0632";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__dZlCa)}
+                  >
+                    <Icon4Icon
+                      className={classNames(projectcss.all, sty.svg__eOpc2)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pSXtV
+                      )}
+                    >
+                      {
+                        "\u0637\u0648\u0644 \u06a9\u0644 \u062f\u0648\u0631\u0647"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__v9Vi8
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.user.data.result.user.cycle + " روز";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "5 \u0631\u0648\u0632";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Stack__>
+                </Stack__>
+                {(() => {
+                  try {
+                    return (
+                      $state.user.data.result.user.hamyarStatus ||
+                      $state.user.data.result.man.selfHamyarSms
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__ebGwv)}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__lsYky)}
+                      className={classNames(projectcss.all, sty.freeBox__uC58N)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__vHrq
+                          sty.text__zYUfS
                         )}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return $state.shop.data.result[
-                                $state.selectedShop
-                              ].title;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
+                        {"\u0627\u0634\u062a\u0631\u0627\u06a9"}
                       </div>
-                      {(() => {
-                        try {
-                          return $state.shop.data.result[$state.selectedShop]
-                            .badge
-                            ? true
-                            : false;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__fkgDb
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.shop.data.result[
-                                  $state.selectedShop
-                                ].fullPrice;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "40000 \u062a\u0648\u0645\u0627\u0646";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      ) : null}
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__zIo72)}
+                    >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text___9KXbh
+                          sty.text__uvPii
                         )}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (
-                                $state.shop.data.result[$state.selectedShop]
-                                  .price + " تومان "
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "40000 \u062a\u0648\u0645\u0627\u0646";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                      {(() => {
-                        try {
-                          return $state.shop.data.result[$state.selectedShop]
-                            .badge
-                            ? true
-                            : false;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
+                        {
+                          "\u062e\u0627\u0644\u062f \u062d\u0633\u06cc\u0646\u06cc \u062a\u0648 \u0631\u0645\u0627\u0646 \u0628\u0627\u062f \u0628\u0627\u062f\u06a9 \u0628\u0627\u0632 \u0645\u06cc\u0646\u0648\u06cc\u0633\u0647 : \ufee3\ufeae\ufea9 \ufe81\ufeeb\ufeb4\ufe98\ufeea \ufea9\ufead \ufb94\ufeee\ufeb5 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufe97\ufe8e\ufeaf\ufee9 \ufe91\ufeea \ufe91\ufee0\ufeee\ufecd \ufead\ufeb3\ufbff\ufeaa\ufee9 \ufe8d\ufeb5 \ufe91\ufeae\ufe8d\ufbfc \ufb58\ufee8\ufeaa \ufb7c\ufee8\ufbff\ufee6 \ufee7\ufea0\ufeee\ufe8d \ufb90\ufeae\ufea9 : \u201d \ufb58\ufeb4\ufeae\ufee1 \ufea9\ufead \ufeaf\ufee7\ufeaa\ufb94\ufbfd \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeaf\ufea9\ufbfc \ufee7\ufb91\ufee6 \u201d \ufb58\ufeb4\ufeae \ufee3\ufe98\ufecc\ufea0\ufe90 \ufeed \ufee3\ufe92\ufeec\ufeee\ufe95 \ufe91\ufeea \ufb58\ufeaa\ufead \ufee7\ufb95\ufe8e\ufee9 \ufb90\ufeae\ufea9 \ufe91\ufeaa\ufbfe\ufee6 \ufee3\ufecc\ufee8\ufe8e \ufb90\ufeea \ufe8d\ufeed \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeb3\ufe96 \ufb90\ufe9e \ufee7\ufeaa\ufe8d\ufeb7\ufe98\ufeea \ufb58\ufeaa\ufead \ufe91\ufeea \ufee7\ufb95\ufe8e\ufee9 \ufee3\ufe98\ufecc\ufea0\ufe90 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufedf\ufe92\ufea8\ufee8\ufeaa\ufbfc \ufeaf\ufea9 \ufeed \ufe8d\ufea9\ufe8d\ufee3\ufeea \ufea9\ufe8d\ufea9."
                         }
-                      })() ? (
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__x08Rs)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___0Y0A8
+                        )}
+                      >
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__bRvd4
+                            sty.freeBox__lsYky
                           )}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__vAf7O
+                              sty.text__vHrq
                             )}
                           >
                             <React.Fragment>
@@ -1083,120 +1072,2354 @@ function PlasmicHamyar__RenderFunc(props: {
                                 try {
                                   return $state.shop.data.result[
                                     $state.selectedShop
-                                  ].badge;
+                                  ].title;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return "50%";
+                                    return "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
                                   }
                                   throw e;
                                 }
                               })()}
                             </React.Fragment>
                           </div>
-                        </div>
-                      ) : null}
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__sbV8I)}
-                    >
-                      {(() => {
-                        const child$Props = {
-                          bordered: false,
-                          className: classNames("__wab_instance", sty.input),
-                          disabled: false,
-                          onChange: generateStateOnChangePropForCodeComponents(
-                            $state,
-                            "value",
-                            ["input", "value"],
-                            AntdInput_Helpers
-                          ),
-                          placeholder:
-                            "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
-                          size: "small",
-                          suffix: (
-                            <Icon5Icon
+                          {(() => {
+                            try {
+                              return $state.shop.data.result[
+                                $state.selectedShop
+                              ].badge
+                                ? true
+                                : false;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
                               className={classNames(
                                 projectcss.all,
-                                sty.svg__rmjlo
+                                projectcss.__wab_text,
+                                sty.text__fkgDb
                               )}
-                              role={"img"}
-                            />
-                          ),
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $state.shop.data.result[
+                                      $state.selectedShop
+                                    ].fullPrice;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "40000 \u062a\u0648\u0645\u0627\u0646";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___9KXbh
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    $state.shop.data.result[$state.selectedShop]
+                                      .price + " تومان "
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "40000 \u062a\u0648\u0645\u0627\u0646";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          {(() => {
+                            try {
+                              return $state.shop.data.result[
+                                $state.selectedShop
+                              ].badge
+                                ? true
+                                : false;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__bRvd4
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__vAf7O
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.shop.data.result[
+                                        $state.selectedShop
+                                      ].badge;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "50%";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </div>
+                          ) : null}
+                        </div>
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__sbV8I
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__ogvTo
+                            )}
+                          >
+                            {(() => {
+                              const child$Props = {
+                                allowClear: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? false
+                                  : false,
+                                autoFocus: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? false
+                                  : false,
+                                bordered: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? false
+                                  : false,
+                                className: classNames(
+                                  "__wab_instance",
+                                  sty.input
+                                ),
+                                disabled: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? false
+                                  : false,
+                                onChange:
+                                  generateStateOnChangePropForCodeComponents(
+                                    $state,
+                                    "value",
+                                    ["input", "value"],
+                                    AntdInput_Helpers
+                                  ),
+                                placeholder:
+                                  "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
+                                prefix: (
+                                  <Icon10Icon
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.svg__clG0G
+                                    )}
+                                    role={"img"}
+                                  />
+                                ),
 
-                          value: generateStateValueProp($state, [
-                            "input",
-                            "value"
+                                readOnly: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? false
+                                  : false,
+                                size: hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                )
+                                  ? "small"
+                                  : "small",
+                                suffix: null,
+                                value: generateStateValueProp($state, [
+                                  "input",
+                                  "value"
+                                ])
+                              };
+                              initializeCodeComponentStates(
+                                $state,
+                                [
+                                  {
+                                    name: "value",
+                                    plasmicStateName: "input.value"
+                                  }
+                                ],
+                                [],
+                                AntdInput_Helpers ?? {},
+                                child$Props
+                              );
+
+                              return (
+                                <AntdInput
+                                  data-plasmic-name={"input"}
+                                  data-plasmic-override={overrides.input}
+                                  {...child$Props}
+                                />
+                              );
+                            })()}
+                            {(() => {
+                              try {
+                                return $state.visiblebox;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__we3ZU
+                                )}
+                                onClick={async event => {
+                                  const $steps = {};
+
+                                  $steps["updateVisiblebox"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["visiblebox"]
+                                          },
+                                          operation: 0,
+                                          value: false
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["updateVisiblebox"] != null &&
+                                    typeof $steps["updateVisiblebox"] ===
+                                      "object" &&
+                                    typeof $steps["updateVisiblebox"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["updateVisiblebox"] = await $steps[
+                                      "updateVisiblebox"
+                                    ];
+                                  }
+                                }}
+                              />
+                            ) : null}
+                          </div>
+                          <AntdButton
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button__pbPvR
+                            )}
+                            onClick={async () => {
+                              const $steps = {};
+
+                              $steps["updateVisiblebox"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["visiblebox"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateVisiblebox"] != null &&
+                                typeof $steps["updateVisiblebox"] ===
+                                  "object" &&
+                                typeof $steps["updateVisiblebox"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateVisiblebox"] = await $steps[
+                                  "updateVisiblebox"
+                                ];
+                              }
+
+                              $steps["updateDiscountCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["discountCode"]
+                                      },
+                                      operation: 0,
+                                      value: $state.input.value
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateDiscountCode"] != null &&
+                                typeof $steps["updateDiscountCode"] ===
+                                  "object" &&
+                                typeof $steps["updateDiscountCode"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateDiscountCode"] = await $steps[
+                                  "updateDiscountCode"
+                                ];
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__vY6Vp
+                              )}
+                            >
+                              {"\u062a\u0627\u06cc\u06cc\u062f"}
+                            </div>
+                          </AntdButton>
+                        </Stack__>
+                        <AntdButton
+                          className={classNames(
+                            "__wab_instance",
+                            sty.button__at1Vi
+                          )}
+                          onClick={async () => {
+                            const $steps = {};
+
+                            $steps["updateBuyId"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["buyId"]
+                                    },
+                                    operation: 0,
+                                    value:
+                                      $state.shop.data.result[
+                                        $state.selectedShop
+                                      ].id
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateBuyId"] != null &&
+                              typeof $steps["updateBuyId"] === "object" &&
+                              typeof $steps["updateBuyId"].then === "function"
+                            ) {
+                              $steps["updateBuyId"] = await $steps[
+                                "updateBuyId"
+                              ];
+                            }
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/hamyar/shopBuy",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            appKey:
+                                              "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq",
+                                            id: $state.buyId,
+                                            offCode: $state.discountCode,
+                                            refCode: $state.refCode,
+                                            redirectUrl:
+                                              "https://apps.liom.app/hamyar?refCode=" +
+                                              $state.refCode +
+                                              "$mobile=" +
+                                              $state.mobile
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization: $state.tokenUser
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
+                            }
+
+                            $steps["goToPage"] =
+                              $steps.invokeGlobalAction.data.success == true
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: (() => {
+                                        try {
+                                          return $steps.invokeGlobalAction.data
+                                            .result;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "$steps.invokeGlobalAction.data.result";
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["goToPage"] != null &&
+                              typeof $steps["goToPage"] === "object" &&
+                              typeof $steps["goToPage"].then === "function"
+                            ) {
+                              $steps["goToPage"] = await $steps["goToPage"];
+                            }
+                          }}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__eKx
+                            )}
+                          >
+                            {
+                              "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                            }
+                          </div>
+                        </AntdButton>
+                        <PlasmicLink__
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.a,
+                            projectcss.__wab_text,
+                            sty.link__fOJjS
+                          )}
+                          component={Link}
+                          href={"https://www.plasmic.app/"}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateModalOpen"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["shopModalWeb", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateModalOpen"] != null &&
+                              typeof $steps["updateModalOpen"] === "object" &&
+                              typeof $steps["updateModalOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateModalOpen"] = await $steps[
+                                "updateModalOpen"
+                              ];
+                            }
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        $state.subscription[
+                                          $state.subscriptionCurrentIndex
+                                        ].clickitem = true;
+                                        return ($state.buyId =
+                                          $state.shop.data.result[
+                                            $state.subscriptionCurrentIndex
+                                          ].id);
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }}
+                          platform={"nextjs"}
+                        >
+                          {
+                            "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                          }
+                        </PlasmicLink__>
+                        {(
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? true
+                            : false
+                        ) ? (
+                          <PlasmicLink__
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.a,
+                              projectcss.__wab_text,
+                              sty.link__vl45R
+                            )}
+                            component={Link}
+                            href={"https://www.plasmic.app/"}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["updateModalOpen"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: [
+                                          "shopModalMobile",
+                                          "click"
+                                        ]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateModalOpen"] != null &&
+                                typeof $steps["updateModalOpen"] === "object" &&
+                                typeof $steps["updateModalOpen"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateModalOpen"] = await $steps[
+                                  "updateModalOpen"
+                                ];
+                              }
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          $state.subscription2[
+                                            $state.subscriptionCurrentIndex
+                                          ].clickitem = true;
+                                          return ($state.buyId =
+                                            $state.shop.data.result[
+                                              $state.subscriptionCurrentIndex
+                                            ].id);
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
+                            platform={"nextjs"}
+                          >
+                            {
+                              "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                            }
+                          </PlasmicLink__>
+                        ) : null}
+                      </Stack__>
+                    </div>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return (
+                      !$state.user.data.result.todoNotTodoLists.todo.length == 0
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__mdVrf)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__bQyyx
+                      )}
+                    >
+                      {
+                        "\u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0645\u0631\u0648\u0632 \u0645\u0644\u06cc\u06a9\u0627 \u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 :"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__i8DoG
+                      )}
+                    >
+                      {
+                        "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
+                      }
+                    </div>
+                    <Reveal
+                      data-plasmic-name={"reveal"}
+                      data-plasmic-override={overrides.reveal}
+                      className={classNames("__wab_instance", sty.reveal)}
+                      triggerOnce={true}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__tkGdc
+                        )}
+                      >
+                        {(_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return $state.user.data.result.todoNotTodoLists
+                                .todo;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                          const currentItem = __plasmic_item_0;
+                          const currentIndex = __plasmic_idx_0;
+                          return (() => {
+                            const child$Props = {
+                              className: classNames(
+                                "__wab_instance",
+                                sty.useful
+                              ),
+                              icon: generateStateValueProp($state, [
+                                "useful",
+                                __plasmic_idx_0,
+                                "icon"
+                              ]),
+                              key: currentIndex,
+                              onClick: async event => {
+                                const $steps = {};
+
+                                $steps["updateModal2Open"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["modal2", "open"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateModal2Open"] != null &&
+                                  typeof $steps["updateModal2Open"] ===
+                                    "object" &&
+                                  typeof $steps["updateModal2Open"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateModal2Open"] = await $steps[
+                                    "updateModal2Open"
+                                  ];
+                                }
+
+                                $steps["updateIndexusefull"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["itemtodo"]
+                                        },
+                                        operation: 0,
+                                        value: currentItem
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateIndexusefull"] != null &&
+                                  typeof $steps["updateIndexusefull"] ===
+                                    "object" &&
+                                  typeof $steps["updateIndexusefull"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateIndexusefull"] = await $steps[
+                                    "updateIndexusefull"
+                                  ];
+                                }
+                              },
+                              onIconChange: generateStateOnChangeProp($state, [
+                                "useful",
+                                __plasmic_idx_0,
+                                "icon"
+                              ]),
+                              onTextChange: generateStateOnChangeProp($state, [
+                                "useful",
+                                __plasmic_idx_0,
+                                "text"
+                              ]),
+                              text: generateStateValueProp($state, [
+                                "useful",
+                                __plasmic_idx_0,
+                                "text"
+                              ])
+                            };
+
+                            initializePlasmicStates(
+                              $state,
+                              [
+                                {
+                                  name: "useful[].text",
+                                  initFunc: ({ $props, $state, $queries }) =>
+                                    (() => {
+                                      try {
+                                        return currentItem.title;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                },
+                                {
+                                  name: "useful[].icon",
+                                  initFunc: ({ $props, $state, $queries }) =>
+                                    (() => {
+                                      try {
+                                        return currentItem.icon;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                }
+                              ],
+                              [__plasmic_idx_0]
+                            );
+                            return (
+                              <Useful
+                                data-plasmic-name={"useful"}
+                                data-plasmic-override={overrides.useful}
+                                {...child$Props}
+                              />
+                            );
+                          })();
+                        })}
+                      </Stack__>
+                    </Reveal>
+                  </Stack__>
+                ) : null}
+                {(() => {
+                  try {
+                    return (
+                      !$state.user.data.result.todoNotTodoLists.notToDo
+                        .length == 0
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__zg2Fg)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__sfnFu
+                      )}
+                    >
+                      {
+                        "\u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0645\u0631\u0648\u0632 \u0645\u0644\u06cc\u06a9\u0627 \u0646\u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 :"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___9LLi
+                      )}
+                    >
+                      {
+                        "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
+                      }
+                    </div>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__qskKw)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.user.data.result.todoNotTodoLists
+                              .notToDo;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (() => {
+                          const child$Props = {
+                            className: classNames(
+                              "__wab_instance",
+                              sty.harmful
+                            ),
+                            icon: generateStateValueProp($state, [
+                              "harmful",
+                              __plasmic_idx_0,
+                              "icon"
+                            ]),
+                            key: currentIndex,
+                            onClick: async event => {
+                              const $steps = {};
+
+                              $steps["updateItemtodo"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["itemtodo"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateItemtodo"] != null &&
+                                typeof $steps["updateItemtodo"] === "object" &&
+                                typeof $steps["updateItemtodo"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateItemtodo"] = await $steps[
+                                  "updateItemtodo"
+                                ];
+                              }
+
+                              $steps["updateModal2Open"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["modal2", "open"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateModal2Open"] != null &&
+                                typeof $steps["updateModal2Open"] ===
+                                  "object" &&
+                                typeof $steps["updateModal2Open"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateModal2Open"] = await $steps[
+                                  "updateModal2Open"
+                                ];
+                              }
+                            },
+                            onIconChange: generateStateOnChangeProp($state, [
+                              "harmful",
+                              __plasmic_idx_0,
+                              "icon"
+                            ]),
+                            onTextChange: generateStateOnChangeProp($state, [
+                              "harmful",
+                              __plasmic_idx_0,
+                              "text"
+                            ]),
+                            onTitleChange: generateStateOnChangeProp($state, [
+                              "harmful",
+                              __plasmic_idx_0,
+                              "title"
+                            ]),
+                            text: generateStateValueProp($state, [
+                              "harmful",
+                              __plasmic_idx_0,
+                              "text"
+                            ]),
+                            title: generateStateValueProp($state, [
+                              "harmful",
+                              __plasmic_idx_0,
+                              "title"
+                            ])
+                          };
+
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "harmful[].title",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.title;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              },
+                              {
+                                name: "harmful[].text",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.desc;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              },
+                              {
+                                name: "harmful[].icon",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.icon;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              }
+                            ],
+                            [__plasmic_idx_0]
+                          );
+                          return (
+                            <Harmful
+                              data-plasmic-name={"harmful"}
+                              data-plasmic-override={overrides.harmful}
+                              {...child$Props}
+                            />
+                          );
+                        })();
+                      })}
+                    </Stack__>
+                  </Stack__>
+                ) : null}
+                <AntdModal
+                  data-plasmic-name={"shopModalWeb"}
+                  data-plasmic-override={overrides.shopModalWeb}
+                  className={classNames("__wab_instance", sty.shopModalWeb)}
+                  defaultStylesClassName={classNames(
+                    projectcss.root_reset,
+                    projectcss.plasmic_default_styles,
+                    projectcss.plasmic_mixins,
+                    projectcss.plasmic_tokens,
+                    plasmic_antd_5_hostless_css.plasmic_tokens
+                  )}
+                  hideFooter={true}
+                  maskClosable={true}
+                  modalContentClassName={classNames({
+                    [sty["pcls_xaKEkVFm-OWS"]]: true
+                  })}
+                  modalScopeClassName={sty["shopModalWeb__modal"]}
+                  onOpenChange={generateStateOnChangeProp($state, [
+                    "shopModalWeb",
+                    "open"
+                  ])}
+                  open={generateStateValueProp($state, [
+                    "shopModalWeb",
+                    "open"
+                  ])}
+                  title={
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__ghRJ)}
+                    />
+                  }
+                  trigger={null}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__zXus)}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.shop.data.result;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (() => {
+                        const child$Props = {
+                          className: classNames(
+                            "__wab_instance",
+                            sty.subscription
+                          ),
+                          clickitem: generateStateValueProp($state, [
+                            "subscription",
+                            __plasmic_idx_0,
+                            "clickitem"
+                          ]),
+                          discount: generateStateValueProp($state, [
+                            "subscription",
+                            __plasmic_idx_0,
+                            "discount"
+                          ]),
+                          fullprice: generateStateValueProp($state, [
+                            "subscription",
+                            __plasmic_idx_0,
+                            "fullprice"
+                          ]),
+                          key: currentIndex,
+                          onClick: async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        for (
+                                          let i = 0;
+                                          i < $state.subscription.length;
+                                          i++
+                                        ) {
+                                          $state.subscription[i].clickitem =
+                                            false;
+                                        }
+                                        $state.subscription[
+                                          currentIndex
+                                        ].clickitem = true;
+                                        $state.subscriptionCurrentIndex = [
+                                          currentIndex
+                                        ];
+                                        return ($state.buyId = currentItem.id);
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          },
+                          onClickitemChange: generateStateOnChangeProp($state, [
+                            "subscription",
+                            __plasmic_idx_0,
+                            "clickitem"
+                          ]),
+                          onDiscountChange: generateStateOnChangeProp($state, [
+                            "subscription",
+                            __plasmic_idx_0,
+                            "discount"
+                          ]),
+                          onFullpriceChange: generateStateOnChangeProp($state, [
+                            "subscription",
+                            __plasmic_idx_0,
+                            "fullprice"
+                          ]),
+                          onPriceChange: generateStateOnChangeProp($state, [
+                            "subscription",
+                            __plasmic_idx_0,
+                            "price"
+                          ]),
+                          onTitleChange: generateStateOnChangeProp($state, [
+                            "subscription",
+                            __plasmic_idx_0,
+                            "title"
+                          ]),
+                          price: generateStateValueProp($state, [
+                            "subscription",
+                            __plasmic_idx_0,
+                            "price"
+                          ]),
+                          title: generateStateValueProp($state, [
+                            "subscription",
+                            __plasmic_idx_0,
+                            "title"
                           ])
                         };
-                        initializeCodeComponentStates(
+
+                        initializePlasmicStates(
                           $state,
                           [
                             {
-                              name: "value",
-                              plasmicStateName: "input.value"
+                              name: "subscription[].clickitem",
+                              initFunc: ({ $props, $state, $queries }) => false
+                            },
+                            {
+                              name: "subscription[].title",
+                              initFunc: ({ $props, $state, $queries }) =>
+                                (() => {
+                                  try {
+                                    return currentItem.title;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                            },
+                            {
+                              name: "subscription[].price",
+                              initFunc: ({ $props, $state, $queries }) =>
+                                (() => {
+                                  try {
+                                    return currentItem.price;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return 120000;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                            },
+                            {
+                              name: "subscription[].discount",
+                              initFunc: ({ $props, $state, $queries }) =>
+                                (() => {
+                                  try {
+                                    return currentItem.badge
+                                      ? currentItem.badge
+                                      : "";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return 50;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                            },
+                            {
+                              name: "subscription[].fullprice",
+                              initFunc: ({ $props, $state, $queries }) =>
+                                (() => {
+                                  try {
+                                    return currentItem.fullPrice
+                                      ? currentItem.fullPrice
+                                      : currentItem.price;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return 0;
+                                    }
+                                    throw e;
+                                  }
+                                })()
                             }
                           ],
-                          [],
-                          AntdInput_Helpers ?? {},
-                          child$Props
+                          [__plasmic_idx_0]
                         );
-
                         return (
-                          <AntdInput
-                            data-plasmic-name={"input"}
-                            data-plasmic-override={overrides.input}
+                          <Subscription
+                            data-plasmic-name={"subscription"}
+                            data-plasmic-override={overrides.subscription}
                             {...child$Props}
                           />
                         );
-                      })()}
-                    </div>
-                    <AntdButton
-                      className={classNames(
-                        "__wab_instance",
-                        sty.button__at1Vi
-                      )}
-                      onClick={async () => {
-                        const $steps = {};
+                      })();
+                    })}
+                  </Stack__>
+                  <AntdButton
+                    className={classNames("__wab_instance", sty.button__il1FC)}
+                    onClick={async () => {
+                      const $steps = {};
 
-                        $steps["updateBuyId"] = true
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/hamyar/shopBuy",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      appKey:
+                                        "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq",
+                                      id: $state.buyId,
+                                      offCode: $state.discountCode,
+                                      refCode: $state.refCode
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                (() => {
+                                  try {
+                                    return {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization: $state.tokenUser
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["goToPage"] =
+                        $steps.invokeGlobalAction.data.success == true
                           ? (() => {
                               const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["buyId"]
-                                },
-                                operation: 0,
-                                value:
-                                  $state.shop.data.result[$state.selectedShop]
-                                    .id
+                                destination: (() => {
+                                  try {
+                                    return $steps.invokeGlobalAction.data
+                                      .result;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
                               };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
                                 }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
-                        if (
-                          $steps["updateBuyId"] != null &&
-                          typeof $steps["updateBuyId"] === "object" &&
-                          typeof $steps["updateBuyId"].then === "function"
-                        ) {
-                          $steps["updateBuyId"] = await $steps["updateBuyId"];
-                        }
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__mXcnc
+                      )}
+                    >
+                      {hasVariant(globalVariants, "screen", "mobile") ? (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                "فعال سازی " +
+                                $state.subscription2[
+                                  $state.subscriptionCurrentIndex
+                                ].title
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      ) : (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                "فعال سازی " +
+                                $state.subscription[
+                                  $state.subscriptionCurrentIndex
+                                ].title
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      )}
+                    </div>
+                  </AntdButton>
+                </AntdModal>
+                <AntdModal
+                  data-plasmic-name={"modal2"}
+                  data-plasmic-override={overrides.modal2}
+                  className={classNames("__wab_instance", sty.modal2)}
+                  defaultStylesClassName={classNames(
+                    projectcss.root_reset,
+                    projectcss.plasmic_default_styles,
+                    projectcss.plasmic_mixins,
+                    projectcss.plasmic_tokens,
+                    plasmic_antd_5_hostless_css.plasmic_tokens
+                  )}
+                  hideFooter={true}
+                  modalScopeClassName={sty["modal2__modal"]}
+                  onOpenChange={generateStateOnChangeProp($state, [
+                    "modal2",
+                    "open"
+                  ])}
+                  open={generateStateValueProp($state, ["modal2", "open"])}
+                  title={
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__kISnA
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.itemtodo.title;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u062e\u0627\u0644\u062f \u062d\u0633\u06cc\u0646\u06cc \u062a\u0648 \u0631\u0645\u0627\u0646 \u0628\u0627\u062f \u0628\u0627\u062f\u06a9 \u0628\u0627\u0632 \u0645\u06cc\u0646\u0648\u06cc\u0633\u0647 : \ufee3\ufeae\ufea9 \ufe81\ufeeb\ufeb4\ufe98\ufeea \ufea9\ufead \ufb94\ufeee\ufeb5 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufe97\ufe8e\ufeaf\ufee9 \ufe91\ufeea \ufe91\ufee0\ufeee\ufecd \ufead\ufeb3\ufbff\ufeaa\ufee9 \ufe8d\ufeb5 \ufe91\ufeae\ufe8d\ufbfc \ufb58\ufee8\ufeaa \ufb7c\ufee8\ufbff\ufee6 \ufee7\ufea0\ufeee\ufe8d \ufb90\ufeae\ufea9 : \u201d \ufb58\ufeb4\ufeae\ufee1 \ufea9\ufead \ufeaf\ufee7\ufeaa\ufb94\ufbfd \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeaf\ufea9\ufbfc \ufee7\ufb91\ufee6 \u201d \ufb58\ufeb4\ufeae \ufee3\ufe98\ufecc\ufea0\ufe90 \ufeed \ufee3\ufe92\ufeec\ufeee\ufe95 \ufe91\ufeea \ufb58\ufeaa\ufead \ufee7\ufb95\ufe8e\ufee9 \ufb90\ufeae\ufea9 \ufe91\ufeaa\ufbfe\ufee6 \ufee3\ufecc\ufee8\ufe8e \ufb90\ufeea \ufe8d\ufeed \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeb3\ufe96 \ufb90\ufe9e \ufee7\ufeaa\ufe8d\ufeb7\ufe98\ufeea \ufb58\ufeaa\ufead \ufe91\ufeea \ufee7\ufb95\ufe8e\ufee9 \ufee3\ufe98\ufecc\ufea0\ufe90 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufedf\ufe92\ufea8\ufee8\ufeaa\ufbfc \ufeaf\ufea9 \ufeed \ufe8d\ufea9\ufe8d\ufee3\ufeea \ufea9\ufe8d\ufea9.";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  }
+                  trigger={null}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___2Yox4)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rPgkt
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.itemtodo.desc;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u062e\u0627\u0644\u062f \u062d\u0633\u06cc\u0646\u06cc \u062a\u0648 \u0631\u0645\u0627\u0646 \u0628\u0627\u062f \u0628\u0627\u062f\u06a9 \u0628\u0627\u0632 \u0645\u06cc\u0646\u0648\u06cc\u0633\u0647 : \ufee3\ufeae\ufea9 \ufe81\ufeeb\ufeb4\ufe98\ufeea \ufea9\ufead \ufb94\ufeee\ufeb5 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufe97\ufe8e\ufeaf\ufee9 \ufe91\ufeea \ufe91\ufee0\ufeee\ufecd \ufead\ufeb3\ufbff\ufeaa\ufee9 \ufe8d\ufeb5 \ufe91\ufeae\ufe8d\ufbfc \ufb58\ufee8\ufeaa \ufb7c\ufee8\ufbff\ufee6 \ufee7\ufea0\ufeee\ufe8d \ufb90\ufeae\ufea9 : \u201d \ufb58\ufeb4\ufeae\ufee1 \ufea9\ufead \ufeaf\ufee7\ufeaa\ufb94\ufbfd \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeaf\ufea9\ufbfc \ufee7\ufb91\ufee6 \u201d \ufb58\ufeb4\ufeae \ufee3\ufe98\ufecc\ufea0\ufe90 \ufeed \ufee3\ufe92\ufeec\ufeee\ufe95 \ufe91\ufeea \ufb58\ufeaa\ufead \ufee7\ufb95\ufe8e\ufee9 \ufb90\ufeae\ufea9 \ufe91\ufeaa\ufbfe\ufee6 \ufee3\ufecc\ufee8\ufe8e \ufb90\ufeea \ufe8d\ufeed \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeb3\ufe96 \ufb90\ufe9e \ufee7\ufeaa\ufe8d\ufeb7\ufe98\ufeea \ufb58\ufeaa\ufead \ufe91\ufeea \ufee7\ufb95\ufe8e\ufee9 \ufee3\ufe98\ufecc\ufea0\ufe90 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufedf\ufe92\ufea8\ufee8\ufeaa\ufbfc \ufeaf\ufea9 \ufeed \ufe8d\ufea9\ufe8d\ufee3\ufeea \ufea9\ufe8d\ufea9.";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Stack__>
+                </AntdModal>
+              </Stack__>
+              <Embed
+                data-plasmic-name={"embedHtml"}
+                data-plasmic-override={overrides.embedHtml}
+                className={classNames("__wab_instance", sty.embedHtml)}
+                code={
+                  "    <script>\r\n        String.prototype.EntoFa = function() {\r\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\r\n        }\r\n        function convertNumbersInPage() {\r\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\r\n            elements.forEach(element => {\r\n                element.childNodes.forEach(node => {\r\n                    if (node.nodeType === Node.TEXT_NODE) {\r\n                        node.nodeValue = node.nodeValue.EntoFa();\r\n                    }\r\n                });\r\n            });\r\n        }\r\n    setTimeout(convertNumbersInPage, 1000);\r\n    </script>"
+                }
+              />
+
+              <ApiRequest
+                data-plasmic-name={"user"}
+                data-plasmic-override={overrides.user}
+                body={(() => {
+                  try {
+                    return {
+                      refCode: $state.refCode,
+                      mobile: $state.mobile,
+                      appKey:
+                        "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq"
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                className={classNames("__wab_instance", sty.user)}
+                config={{ headers: { "Content-Type": "application/json" } }}
+                errorDisplay={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__q2OHb
+                    )}
+                  >
+                    {"Error fetching data"}
+                  </div>
+                }
+                loadingDisplay={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__nEvP
+                    )}
+                  >
+                    {"Loading..."}
+                  </div>
+                }
+                method={"POST"}
+                onError={generateStateOnChangeProp($state, ["user", "error"])}
+                onLoading={generateStateOnChangeProp($state, [
+                  "user",
+                  "loading"
+                ])}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["user", "data"]).apply(
+                    null,
+                    eventArgs
+                  );
+                  (async data => {
+                    const $steps = {};
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = { args: [5000] };
+                          return $globalActions["Fragment.wait"]?.apply(null, [
+                            ...actionArgs.args
+                          ]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+
+                    $steps["updateTokenUser"] =
+                      $state.user.data.success == true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["tokenUser"]
+                              },
+                              operation: 0,
+                              value: $state.user.data.result.token
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["updateTokenUser"] != null &&
+                      typeof $steps["updateTokenUser"] === "object" &&
+                      typeof $steps["updateTokenUser"].then === "function"
+                    ) {
+                      $steps["updateTokenUser"] = await $steps[
+                        "updateTokenUser"
+                      ];
+                    }
+
+                    $steps["goToExpired"] =
+                      !$state.user.data.success == true
+                        ? (() => {
+                            const actionArgs = { destination: `/expired` };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["goToExpired"] != null &&
+                      typeof $steps["goToExpired"] === "object" &&
+                      typeof $steps["goToExpired"].then === "function"
+                    ) {
+                      $steps["goToExpired"] = await $steps["goToExpired"];
+                    }
+                  }).apply(null, eventArgs);
+                }}
+                url={"https://api.liom.app/hamyar/privateCalenderV2"}
+              />
+
+              <ApiRequest
+                data-plasmic-name={"shop"}
+                data-plasmic-override={overrides.shop}
+                body={(() => {
+                  try {
+                    return {
+                      refCode: $state.refCode,
+                      appKey:
+                        "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq"
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                className={classNames("__wab_instance", sty.shop)}
+                config={(() => {
+                  try {
+                    return {
+                      headers: {
+                        "Content-Type": "application/json",
+                        Authorization: $state.user.data.result.token
+                      }
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                errorDisplay={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__clTda
+                    )}
+                  >
+                    {"Error fetching data"}
+                  </div>
+                }
+                loadingDisplay={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___9Xes8
+                    )}
+                  >
+                    {"Loading..."}
+                  </div>
+                }
+                method={"POST"}
+                onError={generateStateOnChangeProp($state, ["shop", "error"])}
+                onLoading={generateStateOnChangeProp($state, [
+                  "shop",
+                  "loading"
+                ])}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["shop", "data"]).apply(
+                    null,
+                    eventArgs
+                  );
+                  (async data => {
+                    const $steps = {};
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = { args: [5000] };
+                          return $globalActions["Fragment.wait"]?.apply(null, [
+                            ...actionArgs.args
+                          ]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+
+                    $steps["goToExpired"] = !$state.shop.data.success
+                      ? (() => {
+                          const actionArgs = { destination: `/expired` };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToExpired"] != null &&
+                      typeof $steps["goToExpired"] === "object" &&
+                      typeof $steps["goToExpired"].then === "function"
+                    ) {
+                      $steps["goToExpired"] = await $steps["goToExpired"];
+                    }
+                  }).apply(null, eventArgs);
+                }}
+                url={"https://api.liom.app/hamyar/shop"}
+              />
+
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__wFGhb)}
+              >
+                <Navbaricon
+                  data-plasmic-name={"navbaricon"}
+                  data-plasmic-override={overrides.navbaricon}
+                  className={classNames("__wab_instance", sty.navbaricon)}
+                  click={generateStateValueProp($state, [
+                    "navbaricon",
+                    "click"
+                  ])}
+                  onClickChange={generateStateOnChangeProp($state, [
+                    "navbaricon",
+                    "click"
+                  ])}
+                />
+
+                <Navbaricon2
+                  data-plasmic-name={"navbaricon2"}
+                  data-plasmic-override={overrides.navbaricon2}
+                  className={classNames("__wab_instance", sty.navbaricon2)}
+                  click={generateStateValueProp($state, [
+                    "navbaricon2",
+                    "click"
+                  ])}
+                  onClickChange={generateStateOnChangeProp($state, [
+                    "navbaricon2",
+                    "click"
+                  ])}
+                />
+              </Stack__>
+              <SlideinModal
+                data-plasmic-name={"shopModalMobile"}
+                data-plasmic-override={overrides.shopModalMobile}
+                className={classNames("__wab_instance", sty.shopModalMobile)}
+                click={generateStateValueProp($state, [
+                  "shopModalMobile",
+                  "click"
+                ])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateShopModalWebOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["shopModalWeb", "open"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateShopModalWebOpen"] != null &&
+                    typeof $steps["updateShopModalWebOpen"] === "object" &&
+                    typeof $steps["updateShopModalWebOpen"].then === "function"
+                  ) {
+                    $steps["updateShopModalWebOpen"] = await $steps[
+                      "updateShopModalWebOpen"
+                    ];
+                  }
+                }}
+                onClickChange={generateStateOnChangeProp($state, [
+                  "shopModalMobile",
+                  "click"
+                ])}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__oxDt3)}>
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? true
+                      : false
+                  ) ? (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__cKFp)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.shop.data.result;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (() => {
+                          const child$Props = {
+                            className: classNames(
+                              "__wab_instance",
+                              sty.subscription2
+                            ),
+                            clickitem: generateStateValueProp($state, [
+                              "subscription2",
+                              __plasmic_idx_0,
+                              "clickitem"
+                            ]),
+                            discount: generateStateValueProp($state, [
+                              "subscription2",
+                              __plasmic_idx_0,
+                              "discount"
+                            ]),
+                            fullprice: generateStateValueProp($state, [
+                              "subscription2",
+                              __plasmic_idx_0,
+                              "fullprice"
+                            ]),
+                            key: currentIndex,
+                            onClick: async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          for (
+                                            let i = 0;
+                                            i < $state.subscription2.length;
+                                            i++
+                                          ) {
+                                            $state.subscription2[i].clickitem =
+                                              false;
+                                          }
+                                          $state.subscription2[
+                                            currentIndex
+                                          ].clickitem = true;
+                                          $state.subscriptionCurrentIndex = [
+                                            currentIndex
+                                          ];
+                                          return ($state.buyId =
+                                            currentItem.id);
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            },
+                            onClickitemChange: generateStateOnChangeProp(
+                              $state,
+                              ["subscription2", __plasmic_idx_0, "clickitem"]
+                            ),
+                            onDiscountChange: generateStateOnChangeProp(
+                              $state,
+                              ["subscription2", __plasmic_idx_0, "discount"]
+                            ),
+                            onFullpriceChange: generateStateOnChangeProp(
+                              $state,
+                              ["subscription2", __plasmic_idx_0, "fullprice"]
+                            ),
+                            onPriceChange: generateStateOnChangeProp($state, [
+                              "subscription2",
+                              __plasmic_idx_0,
+                              "price"
+                            ]),
+                            onTitleChange: generateStateOnChangeProp($state, [
+                              "subscription2",
+                              __plasmic_idx_0,
+                              "title"
+                            ]),
+                            price: generateStateValueProp($state, [
+                              "subscription2",
+                              __plasmic_idx_0,
+                              "price"
+                            ]),
+                            title: generateStateValueProp($state, [
+                              "subscription2",
+                              __plasmic_idx_0,
+                              "title"
+                            ])
+                          };
+
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "subscription2[].clickitem",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  false
+                              },
+                              {
+                                name: "subscription2[].title",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.title;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              },
+                              {
+                                name: "subscription2[].price",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.price;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return 120000;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              },
+                              {
+                                name: "subscription2[].discount",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.badge
+                                        ? currentItem.badge
+                                        : "";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return 50;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              },
+                              {
+                                name: "subscription2[].fullprice",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.fullPrice
+                                        ? currentItem.fullPrice
+                                        : currentItem.price;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return 0;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              }
+                            ],
+                            [__plasmic_idx_0]
+                          );
+                          return (
+                            <Subscription
+                              data-plasmic-name={"subscription2"}
+                              data-plasmic-override={overrides.subscription2}
+                              {...child$Props}
+                            />
+                          );
+                        })();
+                      })}
+                    </Stack__>
+                  ) : null}
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? true
+                      : false
+                  ) ? (
+                    <AntdButton
+                      className={classNames(
+                        "__wab_instance",
+                        sty.button__bq1VS
+                      )}
+                      onClick={async () => {
+                        const $steps = {};
 
                         $steps["invokeGlobalAction"] = true
                           ? (() => {
@@ -1309,4132 +3532,2581 @@ function PlasmicHamyar__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__eKx
+                          sty.text__hdsPt
                         )}
                       >
-                        {
-                          "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
-                        }
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (
+                                  "فعال سازی " +
+                                  $state.subscription2[
+                                    $state.subscriptionCurrentIndex
+                                  ].title
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (
+                                  "فعال سازی " +
+                                  $state.subscription[
+                                    $state.subscriptionCurrentIndex
+                                  ].title
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
                       </div>
                     </AntdButton>
-                    <PlasmicLink__
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.a,
-                        projectcss.__wab_text,
-                        sty.link__fOJjS
-                      )}
-                      component={Link}
-                      href={"https://www.plasmic.app/"}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["updateModalOpen"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["shopModalWeb", "open"]
-                                },
-                                operation: 0,
-                                value: true
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateModalOpen"] != null &&
-                          typeof $steps["updateModalOpen"] === "object" &&
-                          typeof $steps["updateModalOpen"].then === "function"
-                        ) {
-                          $steps["updateModalOpen"] = await $steps[
-                            "updateModalOpen"
-                          ];
-                        }
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    $state.subscription[
-                                      $state.subscriptionCurrentIndex
-                                    ].clickitem = true;
-                                    return ($state.buyId =
-                                      $state.shop.data.result[
-                                        $state.subscriptionCurrentIndex
-                                      ].id);
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-                      }}
-                      platform={"nextjs"}
-                    >
-                      {
-                        "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
-                      }
-                    </PlasmicLink__>
-                    {(
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? true
-                        : false
-                    ) ? (
-                      <PlasmicLink__
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.a,
-                          projectcss.__wab_text,
-                          sty.link__vl45R
-                        )}
-                        component={Link}
-                        href={"https://www.plasmic.app/"}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["updateModalOpen"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["shopModalMobile", "click"]
-                                  },
-                                  operation: 0,
-                                  value: true
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateModalOpen"] != null &&
-                            typeof $steps["updateModalOpen"] === "object" &&
-                            typeof $steps["updateModalOpen"].then === "function"
-                          ) {
-                            $steps["updateModalOpen"] = await $steps[
-                              "updateModalOpen"
-                            ];
-                          }
-
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      $state.subscription2[
-                                        $state.subscriptionCurrentIndex
-                                      ].clickitem = true;
-                                      return ($state.buyId =
-                                        $state.shop.data.result[
-                                          $state.subscriptionCurrentIndex
-                                        ].id);
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-                        }}
-                        platform={"nextjs"}
-                      >
-                        {
-                          "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
-                        }
-                      </PlasmicLink__>
-                    ) : null}
-                  </Stack__>
+                  ) : null}
                 </div>
-              </Stack__>
-              {(() => {
-                try {
-                  return (
-                    !$state.user.data.result.todoNotTodoLists.todo.length == 0
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__mdVrf)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__bQyyx
-                    )}
-                  >
-                    {
-                      "\u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0645\u0631\u0648\u0632 \u0645\u0644\u06cc\u06a9\u0627 \u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 :"
-                    }
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__i8DoG
-                    )}
-                  >
-                    {
-                      "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
-                    }
-                  </div>
-                  <Reveal
-                    data-plasmic-name={"reveal"}
-                    data-plasmic-override={overrides.reveal}
-                    className={classNames("__wab_instance", sty.reveal)}
-                    triggerOnce={true}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__tkGdc)}
-                    >
-                      {(_par =>
-                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                        (() => {
-                          try {
-                            return $state.user.data.result.todoNotTodoLists
-                              .todo;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()
-                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                        const currentItem = __plasmic_item_0;
-                        const currentIndex = __plasmic_idx_0;
-                        return (() => {
-                          const child$Props = {
-                            className: classNames("__wab_instance", sty.useful),
-                            key: currentIndex,
-                            onTextChange: generateStateOnChangeProp($state, [
-                              "useful",
-                              __plasmic_idx_0,
-                              "text"
-                            ]),
-                            text: generateStateValueProp($state, [
-                              "useful",
-                              __plasmic_idx_0,
-                              "text"
-                            ])
-                          };
-
-                          initializePlasmicStates(
-                            $state,
-                            [
+              </SlideinModal>
+            </div>
+          ) : null}
+          {(() => {
+            try {
+              return $state.shop.loading && $state.user.loading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <LottieWrapper
+              data-plasmic-name={"lottie"}
+              data-plasmic-override={overrides.lottie}
+              animationData={{
+                v: "5.6.10",
+                fr: 30,
+                ip: 30,
+                op: 210,
+                w: 800,
+                h: 600,
+                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
+                ddd: 0,
+                assets: [
+                  {
+                    id: "comp_0",
+                    layers: [
+                      {
+                        ddd: 0,
+                        ind: 1,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 18",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 340, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
                               {
-                                name: "useful[].text",
-                                initFunc: ({ $props, $state, $queries }) =>
-                                  `شکلات${currentItem.icon + currentItem.title}`
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 0,
+                                      s: [0]
+                                    },
+                                    { t: 30, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
                               }
                             ],
-                            [__plasmic_idx_0]
-                          );
-                          return (
-                            <Useful
-                              data-plasmic-name={"useful"}
-                              data-plasmic-override={overrides.useful}
-                              {...child$Props}
-                            />
-                          );
-                        })();
-                      })}
-                    </Stack__>
-                  </Reveal>
-                </Stack__>
-              ) : null}
-              {(() => {
-                try {
-                  return (
-                    !$state.user.data.result.todoNotTodoLists.notToDo.length ==
-                    0
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__zg2Fg)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__sfnFu
-                    )}
-                  >
-                    {
-                      "\u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0645\u0631\u0648\u0632 \u0645\u0644\u06cc\u06a9\u0627 \u0646\u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 :"
-                    }
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___9LLi
-                    )}
-                  >
-                    {
-                      "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
-                    }
-                  </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__qskKw)}
-                  >
-                    {(_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return $state.user.data.result.todoNotTodoLists
-                            .notToDo;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (
-                        <Harmful
-                          data-plasmic-name={"harmful"}
-                          data-plasmic-override={overrides.harmful}
-                          className={classNames("__wab_instance", sty.harmful)}
-                          key={currentIndex}
-                        />
-                      );
-                    })}
-                  </Stack__>
-                </Stack__>
-              ) : null}
-              <AntdModal
-                data-plasmic-name={"shopModalWeb"}
-                data-plasmic-override={overrides.shopModalWeb}
-                className={classNames("__wab_instance", sty.shopModalWeb)}
-                defaultStylesClassName={classNames(
-                  projectcss.root_reset,
-                  projectcss.plasmic_default_styles,
-                  projectcss.plasmic_mixins,
-                  projectcss.plasmic_tokens,
-                  plasmic_antd_5_hostless_css.plasmic_tokens
-                )}
-                hideFooter={true}
-                maskClosable={true}
-                modalContentClassName={classNames({
-                  [sty["pcls_xaKEkVFm-OWS"]]: true
-                })}
-                modalScopeClassName={sty["shopModalWeb__modal"]}
-                onOpenChange={generateStateOnChangeProp($state, [
-                  "shopModalWeb",
-                  "open"
-                ])}
-                open={generateStateValueProp($state, ["shopModalWeb", "open"])}
-                title={
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ghRJ)}
-                  />
-                }
-                trigger={null}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__zXus)}
-                >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $state.shop.data.result;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
-                    return (() => {
-                      const child$Props = {
-                        className: classNames(
-                          "__wab_instance",
-                          sty.subscription
-                        ),
-                        clickitem: generateStateValueProp($state, [
-                          "subscription",
-                          __plasmic_idx_0,
-                          "clickitem"
-                        ]),
-                        discount: generateStateValueProp($state, [
-                          "subscription",
-                          __plasmic_idx_0,
-                          "discount"
-                        ]),
-                        fullprice: generateStateValueProp($state, [
-                          "subscription",
-                          __plasmic_idx_0,
-                          "fullprice"
-                        ]),
-                        key: currentIndex,
-                        onClick: async event => {
-                          const $steps = {};
-
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      for (
-                                        let i = 0;
-                                        i < $state.subscription.length;
-                                        i++
-                                      ) {
-                                        $state.subscription[i].clickitem =
-                                          false;
-                                      }
-                                      $state.subscription[
-                                        currentIndex
-                                      ].clickitem = true;
-                                      $state.subscriptionCurrentIndex = [
-                                        currentIndex
-                                      ];
-                                      return ($state.buyId = currentItem.id);
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-                        },
-                        onClickitemChange: generateStateOnChangeProp($state, [
-                          "subscription",
-                          __plasmic_idx_0,
-                          "clickitem"
-                        ]),
-                        onDiscountChange: generateStateOnChangeProp($state, [
-                          "subscription",
-                          __plasmic_idx_0,
-                          "discount"
-                        ]),
-                        onFullpriceChange: generateStateOnChangeProp($state, [
-                          "subscription",
-                          __plasmic_idx_0,
-                          "fullprice"
-                        ]),
-                        onPriceChange: generateStateOnChangeProp($state, [
-                          "subscription",
-                          __plasmic_idx_0,
-                          "price"
-                        ]),
-                        onTitleChange: generateStateOnChangeProp($state, [
-                          "subscription",
-                          __plasmic_idx_0,
-                          "title"
-                        ]),
-                        price: generateStateValueProp($state, [
-                          "subscription",
-                          __plasmic_idx_0,
-                          "price"
-                        ]),
-                        title: generateStateValueProp($state, [
-                          "subscription",
-                          __plasmic_idx_0,
-                          "title"
-                        ])
-                      };
-
-                      initializePlasmicStates(
-                        $state,
-                        [
-                          {
-                            name: "subscription[].clickitem",
-                            initFunc: ({ $props, $state, $queries }) => false
-                          },
-                          {
-                            name: "subscription[].title",
-                            initFunc: ({ $props, $state, $queries }) =>
-                              (() => {
-                                try {
-                                  return currentItem.title;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                          },
-                          {
-                            name: "subscription[].price",
-                            initFunc: ({ $props, $state, $queries }) =>
-                              (() => {
-                                try {
-                                  return currentItem.price;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return 120000;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                          },
-                          {
-                            name: "subscription[].discount",
-                            initFunc: ({ $props, $state, $queries }) =>
-                              (() => {
-                                try {
-                                  return currentItem.badge
-                                    ? currentItem.badge
-                                    : "";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return 50;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                          },
-                          {
-                            name: "subscription[].fullprice",
-                            initFunc: ({ $props, $state, $queries }) =>
-                              (() => {
-                                try {
-                                  return currentItem.fullPrice
-                                    ? currentItem.fullPrice
-                                    : currentItem.price;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return 0;
-                                  }
-                                  throw e;
-                                }
-                              })()
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
                           }
                         ],
-                        [__plasmic_idx_0]
-                      );
-                      return (
-                        <Subscription
-                          data-plasmic-name={"subscription"}
-                          data-plasmic-override={overrides.subscription}
-                          {...child$Props}
-                        />
-                      );
-                    })();
-                  })}
-                </Stack__>
-                <AntdButton
-                  className={classNames("__wab_instance", sty.button__il1FC)}
-                  onClick={async () => {
-                    const $steps = {};
-
-                    $steps["invokeGlobalAction"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://api.liom.app/hamyar/shopBuy",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    appKey:
-                                      "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq",
-                                    id: $state.buyId,
-                                    offCode: $state.discountCode,
-                                    refCode: $state.refCode
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              (() => {
-                                try {
-                                  return {
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization: $state.tokenUser
-                                    }
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-
-                    $steps["goToPage"] =
-                      $steps.invokeGlobalAction.data.success == true
-                        ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return $steps.invokeGlobalAction.data.result;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__mXcnc
-                    )}
-                  >
-                    {hasVariant(globalVariants, "screen", "mobile") ? (
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (
-                              "فعال سازی " +
-                              $state.subscription2[
-                                $state.subscriptionCurrentIndex
-                              ].title
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    ) : (
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (
-                              "فعال سازی " +
-                              $state.subscription[
-                                $state.subscriptionCurrentIndex
-                              ].title
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    )}
-                  </div>
-                </AntdButton>
-              </AntdModal>
-              <AntdModal
-                data-plasmic-name={"modal2"}
-                data-plasmic-override={overrides.modal2}
-                className={classNames("__wab_instance", sty.modal2)}
-                defaultStylesClassName={classNames(
-                  projectcss.root_reset,
-                  projectcss.plasmic_default_styles,
-                  projectcss.plasmic_mixins,
-                  projectcss.plasmic_tokens,
-                  plasmic_antd_5_hostless_css.plasmic_tokens
-                )}
-                hideFooter={true}
-                modalScopeClassName={sty["modal2__modal"]}
-                onOpenChange={generateStateOnChangeProp($state, [
-                  "modal2",
-                  "open"
-                ])}
-                open={generateStateValueProp($state, ["modal2", "open"])}
-                title={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__qErEs
-                    )}
-                  >
-                    {""}
-                  </div>
-                }
-                trigger={null}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox___2Yox4)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rPgkt
-                    )}
-                  >
-                    {
-                      "\u062e\u0627\u0644\u062f \u062d\u0633\u06cc\u0646\u06cc \u062a\u0648 \u0631\u0645\u0627\u0646 \u0628\u0627\u062f \u0628\u0627\u062f\u06a9 \u0628\u0627\u0632 \u0645\u06cc\u0646\u0648\u06cc\u0633\u0647 : \ufee3\ufeae\ufea9 \ufe81\ufeeb\ufeb4\ufe98\ufeea \ufea9\ufead \ufb94\ufeee\ufeb5 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufe97\ufe8e\ufeaf\ufee9 \ufe91\ufeea \ufe91\ufee0\ufeee\ufecd \ufead\ufeb3\ufbff\ufeaa\ufee9 \ufe8d\ufeb5 \ufe91\ufeae\ufe8d\ufbfc \ufb58\ufee8\ufeaa \ufb7c\ufee8\ufbff\ufee6 \ufee7\ufea0\ufeee\ufe8d \ufb90\ufeae\ufea9 : \u201d \ufb58\ufeb4\ufeae\ufee1 \ufea9\ufead \ufeaf\ufee7\ufeaa\ufb94\ufbfd \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeaf\ufea9\ufbfc \ufee7\ufb91\ufee6 \u201d \ufb58\ufeb4\ufeae \ufee3\ufe98\ufecc\ufea0\ufe90 \ufeed \ufee3\ufe92\ufeec\ufeee\ufe95 \ufe91\ufeea \ufb58\ufeaa\ufead \ufee7\ufb95\ufe8e\ufee9 \ufb90\ufeae\ufea9 \ufe91\ufeaa\ufbfe\ufee6 \ufee3\ufecc\ufee8\ufe8e \ufb90\ufeea \ufe8d\ufeed \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeb3\ufe96 \ufb90\ufe9e \ufee7\ufeaa\ufe8d\ufeb7\ufe98\ufeea \ufb58\ufeaa\ufead \ufe91\ufeea \ufee7\ufb95\ufe8e\ufee9 \ufee3\ufe98\ufecc\ufea0\ufe90 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufedf\ufe92\ufea8\ufee8\ufeaa\ufbfc \ufeaf\ufea9 \ufeed \ufe8d\ufea9\ufe8d\ufee3\ufeea \ufea9\ufe8d\ufea9."
-                    }
-                  </div>
-                </Stack__>
-              </AntdModal>
-            </Stack__>
-            <Embed
-              data-plasmic-name={"embedHtml"}
-              data-plasmic-override={overrides.embedHtml}
-              className={classNames("__wab_instance", sty.embedHtml)}
-              code={
-                "    <script>\r\n        String.prototype.EntoFa = function() {\r\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\r\n        }\r\n        function convertNumbersInPage() {\r\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\r\n            elements.forEach(element => {\r\n                element.childNodes.forEach(node => {\r\n                    if (node.nodeType === Node.TEXT_NODE) {\r\n                        node.nodeValue = node.nodeValue.EntoFa();\r\n                    }\r\n                });\r\n            });\r\n        }\r\n    setTimeout(convertNumbersInPage, 1000);\r\n    </script>"
-              }
-            />
-
-            <ApiRequest
-              data-plasmic-name={"user"}
-              data-plasmic-override={overrides.user}
-              body={(() => {
-                try {
-                  return {
-                    refCode: $state.refCode,
-                    mobile: $state.mobile,
-                    appKey:
-                      "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq"
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              className={classNames("__wab_instance", sty.user)}
-              config={{ headers: { "Content-Type": "application/json" } }}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__q2OHb
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__nEvP
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
-              method={"POST"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["user", "error"]).apply(
-                  null,
-                  eventArgs
-                );
-                (async error => {
-                  const $steps = {};
-
-                  $steps["goTo404"] = true
-                    ? (() => {
-                        const actionArgs = { destination: `/404` };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goTo404"] != null &&
-                    typeof $steps["goTo404"] === "object" &&
-                    typeof $steps["goTo404"].then === "function"
-                  ) {
-                    $steps["goTo404"] = await $steps["goTo404"];
-                  }
-                }).apply(null, eventArgs);
-              }}
-              onLoading={generateStateOnChangeProp($state, ["user", "loading"])}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["user", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-                (async data => {
-                  const $steps = {};
-
-                  $steps["invokeGlobalAction"] = true
-                    ? (() => {
-                        const actionArgs = { args: [5000] };
-                        return $globalActions["Fragment.wait"]?.apply(null, [
-                          ...actionArgs.args
-                        ]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
-                  }
-
-                  $steps["goTo404"] =
-                    $state.user.data.success == false
-                      ? (() => {
-                          const actionArgs = { destination: `/404` };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["goTo404"] != null &&
-                    typeof $steps["goTo404"] === "object" &&
-                    typeof $steps["goTo404"].then === "function"
-                  ) {
-                    $steps["goTo404"] = await $steps["goTo404"];
-                  }
-
-                  $steps["updateTokenUser"] =
-                    $state.user.data.success == true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["tokenUser"]
-                            },
-                            operation: 0,
-                            value: $state.user.data.result.token
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["updateTokenUser"] != null &&
-                    typeof $steps["updateTokenUser"] === "object" &&
-                    typeof $steps["updateTokenUser"].then === "function"
-                  ) {
-                    $steps["updateTokenUser"] = await $steps["updateTokenUser"];
-                  }
-                }).apply(null, eventArgs);
-              }}
-              url={"https://api.liom.app/hamyar/privateCalenderV2"}
-            />
-
-            <ApiRequest
-              data-plasmic-name={"shop"}
-              data-plasmic-override={overrides.shop}
-              body={(() => {
-                try {
-                  return {
-                    refCode: $state.refCode,
-                    appKey:
-                      "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq"
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              className={classNames("__wab_instance", sty.shop)}
-              config={(() => {
-                try {
-                  return {
-                    headers: {
-                      "Content-Type": "application/json",
-                      Authorization: $state.user.data.result.token
-                    }
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__clTda
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___9Xes8
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
-              method={"POST"}
-              onError={generateStateOnChangeProp($state, ["shop", "error"])}
-              onLoading={generateStateOnChangeProp($state, ["shop", "loading"])}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["shop", "data"]).apply(
-                  null,
-                  eventArgs
-                );
-                (async data => {
-                  const $steps = {};
-
-                  $steps["invokeGlobalAction"] = true
-                    ? (() => {
-                        const actionArgs = { args: [5000] };
-                        return $globalActions["Fragment.wait"]?.apply(null, [
-                          ...actionArgs.args
-                        ]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
-                  }
-
-                  $steps["goTo404"] =
-                    $state.shop.data.success == false
-                      ? (() => {
-                          const actionArgs = { destination: `/404` };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["goTo404"] != null &&
-                    typeof $steps["goTo404"] === "object" &&
-                    typeof $steps["goTo404"].then === "function"
-                  ) {
-                    $steps["goTo404"] = await $steps["goTo404"];
-                  }
-                }).apply(null, eventArgs);
-              }}
-              url={"https://api.liom.app/hamyar/shop"}
-            />
-
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__wFGhb)}
-            >
-              <Navbaricon
-                data-plasmic-name={"navbaricon"}
-                data-plasmic-override={overrides.navbaricon}
-                className={classNames("__wab_instance", sty.navbaricon)}
-                click={generateStateValueProp($state, ["navbaricon", "click"])}
-                onClickChange={generateStateOnChangeProp($state, [
-                  "navbaricon",
-                  "click"
-                ])}
-              />
-
-              <Navbaricon2
-                data-plasmic-name={"navbaricon2"}
-                data-plasmic-override={overrides.navbaricon2}
-                className={classNames("__wab_instance", sty.navbaricon2)}
-                click={generateStateValueProp($state, ["navbaricon2", "click"])}
-                onClickChange={generateStateOnChangeProp($state, [
-                  "navbaricon2",
-                  "click"
-                ])}
-              />
-            </Stack__>
-            <SlideinModal
-              data-plasmic-name={"shopModalMobile"}
-              data-plasmic-override={overrides.shopModalMobile}
-              className={classNames("__wab_instance", sty.shopModalMobile)}
-              click={generateStateValueProp($state, [
-                "shopModalMobile",
-                "click"
-              ])}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["updateShopModalWebOpen"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["shopModalWeb", "open"]
+                        ip: 0,
+                        op: 121,
+                        st: 0,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 2,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 17",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 320, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
                         },
-                        operation: 0,
-                        value: false
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateShopModalWebOpen"] != null &&
-                  typeof $steps["updateShopModalWebOpen"] === "object" &&
-                  typeof $steps["updateShopModalWebOpen"].then === "function"
-                ) {
-                  $steps["updateShopModalWebOpen"] = await $steps[
-                    "updateShopModalWebOpen"
-                  ];
-                }
-              }}
-              onClickChange={generateStateOnChangeProp($state, [
-                "shopModalMobile",
-                "click"
-              ])}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__oxDt3)}>
-                {(
-                  hasVariant(globalVariants, "screen", "mobile") ? true : false
-                ) ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__cKFp)}
-                  >
-                    {(_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return $state.shop.data.result;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 10,
+                                      s: [0]
+                                    },
+                                    { t: 40, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
                           }
-                          throw e;
-                        }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (() => {
-                        const child$Props = {
-                          className: classNames(
-                            "__wab_instance",
-                            sty.subscription2
-                          ),
-                          clickitem: generateStateValueProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "clickitem"
-                          ]),
-                          discount: generateStateValueProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "discount"
-                          ]),
-                          fullprice: generateStateValueProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "fullprice"
-                          ]),
-                          key: currentIndex,
-                          onClick: async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        for (
-                                          let i = 0;
-                                          i < $state.subscription2.length;
-                                          i++
-                                        ) {
-                                          $state.subscription2[i].clickitem =
-                                            false;
-                                        }
-                                        $state.subscription2[
-                                          currentIndex
-                                        ].clickitem = true;
-                                        $state.subscriptionCurrentIndex = [
-                                          currentIndex
-                                        ];
-                                        return ($state.buyId = currentItem.id);
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
+                        ],
+                        ip: 0,
+                        op: 121,
+                        st: 10,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 3,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 16",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 300, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 20,
+                                      s: [0]
+                                    },
+                                    { t: 50, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 121,
+                        st: 20,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 4,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 15",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 280, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 30,
+                                      s: [0]
+                                    },
+                                    { t: 60, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 121,
+                        st: 30,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 5,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 14",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 260, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 40,
+                                      s: [0]
+                                    },
+                                    { t: 70, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 121,
+                        st: 40,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 6,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 13",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 240, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 50,
+                                      s: [0]
+                                    },
+                                    { t: 80, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 121,
+                        st: 50,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 7,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 12",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 220, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 60,
+                                      s: [0]
+                                    },
+                                    { t: 90, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 60,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 8,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 11",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 200, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 70,
+                                      s: [0]
+                                    },
+                                    { t: 100, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 70,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 9,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 10",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 180, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 80,
+                                      s: [0]
+                                    },
+                                    { t: 110, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 80,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 10,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 9",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 160, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 90,
+                                      s: [0]
+                                    },
+                                    { t: 120, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 90,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 11,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 8",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 140, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 100,
+                                      s: [0]
+                                    },
+                                    { t: 130, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 100,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 12,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 7",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 120, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 110,
+                                      s: [0]
+                                    },
+                                    { t: 140, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 110,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 13,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 6",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 100, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 120,
+                                      s: [0]
+                                    },
+                                    { t: 150, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 420,
+                        st: 120,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 14,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 5",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 80, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 130,
+                                      s: [0]
+                                    },
+                                    { t: 160, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 430,
+                        st: 130,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 15,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 4",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 60, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 140,
+                                      s: [0]
+                                    },
+                                    { t: 170, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 440,
+                        st: 140,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 16,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 3",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 40, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 150,
+                                      s: [0]
+                                    },
+                                    { t: 180, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 450,
+                        st: 150,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 17,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 2",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 20, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 160,
+                                      s: [0]
+                                    },
+                                    { t: 190, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 460,
+                        st: 160,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 18,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 1",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 0, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 170,
+                                      s: [0]
+                                    },
+                                    { t: 200, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 470,
+                        st: 170,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 19,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 24",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 340, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 180,
+                                      s: [0]
+                                    },
+                                    { t: 210, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 180,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 20,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 23",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 320, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 190,
+                                      s: [0]
+                                    },
+                                    { t: 220, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 190,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 21,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 22",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 300, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 200,
+                                      s: [0]
+                                    },
+                                    { t: 230, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 200,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 22,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 21",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 280, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 210,
+                                      s: [0]
+                                    },
+                                    { t: 240, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 210,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 23,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 20",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 260, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 220,
+                                      s: [0]
+                                    },
+                                    { t: 250, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 220,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 24,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 19",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 240, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 230,
+                                      s: [0]
+                                    },
+                                    { t: 260, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 230,
+                        bm: 0
+                      }
+                    ]
+                  }
+                ],
+                layers: [
+                  {
+                    ddd: 0,
+                    ind: 1,
+                    ty: 0,
+                    nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
+                    refId: "comp_0",
+                    sr: 1,
+                    ks: {
+                      o: { a: 0, k: 100, ix: 11 },
+                      r: { a: 0, k: 0, ix: 10 },
+                      p: { a: 0, k: [400, 300, 0], ix: 2 },
+                      a: { a: 0, k: [400, 300, 0], ix: 1 },
+                      s: { a: 0, k: [100, 100, 100], ix: 6 }
+                    },
+                    ao: 0,
+                    ef: [
+                      {
+                        ty: 5,
+                        nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
+                        np: 4,
+                        mn: "ADBE Simple Choker",
+                        ix: 1,
+                        en: 1,
+                        ef: [
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
+                            mn: "ADBE Simple Choker-0001",
+                            ix: 1,
+                            v: { a: 0, k: 1, ix: 1 }
                           },
-                          onClickitemChange: generateStateOnChangeProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "clickitem"
-                          ]),
-                          onDiscountChange: generateStateOnChangeProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "discount"
-                          ]),
-                          onFullpriceChange: generateStateOnChangeProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "fullprice"
-                          ]),
-                          onPriceChange: generateStateOnChangeProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "price"
-                          ]),
-                          onTitleChange: generateStateOnChangeProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "title"
-                          ]),
-                          price: generateStateValueProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "price"
-                          ]),
-                          title: generateStateValueProp($state, [
-                            "subscription2",
-                            __plasmic_idx_0,
-                            "title"
-                          ])
-                        };
-
-                        initializePlasmicStates(
-                          $state,
-                          [
-                            {
-                              name: "subscription2[].clickitem",
-                              initFunc: ({ $props, $state, $queries }) => false
-                            },
-                            {
-                              name: "subscription2[].title",
-                              initFunc: ({ $props, $state, $queries }) =>
-                                (() => {
-                                  try {
-                                    return currentItem.title;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                            },
-                            {
-                              name: "subscription2[].price",
-                              initFunc: ({ $props, $state, $queries }) =>
-                                (() => {
-                                  try {
-                                    return currentItem.price;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return 120000;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                            },
-                            {
-                              name: "subscription2[].discount",
-                              initFunc: ({ $props, $state, $queries }) =>
-                                (() => {
-                                  try {
-                                    return currentItem.badge
-                                      ? currentItem.badge
-                                      : "";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return 50;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                            },
-                            {
-                              name: "subscription2[].fullprice",
-                              initFunc: ({ $props, $state, $queries }) =>
-                                (() => {
-                                  try {
-                                    return currentItem.fullPrice
-                                      ? currentItem.fullPrice
-                                      : currentItem.price;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return 0;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                            }
-                          ],
-                          [__plasmic_idx_0]
-                        );
-                        return (
-                          <Subscription
-                            data-plasmic-name={"subscription2"}
-                            data-plasmic-override={overrides.subscription2}
-                            {...child$Props}
-                          />
-                        );
-                      })();
-                    })}
-                  </Stack__>
-                ) : null}
-                {(
-                  hasVariant(globalVariants, "screen", "mobile") ? true : false
-                ) ? (
-                  <AntdButton
-                    className={classNames("__wab_instance", sty.button__bq1VS)}
-                    onClick={async () => {
-                      const $steps = {};
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://api.liom.app/hamyar/shopBuy",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      appKey:
-                                        "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq",
-                                      id: $state.buyId,
-                                      offCode: $state.discountCode,
-                                      refCode: $state.refCode
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
-                                (() => {
-                                  try {
-                                    return {
-                                      headers: {
-                                        "Content-Type": "application/json",
-                                        Authorization: $state.tokenUser
-                                      }
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
+                            mn: "ADBE Simple Choker-0002",
+                            ix: 2,
+                            v: { a: 0, k: 14, ix: 2 }
+                          }
+                        ]
+                      },
+                      {
+                        ty: 5,
+                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
+                        np: 10,
+                        mn: "ADBE Ramp",
+                        ix: 2,
+                        en: 1,
+                        ef: [
+                          {
+                            ty: 3,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                            mn: "ADBE Ramp-0001",
+                            ix: 1,
+                            v: { a: 0, k: [400, 0], ix: 1 }
+                          },
+                          {
+                            ty: 2,
+                            nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                            mn: "ADBE Ramp-0002",
+                            ix: 2,
+                            v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
+                          },
+                          {
+                            ty: 3,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                            mn: "ADBE Ramp-0003",
+                            ix: 3,
+                            v: { a: 0, k: [400, 600], ix: 3 }
+                          },
+                          {
+                            ty: 2,
+                            nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                            mn: "ADBE Ramp-0004",
+                            ix: 4,
+                            v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
+                          },
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
+                            mn: "ADBE Ramp-0005",
+                            ix: 5,
+                            v: { a: 0, k: 1, ix: 5 }
+                          },
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
+                            mn: "ADBE Ramp-0006",
+                            ix: 6,
+                            v: { a: 0, k: 0, ix: 6 }
+                          },
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
+                            mn: "ADBE Ramp-0007",
+                            ix: 7,
+                            v: { a: 0, k: 0, ix: 7 }
+                          },
+                          { ty: 6, nm: "", mn: "ADBE Ramp-0008", ix: 8, v: 0 }
+                        ]
                       }
-
-                      $steps["goToPage"] =
-                        $steps.invokeGlobalAction.data.success == true
-                          ? (() => {
-                              const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return $steps.invokeGlobalAction.data
-                                      .result;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "$steps.invokeGlobalAction.data.result";
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
-                      ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
+                    ],
+                    w: 800,
+                    h: 600,
+                    ip: 0,
+                    op: 300,
+                    st: 0,
+                    bm: 0
+                  },
+                  {
+                    ddd: 0,
+                    ind: 2,
+                    ty: 0,
+                    nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
+                    refId: "comp_0",
+                    sr: 1,
+                    ks: {
+                      o: { a: 0, k: 56, ix: 11 },
+                      r: { a: 0, k: 0, ix: 10 },
+                      p: { a: 0, k: [400, 320, 0], ix: 2 },
+                      a: { a: 0, k: [400, 300, 0], ix: 1 },
+                      s: { a: 0, k: [100, 100, 100], ix: 6 }
+                    },
+                    ao: 0,
+                    ef: [
+                      {
+                        ty: 5,
+                        nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
+                        np: 4,
+                        mn: "ADBE Simple Choker",
+                        ix: 1,
+                        en: 1,
+                        ef: [
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
+                            mn: "ADBE Simple Choker-0001",
+                            ix: 1,
+                            v: { a: 0, k: 1, ix: 1 }
+                          },
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
+                            mn: "ADBE Simple Choker-0002",
+                            ix: 2,
+                            v: { a: 0, k: 14, ix: 2 }
+                          }
+                        ]
+                      },
+                      {
+                        ty: 5,
+                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
+                        np: 10,
+                        mn: "ADBE Ramp",
+                        ix: 2,
+                        en: 1,
+                        ef: [
+                          {
+                            ty: 3,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                            mn: "ADBE Ramp-0001",
+                            ix: 1,
+                            v: { a: 0, k: [400, 0], ix: 1 }
+                          },
+                          {
+                            ty: 2,
+                            nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                            mn: "ADBE Ramp-0002",
+                            ix: 2,
+                            v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
+                          },
+                          {
+                            ty: 3,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                            mn: "ADBE Ramp-0003",
+                            ix: 3,
+                            v: { a: 0, k: [400, 600], ix: 3 }
+                          },
+                          {
+                            ty: 2,
+                            nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                            mn: "ADBE Ramp-0004",
+                            ix: 4,
+                            v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
+                          },
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
+                            mn: "ADBE Ramp-0005",
+                            ix: 5,
+                            v: { a: 0, k: 1, ix: 5 }
+                          },
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
+                            mn: "ADBE Ramp-0006",
+                            ix: 6,
+                            v: { a: 0, k: 0, ix: 6 }
+                          },
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
+                            mn: "ADBE Ramp-0007",
+                            ix: 7,
+                            v: { a: 0, k: 0, ix: 7 }
+                          },
+                          { ty: 6, nm: "", mn: "ADBE Ramp-0008", ix: 8, v: 0 }
+                        ]
+                      },
+                      {
+                        ty: 29,
+                        nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00ab\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a",
+                        np: 5,
+                        mn: "ADBE Gaussian Blur 2",
+                        ix: 3,
+                        en: 1,
+                        ef: [
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6",
+                            mn: "ADBE Gaussian Blur 2-0001",
+                            ix: 1,
+                            v: { a: 0, k: 41.3, ix: 1 }
+                          },
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0091",
+                            mn: "ADBE Gaussian Blur 2-0002",
+                            ix: 2,
+                            v: { a: 0, k: 1, ix: 2 }
+                          },
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0087\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bc\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b4\u00c3\u0082\u00c2\u00a0",
+                            mn: "ADBE Gaussian Blur 2-0003",
+                            ix: 3,
+                            v: { a: 0, k: 0, ix: 3 }
+                          }
+                        ]
                       }
-                    }}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__hdsPt
-                      )}
-                    >
-                      {hasVariant(globalVariants, "screen", "mobile") ? (
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (
-                                "فعال سازی " +
-                                $state.subscription2[
-                                  $state.subscriptionCurrentIndex
-                                ].title
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      ) : (
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (
-                                "فعال سازی " +
-                                $state.subscription[
-                                  $state.subscriptionCurrentIndex
-                                ].title
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      )}
-                    </div>
-                  </AntdButton>
-                ) : null}
-              </div>
-            </SlideinModal>
-          </div>
-        ) : null}
-        {(() => {
-          try {
-            return $state.shop.loading && $state.user.loading;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
-            }
-            throw e;
-          }
-        })() ? (
-          <LottieWrapper
-            data-plasmic-name={"lottie"}
-            data-plasmic-override={overrides.lottie}
-            animationData={{
-              v: "5.6.10",
-              fr: 30,
-              ip: 30,
-              op: 210,
-              w: 800,
-              h: 600,
-              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
-              ddd: 0,
-              assets: [
-                {
-                  id: "comp_0",
-                  layers: [
-                    {
-                      ddd: 0,
-                      ind: 1,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 18",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 340, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 0,
-                                    s: [0]
-                                  },
-                                  { t: 30, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 121,
-                      st: 0,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 2,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 17",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 320, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 10,
-                                    s: [0]
-                                  },
-                                  { t: 40, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 121,
-                      st: 10,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 3,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 16",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 300, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 20,
-                                    s: [0]
-                                  },
-                                  { t: 50, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 121,
-                      st: 20,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 4,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 15",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 280, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 30,
-                                    s: [0]
-                                  },
-                                  { t: 60, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 121,
-                      st: 30,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 5,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 14",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 260, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 40,
-                                    s: [0]
-                                  },
-                                  { t: 70, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 121,
-                      st: 40,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 6,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 13",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 240, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 50,
-                                    s: [0]
-                                  },
-                                  { t: 80, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 121,
-                      st: 50,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 7,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 12",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 220, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 60,
-                                    s: [0]
-                                  },
-                                  { t: 90, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 181,
-                      st: 60,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 8,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 11",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 200, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 70,
-                                    s: [0]
-                                  },
-                                  { t: 100, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 181,
-                      st: 70,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 9,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 10",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 180, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 80,
-                                    s: [0]
-                                  },
-                                  { t: 110, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 181,
-                      st: 80,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 10,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 9",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 160, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 90,
-                                    s: [0]
-                                  },
-                                  { t: 120, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 181,
-                      st: 90,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 11,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 8",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 140, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 100,
-                                    s: [0]
-                                  },
-                                  { t: 130, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 181,
-                      st: 100,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 12,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 7",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 120, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 110,
-                                    s: [0]
-                                  },
-                                  { t: 140, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 0,
-                      op: 181,
-                      st: 110,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 13,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 6",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 100, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 120,
-                                    s: [0]
-                                  },
-                                  { t: 150, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 78,
-                      op: 420,
-                      st: 120,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 14,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 5",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 80, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 130,
-                                    s: [0]
-                                  },
-                                  { t: 160, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 78,
-                      op: 430,
-                      st: 130,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 15,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 4",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 60, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 140,
-                                    s: [0]
-                                  },
-                                  { t: 170, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 78,
-                      op: 440,
-                      st: 140,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 16,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 3",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 40, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 150,
-                                    s: [0]
-                                  },
-                                  { t: 180, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 78,
-                      op: 450,
-                      st: 150,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 17,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 2",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 20, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 160,
-                                    s: [0]
-                                  },
-                                  { t: 190, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 78,
-                      op: 460,
-                      st: 160,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 18,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 1",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 0, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 170,
-                                    s: [0]
-                                  },
-                                  { t: 200, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 78,
-                      op: 470,
-                      st: 170,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 19,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 24",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 340, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 180,
-                                    s: [0]
-                                  },
-                                  { t: 210, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 180,
-                      op: 301,
-                      st: 180,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 20,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 23",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 320, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 190,
-                                    s: [0]
-                                  },
-                                  { t: 220, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 180,
-                      op: 301,
-                      st: 190,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 21,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 22",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 300, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 200,
-                                    s: [0]
-                                  },
-                                  { t: 230, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 180,
-                      op: 301,
-                      st: 200,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 22,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 21",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 280, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 210,
-                                    s: [0]
-                                  },
-                                  { t: 240, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 180,
-                      op: 301,
-                      st: 210,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 23,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 20",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 260, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 220,
-                                    s: [0]
-                                  },
-                                  { t: 250, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 180,
-                      op: 301,
-                      st: 220,
-                      bm: 0
-                    },
-                    {
-                      ddd: 0,
-                      ind: 24,
-                      ty: 4,
-                      nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 19",
-                      sr: 1,
-                      ks: {
-                        o: { a: 0, k: 100, ix: 11 },
-                        r: { a: 0, k: 240, ix: 10 },
-                        p: { a: 0, k: [400, 300, 0], ix: 2 },
-                        a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                        s: { a: 0, k: [100, 100, 100], ix: 6 }
-                      },
-                      ao: 0,
-                      shapes: [
-                        {
-                          ty: "gr",
-                          it: [
-                            {
-                              d: 1,
-                              ty: "el",
-                              s: { a: 0, k: [200, 200], ix: 2 },
-                              p: { a: 0, k: [0, 0], ix: 3 },
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Shape - Ellipse",
-                              hd: false
-                            },
-                            {
-                              ty: "tm",
-                              s: { a: 0, k: 0, ix: 1 },
-                              e: { a: 0, k: 5, ix: 2 },
-                              o: {
-                                a: 1,
-                                k: [
-                                  {
-                                    i: { x: [0.667], y: [1] },
-                                    o: { x: [0.333], y: [0] },
-                                    t: 230,
-                                    s: [0]
-                                  },
-                                  { t: 260, s: [120] }
-                                ],
-                                ix: 3
-                              },
-                              m: 1,
-                              ix: 2,
-                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                              mn: "ADBE Vector Filter - Trim",
-                              hd: false
-                            },
-                            {
-                              ty: "st",
-                              c: {
-                                a: 0,
-                                k: [0.5098, 0.3294, 0.7765, 1],
-                                ix: 3
-                              },
-                              o: { a: 0, k: 100, ix: 4 },
-                              w: { a: 0, k: 40, ix: 5 },
-                              lc: 2,
-                              lj: 1,
-                              ml: 4,
-                              bm: 0,
-                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                              mn: "ADBE Vector Graphic - Stroke",
-                              hd: false
-                            },
-                            {
-                              ty: "tr",
-                              p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                              a: { a: 0, k: [0, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100], ix: 3 },
-                              r: { a: 0, k: 0, ix: 6 },
-                              o: { a: 0, k: 100, ix: 7 },
-                              sk: { a: 0, k: 0, ix: 4 },
-                              sa: { a: 0, k: 0, ix: 5 },
-                              nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                            }
-                          ],
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                          np: 4,
-                          cix: 2,
-                          bm: 0,
-                          ix: 1,
-                          mn: "ADBE Vector Group",
-                          hd: false
-                        }
-                      ],
-                      ip: 180,
-                      op: 301,
-                      st: 230,
-                      bm: 0
-                    }
-                  ]
-                }
-              ],
-              layers: [
-                {
-                  ddd: 0,
-                  ind: 1,
-                  ty: 0,
-                  nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
-                  refId: "comp_0",
-                  sr: 1,
-                  ks: {
-                    o: { a: 0, k: 100, ix: 11 },
-                    r: { a: 0, k: 0, ix: 10 },
-                    p: { a: 0, k: [400, 300, 0], ix: 2 },
-                    a: { a: 0, k: [400, 300, 0], ix: 1 },
-                    s: { a: 0, k: [100, 100, 100], ix: 6 }
-                  },
-                  ao: 0,
-                  ef: [
-                    {
-                      ty: 5,
-                      nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
-                      np: 4,
-                      mn: "ADBE Simple Choker",
-                      ix: 1,
-                      en: 1,
-                      ef: [
-                        {
-                          ty: 7,
-                          nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
-                          mn: "ADBE Simple Choker-0001",
-                          ix: 1,
-                          v: { a: 0, k: 1, ix: 1 }
-                        },
-                        {
-                          ty: 0,
-                          nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
-                          mn: "ADBE Simple Choker-0002",
-                          ix: 2,
-                          v: { a: 0, k: 14, ix: 2 }
-                        }
-                      ]
-                    },
-                    {
-                      ty: 5,
-                      nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
-                      np: 10,
-                      mn: "ADBE Ramp",
-                      ix: 2,
-                      en: 1,
-                      ef: [
-                        {
-                          ty: 3,
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
-                          mn: "ADBE Ramp-0001",
-                          ix: 1,
-                          v: { a: 0, k: [400, 0], ix: 1 }
-                        },
-                        {
-                          ty: 2,
-                          nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
-                          mn: "ADBE Ramp-0002",
-                          ix: 2,
-                          v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
-                        },
-                        {
-                          ty: 3,
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
-                          mn: "ADBE Ramp-0003",
-                          ix: 3,
-                          v: { a: 0, k: [400, 600], ix: 3 }
-                        },
-                        {
-                          ty: 2,
-                          nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
-                          mn: "ADBE Ramp-0004",
-                          ix: 4,
-                          v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
-                        },
-                        {
-                          ty: 7,
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
-                          mn: "ADBE Ramp-0005",
-                          ix: 5,
-                          v: { a: 0, k: 1, ix: 5 }
-                        },
-                        {
-                          ty: 0,
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
-                          mn: "ADBE Ramp-0006",
-                          ix: 6,
-                          v: { a: 0, k: 0, ix: 6 }
-                        },
-                        {
-                          ty: 0,
-                          nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
-                          mn: "ADBE Ramp-0007",
-                          ix: 7,
-                          v: { a: 0, k: 0, ix: 7 }
-                        },
-                        { ty: 6, nm: "", mn: "ADBE Ramp-0008", ix: 8, v: 0 }
-                      ]
-                    }
-                  ],
-                  w: 800,
-                  h: 600,
-                  ip: 0,
-                  op: 300,
-                  st: 0,
-                  bm: 0
-                },
-                {
-                  ddd: 0,
-                  ind: 2,
-                  ty: 0,
-                  nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
-                  refId: "comp_0",
-                  sr: 1,
-                  ks: {
-                    o: { a: 0, k: 56, ix: 11 },
-                    r: { a: 0, k: 0, ix: 10 },
-                    p: { a: 0, k: [400, 320, 0], ix: 2 },
-                    a: { a: 0, k: [400, 300, 0], ix: 1 },
-                    s: { a: 0, k: [100, 100, 100], ix: 6 }
-                  },
-                  ao: 0,
-                  ef: [
-                    {
-                      ty: 5,
-                      nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
-                      np: 4,
-                      mn: "ADBE Simple Choker",
-                      ix: 1,
-                      en: 1,
-                      ef: [
-                        {
-                          ty: 7,
-                          nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
-                          mn: "ADBE Simple Choker-0001",
-                          ix: 1,
-                          v: { a: 0, k: 1, ix: 1 }
-                        },
-                        {
-                          ty: 0,
-                          nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
-                          mn: "ADBE Simple Choker-0002",
-                          ix: 2,
-                          v: { a: 0, k: 14, ix: 2 }
-                        }
-                      ]
-                    },
-                    {
-                      ty: 5,
-                      nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
-                      np: 10,
-                      mn: "ADBE Ramp",
-                      ix: 2,
-                      en: 1,
-                      ef: [
-                        {
-                          ty: 3,
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
-                          mn: "ADBE Ramp-0001",
-                          ix: 1,
-                          v: { a: 0, k: [400, 0], ix: 1 }
-                        },
-                        {
-                          ty: 2,
-                          nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
-                          mn: "ADBE Ramp-0002",
-                          ix: 2,
-                          v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
-                        },
-                        {
-                          ty: 3,
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
-                          mn: "ADBE Ramp-0003",
-                          ix: 3,
-                          v: { a: 0, k: [400, 600], ix: 3 }
-                        },
-                        {
-                          ty: 2,
-                          nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
-                          mn: "ADBE Ramp-0004",
-                          ix: 4,
-                          v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
-                        },
-                        {
-                          ty: 7,
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
-                          mn: "ADBE Ramp-0005",
-                          ix: 5,
-                          v: { a: 0, k: 1, ix: 5 }
-                        },
-                        {
-                          ty: 0,
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
-                          mn: "ADBE Ramp-0006",
-                          ix: 6,
-                          v: { a: 0, k: 0, ix: 6 }
-                        },
-                        {
-                          ty: 0,
-                          nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
-                          mn: "ADBE Ramp-0007",
-                          ix: 7,
-                          v: { a: 0, k: 0, ix: 7 }
-                        },
-                        { ty: 6, nm: "", mn: "ADBE Ramp-0008", ix: 8, v: 0 }
-                      ]
-                    },
-                    {
-                      ty: 29,
-                      nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00ab\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a",
-                      np: 5,
-                      mn: "ADBE Gaussian Blur 2",
-                      ix: 3,
-                      en: 1,
-                      ef: [
-                        {
-                          ty: 0,
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6",
-                          mn: "ADBE Gaussian Blur 2-0001",
-                          ix: 1,
-                          v: { a: 0, k: 41.3, ix: 1 }
-                        },
-                        {
-                          ty: 7,
-                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0091",
-                          mn: "ADBE Gaussian Blur 2-0002",
-                          ix: 2,
-                          v: { a: 0, k: 1, ix: 2 }
-                        },
-                        {
-                          ty: 7,
-                          nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0087\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bc\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b4\u00c3\u0082\u00c2\u00a0",
-                          mn: "ADBE Gaussian Blur 2-0003",
-                          ix: 3,
-                          v: { a: 0, k: 0, ix: 3 }
-                        }
-                      ]
-                    }
-                  ],
-                  w: 800,
-                  h: 600,
-                  ip: 0,
-                  op: 300,
-                  st: 0,
-                  bm: 0
-                }
-              ],
-              markers: []
-            }}
-            autoplay={true}
-            className={classNames("__wab_instance", sty.lottie)}
-            loop={true}
-            preview={false}
-          />
-        ) : null}
+                    ],
+                    w: 800,
+                    h: 600,
+                    ip: 0,
+                    op: 300,
+                    st: 0,
+                    bm: 0
+                  }
+                ],
+                markers: []
+              }}
+              autoplay={true}
+              className={classNames("__wab_instance", sty.lottie)}
+              loop={true}
+              preview={false}
+            />
+          ) : null}
+        </div>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;

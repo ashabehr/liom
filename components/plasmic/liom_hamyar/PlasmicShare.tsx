@@ -70,6 +70,11 @@ import HeaderV2 from "../../HeaderV2"; // plasmic-import: IYTV9bVTkPai/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
+import {
+  ThemeValue,
+  useTheme
+} from "../todo_mvc_app/PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -217,6 +222,10 @@ function PlasmicShare__RenderFunc(props: {
     $queries = new$Queries;
   }
 
+  const globalVariants = ensureGlobalVariants({
+    theme: useTheme()
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -239,13 +248,26 @@ function PlasmicShare__RenderFunc(props: {
           projectcss.plasmic_mixins,
           projectcss.plasmic_tokens,
           plasmic_antd_5_hostless_css.plasmic_tokens,
-          sty.root
+          sty.root,
+          {
+            [sty.rootglobal_theme_dark]: hasVariant(
+              globalVariants,
+              "theme",
+              "dark"
+            )
+          }
         )}
       >
         <HeaderV2
           data-plasmic-name={"headerV2"}
           data-plasmic-override={overrides.headerV2}
-          className={classNames("__wab_instance", sty.headerV2)}
+          className={classNames("__wab_instance", sty.headerV2, {
+            [sty.headerV2global_theme_dark]: hasVariant(
+              globalVariants,
+              "theme",
+              "dark"
+            )
+          })}
         />
 
         {(() => {
@@ -261,13 +283,28 @@ function PlasmicShare__RenderFunc(props: {
             throw e;
           }
         })() ? (
-          <div className={classNames(projectcss.all, sty.freeBox___6CnX5)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox___6CnX5, {
+              [sty.freeBoxglobal_theme_dark___6CnX5FQxap]: hasVariant(
+                globalVariants,
+                "theme",
+                "dark"
+              )
+            })}
+          >
             <div className={classNames(projectcss.all, sty.freeBox___5LpC3)}>
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__yf1Sb
+                  sty.text__yf1Sb,
+                  {
+                    [sty.textglobal_theme_dark__yf1SbfQxap]: hasVariant(
+                      globalVariants,
+                      "theme",
+                      "dark"
+                    )
+                  }
                 )}
               >
                 {
