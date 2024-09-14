@@ -62,7 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
-import CirclePeriod from "../../CirclePeriod"; // plasmic-import: 0YRuqpiPCu7q/component
+import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
@@ -103,8 +103,9 @@ export const PlasmicHamyar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHamyar__OverridesType = {
   root?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
   switchbest?: Flex__<typeof Switchbest>;
-  circlePeriod?: Flex__<typeof CirclePeriod>;
+  cyclebox?: Flex__<typeof Cyclebox>;
   input?: Flex__<typeof AntdInput>;
   reveal?: Flex__<typeof Reveal>;
   useful?: Flex__<typeof Useful>;
@@ -436,25 +437,6 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
-        path: "circlePeriod.cycle",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.user.data.result.userStatus.periodStatus;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
         path: "useful[].icon",
         type: "private",
         variableType: "text"
@@ -479,6 +461,100 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "harmful[].icon",
         type: "private",
         variableType: "text"
+      },
+      {
+        path: "cyclebox.pms",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if ($state.cyclebox.cycle == "pms") {
+                  return true;
+                } else {
+                  return false;
+                }
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "cyclebox.fertility",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if ($state.cyclebox.cycle == "fertility") {
+                  return true;
+                } else {
+                  return false;
+                }
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "cyclebox.period",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if ($state.cyclebox.cycle == "period") {
+                  return true;
+                } else {
+                  return false;
+                }
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "cyclebox.cycle",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.user.data.result.userStatus.periodStatus;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -545,8 +621,10 @@ function PlasmicHamyar__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.freeBox__d2GZw)}
                 >
                   <PlasmicImg__
+                    data-plasmic-name={"img"}
+                    data-plasmic-override={overrides.img}
                     alt={""}
-                    className={classNames(sty.img__grb0Y)}
+                    className={classNames(sty.img)}
                     displayHeight={"50px"}
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}
@@ -645,259 +723,119 @@ function PlasmicHamyar__RenderFunc(props: {
                     "\u062f\u0648\u0631\u0647 \u062c\u0627\u0631\u06cc \u062f\u0631 \u06cc\u06a9 \u0646\u06af\u0627\u0647 : "
                   }
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__y17Gh)}>
+                <Cyclebox
+                  data-plasmic-name={"cyclebox"}
+                  data-plasmic-override={overrides.cyclebox}
+                  className={classNames("__wab_instance", sty.cyclebox)}
+                  cycle={generateStateValueProp($state, ["cyclebox", "cycle"])}
+                  fertility={generateStateValueProp($state, [
+                    "cyclebox",
+                    "fertility"
+                  ])}
+                  onCycleChange={generateStateOnChangeProp($state, [
+                    "cyclebox",
+                    "cycle"
+                  ])}
+                  onFertilityChange={generateStateOnChangeProp($state, [
+                    "cyclebox",
+                    "fertility"
+                  ])}
+                  onPeriodChange={generateStateOnChangeProp($state, [
+                    "cyclebox",
+                    "period"
+                  ])}
+                  onPmsChange={generateStateOnChangeProp($state, [
+                    "cyclebox",
+                    "pms"
+                  ])}
+                  period={generateStateValueProp($state, [
+                    "cyclebox",
+                    "period"
+                  ])}
+                  pms={generateStateValueProp($state, ["cyclebox", "pms"])}
+                  userData={$state.userData}
+                >
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__p1Bc2)}
+                    className={classNames(projectcss.all, sty.freeBox__psqU)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__gejpv)}
-                    >
-                      <CirclePeriod
-                        data-plasmic-name={"circlePeriod"}
-                        data-plasmic-override={overrides.circlePeriod}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.circlePeriod
-                        )}
-                        cycle={generateStateValueProp($state, [
-                          "circlePeriod",
-                          "cycle"
-                        ])}
-                        fertility={(() => {
-                          try {
-                            return (() => {
-                              if ($state.circlePeriod.cycle == "fertility") {
-                                return true;
-                              } else {
-                                return false;
-                              }
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()}
-                        onCycleChange={generateStateOnChangeProp($state, [
-                          "circlePeriod",
-                          "cycle"
-                        ])}
-                        period={(() => {
-                          try {
-                            return (() => {
-                              if ($state.circlePeriod.cycle == "period") {
-                                return true;
-                              } else {
-                                return false;
-                              }
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()}
-                        pms={(() => {
-                          try {
-                            return (() => {
-                              if ($state.circlePeriod.cycle == "pms") {
-                                return true;
-                              } else {
-                                return false;
-                              }
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [];
-                            }
-                            throw e;
-                          }
-                        })()}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__f8KI9
-                        )}
-                      >
-                        {hasVariant(globalVariants, "screen", "mobile") ? (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  switch (
-                                    $state.user.data.result.userStatus
-                                      .periodStatus
-                                  ) {
-                                    case null:
-                                      return (
-                                        $state.user.data.result.user.name +
-                                        " الان در وضعیت عادی است."
-                                      );
-                                    case "fertility":
-                                      return (
-                                        $state.user.data.result.user.name +
-                                        " الان در وضعیت تخمک گذاری است."
-                                      );
-                                    case "pms":
-                                      return (
-                                        $state.user.data.result.user.name +
-                                        " الان در وضعیت pms است."
-                                      );
-                                    case "period":
-                                      return (
-                                        $state.user.data.result.user.name +
-                                        " الان در وضعیت پریود است."
-                                      );
-                                    default:
-                                      return "وضعیت فعلی";
-                                  }
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "lgd;h";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        ) : (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  switch (
-                                    $state.user.data.result.userStatus
-                                      .periodStatus
-                                  ) {
-                                    case null:
-                                      return (
-                                        $state.user.data.result.user.name +
-                                        " الان در وضعیت عادی است."
-                                      );
-                                    case "fertility":
-                                      return (
-                                        $state.user.data.result.user.name +
-                                        " الان در وضعیت تخمک گذاری است."
-                                      );
-                                    case "pms":
-                                      return (
-                                        $state.user.data.result.user.name +
-                                        " الان در وضعیت pms است."
-                                      );
-                                    case "period":
-                                      return (
-                                        $state.user.data.result.user.name +
-                                        " الان در وضعیت پریود است."
-                                      );
-                                    default:
-                                      return "وضعیت فعلی";
-                                  }
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0645\u0644\u06cc\u06a9\u0627 \u0627\u0644\u0627\u0646 \u062f\u0631 \u0648\u0636\u0639\u06cc\u062a pms \u0627\u0633\u062a ";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        )}
-                      </div>
-                    </Stack__>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__lxj56)}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__in0Fg
+                      )}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__liau
-                        )}
-                      >
-                        {
-                          "\u0637\u0648\u0644 \u0627\u06cc\u0646 \u0648\u0636\u0639\u06cc\u062a :  "
-                        }
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___3GtB9
-                        )}
-                      >
-                        {"5 \u0631\u0648\u0632"}
-                      </div>
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (() => {
+                              switch (
+                                $state.user.data.result.userStatus.periodStatus
+                              ) {
+                                case null:
+                                  return (
+                                    $state.user.data.result.user.name +
+                                    " الان در وضعیت عادی است."
+                                  );
+                                case "fertility":
+                                  return (
+                                    $state.user.data.result.user.name +
+                                    " الان در وضعیت تخمک گذاری است."
+                                  );
+                                case "pms":
+                                  return (
+                                    $state.user.data.result.user.name +
+                                    " الان در وضعیت pms است."
+                                  );
+                                case "period":
+                                  return (
+                                    $state.user.data.result.user.name +
+                                    " الان در وضعیت پریود است."
+                                  );
+                                default:
+                                  return "وضعیت فعلی";
+                              }
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0645\u0644\u06cc\u06a9\u0627 \u0627\u0644\u0627\u0646 \u062f\u0631 \u0648\u0636\u0639\u06cc\u062a pms \u0627\u0633\u062a ";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
                     </div>
                   </Stack__>
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      projectcss.__wab_text,
-                      sty.link__qN6A
-                    )}
-                    component={Link}
-                    platform={"nextjs"}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__x0T2T)}
                   >
-                    <React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ color: "#D1C6FF" }}
-                      >
-                        {"pms \u0686\u06cc\u0633\u062a \u061f "}
-                      </span>
-                    </React.Fragment>
-                  </PlasmicLink__>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img___3LnQl)}
-                    displayHeight={
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? "85px"
-                        : "150px"
-                    }
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? "85px"
-                        : "150px"
-                    }
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/_72508101Png.png",
-                      fullWidth: 491,
-                      fullHeight: 450,
-                      aspectRatio: undefined
-                    }}
-                  />
-                </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__dy6B
+                      )}
+                    >
+                      {
+                        "\u0637\u0648\u0644 \u0627\u06cc\u0646 \u0648\u0636\u0639\u06cc\u062a :  "
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__a9P1
+                      )}
+                    >
+                      {"5 \u0631\u0648\u0632"}
+                    </div>
+                  </div>
+                </Cyclebox>
                 <Stack__
                   as={"div"}
                   hasGap={true}
@@ -1547,7 +1485,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                             redirectUrl:
                                               "https://apps.liom.app/hamyar?refCode=" +
                                               $state.refCode +
-                                              "$mobile=" +
+                                              "&mobile=" +
                                               $state.mobile
                                           };
                                         } catch (e) {
@@ -1665,7 +1603,7 @@ function PlasmicHamyar__RenderFunc(props: {
                             sty.link__fOJjS
                           )}
                           component={Link}
-                          href={"https://www.plasmic.app/"}
+                          href={""}
                           onClick={async event => {
                             const $steps = {};
 
@@ -6115,8 +6053,9 @@ function PlasmicHamyar__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "img",
     "switchbest",
-    "circlePeriod",
+    "cyclebox",
     "input",
     "reveal",
     "useful",
@@ -6133,8 +6072,9 @@ const PlasmicDescendants = {
     "subscription2",
     "lottie"
   ],
+  img: ["img"],
   switchbest: ["switchbest"],
-  circlePeriod: ["circlePeriod"],
+  cyclebox: ["cyclebox"],
   input: ["input"],
   reveal: ["reveal", "useful"],
   useful: ["useful"],
@@ -6156,8 +6096,9 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  img: typeof PlasmicImg__;
   switchbest: typeof Switchbest;
-  circlePeriod: typeof CirclePeriod;
+  cyclebox: typeof Cyclebox;
   input: typeof AntdInput;
   reveal: typeof Reveal;
   useful: typeof Useful;
@@ -6260,8 +6201,9 @@ export const PlasmicHamyar = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    img: makeNodeComponent("img"),
     switchbest: makeNodeComponent("switchbest"),
-    circlePeriod: makeNodeComponent("circlePeriod"),
+    cyclebox: makeNodeComponent("cyclebox"),
     input: makeNodeComponent("input"),
     reveal: makeNodeComponent("reveal"),
     useful: makeNodeComponent("useful"),

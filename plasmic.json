@@ -374,6 +374,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/expired"
+        },
+        {
+          "id": "47YEdMGPo49m",
+          "name": "Cyclebox",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCyclebox.tsx",
+          "importSpec": {
+            "modulePath": "Cyclebox.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCyclebox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
