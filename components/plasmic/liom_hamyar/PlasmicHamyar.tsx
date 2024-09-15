@@ -3464,33 +3464,35 @@ function PlasmicHamyar__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["updateTokenUser"] =
-                      $state.user.data.success == true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["tokenUser"]
-                              },
-                              operation: 0,
-                              value: $state.user.data.result.token
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
+                    $steps["updateTokenUser"] = (() => {
+                      if ($state.user.data.success == null) return false;
+                      else return $state.user.data.success;
+                    })()
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["tokenUser"]
+                            },
+                            operation: 0,
+                            value: $state.user.data.result.token
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                     if (
                       $steps["updateTokenUser"] != null &&
                       typeof $steps["updateTokenUser"] === "object" &&
@@ -3501,24 +3503,29 @@ function PlasmicHamyar__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["goToExpired"] =
-                      !$state.user.data.success == true
-                        ? (() => {
-                            const actionArgs = { destination: `/expired` };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                    $steps["goToExpired"] = (() => {
+                      if ($state.user.data.success == null) {
+                        return false;
+                      } else if ($state.user.data.success == false) {
+                        return false;
+                      } else return true;
+                    })()
+                      ? (() => {
+                          const actionArgs = { destination: `/expired` };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                     if (
                       $steps["goToExpired"] != null &&
                       typeof $steps["goToExpired"] === "object" &&
@@ -3527,7 +3534,7 @@ function PlasmicHamyar__RenderFunc(props: {
                       $steps["goToExpired"] = await $steps["goToExpired"];
                     }
 
-                    $steps["updateLoading"] = true
+                    $steps["updateSwitchbestIsChecked2"] = true
                       ? (() => {
                           const actionArgs = {
                             variable: {
@@ -3554,11 +3561,15 @@ function PlasmicHamyar__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["updateLoading"] != null &&
-                      typeof $steps["updateLoading"] === "object" &&
-                      typeof $steps["updateLoading"].then === "function"
+                      $steps["updateSwitchbestIsChecked2"] != null &&
+                      typeof $steps["updateSwitchbestIsChecked2"] ===
+                        "object" &&
+                      typeof $steps["updateSwitchbestIsChecked2"].then ===
+                        "function"
                     ) {
-                      $steps["updateLoading"] = await $steps["updateLoading"];
+                      $steps["updateSwitchbestIsChecked2"] = await $steps[
+                        "updateSwitchbestIsChecked2"
+                      ];
                     }
                   }).apply(null, eventArgs);
                 }}
@@ -3639,49 +3650,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   );
                   (async data => {
                     const $steps = {};
-
-                    $steps["invokeGlobalAction"] = true
-                      ? (() => {
-                          const actionArgs = { args: [3000] };
-                          return $globalActions["Fragment.wait"]?.apply(null, [
-                            ...actionArgs.args
-                          ]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-
-                    $steps["goToExpired"] = !$state.shop.data.success
-                      ? (() => {
-                          const actionArgs = { destination: `/expired` };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToExpired"] != null &&
-                      typeof $steps["goToExpired"] === "object" &&
-                      typeof $steps["goToExpired"].then === "function"
-                    ) {
-                      $steps["goToExpired"] = await $steps["goToExpired"];
-                    }
                   }).apply(null, eventArgs);
                 }}
                 url={"https://api.liom.app/hamyar/shop"}
