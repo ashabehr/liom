@@ -656,56 +656,6 @@ function PlasmicHamyar__RenderFunc(props: {
           )}
           onLoad={async event => {
             const $steps = {};
-
-            $steps["invokeGlobalAction"] =
-              $ctx.query.status == true
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        undefined,
-                        "\u067e\u0631\u062f\u0627\u062e\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0634\u062f.",
-                        undefined,
-                        5000
-                      ]
-                    };
-                    return $globalActions["Fragment.showToast"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-            if (
-              $steps["invokeGlobalAction"] != null &&
-              typeof $steps["invokeGlobalAction"] === "object" &&
-              typeof $steps["invokeGlobalAction"].then === "function"
-            ) {
-              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
-            }
-
-            $steps["invokeGlobalAction2"] =
-              $ctx.query.status == false
-                ? (() => {
-                    const actionArgs = {
-                      args: [
-                        "error",
-                        "\u067e\u0631\u062f\u0627\u062e\u062a \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0646\u0634\u062f .",
-                        undefined,
-                        5000
-                      ]
-                    };
-                    return $globalActions["Fragment.showToast"]?.apply(null, [
-                      ...actionArgs.args
-                    ]);
-                  })()
-                : undefined;
-            if (
-              $steps["invokeGlobalAction2"] != null &&
-              typeof $steps["invokeGlobalAction2"] === "object" &&
-              typeof $steps["invokeGlobalAction2"].then === "function"
-            ) {
-              $steps["invokeGlobalAction2"] = await $steps[
-                "invokeGlobalAction2"
-              ];
-            }
           }}
         >
           {(
@@ -3604,24 +3554,6 @@ function PlasmicHamyar__RenderFunc(props: {
                       $steps["goToExpired"] = await $steps["goToExpired"];
                     }
 
-                    $steps["invokeGlobalAction2"] = true
-                      ? (() => {
-                          const actionArgs = { args: [2000] };
-                          return $globalActions["Fragment.wait"]?.apply(null, [
-                            ...actionArgs.args
-                          ]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction2"] != null &&
-                      typeof $steps["invokeGlobalAction2"] === "object" &&
-                      typeof $steps["invokeGlobalAction2"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
-                    }
-
                     $steps["updateSwitchbestIsChecked2"] = true
                       ? (() => {
                           const actionArgs = {
@@ -3657,6 +3589,60 @@ function PlasmicHamyar__RenderFunc(props: {
                     ) {
                       $steps["updateSwitchbestIsChecked2"] = await $steps[
                         "updateSwitchbestIsChecked2"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction2"] =
+                      $ctx.query.status == true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                undefined,
+                                "\u067e\u0631\u062f\u0627\u062e\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0634\u062f",
+                                undefined,
+                                10000
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                    if (
+                      $steps["invokeGlobalAction2"] != null &&
+                      typeof $steps["invokeGlobalAction2"] === "object" &&
+                      typeof $steps["invokeGlobalAction2"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction2"] = await $steps[
+                        "invokeGlobalAction2"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction3"] =
+                      $ctx.query.status == false
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "error",
+                                "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642",
+                                undefined,
+                                10000
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                    if (
+                      $steps["invokeGlobalAction3"] != null &&
+                      typeof $steps["invokeGlobalAction3"] === "object" &&
+                      typeof $steps["invokeGlobalAction3"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction3"] = await $steps[
+                        "invokeGlobalAction3"
                       ];
                     }
                   }).apply(null, eventArgs);
