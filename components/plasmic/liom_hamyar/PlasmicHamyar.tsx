@@ -246,7 +246,7 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? true : false
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
       },
       {
         path: "user.data",
@@ -654,6 +654,59 @@ function PlasmicHamyar__RenderFunc(props: {
             plasmic_antd_5_hostless_css.plasmic_tokens,
             sty.root
           )}
+          onLoad={async event => {
+            const $steps = {};
+
+            $steps["invokeGlobalAction"] =
+              $ctx.query.status == true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        "\u067e\u0631\u062f\u0627\u062e\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0634\u062f.",
+                        undefined,
+                        5000
+                      ]
+                    };
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+            if (
+              $steps["invokeGlobalAction"] != null &&
+              typeof $steps["invokeGlobalAction"] === "object" &&
+              typeof $steps["invokeGlobalAction"].then === "function"
+            ) {
+              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+            }
+
+            $steps["invokeGlobalAction2"] =
+              $ctx.query.status == false
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "error",
+                        "\u067e\u0631\u062f\u0627\u062e\u062a \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0646\u062c\u0627\u0645 \u0646\u0634\u062f .",
+                        undefined,
+                        5000
+                      ]
+                    };
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+            if (
+              $steps["invokeGlobalAction2"] != null &&
+              typeof $steps["invokeGlobalAction2"] === "object" &&
+              typeof $steps["invokeGlobalAction2"].then === "function"
+            ) {
+              $steps["invokeGlobalAction2"] = await $steps[
+                "invokeGlobalAction2"
+              ];
+            }
+          }}
         >
           {(
             hasVariant(globalVariants, "screen", "mobile")
@@ -2874,22 +2927,39 @@ function PlasmicHamyar__RenderFunc(props: {
                             {
                               name: "subscription[].discount",
                               initFunc: ({ $props, $state, $queries }) =>
-                                (() => {
-                                  try {
-                                    return currentItem.badge
-                                      ? currentItem.badge
-                                      : "";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return 50;
-                                    }
-                                    throw e;
-                                  }
-                                })()
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? (() => {
+                                      try {
+                                        return currentItem.badge
+                                          ? currentItem.badge
+                                          : "";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return ``;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  : (() => {
+                                      try {
+                                        return currentItem.badge
+                                          ? currentItem.badge
+                                          : "";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return 50;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
                             },
                             {
                               name: "subscription[].fullprice",
@@ -3505,10 +3575,10 @@ function PlasmicHamyar__RenderFunc(props: {
 
                     $steps["goToExpired"] = (() => {
                       if ($state.user.data.success == null) {
-                        return false;
+                        return true;
                       } else if ($state.user.data.success == false) {
-                        return false;
-                      } else return true;
+                        return true;
+                      } else return false;
                     })()
                       ? (() => {
                           const actionArgs = { destination: `/expired` };
@@ -3532,6 +3602,24 @@ function PlasmicHamyar__RenderFunc(props: {
                       typeof $steps["goToExpired"].then === "function"
                     ) {
                       $steps["goToExpired"] = await $steps["goToExpired"];
+                    }
+
+                    $steps["invokeGlobalAction2"] = true
+                      ? (() => {
+                          const actionArgs = { args: [2000] };
+                          return $globalActions["Fragment.wait"]?.apply(null, [
+                            ...actionArgs.args
+                          ]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction2"] != null &&
+                      typeof $steps["invokeGlobalAction2"] === "object" &&
+                      typeof $steps["invokeGlobalAction2"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction2"] = await $steps[
+                        "invokeGlobalAction2"
+                      ];
                     }
 
                     $steps["updateSwitchbestIsChecked2"] = true
@@ -3923,7 +4011,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                         e?.plasmicType ===
                                           "PlasmicUndefinedDataError"
                                       ) {
-                                        return 50;
+                                        return ``;
                                       }
                                       throw e;
                                     }

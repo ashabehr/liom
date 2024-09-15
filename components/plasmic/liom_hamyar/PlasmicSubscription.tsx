@@ -262,7 +262,8 @@ function PlasmicSubscription__RenderFunc(props: {
         className={classNames(
           projectcss.all,
           projectcss.__wab_text,
-          sty.text__mc1I3
+          sty.text__mc1I3,
+          { [sty.textclick__mc1I3Rb9KL]: hasVariant($state, "click", "click") }
         )}
       >
         <React.Fragment>
@@ -398,7 +399,21 @@ function PlasmicSubscription__RenderFunc(props: {
             )}
           >
             {hasVariant($state, "click", "click") ? (
-              "50%"
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.discount;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "50%";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             ) : (
               <React.Fragment>
                 {(() => {

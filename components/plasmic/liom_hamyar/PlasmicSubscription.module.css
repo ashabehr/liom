@@ -38,6 +38,14 @@
   font-weight: 600;
   font-size: var(--token-2xQ-Ews6Hwx4);
 }
+@media (max-width: 640px) {
+  .text__mc1I3 {
+    width: auto;
+  }
+}
+.textclick__mc1I3Rb9KL {
+  width: auto;
+}
 .text__a63Et {
   position: relative;
   width: auto;
@@ -63,6 +71,9 @@
   top: auto;
   z-index: 1;
   align-self: baseline;
+}
+.textclick__xfSxqRb9KL {
+  text-align: left;
 }
 .freeBox {
   display: flex;
