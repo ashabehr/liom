@@ -92,6 +92,7 @@ export type PlasmicButton__VariantMembers = {
     | "softSand"
     | "clear"
     | "link";
+  unnamedVariant: "unnamedVariant";
 };
 export type PlasmicButton__VariantsArgs = {
   showStartIcon?: SingleBooleanChoiceArg<"showStartIcon">;
@@ -99,7 +100,7 @@ export type PlasmicButton__VariantsArgs = {
   isDisabled?: SingleBooleanChoiceArg<"isDisabled">;
   shape?: SingleChoiceArg<"rounded" | "round" | "sharp">;
   size?: SingleChoiceArg<"compact" | "minimal">;
-  color?: SingleChoiceArg<
+  color?: MultiChoiceArg<
     | "blue"
     | "green"
     | "yellow"
@@ -114,6 +115,7 @@ export type PlasmicButton__VariantsArgs = {
     | "clear"
     | "link"
   >;
+  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
 };
 type VariantPropType = keyof PlasmicButton__VariantsArgs;
 export const PlasmicButton__VariantProps = new Array<VariantPropType>(
@@ -122,7 +124,8 @@ export const PlasmicButton__VariantProps = new Array<VariantPropType>(
   "isDisabled",
   "shape",
   "size",
-  "color"
+  "color",
+  "unnamedVariant"
 );
 
 export type PlasmicButton__ArgsType = {
@@ -132,6 +135,7 @@ export type PlasmicButton__ArgsType = {
   link?: string;
   submitsForm?: boolean;
   target?: boolean;
+  onColorChange?: (val: any) => void;
 };
 type ArgPropType = keyof PlasmicButton__ArgsType;
 export const PlasmicButton__ArgProps = new Array<ArgPropType>(
@@ -140,7 +144,8 @@ export const PlasmicButton__ArgProps = new Array<ArgPropType>(
   "endIcon",
   "link",
   "submitsForm",
-  "target"
+  "target",
+  "onColorChange"
 );
 
 export type PlasmicButton__OverridesType = {
@@ -153,9 +158,10 @@ export type PlasmicButton__OverridesType = {
 export interface DefaultButtonProps extends pp.BaseButtonProps {
   submitsForm?: boolean;
   target?: boolean;
+  onColorChange?: (val: any) => void;
   shape?: SingleChoiceArg<"rounded" | "round" | "sharp">;
   size?: SingleChoiceArg<"compact" | "minimal">;
-  color?: SingleChoiceArg<
+  color?: MultiChoiceArg<
     | "blue"
     | "green"
     | "yellow"
@@ -170,6 +176,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
     | "clear"
     | "link"
   >;
+  unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
 }
 
 const $$ = {};
@@ -246,9 +253,17 @@ function PlasmicButton__RenderFunc(props: {
       },
       {
         path: "color",
+        type: "writable",
+        variableType: "variant",
+
+        valueProp: "color",
+        onChangeProp: "onColorChange"
+      },
+      {
+        path: "unnamedVariant",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.color
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.unnamedVariant
       }
     ],
     [$props, $ctx, $refs]

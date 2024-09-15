@@ -65,6 +65,7 @@ import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/compo
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Useful from "../../Useful"; // plasmic-import: 2qiQ4nSmOYBA/component
@@ -89,6 +90,8 @@ import sty from "./PlasmicHamyar.module.css"; // plasmic-import: TOxGOz1ONYz_/cs
 import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: 8spC6Q9XOGVd/icon
 import Icon4Icon from "./icons/PlasmicIcon__Icon4"; // plasmic-import: halWdf8bhZV9/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon2Icon from "../todo_mvc_app/icons/PlasmicIcon__Icon2"; // plasmic-import: EwJmqOfKx7up/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 
 createPlasmicElementProxy;
@@ -108,12 +111,14 @@ export type PlasmicHamyar__OverridesType = {
   switchbest?: Flex__<typeof Switchbest>;
   cyclebox?: Flex__<typeof Cyclebox>;
   input?: Flex__<typeof AntdInput>;
+  button?: Flex__<typeof Button>;
   reveal?: Flex__<typeof Reveal>;
   useful?: Flex__<typeof Useful>;
   harmful?: Flex__<typeof Harmful>;
   shopModalWeb?: Flex__<typeof AntdModal>;
   subscription?: Flex__<typeof Subscription>;
   modal2?: Flex__<typeof AntdModal>;
+  modal3?: Flex__<typeof AntdModal>;
   embedHtml?: Flex__<typeof Embed>;
   user?: Flex__<typeof ApiRequest>;
   shop?: Flex__<typeof ApiRequest>;
@@ -240,7 +245,8 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "modal2.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? true : false
       },
       {
         path: "user.data",
@@ -543,19 +549,33 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.user.data.result.userStatus.periodStatus;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+          hasVariant(globalVariants, "screen", "mobile")
+            ? (() => {
+                try {
+                  return $state.user.data.result.userStatus.periodStatus;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return $state.user.data.result.userStatus.periodStatus;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
       },
       {
         path: "loading",
@@ -581,6 +601,19 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "modal3.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -622,19 +655,43 @@ function PlasmicHamyar__RenderFunc(props: {
             sty.root
           )}
         >
-          {(() => {
-            try {
-              return !($state.shop.loading && $state.user.loading);
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
+          {(
+            hasVariant(globalVariants, "screen", "mobile")
+              ? (() => {
+                  try {
+                    return !(
+                      $state.shop.loading &&
+                      $state.user.loading &&
+                      $state.loading
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+              : (() => {
+                  try {
+                    return !(
+                      $state.shop.loading &&
+                      $state.user.loading &&
+                      $state.loading
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
             <div className={classNames(projectcss.all, sty.freeBox__kJv6J)}>
               <Stack__
                 as={"div"}
@@ -758,6 +815,45 @@ function PlasmicHamyar__RenderFunc(props: {
                     "cyclebox",
                     "fertility"
                   ])}
+                  onClickDescription={async event => {
+                    const $steps = {};
+
+                    $steps["updateModal3Open"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["modal3", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateModal3Open"] != null &&
+                      typeof $steps["updateModal3Open"] === "object" &&
+                      typeof $steps["updateModal3Open"].then === "function"
+                    ) {
+                      $steps["updateModal3Open"] = await $steps[
+                        "updateModal3Open"
+                      ];
+                    }
+                  }}
                   onCycleChange={generateStateOnChangeProp($state, [
                     "cyclebox",
                     "cycle"
@@ -1062,9 +1158,9 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.text__uvPii
                         )}
                       >
-                        {
-                          "\u062e\u0627\u0644\u062f \u062d\u0633\u06cc\u0646\u06cc \u062a\u0648 \u0631\u0645\u0627\u0646 \u0628\u0627\u062f \u0628\u0627\u062f\u06a9 \u0628\u0627\u0632 \u0645\u06cc\u0646\u0648\u06cc\u0633\u0647 : \ufee3\ufeae\ufea9 \ufe81\ufeeb\ufeb4\ufe98\ufeea \ufea9\ufead \ufb94\ufeee\ufeb5 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufe97\ufe8e\ufeaf\ufee9 \ufe91\ufeea \ufe91\ufee0\ufeee\ufecd \ufead\ufeb3\ufbff\ufeaa\ufee9 \ufe8d\ufeb5 \ufe91\ufeae\ufe8d\ufbfc \ufb58\ufee8\ufeaa \ufb7c\ufee8\ufbff\ufee6 \ufee7\ufea0\ufeee\ufe8d \ufb90\ufeae\ufea9 : \u201d \ufb58\ufeb4\ufeae\ufee1 \ufea9\ufead \ufeaf\ufee7\ufeaa\ufb94\ufbfd \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeaf\ufea9\ufbfc \ufee7\ufb91\ufee6 \u201d \ufb58\ufeb4\ufeae \ufee3\ufe98\ufecc\ufea0\ufe90 \ufeed \ufee3\ufe92\ufeec\ufeee\ufe95 \ufe91\ufeea \ufb58\ufeaa\ufead \ufee7\ufb95\ufe8e\ufee9 \ufb90\ufeae\ufea9 \ufe91\ufeaa\ufbfe\ufee6 \ufee3\ufecc\ufee8\ufe8e \ufb90\ufeea \ufe8d\ufeed \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeb3\ufe96 \ufb90\ufe9e \ufee7\ufeaa\ufe8d\ufeb7\ufe98\ufeea \ufb58\ufeaa\ufead \ufe91\ufeea \ufee7\ufb95\ufe8e\ufee9 \ufee3\ufe98\ufecc\ufea0\ufe90 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufedf\ufe92\ufea8\ufee8\ufeaa\ufbfc \ufeaf\ufea9 \ufeed \ufe8d\ufea9\ufe8d\ufee3\ufeea \ufea9\ufe8d\ufea9."
-                        }
+                        {hasVariant(globalVariants, "screen", "mobile")
+                          ? "\u0622\u0631\u0627\u0645\u0634 \u0648 \u0631\u0627\u062d\u062a\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0633\u06cc \u06a9\u0647 \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc!\n\u0628\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0634\u062f\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc\u060c \u0628\u0647 \u0627\u0648 \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0628\u062f\u0648\u0646 \u0646\u06af\u0631\u0627\u0646\u06cc \u0648 \u0627\u0633\u062a\u0631\u0633\u060c \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u200c\u0627\u0634 \u0631\u0627 \u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0646\u062f.\n\u0647\u0645\u06cc\u0646 \u0627\u0645\u0631\u0648\u0632 \u0627\u06cc\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0627 \u062a\u0647\u06cc\u0647 \u06a9\u0646 \u0648 \u0628\u0647 \u0622\u0631\u0627\u0645\u0634 \u0627\u0648 \u06a9\u0645\u06a9 \u06a9\u0646!"
+                          : "\u0622\u0631\u0627\u0645\u0634 \u0648 \u0631\u0627\u062d\u062a\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0633\u06cc \u06a9\u0647 \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc!\n\u0628\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0634\u062f\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc\u060c \u0628\u0647 \u0627\u0648 \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0628\u062f\u0648\u0646 \u0646\u06af\u0631\u0627\u0646\u06cc \u0648 \u0627\u0633\u062a\u0631\u0633\u060c \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u200c\u0627\u0634 \u0631\u0627 \u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0646\u062f.\n\u0647\u0645\u06cc\u0646 \u0627\u0645\u0631\u0648\u0632 \u0627\u06cc\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0627 \u062a\u0647\u06cc\u0647 \u06a9\u0646 \u0648 \u0628\u0647 \u0622\u0631\u0627\u0645\u0634 \u0627\u0648 \u06a9\u0645\u06a9 \u06a9\u0646!"}
                       </div>
                     </div>
                     <div
@@ -1281,13 +1377,65 @@ function PlasmicHamyar__RenderFunc(props: {
                                 )
                                   ? false
                                   : false,
-                                onChange:
+                                onChange: async (...eventArgs: any) => {
                                   generateStateOnChangePropForCodeComponents(
                                     $state,
                                     "value",
                                     ["input", "value"],
                                     AntdInput_Helpers
-                                  ),
+                                  ).apply(null, eventArgs);
+                                  (async event => {
+                                    const $steps = {};
+
+                                    $steps["updateSwitchbestIsChecked"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: [
+                                                "switchbest",
+                                                "isChecked"
+                                              ]
+                                            },
+                                            operation: 0
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateSwitchbestIsChecked"] !=
+                                        null &&
+                                      typeof $steps[
+                                        "updateSwitchbestIsChecked"
+                                      ] === "object" &&
+                                      typeof $steps["updateSwitchbestIsChecked"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateSwitchbestIsChecked"] =
+                                        await $steps[
+                                          "updateSwitchbestIsChecked"
+                                        ];
+                                    }
+                                  }).apply(null, eventArgs);
+                                },
                                 placeholder:
                                   "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
                                 prefix: (
@@ -1408,12 +1556,51 @@ function PlasmicHamyar__RenderFunc(props: {
                               />
                             ) : null}
                           </div>
-                          <AntdButton
-                            className={classNames(
-                              "__wab_instance",
-                              sty.button__pbPvR
-                            )}
-                            onClick={async () => {
+                          <Button
+                            data-plasmic-name={"button"}
+                            data-plasmic-override={overrides.button}
+                            className={classNames("__wab_instance", sty.button)}
+                            color={generateStateValueProp($state, [
+                              "button",
+                              "color"
+                            ])}
+                            isDisabled={
+                              hasVariant(globalVariants, "screen", "mobile")
+                                ? (() => {
+                                    try {
+                                      return $state.input.value == null
+                                        ? true
+                                        : false;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                : (() => {
+                                    try {
+                                      return $state.input.value == "" ||
+                                        $state.input.value == null
+                                        ? true
+                                        : false;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                            }
+                            onClick={async event => {
                               const $steps = {};
 
                               $steps["updateVisiblebox"] = true
@@ -1494,23 +1681,26 @@ function PlasmicHamyar__RenderFunc(props: {
                                 ];
                               }
                             }}
+                            onColorChange={(...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button",
+                                "color"
+                              ])(eventArgs[0]);
+                            }}
                           >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__vY6Vp
-                              )}
-                            >
-                              {"\u062a\u0627\u06cc\u06cc\u062f"}
-                            </div>
-                          </AntdButton>
+                            {"\u062a\u0627\u06cc\u06cc\u062f"}
+                          </Button>
                         </Stack__>
                         <AntdButton
                           className={classNames(
                             "__wab_instance",
                             sty.button__at1Vi
                           )}
+                          disabled={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? false
+                              : undefined
+                          }
                           onClick={async () => {
                             const $steps = {};
 
@@ -2025,9 +2215,9 @@ function PlasmicHamyar__RenderFunc(props: {
                         sty.text__i8DoG
                       )}
                     >
-                      {
-                        "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631gggggttgg \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
-                      }
+                      {hasVariant(globalVariants, "screen", "mobile")
+                        ? "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
+                        : "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631gggggttgg \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."}
                     </div>
                     <Reveal
                       data-plasmic-name={"reveal"}
@@ -3102,6 +3292,91 @@ function PlasmicHamyar__RenderFunc(props: {
                     </div>
                   </Stack__>
                 </AntdModal>
+                <AntdModal
+                  data-plasmic-name={"modal3"}
+                  data-plasmic-override={overrides.modal3}
+                  className={classNames("__wab_instance", sty.modal3)}
+                  defaultStylesClassName={classNames(
+                    projectcss.root_reset,
+                    projectcss.plasmic_default_styles,
+                    projectcss.plasmic_mixins,
+                    projectcss.plasmic_tokens,
+                    plasmic_antd_5_hostless_css.plasmic_tokens
+                  )}
+                  hideFooter={true}
+                  modalScopeClassName={sty["modal3__modal"]}
+                  onOpenChange={generateStateOnChangeProp($state, [
+                    "modal3",
+                    "open"
+                  ])}
+                  open={generateStateValueProp($state, ["modal3", "open"])}
+                  title={
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__iCOj8
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (() => {
+                              if ($state.cyclebox.cycle == "pms")
+                                return "pms چیست \u061F";
+                              if ($state.cyclebox.cycle == "fertility")
+                                return "تخمک گذاری چیست \u061F";
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u062e\u0627\u0644\u062f \u062d\u0633\u06cc\u0646\u06cc \u062a\u0648 \u0631\u0645\u0627\u0646 \u0628\u0627\u062f \u0628\u0627\u062f\u06a9 \u0628\u0627\u0632 \u0645\u06cc\u0646\u0648\u06cc\u0633\u0647 : \ufee3\ufeae\ufea9 \ufe81\ufeeb\ufeb4\ufe98\ufeea \ufea9\ufead \ufb94\ufeee\ufeb5 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufe97\ufe8e\ufeaf\ufee9 \ufe91\ufeea \ufe91\ufee0\ufeee\ufecd \ufead\ufeb3\ufbff\ufeaa\ufee9 \ufe8d\ufeb5 \ufe91\ufeae\ufe8d\ufbfc \ufb58\ufee8\ufeaa \ufb7c\ufee8\ufbff\ufee6 \ufee7\ufea0\ufeee\ufe8d \ufb90\ufeae\ufea9 : \u201d \ufb58\ufeb4\ufeae\ufee1 \ufea9\ufead \ufeaf\ufee7\ufeaa\ufb94\ufbfd \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeaf\ufea9\ufbfc \ufee7\ufb91\ufee6 \u201d \ufb58\ufeb4\ufeae \ufee3\ufe98\ufecc\ufea0\ufe90 \ufeed \ufee3\ufe92\ufeec\ufeee\ufe95 \ufe91\ufeea \ufb58\ufeaa\ufead \ufee7\ufb95\ufe8e\ufee9 \ufb90\ufeae\ufea9 \ufe91\ufeaa\ufbfe\ufee6 \ufee3\ufecc\ufee8\ufe8e \ufb90\ufeea \ufe8d\ufeed \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeb3\ufe96 \ufb90\ufe9e \ufee7\ufeaa\ufe8d\ufeb7\ufe98\ufeea \ufb58\ufeaa\ufead \ufe91\ufeea \ufee7\ufb95\ufe8e\ufee9 \ufee3\ufe98\ufecc\ufea0\ufe90 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufedf\ufe92\ufea8\ufee8\ufeaa\ufbfc \ufeaf\ufea9 \ufeed \ufe8d\ufea9\ufe8d\ufee3\ufeea \ufea9\ufe8d\ufea9.";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  }
+                  trigger={null}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___1UOoR)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__iaZMt
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (() => {
+                              if ($state.cyclebox.cycle == "pms")
+                                return "PMS یا سندرم پیش از قاعدگی\u060C به مجموعه‌ای از علائم جسمی و عاطفی اطلاق می‌شود که معمولاً در دو هفته‌ی قبل از شروع قاعدگی بروز می‌کند. این علائم می‌تواند شامل تغییرات خلقی مانند افسردگی و اضطراب\u060C دردهای شکمی\u060C نفخ\u060C حساسیت سینه‌ها\u060C سردرد\u060C و خستگی باشد. علائم PMS معمولاً با شروع قاعدگی کاهش می‌یابد و می‌تواند بر کیفیت زندگی روزمره تأثیر بگذارد. شدت علائم ممکن است از خفیف تا شدید متفاوت باشد.";
+                              if ($state.cyclebox.cycle == "fertility")
+                                return "تخمک‌گذاری زمانی است که بدن زن یک تخمک را از تخمدان آزاد می‌کند. این اتفاق معمولاً حدود ۱۴ روز قبل از پریود بعدی رخ می‌دهد. در این زمان\u060C بدن زن در مناسب‌ترین حالت برای بارداری است\u060C زیرا تخمک آماده است تا در صورت برخورد با اسپرم\u060C بارور شود. اگر تخمک بارور شود\u060C بارداری شکل می‌گیرد. اگر بارداری نشود\u060C تخمک و دیواره رحم طی قاعدگی دفع می‌شوند.";
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u062e\u0627\u0644\u062f \u062d\u0633\u06cc\u0646\u06cc \u062a\u0648 \u0631\u0645\u0627\u0646 \u0628\u0627\u062f \u0628\u0627\u062f\u06a9 \u0628\u0627\u0632 \u0645\u06cc\u0646\u0648\u06cc\u0633\u0647 : \ufee3\ufeae\ufea9 \ufe81\ufeeb\ufeb4\ufe98\ufeea \ufea9\ufead \ufb94\ufeee\ufeb5 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufe97\ufe8e\ufeaf\ufee9 \ufe91\ufeea \ufe91\ufee0\ufeee\ufecd \ufead\ufeb3\ufbff\ufeaa\ufee9 \ufe8d\ufeb5 \ufe91\ufeae\ufe8d\ufbfc \ufb58\ufee8\ufeaa \ufb7c\ufee8\ufbff\ufee6 \ufee7\ufea0\ufeee\ufe8d \ufb90\ufeae\ufea9 : \u201d \ufb58\ufeb4\ufeae\ufee1 \ufea9\ufead \ufeaf\ufee7\ufeaa\ufb94\ufbfd \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeaf\ufea9\ufbfc \ufee7\ufb91\ufee6 \u201d \ufb58\ufeb4\ufeae \ufee3\ufe98\ufecc\ufea0\ufe90 \ufeed \ufee3\ufe92\ufeec\ufeee\ufe95 \ufe91\ufeea \ufb58\ufeaa\ufead \ufee7\ufb95\ufe8e\ufee9 \ufb90\ufeae\ufea9 \ufe91\ufeaa\ufbfe\ufee6 \ufee3\ufecc\ufee8\ufe8e \ufb90\ufeea \ufe8d\ufeed \ufeeb\ufeae\ufb94\ufeb0 \ufea9\ufeb3\ufe96 \ufb90\ufe9e \ufee7\ufeaa\ufe8d\ufeb7\ufe98\ufeea \ufb58\ufeaa\ufead \ufe91\ufeea \ufee7\ufb95\ufe8e\ufee9 \ufee3\ufe98\ufecc\ufea0\ufe90 \ufed3\ufeae\ufeaf\ufee7\ufeaa \ufedf\ufe92\ufea8\ufee8\ufeaa\ufbfc \ufeaf\ufea9 \ufeed \ufe8d\ufea9\ufe8d\ufee3\ufeea \ufea9\ufe8d\ufea9.";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Stack__>
+                </AntdModal>
               </Stack__>
               <Embed
                 data-plasmic-name={"embedHtml"}
@@ -3173,7 +3448,7 @@ function PlasmicHamyar__RenderFunc(props: {
 
                     $steps["invokeGlobalAction"] = true
                       ? (() => {
-                          const actionArgs = { args: [2002] };
+                          const actionArgs = { args: [3000] };
                           return $globalActions["Fragment.wait"]?.apply(null, [
                             ...actionArgs.args
                           ]);
@@ -3260,7 +3535,7 @@ function PlasmicHamyar__RenderFunc(props: {
                               variablePath: ["loading"]
                             },
                             operation: 0,
-                            value: true
+                            value: false
                           };
                           return (({
                             variable,
@@ -3367,7 +3642,7 @@ function PlasmicHamyar__RenderFunc(props: {
 
                     $steps["invokeGlobalAction"] = true
                       ? (() => {
-                          const actionArgs = { args: [2000] };
+                          const actionArgs = { args: [3000] };
                           return $globalActions["Fragment.wait"]?.apply(null, [
                             ...actionArgs.args
                           ]);
@@ -6565,12 +6840,14 @@ const PlasmicDescendants = {
     "switchbest",
     "cyclebox",
     "input",
+    "button",
     "reveal",
     "useful",
     "harmful",
     "shopModalWeb",
     "subscription",
     "modal2",
+    "modal3",
     "embedHtml",
     "user",
     "shop",
@@ -6584,12 +6861,14 @@ const PlasmicDescendants = {
   switchbest: ["switchbest"],
   cyclebox: ["cyclebox"],
   input: ["input"],
+  button: ["button"],
   reveal: ["reveal", "useful"],
   useful: ["useful"],
   harmful: ["harmful"],
   shopModalWeb: ["shopModalWeb", "subscription"],
   subscription: ["subscription"],
   modal2: ["modal2"],
+  modal3: ["modal3"],
   embedHtml: ["embedHtml"],
   user: ["user"],
   shop: ["shop"],
@@ -6608,12 +6887,14 @@ type NodeDefaultElementType = {
   switchbest: typeof Switchbest;
   cyclebox: typeof Cyclebox;
   input: typeof AntdInput;
+  button: typeof Button;
   reveal: typeof Reveal;
   useful: typeof Useful;
   harmful: typeof Harmful;
   shopModalWeb: typeof AntdModal;
   subscription: typeof Subscription;
   modal2: typeof AntdModal;
+  modal3: typeof AntdModal;
   embedHtml: typeof Embed;
   user: typeof ApiRequest;
   shop: typeof ApiRequest;
@@ -6713,12 +6994,14 @@ export const PlasmicHamyar = Object.assign(
     switchbest: makeNodeComponent("switchbest"),
     cyclebox: makeNodeComponent("cyclebox"),
     input: makeNodeComponent("input"),
+    button: makeNodeComponent("button"),
     reveal: makeNodeComponent("reveal"),
     useful: makeNodeComponent("useful"),
     harmful: makeNodeComponent("harmful"),
     shopModalWeb: makeNodeComponent("shopModalWeb"),
     subscription: makeNodeComponent("subscription"),
     modal2: makeNodeComponent("modal2"),
+    modal3: makeNodeComponent("modal3"),
     embedHtml: makeNodeComponent("embedHtml"),
     user: makeNodeComponent("user"),
     shop: makeNodeComponent("shop"),

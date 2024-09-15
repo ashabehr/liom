@@ -132,6 +132,24 @@ function PlasmicHeaderV2__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -171,6 +189,7 @@ function PlasmicHeaderV2__RenderFunc(props: {
         data-plasmic-name={"button"}
         data-plasmic-override={overrides.button}
         className={classNames("__wab_instance", sty.button)}
+        color={generateStateValueProp($state, ["button", "color"])}
         link={"https://liom.app/link/man"}
         onClick={async event => {
           const $steps = {};
@@ -201,6 +220,9 @@ function PlasmicHeaderV2__RenderFunc(props: {
               "goToHttpsLiomAppLinkMan"
             ];
           }
+        }}
+        onColorChange={(...eventArgs) => {
+          generateStateOnChangeProp($state, ["button", "color"])(eventArgs[0]);
         }}
         target={true}
       >

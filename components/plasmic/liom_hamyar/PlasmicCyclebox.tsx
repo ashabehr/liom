@@ -94,6 +94,7 @@ export type PlasmicCyclebox__ArgsType = {
   onPeriodChange?: (val: any) => void;
   cycle?: string;
   onCycleChange?: (val: string) => void;
+  onClickDescription?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicCyclebox__ArgsType;
 export const PlasmicCyclebox__ArgProps = new Array<ArgPropType>(
@@ -103,7 +104,8 @@ export const PlasmicCyclebox__ArgProps = new Array<ArgPropType>(
   "onFertilityChange",
   "onPeriodChange",
   "cycle",
-  "onCycleChange"
+  "onCycleChange",
+  "onClickDescription"
 );
 
 export type PlasmicCyclebox__OverridesType = {
@@ -121,6 +123,7 @@ export interface DefaultCycleboxProps {
   onPeriodChange?: (val: any) => void;
   cycle?: string;
   onCycleChange?: (val: string) => void;
+  onClickDescription?: (event: any) => void;
   pms?: SingleBooleanChoiceArg<"pms">;
   fertility?: SingleBooleanChoiceArg<"fertility">;
   period?: SingleBooleanChoiceArg<"period">;
@@ -345,6 +348,7 @@ function PlasmicCyclebox__RenderFunc(props: {
           [sty.textfertility]: hasVariant($state, "fertility", "fertility"),
           [sty.textpms]: hasVariant($state, "pms", "pms")
         })}
+        onClick={args.onClickDescription}
       >
         {hasVariant($state, "pms", "pms")
           ? "pms \u0686\u06cc\u0633\u062a\u061f"
