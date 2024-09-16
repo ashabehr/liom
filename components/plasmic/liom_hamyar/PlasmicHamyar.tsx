@@ -631,6 +631,12 @@ function PlasmicHamyar__RenderFunc(props: {
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           hasVariant(globalVariants, "screen", "mobile") ? false : false
+      },
+      {
+        path: "discountBox",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1352,75 +1358,278 @@ function PlasmicHamyar__RenderFunc(props: {
                             </div>
                           ) : null}
                         </div>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__sbV8I
-                          )}
-                        >
+                        {(() => {
+                          try {
+                            return !$state.discountBox;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__ogvTo
+                              projectcss.__wab_text,
+                              sty.text__p5Zbh
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["updateDiscountBox"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["discountBox"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateDiscountBox"] != null &&
+                                typeof $steps["updateDiscountBox"] ===
+                                  "object" &&
+                                typeof $steps["updateDiscountBox"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateDiscountBox"] = await $steps[
+                                  "updateDiscountBox"
+                                ];
+                              }
+                            }}
+                          >
+                            {
+                              "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
+                            }
+                          </div>
+                        ) : null}
+                        {(() => {
+                          try {
+                            return $state.discountBox;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__sbV8I
                             )}
                           >
-                            {(() => {
-                              const child$Props = {
-                                allowClear: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? false
-                                  : false,
-                                autoFocus: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? false
-                                  : false,
-                                bordered: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? false
-                                  : false,
-                                className: classNames(
-                                  "__wab_instance",
-                                  sty.input
-                                ),
-                                disabled: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? false
-                                  : false,
-                                onChange: async (...eventArgs: any) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "value",
-                                    ["input", "value"],
-                                    AntdInput_Helpers
-                                  ).apply(null, eventArgs);
-                                  (async event => {
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ogvTo
+                              )}
+                            >
+                              {(() => {
+                                const child$Props = {
+                                  allowClear: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? false
+                                    : false,
+                                  autoFocus: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? false
+                                    : false,
+                                  bordered: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? false
+                                    : false,
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.input
+                                  ),
+                                  disabled: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? false
+                                    : false,
+                                  onChange: async (...eventArgs: any) => {
+                                    generateStateOnChangePropForCodeComponents(
+                                      $state,
+                                      "value",
+                                      ["input", "value"],
+                                      AntdInput_Helpers
+                                    ).apply(null, eventArgs);
+                                    (async event => {
+                                      const $steps = {};
+
+                                      $steps["updateSwitchbestIsChecked"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: [
+                                                  "switchbest",
+                                                  "isChecked"
+                                                ]
+                                              },
+                                              operation: 0
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["updateSwitchbestIsChecked"] !=
+                                          null &&
+                                        typeof $steps[
+                                          "updateSwitchbestIsChecked"
+                                        ] === "object" &&
+                                        typeof $steps[
+                                          "updateSwitchbestIsChecked"
+                                        ].then === "function"
+                                      ) {
+                                        $steps["updateSwitchbestIsChecked"] =
+                                          await $steps[
+                                            "updateSwitchbestIsChecked"
+                                          ];
+                                      }
+                                    }).apply(null, eventArgs);
+                                  },
+                                  placeholder:
+                                    "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
+                                  prefix: (
+                                    <Icon10Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__clG0G
+                                      )}
+                                      role={"img"}
+                                    />
+                                  ),
+
+                                  readOnly: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? false
+                                    : false,
+                                  size: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? "small"
+                                    : "small",
+                                  suffix: null,
+                                  value: generateStateValueProp($state, [
+                                    "input",
+                                    "value"
+                                  ])
+                                };
+                                initializeCodeComponentStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "value",
+                                      plasmicStateName: "input.value"
+                                    }
+                                  ],
+                                  [],
+                                  AntdInput_Helpers ?? {},
+                                  child$Props
+                                );
+
+                                return (
+                                  <AntdInput
+                                    data-plasmic-name={"input"}
+                                    data-plasmic-override={overrides.input}
+                                    {...child$Props}
+                                  />
+                                );
+                              })()}
+                              {(() => {
+                                try {
+                                  return $state.visiblebox;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__we3ZU
+                                  )}
+                                  onClick={async event => {
                                     const $steps = {};
 
-                                    $steps["updateSwitchbestIsChecked"] = true
+                                    $steps["updateVisiblebox"] = true
                                       ? (() => {
                                           const actionArgs = {
                                             variable: {
                                               objRoot: $state,
-                                              variablePath: [
-                                                "switchbest",
-                                                "isChecked"
-                                              ]
+                                              variablePath: ["visiblebox"]
                                             },
-                                            operation: 0
+                                            operation: 0,
+                                            value: false
                                           };
                                           return (({
                                             variable,
@@ -1444,276 +1653,160 @@ function PlasmicHamyar__RenderFunc(props: {
                                         })()
                                       : undefined;
                                     if (
-                                      $steps["updateSwitchbestIsChecked"] !=
-                                        null &&
-                                      typeof $steps[
-                                        "updateSwitchbestIsChecked"
-                                      ] === "object" &&
-                                      typeof $steps["updateSwitchbestIsChecked"]
-                                        .then === "function"
+                                      $steps["updateVisiblebox"] != null &&
+                                      typeof $steps["updateVisiblebox"] ===
+                                        "object" &&
+                                      typeof $steps["updateVisiblebox"].then ===
+                                        "function"
                                     ) {
-                                      $steps["updateSwitchbestIsChecked"] =
-                                        await $steps[
-                                          "updateSwitchbestIsChecked"
-                                        ];
+                                      $steps["updateVisiblebox"] = await $steps[
+                                        "updateVisiblebox"
+                                      ];
                                     }
-                                  }).apply(null, eventArgs);
-                                },
-                                placeholder:
-                                  "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
-                                prefix: (
-                                  <Icon10Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg__clG0G
-                                    )}
-                                    role={"img"}
-                                  />
-                                ),
-
-                                readOnly: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? false
-                                  : false,
-                                size: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? "small"
-                                  : "small",
-                                suffix: null,
-                                value: generateStateValueProp($state, [
-                                  "input",
-                                  "value"
-                                ])
-                              };
-                              initializeCodeComponentStates(
-                                $state,
-                                [
-                                  {
-                                    name: "value",
-                                    plasmicStateName: "input.value"
-                                  }
-                                ],
-                                [],
-                                AntdInput_Helpers ?? {},
-                                child$Props
-                              );
-
-                              return (
-                                <AntdInput
-                                  data-plasmic-name={"input"}
-                                  data-plasmic-override={overrides.input}
-                                  {...child$Props}
+                                  }}
                                 />
-                              );
-                            })()}
-                            {(() => {
-                              try {
-                                return $state.visiblebox;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__we3ZU
-                                )}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["updateVisiblebox"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["visiblebox"]
-                                          },
-                                          operation: 0,
-                                          value: false
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["updateVisiblebox"] != null &&
-                                    typeof $steps["updateVisiblebox"] ===
-                                      "object" &&
-                                    typeof $steps["updateVisiblebox"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["updateVisiblebox"] = await $steps[
-                                      "updateVisiblebox"
-                                    ];
-                                  }
-                                }}
-                              />
-                            ) : null}
-                          </div>
-                          <Button
-                            data-plasmic-name={"button"}
-                            data-plasmic-override={overrides.button}
-                            className={classNames("__wab_instance", sty.button)}
-                            color={generateStateValueProp($state, [
-                              "button",
-                              "color"
-                            ])}
-                            isDisabled={
-                              hasVariant(globalVariants, "screen", "mobile")
-                                ? (() => {
-                                    try {
-                                      return $state.input.value == null
-                                        ? true
-                                        : false;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                : (() => {
-                                    try {
-                                      return $state.input.value == "" ||
-                                        $state.input.value == null
-                                        ? true
-                                        : false;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                            }
-                            onClick={async event => {
-                              const $steps = {};
-
-                              $steps["updateVisiblebox"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["visiblebox"]
-                                      },
-                                      operation: 0,
-                                      value: true
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateVisiblebox"] != null &&
-                                typeof $steps["updateVisiblebox"] ===
-                                  "object" &&
-                                typeof $steps["updateVisiblebox"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateVisiblebox"] = await $steps[
-                                  "updateVisiblebox"
-                                ];
-                              }
-
-                              $steps["updateDiscountCode"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: ["discountCode"]
-                                      },
-                                      operation: 0,
-                                      value: $state.input.value
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["updateDiscountCode"] != null &&
-                                typeof $steps["updateDiscountCode"] ===
-                                  "object" &&
-                                typeof $steps["updateDiscountCode"].then ===
-                                  "function"
-                              ) {
-                                $steps["updateDiscountCode"] = await $steps[
-                                  "updateDiscountCode"
-                                ];
-                              }
-                            }}
-                            onColorChange={(...eventArgs) => {
-                              generateStateOnChangeProp($state, [
+                              ) : null}
+                            </div>
+                            <Button
+                              data-plasmic-name={"button"}
+                              data-plasmic-override={overrides.button}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button
+                              )}
+                              color={generateStateValueProp($state, [
                                 "button",
                                 "color"
-                              ])(eventArgs[0]);
-                            }}
-                          >
-                            {"\u062a\u0627\u06cc\u06cc\u062f"}
-                          </Button>
-                        </Stack__>
+                              ])}
+                              isDisabled={
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? (() => {
+                                      try {
+                                        return $state.input.value == null ||
+                                          $state.input.value == ""
+                                          ? true
+                                          : false;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return [];
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  : (() => {
+                                      try {
+                                        return $state.input.value == "" ||
+                                          $state.input.value == null
+                                          ? true
+                                          : false;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return [];
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                              }
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateVisiblebox"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["visiblebox"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateVisiblebox"] != null &&
+                                  typeof $steps["updateVisiblebox"] ===
+                                    "object" &&
+                                  typeof $steps["updateVisiblebox"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateVisiblebox"] = await $steps[
+                                    "updateVisiblebox"
+                                  ];
+                                }
+
+                                $steps["updateDiscountCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["discountCode"]
+                                        },
+                                        operation: 0,
+                                        value: $state.input.value
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateDiscountCode"] != null &&
+                                  typeof $steps["updateDiscountCode"] ===
+                                    "object" &&
+                                  typeof $steps["updateDiscountCode"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateDiscountCode"] = await $steps[
+                                    "updateDiscountCode"
+                                  ];
+                                }
+                              }}
+                              onColorChange={(...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }}
+                            >
+                              {"\u062a\u0627\u06cc\u06cc\u062f"}
+                            </Button>
+                          </Stack__>
+                        ) : null}
                         <AntdButton
                           className={classNames(
                             "__wab_instance",
@@ -3555,12 +3648,12 @@ function PlasmicHamyar__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateShopModalWebOpen"] = true
+                  $steps["updateShopModalMobileClick"] = true
                     ? (() => {
                         const actionArgs = {
                           variable: {
                             objRoot: $state,
-                            variablePath: ["shopModalWeb", "open"]
+                            variablePath: ["shopModalMobile", "click"]
                           },
                           operation: 0,
                           value: false
@@ -3582,12 +3675,13 @@ function PlasmicHamyar__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["updateShopModalWebOpen"] != null &&
-                    typeof $steps["updateShopModalWebOpen"] === "object" &&
-                    typeof $steps["updateShopModalWebOpen"].then === "function"
+                    $steps["updateShopModalMobileClick"] != null &&
+                    typeof $steps["updateShopModalMobileClick"] === "object" &&
+                    typeof $steps["updateShopModalMobileClick"].then ===
+                      "function"
                   ) {
-                    $steps["updateShopModalWebOpen"] = await $steps[
-                      "updateShopModalWebOpen"
+                    $steps["updateShopModalMobileClick"] = await $steps[
+                      "updateShopModalMobileClick"
                     ];
                   }
                 }}

@@ -189,7 +189,10 @@ function PlasmicSlideinModal__RenderFunc(props: {
         })}
       >
         {renderPlasmicSlot({
-          defaultContents: null,
+          defaultContents: (
+            <div className={classNames(projectcss.all, sty.freeBox__nuZnL)} />
+          ),
+
           value: args.children
         })}
       </div>

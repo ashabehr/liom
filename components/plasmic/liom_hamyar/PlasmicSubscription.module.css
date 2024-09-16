@@ -28,11 +28,16 @@
 }
 @media (max-width: 640px) {
   .text__mc1I3 {
-    width: 40%;
+    width: 50%;
   }
 }
 .textclick__mc1I3Rb9KL {
   width: 40%;
+}
+@media (max-width: 640px) {
+  .textclick__mc1I3Rb9KL {
+    width: 50%;
+  }
 }
 .freeBox__dvIp {
   display: flex;
