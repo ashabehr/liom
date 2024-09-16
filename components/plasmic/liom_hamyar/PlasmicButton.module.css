@@ -34,7 +34,7 @@
 .rootisDisabled {
   cursor: not-allowed;
   opacity: 0.6;
-  background: var(--token-y50Rafqey4Ec);
+  background: #0000001a;
 }
 .rootshape_rounded {
   padding-left: 20px;
