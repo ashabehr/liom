@@ -6844,10 +6844,33 @@ function PlasmicHamyar__RenderFunc(props: {
                   ];
                 }
 
-                $steps["updateTokenUser"] = (() => {
-                  if ($state.user.data.success == null) return false;
-                  else return $state.user.data.success;
-                })()
+                $steps["goToExpired"] =
+                  $state.user.data.success === false
+                    ? (() => {
+                        const actionArgs = { destination: `/expired` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["goToExpired"] != null &&
+                  typeof $steps["goToExpired"] === "object" &&
+                  typeof $steps["goToExpired"].then === "function"
+                ) {
+                  $steps["goToExpired"] = await $steps["goToExpired"];
+                }
+
+                $steps["updateTokenUser"] = true
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -6879,37 +6902,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   typeof $steps["updateTokenUser"].then === "function"
                 ) {
                   $steps["updateTokenUser"] = await $steps["updateTokenUser"];
-                }
-
-                $steps["goToExpired"] = (() => {
-                  if ($state.user.data.success == null) {
-                    return true;
-                  } else if ($state.user.data.success == false) {
-                    return true;
-                  } else return false;
-                })()
-                  ? (() => {
-                      const actionArgs = { destination: `/expired` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToExpired"] != null &&
-                  typeof $steps["goToExpired"] === "object" &&
-                  typeof $steps["goToExpired"].then === "function"
-                ) {
-                  $steps["goToExpired"] = await $steps["goToExpired"];
                 }
 
                 $steps["updateName"] = true
