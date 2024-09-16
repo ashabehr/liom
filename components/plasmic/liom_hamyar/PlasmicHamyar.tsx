@@ -6828,7 +6828,7 @@ function PlasmicHamyar__RenderFunc(props: {
 
                 $steps["invokeGlobalAction"] = true
                   ? (() => {
-                      const actionArgs = { args: [5000] };
+                      const actionArgs = { args: [3000] };
                       return $globalActions["Fragment.wait"]?.apply(null, [
                         ...actionArgs.args
                       ]);
@@ -6844,24 +6844,29 @@ function PlasmicHamyar__RenderFunc(props: {
                   ];
                 }
 
-                $steps["goToExpired"] =
-                  $state.user.data.success === false
-                    ? (() => {
-                        const actionArgs = { destination: `/expired` };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                $steps["goToExpired"] = (() => {
+                  if ($state.user.data.success) {
+                    return !$state.user.data.success;
+                  } else {
+                    return true;
+                  }
+                })()
+                  ? (() => {
+                      const actionArgs = { destination: `/expired` };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
                   $steps["goToExpired"] != null &&
                   typeof $steps["goToExpired"] === "object" &&
@@ -6870,7 +6875,13 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["goToExpired"] = await $steps["goToExpired"];
                 }
 
-                $steps["updateTokenUser"] = true
+                $steps["updateTokenUser"] = (() => {
+                  if ($state.user.data.success) {
+                    return $state.user.data.success;
+                  } else {
+                    return false;
+                  }
+                })()
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -6904,7 +6915,13 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateTokenUser"] = await $steps["updateTokenUser"];
                 }
 
-                $steps["updateName"] = true
+                $steps["updateName"] = (() => {
+                  if ($state.user.data.success) {
+                    return $state.user.data.success;
+                  } else {
+                    return false;
+                  }
+                })()
                   ? (() => {
                       const actionArgs = {
                         variable: {
