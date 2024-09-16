@@ -1811,7 +1811,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                             offCode: $state.discountCode,
                                             refCode: $state.refCode,
                                             redirectUrl:
-                                              "https://apps.liom.app/shopResult?refCode=" +
+                                              "https://apps.liom.app/shop-result?refCode=" +
                                               $state.refCode +
                                               "&mobile=" +
                                               $state.mobile
@@ -3089,7 +3089,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                       offCode: $state.discountCode,
                                       refCode: $state.refCode,
                                       redirectUrl:
-                                        "https://apps.liom.app/shopResult?refCode=" +
+                                        "https://apps.liom.app/shop-result?refCode=" +
                                         $state.refCode +
                                         "&mobile=" +
                                         $state.mobile
@@ -3874,7 +3874,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                         offCode: $state.discountCode,
                                         refCode: $state.refCode,
                                         redirectUrl:
-                                          "https://apps.liom.app/shopResult?refCode=" +
+                                          "https://apps.liom.app/shop-result?refCode=" +
                                           $state.refCode +
                                           "&mobile=" +
                                           $state.mobile
