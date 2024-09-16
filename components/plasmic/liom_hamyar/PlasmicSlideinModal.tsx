@@ -193,41 +193,39 @@ function PlasmicSlideinModal__RenderFunc(props: {
           value: args.children
         })}
       </div>
-      {(hasVariant($state, "click", "click") ? true : false) ? (
-        <div
-          className={classNames(projectcss.all, sty.freeBox__jFopY, {
-            [sty.freeBoxclick__jFopY6HzP8]: hasVariant($state, "click", "click")
-          })}
-          onClick={async event => {
-            const $steps = {};
+      <div
+        className={classNames(projectcss.all, sty.freeBox__jFopY, {
+          [sty.freeBoxclick__jFopY6HzP8]: hasVariant($state, "click", "click")
+        })}
+        onClick={async event => {
+          const $steps = {};
 
-            $steps["updateClick"] = true
-              ? (() => {
-                  const actionArgs = {
-                    vgroup: "click",
-                    operation: 6,
-                    value: "click"
-                  };
-                  return (({ vgroup, value }) => {
-                    if (typeof value === "string") {
-                      value = [value];
-                    }
+          $steps["updateClick"] = true
+            ? (() => {
+                const actionArgs = {
+                  vgroup: "click",
+                  operation: 6,
+                  value: "click"
+                };
+                return (({ vgroup, value }) => {
+                  if (typeof value === "string") {
+                    value = [value];
+                  }
 
-                    $stateSet($state, vgroup, false);
-                    return false;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updateClick"] != null &&
-              typeof $steps["updateClick"] === "object" &&
-              typeof $steps["updateClick"].then === "function"
-            ) {
-              $steps["updateClick"] = await $steps["updateClick"];
-            }
-          }}
-        />
-      ) : null}
+                  $stateSet($state, vgroup, false);
+                  return false;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateClick"] != null &&
+            typeof $steps["updateClick"] === "object" &&
+            typeof $steps["updateClick"].then === "function"
+          ) {
+            $steps["updateClick"] = await $steps["updateClick"];
+          }
+        }}
+      />
     </div>
   ) as React.ReactElement | null;
 }

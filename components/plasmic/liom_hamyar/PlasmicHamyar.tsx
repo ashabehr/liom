@@ -1220,36 +1220,72 @@ function PlasmicHamyar__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
-                          {(() => {
-                            try {
-                              return $state.shop.data.result[
-                                $state.selectedShop
-                              ].badge
-                                ? true
-                                : false;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__n3Tt7
+                            )}
+                          >
+                            {(() => {
+                              try {
+                                return $state.shop.data.result[
+                                  $state.selectedShop
+                                ].badge
+                                  ? true
+                                  : false;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })() ? (
+                            })() ? (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__fkgDb
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.shop.data.result[
+                                        $state.selectedShop
+                                      ].fullPrice.toLocaleString("en-US");
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "-";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            ) : null}
                             <div
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__fkgDb
+                                sty.text___9KXbh
                               )}
                             >
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return $state.shop.data.result[
-                                      $state.selectedShop
-                                    ].fullPrice.toLocaleString("en-US");
+                                    return (
+                                      $state.shop.data.result[
+                                        $state.selectedShop
+                                      ].price.toLocaleString("en-US") +
+                                      " تومان "
+                                    );
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -1263,34 +1299,6 @@ function PlasmicHamyar__RenderFunc(props: {
                                 })()}
                               </React.Fragment>
                             </div>
-                          ) : null}
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___9KXbh
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return (
-                                    $state.shop.data.result[
-                                      $state.selectedShop
-                                    ].price.toLocaleString("en-US") + " تومان "
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "-";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
                           </div>
                           {(() => {
                             try {
