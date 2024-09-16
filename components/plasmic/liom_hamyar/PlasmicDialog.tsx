@@ -59,8 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -70,8 +68,6 @@ import sty from "./PlasmicDialog.module.css"; // plasmic-import: 6sTznFJMP8UH/cs
 import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg2"; // plasmic-import: xOMaWtcuO4fo/icon
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: r-c9byRGfifF/icon
 import AlertSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__AlertSquareSvgrepoComSvg"; // plasmic-import: bTd1uEuZ9z9X/icon
-import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon2Icon from "../todo_mvc_app/icons/PlasmicIcon__Icon2"; // plasmic-import: EwJmqOfKx7up/icon
 
 createPlasmicElementProxy;
 
@@ -98,7 +94,6 @@ export const PlasmicDialog__ArgProps = new Array<ArgPropType>("onClick");
 export type PlasmicDialog__OverridesType = {
   root?: Flex__<"div">;
   svg?: Flex__<"svg">;
-  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultDialogProps {
@@ -150,17 +145,6 @@ function PlasmicDialog__RenderFunc(props: {
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
-      {
-        path: "button.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "alert", "alert")
-            ? []
-            : hasVariant($state, "failed", "failed")
-            ? []
-            : "green"
-      },
       {
         path: "failed",
         type: "private",
@@ -254,46 +238,13 @@ function PlasmicDialog__RenderFunc(props: {
           ? "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f. \u0627\u06af\u0631 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0631\u0627\u0647\u0646\u0645\u0627\u06cc\u06cc \u062f\u0627\u0634\u062a\u06cc\u062f\u060c \u0645\u0627 \u0627\u06cc\u0646\u062c\u0627\u06cc\u06cc\u0645 \u062a\u0627 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u06cc\u0645."
           : "\u0627\u0632 \u0627\u0646\u062a\u062e\u0627\u0628 \u0634\u0645\u0627 \u0633\u067e\u0627\u0633\u06af\u0632\u0627\u0631\u06cc\u0645. \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u06a9\u0646\u0648\u0646 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a \u0648 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0627\u0632 \u062e\u062f\u0645\u0627\u062a \u0645\u0627 \u0628\u0647\u0631\u0647\u200c\u0645\u0646\u062f \u0634\u0648\u06cc\u062f. \u062f\u0631 \u0635\u0648\u0631\u062a \u062f\u0627\u0634\u062a\u0646 \u0647\u0631\u06af\u0648\u0646\u0647 \u0633\u0648\u0627\u0644 \u06cc\u0627 \u0646\u06cc\u0627\u0632 \u060c \u0631\u0627\u0647\u200c\u0647\u0627\u06cc \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u0634\u0645\u0627\u0633\u062a."}
       </div>
-      <Button
-        data-plasmic-name={"button"}
-        data-plasmic-override={overrides.button}
-        className={classNames("__wab_instance", sty.button, {
-          [sty.buttonalert]: hasVariant($state, "alert", "alert"),
-          [sty.buttonfailed]: hasVariant($state, "failed", "failed")
-        })}
-        color={generateStateValueProp($state, ["button", "color"])}
-        onClick={args.onClick}
-        onColorChange={(...eventArgs) => {
-          generateStateOnChangeProp($state, ["button", "color"])(eventArgs[0]);
-        }}
-      >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__qnFfJ,
-            {
-              [sty.textfailed__qnFfJ2Yvft]: hasVariant(
-                $state,
-                "failed",
-                "failed"
-              )
-            }
-          )}
-        >
-          {hasVariant($state, "failed", "failed")
-            ? "\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"
-            : "\u062a\u0627\u06cc\u06cc\u062f"}
-        </div>
-      </Button>
     </Stack__>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "button"],
-  svg: ["svg"],
-  button: ["button"]
+  root: ["root", "svg"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -301,7 +252,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   svg: "svg";
-  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -365,7 +315,6 @@ export const PlasmicDialog = Object.assign(
   {
     // Helper components rendering sub-elements
     svg: makeNodeComponent("svg"),
-    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicDialog
     internalVariantProps: PlasmicDialog__VariantProps,

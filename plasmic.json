@@ -414,6 +414,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/shop"
+        },
+        {
+          "id": "9CvmaDZqnu-C",
+          "name": "ShopResult",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopResult.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/shop-result.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopResult.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/shop-result"
         }
       ],
       "icons": [

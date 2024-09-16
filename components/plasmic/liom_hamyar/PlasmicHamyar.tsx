@@ -79,7 +79,6 @@ import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/c
 import Dialog from "../../Dialog"; // plasmic-import: 6sTznFJMP8UH/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -126,8 +125,8 @@ export type PlasmicHamyar__OverridesType = {
   navbaricon2?: Flex__<typeof Navbaricon2>;
   shopModalMobile?: Flex__<typeof SlideinModal>;
   subscription2?: Flex__<typeof Subscription>;
-  modal?: Flex__<typeof AntdModal>;
   modal4?: Flex__<typeof AntdModal>;
+  modal5?: Flex__<typeof AntdModal>;
   lottie?: Flex__<typeof LottieWrapper>;
   user?: Flex__<typeof ApiRequest>;
   shop?: Flex__<typeof ApiRequest>;
@@ -620,16 +619,18 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "modal.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
         path: "modal4.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
+      },
+      {
+        path: "modal5.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
       }
     ],
     [$props, $ctx, $refs]
@@ -672,66 +673,6 @@ function PlasmicHamyar__RenderFunc(props: {
           )}
           onLoad={async event => {
             const $steps = {};
-
-            $steps["updateModalOpen"] =
-              $ctx.query.status == "true"
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["modal", "open"]
-                      },
-                      operation: 0,
-                      value: true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-            if (
-              $steps["updateModalOpen"] != null &&
-              typeof $steps["updateModalOpen"] === "object" &&
-              typeof $steps["updateModalOpen"].then === "function"
-            ) {
-              $steps["updateModalOpen"] = await $steps["updateModalOpen"];
-            }
-
-            $steps["updateModal4Open"] =
-              $ctx.query.status == "false"
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["modal4", "open"]
-                      },
-                      operation: 0,
-                      value: true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-            if (
-              $steps["updateModal4Open"] != null &&
-              typeof $steps["updateModal4Open"] === "object" &&
-              typeof $steps["updateModal4Open"].then === "function"
-            ) {
-              $steps["updateModal4Open"] = await $steps["updateModal4Open"];
-            }
           }}
         >
           {(
@@ -1870,7 +1811,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                             offCode: $state.discountCode,
                                             refCode: $state.refCode,
                                             redirectUrl:
-                                              "https://apps.liom.app/hamyar?refCode=" +
+                                              "https://apps.liom.app/shopResult?refCode=" +
                                               $state.refCode +
                                               "&mobile=" +
                                               $state.mobile
@@ -2981,7 +2922,9 @@ function PlasmicHamyar__RenderFunc(props: {
                                     })()
                                   : (() => {
                                       try {
-                                        return currentItem.price;
+                                        return currentItem.price.toLocaleString(
+                                          "en-US"
+                                        );
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -3058,8 +3001,12 @@ function PlasmicHamyar__RenderFunc(props: {
                                   : (() => {
                                       try {
                                         return currentItem.fullPrice
-                                          ? currentItem.fullPrice
-                                          : currentItem.price;
+                                          ? currentItem.fullPrice.toLocaleString(
+                                              "en-US"
+                                            )
+                                          : currentItem.price.toLocaleString(
+                                              "en-US"
+                                            );
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -3142,7 +3089,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                       offCode: $state.discountCode,
                                       refCode: $state.refCode,
                                       redirectUrl:
-                                        "https://apps.liom.app/hamyar?refCode=" +
+                                        "https://apps.liom.app/shopResult?refCode=" +
                                         $state.refCode +
                                         "&mobile=" +
                                         $state.mobile
@@ -3927,7 +3874,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                         offCode: $state.discountCode,
                                         refCode: $state.refCode,
                                         redirectUrl:
-                                          "https://apps.liom.app/hamyar?refCode=" +
+                                          "https://apps.liom.app/shopResult?refCode=" +
                                           $state.refCode +
                                           "&mobile=" +
                                           $state.mobile
@@ -4170,74 +4117,6 @@ function PlasmicHamyar__RenderFunc(props: {
                 </div>
               </SlideinModal>
               <AntdModal
-                data-plasmic-name={"modal"}
-                data-plasmic-override={overrides.modal}
-                className={classNames("__wab_instance", sty.modal)}
-                defaultStylesClassName={classNames(
-                  projectcss.root_reset,
-                  projectcss.plasmic_default_styles,
-                  projectcss.plasmic_mixins,
-                  projectcss.plasmic_tokens,
-                  plasmic_antd_5_hostless_css.plasmic_tokens
-                )}
-                hideFooter={true}
-                maskClosable={false}
-                modalContentClassName={classNames({
-                  [sty["pcls_mQ1n_gnw9Aqu"]]: true
-                })}
-                modalScopeClassName={sty["modal__modal"]}
-                onOpenChange={generateStateOnChangeProp($state, [
-                  "modal",
-                  "open"
-                ])}
-                open={generateStateValueProp($state, ["modal", "open"])}
-                title={null}
-                trigger={null}
-              >
-                <Dialog
-                  className={classNames("__wab_instance", sty.dialog__mvcOk)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateModalOpen"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["modal", "open"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateModalOpen"] != null &&
-                      typeof $steps["updateModalOpen"] === "object" &&
-                      typeof $steps["updateModalOpen"].then === "function"
-                    ) {
-                      $steps["updateModalOpen"] = await $steps[
-                        "updateModalOpen"
-                      ];
-                    }
-                  }}
-                />
-              </AntdModal>
-              <AntdModal
                 data-plasmic-name={"modal4"}
                 data-plasmic-override={overrides.modal4}
                 className={classNames("__wab_instance", sty.modal4)}
@@ -4265,6 +4144,74 @@ function PlasmicHamyar__RenderFunc(props: {
                 <Dialog
                   className={classNames("__wab_instance", sty.dialog__ijFa8)}
                   failed={true}
+                />
+              </AntdModal>
+              <AntdModal
+                data-plasmic-name={"modal5"}
+                data-plasmic-override={overrides.modal5}
+                className={classNames("__wab_instance", sty.modal5)}
+                defaultStylesClassName={classNames(
+                  projectcss.root_reset,
+                  projectcss.plasmic_default_styles,
+                  projectcss.plasmic_mixins,
+                  projectcss.plasmic_tokens,
+                  plasmic_antd_5_hostless_css.plasmic_tokens
+                )}
+                hideFooter={true}
+                maskClosable={false}
+                modalContentClassName={classNames({
+                  [sty["pcls_BfjdF0yi67kZ"]]: true
+                })}
+                modalScopeClassName={sty["modal5__modal"]}
+                onOpenChange={generateStateOnChangeProp($state, [
+                  "modal5",
+                  "open"
+                ])}
+                open={generateStateValueProp($state, ["modal5", "open"])}
+                title={null}
+                trigger={null}
+              >
+                <Dialog
+                  className={classNames("__wab_instance", sty.dialog__kqFi4)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateModal5Open"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["modal5", "open"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateModal5Open"] != null &&
+                      typeof $steps["updateModal5Open"] === "object" &&
+                      typeof $steps["updateModal5Open"].then === "function"
+                    ) {
+                      $steps["updateModal5Open"] = await $steps[
+                        "updateModal5Open"
+                      ];
+                    }
+                  }}
                 />
               </AntdModal>
             </div>
@@ -7040,8 +6987,8 @@ const PlasmicDescendants = {
     "navbaricon2",
     "shopModalMobile",
     "subscription2",
-    "modal",
     "modal4",
+    "modal5",
     "lottie",
     "user",
     "shop"
@@ -7063,8 +7010,8 @@ const PlasmicDescendants = {
   navbaricon2: ["navbaricon2"],
   shopModalMobile: ["shopModalMobile", "subscription2"],
   subscription2: ["subscription2"],
-  modal: ["modal"],
   modal4: ["modal4"],
+  modal5: ["modal5"],
   lottie: ["lottie"],
   user: ["user"],
   shop: ["shop"]
@@ -7091,8 +7038,8 @@ type NodeDefaultElementType = {
   navbaricon2: typeof Navbaricon2;
   shopModalMobile: typeof SlideinModal;
   subscription2: typeof Subscription;
-  modal: typeof AntdModal;
   modal4: typeof AntdModal;
+  modal5: typeof AntdModal;
   lottie: typeof LottieWrapper;
   user: typeof ApiRequest;
   shop: typeof ApiRequest;
@@ -7200,8 +7147,8 @@ export const PlasmicHamyar = Object.assign(
     navbaricon2: makeNodeComponent("navbaricon2"),
     shopModalMobile: makeNodeComponent("shopModalMobile"),
     subscription2: makeNodeComponent("subscription2"),
-    modal: makeNodeComponent("modal"),
     modal4: makeNodeComponent("modal4"),
+    modal5: makeNodeComponent("modal5"),
     lottie: makeNodeComponent("lottie"),
     user: makeNodeComponent("user"),
     shop: makeNodeComponent("shop"),
