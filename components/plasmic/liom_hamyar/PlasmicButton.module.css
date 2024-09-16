@@ -59,13 +59,13 @@
   background: #0091ff;
 }
 .rootcolor_green {
-  background: #30a46c;
+  background: var(--token-G-IZ_XhVdlqp);
 }
 .rootcolor_yellow {
   background: #f5d90a;
 }
 .rootcolor_red {
-  background: #e54d2e;
+  background: var(--token-4RAe7M2gInqR);
 }
 .rootcolor_sand {
   background: #717069;

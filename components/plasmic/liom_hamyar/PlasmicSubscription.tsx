@@ -108,7 +108,6 @@ export const PlasmicSubscription__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicSubscription__OverridesType = {
   root?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultSubscriptionProps {
@@ -239,13 +238,11 @@ function PlasmicSubscription__RenderFunc(props: {
   });
 
   return (
-    <Stack__
-      as={"div"}
+    <div
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      hasGap={true}
       className={classNames(
         projectcss.all,
         projectcss.root_reset,
@@ -282,115 +279,31 @@ function PlasmicSubscription__RenderFunc(props: {
           })()}
         </React.Fragment>
       </div>
-      {(() => {
-        try {
-          return $state.discount ? true : false;
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return true;
-          }
-          throw e;
-        }
-      })() ? (
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__a63Et,
-            {
-              [sty.textclick__a63EtRb9KL]: hasVariant($state, "click", "click")
-            }
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $state.fullprice;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "120000";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
-      ) : null}
       <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__xfSxq,
-          { [sty.textclick__xfSxqRb9KL]: hasVariant($state, "click", "click") }
-        )}
+        className={classNames(projectcss.all, sty.freeBox__dvIp, {
+          [sty.freeBoxclick__dvIpRb9KL]: hasVariant($state, "click", "click")
+        })}
       >
-        {hasVariant($state, "click", "click") ? (
-          <React.Fragment>
-            {(() => {
-              try {
-                return $state.price + " تومان ";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "40000 \u062a\u0648\u0645\u0627\u0646";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            {(() => {
-              try {
-                return $state.price + " تومان ";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "40000 \u062a\u0648\u0645\u0627\u0646";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        )}
-      </div>
-      {(() => {
-        try {
-          return $state.discount ? true : false;
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return true;
+        {(() => {
+          try {
+            return $state.discount ? true : false;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
           }
-          throw e;
-        }
-      })() ? (
-        <div
-          data-plasmic-name={"freeBox"}
-          data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox, {
-            [sty.freeBoxclick]: hasVariant($state, "click", "click")
-          })}
-        >
+        })() ? (
           <div
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text___68LQd,
+              sty.text__a63Et,
               {
-                [sty.textclick___68LQdRb9KL]: hasVariant(
+                [sty.textclick__a63EtRb9KL]: hasVariant(
                   $state,
                   "click",
                   "click"
@@ -398,56 +311,152 @@ function PlasmicSubscription__RenderFunc(props: {
               }
             )}
           >
-            {hasVariant($state, "click", "click") ? (
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $state.discount;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "50%";
-                    }
-                    throw e;
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $state.fullprice;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "120000";
                   }
-                })()}
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return $state.discount;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "50%";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            )}
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
           </div>
+        ) : null}
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__xfSxq,
+            {
+              [sty.textclick__xfSxqRb9KL]: hasVariant($state, "click", "click")
+            }
+          )}
+        >
+          {hasVariant($state, "click", "click") ? (
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $state.price + " تومان ";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "40000 \u062a\u0648\u0645\u0627\u0646";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $state.price + " تومان ";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "40000 \u062a\u0648\u0645\u0627\u0646";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          )}
         </div>
-      ) : null}
-    </Stack__>
+        {(() => {
+          try {
+            return $state.discount ? true : false;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })() ? (
+          <div
+            className={classNames(projectcss.all, sty.freeBox__vwgAl, {
+              [sty.freeBoxclick__vwgAlRb9KL]: hasVariant(
+                $state,
+                "click",
+                "click"
+              )
+            })}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___68LQd,
+                {
+                  [sty.textclick___68LQdRb9KL]: hasVariant(
+                    $state,
+                    "click",
+                    "click"
+                  )
+                }
+              )}
+            >
+              {hasVariant($state, "click", "click") ? (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $state.discount;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "50%";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $state.discount;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "50%";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              )}
+            </div>
+          </div>
+        ) : null}
+      </div>
+    </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox"],
-  freeBox: ["freeBox"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -510,7 +519,6 @@ export const PlasmicSubscription = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicSubscription
     internalVariantProps: PlasmicSubscription__VariantProps,

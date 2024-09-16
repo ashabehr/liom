@@ -387,6 +387,33 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicCyclebox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "6sTznFJMP8UH",
+          "name": "Dialog",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDialog.tsx",
+          "importSpec": {
+            "modulePath": "Dialog.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDialog.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "aqM8xdUvFVmZ",
+          "name": "Shop",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShop.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/shop.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShop.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/shop"
         }
       ],
       "icons": [
@@ -464,6 +491,26 @@
           "id": "8DTE5iQ0tvze",
           "name": "Icon11Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon11.tsx"
+        },
+        {
+          "id": "ErtRpkDu9Ve3",
+          "name": "EmojiHappySquareSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "xOMaWtcuO4fo",
+          "name": "EmojiHappySquareSvgrepoComSvg2Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg2.tsx"
+        },
+        {
+          "id": "r-c9byRGfifF",
+          "name": "EmojiSadSquareSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg.tsx"
+        },
+        {
+          "id": "bTd1uEuZ9z9X",
+          "name": "AlertSquareSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__AlertSquareSvgrepoComSvg.tsx"
         }
       ],
       "images": [
@@ -496,6 +543,16 @@
           "id": "Gn0OJq_hp86R",
           "name": "Screenshot 2024-09-14 121333.png",
           "filePath": "../public/plasmic/liom_hamyar/images/screenshot20240914121333Png.png"
+        },
+        {
+          "id": "uaRIlbrGzC63",
+          "name": "image 5",
+          "filePath": "../public/plasmic/liom_hamyar/images/image5.svg"
+        },
+        {
+          "id": "J8IdV8an0qnt",
+          "name": "man-svgrepo-com.svg",
+          "filePath": "../public/plasmic/liom_hamyar/images/manSvgrepoComSvg.svg"
         }
       ],
       "indirect": false,

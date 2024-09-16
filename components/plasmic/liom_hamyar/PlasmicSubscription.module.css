@@ -1,6 +1,8 @@
 .root {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -10,41 +12,43 @@
   padding: 15px 10px;
   border: 1px solid #818181b5;
 }
-.root > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  min-width: 0;
-  margin-left: calc(0px - 5px);
-  width: calc(100% + 5px);
-}
-.root > :global(.__wab_flex-container) > *,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.root > :global(.__wab_flex-container) > picture > img,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-left: 5px;
-}
 .rootclick {
   border-width: 2px;
   border-color: #8254c6;
 }
 .text__mc1I3 {
   position: relative;
-  width: auto;
+  width: 45%;
   height: auto;
   max-width: 100%;
   padding-top: 0px;
   text-align: right;
   font-weight: 600;
-  font-size: var(--token-2xQ-Ews6Hwx4);
+  font-size: 14px;
 }
 @media (max-width: 640px) {
   .text__mc1I3 {
-    width: auto;
+    width: 40%;
   }
 }
 .textclick__mc1I3Rb9KL {
-  width: auto;
+  width: 40%;
+}
+.freeBox__dvIp {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+.freeBoxclick__dvIpRb9KL {
+  width: 100%;
+  min-width: 0;
 }
 .text__a63Et {
   position: relative;
@@ -57,7 +61,26 @@
   top: auto;
   z-index: 1;
   text-decoration-line: line-through;
-  padding-left: 5px;
+  padding-left: 20px;
+  font-size: 16px;
+}
+@media (max-width: 640px) {
+  .text__a63Et {
+    left: auto;
+    top: auto;
+    font-size: 14px;
+    padding-left: 10px;
+  }
+}
+.textclick__a63EtRb9KL {
+  left: auto;
+  top: auto;
+  font-size: 16px;
+}
+@media (max-width: 640px) {
+  .textclick__a63EtRb9KL {
+    font-size: 14px;
+  }
 }
 .text__xfSxq {
   position: relative;
@@ -72,10 +95,23 @@
   z-index: 1;
   align-self: baseline;
 }
+@media (max-width: 640px) {
+  .text__xfSxq {
+    font-size: 14px;
+    align-self: flex-end;
+  }
+}
 .textclick__xfSxqRb9KL {
   text-align: left;
+  left: auto;
+  top: auto;
 }
-.freeBox {
+@media (max-width: 640px) {
+  .textclick__xfSxqRb9KL {
+    align-self: flex-end;
+  }
+}
+.freeBox__vwgAl {
   display: flex;
   position: sticky;
   width: 30px;
@@ -91,6 +127,11 @@
   flex-shrink: 0;
   border-radius: 8px;
   padding: 2px;
+}
+@media (max-width: 640px) {
+  .freeBox__vwgAl {
+    height: 20px;
+  }
 }
 .text___68LQd {
   position: relative;
