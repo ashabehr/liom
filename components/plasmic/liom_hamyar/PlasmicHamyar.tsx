@@ -1814,7 +1814,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                               "https://apps.liom.app/shop-result?refCode=" +
                                               $state.refCode +
                                               "&mobile=" +
-                                              $state.mobile
+                                              $state.mobile +
+                                              "&buyId=" +
+                                              $state.buyId +
+                                              "&offCode=" +
+                                              $state.discountCode
                                           };
                                         } catch (e) {
                                           if (
@@ -3092,7 +3096,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                         "https://apps.liom.app/shop-result?refCode=" +
                                         $state.refCode +
                                         "&mobile=" +
-                                        $state.mobile
+                                        $state.mobile +
+                                        "&buyId=" +
+                                        $state.buyId +
+                                        "&offCode=" +
+                                        $state.discountCode
                                     };
                                   } catch (e) {
                                     if (
@@ -3877,7 +3885,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                           "https://apps.liom.app/shop-result?refCode=" +
                                           $state.refCode +
                                           "&mobile=" +
-                                          $state.mobile
+                                          $state.mobile +
+                                          "&buyId=" +
+                                          $state.buyId +
+                                          "&offCode=" +
+                                          $state.discountCode
                                       };
                                     } catch (e) {
                                       if (
