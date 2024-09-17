@@ -69,7 +69,7 @@ import sty from "./PlasmicHeaderV2.module.css"; // plasmic-import: IYTV9bVTkPai/
 
 import LiLogoSvgIcon from "./icons/PlasmicIcon__LiLogoSvg"; // plasmic-import: g2Wd0rn3Z11c/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon2Icon from "../todo_mvc_app/icons/PlasmicIcon__Icon2"; // plasmic-import: EwJmqOfKx7up/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 
 createPlasmicElementProxy;
 

@@ -478,9 +478,9 @@
 .rootcolor_link:active .slotTargetEndIconcolor_link {
   color: #006adc;
 }
-.svg__eyGaq {
-  position: relative;
+.svg__ggkwO {
   object-fit: cover;
-  width: auto;
-  height: 1em;
+  max-width: 100%;
+  width: 150%;
+  height: 150%;
 }

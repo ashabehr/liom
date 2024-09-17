@@ -75,9 +75,9 @@ import sty from "./PlasmicShopResult.module.css"; // plasmic-import: 9CvmaDZqnu-
 
 import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg2"; // plasmic-import: xOMaWtcuO4fo/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon2Icon from "../todo_mvc_app/icons/PlasmicIcon__Icon2"; // plasmic-import: EwJmqOfKx7up/icon
-import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: r-c9byRGfifF/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
+import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: r-c9byRGfifF/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 
 createPlasmicElementProxy;
 
@@ -499,6 +499,23 @@ function PlasmicShopResult__RenderFunc(props: {
                     [sty.button2failed]: hasVariant($state, "failed", "failed")
                   })}
                   color={generateStateValueProp($state, ["button2", "color"])}
+                  endIcon={
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant($state, "failed", "failed")
+                          ? Icon12Icon
+                          : Icon11Icon
+                      }
+                      className={classNames(projectcss.all, sty.svg__tgQk, {
+                        [sty.svgfailed__tgQk1GaC]: hasVariant(
+                          $state,
+                          "failed",
+                          "failed"
+                        )
+                      })}
+                      role={"img"}
+                    />
+                  }
                   onClick={async event => {
                     const $steps = {};
 
@@ -507,13 +524,11 @@ function PlasmicShopResult__RenderFunc(props: {
                           const actionArgs = {
                             args: [
                               "POST",
-                              "https://api.liom.app/hamyar/shopBuy",
+                              "https://n8n.staas.ir/webhook/hamyar/shopBuy",
                               undefined,
                               (() => {
                                 try {
                                   return {
-                                    appKey:
-                                      "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq",
                                     id: $ctx.query.buyId,
                                     offCode: $ctx.query.offCode,
                                     refCode: $ctx.query.refCode,
@@ -654,24 +669,6 @@ function PlasmicShopResult__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["invokeGlobalAction2"] = true
-                      ? (() => {
-                          const actionArgs = { args: [5000] };
-                          return $globalActions["Fragment.wait"]?.apply(null, [
-                            ...actionArgs.args
-                          ]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction2"] != null &&
-                      typeof $steps["invokeGlobalAction2"] === "object" &&
-                      typeof $steps["invokeGlobalAction2"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
-                    }
-
                     $steps["updateLoadingbtn2"] = true
                       ? (() => {
                           const actionArgs = {
@@ -713,86 +710,42 @@ function PlasmicShopResult__RenderFunc(props: {
                       eventArgs[0]
                     );
                   }}
-                >
-                  {(
+                  showEndIcon={
                     hasVariant($state, "failed", "failed")
                       ? (() => {
                           try {
-                            return !$state.loadingbtn;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })()
-                      : true
-                  ) ? (
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___18V2G,
-                        {
-                          [sty.textfailed___18V2G1GaC]: hasVariant(
-                            $state,
-                            "failed",
-                            "failed"
-                          )
-                        }
-                      )}
-                    >
-                      {hasVariant($state, "failed", "failed")
-                        ? "\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"
-                        : "\u062a\u0627\u06cc\u06cc\u062f"}
-                    </div>
-                  ) : null}
-                  {(
-                    hasVariant($state, "failed", "failed") &&
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? (() => {
-                          try {
                             return $state.loadingbtn;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return true;
+                              return "showEndIcon";
                             }
                             throw e;
                           }
                         })()
-                      : hasVariant($state, "failed", "failed")
-                      ? (() => {
-                          try {
-                            return $state.loadingbtn;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })()
-                      : true
-                  ) ? (
-                    <Icon11Icon
-                      className={classNames(projectcss.all, sty.svg__xSQy, {
-                        [sty.svgfailed__xSQy1GaC]: hasVariant(
+                      : undefined
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___18V2G,
+                      {
+                        [sty.textfailed___18V2G1GaC]: hasVariant(
                           $state,
                           "failed",
                           "failed"
                         )
-                      })}
-                      role={"img"}
-                    />
-                  ) : null}
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "failed", "failed")
+                      ? "\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"
+                      : "\u062a\u0627\u06cc\u06cc\u062f"}
+                  </div>
                 </Button>
               ) : null}
               <Button
@@ -908,7 +861,7 @@ function PlasmicShopResult__RenderFunc(props: {
             })}
             errorDisplay={null}
             loadingDisplay={null}
-            method={hasVariant($state, "failed", "failed") ? "POST" : "GET"}
+            method={hasVariant($state, "failed", "failed") ? "GET" : "GET"}
             onError={generateStateOnChangeProp($state, [
               "fragmentApiRequest",
               "error"
@@ -921,6 +874,26 @@ function PlasmicShopResult__RenderFunc(props: {
               "fragmentApiRequest",
               "data"
             ])}
+            params={
+              hasVariant($state, "failed", "failed")
+                ? (() => {
+                    try {
+                      return {
+                        refCode: $state.refCode,
+                        mobile: $state.mobile
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : undefined
+            }
             url={
               hasVariant($state, "failed", "failed")
                 ? "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"

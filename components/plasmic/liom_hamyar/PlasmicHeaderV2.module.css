@@ -48,9 +48,9 @@
   font-size: 16px;
   font-weight: 700;
 }
-.svg__ewMz5 {
-  position: relative;
+.svg__ccZqs {
   object-fit: cover;
-  width: auto;
-  height: 1em;
+  max-width: 100%;
+  width: 150%;
+  height: 150%;
 }
