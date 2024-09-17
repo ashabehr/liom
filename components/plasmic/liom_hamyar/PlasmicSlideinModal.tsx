@@ -228,6 +228,34 @@ function PlasmicSlideinModal__RenderFunc(props: {
             $steps["updateClick"] = await $steps["updateClick"];
           }
         }}
+        onTouchStart={async event => {
+          const $steps = {};
+
+          $steps["updateClick"] = true
+            ? (() => {
+                const actionArgs = {
+                  vgroup: "click",
+                  operation: 6,
+                  value: "click"
+                };
+                return (({ vgroup, value }) => {
+                  if (typeof value === "string") {
+                    value = [value];
+                  }
+
+                  $stateSet($state, vgroup, false);
+                  return false;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateClick"] != null &&
+            typeof $steps["updateClick"] === "object" &&
+            typeof $steps["updateClick"].then === "function"
+          ) {
+            $steps["updateClick"] = await $steps["updateClick"];
+          }
+        }}
       />
     </div>
   ) as React.ReactElement | null;

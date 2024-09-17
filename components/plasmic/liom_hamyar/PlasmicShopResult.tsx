@@ -276,6 +276,9 @@ function PlasmicShopResult__RenderFunc(props: {
             sty.root,
             {
               [sty.rootfailed]: hasVariant($state, "failed", "failed"),
+              [sty.rootfailed_successful]:
+                hasVariant($state, "successful", "successful") &&
+                hasVariant($state, "failed", "failed"),
               [sty.rootsuccessful]: hasVariant(
                 $state,
                 "successful",
@@ -882,9 +885,7 @@ function PlasmicShopResult__RenderFunc(props: {
                     try {
                       return {
                         refCode: $ctx.query.refCode,
-                        mobile: $ctx.query.mobile,
-                        appKey:
-                          "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq"
+                        mobile: $ctx.query.mobile
                       };
                     } catch (e) {
                       if (
@@ -905,11 +906,6 @@ function PlasmicShopResult__RenderFunc(props: {
                 "failed"
               )
             })}
-            config={
-              hasVariant($state, "failed", "failed")
-                ? { headers: { "Content-Type": "application/json" } }
-                : undefined
-            }
             errorDisplay={null}
             loadingDisplay={null}
             method={hasVariant($state, "failed", "failed") ? "POST" : "GET"}
@@ -927,7 +923,7 @@ function PlasmicShopResult__RenderFunc(props: {
             ])}
             url={
               hasVariant($state, "failed", "failed")
-                ? "https://api.liom.app/hamyar/privateCalenderV2"
+                ? "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"
                 : undefined
             }
           />

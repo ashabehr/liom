@@ -6903,26 +6903,49 @@ function PlasmicHamyar__RenderFunc(props: {
           <ApiRequest
             data-plasmic-name={"user"}
             data-plasmic-override={overrides.user}
-            body={(() => {
-              try {
-                return {
-                  refCode: $state.refCode,
-                  mobile: $state.mobile,
-                  appKey:
-                    "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq"
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
+            body={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? (() => {
+                    try {
+                      return {
+                        refCode: $state.refCode,
+                        mobile: $state.mobile
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : (() => {
+                    try {
+                      return {
+                        refCode: $state.refCode,
+                        mobile: $state.mobile,
+                        appKey:
+                          "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq"
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+            }
             className={classNames("__wab_instance", sty.user)}
-            config={{ headers: { "Content-Type": "application/json" } }}
+            config={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? {}
+                : { headers: { "Content-Type": "application/json" } }
+            }
             errorDisplay={null}
             loadingDisplay={null}
             method={"POST"}
@@ -7066,7 +7089,11 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
-            url={"https://api.liom.app/hamyar/privateCalenderV2"}
+            url={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"
+                : "https://api.liom.app/hamyar/privateCalenderV2"
+            }
           />
 
           <ApiRequest

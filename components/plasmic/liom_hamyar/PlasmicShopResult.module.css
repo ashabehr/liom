@@ -23,6 +23,11 @@
 .root > * {
   grid-column: 4;
 }
+@media (max-width: 640px) {
+  .root > * {
+    grid-column: 4;
+  }
+}
 .rootfailed > * {
   grid-column: 4;
 }
@@ -38,6 +43,19 @@
 }
 .rootsuccessful > * {
   grid-column: 4;
+}
+@media (max-width: 640px) {
+  .rootsuccessful > * {
+    grid-column: 4;
+  }
+}
+.rootfailed_successful > * {
+  grid-column: 4;
+}
+@media (max-width: 640px) {
+  .rootfailed_successful > * {
+    grid-column: 4;
+  }
 }
 .freeBox__zoAdj {
   flex-direction: column;
