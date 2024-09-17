@@ -428,6 +428,32 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/shop-result"
+        },
+        {
+          "id": "JBCCrVmIFPYL",
+          "name": "CountdownNumber",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCountdownNumber.tsx",
+          "importSpec": {
+            "modulePath": "CountdownNumber.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCountdownNumber.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "1ruheQLCU5pc",
+          "name": "Countdown",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCountdown.tsx",
+          "importSpec": {
+            "modulePath": "Countdown.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCountdown.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
+import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -110,6 +111,7 @@ export type PlasmicHamyar__OverridesType = {
   root?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
   switchbest?: Flex__<typeof Switchbest>;
+  countdown?: Flex__<typeof Countdown>;
   cyclebox?: Flex__<typeof Cyclebox>;
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof Button>;
@@ -817,6 +819,53 @@ function PlasmicHamyar__RenderFunc(props: {
                       }}
                     />
                   </div>
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? (() => {
+                          try {
+                            return $state.user.data.result.man.hamyarStatus;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  ) ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__uHwR)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__hbXo8
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile")
+                          ? "\u0648\u0636\u0639\u06cc\u062a\u200c\u0627\u0634\u062a\u0631\u0627\u06a9 : "
+                          : "\u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9 : "}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__tJ051
+                        )}
+                      >
+                        {"15 \u0631\u0648\u0632"}
+                      </div>
+                      <Countdown
+                        data-plasmic-name={"countdown"}
+                        data-plasmic-override={overrides.countdown}
+                        className={classNames("__wab_instance", sty.countdown)}
+                      />
+                    </div>
+                  ) : null}
                 </Stack__>
                 <div
                   className={classNames(
@@ -7086,6 +7135,7 @@ const PlasmicDescendants = {
     "root",
     "img",
     "switchbest",
+    "countdown",
     "cyclebox",
     "input",
     "button",
@@ -7109,6 +7159,7 @@ const PlasmicDescendants = {
   ],
   img: ["img"],
   switchbest: ["switchbest"],
+  countdown: ["countdown"],
   cyclebox: ["cyclebox"],
   input: ["input"],
   button: ["button"],
@@ -7137,6 +7188,7 @@ type NodeDefaultElementType = {
   root: "div";
   img: typeof PlasmicImg__;
   switchbest: typeof Switchbest;
+  countdown: typeof Countdown;
   cyclebox: typeof Cyclebox;
   input: typeof AntdInput;
   button: typeof Button;
@@ -7246,6 +7298,7 @@ export const PlasmicHamyar = Object.assign(
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
     switchbest: makeNodeComponent("switchbest"),
+    countdown: makeNodeComponent("countdown"),
     cyclebox: makeNodeComponent("cyclebox"),
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),
