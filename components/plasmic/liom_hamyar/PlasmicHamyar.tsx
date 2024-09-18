@@ -757,44 +757,6 @@ function PlasmicHamyar__RenderFunc(props: {
           )}
           onLoad={async event => {
             const $steps = {};
-
-            $steps["invokeGlobalAction"] = true
-              ? (() => {
-                  const actionArgs = {
-                    args: [
-                      "POST",
-                      "https://api.liom.app/service/log",
-                      {},
-                      {
-                        userId: "asdasdasd",
-                        pageName: "213333333333333333333333333333333",
-                        action: "Hi",
-                        extraValue: {
-                          ttt: "asdasd",
-                          asdasdasdfasd: "a24sd5as4dasd"
-                        }
-                      },
-                      {
-                        headers: {
-                          "Content-Type": "application/json",
-                          Authorization:
-                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                        }
-                      }
-                    ]
-                  };
-                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
-                    ...actionArgs.args
-                  ]);
-                })()
-              : undefined;
-            if (
-              $steps["invokeGlobalAction"] != null &&
-              typeof $steps["invokeGlobalAction"] === "object" &&
-              typeof $steps["invokeGlobalAction"].then === "function"
-            ) {
-              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
-            }
           }}
         >
           {(
@@ -850,6 +812,33 @@ function PlasmicHamyar__RenderFunc(props: {
                         projectcss.__wab_text,
                         sty.text___7ZQo
                       )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return FlutterChannel.postMessage(
+                                      "ggggggggg"
+                                    );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
                     >
                       <React.Fragment>
                         {(() => {
@@ -3132,7 +3121,17 @@ function PlasmicHamyar__RenderFunc(props: {
                                               "&buyId=" +
                                               $state.buyId +
                                               "&offCode=" +
-                                              $state.discountCode
+                                              $state.discountCode +
+                                              "&valueShop=" +
+                                              $state.shop.data.result[
+                                                $state.selectedShop
+                                              ].type +
+                                              "-" +
+                                              $state.shop.data.result[
+                                                $state.selectedShop
+                                              ].value +
+                                              "&manId=" +
+                                              $state.user.data.result.man.id
                                           };
                                         } catch (e) {
                                           if (
@@ -3854,7 +3853,17 @@ function PlasmicHamyar__RenderFunc(props: {
                                         "&buyId=" +
                                         $state.buyId +
                                         "&offCode=" +
-                                        $state.discountCode
+                                        $state.discountCode +
+                                        "&valueShop=" +
+                                        $state.shop.data.result[
+                                          $state.selectedShop
+                                        ].type +
+                                        "-" +
+                                        $state.shop.data.result[
+                                          $state.selectedShop
+                                        ].value +
+                                        "&manId=" +
+                                        $state.user.data.result.man.id
                                     };
                                   } catch (e) {
                                     if (
@@ -4592,7 +4601,17 @@ function PlasmicHamyar__RenderFunc(props: {
                                         "&buyId=" +
                                         $state.buyId +
                                         "&offCode=" +
-                                        $state.discountCode
+                                        $state.discountCode +
+                                        "&valueShop=" +
+                                        $state.shop.data.result[
+                                          $state.selectedShop
+                                        ].type +
+                                        "-" +
+                                        $state.shop.data.result[
+                                          $state.selectedShop
+                                        ].value +
+                                        "&manId=" +
+                                        $state.user.data.result.man.id
                                     };
                                   } catch (e) {
                                     if (
@@ -7500,6 +7519,59 @@ function PlasmicHamyar__RenderFunc(props: {
                   typeof $steps["updateName"].then === "function"
                 ) {
                   $steps["updateName"] = await $steps["updateName"];
+                }
+
+                $steps["invokeGlobalAction2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/service/log",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                userId: $state.user.data.result.man.id,
+                                pageName: "mainPage",
+                                action: "loadePage",
+                                extraData: {
+                                  refCode: $state.refCode,
+                                  mobile: $state.mobile
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          {
+                            headers: {
+                              "Content-Type": "application/json",
+                              Authorization:
+                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                            }
+                          }
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction2"] != null &&
+                  typeof $steps["invokeGlobalAction2"] === "object" &&
+                  typeof $steps["invokeGlobalAction2"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction2"] = await $steps[
+                    "invokeGlobalAction2"
+                  ];
                 }
               }).apply(null, eventArgs);
             }}

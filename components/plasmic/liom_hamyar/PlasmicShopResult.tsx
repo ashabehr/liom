@@ -235,6 +235,18 @@ function PlasmicShopResult__RenderFunc(props: {
               throw e;
             }
           })() ?? $props.successful
+      },
+      {
+        path: "status",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -286,6 +298,121 @@ function PlasmicShopResult__RenderFunc(props: {
               )
             }
           )}
+          onLoad={async event => {
+            const $steps = {};
+
+            $steps["updateStatus"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["status"]
+                    },
+                    operation: 0,
+                    value: (() => {
+                      if ($ctx.query.status == "true")
+                        return "successful_payment";
+                      else return "failure_payment";
+                    })()
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateStatus"] != null &&
+              typeof $steps["updateStatus"] === "object" &&
+              typeof $steps["updateStatus"].then === "function"
+            ) {
+              $steps["updateStatus"] = await $steps["updateStatus"];
+            }
+
+            $steps["invokeGlobalAction"] = true
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      "POST",
+                      "https://api.liom.app/service/log",
+                      undefined,
+                      (() => {
+                        try {
+                          return {
+                            userId: $ctx.query.manId,
+                            pageName: "resultShop",
+                            action: $state.status,
+                            extraValue: {
+                              valueShop: $ctx.query.valueShop,
+                              idShop: $ctx.query.buyId
+                            }
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })(),
+                      {
+                        headers: {
+                          "Content-Type": "application/json",
+                          Authorization:
+                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                        }
+                      }
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["invokeGlobalAction"] != null &&
+              typeof $steps["invokeGlobalAction"] === "object" &&
+              typeof $steps["invokeGlobalAction"].then === "function"
+            ) {
+              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+            }
+
+            $steps["updateVariable"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["variable"]
+                    },
+                    operation: 0,
+                    value: $steps.invokeGlobalAction.data.result
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateVariable"] != null &&
+              typeof $steps["updateVariable"] === "object" &&
+              typeof $steps["updateVariable"].then === "function"
+            ) {
+              $steps["updateVariable"] = await $steps["updateVariable"];
+            }
+          }}
         >
           <Stack__
             as={"div"}
@@ -722,7 +849,11 @@ function PlasmicShopResult__RenderFunc(props: {
                                       "&buyId=" +
                                       $ctx.query.buyId +
                                       "&offCode=" +
-                                      $ctx.query.offCode
+                                      $ctx.query.offCode +
+                                      "&valueShop=" +
+                                      $ctx.query.valueShop +
+                                      "&manId=" +
+                                      $ctx.query.manId
                                   };
                                 } catch (e) {
                                   if (
