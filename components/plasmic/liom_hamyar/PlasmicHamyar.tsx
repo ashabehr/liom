@@ -820,8 +820,8 @@ function PlasmicHamyar__RenderFunc(props: {
                               const actionArgs = {
                                 customFunction: async () => {
                                   return (() => {
-                                    return FlutterChannel.postMessage(
-                                      "ggggggggg"
+                                    return window.FlutterChannel.postMessage(
+                                      "send"
                                     );
                                   })();
                                 }
