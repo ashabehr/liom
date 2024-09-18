@@ -1020,6 +1020,11 @@ function PlasmicShopResult__RenderFunc(props: {
                 "failed"
               )
             })}
+            config={
+              hasVariant($state, "failed", "failed")
+                ? { headers: { "Content-Type": "application/json" } }
+                : undefined
+            }
             errorDisplay={null}
             loadingDisplay={null}
             method={hasVariant($state, "failed", "failed") ? "GET" : "GET"}
@@ -1040,8 +1045,8 @@ function PlasmicShopResult__RenderFunc(props: {
                 ? (() => {
                     try {
                       return {
-                        refCode: $state.refCode,
-                        mobile: $state.mobile
+                        refCode: $ctx.query.refCode,
+                        mobile: $ctx.query.mobile
                       };
                     } catch (e) {
                       if (
