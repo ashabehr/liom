@@ -62,6 +62,8 @@ import {
 import CountdownNumber from "../../CountdownNumber"; // plasmic-import: JBCCrVmIFPYL/component
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -76,10 +78,14 @@ type VariantPropType = keyof PlasmicCountdown__VariantsArgs;
 export const PlasmicCountdown__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicCountdown__ArgsType = {
+  remainingSeconds?: number;
+  onRemainingSecondsChange?: (val: string) => void;
   targetTimeUtc?: string;
 };
 type ArgPropType = keyof PlasmicCountdown__ArgsType;
 export const PlasmicCountdown__ArgProps = new Array<ArgPropType>(
+  "remainingSeconds",
+  "onRemainingSecondsChange",
   "targetTimeUtc"
 );
 
@@ -90,6 +96,8 @@ export type PlasmicCountdown__OverridesType = {
 };
 
 export interface DefaultCountdownProps {
+  remainingSeconds?: number;
+  onRemainingSecondsChange?: (val: string) => void;
   targetTimeUtc?: string;
   className?: string;
 }
@@ -140,9 +148,11 @@ function PlasmicCountdown__RenderFunc(props: {
     () => [
       {
         path: "remainingSeconds",
-        type: "private",
+        type: "writable",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+
+        valueProp: "remainingSeconds",
+        onChangeProp: "onRemainingSecondsChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -152,6 +162,10 @@ function PlasmicCountdown__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
   });
 
   return (
@@ -178,19 +192,19 @@ function PlasmicCountdown__RenderFunc(props: {
         className={classNames(projectcss.all, sty.freeBox)}
       >
         <CountdownNumber
-          className={classNames("__wab_instance", sty.countdownNumber___4HVd)}
+          className={classNames("__wab_instance", sty.countdownNumber__dJw6J)}
           number={
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__u8Ay
+                sty.text___77QVc
               )}
             >
               <React.Fragment>
                 {(() => {
                   try {
-                    return Math.floor($state.remainingSeconds / 60) % 60;
+                    return Math.floor($state.remainingSeconds / 60 / 60 / 24);
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -209,10 +223,10 @@ function PlasmicCountdown__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__rdxiz
+                sty.text__qsTu
               )}
             >
-              {"\u062f\u0642\u06cc\u0642\u0647"}
+              {"\u0631\u0648\u0632"}
             </div>
           }
         />
@@ -258,19 +272,19 @@ function PlasmicCountdown__RenderFunc(props: {
         />
 
         <CountdownNumber
-          className={classNames("__wab_instance", sty.countdownNumber__dJw6J)}
+          className={classNames("__wab_instance", sty.countdownNumber___4HVd)}
           number={
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text___77QVc
+                sty.text__u8Ay
               )}
             >
               <React.Fragment>
                 {(() => {
                   try {
-                    return Math.floor($state.remainingSeconds / 60 / 60 / 24);
+                    return Math.floor($state.remainingSeconds / 60) % 60;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -289,10 +303,10 @@ function PlasmicCountdown__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__qsTu
+                sty.text__rdxiz
               )}
             >
-              {"\u0631\u0648\u0632"}
+              {"\u062f\u0642\u06cc\u0642\u0647"}
             </div>
           }
         />

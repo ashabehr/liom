@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
+import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -92,6 +93,7 @@ import Icon4Icon from "./icons/PlasmicIcon__Icon4"; // plasmic-import: halWdf8bh
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
+import Icon14Icon from "./icons/PlasmicIcon__Icon14"; // plasmic-import: y5SiQF8-_2TM/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 
 createPlasmicElementProxy;
@@ -107,8 +109,8 @@ export const PlasmicHamyar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHamyar__OverridesType = {
   root?: Flex__<"div">;
-  img?: Flex__<typeof PlasmicImg__>;
   switchbest?: Flex__<typeof Switchbest>;
+  countdown2?: Flex__<typeof Countdown>;
   cyclebox?: Flex__<typeof Cyclebox>;
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof Button>;
@@ -627,7 +629,7 @@ function PlasmicHamyar__RenderFunc(props: {
       {
         path: "expdate",
         type: "private",
-        variableType: "dateString",
+        variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
@@ -648,7 +650,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return "2024-09-17T14:56:44.951Z";
+                return 0;
               }
               throw e;
             }
@@ -671,6 +673,47 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "countdown2.remainingSeconds",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile")
+            ? (() => {
+                try {
+                  return (() => {
+                    let current_date = new Date();
+                    let delta = $state.expdate - current_date;
+                    return Math.floor(delta / 1000);
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return 0;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return (() => {
+                    let current_date = new Date();
+                    let delta = $state.expdate - current_date;
+                    return Math.floor(delta / 1000);
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return 0;
+                  }
+                  throw e;
+                }
+              })()
       }
     ],
     [$props, $ctx, $refs]
@@ -713,6 +756,44 @@ function PlasmicHamyar__RenderFunc(props: {
           )}
           onLoad={async event => {
             const $steps = {};
+
+            $steps["invokeGlobalAction"] = true
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      "POST",
+                      "https://api.liom.app/service/log",
+                      {},
+                      {
+                        userId: "asdasdasd",
+                        pageName: "213333333333333333333333333333333",
+                        action: "Hi",
+                        extraValue: {
+                          ttt: "asdasd",
+                          asdasdasdfasd: "a24sd5as4dasd"
+                        }
+                      },
+                      {
+                        headers: {
+                          "Content-Type": "application/json",
+                          Authorization:
+                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                        }
+                      }
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["invokeGlobalAction"] != null &&
+              typeof $steps["invokeGlobalAction"] === "object" &&
+              typeof $steps["invokeGlobalAction"].then === "function"
+            ) {
+              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+            }
           }}
         >
           {(
@@ -759,38 +840,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__d2GZw)}
                 >
-                  <PlasmicImg__
-                    data-plasmic-name={"img"}
-                    data-plasmic-override={overrides.img}
-                    alt={""}
-                    className={classNames(sty.img)}
-                    displayHeight={"50px"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"50px"}
-                    loading={"lazy"}
-                    src={(() => {
-                      try {
-                        return $state.user.data.result.man.image;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return {
-                            src: "/plasmic/liom_hamyar/images/manSvgrepoComSvg.svg",
-                            fullWidth: 64,
-                            fullHeight: 64,
-                            aspectRatio: 1
-                          };
-                        }
-                        throw e;
-                      }
-                    })()}
-                  />
-
                   <div
                     className={classNames(projectcss.all, sty.freeBox__vjsSc)}
                   >
@@ -804,7 +853,9 @@ function PlasmicHamyar__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.user.data.result.man.name;
+                            return (
+                              $state.user.data.result.man.name + " خوش آمدید! "
+                            );
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -855,77 +906,281 @@ function PlasmicHamyar__RenderFunc(props: {
                       }}
                     />
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__uHwR)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__hbXo8
-                      )}
-                    >
-                      {hasVariant(globalVariants, "screen", "mobile")
-                        ? "\u0648\u0636\u0639\u06cc\u062a\u200c\u0627\u0634\u062a\u0631\u0627\u06a9 : "
-                        : "\u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9 : "}
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__tJ051
-                      )}
-                    >
-                      {hasVariant(globalVariants, "screen", "mobile") ? (
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                let future_date = new Date(
-                                  $state.user.data.result.man.hamyarTime.year,
-                                  $state.user.data.result.man.hamyarTime.month -
-                                    1,
-                                  $state.user.data.result.man.hamyarTime.day,
-                                  $state.user.data.result.man.hamyarTime.hour,
-                                  $state.user.data.result.man.hamyarTime.minute,
-                                  $state.user.data.result.man.hamyarTime.second
-                                );
-                                let current_date = new Date();
-                                let delta = future_date - current_date;
-                                let days_remaining = Math.floor(
-                                  delta / (1000 * 60 * 60 * 24)
-                                );
-                                let months_remaining = Math.floor(
-                                  days_remaining / 30
-                                );
-                                let remaining_days = days_remaining % 30;
-                                if (months_remaining > 0)
-                                  return (
-                                    months_remaining +
-                                    " ماه و " +
-                                    remaining_days +
-                                    " روز باقیمانده "
-                                  );
-                                else {
-                                  return remaining_days + " روز باقیمانده ";
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "365 \u0631\u0648\u0632 20 \u0633\u0627\u0639\u062a \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 ";
-                              }
-                              throw e;
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? (() => {
+                          try {
+                            return (() => {
+                              let current_date = new Date();
+                              let delta = $state.expdate - current_date;
+                              let days_remaining = Math.floor(
+                                delta / (1000 * 60 * 60 * 24)
+                              );
+                              if (days_remaining > 3) return true;
+                              else return false;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
                             }
-                          })()}
-                        </React.Fragment>
-                      ) : (
-                        "15 \u0631\u0648\u0632"
-                      )}
+                            throw e;
+                          }
+                        })()
+                      : (() => {
+                          try {
+                            return (() => {
+                              let current_date = new Date();
+                              let delta = $state.expdate - current_date;
+                              let days_remaining = Math.floor(
+                                delta / (1000 * 60 * 60 * 24)
+                              );
+                              if (days_remaining > 3) return true;
+                              else return false;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                  ) ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__uHwR)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__hbXo8
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile")
+                          ? "\u0648\u0636\u0639\u06cc\u062a\u200c\u0627\u0634\u062a\u0631\u0627\u06a9 : "
+                          : "\u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9 : "}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__tJ051
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  let current_date = new Date();
+                                  let delta = $state.expdate - current_date;
+                                  let days_remaining = Math.floor(
+                                    delta / (1000 * 60 * 60 * 24)
+                                  );
+                                  let hours_remaining = Math.floor(
+                                    (delta % (1000 * 60 * 60 * 24)) /
+                                      (1000 * 60 * 60)
+                                  );
+                                  return (
+                                    days_remaining +
+                                    " روز و " +
+                                    hours_remaining +
+                                    " ساعت باقیمانده"
+                                  );
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "365 \u0631\u0648\u0632 20 \u0633\u0627\u0639\u062a \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 ";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  let current_date = new Date();
+                                  let delta = $state.expdate - current_date;
+                                  let days_remaining = Math.floor(
+                                    delta / (1000 * 60 * 60 * 24)
+                                  );
+                                  let hours_remaining = Math.floor(
+                                    (delta % (1000 * 60 * 60 * 24)) /
+                                      (1000 * 60 * 60)
+                                  );
+                                  return (
+                                    days_remaining +
+                                    " روز و " +
+                                    hours_remaining +
+                                    " ساعت باقیمانده"
+                                  );
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "15 \u0631\u0648\u0632";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
+                      </div>
                     </div>
-                  </div>
+                  ) : null}
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? (() => {
+                          try {
+                            return (() => {
+                              let current_date = new Date();
+                              let delta = $state.expdate - current_date;
+                              let days_remaining = Math.floor(
+                                delta / (1000 * 60 * 60 * 24)
+                              );
+                              if (days_remaining > 3) return false;
+                              else return true;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (() => {
+                          try {
+                            return (() => {
+                              let current_date = new Date();
+                              let delta = $state.expdate - current_date;
+                              let days_remaining = Math.floor(
+                                delta / (1000 * 60 * 60 * 24)
+                              );
+                              if (days_remaining > 3) return false;
+                              else return true;
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                  ) ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__d1Foh)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___0HM2W
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile")
+                          ? "\u0648\u0636\u0639\u06cc\u062a\u200c\u0627\u0634\u062a\u0631\u0627\u06a9 : "
+                          : "\u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9 : "}
+                      </div>
+                      {(() => {
+                        const child$Props = {
+                          className: classNames(
+                            "__wab_instance",
+                            sty.countdown2
+                          ),
+                          onRemainingSecondsChange: generateStateOnChangeProp(
+                            $state,
+                            ["countdown2", "remainingSeconds"]
+                          ),
+                          remainingSeconds: generateStateValueProp($state, [
+                            "countdown2",
+                            "remainingSeconds"
+                          ]),
+                          targetTimeUtc: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobile"
+                          )
+                            ? "2025-12-10T23:26:60.224Z"
+                            : undefined
+                        };
+
+                        initializePlasmicStates(
+                          $state,
+                          [
+                            {
+                              name: "countdown2.remainingSeconds",
+                              initFunc: ({ $props, $state, $queries }) =>
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? (() => {
+                                      try {
+                                        return (() => {
+                                          let current_date = new Date();
+                                          let delta =
+                                            $state.expdate - current_date;
+                                          return Math.floor(delta / 1000);
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return 0;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  : (() => {
+                                      try {
+                                        return (() => {
+                                          let current_date = new Date();
+                                          let delta =
+                                            $state.expdate - current_date;
+                                          return Math.floor(delta / 1000);
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return 0;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                            }
+                          ],
+                          []
+                        );
+                        return (
+                          <Countdown
+                            data-plasmic-name={"countdown2"}
+                            data-plasmic-override={overrides.countdown2}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
+                    </div>
+                  ) : null}
                 </Stack__>
                 <div
                   className={classNames(
@@ -935,7 +1190,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u062f\u0648\u0631\u0647 \u062c\u0627\u0631\u06cc \u062f\u0631 \u06cc\u06a9 \u0646\u06af\u0627\u0647 : "
+                    "\u0648\u0636\u0639\u06cc\u062a \u062f\u0648\u0631\u0647\u200c\u0647\u0627\u06cc \u0647\u0645\u06cc\u0627\u0631:"
                   }
                 </div>
                 <Cyclebox
@@ -1093,7 +1348,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         )}
                       >
                         {
-                          "\u0637\u0648\u0644 \u0627\u06cc\u0646 \u0648\u0636\u0639\u06cc\u062a :  "
+                          "\u067e\u0627\u06cc\u0627\u0646 \u0648\u0636\u0639\u06cc\u062a :  "
                         }
                       </div>
                       <div
@@ -1114,20 +1369,38 @@ function PlasmicHamyar__RenderFunc(props: {
                                   case null:
                                     return "";
                                   case "fertility":
-                                    return (
-                                      $state.user.data.result.userStatus
-                                        .daysOfFertility + " روز "
+                                    let future1 = new Date(
+                                      $state.user.data.result.userStatus.fertilityEnd
                                     );
+                                    let current_date1 = new Date();
+                                    let delta1 = future1 - current_date1;
+                                    let days_remaining1 = Math.floor(
+                                      delta1 / (1000 * 60 * 60 * 24)
+                                    );
+                                    if (days_remaining1 == 0) return "امروز";
+                                    return days_remaining1 + " روز ";
                                   case "pms":
-                                    return (
-                                      $state.user.data.result.userStatus
-                                        .daysToStartPms + " روز "
+                                    let future2 = new Date(
+                                      $state.user.data.result.userStatus.pmsEnd
                                     );
+                                    let current_date2 = new Date();
+                                    let delta2 = future2 - current_date2;
+                                    let days_remaining2 = Math.floor(
+                                      delta2 / (1000 * 60 * 60 * 24)
+                                    );
+                                    if (days_remaining2 == 0) return "امروز";
+                                    return days_remaining2 + " روز ";
                                   case "blood":
-                                    return (
-                                      $state.user.data.result.userStatus
-                                        .length + " روز "
+                                    let future3 = new Date(
+                                      $state.user.data.result.userStatus.periodEnd
                                     );
+                                    let current_date3 = new Date();
+                                    let delta3 = future3 - current_date3;
+                                    let days_remaining3 = Math.floor(
+                                      delta3 / (1000 * 60 * 60 * 24)
+                                    );
+                                    if (days_remaining3 == 0) return "امروز";
+                                    return days_remaining3 + " روز ";
                                   default:
                                     return "";
                                 }
@@ -1152,51 +1425,133 @@ function PlasmicHamyar__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__ztbQr)}
                 >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__vXdnm)}
-                  >
-                    <Icon3Icon
-                      className={classNames(projectcss.all, sty.svg__oaXvf)}
-                      role={"img"}
-                    />
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__zwcWp
-                      )}
-                    >
-                      {
-                        "\u0631\u0648\u0632\u0647\u0627\u06cc \u067e\u0631\u06cc\u0648\u062f\u06cc"
-                      }
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__rdcxn
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? (() => {
                           try {
-                            return $state.user.data.result.user.length + " روز";
+                            return (() => {
+                              if ($state.cyclebox.cycle == "blood") {
+                                return false;
+                              } else {
+                                return true;
+                              }
+                            })();
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return "-";
+                              return true;
                             }
                             throw e;
                           }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                  </Stack__>
+                        })()
+                      : (() => {
+                          try {
+                            return (() => {
+                              if ($state.cyclebox.cycle == "blood") {
+                                return false;
+                              } else {
+                                return true;
+                              }
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                  ) ? (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__vXdnm)}
+                    >
+                      <Icon3Icon
+                        className={classNames(projectcss.all, sty.svg__oaXvf)}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__zwcWp
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile")
+                          ? "\u0631\u0648\u0632 \u0647\u0627\u06cc \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f :    "
+                          : "\u0631\u0648\u0632 \u0647\u0627\u06cc \u0628\u0627\u0642\u06cc \u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f :"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rdcxn
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  let future1 = new Date(
+                                    $state.user.data.result.userStatus.pmsEnd
+                                  );
+                                  let current_date1 = new Date();
+                                  let delta1 = future1 - current_date1;
+                                  let days_remaining1 = Math.floor(
+                                    delta1 / (1000 * 60 * 60 * 24)
+                                  );
+                                  if (days_remaining1 == 0) days_remaining1 = 1;
+                                  return days_remaining1 + " روز ";
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "-";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  let future1 = new Date(
+                                    $state.user.data.result.userStatus.pmsEnd
+                                  );
+                                  let current_date1 = new Date();
+                                  let delta1 = future1 - current_date1;
+                                  let days_remaining1 = Math.floor(
+                                    delta1 / (1000 * 60 * 60 * 24)
+                                  );
+                                  if (days_remaining1 == 0) days_remaining1 = 1;
+                                  return days_remaining1 + " روز ";
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "-";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
+                      </div>
+                    </Stack__>
+                  ) : null}
                   <Stack__
                     as={"div"}
                     hasGap={true}
@@ -1245,10 +1600,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 </Stack__>
                 {(() => {
                   try {
-                    return (
-                      $state.user.data.result.user.hamyarStatus ||
-                      $state.user.data.result.man.selfHamyarSms
-                    );
+                    return $state.user.data.result.man.hamyarStatus;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1925,7 +2277,7 @@ function PlasmicHamyar__RenderFunc(props: {
                             "color"
                           ])}
                           endIcon={
-                            <Icon12Icon
+                            <Icon14Icon
                               className={classNames(
                                 projectcss.all,
                                 sty.svg__duV0P
@@ -3220,7 +3572,7 @@ function PlasmicHamyar__RenderFunc(props: {
                     className={classNames("__wab_instance", sty.button3)}
                     color={generateStateValueProp($state, ["button3", "color"])}
                     endIcon={
-                      <Icon12Icon
+                      <Icon14Icon
                         className={classNames(projectcss.all, sty.svg__iArUl)}
                         role={"img"}
                       />
@@ -3604,9 +3956,9 @@ function PlasmicHamyar__RenderFunc(props: {
                           try {
                             return (() => {
                               if ($state.cyclebox.cycle == "pms")
-                                return "PMS یا سندرم پیش از قاعدگی\u060C به مجموعه‌ای از علائم جسمی و عاطفی اطلاق می‌شود که معمولاً در دو هفته‌ی قبل از شروع قاعدگی بروز می‌کند. این علائم می‌تواند شامل تغییرات خلقی مانند افسردگی و اضطراب\u060C دردهای شکمی\u060C نفخ\u060C حساسیت سینه‌ها\u060C سردرد\u060C و خستگی باشد. علائم PMS معمولاً با شروع قاعدگی کاهش می‌یابد و می‌تواند بر کیفیت زندگی روزمره تأثیر بگذارد. شدت علائم ممکن است از خفیف تا شدید متفاوت باشد.";
+                                return "PMS یا سندرم پیش از قاعدگی\u060C به مجموعه‌ای از علائم جسمی و عاطفی اطلاق می‌شود که معمولاً در دو هفته‌ی قبل از شروع قاعدگی بروز می‌کند.\n\n این علائم می‌تواند شامل تغییرات خلقی مانند افسردگی و اضطراب\u060C دردهای شکمی\u060C نفخ\u060C حساسیت سینه‌ها\u060C سردرد\u060C و خستگی باشد.\n\n علائم PMS معمولاً با شروع قاعدگی کاهش می‌یابد و می‌تواند بر کیفیت زندگی روزمره تأثیر بگذارد. شدت علائم ممکن است از خفیف تا شدید متفاوت باشد.";
                               if ($state.cyclebox.cycle == "fertility")
-                                return "تخمک‌گذاری زمانی است که بدن زن یک تخمک را از تخمدان آزاد می‌کند. این اتفاق معمولاً حدود ۱۴ روز قبل از پریود بعدی رخ می‌دهد. در این زمان\u060C بدن زن در مناسب‌ترین حالت برای بارداری است\u060C زیرا تخمک آماده است تا در صورت برخورد با اسپرم\u060C بارور شود. اگر تخمک بارور شود\u060C بارداری شکل می‌گیرد. اگر بارداری نشود\u060C تخمک و دیواره رحم طی قاعدگی دفع می‌شوند.";
+                                return "تخمک‌گذاری زمانی است که بدن زن یک تخمک را از تخمدان آزاد می‌کند. این اتفاق معمولاً حدود ۱۴ روز قبل از پریود بعدی رخ می‌دهد. \n\nدر این زمان\u060C بدن زن در مناسب‌ترین حالت برای بارداری است\u060C زیرا تخمک آماده است تا در صورت برخورد با اسپرم\u060C بارور شود. \n\nاگر تخمک بارور شود\u060C بارداری شکل می‌گیرد. اگر بارداری نشود\u060C تخمک و دیواره رحم طی قاعدگی دفع می‌شوند.";
                             })();
                           } catch (e) {
                             if (
@@ -3953,7 +4305,12 @@ function PlasmicHamyar__RenderFunc(props: {
                     className={classNames("__wab_instance", sty.button4)}
                     color={generateStateValueProp($state, ["button4", "color"])}
                     endIcon={
-                      <Icon12Icon
+                      <PlasmicIcon__
+                        PlasmicIconType={
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? Icon14Icon
+                            : Icon12Icon
+                        }
                         className={classNames(projectcss.all, sty.svg__pT1Jr)}
                         role={"img"}
                       />
@@ -7014,8 +7371,8 @@ function PlasmicHamyar__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "img",
     "switchbest",
+    "countdown2",
     "cyclebox",
     "input",
     "button",
@@ -7038,8 +7395,8 @@ const PlasmicDescendants = {
     "user",
     "shop"
   ],
-  img: ["img"],
   switchbest: ["switchbest"],
+  countdown2: ["countdown2"],
   cyclebox: ["cyclebox"],
   input: ["input"],
   button: ["button"],
@@ -7067,8 +7424,8 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  img: typeof PlasmicImg__;
   switchbest: typeof Switchbest;
+  countdown2: typeof Countdown;
   cyclebox: typeof Cyclebox;
   input: typeof AntdInput;
   button: typeof Button;
@@ -7177,8 +7534,8 @@ export const PlasmicHamyar = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    img: makeNodeComponent("img"),
     switchbest: makeNodeComponent("switchbest"),
+    countdown2: makeNodeComponent("countdown2"),
     cyclebox: makeNodeComponent("cyclebox"),
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),

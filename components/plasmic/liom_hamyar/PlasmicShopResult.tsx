@@ -77,7 +77,7 @@ import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappyS
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: r-c9byRGfifF/icon
-import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
+import Icon14Icon from "./icons/PlasmicIcon__Icon14"; // plasmic-import: y5SiQF8-_2TM/icon
 
 createPlasmicElementProxy;
 
@@ -304,15 +304,130 @@ function PlasmicShopResult__RenderFunc(props: {
             })}
           >
             <EmojiHappySquareSvgrepoComSvg2Icon
-              className={classNames(projectcss.all, sty.svg__ep8Ay)}
+              className={classNames(projectcss.all, sty.svg__ep8Ay, {
+                [sty.svgsuccessful__ep8Ayo3MxK]: hasVariant(
+                  $state,
+                  "successful",
+                  "successful"
+                )
+              })}
               role={"img"}
             />
 
             <div
+              className={classNames(projectcss.all, sty.freeBox__izJuu, {
+                [sty.freeBoxfailed__izJuu1GaC]: hasVariant(
+                  $state,
+                  "failed",
+                  "failed"
+                ),
+                [sty.freeBoxsuccessful__izJuuo3MxK]: hasVariant(
+                  $state,
+                  "successful",
+                  "successful"
+                )
+              })}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__nnLwh,
+                  {
+                    [sty.textfailed__nnLwh1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    ),
+                    [sty.textsuccessful__nnLwho3MxK]: hasVariant(
+                      $state,
+                      "successful",
+                      "successful"
+                    )
+                  }
+                )}
+              >
+                {
+                  "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642"
+                }
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__a9Faf,
+                  {
+                    [sty.textfailed__a9Faf1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    ),
+                    [sty.textsuccessful__a9FafO3MxK]: hasVariant(
+                      $state,
+                      "successful",
+                      "successful"
+                    )
+                  }
+                )}
+              >
+                {hasVariant($state, "failed", "failed")
+                  ? "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f."
+                  : "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f. \u0627\u06af\u0631 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0631\u0627\u0647\u0646\u0645\u0627\u06cc\u06cc \u062f\u0627\u0634\u062a\u06cc\u062f\u060c \u0645\u0627 \u0627\u06cc\u0646\u062c\u0627\u06cc\u06cc\u0645 \u062a\u0627 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u06cc\u0645."}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__tYGx,
+                  {
+                    [sty.textsuccessful__tYGxo3MxK]: hasVariant(
+                      $state,
+                      "successful",
+                      "successful"
+                    )
+                  }
+                )}
+              >
+                {
+                  "\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642"
+                }
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ke8Uh,
+                  {
+                    [sty.textfailed__ke8Uh1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    ),
+                    [sty.textsuccessful__ke8UhO3MxK]: hasVariant(
+                      $state,
+                      "successful",
+                      "successful"
+                    )
+                  }
+                )}
+              >
+                {hasVariant($state, "successful", "successful")
+                  ? "\u0627\u0632 \u0627\u0646\u062a\u062e\u0627\u0628 \u0634\u0645\u0627 \u0633\u067e\u0627\u0633\u06af\u0632\u0627\u0631\u06cc\u0645. \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u06a9\u0646\u0648\u0646 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a \u0648 \u0627\u0632 \u0627\u06cc\u0646 \u067e\u0633 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0645\u0631\u062a\u0628\u0637 \u0628\u0627 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a\u0627\u0646 \u0631\u0627 \u0627\u0632 \u0644\u06cc\u0648\u0645 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f."
+                  : "\u0627\u0632 \u0627\u0646\u062a\u062e\u0627\u0628 \u0634\u0645\u0627 \u0633\u067e\u0627\u0633\u06af\u0632\u0627\u0631\u06cc\u0645. \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u06a9\u0646\u0648\u0646 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a \u0648 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0627\u0632 \u062e\u062f\u0645\u0627\u062a \u0645\u0627 \u0628\u0647\u0631\u0647\u200c\u0645\u0646\u062f \u0634\u0648\u06cc\u062f. \u062f\u0631 \u0635\u0648\u0631\u062a \u062f\u0627\u0634\u062a\u0646 \u0647\u0631\u06af\u0648\u0646\u0647 \u0633\u0648\u0627\u0644 \u06cc\u0627 \u0646\u06cc\u0627\u0632 \u060c \u0631\u0627\u0647\u200c\u0647\u0627\u06cc \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u0634\u0645\u0627\u0633\u062a."}
+              </div>
+            </div>
+            <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__ff4I
+                sty.text__ff4I,
+                {
+                  [sty.textsuccessful__ff4IO3MxK]: hasVariant(
+                    $state,
+                    "successful",
+                    "successful"
+                  )
+                }
               )}
             >
               {"\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642"}
@@ -336,9 +451,9 @@ function PlasmicShopResult__RenderFunc(props: {
                 }
               )}
             >
-              {
-                "\u0627\u0632 \u0627\u0646\u062a\u062e\u0627\u0628 \u0634\u0645\u0627 \u0633\u067e\u0627\u0633\u06af\u0632\u0627\u0631\u06cc\u0645. \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u06a9\u0646\u0648\u0646 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a \u0648 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0627\u0632 \u062e\u062f\u0645\u0627\u062a \u0645\u0627 \u0628\u0647\u0631\u0647\u200c\u0645\u0646\u062f \u0634\u0648\u06cc\u062f. \u062f\u0631 \u0635\u0648\u0631\u062a \u062f\u0627\u0634\u062a\u0646 \u0647\u0631\u06af\u0648\u0646\u0647 \u0633\u0648\u0627\u0644 \u06cc\u0627 \u0646\u06cc\u0627\u0632 \u060c \u0631\u0627\u0647\u200c\u0647\u0627\u06cc \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u0634\u0645\u0627\u0633\u062a."
-              }
+              {hasVariant($state, "successful", "successful")
+                ? "\u0627\u0632 \u0627\u0646\u062a\u062e\u0627\u0628 \u0634\u0645\u0627 \u0633\u067e\u0627\u0633\u06af\u0632\u0627\u0631\u06cc\u0645. \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u06a9\u0646\u0648\u0646 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a \u0648 \u0627\u0632 \u0627\u06cc\u0646 \u067e\u0633 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0645\u0631\u062a\u0628\u0637 \u0628\u0627 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a\u0627\u0646 \u0631\u0627 \u0627\u0632 \u0644\u06cc\u0648\u0645 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f."
+                : "\u0627\u0632 \u0627\u0646\u062a\u062e\u0627\u0628 \u0634\u0645\u0627 \u0633\u067e\u0627\u0633\u06af\u0632\u0627\u0631\u06cc\u0645. \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u06a9\u0646\u0648\u0646 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a \u0648 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0627\u0632 \u062e\u062f\u0645\u0627\u062a \u0645\u0627 \u0628\u0647\u0631\u0647\u200c\u0645\u0646\u062f \u0634\u0648\u06cc\u062f. \u062f\u0631 \u0635\u0648\u0631\u062a \u062f\u0627\u0634\u062a\u0646 \u0647\u0631\u06af\u0648\u0646\u0647 \u0633\u0648\u0627\u0644 \u06cc\u0627 \u0646\u06cc\u0627\u0632 \u060c \u0631\u0627\u0647\u200c\u0647\u0627\u06cc \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u0634\u0645\u0627\u0633\u062a."}
             </div>
             <Button
               data-plasmic-name={"button"}
@@ -427,394 +542,60 @@ function PlasmicShopResult__RenderFunc(props: {
                 )
               })}
             >
-              <EmojiSadSquareSvgrepoComSvgIcon
-                className={classNames(projectcss.all, sty.svg__lbPmL, {
-                  [sty.svgfailed__lbPmL1GaC]: hasVariant(
+              <div
+                className={classNames(projectcss.all, sty.freeBox___4MDsQ, {
+                  [sty.freeBoxfailed___4MDsQ1GaC]: hasVariant(
                     $state,
                     "failed",
                     "failed"
                   )
                 })}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__kGoPd,
-                  {
-                    [sty.textfailed__kGoPd1GaC]: hasVariant(
+              >
+                <EmojiSadSquareSvgrepoComSvgIcon
+                  className={classNames(projectcss.all, sty.svg__lbPmL, {
+                    [sty.svgfailed__lbPmL1GaC]: hasVariant(
                       $state,
                       "failed",
                       "failed"
                     )
-                  }
-                )}
-              >
-                {
-                  "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642"
-                }
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__rd3K,
-                  {
-                    [sty.textfailed__rd3K1GaC]: hasVariant(
-                      $state,
-                      "failed",
-                      "failed"
-                    )
-                  }
-                )}
-              >
-                {
-                  "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f. \u0627\u06af\u0631 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0631\u0627\u0647\u0646\u0645\u0627\u06cc\u06cc \u062f\u0627\u0634\u062a\u06cc\u062f\u060c \u0645\u0627 \u0627\u06cc\u0646\u062c\u0627\u06cc\u06cc\u0645 \u062a\u0627 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u06cc\u0645."
-                }
-              </div>
-              {(
-                hasVariant($state, "failed", "failed") &&
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? (() => {
-                      try {
-                        return true;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return true;
-                        }
-                        throw e;
-                      }
-                    })()
-                  : true
-              ) ? (
-                <Button
-                  data-plasmic-name={"button2"}
-                  data-plasmic-override={overrides.button2}
-                  className={classNames("__wab_instance", sty.button2, {
-                    [sty.button2failed]: hasVariant($state, "failed", "failed")
                   })}
-                  color={generateStateValueProp($state, ["button2", "color"])}
-                  endIcon={
-                    <PlasmicIcon__
-                      PlasmicIconType={
-                        hasVariant($state, "failed", "failed")
-                          ? Icon12Icon
-                          : Icon11Icon
-                      }
-                      className={classNames(projectcss.all, sty.svg__tgQk, {
-                        [sty.svgfailed__tgQk1GaC]: hasVariant(
-                          $state,
-                          "failed",
-                          "failed"
-                        )
-                      })}
-                      role={"img"}
-                    />
-                  }
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["invokeGlobalAction"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://n8n.staas.ir/webhook/hamyar/shopBuy",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    id: $ctx.query.buyId,
-                                    offCode: $ctx.query.offCode,
-                                    refCode: $ctx.query.refCode,
-                                    redirectUrl:
-                                      "https://apps.liom.app/shop-result?refCode=" +
-                                      $ctx.query.refCode +
-                                      "&mobile=" +
-                                      $ctx.query.mobile +
-                                      "&buyId=" +
-                                      $ctx.query.buyId +
-                                      "&offCode=" +
-                                      $ctx.query.offCode
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              (() => {
-                                try {
-                                  return {
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization:
-                                        $state.fragmentApiRequest.data.result
-                                          .token
-                                    }
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-
-                    $steps["goToPage"] =
-                      $steps.invokeGlobalAction.data.success == true
-                        ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return $steps.invokeGlobalAction.data.result;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "";
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-
-                    $steps["updateLoadingbtn"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["loadingbtn"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateLoadingbtn"] != null &&
-                      typeof $steps["updateLoadingbtn"] === "object" &&
-                      typeof $steps["updateLoadingbtn"].then === "function"
-                    ) {
-                      $steps["updateLoadingbtn"] = await $steps[
-                        "updateLoadingbtn"
-                      ];
-                    }
-
-                    $steps["updateLoadingbtn2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["loadingbtn"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateLoadingbtn2"] != null &&
-                      typeof $steps["updateLoadingbtn2"] === "object" &&
-                      typeof $steps["updateLoadingbtn2"].then === "function"
-                    ) {
-                      $steps["updateLoadingbtn2"] = await $steps[
-                        "updateLoadingbtn2"
-                      ];
-                    }
-                  }}
-                  onColorChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "color"])(
-                      eventArgs[0]
-                    );
-                  }}
-                  showEndIcon={
-                    hasVariant($state, "failed", "failed")
-                      ? (() => {
-                          try {
-                            return $state.loadingbtn;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "showEndIcon";
-                            }
-                            throw e;
-                          }
-                        })()
-                      : undefined
-                  }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___18V2G,
-                      {
-                        [sty.textfailed___18V2G1GaC]: hasVariant(
-                          $state,
-                          "failed",
-                          "failed"
-                        )
-                      }
-                    )}
-                  >
-                    {hasVariant($state, "failed", "failed")
-                      ? "\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"
-                      : "\u062a\u0627\u06cc\u06cc\u062f"}
-                  </div>
-                </Button>
-              ) : null}
-              <Button
-                data-plasmic-name={"button3"}
-                data-plasmic-override={overrides.button3}
-                className={classNames("__wab_instance", sty.button3, {
-                  [sty.button3failed]: hasVariant($state, "failed", "failed")
+                  role={"img"}
+                />
+              </div>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__iEvrb, {
+                  [sty.freeBoxfailed__iEvrb1GaC]: hasVariant(
+                    $state,
+                    "failed",
+                    "failed"
+                  )
                 })}
-                color={generateStateValueProp($state, ["button3", "color"])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return (
-                                "https://apps.liom.app/hamyar/?refCode=" +
-                                $ctx.query.refCode +
-                                "&mobile=" +
-                                $ctx.query.mobile
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-                }}
-                onColorChange={(...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button3", "color"])(
-                    eventArgs[0]
-                  );
-                }}
               >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__dR1Ba,
+                    sty.text__kGoPd,
                     {
-                      [sty.textfailed__dR1Ba1GaC]: hasVariant(
+                      [sty.textfailed__kGoPd1GaC]: hasVariant(
+                        $state,
+                        "failed",
+                        "failed"
+                      )
+                    }
+                  )}
+                >
+                  {
+                    "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642"
+                  }
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__rd3K,
+                    {
+                      [sty.textfailed__rd3K1GaC]: hasVariant(
                         $state,
                         "failed",
                         "failed"
@@ -823,10 +604,399 @@ function PlasmicShopResult__RenderFunc(props: {
                   )}
                 >
                   {hasVariant($state, "failed", "failed")
-                    ? "\u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0635\u0641\u062d\u0647 \u0627\u0635\u0644\u06cc"
-                    : "\u062a\u0627\u06cc\u06cc\u062f"}
+                    ? "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f."
+                    : "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f. \u0627\u06af\u0631 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0631\u0627\u0647\u0646\u0645\u0627\u06cc\u06cc \u062f\u0627\u0634\u062a\u06cc\u062f\u060c \u0645\u0627 \u0627\u06cc\u0646\u062c\u0627\u06cc\u06cc\u0645 \u062a\u0627 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u06cc\u0645."}
                 </div>
-              </Button>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__gZWvF,
+                    {
+                      [sty.textfailed__gZWvF1GaC]: hasVariant(
+                        $state,
+                        "failed",
+                        "failed"
+                      )
+                    }
+                  )}
+                >
+                  {hasVariant($state, "failed", "failed") &&
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? "\u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc >"
+                    : "Enter some text"}
+                </div>
+              </div>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___4SVt1, {
+                  [sty.freeBoxfailed___4SVt11GaC]: hasVariant(
+                    $state,
+                    "failed",
+                    "failed"
+                  )
+                })}
+              >
+                {(
+                  hasVariant($state, "failed", "failed") &&
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? (() => {
+                        try {
+                          return true;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : true
+                ) ? (
+                  <Button
+                    data-plasmic-name={"button2"}
+                    data-plasmic-override={overrides.button2}
+                    className={classNames("__wab_instance", sty.button2, {
+                      [sty.button2failed]: hasVariant(
+                        $state,
+                        "failed",
+                        "failed"
+                      )
+                    })}
+                    color={generateStateValueProp($state, ["button2", "color"])}
+                    endIcon={
+                      <PlasmicIcon__
+                        PlasmicIconType={
+                          hasVariant($state, "failed", "failed")
+                            ? Icon14Icon
+                            : Icon11Icon
+                        }
+                        className={classNames(projectcss.all, sty.svg__tgQk, {
+                          [sty.svgfailed__tgQk1GaC]: hasVariant(
+                            $state,
+                            "failed",
+                            "failed"
+                          )
+                        })}
+                        role={"img"}
+                      />
+                    }
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/hamyar/shopBuy",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      id: $ctx.query.buyId,
+                                      offCode: $ctx.query.offCode,
+                                      refCode: $ctx.query.refCode,
+                                      redirectUrl:
+                                        "https://apps.liom.app/shop-result?refCode=" +
+                                        $ctx.query.refCode +
+                                        "&mobile=" +
+                                        $ctx.query.mobile +
+                                        "&buyId=" +
+                                        $ctx.query.buyId +
+                                        "&offCode=" +
+                                        $ctx.query.offCode
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                (() => {
+                                  try {
+                                    return {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization:
+                                          $state.fragmentApiRequest.data.result
+                                            .token
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["goToPage"] =
+                        $steps.invokeGlobalAction.data.success == true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return $steps.invokeGlobalAction.data
+                                      .result;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+
+                      $steps["updateLoadingbtn"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingbtn"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingbtn"] != null &&
+                        typeof $steps["updateLoadingbtn"] === "object" &&
+                        typeof $steps["updateLoadingbtn"].then === "function"
+                      ) {
+                        $steps["updateLoadingbtn"] = await $steps[
+                          "updateLoadingbtn"
+                        ];
+                      }
+
+                      $steps["updateLoadingbtn2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingbtn"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingbtn2"] != null &&
+                        typeof $steps["updateLoadingbtn2"] === "object" &&
+                        typeof $steps["updateLoadingbtn2"].then === "function"
+                      ) {
+                        $steps["updateLoadingbtn2"] = await $steps[
+                          "updateLoadingbtn2"
+                        ];
+                      }
+                    }}
+                    onColorChange={(...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }}
+                    showEndIcon={
+                      hasVariant($state, "failed", "failed")
+                        ? (() => {
+                            try {
+                              return $state.loadingbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "showEndIcon";
+                              }
+                              throw e;
+                            }
+                          })()
+                        : undefined
+                    }
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___18V2G,
+                        {
+                          [sty.textfailed___18V2G1GaC]: hasVariant(
+                            $state,
+                            "failed",
+                            "failed"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "failed", "failed")
+                        ? "\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"
+                        : "\u062a\u0627\u06cc\u06cc\u062f"}
+                    </div>
+                  </Button>
+                ) : null}
+                <Button
+                  data-plasmic-name={"button3"}
+                  data-plasmic-override={overrides.button3}
+                  className={classNames("__wab_instance", sty.button3, {
+                    [sty.button3failed]: hasVariant($state, "failed", "failed")
+                  })}
+                  color={generateStateValueProp($state, ["button3", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return (
+                                  "https://apps.liom.app/hamyar/?refCode=" +
+                                  $ctx.query.refCode +
+                                  "&mobile=" +
+                                  $ctx.query.mobile
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
+                  onColorChange={(...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button3", "color"])(
+                      eventArgs[0]
+                    );
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__dR1Ba,
+                      {
+                        [sty.textfailed__dR1Ba1GaC]: hasVariant(
+                          $state,
+                          "failed",
+                          "failed"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "failed", "failed")
+                      ? "\u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0635\u0641\u062d\u0647 \u0627\u0635\u0644\u06cc"
+                      : "\u062a\u0627\u06cc\u06cc\u062f"}
+                  </div>
+                </Button>
+              </Stack__>
             </Stack__>
           ) : null}
           <ApiRequest

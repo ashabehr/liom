@@ -203,6 +203,9 @@
 .textpms {
   top: 155px;
   font-size: 16px;
+  text-decoration-line: underline;
+  color: #ffffffcc;
+  cursor: pointer;
   display: block;
 }
 @media (max-width: 640px) {
@@ -215,6 +218,9 @@
 .textfertility {
   top: 155px;
   font-size: 16px;
+  color: #ffffffcc;
+  text-decoration-line: underline;
+  cursor: pointer;
   display: block;
 }
 @media (max-width: 640px) {
