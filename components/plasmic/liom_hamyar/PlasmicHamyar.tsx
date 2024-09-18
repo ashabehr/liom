@@ -112,6 +112,7 @@ export type PlasmicHamyar__OverridesType = {
   switchbest?: Flex__<typeof Switchbest>;
   countdown2?: Flex__<typeof Countdown>;
   cyclebox?: Flex__<typeof Cyclebox>;
+  ol?: Flex__<"ol">;
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
@@ -1626,23 +1627,84 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.text__zYUfS
                         )}
                       >
-                        {"\u0627\u0634\u062a\u0631\u0627\u06a9"}
+                        {hasVariant(globalVariants, "screen", "mobile")
+                          ? "\u0627\u0631\u0633\u0627\u0644 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646 \u062a\u0627 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627 \u0631\u0648 \u0628\u062f\u0633\u062a \u0628\u06cc\u0627\u0631\u06cc"
+                          : "\u0627\u0631\u0633\u0627\u0644 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646 \u062a\u0627 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627 \u0631\u0648 \u0628\u062f\u0633\u062a \u0628\u06cc\u0627\u0631\u06cc"}
                       </div>
                     </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__zIo72)}
                     >
-                      <div
+                      <ol
+                        data-plasmic-name={"ol"}
+                        data-plasmic-override={overrides.ol}
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__uvPii
+                          projectcss.ol,
+                          sty.ol
                         )}
                       >
-                        {hasVariant(globalVariants, "screen", "mobile")
-                          ? "\u0622\u0631\u0627\u0645\u0634 \u0648 \u0631\u0627\u062d\u062a\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0633\u06cc \u06a9\u0647 \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc!\n\u0628\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0634\u062f\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc\u060c \u0628\u0647 \u0627\u0648 \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0628\u062f\u0648\u0646 \u0646\u06af\u0631\u0627\u0646\u06cc \u0648 \u0627\u0633\u062a\u0631\u0633\u060c \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u200c\u0627\u0634 \u0631\u0627 \u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0646\u062f.\n\u0647\u0645\u06cc\u0646 \u0627\u0645\u0631\u0648\u0632 \u0627\u06cc\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0627 \u062a\u0647\u06cc\u0647 \u06a9\u0646 \u0648 \u0628\u0647 \u0622\u0631\u0627\u0645\u0634 \u0627\u0648 \u06a9\u0645\u06a9 \u06a9\u0646!"
-                          : "\u0622\u0631\u0627\u0645\u0634 \u0648 \u0631\u0627\u062d\u062a\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0633\u06cc \u06a9\u0647 \u062f\u0648\u0633\u062a\u0634 \u062f\u0627\u0631\u06cc!\n\u0628\u0627 \u0627\u0634\u062a\u0631\u0627\u06a9 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0634\u062f\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc\u060c \u0628\u0647 \u0627\u0648 \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0628\u062f\u0648\u0646 \u0646\u06af\u0631\u0627\u0646\u06cc \u0648 \u0627\u0633\u062a\u0631\u0633\u060c \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u200c\u0627\u0634 \u0631\u0627 \u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0646\u062f.\n\u0647\u0645\u06cc\u0646 \u0627\u0645\u0631\u0648\u0632 \u0627\u06cc\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0627 \u062a\u0647\u06cc\u0647 \u06a9\u0646 \u0648 \u0628\u0647 \u0622\u0631\u0627\u0645\u0634 \u0627\u0648 \u06a9\u0645\u06a9 \u06a9\u0646!"}
-                      </div>
+                        <li
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.li,
+                            projectcss.__wab_text,
+                            sty.li__t490
+                          )}
+                        >
+                          {
+                            "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. "
+                          }
+                        </li>
+                        <li
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.li,
+                            projectcss.__wab_text,
+                            sty.li__qoY
+                          )}
+                        >
+                          {
+                            "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)"
+                          }
+                        </li>
+                        <li
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.li,
+                            projectcss.__wab_text,
+                            sty.li__fXauv
+                          )}
+                        >
+                          {
+                            "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u06a9\u0645\u062a\u0631 \u062f\u0631\u062f \u0628\u06a9\u0634\u0647 \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc"
+                          }
+                        </li>
+                        <li
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.li,
+                            projectcss.__wab_text,
+                            sty.li__oZlX7
+                          )}
+                        >
+                          {
+                            "\u0645\u0648\u0642\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0628\u0631\u0627\u0634 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0645\u06cc\u0641\u0631\u0633\u062a\u0645 \u06a9\u0647 \u062f\u0631\u0633\u062a\u0647 \u06a9\u0647 \u067e\u0631\u06cc\u0648\u062f\u0647 \u0627\u0645\u0627 \u0627\u0648\u0646 \u0647\u0645 \u0645\u0631\u0627\u0642\u0628 \u062a\u0648 \u0628\u0627\u0634\u0647 \u0648 \u0646\u0630\u0627\u0631\u0647 \u0627\u062d\u0633\u0627\u0633 \u062a\u0646\u0647\u0627\u06cc\u06cc \u06a9\u0646\u06cc"
+                          }
+                        </li>
+                        <li
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.li,
+                            projectcss.__wab_text,
+                            sty.li__lP7J
+                          )}
+                        >
+                          {
+                            "\u062a\u0648\u0635\u06cc\u0647 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u06a9\u0647 \u0628\u062a\u0648\u0646\u06cc \u0628\u0647 \u0633\u0644\u0627\u0645\u062a\u0634 \u06a9\u0645\u06a9 \u06a9\u0646\u06cc \u0648 \u062e\u0648\u0634\u062d\u0627\u0644\u0634 \u06a9\u0646\u06cc"
+                          }
+                        </li>
+                      </ol>
                     </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__x08Rs)}
@@ -7374,6 +7436,7 @@ const PlasmicDescendants = {
     "switchbest",
     "countdown2",
     "cyclebox",
+    "ol",
     "input",
     "button",
     "button2",
@@ -7398,6 +7461,7 @@ const PlasmicDescendants = {
   switchbest: ["switchbest"],
   countdown2: ["countdown2"],
   cyclebox: ["cyclebox"],
+  ol: ["ol"],
   input: ["input"],
   button: ["button"],
   button2: ["button2"],
@@ -7427,6 +7491,7 @@ type NodeDefaultElementType = {
   switchbest: typeof Switchbest;
   countdown2: typeof Countdown;
   cyclebox: typeof Cyclebox;
+  ol: "ol";
   input: typeof AntdInput;
   button: typeof Button;
   button2: typeof Button;
@@ -7537,6 +7602,7 @@ export const PlasmicHamyar = Object.assign(
     switchbest: makeNodeComponent("switchbest"),
     countdown2: makeNodeComponent("countdown2"),
     cyclebox: makeNodeComponent("cyclebox"),
+    ol: makeNodeComponent("ol"),
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
