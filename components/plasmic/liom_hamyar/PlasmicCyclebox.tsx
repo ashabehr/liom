@@ -316,7 +316,7 @@ function PlasmicCyclebox__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u067e\u0627\u06cc\u0627\u0646 \u0648\u0636\u0639\u06cc\u062a :  "
+                    "\u067e\u0627\u06cc\u0627\u0646 \u0648\u0636\u0639\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f:  "
                   }
                 </div>
                 <div
