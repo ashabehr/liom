@@ -1484,7 +1484,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         )}
                       >
                         {hasVariant(globalVariants, "screen", "mobile")
-                          ? "\u0631\u0648\u0632 \u0647\u0627\u06cc \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f :    "
+                          ? "\u0631\u0648\u0632 \u0647\u0627\u06cc \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f : "
                           : "\u0631\u0648\u0632 \u0647\u0627\u06cc \u0628\u0627\u0642\u06cc \u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f :"}
                       </div>
                       <div
