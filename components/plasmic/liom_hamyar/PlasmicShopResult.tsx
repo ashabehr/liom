@@ -555,6 +555,40 @@ function PlasmicShopResult__RenderFunc(props: {
                   $steps["updateStatus"] = await $steps["updateStatus"];
                 }
 
+                $steps["updateDisable"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["disable"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDisable"] != null &&
+                  typeof $steps["updateDisable"] === "object" &&
+                  typeof $steps["updateDisable"].then === "function"
+                ) {
+                  $steps["updateDisable"] = await $steps["updateDisable"];
+                }
+
                 $steps["invokeGlobalAction"] = true
                   ? (() => {
                       const actionArgs = {
@@ -607,40 +641,6 @@ function PlasmicShopResult__RenderFunc(props: {
                   $steps["invokeGlobalAction"] = await $steps[
                     "invokeGlobalAction"
                   ];
-                }
-
-                $steps["updateDisable"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["disable"]
-                        },
-                        operation: 0,
-                        value: true
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateDisable"] != null &&
-                  typeof $steps["updateDisable"] === "object" &&
-                  typeof $steps["updateDisable"].then === "function"
-                ) {
-                  $steps["updateDisable"] = await $steps["updateDisable"];
                 }
 
                 $steps["goToPage"] = true
@@ -1174,6 +1174,40 @@ function PlasmicShopResult__RenderFunc(props: {
                       $steps["updateStatus"] = await $steps["updateStatus"];
                     }
 
+                    $steps["updateDisable"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["disable"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDisable"] != null &&
+                      typeof $steps["updateDisable"] === "object" &&
+                      typeof $steps["updateDisable"].then === "function"
+                    ) {
+                      $steps["updateDisable"] = await $steps["updateDisable"];
+                    }
+
                     $steps["invokeGlobalAction"] = true
                       ? (() => {
                           const actionArgs = {
@@ -1227,40 +1261,6 @@ function PlasmicShopResult__RenderFunc(props: {
                       $steps["invokeGlobalAction"] = await $steps[
                         "invokeGlobalAction"
                       ];
-                    }
-
-                    $steps["updateDisable"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["disable"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateDisable"] != null &&
-                      typeof $steps["updateDisable"] === "object" &&
-                      typeof $steps["updateDisable"].then === "function"
-                    ) {
-                      $steps["updateDisable"] = await $steps["updateDisable"];
                     }
 
                     $steps["goToPage"] = true
