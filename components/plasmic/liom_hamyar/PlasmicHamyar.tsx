@@ -2391,9 +2391,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           <React.Fragment>
                             {(() => {
                               try {
-                                return $state.shop.data.result[
-                                  $state.selectedShop
-                                ].title;
+                                return $state.shop.data.result[1].title;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -2467,9 +2465,9 @@ function PlasmicHamyar__RenderFunc(props: {
                               {(() => {
                                 try {
                                   return (
-                                    $state.shop.data.result[
-                                      $state.selectedShop
-                                    ].price.toLocaleString("en-US") + " تومان "
+                                    $state.shop.data.result[1].price.toLocaleString(
+                                      "en-US"
+                                    ) + " تومان "
                                   );
                                 } catch (e) {
                                   if (
@@ -3048,9 +3046,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     variablePath: ["buyId"]
                                   },
                                   operation: 0,
-                                  value:
-                                    $state.shop.data.result[$state.selectedShop]
-                                      .id
+                                  value: $state.shop.data.result[1].id
                                 };
                                 return (({
                                   variable,
@@ -7623,6 +7619,18 @@ function PlasmicHamyar__RenderFunc(props: {
             }}
             url={"https://n8n.staas.ir/webhook/hamyar/shop"}
           />
+
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text___3XMhh
+            )}
+          >
+            {
+              "https://studio.plasmic.app/projects/suVPi77vb6vv9K5rYJwyxC/preview-full/hamyar?buyId=REPLACEME&r=cd5bba&m=3ZjitMAEm"
+            }
+          </div>
         </div>
       </div>
     </React.Fragment>
