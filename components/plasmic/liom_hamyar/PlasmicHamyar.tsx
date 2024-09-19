@@ -2244,16 +2244,18 @@ function PlasmicHamyar__RenderFunc(props: {
                       )}
                     >
                       {hasVariant(globalVariants, "screen", "mobile")
-                        ? "\u0627\u0631\u0633\u0627\u0644 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646 \u062a\u0627 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627 \u0631\u0648 \u0628\u062f\u0633\u062a \u0628\u06cc\u0627\u0631\u06cc"
-                        : "\u0627\u0631\u0633\u0627\u0644 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646 \u062a\u0627 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627 \u0631\u0648 \u0628\u062f\u0633\u062a \u0628\u06cc\u0627\u0631\u06cc"}
+                        ? "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646 \u062a\u0627 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627 \u0631\u0648 \u0628\u062f\u0633\u062a \u0628\u06cc\u0627\u0631\u06cc"
+                        : "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646 \u062a\u0627 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627 \u0631\u0648 \u0628\u062f\u0633\u062a \u0628\u06cc\u0627\u0631\u06cc"}
                     </div>
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__zIo72)}
                   >
-                    <ol
+                    <Stack__
+                      as={"ol"}
                       data-plasmic-name={"ol"}
                       data-plasmic-override={overrides.ol}
+                      hasGap={true}
                       className={classNames(
                         projectcss.all,
                         projectcss.ol,
@@ -2273,9 +2275,9 @@ function PlasmicHamyar__RenderFunc(props: {
                             {(() => {
                               try {
                                 return (
-                                  "شروع دوره pms رو با پیامک بهت اطلاع میدم تا بتونی " +
+                                  "شروع دوره PMS رو بهت پیامک می‌زنم تا " +
                                   $state.name +
-                                  " رو بیشتر درک کنی و از ناراحتی های احتمالی جلوگیری کنی. "
+                                  " رو بهتر درک کنی و از ناراحتی‌ها جلوگیری کنی."
                                 );
                               } catch (e) {
                                 if (
@@ -2305,9 +2307,9 @@ function PlasmicHamyar__RenderFunc(props: {
                             {(() => {
                               try {
                                 return (
-                                  "در هر روز pms پیامک هایی برای " +
+                                  "در هر روز PMS پیامک‌هایی برای " +
                                   $state.name +
-                                  " ارسال میشه که اون هم بتونه خودش رو کنترل کنه و حواسش به تو و رابطه تون باشه(‌البته که قرار نیست این پیامک ها بصورت مستقیم ارسال بشن و اون بفهمه که تو این قابلیت رو فعال کردی)"
+                                  " ارسال میشه تا خودش رو کنترل کنه و به رابطه‌تون توجه داشته باشه، بدون اینکه بفهمه تو این قابلیت رو فعال کردی."
                                 );
                               } catch (e) {
                                 if (
@@ -2332,9 +2334,9 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.li__fXauv
                         )}
                       >
-                        {
-                          "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u06a9\u0645\u062a\u0631 \u062f\u0631\u062f \u0628\u06a9\u0634\u0647 \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc"
-                        }
+                        {hasVariant(globalVariants, "screen", "mobile")
+                          ? '"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0627 \u0628\u0647\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc."\n'
+                          : "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u06a9\u0645\u062a\u0631 \u062f\u0631\u062f \u0628\u06a9\u0634\u0647 \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc"}
                       </li>
                       <li
                         className={classNames(
@@ -2360,7 +2362,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           "\u062a\u0648\u0635\u06cc\u0647 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u06a9\u0647 \u0628\u062a\u0648\u0646\u06cc \u0628\u0647 \u0633\u0644\u0627\u0645\u062a\u0634 \u06a9\u0645\u06a9 \u06a9\u0646\u06cc \u0648 \u062e\u0648\u0634\u062d\u0627\u0644\u0634 \u06a9\u0646\u06cc"
                         }
                       </li>
-                    </ol>
+                    </Stack__>
                   </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__x08Rs)}
