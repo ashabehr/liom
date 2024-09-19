@@ -137,6 +137,8 @@
 }
 @media (max-width: 640px) {
   .freeBox__d2GZw > :global(.__wab_flex-container) {
+    justify-content: flex-start;
+    align-items: center;
     min-height: 0;
     margin-left: calc(0px - 5px);
     width: calc(100% + 5px);
@@ -198,6 +200,7 @@
 @media (max-width: 640px) {
   .text___7ZQo {
     font-size: 16px;
+    padding: 0px 12px 0px 0px;
   }
 }
 .freeBox__kpKeP {
@@ -226,10 +229,27 @@
     display: none;
   }
 }
-.freeBox__uHwR {
+.freeBox__bph6 {
   display: flex;
   flex-direction: row;
   position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+@media (max-width: 640px) {
+  .freeBox__bph6 {
+    width: 40%;
+    display: flex;
+  }
+}
+.freeBox__uHwR {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -246,10 +266,11 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     align-items: center;
     justify-content: center;
     background: #ffffff;
+    min-width: 0;
     padding: 10px 2px;
   }
 }
@@ -305,11 +326,12 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 100%;
     align-items: center;
     justify-content: center;
     background: #ffffff;
     box-shadow: 0px 0px 2px 2px var(--token-4RAe7M2gInqR);
+    min-width: 0;
     padding: 5px 5px 5px 2px;
   }
 }
@@ -343,9 +365,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: right;
-  font-size: var(--token-bucIARGmMoc6);
-  font-weight: 700;
+  text-align: justify;
+  font-size: var(--token-tjteaUKFnUfH);
+  font-weight: 400;
   padding-right: var(--token-8irlKe4dtuKs);
   padding-left: var(--token-8irlKe4dtuKs);
   font-style: normal;
@@ -358,11 +380,10 @@
   text-decoration-line: none;
   text-overflow: clip;
   min-width: 0;
-  display: none;
 }
 @media (max-width: 640px) {
   .text__lFbQr {
-    font-size: var(--token-2xQ-Ews6Hwx4);
+    font-size: 14px;
     padding-right: var(--token-81l0SCMdhZN_);
     padding-left: var(--token-81l0SCMdhZN_);
   }
@@ -934,11 +955,6 @@
   > picture
   > img {
   margin-top: 0px;
-}
-@media (max-width: 640px) {
-  .freeBox__ebGwv {
-    display: flex;
-  }
 }
 .freeBox__uC58N {
   display: flex;
