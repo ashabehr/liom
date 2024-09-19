@@ -482,50 +482,6 @@ function PlasmicShopResult__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToPage"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return (
-                              "https://apps.liom.app/hamyar/?refCode=" +
-                              $ctx.query.refCode +
-                              "&mobile=" +
-                              $ctx.query.mobile
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
-                ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
-                }
-
                 $steps["updateStatus"] = true
                   ? (() => {
                       const actionArgs = {
@@ -579,7 +535,8 @@ function PlasmicShopResult__RenderFunc(props: {
                                 action: $state.status,
                                 extraData: {
                                   valueShop: $ctx.query.valueShop,
-                                  BuyId: $ctx.query.buyId
+                                  BuyId: $ctx.query.buyId,
+                                  price: $ctx.query.price
                                 }
                               };
                             } catch (e) {
@@ -615,6 +572,50 @@ function PlasmicShopResult__RenderFunc(props: {
                   $steps["invokeGlobalAction"] = await $steps[
                     "invokeGlobalAction"
                   ];
+                }
+
+                $steps["goToPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return (
+                              "https://apps.liom.app/hamyar/?refCode=" +
+                              $ctx.query.refCode +
+                              "&mobile=" +
+                              $ctx.query.mobile
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
                 }
               }}
               onColorChange={(...eventArgs) => {
@@ -829,6 +830,8 @@ function PlasmicShopResult__RenderFunc(props: {
                                       $ctx.query.offCode +
                                       "&valueShop=" +
                                       $ctx.query.valueShop +
+                                      "&price=" +
+                                      $ctx.query.price +
                                       "&manId=" +
                                       $ctx.query.manId
                                   };
@@ -882,6 +885,42 @@ function PlasmicShopResult__RenderFunc(props: {
                       ];
                     }
 
+                    $steps["updateLoadingbtn2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["loadingbtn"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoadingbtn2"] != null &&
+                      typeof $steps["updateLoadingbtn2"] === "object" &&
+                      typeof $steps["updateLoadingbtn2"].then === "function"
+                    ) {
+                      $steps["updateLoadingbtn2"] = await $steps[
+                        "updateLoadingbtn2"
+                      ];
+                    }
+
                     $steps["goToPage"] =
                       $steps.invokeGlobalAction.data.success == true
                         ? (() => {
@@ -921,42 +960,6 @@ function PlasmicShopResult__RenderFunc(props: {
                       typeof $steps["goToPage"].then === "function"
                     ) {
                       $steps["goToPage"] = await $steps["goToPage"];
-                    }
-
-                    $steps["updateLoadingbtn2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["loadingbtn"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateLoadingbtn2"] != null &&
-                      typeof $steps["updateLoadingbtn2"] === "object" &&
-                      typeof $steps["updateLoadingbtn2"].then === "function"
-                    ) {
-                      $steps["updateLoadingbtn2"] = await $steps[
-                        "updateLoadingbtn2"
-                      ];
                     }
                   }}
                   onColorChange={(...eventArgs) => {
@@ -1123,7 +1126,8 @@ function PlasmicShopResult__RenderFunc(props: {
                                     action: $state.status,
                                     extraData: {
                                       valueShop: $ctx.query.valueShop,
-                                      BuyId: $ctx.query.buyId
+                                      BuyId: $ctx.query.buyId,
+                                      price: $ctx.query.price
                                     }
                                   };
                                 } catch (e) {

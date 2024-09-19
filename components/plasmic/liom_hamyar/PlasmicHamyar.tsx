@@ -814,30 +814,6 @@ function PlasmicHamyar__RenderFunc(props: {
                       )}
                       onClick={async event => {
                         const $steps = {};
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    return window.FlutterChannel.postMessage(
-                                      "send"
-                                    );
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
                       }}
                     >
                       <React.Fragment>
@@ -1307,217 +1283,6 @@ function PlasmicHamyar__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   </Stack__>
-                  {(() => {
-                    try {
-                      return (() => {
-                        if (
-                          $state.user.data.result.userStatus.periodStatus ==
-                          "white"
-                        )
-                          return false;
-                        else return true;
-                      })();
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__x0T2T)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__dy6B
-                        )}
-                      >
-                        {hasVariant(globalVariants, "screen", "mobile") ? (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  switch (
-                                    $state.user.data.result.userStatus
-                                      .periodStatus
-                                  ) {
-                                    case "fertility":
-                                      return "پایان وضعیت تخمک گذاری: ";
-                                    case "pms":
-                                      return "پایان وضعیت pms: ";
-                                    case "blood":
-                                      return "پایان وضعیت پریود: ";
-                                    default:
-                                      return "-";
-                                  }
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u067e\u0627\u06cc\u0627\u0646 \u0648\u0636\u0639\u06cc\u062a :  ";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        ) : (
-                          "\u067e\u0627\u06cc\u0627\u0646 \u0648\u0636\u0639\u06cc\u062a :  "
-                        )}
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__a9P1
-                        )}
-                      >
-                        {hasVariant(globalVariants, "screen", "mobile") ? (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  switch (
-                                    $state.user.data.result.userStatus
-                                      .periodStatus
-                                  ) {
-                                    case null:
-                                      return "";
-                                    case "fertility":
-                                      let future1 = new Date(
-                                        $state.user.data.result.userStatus.fertilityEnd
-                                      );
-                                      let current_date1 = new Date();
-                                      let delta1 = future1 - current_date1;
-                                      let days_remaining1 = Math.floor(
-                                        delta1 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining1 == 0)
-                                        return "تا پایان امروز";
-                                      return (
-                                        " تا " +
-                                        days_remaining1 +
-                                        " روز " +
-                                        "آینده"
-                                      );
-                                    case "pms":
-                                      let future2 = new Date(
-                                        $state.user.data.result.userStatus.pmsEnd
-                                      );
-                                      let current_date2 = new Date();
-                                      let delta2 = future2 - current_date2;
-                                      let days_remaining2 = Math.floor(
-                                        delta2 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining2 == 0)
-                                        return "تا پایان امروز";
-                                      return (
-                                        " تا " +
-                                        days_remaining2 +
-                                        " روز " +
-                                        "آینده"
-                                      );
-                                    case "blood":
-                                      let future3 = new Date(
-                                        $state.user.data.result.userStatus.periodEnd
-                                      );
-                                      let current_date3 = new Date();
-                                      let delta3 = future3 - current_date3;
-                                      let days_remaining3 = Math.floor(
-                                        delta3 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining3 == 0)
-                                        return "تا پایان امروز";
-                                      return (
-                                        " تا " +
-                                        days_remaining3 +
-                                        " روز " +
-                                        "آینده"
-                                      );
-                                    default:
-                                      return "";
-                                  }
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "-";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        ) : (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  switch (
-                                    $state.user.data.result.userStatus
-                                      .periodStatus
-                                  ) {
-                                    case null:
-                                      return "";
-                                    case "fertility":
-                                      let future1 = new Date(
-                                        $state.user.data.result.userStatus.fertilityEnd
-                                      );
-                                      let current_date1 = new Date();
-                                      let delta1 = future1 - current_date1;
-                                      let days_remaining1 = Math.floor(
-                                        delta1 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining1 == 0) return "امروز";
-                                      return days_remaining1 + " روز ";
-                                    case "pms":
-                                      let future2 = new Date(
-                                        $state.user.data.result.userStatus.pmsEnd
-                                      );
-                                      let current_date2 = new Date();
-                                      let delta2 = future2 - current_date2;
-                                      let days_remaining2 = Math.floor(
-                                        delta2 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining2 == 0) return "امروز";
-                                      return days_remaining2 + " روز ";
-                                    case "blood":
-                                      let future3 = new Date(
-                                        $state.user.data.result.userStatus.periodEnd
-                                      );
-                                      let current_date3 = new Date();
-                                      let delta3 = future3 - current_date3;
-                                      let days_remaining3 = Math.floor(
-                                        delta3 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining3 == 0) return "امروز";
-                                      return days_remaining3 + " روز ";
-                                    default:
-                                      return "";
-                                  }
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "-";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        )}
-                      </div>
-                    </div>
-                  ) : null}
                 </Cyclebox>
                 <Stack__
                   as={"div"}
@@ -1528,13 +1293,7 @@ function PlasmicHamyar__RenderFunc(props: {
                     hasVariant(globalVariants, "screen", "mobile")
                       ? (() => {
                           try {
-                            return (() => {
-                              if ($state.cyclebox.cycle == "blood") {
-                                return false;
-                              } else {
-                                return true;
-                              }
-                            })();
+                            return $state.cyclebox.cycle != "white";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1547,13 +1306,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         })()
                       : (() => {
                           try {
-                            return (() => {
-                              if ($state.cyclebox.cycle == "blood") {
-                                return false;
-                              } else {
-                                return true;
-                              }
-                            })();
+                            return $state.cyclebox.cycle != "white";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1582,9 +1335,71 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.text__zwcWp
                         )}
                       >
-                        {hasVariant(globalVariants, "screen", "mobile")
-                          ? "\u0631\u0648\u0632 \u0647\u0627\u06cc \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f : "
-                          : "\u0631\u0648\u0632 \u0647\u0627\u06cc \u0628\u0627\u0642\u06cc \u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f :"}
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  switch (
+                                    $state.user.data.result.userStatus
+                                      .periodStatus
+                                  ) {
+                                    case "white":
+                                      return "پایان وضعیت عادی :";
+                                    case "fertility":
+                                      return " پایان وضعیت تخمک گذاری :";
+                                    case "pms":
+                                      return "پایان وضعیت pms : ";
+                                    case "blood":
+                                      return " پایان وضعیت پریود :";
+                                    default:
+                                      return "-";
+                                  }
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0631\u0648\u0632 \u0647\u0627\u06cc \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f : ";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  switch (
+                                    $state.user.data.result.userStatus
+                                      .periodStatus
+                                  ) {
+                                    case "white":
+                                      return "پایان وضعیت عادی :";
+                                    case "fertility":
+                                      return " پایان وضعیت تخمک گذاری :";
+                                    case "pms":
+                                      return "پایان وضعیت pms : ";
+                                    case "blood":
+                                      return " پایان وضعیت پریود :";
+                                    default:
+                                      return "-";
+                                  }
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u067e\u0627\u06cc\u0627\u0646 \u0648\u0636\u0639\u06cc\u062a";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
                       </div>
                       <div
                         className={classNames(
@@ -1598,16 +1413,51 @@ function PlasmicHamyar__RenderFunc(props: {
                             {(() => {
                               try {
                                 return (() => {
-                                  let future1 = new Date(
-                                    $state.user.data.result.userStatus.pmsEnd
-                                  );
-                                  let current_date1 = new Date();
-                                  let delta1 = future1 - current_date1;
-                                  let days_remaining1 = Math.floor(
-                                    delta1 / (1000 * 60 * 60 * 24)
-                                  );
-                                  if (days_remaining1 == 0) days_remaining1 = 1;
-                                  return days_remaining1 + " روز ";
+                                  switch (
+                                    $state.user.data.result.userStatus
+                                      .periodStatus
+                                  ) {
+                                    case null:
+                                      return "";
+                                    case "fertility":
+                                      let future1 = new Date(
+                                        $state.user.data.result.userStatus.fertilityEnd
+                                      );
+                                      let current_date1 = new Date();
+                                      let delta1 = future1 - current_date1;
+                                      let days_remaining1 = Math.floor(
+                                        delta1 / (1000 * 60 * 60 * 24)
+                                      );
+                                      if (days_remaining1 == 0)
+                                        return "تا پایان امروز";
+                                      return days_remaining1 + " روز " + "دیگر";
+                                    case "pms":
+                                      let future2 = new Date(
+                                        $state.user.data.result.userStatus.pmsEnd
+                                      );
+                                      let current_date2 = new Date();
+                                      let delta2 = future2 - current_date2;
+                                      let days_remaining2 = Math.floor(
+                                        delta2 / (1000 * 60 * 60 * 24)
+                                      );
+                                      if (days_remaining2 == 0)
+                                        return "تا پایان امروز";
+                                      return days_remaining2 + " روز " + "دیگر";
+                                    case "blood":
+                                      let future3 = new Date(
+                                        $state.user.data.result.userStatus.periodEnd
+                                      );
+                                      let current_date3 = new Date();
+                                      let delta3 = future3 - current_date3;
+                                      let days_remaining3 = Math.floor(
+                                        delta3 / (1000 * 60 * 60 * 24)
+                                      );
+                                      if (days_remaining3 == 0)
+                                        return "تا پایان امروز";
+                                      return days_remaining3 + " روز " + "دیگر";
+                                    default:
+                                      return "";
+                                  }
                                 })();
                               } catch (e) {
                                 if (
@@ -1625,16 +1475,51 @@ function PlasmicHamyar__RenderFunc(props: {
                             {(() => {
                               try {
                                 return (() => {
-                                  let future1 = new Date(
-                                    $state.user.data.result.userStatus.pmsEnd
-                                  );
-                                  let current_date1 = new Date();
-                                  let delta1 = future1 - current_date1;
-                                  let days_remaining1 = Math.floor(
-                                    delta1 / (1000 * 60 * 60 * 24)
-                                  );
-                                  if (days_remaining1 == 0) days_remaining1 = 1;
-                                  return days_remaining1 + " روز ";
+                                  switch (
+                                    $state.user.data.result.userStatus
+                                      .periodStatus
+                                  ) {
+                                    case null:
+                                      return "";
+                                    case "fertility":
+                                      let future1 = new Date(
+                                        $state.user.data.result.userStatus.fertilityEnd
+                                      );
+                                      let current_date1 = new Date();
+                                      let delta1 = future1 - current_date1;
+                                      let days_remaining1 = Math.floor(
+                                        delta1 / (1000 * 60 * 60 * 24)
+                                      );
+                                      if (days_remaining1 == 0)
+                                        return "تا پایان امروز";
+                                      return days_remaining1 + " روز " + "دیگر";
+                                    case "pms":
+                                      let future2 = new Date(
+                                        $state.user.data.result.userStatus.pmsEnd
+                                      );
+                                      let current_date2 = new Date();
+                                      let delta2 = future2 - current_date2;
+                                      let days_remaining2 = Math.floor(
+                                        delta2 / (1000 * 60 * 60 * 24)
+                                      );
+                                      if (days_remaining2 == 0)
+                                        return "تا پایان امروز";
+                                      return days_remaining2 + " روز " + "دیگر";
+                                    case "blood":
+                                      let future3 = new Date(
+                                        $state.user.data.result.userStatus.periodEnd
+                                      );
+                                      let current_date3 = new Date();
+                                      let delta3 = future3 - current_date3;
+                                      let days_remaining3 = Math.floor(
+                                        delta3 / (1000 * 60 * 60 * 24)
+                                      );
+                                      if (days_remaining3 == 0)
+                                        return "تا پایان امروز";
+                                      return days_remaining3 + " روز " + "دیگر";
+                                    default:
+                                      return "";
+                                  }
                                 })();
                               } catch (e) {
                                 if (
@@ -1651,51 +1536,93 @@ function PlasmicHamyar__RenderFunc(props: {
                       </div>
                     </Stack__>
                   ) : null}
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__dZlCa)}
-                  >
-                    <Icon4Icon
-                      className={classNames(projectcss.all, sty.svg__eOpc2)}
-                      role={"img"}
-                    />
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__pSXtV
-                      )}
-                    >
-                      {
-                        "\u0637\u0648\u0644 \u06a9\u0644 \u062f\u0648\u0631\u0647"
-                      }
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__v9Vi8
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? (() => {
                           try {
-                            return $state.user.data.result.user.cycle + " روز";
+                            return $state.cyclebox.cycle != "blood";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return "-";
+                              return true;
                             }
                             throw e;
                           }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                  </Stack__>
+                        })()
+                      : (() => {
+                          try {
+                            return $state.cyclebox.cycle != "blood";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                  ) ? (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__dZlCa)}
+                    >
+                      <Icon4Icon
+                        className={classNames(projectcss.all, sty.svg__eOpc2)}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__pSXtV
+                        )}
+                      >
+                        {
+                          "\u0631\u0648\u0632 \u0647\u0627\u06cc \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f:"
+                        }
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__v9Vi8
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                let future3 = new Date(
+                                  $state.user.data.result.userStatus.pmsEnd
+                                );
+                                let current_date3 = new Date();
+                                let delta3 = future3 - current_date3;
+                                let days_remaining3 = Math.floor(
+                                  delta3 / (1000 * 60 * 60 * 24)
+                                );
+                                if (days_remaining3 == 0)
+                                  return "تا پایان امروز";
+                                return days_remaining3 + " روز " + "دیگر";
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "-";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </Stack__>
+                  ) : null}
                 </Stack__>
                 {(() => {
                   try {
@@ -3013,7 +2940,12 @@ function PlasmicHamyar__RenderFunc(props: {
                             "color"
                           ])}
                           endIcon={
-                            <Icon14Icon
+                            <PlasmicIcon__
+                              PlasmicIconType={
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? Icon12Icon
+                                  : Icon14Icon
+                              }
                               className={classNames(
                                 projectcss.all,
                                 sty.svg__duV0P
@@ -3788,7 +3720,7 @@ function PlasmicHamyar__RenderFunc(props: {
                     className={classNames("__wab_instance", sty.button3)}
                     color={generateStateValueProp($state, ["button3", "color"])}
                     endIcon={
-                      <Icon14Icon
+                      <Icon12Icon
                         className={classNames(projectcss.all, sty.svg__iArUl)}
                         role={"img"}
                       />
@@ -3856,12 +3788,16 @@ function PlasmicHamyar__RenderFunc(props: {
                                         $state.discountCode +
                                         "&valueShop=" +
                                         $state.shop.data.result[
-                                          $state.selectedShop
+                                          $state.subscriptionCurrentIndex
                                         ].type +
                                         "-" +
                                         $state.shop.data.result[
-                                          $state.selectedShop
+                                          $state.subscriptionCurrentIndex
                                         ].value +
+                                        "&price=" +
+                                        $state.shop.data.result[
+                                          $state.subscriptionCurrentIndex
+                                        ].price +
                                         "&manId=" +
                                         $state.user.data.result.man.id
                                     };
@@ -4534,7 +4470,7 @@ function PlasmicHamyar__RenderFunc(props: {
                       <PlasmicIcon__
                         PlasmicIconType={
                           hasVariant(globalVariants, "screen", "mobile")
-                            ? Icon14Icon
+                            ? Icon12Icon
                             : Icon12Icon
                         }
                         className={classNames(projectcss.all, sty.svg__pT1Jr)}
@@ -4604,12 +4540,16 @@ function PlasmicHamyar__RenderFunc(props: {
                                         $state.discountCode +
                                         "&valueShop=" +
                                         $state.shop.data.result[
-                                          $state.selectedShop
+                                          $state.subscriptionCurrentIndex
                                         ].type +
                                         "-" +
                                         $state.shop.data.result[
-                                          $state.selectedShop
+                                          $state.subscriptionCurrentIndex
                                         ].value +
+                                        "&price=" +
+                                        $state.shop.data.result[
+                                          $state.subscriptionCurrentIndex
+                                        ].price +
                                         "&manId=" +
                                         $state.user.data.result.man.id
                                     };
@@ -7394,7 +7334,7 @@ function PlasmicHamyar__RenderFunc(props: {
 
                 $steps["invokeGlobalAction"] = true
                   ? (() => {
-                      const actionArgs = { args: [3000] };
+                      const actionArgs = { args: [5000] };
                       return $globalActions["Fragment.wait"]?.apply(null, [
                         ...actionArgs.args
                       ]);
@@ -7411,7 +7351,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
 
                 $steps["goToExpired"] = (() => {
-                  if ($state.user.data.success) {
+                  if (typeof $state.user.data.success !== "undefined") {
                     return !$state.user.data.success;
                   } else {
                     return true;
@@ -7442,7 +7382,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
 
                 $steps["updateTokenUser"] = (() => {
-                  if ($state.user.data.success) {
+                  if (typeof $state.user.data.success !== "undefined") {
                     return $state.user.data.success;
                   } else {
                     return false;
@@ -7482,7 +7422,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
 
                 $steps["updateName"] = (() => {
-                  if ($state.user.data.success) {
+                  if (typeof $state.user.data.success !== "undefined") {
                     return $state.user.data.success;
                   } else {
                     return false;

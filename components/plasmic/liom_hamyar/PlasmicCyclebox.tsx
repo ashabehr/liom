@@ -245,91 +245,69 @@ function PlasmicCyclebox__RenderFunc(props: {
         data-plasmic-override={overrides.freeBox}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBoxperiod]: hasVariant($state, "period", "period")
+          [sty.freeBoxfertility]: hasVariant($state, "fertility", "fertility"),
+          [sty.freeBoxperiod]: hasVariant($state, "period", "period"),
+          [sty.freeBoxpms]: hasVariant($state, "pms", "pms")
         })}
       >
         {renderPlasmicSlot({
           defaultContents: (
-            <React.Fragment>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__uykBc)}
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__uykBc)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__yG1Pn
+                )}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__yG1Pn
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return (() => {
-                          switch (
-                            $state.user.data.result.userStatus.periodStatus
-                          ) {
-                            case null:
-                              return (
-                                $state.user.data.result.user.name +
-                                " الان در وضعیت عادی است."
-                              );
-                            case "fertility":
-                              return (
-                                $state.user.data.result.user.name +
-                                " الان در وضعیت تخمک گذاری است."
-                              );
-                            case "pms":
-                              return (
-                                $state.user.data.result.user.name +
-                                " الان در وضعیت pms است."
-                              );
-                            case "period":
-                              return (
-                                $state.user.data.result.user.name +
-                                " الان در وضعیت پریود است."
-                              );
-                            default:
-                              return "وضعیت فعلی";
-                          }
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return (() => {
+                        switch (
+                          $state.user.data.result.userStatus.periodStatus
                         ) {
-                          return "\u0645\u0644\u06cc\u06a9\u0627 \u0627\u0644\u0627\u0646 \u062f\u0631 \u0648\u0636\u0639\u06cc\u062a pms \u0627\u0633\u062a ";
+                          case null:
+                            return (
+                              $state.user.data.result.user.name +
+                              " الان در وضعیت عادی است."
+                            );
+                          case "fertility":
+                            return (
+                              $state.user.data.result.user.name +
+                              " الان در وضعیت تخمک گذاری است."
+                            );
+                          case "pms":
+                            return (
+                              $state.user.data.result.user.name +
+                              " الان در وضعیت pms است."
+                            );
+                          case "period":
+                            return (
+                              $state.user.data.result.user.name +
+                              " الان در وضعیت پریود است."
+                            );
+                          default:
+                            return "وضعیت فعلی";
                         }
-                        throw e;
+                      })();
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u0645\u0644\u06cc\u06a9\u0627 \u0627\u0644\u0627\u0646 \u062f\u0631 \u0648\u0636\u0639\u06cc\u062a pms \u0627\u0633\u062a ";
                       }
-                    })()}
-                  </React.Fragment>
-                </div>
-              </Stack__>
-              <div className={classNames(projectcss.all, sty.freeBox__vq38N)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__dIhUu
-                  )}
-                >
-                  {
-                    "\u067e\u0627\u06cc\u0627\u0646 \u0648\u0636\u0639\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f:  "
-                  }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xjUoQ
-                  )}
-                >
-                  {"5 \u0631\u0648\u0632"}
-                </div>
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
               </div>
-            </React.Fragment>
+            </Stack__>
           ),
           value: args.children,
           className: classNames(sty.slotTargetChildren, {

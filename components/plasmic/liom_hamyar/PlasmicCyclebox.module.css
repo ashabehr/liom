@@ -69,6 +69,14 @@
     padding: 0px;
   }
 }
+.freeBoxpms > :global(.__wab_flex-container) {
+  align-items: center;
+  justify-content: center;
+}
+.freeBoxfertility > :global(.__wab_flex-container) {
+  align-items: center;
+  justify-content: center;
+}
 .freeBoxperiod > :global(.__wab_flex-container) {
   align-items: center;
   justify-content: center;
@@ -123,58 +131,6 @@
   text-decoration-line: none;
   text-overflow: clip;
   min-width: 0;
-}
-.freeBox__vq38N {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  margin-bottom: 20px;
-  min-width: 0;
-  padding: 0px;
-}
-.text__dIhUu {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  padding-bottom: 0px;
-  color: #ffffff;
-  text-align: center;
-  align-self: flex-start;
-  font-size: 12px;
-  font-weight: 400;
-  font-style: normal;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre-wrap;
-  user-select: text;
-  text-decoration-line: none;
-  text-overflow: clip;
-}
-.text__xjUoQ {
-  position: relative;
-  text-overflow: clip;
-  text-decoration-line: none;
-  user-select: text;
-  white-space: pre-wrap;
-  letter-spacing: normal;
-  line-height: 1.5;
-  text-transform: none;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  text-align: center;
-  color: #ffffff;
-  padding-bottom: 0px;
-  max-width: 100%;
-  height: auto;
-  width: auto;
 }
 .text {
   position: absolute;
