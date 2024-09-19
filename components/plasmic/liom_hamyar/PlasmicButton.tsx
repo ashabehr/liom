@@ -136,6 +136,7 @@ export type PlasmicButton__ArgsType = {
   submitsForm?: boolean;
   target?: boolean;
   onColorChange?: (val: any) => void;
+  disabled?: boolean;
 };
 type ArgPropType = keyof PlasmicButton__ArgsType;
 export const PlasmicButton__ArgProps = new Array<ArgPropType>(
@@ -145,7 +146,8 @@ export const PlasmicButton__ArgProps = new Array<ArgPropType>(
   "link",
   "submitsForm",
   "target",
-  "onColorChange"
+  "onColorChange",
+  "disabled"
 );
 
 export type PlasmicButton__OverridesType = {
@@ -159,6 +161,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
   submitsForm?: boolean;
   target?: boolean;
   onColorChange?: (val: any) => void;
+  disabled?: boolean;
   shape?: SingleChoiceArg<"rounded" | "round" | "sharp">;
   size?: SingleChoiceArg<"compact" | "minimal">;
   color?: MultiChoiceArg<
@@ -358,6 +361,7 @@ function PlasmicButton__RenderFunc(props: {
             hasVariant($state, "size", "minimal")
         }
       )}
+      disabled={args.disabled}
       data-plasmic-trigger-props={[triggerRootFocusVisibleWithinProps]}
     >
       {(hasVariant($state, "showStartIcon", "showStartIcon") ? true : false) ? (

@@ -77,7 +77,7 @@ import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappyS
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: r-c9byRGfifF/icon
-import Icon14Icon from "./icons/PlasmicIcon__Icon14"; // plasmic-import: y5SiQF8-_2TM/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 
 createPlasmicElementProxy;
 
@@ -243,10 +243,10 @@ function PlasmicShopResult__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => "sdsdsd"
       },
       {
-        path: "variable",
+        path: "disable",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -472,6 +472,9 @@ function PlasmicShopResult__RenderFunc(props: {
               data-plasmic-override={overrides.button}
               className={classNames("__wab_instance", sty.button, {
                 [sty.buttonfailed]: hasVariant($state, "failed", "failed"),
+                [sty.buttonfailed_successful]:
+                  hasVariant($state, "failed", "failed") &&
+                  hasVariant($state, "successful", "successful"),
                 [sty.buttonsuccessful]: hasVariant(
                   $state,
                   "successful",
@@ -479,6 +482,24 @@ function PlasmicShopResult__RenderFunc(props: {
                 )
               })}
               color={generateStateValueProp($state, ["button", "color"])}
+              isDisabled={
+                hasVariant($state, "failed", "failed") &&
+                hasVariant($state, "successful", "successful")
+                  ? (() => {
+                      try {
+                        return $state.disable;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  : undefined
+              }
               onClick={async event => {
                 const $steps = {};
 
@@ -572,6 +593,40 @@ function PlasmicShopResult__RenderFunc(props: {
                   $steps["invokeGlobalAction"] = await $steps[
                     "invokeGlobalAction"
                   ];
+                }
+
+                $steps["updateDisable"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["disable"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDisable"] != null &&
+                  typeof $steps["updateDisable"] === "object" &&
+                  typeof $steps["updateDisable"].then === "function"
+                ) {
+                  $steps["updateDisable"] = await $steps["updateDisable"];
                 }
 
                 $steps["goToPage"] = true
@@ -747,14 +802,17 @@ function PlasmicShopResult__RenderFunc(props: {
                   data-plasmic-name={"button2"}
                   data-plasmic-override={overrides.button2}
                   className={classNames("__wab_instance", sty.button2, {
-                    [sty.button2failed]: hasVariant($state, "failed", "failed")
+                    [sty.button2failed]: hasVariant($state, "failed", "failed"),
+                    [sty.button2failed_successful]:
+                      hasVariant($state, "failed", "failed") &&
+                      hasVariant($state, "successful", "successful")
                   })}
                   color={generateStateValueProp($state, ["button2", "color"])}
                   endIcon={
                     <PlasmicIcon__
                       PlasmicIconType={
                         hasVariant($state, "failed", "failed")
-                          ? Icon14Icon
+                          ? Icon12Icon
                           : Icon11Icon
                       }
                       className={classNames(projectcss.all, sty.svg__tgQk, {
@@ -1023,55 +1081,32 @@ function PlasmicShopResult__RenderFunc(props: {
                   data-plasmic-name={"button3"}
                   data-plasmic-override={overrides.button3}
                   className={classNames("__wab_instance", sty.button3, {
-                    [sty.button3failed]: hasVariant($state, "failed", "failed")
+                    [sty.button3failed]: hasVariant($state, "failed", "failed"),
+                    [sty.button3failed_successful]:
+                      hasVariant($state, "failed", "failed") &&
+                      hasVariant($state, "successful", "successful")
                   })}
                   color={generateStateValueProp($state, ["button3", "color"])}
+                  isDisabled={
+                    hasVariant($state, "failed", "failed") &&
+                    hasVariant($state, "successful", "successful")
+                      ? (() => {
+                          try {
+                            return $state.disable;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      : undefined
+                  }
                   onClick={async event => {
                     const $steps = {};
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return (
-                                  "https://apps.liom.app/hamyar/?refCode=" +
-                                  $ctx.query.refCode +
-                                  "&mobile=" +
-                                  $ctx.query.mobile
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
 
                     $steps["updateStatus"] = true
                       ? (() => {
@@ -1165,6 +1200,84 @@ function PlasmicShopResult__RenderFunc(props: {
                         "invokeGlobalAction"
                       ];
                     }
+
+                    $steps["updateDisable"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["disable"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDisable"] != null &&
+                      typeof $steps["updateDisable"] === "object" &&
+                      typeof $steps["updateDisable"].then === "function"
+                    ) {
+                      $steps["updateDisable"] = await $steps["updateDisable"];
+                    }
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return (
+                                  "https://apps.liom.app/hamyar/?refCode=" +
+                                  $ctx.query.refCode +
+                                  "&mobile=" +
+                                  $ctx.query.mobile
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
                   }}
                   onColorChange={(...eventArgs) => {
                     generateStateOnChangeProp($state, ["button3", "color"])(
@@ -1222,6 +1335,11 @@ function PlasmicShopResult__RenderFunc(props: {
                 $state,
                 "failed",
                 "failed"
+              ),
+              [sty.fragmentApiRequestsuccessful]: hasVariant(
+                $state,
+                "successful",
+                "successful"
               )
             })}
             config={
