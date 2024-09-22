@@ -581,6 +581,11 @@
           "id": "y5SiQF8-_2TM",
           "name": "Icon14Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon14.tsx"
+        },
+        {
+          "id": "J7m4V2xX3axh",
+          "name": "Icon15Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon15.tsx"
         }
       ],
       "images": [
@@ -633,6 +638,11 @@
           "id": "z9u453IWuqFZ",
           "name": "image 7",
           "filePath": "../public/plasmic/liom_hamyar/images/image7.png"
+        },
+        {
+          "id": "ATaZjEVdEO_f",
+          "name": "image 8",
+          "filePath": "../public/plasmic/liom_hamyar/images/image8.png"
         }
       ],
       "indirect": false,
