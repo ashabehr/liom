@@ -60,6 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
@@ -709,6 +714,8 @@ function PlasmicHamyar__RenderFunc(props: {
     $queries: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6BytLjmha8VC()
@@ -742,6 +749,27 @@ function PlasmicHamyar__RenderFunc(props: {
           )}
           onLoad={async event => {
             const $steps = {};
+
+            $steps["refreshData"] = true
+              ? (() => {
+                  const actionArgs = {
+                    queryInvalidation: ["plasmic_refresh_all"]
+                  };
+                  return (async ({ queryInvalidation }) => {
+                    if (!queryInvalidation) {
+                      return;
+                    }
+                    await plasmicInvalidate(queryInvalidation);
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["refreshData"] != null &&
+              typeof $steps["refreshData"] === "object" &&
+              typeof $steps["refreshData"].then === "function"
+            ) {
+              $steps["refreshData"] = await $steps["refreshData"];
+            }
           }}
         >
           {(
@@ -7303,21 +7331,57 @@ function PlasmicHamyar__RenderFunc(props: {
               (async data => {
                 const $steps = {};
 
-                $steps["invokeGlobalAction"] = true
-                  ? (() => {
-                      const actionArgs = { args: [5000] };
-                      return $globalActions["Fragment.wait"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
+                $steps["invokeGlobalAction2"] =
+                  $state.name == ""
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://api.liom.app/service/log",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  userId: $state.user.data.result.man.id,
+                                  pageName: "mainPage",
+                                  action: "loadePage",
+                                  extraData: {
+                                    refCode: $state.r,
+                                    mobile: $state.m
+                                  }
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
+                            {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                              }
+                            }
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
                 if (
-                  $steps["invokeGlobalAction"] != null &&
-                  typeof $steps["invokeGlobalAction"] === "object" &&
-                  typeof $steps["invokeGlobalAction"].then === "function"
+                  $steps["invokeGlobalAction2"] != null &&
+                  typeof $steps["invokeGlobalAction2"] === "object" &&
+                  typeof $steps["invokeGlobalAction2"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
+                  $steps["invokeGlobalAction2"] = await $steps[
+                    "invokeGlobalAction2"
                   ];
                 }
 
