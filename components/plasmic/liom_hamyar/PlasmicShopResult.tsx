@@ -607,7 +607,7 @@ function PlasmicShopResult__RenderFunc(props: {
                                 extraData: {
                                   valueShop: $ctx.query.valueShop,
                                   BuyId: $ctx.query.buyId,
-                                  price: parseInt($ctx.query.price)
+                                  amount: parseInt($ctx.query.price)
                                 }
                               };
                             } catch (e) {
@@ -1232,7 +1232,7 @@ function PlasmicShopResult__RenderFunc(props: {
                                     extraData: {
                                       valueShop: $ctx.query.valueShop,
                                       BuyId: $ctx.query.buyId,
-                                      price: parseInt($ctx.query.price)
+                                      amount: parseInt($ctx.query.price)
                                     }
                                   };
                                 } catch (e) {
