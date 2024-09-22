@@ -70,6 +70,7 @@ import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGl
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
+import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShopResult.module.css"; // plasmic-import: 9CvmaDZqnu-C/css
 
@@ -285,6 +286,7 @@ function PlasmicShopResult__RenderFunc(props: {
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
+            plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root,
             {
               [sty.rootfailed]: hasVariant($state, "failed", "failed"),
@@ -605,7 +607,7 @@ function PlasmicShopResult__RenderFunc(props: {
                                 extraData: {
                                   valueShop: $ctx.query.valueShop,
                                   BuyId: $ctx.query.buyId,
-                                  price: $ctx.query.price
+                                  price: parseInt($ctx.query.price)
                                 }
                               };
                             } catch (e) {
@@ -902,6 +904,7 @@ function PlasmicShopResult__RenderFunc(props: {
                                       $ctx.query.offCode +
                                       "&valueShop=" +
                                       $ctx.query.valueShop +
+                                      "-" +
                                       "&price=" +
                                       $ctx.query.price +
                                       "&manId=" +
@@ -1098,7 +1101,12 @@ function PlasmicShopResult__RenderFunc(props: {
                     [sty.button3failed]: hasVariant($state, "failed", "failed"),
                     [sty.button3failed_successful]:
                       hasVariant($state, "failed", "failed") &&
-                      hasVariant($state, "successful", "successful")
+                      hasVariant($state, "successful", "successful"),
+                    [sty.button3successful]: hasVariant(
+                      $state,
+                      "successful",
+                      "successful"
+                    )
                   })}
                   color={generateStateValueProp($state, ["button3", "color"])}
                   isDisabled={
@@ -1224,7 +1232,7 @@ function PlasmicShopResult__RenderFunc(props: {
                                     extraData: {
                                       valueShop: $ctx.query.valueShop,
                                       BuyId: $ctx.query.buyId,
-                                      price: $ctx.query.price
+                                      price: parseInt($ctx.query.price)
                                     }
                                   };
                                 } catch (e) {

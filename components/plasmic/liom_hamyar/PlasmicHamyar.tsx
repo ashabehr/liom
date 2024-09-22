@@ -90,6 +90,7 @@ import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGl
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
+import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHamyar.module.css"; // plasmic-import: TOxGOz1ONYz_/css
 
@@ -389,8 +390,8 @@ function PlasmicHamyar__RenderFunc(props: {
               return (() => {
                 let __plasmic_ret = undefined;
                 for (let i = 0; i < $state.shop.data.result.length; i++) {
-                  if ($state.shop.data.result[i].selected) {
-                    return i - 1;
+                  if ($state.shop.data.result[i].selected == 1) {
+                    return i;
                   }
                 }
                 return __plasmic_ret;
@@ -743,6 +744,7 @@ function PlasmicHamyar__RenderFunc(props: {
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
+            plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root
           )}
           onLoad={async event => {
@@ -767,6 +769,56 @@ function PlasmicHamyar__RenderFunc(props: {
               typeof $steps["refreshData"].then === "function"
             ) {
               $steps["refreshData"] = await $steps["refreshData"];
+            }
+
+            $steps["invokeGlobalAction"] = true
+              ? (() => {
+                  const actionArgs = {
+                    args: [
+                      "POST",
+                      "https://api.liom.app/service/log",
+                      undefined,
+                      (() => {
+                        try {
+                          return {
+                            userId: $state.user.data.result.man.id,
+                            pageName: "mainPage",
+                            action: "loadePage",
+                            extraData: {
+                              refCode: $state.r,
+                              mobile: $state.m
+                            }
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })(),
+                      {
+                        headers: {
+                          "Content-Type": "application/json",
+                          Authorization:
+                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                        }
+                      }
+                    ]
+                  };
+                  return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["invokeGlobalAction"] != null &&
+              typeof $steps["invokeGlobalAction"] === "object" &&
+              typeof $steps["invokeGlobalAction"].then === "function"
+            ) {
+              $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
             }
           }}
         >
@@ -3056,12 +3108,16 @@ function PlasmicHamyar__RenderFunc(props: {
                                             $state.discountCode +
                                             "&valueShop=" +
                                             $state.shop.data.result[
-                                              $state.selectedShop
+                                              $state.subscriptionCurrentIndex
                                             ].type +
                                             "-" +
                                             $state.shop.data.result[
-                                              $state.selectedShop
+                                              $state.subscriptionCurrentIndex
                                             ].value +
+                                            "&price=" +
+                                            $state.shop.data.result[
+                                              $state.subscriptionCurrentIndex
+                                            ].price +
                                             "&manId=" +
                                             $state.user.data.result.man.id
                                         };
@@ -3403,7 +3459,8 @@ function PlasmicHamyar__RenderFunc(props: {
                     projectcss.plasmic_default_styles,
                     projectcss.plasmic_mixins,
                     projectcss.plasmic_tokens,
-                    plasmic_antd_5_hostless_css.plasmic_tokens
+                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                    plasmic_plasmic_rich_components_css.plasmic_tokens
                   )}
                   hideFooter={true}
                   maskClosable={true}
@@ -3975,7 +4032,8 @@ function PlasmicHamyar__RenderFunc(props: {
                     projectcss.plasmic_default_styles,
                     projectcss.plasmic_mixins,
                     projectcss.plasmic_tokens,
-                    plasmic_antd_5_hostless_css.plasmic_tokens
+                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                    plasmic_plasmic_rich_components_css.plasmic_tokens
                   )}
                   hideFooter={true}
                   modalScopeClassName={sty["modal2__modal"]}
@@ -4050,7 +4108,8 @@ function PlasmicHamyar__RenderFunc(props: {
                     projectcss.plasmic_default_styles,
                     projectcss.plasmic_mixins,
                     projectcss.plasmic_tokens,
-                    plasmic_antd_5_hostless_css.plasmic_tokens
+                    plasmic_antd_5_hostless_css.plasmic_tokens,
+                    plasmic_plasmic_rich_components_css.plasmic_tokens
                   )}
                   hideFooter={true}
                   modalScopeClassName={sty["modal3__modal"]}
@@ -7449,59 +7508,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   typeof $steps["updateName"].then === "function"
                 ) {
                   $steps["updateName"] = await $steps["updateName"];
-                }
-
-                $steps["invokeGlobalAction2"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "POST",
-                          "https://api.liom.app/service/log",
-                          undefined,
-                          (() => {
-                            try {
-                              return {
-                                userId: $state.user.data.result.man.id,
-                                pageName: "mainPage",
-                                action: "loadePage",
-                                extraData: {
-                                  refCode: $state.r,
-                                  mobile: $state.m
-                                }
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          {
-                            headers: {
-                              "Content-Type": "application/json",
-                              Authorization:
-                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                            }
-                          }
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
-                if (
-                  $steps["invokeGlobalAction2"] != null &&
-                  typeof $steps["invokeGlobalAction2"] === "object" &&
-                  typeof $steps["invokeGlobalAction2"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction2"] = await $steps[
-                    "invokeGlobalAction2"
-                  ];
                 }
               }).apply(null, eventArgs);
             }}

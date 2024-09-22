@@ -94,6 +94,9 @@
 .rootcolor_link {
   background: #ffffff00;
 }
+.rootcolor_perper {
+  background: #8254c64d;
+}
 .rootshowStartIcon_shape_rounded {
   padding-left: 16px;
 }
@@ -307,6 +310,9 @@
 }
 .slotTargetChildrencolor_link {
   color: #0091ff;
+}
+.slotTargetChildrencolor_perper {
+  color: var(--token-5y4d7NaFjl0r);
 }
 .rootcolor_link:hover .slotTargetChildrencolor_link {
   color: #0081f1;

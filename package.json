@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.5.1",
+    "@ant-design/pro-components": "^2.6.4",
     "@growthbook/growthbook-react": "^1.0.0",
     "@plasmicapp/cli": "^0.1.331",
     "@plasmicapp/host": "^1.0.196",
@@ -19,6 +21,7 @@
     "@plasmicpkgs/plasmic-basic-components": "^0.0.228",
     "@plasmicpkgs/plasmic-cms": "^0.0.268",
     "@plasmicpkgs/plasmic-embed-css": "^0.1.191",
+    "@plasmicpkgs/plasmic-rich-components": "^1.0.197",
     "@plasmicpkgs/react-awesome-reveal": "^3.8.208",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-select": "^2.1.1",

@@ -64,6 +64,7 @@ import * as pp from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
+import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicButton.module.css"; // plasmic-import: ErJEaLhimwjN/css
 
@@ -91,7 +92,8 @@ export type PlasmicButton__VariantMembers = {
     | "softRed"
     | "softSand"
     | "clear"
-    | "link";
+    | "link"
+    | "perper";
   unnamedVariant: "unnamedVariant";
 };
 export type PlasmicButton__VariantsArgs = {
@@ -114,6 +116,7 @@ export type PlasmicButton__VariantsArgs = {
     | "softSand"
     | "clear"
     | "link"
+    | "perper"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
 };
@@ -178,6 +181,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
     | "softSand"
     | "clear"
     | "link"
+    | "perper"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
 }
@@ -302,6 +306,7 @@ function PlasmicButton__RenderFunc(props: {
         projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
+        plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
@@ -309,6 +314,7 @@ function PlasmicButton__RenderFunc(props: {
           [sty.rootcolor_clear]: hasVariant($state, "color", "clear"),
           [sty.rootcolor_green]: hasVariant($state, "color", "green"),
           [sty.rootcolor_link]: hasVariant($state, "color", "link"),
+          [sty.rootcolor_perper]: hasVariant($state, "color", "perper"),
           [sty.rootcolor_red]: hasVariant($state, "color", "red"),
           [sty.rootcolor_sand]: hasVariant($state, "color", "sand"),
           [sty.rootcolor_softBlue]: hasVariant($state, "color", "softBlue"),
@@ -501,6 +507,11 @@ function PlasmicButton__RenderFunc(props: {
               $state,
               "color",
               "link"
+            ),
+            [sty.slotTargetChildrencolor_perper]: hasVariant(
+              $state,
+              "color",
+              "perper"
             ),
             [sty.slotTargetChildrencolor_red]: hasVariant(
               $state,
