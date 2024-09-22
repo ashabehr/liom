@@ -455,6 +455,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/bioritm"
+        },
+        {
+          "id": "PDbEkiKHzqMX",
+          "name": "Pregnancy",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancy.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/pregnancy.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancy.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/pregnancy"
         }
       ],
       "icons": [
