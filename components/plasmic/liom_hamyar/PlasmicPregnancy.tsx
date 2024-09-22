@@ -88,6 +88,7 @@ export const PlasmicPregnancy__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicPregnancy__OverridesType = {
   root?: Flex__<"div">;
+  svg?: Flex__<"svg">;
   checkbox?: Flex__<typeof AntdCheckbox>;
   getTask?: Flex__<typeof ApiRequest>;
   lottie?: Flex__<typeof LottieWrapper>;
@@ -208,7 +209,7 @@ function PlasmicPregnancy__RenderFunc(props: {
           })()
       },
       {
-        path: "toolseList",
+        path: "toolsList",
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
@@ -425,6 +426,47 @@ function PlasmicPregnancy__RenderFunc(props: {
                 <div className={classNames(projectcss.all, sty.freeBox__b4Bx)}>
                   <AntdButton
                     className={classNames("__wab_instance", sty.button___0BpX)}
+                    onClick={async () => {
+                      const $steps = {};
+
+                      $steps["updateWeekNum"] =
+                        $state.weekNum > 1
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["weekNum"]
+                                },
+                                operation: 3
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, oldValue - 1);
+                                return oldValue - 1;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateWeekNum"] != null &&
+                        typeof $steps["updateWeekNum"] === "object" &&
+                        typeof $steps["updateWeekNum"].then === "function"
+                      ) {
+                        $steps["updateWeekNum"] = await $steps["updateWeekNum"];
+                      }
+                    }}
                     type={"text"}
                   >
                     <div
@@ -436,10 +478,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                     >
                       {"<"}
                     </div>
-                    <svg
-                      className={classNames(projectcss.all, sty.svg__pKcdz)}
-                      role={"img"}
-                    />
                   </AntdButton>
                   <PlasmicImg__
                     alt={""}
@@ -474,6 +512,47 @@ function PlasmicPregnancy__RenderFunc(props: {
 
                   <AntdButton
                     className={classNames("__wab_instance", sty.button__ppCUh)}
+                    onClick={async () => {
+                      const $steps = {};
+
+                      $steps["updateWeekNum"] =
+                        $state.weekNum < 40
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["weekNum"]
+                                },
+                                operation: 2
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, oldValue + 1);
+                                return oldValue + 1;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateWeekNum"] != null &&
+                        typeof $steps["updateWeekNum"] === "object" &&
+                        typeof $steps["updateWeekNum"].then === "function"
+                      ) {
+                        $steps["updateWeekNum"] = await $steps["updateWeekNum"];
+                      }
+                    }}
                     type={"text"}
                   >
                     <div
@@ -511,7 +590,23 @@ function PlasmicPregnancy__RenderFunc(props: {
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__wxfFc)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                []
+                (() => {
+                  try {
+                    return $state.toolsList.filter(
+                      item =>
+                        item.weekStart <= $state.weekNum &&
+                        item.weekEnd >= $state.weekNum
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
               ).map((__plasmic_item_0, __plasmic_idx_0) => {
                 const currentItem = __plasmic_item_0;
                 const currentIndex = __plasmic_idx_0;
@@ -523,7 +618,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                     key={currentIndex}
                   >
                     <svg
-                      className={classNames(projectcss.all, sty.svg__gy218)}
+                      data-plasmic-name={"svg"}
+                      data-plasmic-override={overrides.svg}
+                      className={classNames(projectcss.all, sty.svg)}
                       role={"img"}
                     />
 
@@ -3207,6 +3304,21 @@ function PlasmicPregnancy__RenderFunc(props: {
                     "getTask",
                     "data"
                   ])}
+                  params={(() => {
+                    try {
+                      return {
+                        weekNumber: $state.weekNum
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()}
                   url={"https://n8n.staas.ir/webhook/task"}
                 />
               </div>
@@ -3253,7 +3365,8 @@ function PlasmicPregnancy__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "checkbox", "getTask", "lottie", "getInfo"],
+  root: ["root", "svg", "checkbox", "getTask", "lottie", "getInfo"],
+  svg: ["svg"],
   checkbox: ["checkbox"],
   getTask: ["getTask", "lottie"],
   lottie: ["lottie"],
@@ -3264,6 +3377,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  svg: "svg";
   checkbox: typeof AntdCheckbox;
   getTask: typeof ApiRequest;
   lottie: typeof LottieWrapper;
@@ -3355,6 +3469,7 @@ export const PlasmicPregnancy = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    svg: makeNodeComponent("svg"),
     checkbox: makeNodeComponent("checkbox"),
     getTask: makeNodeComponent("getTask"),
     lottie: makeNodeComponent("lottie"),
