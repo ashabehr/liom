@@ -61,6 +61,10 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -68,6 +72,11 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShop.module.css"; // plasmic-import: aqM8xdUvFVmZ/css
+
+import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 
 createPlasmicElementProxy;
 
@@ -83,7 +92,10 @@ export const PlasmicShop__ArgProps = new Array<ArgPropType>();
 export type PlasmicShop__OverridesType = {
   root?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
-  text?: Flex__<"div">;
+  ol?: Flex__<"ol">;
+  input2?: Flex__<typeof AntdInput>;
+  button?: Flex__<typeof Button>;
+  button2?: Flex__<typeof Button>;
 };
 
 export interface DefaultShopProps {}
@@ -135,6 +147,26 @@ function PlasmicShop__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "input2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -199,12 +231,10 @@ function PlasmicShop__RenderFunc(props: {
           <div className={classNames(projectcss.all, sty.freeBox__sunR7)}>
             <div className={classNames(projectcss.all, sty.freeBox__td5Vz)}>
               <div
-                data-plasmic-name={"text"}
-                data-plasmic-override={overrides.text}
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text
+                  sty.text__q209Q
                 )}
               >
                 {hasVariant(globalVariants, "screen", "mobile")
@@ -212,6 +242,338 @@ function PlasmicShop__RenderFunc(props: {
                   : "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646 \u062a\u0627 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627 \u0631\u0648 \u0628\u062f\u0633\u062a \u0628\u06cc\u0627\u0631\u06cc"}
               </div>
             </div>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__r1IDt)}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__pPdMi)}>
+                <Stack__
+                  as={"ol"}
+                  data-plasmic-name={"ol"}
+                  data-plasmic-override={overrides.ol}
+                  hasGap={true}
+                  className={classNames(projectcss.all, projectcss.ol, sty.ol)}
+                >
+                  <li
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.li,
+                      projectcss.__wab_text,
+                      sty.li___00G3I
+                    )}
+                  >
+                    {""}
+                  </li>
+                  <li
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.li,
+                      projectcss.__wab_text,
+                      sty.li__jpLoz
+                    )}
+                  >
+                    {""}
+                  </li>
+                  <li
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.li,
+                      projectcss.__wab_text,
+                      sty.li__cbTyW
+                    )}
+                  >
+                    {hasVariant(globalVariants, "screen", "mobile")
+                      ? '"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0627 \u0628\u0647\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc."\n'
+                      : "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u06a9\u0645\u062a\u0631 \u062f\u0631\u062f \u0628\u06a9\u0634\u0647 \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc"}
+                  </li>
+                  <li
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.li,
+                      projectcss.__wab_text,
+                      sty.li__nk5ZL
+                    )}
+                  >
+                    {
+                      "\u0645\u0648\u0642\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0628\u0631\u0627\u0634 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0645\u06cc\u0641\u0631\u0633\u062a\u0645 \u06a9\u0647 \u062f\u0631\u0633\u062a\u0647 \u06a9\u0647 \u067e\u0631\u06cc\u0648\u062f\u0647 \u0627\u0645\u0627 \u0627\u0648\u0646 \u0647\u0645 \u0645\u0631\u0627\u0642\u0628 \u062a\u0648 \u0628\u0627\u0634\u0647 \u0648 \u0646\u0630\u0627\u0631\u0647 \u0627\u062d\u0633\u0627\u0633 \u062a\u0646\u0647\u0627\u06cc\u06cc \u06a9\u0646\u06cc"
+                    }
+                  </li>
+                  <li
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.li,
+                      projectcss.__wab_text,
+                      sty.li__jb0AP
+                    )}
+                  >
+                    {
+                      "\u062a\u0648\u0635\u06cc\u0647 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u06a9\u0647 \u0628\u062a\u0648\u0646\u06cc \u0628\u0647 \u0633\u0644\u0627\u0645\u062a\u0634 \u06a9\u0645\u06a9 \u06a9\u0646\u06cc \u0648 \u062e\u0648\u0634\u062d\u0627\u0644\u0634 \u06a9\u0646\u06cc"
+                    }
+                  </li>
+                </Stack__>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__eEi4B)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__lGoSi)}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__hFP0)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__hnyaj
+                      )}
+                    >
+                      {""}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___0RgpW
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ie0Qq
+                        )}
+                      >
+                        {""}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__gOtKc
+                        )}
+                      >
+                        {""}
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__a7ExJ)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__vp7Od
+                        )}
+                      >
+                        {""}
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__po4Q8
+                    )}
+                  >
+                    {
+                      "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
+                    }
+                  </div>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__y6I1)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__qbnHs)}
+                    >
+                      {(() => {
+                        const child$Props = {
+                          allowClear: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobile"
+                          )
+                            ? false
+                            : false,
+                          autoFocus: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobile"
+                          )
+                            ? false
+                            : false,
+                          bordered: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobile"
+                          )
+                            ? false
+                            : false,
+                          className: classNames("__wab_instance", sty.input2),
+                          disabled: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobile"
+                          )
+                            ? false
+                            : false,
+                          onChange: generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "value",
+                            ["input2", "value"],
+                            AntdInput_Helpers
+                          ),
+                          placeholder:
+                            "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
+                          prefix: (
+                            <Icon10Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__suLf
+                              )}
+                              role={"img"}
+                            />
+                          ),
+
+                          readOnly: hasVariant(
+                            globalVariants,
+                            "screen",
+                            "mobile"
+                          )
+                            ? false
+                            : false,
+                          size: hasVariant(globalVariants, "screen", "mobile")
+                            ? "small"
+                            : "small",
+                          suffix: null,
+                          value: generateStateValueProp($state, [
+                            "input2",
+                            "value"
+                          ])
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "input2.value"
+                            }
+                          ],
+                          [],
+                          AntdInput_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <AntdInput
+                            data-plasmic-name={"input2"}
+                            data-plasmic-override={overrides.input2}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__hjdbp
+                        )}
+                      />
+                    </div>
+                    <Button
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button)}
+                      color={generateStateValueProp($state, [
+                        "button",
+                        "color"
+                      ])}
+                      onColorChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button", "color"])(
+                          eventArgs[0]
+                        );
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___1Dfav
+                        )}
+                      >
+                        {"\u062a\u0627\u06cc\u06cc\u062f"}
+                      </div>
+                    </Button>
+                  </Stack__>
+                  <Button
+                    data-plasmic-name={"button2"}
+                    data-plasmic-override={overrides.button2}
+                    className={classNames("__wab_instance", sty.button2)}
+                    color={generateStateValueProp($state, ["button2", "color"])}
+                    endIcon={
+                      <PlasmicIcon__
+                        PlasmicIconType={
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? Icon12Icon
+                            : Icon12Icon
+                        }
+                        className={classNames(projectcss.all, sty.svg___00Exn)}
+                        role={"img"}
+                      />
+                    }
+                    onColorChange={(...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__m9FNg
+                      )}
+                    >
+                      {
+                        "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                      }
+                    </div>
+                  </Button>
+                  <p
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.p,
+                      projectcss.__wab_text,
+                      sty.p__pRcUr
+                    )}
+                  >
+                    {
+                      "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                    }
+                  </p>
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? true
+                      : false
+                  ) ? (
+                    <p
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.p,
+                        projectcss.__wab_text,
+                        sty.p__wj0Fd
+                      )}
+                    >
+                      {
+                        "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                      }
+                    </p>
+                  ) : null}
+                </Stack__>
+              </div>
+            </Stack__>
           </div>
         </div>
       </div>
@@ -220,9 +582,12 @@ function PlasmicShop__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "text"],
+  root: ["root", "img", "ol", "input2", "button", "button2"],
   img: ["img"],
-  text: ["text"]
+  ol: ["ol"],
+  input2: ["input2"],
+  button: ["button"],
+  button2: ["button2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -230,7 +595,10 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   img: typeof PlasmicImg__;
-  text: "div";
+  ol: "ol";
+  input2: typeof AntdInput;
+  button: typeof Button;
+  button2: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -319,7 +687,10 @@ export const PlasmicShop = Object.assign(
   {
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
-    text: makeNodeComponent("text"),
+    ol: makeNodeComponent("ol"),
+    input2: makeNodeComponent("input2"),
+    button: makeNodeComponent("button"),
+    button2: makeNodeComponent("button2"),
 
     // Metadata about props expected for PlasmicShop
     internalVariantProps: PlasmicShop__VariantProps,
