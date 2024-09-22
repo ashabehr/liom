@@ -744,6 +744,12 @@
   > img {
   margin-top: 10px;
 }
+@media (max-width: 640px) {
+  .freeBox__mdVrf {
+    height: 250px;
+    flex-shrink: 0;
+  }
+}
 .text__bQyyx {
   position: relative;
   width: 100%;
@@ -825,7 +831,18 @@
 }
 @media (max-width: 640px) {
   .freeBox__tkGdc {
+    position: absolute;
+    left: 8px;
+    top: 88px;
+    z-index: 1;
+    width: 100%;
+    min-width: 0;
     padding: 8px 0px;
+  }
+}
+@media (max-width: 640px) {
+  .freeBox__tkGdc > :global(.__wab_flex-container) {
+    min-width: 0;
   }
 }
 .useful:global(.__wab_instance) {

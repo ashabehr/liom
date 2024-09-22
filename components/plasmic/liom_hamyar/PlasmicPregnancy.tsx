@@ -73,8 +73,6 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPregnancy.module.css"; // plasmic-import: PDbEkiKHzqMX/css
 
-import Icon14Icon from "./icons/PlasmicIcon__Icon14"; // plasmic-import: y5SiQF8-_2TM/icon
-
 createPlasmicElementProxy;
 
 export type PlasmicPregnancy__VariantMembers = {};
@@ -186,7 +184,20 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "weekNum",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.query.weekNum;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 1;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "week",
@@ -598,9 +609,21 @@ function PlasmicPregnancy__RenderFunc(props: {
                     sty.text__qrcJv
                   )}
                 >
-                  {
-                    "250 \u0631\u0648\u0632 \u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646"
-                  }
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $ctx.query.day + " روز مانده تا زایمان";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "250 \u0631\u0648\u0632 l\u0627\u0646\u062f\u0647 \u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
                 </div>
               </div>
             </div>
@@ -633,13 +656,26 @@ function PlasmicPregnancy__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.freeBox__rfrx1)}
                     key={currentIndex}
                   >
-                    <svg
-                      data-plasmic-name={"svg"}
-                      data-plasmic-override={overrides.svg}
-                      className={classNames(projectcss.all, sty.svg)}
-                      role={"img"}
-                    />
-
+                    {(() => {
+                      try {
+                        return currentItem.icon.length > 0;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <svg
+                        data-plasmic-name={"svg"}
+                        data-plasmic-override={overrides.svg}
+                        className={classNames(projectcss.all, sty.svg)}
+                        role={"img"}
+                      />
+                    ) : null}
                     <div
                       className={classNames(
                         projectcss.all,
@@ -758,7 +794,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         (() => {
                                           try {
                                             return {
-                                              userId: "2qw541",
+                                              userId: $ctx.query.userId,
                                               todoId: currentItem.id
                                             };
                                           } catch (e) {
