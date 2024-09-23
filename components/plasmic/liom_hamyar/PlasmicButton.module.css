@@ -150,6 +150,9 @@
 .rootcolor_link:hover {
   background: #ffffff00;
 }
+.rootcolor_perper:hover {
+  background: #8254c633;
+}
 .root:focus-within {
   box-shadow: none;
   outline: none;
@@ -201,6 +204,9 @@
 }
 .rootcolor_link:active {
   background: #ffffff00;
+}
+.rootcolor_perper:active {
+  background: #8254c699;
 }
 .startIconContainer {
   display: flex;
