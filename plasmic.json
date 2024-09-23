@@ -586,6 +586,36 @@
           "id": "J7m4V2xX3axh",
           "name": "Icon15Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon15.tsx"
+        },
+        {
+          "id": "JYHABEI9HtQe",
+          "name": "Icon16Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon16.tsx"
+        },
+        {
+          "id": "03X0usOEHK8l",
+          "name": "Icon17Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon17.tsx"
+        },
+        {
+          "id": "aKwdsTmflV4S",
+          "name": "Icon18Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon18.tsx"
+        },
+        {
+          "id": "uVWC2f5sKg_c",
+          "name": "Icon19Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon19.tsx"
+        },
+        {
+          "id": "3k3L6Q_pDBMb",
+          "name": "Icon20Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon20.tsx"
+        },
+        {
+          "id": "ZlBOcl4Z66lm",
+          "name": "Icon21Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon21.tsx"
         }
       ],
       "images": [

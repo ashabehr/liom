@@ -337,83 +337,6 @@ function PlasmicPregnancy__RenderFunc(props: {
           )}
         >
           <div className={classNames(projectcss.all, sty.freeBox__z49Xy)}>
-            <div className={classNames(projectcss.all, sty.freeBox__jG6Ht)}>
-              <div className={classNames(projectcss.all, sty.freeBox__lCKoS)}>
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img__kHi6E)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"185px"}
-                  loading={"lazy"}
-                  src={
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPhB-JzoYGPpKOB7inZaMFZE4p6StARkH8s8TM_Vshm4umqI53FyxpmKBKapKbAVfm6YQ&usqp=CAU"
-                  }
-                />
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__opaZ)}>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___8BAsi)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__lunGd
-                    )}
-                  >
-                    {" \u0631\u0648\u0632 \u062f\u0648\u0645"}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__mYhkb
-                    )}
-                  >
-                    {"\u0647\u0641\u062a\u0647 \u0627\u0648\u0644"}
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__fnyJ)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__z0DjV
-                    )}
-                  >
-                    {
-                      "250 \u0631\u0648\u0632 \u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646"
-                    }
-                  </div>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__l7XDt
-                  )}
-                >
-                  {
-                    "\u0648\u0632\u0646 : \u06a9\u0645\u062a\u0631 \u0627\u0632 1 \u06af\u0631\u0645"
-                  }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___2NtnZ
-                  )}
-                >
-                  {
-                    "\u0642\u062f : \u06a9\u0645\u062a\u0631 \u0627\u0632 1 \u0633\u0627\u0646\u062a\u06cc \u0645\u062a\u0631"
-                  }
-                </div>
-              </div>
-            </div>
             <div className={classNames(projectcss.all, sty.freeBox__a0Om)}>
               <div className={classNames(projectcss.all, sty.freeBox__on3Mg)}>
                 <div className={classNames(projectcss.all, sty.freeBox__b4Bx)}>
@@ -762,7 +685,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                           className: classNames("__wab_instance", sty.checkbox),
                           defaultChecked: (() => {
                             try {
-                              return currentItem.is_completed;
+                              return (() => {
+                                if (currentItem.is_completed == null)
+                                  return false;
+                                else return true;
+                              })();
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -891,7 +818,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                               initFunc: ({ $props, $state, $queries }) =>
                                 (() => {
                                   try {
-                                    return currentItem.is_completed;
+                                    return (() => {
+                                      if (currentItem.is_completed == null)
+                                        return false;
+                                      else return true;
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -3514,7 +3445,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                   params={(() => {
                     try {
                       return {
-                        weekNumber: $state.weekNum
+                        weekNumber: $state.weekNum,
+                        userId: $ctx.query.userId
                       };
                     } catch (e) {
                       if (
