@@ -1366,7 +1366,7 @@
 }
 @media (max-width: 640px) {
   .freeBox__sA0 {
-    padding: 24px;
+    padding: 0px 24px 24px;
   }
 }
 .freeBox__ebGwv {
@@ -2058,6 +2058,11 @@
   right: 0;
   bottom: 0;
   flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .shopModalMobile:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
 }
 .freeBox__oxDt3 {
   display: flex;

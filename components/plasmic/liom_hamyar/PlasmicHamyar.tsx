@@ -295,8 +295,7 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "shopModalMobile.click",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? "click" : undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "itemtodo",
