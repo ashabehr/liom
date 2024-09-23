@@ -260,10 +260,130 @@ function PlasmicBioritm__RenderFunc(props: {
                   }
                 }}
               >
-                {
-                  "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f"
-                }
+                {hasVariant(globalVariants, "screen", "mobile")
+                  ? "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f  > "
+                  : "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f"}
               </p>
+              <div className={classNames(projectcss.all, sty.freeBox__kcgv6)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__omFzt
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateSlideinModal2Click"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["slideinModal2", "click"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSlideinModal2Click"] != null &&
+                      typeof $steps["updateSlideinModal2Click"] === "object" &&
+                      typeof $steps["updateSlideinModal2Click"].then ===
+                        "function"
+                    ) {
+                      $steps["updateSlideinModal2Click"] = await $steps[
+                        "updateSlideinModal2Click"
+                      ];
+                    }
+                  }}
+                >
+                  {hasVariant(globalVariants, "screen", "mobile") ? (
+                    <React.Fragment>
+                      <React.Fragment>
+                        {
+                          "\u0627\u06cc\u0646 \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f  "
+                        }
+                      </React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          color: "var(--token-55cSeNPovQFh)",
+                          fontWeight: 600
+                        }}
+                      >
+                        {"\u06f1\u06f3\u06f8\u06f0/\u06f8/\u06f9"}
+                      </span>
+                      <React.Fragment>
+                        {
+                          "  \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a ."
+                        }
+                      </React.Fragment>
+                    </React.Fragment>
+                  ) : (
+                    "\u0627\u06cc\u0646 \u0628\u06cc\u0648 \u0631\u06cc\u062a\u0645 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f "
+                  )}
+                </div>
+                <PlasmicLink__
+                  data-plasmic-name={"link"}
+                  data-plasmic-override={overrides.link}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    projectcss.__wab_text,
+                    sty.link
+                  )}
+                  component={Link}
+                  platform={"nextjs"}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (
+                          $state.datePickers.value.year +
+                          "/" +
+                          $state.datePickers.value.month +
+                          "/" +
+                          $state.datePickers.value.day
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "1380/8/9";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </PlasmicLink__>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__dQjfV
+                  )}
+                >
+                  {
+                    " \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a ."
+                  }
+                </div>
+              </div>
               <Stack__
                 as={"div"}
                 hasGap={true}
@@ -385,126 +505,6 @@ function PlasmicBioritm__RenderFunc(props: {
                   {"22 \u0645\u0631\u062f\u0627\u062f 1403"}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__kcgv6)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__omFzt
-                  )}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateSlideinModal2Click"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["slideinModal2", "click"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateSlideinModal2Click"] != null &&
-                      typeof $steps["updateSlideinModal2Click"] === "object" &&
-                      typeof $steps["updateSlideinModal2Click"].then ===
-                        "function"
-                    ) {
-                      $steps["updateSlideinModal2Click"] = await $steps[
-                        "updateSlideinModal2Click"
-                      ];
-                    }
-                  }}
-                >
-                  {hasVariant(globalVariants, "screen", "mobile") ? (
-                    <React.Fragment>
-                      <React.Fragment>
-                        {
-                          "\u0627\u06cc\u0646 \u0628\u06cc\u0648 \u0631\u06cc\u062a\u0645 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f  "
-                        }
-                      </React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{
-                          color: "var(--token-55cSeNPovQFh)",
-                          fontWeight: 600
-                        }}
-                      >
-                        {"\u06f1\u06f3\u06f8\u06f0/\u06f8/\u06f9"}
-                      </span>
-                      <React.Fragment>
-                        {
-                          "  \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a ."
-                        }
-                      </React.Fragment>
-                    </React.Fragment>
-                  ) : (
-                    "\u0627\u06cc\u0646 \u0628\u06cc\u0648 \u0631\u06cc\u062a\u0645 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f "
-                  )}
-                </div>
-                <PlasmicLink__
-                  data-plasmic-name={"link"}
-                  data-plasmic-override={overrides.link}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
-                    sty.link
-                  )}
-                  component={Link}
-                  platform={"nextjs"}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return (
-                          $state.datePickers.value.year +
-                          "/" +
-                          $state.datePickers.value.month +
-                          "/" +
-                          $state.datePickers.value.day
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "1380/8/9";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </PlasmicLink__>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__dQjfV
-                  )}
-                >
-                  {
-                    " \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a ."
-                  }
-                </div>
-              </div>
               <Stack__
                 as={"div"}
                 hasGap={true}
@@ -553,6 +553,37 @@ function PlasmicBioritm__RenderFunc(props: {
                       $steps["updateSlideinModal2Click"] = await $steps[
                         "updateSlideinModal2Click"
                       ];
+                    }
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                window.addEventListener(
+                                  "wheel",
+                                  preventScroll,
+                                  { passive: false }
+                                );
+                                return window.addEventListener(
+                                  "touchmove",
+                                  preventScroll,
+                                  { passive: false }
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                   onColorChange={(...eventArgs) => {
@@ -823,6 +854,35 @@ function PlasmicBioritm__RenderFunc(props: {
                     $steps["updateSlideinModalClick"] = await $steps[
                       "updateSlideinModalClick"
                     ];
+                  }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              window.removeEventListener(
+                                "wheel",
+                                preventScroll
+                              );
+                              return window.removeEventListener(
+                                "touchmove",
+                                preventScroll
+                              );
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
                   }
                 }}
                 onClickChange={generateStateOnChangeProp($state, [
