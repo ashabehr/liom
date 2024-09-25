@@ -254,7 +254,7 @@ function PlasmicPregnancy__RenderFunc(props: {
             title: "\u062e\u0627\u0637\u0631\u0627\u062a \u0645\u0646",
             icon: "https://site-assets.plasmic.app/cb731cf766e9363bb5d979639af237e5.svg",
             weekStart: 1,
-            action: "#memory",
+            action: "#diary",
             weekEnd: 40
           },
           {
