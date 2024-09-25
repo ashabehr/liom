@@ -562,7 +562,7 @@
 @media (max-width: 640px) {
   .freeBox__zqEyN {
     background: #8254c64d;
-    padding: 10px 24px;
+    padding: 8px 20px;
   }
 }
 @media (max-width: 640px) {
@@ -611,6 +611,7 @@
   .p__wBrRt {
     text-align: right;
     font-weight: 400;
+    font-size: 14px;
     padding: 0px;
   }
 }
@@ -625,7 +626,7 @@
 @media (max-width: 640px) {
   .text__w30PV {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 14px;
     display: block;
   }
 }

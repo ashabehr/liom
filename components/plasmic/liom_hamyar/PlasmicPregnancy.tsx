@@ -685,11 +685,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                           className: classNames("__wab_instance", sty.checkbox),
                           defaultChecked: (() => {
                             try {
-                              return (() => {
-                                if (currentItem.is_completed == null)
-                                  return false;
-                                else return true;
-                              })();
+                              return $state.getTask.data[currentIndex]
+                                .is_completed;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -818,11 +815,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                               initFunc: ({ $props, $state, $queries }) =>
                                 (() => {
                                   try {
-                                    return (() => {
-                                      if (currentItem.is_completed == null)
-                                        return false;
-                                      else return true;
-                                    })();
+                                    return $state.getTask.data[currentIndex]
+                                      .is_completed;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||

@@ -3832,15 +3832,15 @@ function PlasmicHamyar__RenderFunc(props: {
                                               $state.discountCode +
                                               "&valueShop=" +
                                               $state.shop.data.result[
-                                                $state.subscriptionCurrentIndex
+                                                $state.selectedShop
                                               ].type +
                                               "-" +
                                               $state.shop.data.result[
-                                                $state.subscriptionCurrentIndex
+                                                $state.selectedShop
                                               ].value +
                                               "&price=" +
                                               $state.shop.data.result[
-                                                $state.subscriptionCurrentIndex
+                                                $state.selectedShop
                                               ].price +
                                               "&manId=" +
                                               $state.user.data.result.man.id
@@ -7381,7 +7381,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 const $steps = {};
 
                 $steps["invokeGlobalAction2"] =
-                  $state.name == ""
+                  $state.name == "" && $ctx.query.r != "" && $ctx.query.m != ""
                     ? (() => {
                         const actionArgs = {
                           args: [

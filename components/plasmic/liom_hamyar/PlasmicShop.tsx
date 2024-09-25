@@ -168,6 +168,12 @@ function PlasmicShop__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "discountBox",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -315,20 +321,31 @@ function PlasmicShop__RenderFunc(props: {
                   </li>
                 </Stack__>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__eEi4B)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__lGoSi)}
-                >
+            </Stack__>
+            <div className={classNames(projectcss.all, sty.freeBox__eEi4B)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__lGoSi)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__hFP0)}>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__hFP0)}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__hnyaj
+                    )}
+                  >
+                    {""}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___0RgpW)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__hnyaj
+                        sty.text__ie0Qq
                       )}
                     >
                       {""}
@@ -336,53 +353,104 @@ function PlasmicShop__RenderFunc(props: {
                     <div
                       className={classNames(
                         projectcss.all,
-                        sty.freeBox___0RgpW
+                        projectcss.__wab_text,
+                        sty.text__gOtKc
                       )}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__ie0Qq
-                        )}
-                      >
-                        {""}
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__gOtKc
-                        )}
-                      >
-                        {""}
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__a7ExJ)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__vp7Od
-                        )}
-                      >
-                        {""}
-                      </div>
+                      {""}
                     </div>
                   </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__a7ExJ)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__vp7Od
+                      )}
+                    >
+                      {""}
+                    </div>
+                  </div>
+                </div>
+                {(() => {
+                  try {
+                    return !$state.discountBox;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
                       sty.text__po4Q8
                     )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateDiscountBox"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["discountBox"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDiscountBox"] != null &&
+                        typeof $steps["updateDiscountBox"] === "object" &&
+                        typeof $steps["updateDiscountBox"].then === "function"
+                      ) {
+                        $steps["updateDiscountBox"] = await $steps[
+                          "updateDiscountBox"
+                        ];
+                      }
+                    }}
                   >
                     {
                       "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                     }
                   </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.discountBox;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
                   <Stack__
                     as={"div"}
                     hasGap={true}
@@ -509,73 +577,71 @@ function PlasmicShop__RenderFunc(props: {
                       </div>
                     </Button>
                   </Stack__>
-                  <Button
-                    data-plasmic-name={"button2"}
-                    data-plasmic-override={overrides.button2}
-                    className={classNames("__wab_instance", sty.button2)}
-                    color={generateStateValueProp($state, ["button2", "color"])}
-                    endIcon={
-                      <PlasmicIcon__
-                        PlasmicIconType={
-                          hasVariant(globalVariants, "screen", "mobile")
-                            ? Icon12Icon
-                            : Icon12Icon
-                        }
-                        className={classNames(projectcss.all, sty.svg___00Exn)}
-                        role={"img"}
-                      />
-                    }
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button2", "color"])(
-                        eventArgs[0]
-                      );
-                    }}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__m9FNg
-                      )}
-                    >
-                      {
-                        "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                ) : null}
+                <Button
+                  data-plasmic-name={"button2"}
+                  data-plasmic-override={overrides.button2}
+                  className={classNames("__wab_instance", sty.button2)}
+                  color={generateStateValueProp($state, ["button2", "color"])}
+                  endIcon={
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? Icon12Icon
+                          : Icon12Icon
                       }
-                    </div>
-                  </Button>
+                      className={classNames(projectcss.all, sty.svg___00Exn)}
+                      role={"img"}
+                    />
+                  }
+                  onColorChange={(...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "color"])(
+                      eventArgs[0]
+                    );
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__m9FNg
+                    )}
+                  >
+                    {
+                      "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                    }
+                  </div>
+                </Button>
+                <p
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.p,
+                    projectcss.__wab_text,
+                    sty.p__pRcUr
+                  )}
+                >
+                  {
+                    "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                  }
+                </p>
+                {(
+                  hasVariant(globalVariants, "screen", "mobile") ? true : false
+                ) ? (
                   <p
                     className={classNames(
                       projectcss.all,
                       projectcss.p,
                       projectcss.__wab_text,
-                      sty.p__pRcUr
+                      sty.p__wj0Fd
                     )}
                   >
                     {
                       "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                     }
                   </p>
-                  {(
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? true
-                      : false
-                  ) ? (
-                    <p
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.p,
-                        projectcss.__wab_text,
-                        sty.p__wj0Fd
-                      )}
-                    >
-                      {
-                        "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
-                      }
-                    </p>
-                  ) : null}
-                </Stack__>
-              </div>
-            </Stack__>
+                ) : null}
+              </Stack__>
+            </div>
           </div>
         </div>
       </div>
