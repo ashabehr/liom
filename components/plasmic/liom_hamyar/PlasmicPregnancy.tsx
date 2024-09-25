@@ -166,7 +166,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return parseInt($ctx.query.weekNum);
+              return $state.getInfo.data[0].weeksPregnant;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -333,7 +333,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         >
           {(() => {
             try {
-              return !$state.getTask.loading;
+              return !$state.getInfo.loading;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -517,29 +517,48 @@ function PlasmicPregnancy__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__qrcJv
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return $ctx.query.day + " روز مانده تا زایمان";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "250 \u0631\u0648\u0632 l\u0627\u0646\u062f\u0647 \u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646";
+                  {(() => {
+                    try {
+                      return (
+                        $state.weekNum == $state.getInfo.data[0].weeksPregnant
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__qrcJv
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              $state.getInfo.data[0].daysPregnant +
+                              " روز مانده تا زایمان"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "250 \u0631\u0648\u0632 l\u0627\u0646\u062f\u0647 \u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646";
+                            }
+                            throw e;
                           }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  ) : null}
                 </div>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__wxfFc)}>
@@ -3510,11 +3529,12 @@ function PlasmicPregnancy__RenderFunc(props: {
               "loading"
             ])}
             onSuccess={generateStateOnChangeProp($state, ["getInfo", "data"])}
+            url={"https://n8n.staas.ir/webhook/info"}
           />
 
           {(() => {
             try {
-              return $state.getTask.loading;
+              return $state.getInfo.loading;
             } catch (e) {
               if (
                 e instanceof TypeError ||
