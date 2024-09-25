@@ -61,7 +61,6 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdCheckbox } from "@plasmicpkgs/antd5/skinny/registerCheckbox";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
@@ -88,7 +87,7 @@ export type PlasmicPregnancy__OverridesType = {
   root?: Flex__<"div">;
   checkbox?: Flex__<typeof AntdCheckbox>;
   getTask?: Flex__<typeof ApiRequest>;
-  lottie?: Flex__<typeof LottieWrapper>;
+  getInfo?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultPregnancyProps {}
@@ -207,28 +206,6 @@ function PlasmicPregnancy__RenderFunc(props: {
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
           {
-            title: "\u0633\u0627\u06cc\u0632 \u062c\u0646\u06cc\u0646",
-            weekStart: 1,
-            weekEnd: 40,
-            action: "#babySize",
-            icon: "https://site-assets.plasmic.app/90a0f39d2ddc47de894f3f760885a749.svg"
-          },
-          {
-            title:
-              "\u0628\u0627\u06cc\u062f \u0648 \u0646\u0628\u0627\u06cc\u062f",
-            icon: "https://site-assets.plasmic.app/002b74a9610768f79d49650e7f3b52d3.svg",
-            weekStart: 1,
-            action: "#doNotDo",
-            weekEnd: 40
-          },
-          {
-            title: "\u0631\u0646\u06af \u0686\u0634\u0645",
-            icon: "https://site-assets.plasmic.app/fe57e4f8407101705742f337b72db813.svg",
-            weekStart: 13,
-            action: "#eyeColor",
-            weekEnd: 20
-          },
-          {
             title: "\u0633\u06cc\u0633\u0645\u0648\u0646\u06cc",
             icon: "https://site-assets.plasmic.app/4258ec5a84757ed109c0647029dabfe1.svg",
             weekStart: 21,
@@ -298,6 +275,24 @@ function PlasmicPregnancy__RenderFunc(props: {
             weekEnd: 40
           }
         ]
+      },
+      {
+        path: "getInfo.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getInfo.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getInfo.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -336,54 +331,24 @@ function PlasmicPregnancy__RenderFunc(props: {
             sty.root
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__z49Xy)}>
-            <div className={classNames(projectcss.all, sty.freeBox__a0Om)}>
-              <div className={classNames(projectcss.all, sty.freeBox__on3Mg)}>
-                <div className={classNames(projectcss.all, sty.freeBox__b4Bx)}>
-                  <AntdButton
-                    className={classNames("__wab_instance", sty.button___0BpX)}
-                    onClick={async () => {
-                      const $steps = {};
-
-                      $steps["updateWeekNum"] =
-                        $state.weekNum > 1
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["weekNum"]
-                                },
-                                operation: 3
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                const oldValue = $stateGet(
-                                  objRoot,
-                                  variablePath
-                                );
-                                $stateSet(objRoot, variablePath, oldValue - 1);
-                                return oldValue - 1;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["updateWeekNum"] != null &&
-                        typeof $steps["updateWeekNum"] === "object" &&
-                        typeof $steps["updateWeekNum"].then === "function"
-                      ) {
-                        $steps["updateWeekNum"] = await $steps["updateWeekNum"];
-                      }
-                    }}
-                    type={"text"}
+          {(() => {
+            try {
+              return !$state.getTask.loading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__z49Xy)}>
+              <div className={classNames(projectcss.all, sty.freeBox__a0Om)}>
+                <div className={classNames(projectcss.all, sty.freeBox__on3Mg)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__b4Bx)}
                   >
                     <div
                       className={classNames(
@@ -391,177 +356,337 @@ function PlasmicPregnancy__RenderFunc(props: {
                         projectcss.__wab_text,
                         sty.text__rssZy
                       )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateWeekNum"] =
+                          $state.weekNum > 1
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["weekNum"]
+                                  },
+                                  operation: 3
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  const oldValue = $stateGet(
+                                    objRoot,
+                                    variablePath
+                                  );
+                                  $stateSet(
+                                    objRoot,
+                                    variablePath,
+                                    oldValue - 1
+                                  );
+                                  return oldValue - 1;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateWeekNum"] != null &&
+                          typeof $steps["updateWeekNum"] === "object" &&
+                          typeof $steps["updateWeekNum"].then === "function"
+                        ) {
+                          $steps["updateWeekNum"] = await $steps[
+                            "updateWeekNum"
+                          ];
+                        }
+                      }}
                     >
                       {"<"}
                     </div>
-                  </AntdButton>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__jugbI)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    height={``}
-                    loading={"lazy"}
-                    src={(() => {
-                      try {
-                        return (
-                          "https://liom.storage.c2.liara.space/config/pregnancy/week" +
-                          $state.week +
-                          ".png"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__jugbI)}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"auto"}
+                      height={``}
+                      loading={"lazy"}
+                      src={(() => {
+                        try {
+                          return (
+                            "https://liom.storage.c2.liara.space/config/pregnancy/week" +
+                            $state.week +
+                            ".png"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                    width={"200"}
-                  />
+                      })()}
+                      width={"200"}
+                    />
 
-                  <AntdButton
-                    className={classNames("__wab_instance", sty.button__ppCUh)}
-                    onClick={async () => {
-                      const $steps = {};
-
-                      $steps["updateWeekNum"] =
-                        $state.weekNum < 40
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["weekNum"]
-                                },
-                                operation: 2
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                const oldValue = $stateGet(
-                                  objRoot,
-                                  variablePath
-                                );
-                                $stateSet(objRoot, variablePath, oldValue + 1);
-                                return oldValue + 1;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["updateWeekNum"] != null &&
-                        typeof $steps["updateWeekNum"] === "object" &&
-                        typeof $steps["updateWeekNum"].then === "function"
-                      ) {
-                        $steps["updateWeekNum"] = await $steps["updateWeekNum"];
-                      }
-                    }}
-                    type={"text"}
-                  >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
                         sty.text__x1S4Z
                       )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateWeekNum"] =
+                          $state.weekNum < 40
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["weekNum"]
+                                  },
+                                  operation: 2
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  const oldValue = $stateGet(
+                                    objRoot,
+                                    variablePath
+                                  );
+                                  $stateSet(
+                                    objRoot,
+                                    variablePath,
+                                    oldValue + 1
+                                  );
+                                  return oldValue + 1;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateWeekNum"] != null &&
+                          typeof $steps["updateWeekNum"] === "object" &&
+                          typeof $steps["updateWeekNum"].then === "function"
+                        ) {
+                          $steps["updateWeekNum"] = await $steps[
+                            "updateWeekNum"
+                          ];
+                        }
+                      }}
                     >
                       {">"}
                     </div>
-                  </AntdButton>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xOWaI
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return " هفته " + $state.weekNum + " اُم";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "\u0647\u0641\u062a\u0647 4 ";
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xOWaI
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return " هفته " + $state.weekNum + " اُم";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0647\u0641\u062a\u0647 4 ";
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qrcJv
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $ctx.query.day + " روز مانده تا زایمان";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "250 \u0631\u0648\u0632 l\u0627\u0646\u062f\u0647 \u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646";
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__qrcJv
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $ctx.query.day + " روز مانده تا زایمان";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "250 \u0631\u0648\u0632 l\u0627\u0646\u062f\u0647 \u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646";
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
+                      })()}
+                    </React.Fragment>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__wxfFc)}>
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.toolsList.filter(
-                      item =>
-                        item.weekStart <= $state.weekNum &&
-                        item.weekEnd >= $state.weekNum
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
+              <div className={classNames(projectcss.all, sty.freeBox__wxfFc)}>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.toolsList.filter(
+                        item =>
+                          item.weekStart <= $state.weekNum &&
+                          item.weekEnd >= $state.weekNum
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__rfrx1)}
-                    key={currentIndex}
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__rfrx1)}
+                      key={currentIndex}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return window.FlutterChannel.postMessage(
+                                      currentItem.action
+                                    );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                    >
+                      {(() => {
+                        try {
+                          return currentItem.icon.length > 0;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__t3Ygq)}
+                          displayHeight={"auto"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"auto"}
+                          height={``}
+                          loading={"lazy"}
+                          src={(() => {
+                            try {
+                              return currentItem.icon;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                          width={``}
+                        />
+                      ) : null}
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___3K6Nw
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.title;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0628\u0627\u06cc\u062f \u0648 \u0646\u0628\u0627\u06cc\u062f\u0647\u0627";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </Stack__>
+                  );
+                })}
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__evdY)}>
+                <div className={classNames(projectcss.all, sty.freeBox__tLjhD)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__o4URo)}
                   >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pa7Cl
+                      )}
+                    >
+                      {
+                        "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u06cc\u0646 \u0647\u0641\u062a\u0647 \u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647\u0645:"
+                      }
+                    </div>
                     {(() => {
                       try {
-                        return currentItem.icon.length > 0;
+                        return (
+                          !$state.getTask.loading &&
+                          $state.getTask.data[0].id != null
+                        );
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -571,2892 +696,5338 @@ function PlasmicPregnancy__RenderFunc(props: {
                         }
                         throw e;
                       }
-                    })() ? (
-                      <PlasmicImg__
-                        alt={""}
-                        className={classNames(sty.img__t3Ygq)}
-                        displayHeight={"auto"}
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={"auto"}
-                        height={``}
-                        loading={"lazy"}
-                        src={(() => {
-                          try {
-                            return currentItem.icon;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}
-                        width={``}
-                      />
-                    ) : null}
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___3K6Nw
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return currentItem.title;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "\u0628\u0627\u06cc\u062f \u0648 \u0646\u0628\u0627\u06cc\u062f\u0647\u0627";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                  </Stack__>
-                );
-              })}
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__tLjhD)}>
-              <div className={classNames(projectcss.all, sty.freeBox__o4URo)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pa7Cl
-                  )}
-                >
-                  {
-                    "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u06cc\u0646 \u0647\u0641\u062a\u0647 \u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647\u0645:"
-                  }
-                </div>
-                {(() => {
-                  try {
-                    return (
-                      !$state.getTask.loading &&
-                      $state.getTask.data[0].id != null
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-                  ? (_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return $state.getTask.data.length > 0
-                            ? $state.getTask.data
-                            : [];
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (() => {
-                        const child$Props = {
-                          checked: generateStateValueProp($state, [
-                            "checkbox",
-                            __plasmic_idx_0,
-                            "checked"
-                          ]),
-                          className: classNames("__wab_instance", sty.checkbox),
-                          defaultChecked: (() => {
+                    })()
+                      ? (_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
                             try {
-                              return $state.getTask.data[currentIndex]
-                                .is_completed;
+                              return $state.getTask.data.length > 0
+                                ? $state.getTask.data
+                                : [];
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return false;
+                                return [];
                               }
                               throw e;
                             }
-                          })(),
-                          indeterminate: false,
-                          key: currentIndex,
-                          onChange: async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "checkbox",
-                              __plasmic_idx_0,
-                              "checked"
-                            ]).apply(null, eventArgs);
-                            (async checked => {
-                              const $steps = {};
+                          })()
+                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                          const currentItem = __plasmic_item_0;
+                          const currentIndex = __plasmic_idx_0;
+                          return (() => {
+                            const child$Props = {
+                              checked: generateStateValueProp($state, [
+                                "checkbox",
+                                __plasmic_idx_0,
+                                "checked"
+                              ]),
+                              className: classNames(
+                                "__wab_instance",
+                                sty.checkbox
+                              ),
+                              defaultChecked: (() => {
+                                try {
+                                  return $state.getTask.data[currentIndex]
+                                    .is_completed;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              indeterminate: false,
+                              key: currentIndex,
+                              onChange: async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "checkbox",
+                                  __plasmic_idx_0,
+                                  "checked"
+                                ]).apply(null, eventArgs);
+                                (async checked => {
+                                  const $steps = {};
 
-                              $steps["invokeGlobalAction"] = checked
-                                ? (() => {
-                                    const actionArgs = {
-                                      args: [
-                                        "POST",
-                                        "https://n8n.staas.ir/webhook/task",
-                                        undefined,
-                                        (() => {
-                                          try {
-                                            return {
-                                              userId: $ctx.query.userId,
-                                              todoId: currentItem.id
-                                            };
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      ]
-                                    };
-                                    return $globalActions[
-                                      "Fragment.apiRequest"
-                                    ]?.apply(null, [...actionArgs.args]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["invokeGlobalAction"] != null &&
-                                typeof $steps["invokeGlobalAction"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
-                              }
+                                  $steps["invokeGlobalAction"] = checked
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "POST",
+                                            "https://n8n.staas.ir/webhook/task",
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return {
+                                                  userId: $ctx.query.userId,
+                                                  todoId: currentItem.id
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["invokeGlobalAction"] != null &&
+                                    typeof $steps["invokeGlobalAction"] ===
+                                      "object" &&
+                                    typeof $steps["invokeGlobalAction"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["invokeGlobalAction"] = await $steps[
+                                      "invokeGlobalAction"
+                                    ];
+                                  }
 
-                              $steps["invokeGlobalAction2"] = !checked
-                                ? (() => {
-                                    const actionArgs = {
-                                      args: [
-                                        "PUT",
-                                        "https://n8n.staas.ir/webhook/task",
-                                        undefined,
-                                        (() => {
-                                          try {
-                                            return {
-                                              id: currentItem.id
-                                            };
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
+                                  $steps["invokeGlobalAction2"] = !checked
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "PUT",
+                                            "https://n8n.staas.ir/webhook/task",
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return {
+                                                  id: currentItem.id
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["invokeGlobalAction2"] != null &&
+                                    typeof $steps["invokeGlobalAction2"] ===
+                                      "object" &&
+                                    typeof $steps["invokeGlobalAction2"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["invokeGlobalAction2"] =
+                                      await $steps["invokeGlobalAction2"];
+                                  }
+                                }).apply(null, eventArgs);
+                              }
+                            };
+                            initializeCodeComponentStates(
+                              $state,
+                              [
+                                {
+                                  name: "checked",
+                                  plasmicStateName: "checkbox[].checked"
+                                }
+                              ],
+                              [__plasmic_idx_0],
+                              undefined ?? {},
+                              child$Props
+                            );
+                            initializePlasmicStates(
+                              $state,
+                              [
+                                {
+                                  name: "checkbox[].checked",
+                                  initFunc: ({ $props, $state, $queries }) =>
+                                    (() => {
+                                      try {
+                                        return $state.getTask.data[currentIndex]
+                                          .is_completed;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return false;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                }
+                              ],
+                              [__plasmic_idx_0]
+                            );
+                            return (
+                              <AntdCheckbox
+                                data-plasmic-name={"checkbox"}
+                                data-plasmic-override={overrides.checkbox}
+                                {...child$Props}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__gWfn
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__b37So
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return $state.getTask.data[
+                                            currentIndex
+                                          ].tile;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "showSignUpSuggestFollow";
                                           }
-                                        })()
-                                      ]
-                                    };
-                                    return $globalActions[
-                                      "Fragment.apiRequest"
-                                    ]?.apply(null, [...actionArgs.args]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["invokeGlobalAction2"] != null &&
-                                typeof $steps["invokeGlobalAction2"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction2"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction2"] = await $steps[
-                                  "invokeGlobalAction2"
-                                ];
-                              }
-                            }).apply(null, eventArgs);
-                          }
-                        };
-                        initializeCodeComponentStates(
-                          $state,
-                          [
-                            {
-                              name: "checked",
-                              plasmicStateName: "checkbox[].checked"
-                            }
-                          ],
-                          [__plasmic_idx_0],
-                          undefined ?? {},
-                          child$Props
-                        );
-                        initializePlasmicStates(
-                          $state,
-                          [
-                            {
-                              name: "checkbox[].checked",
-                              initFunc: ({ $props, $state, $queries }) =>
-                                (() => {
-                                  try {
-                                    return $state.getTask.data[currentIndex]
-                                      .is_completed;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return false;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                            }
-                          ],
-                          [__plasmic_idx_0]
-                        );
-                        return (
-                          <AntdCheckbox
-                            data-plasmic-name={"checkbox"}
-                            data-plasmic-override={overrides.checkbox}
-                            {...child$Props}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__gWfn
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__b37So
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return $state.getTask.data[currentIndex]
-                                        .tile;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "showSignUpSuggestFollow";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__xEhu3
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return $state.getTask.data[currentIndex]
-                                        .text;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "ddddd";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            </div>
-                          </AntdCheckbox>
-                        );
-                      })();
-                    })
-                  : null}
-                <ApiRequest
-                  data-plasmic-name={"getTask"}
-                  data-plasmic-override={overrides.getTask}
-                  className={classNames("__wab_instance", sty.getTask)}
-                  errorDisplay={null}
-                  loadingDisplay={
-                    <LottieWrapper
-                      data-plasmic-name={"lottie"}
-                      data-plasmic-override={overrides.lottie}
-                      animationData={{
-                        v: "5.6.10",
-                        fr: 30,
-                        ip: 30,
-                        op: 210,
-                        w: 800,
-                        h: 600,
-                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
-                        ddd: 0,
-                        assets: [
-                          {
-                            id: "comp_0",
-                            layers: [
-                              {
-                                ddd: 0,
-                                ind: 1,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 18",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 340, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 0,
-                                              s: [0]
-                                            },
-                                            { t: 30, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 121,
-                                st: 0,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 2,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 17",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 320, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 10,
-                                              s: [0]
-                                            },
-                                            { t: 40, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 121,
-                                st: 10,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 3,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 16",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 300, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 20,
-                                              s: [0]
-                                            },
-                                            { t: 50, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 121,
-                                st: 20,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 4,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 15",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 280, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 30,
-                                              s: [0]
-                                            },
-                                            { t: 60, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 121,
-                                st: 30,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 5,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 14",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 260, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 40,
-                                              s: [0]
-                                            },
-                                            { t: 70, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 121,
-                                st: 40,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 6,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 13",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 240, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 50,
-                                              s: [0]
-                                            },
-                                            { t: 80, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 121,
-                                st: 50,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 7,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 12",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 220, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 60,
-                                              s: [0]
-                                            },
-                                            { t: 90, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 181,
-                                st: 60,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 8,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 11",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 200, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 70,
-                                              s: [0]
-                                            },
-                                            { t: 100, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 181,
-                                st: 70,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 9,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 10",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 180, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 80,
-                                              s: [0]
-                                            },
-                                            { t: 110, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 181,
-                                st: 80,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 10,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 9",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 160, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 90,
-                                              s: [0]
-                                            },
-                                            { t: 120, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 181,
-                                st: 90,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 11,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 8",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 140, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 100,
-                                              s: [0]
-                                            },
-                                            { t: 130, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 181,
-                                st: 100,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 12,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 7",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 120, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 110,
-                                              s: [0]
-                                            },
-                                            { t: 140, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 0,
-                                op: 181,
-                                st: 110,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 13,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 6",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 100, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 120,
-                                              s: [0]
-                                            },
-                                            { t: 150, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 78,
-                                op: 420,
-                                st: 120,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 14,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 5",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 80, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 130,
-                                              s: [0]
-                                            },
-                                            { t: 160, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 78,
-                                op: 430,
-                                st: 130,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 15,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 4",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 60, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 140,
-                                              s: [0]
-                                            },
-                                            { t: 170, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 78,
-                                op: 440,
-                                st: 140,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 16,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 3",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 40, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 150,
-                                              s: [0]
-                                            },
-                                            { t: 180, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 78,
-                                op: 450,
-                                st: 150,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 17,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 2",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 20, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 160,
-                                              s: [0]
-                                            },
-                                            { t: 190, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 78,
-                                op: 460,
-                                st: 160,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 18,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 1",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 0, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 170,
-                                              s: [0]
-                                            },
-                                            { t: 200, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 78,
-                                op: 470,
-                                st: 170,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 19,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 24",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 340, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 180,
-                                              s: [0]
-                                            },
-                                            { t: 210, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 180,
-                                op: 301,
-                                st: 180,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 20,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 23",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 320, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 190,
-                                              s: [0]
-                                            },
-                                            { t: 220, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 180,
-                                op: 301,
-                                st: 190,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 21,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 22",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 300, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 200,
-                                              s: [0]
-                                            },
-                                            { t: 230, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 180,
-                                op: 301,
-                                st: 200,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 22,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 21",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 280, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 210,
-                                              s: [0]
-                                            },
-                                            { t: 240, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 180,
-                                op: 301,
-                                st: 210,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 23,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 20",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 260, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 220,
-                                              s: [0]
-                                            },
-                                            { t: 250, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 180,
-                                op: 301,
-                                st: 220,
-                                bm: 0
-                              },
-                              {
-                                ddd: 0,
-                                ind: 24,
-                                ty: 4,
-                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 19",
-                                sr: 1,
-                                ks: {
-                                  o: { a: 0, k: 100, ix: 11 },
-                                  r: { a: 0, k: 240, ix: 10 },
-                                  p: { a: 0, k: [400, 300, 0], ix: 2 },
-                                  a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                },
-                                ao: 0,
-                                shapes: [
-                                  {
-                                    ty: "gr",
-                                    it: [
-                                      {
-                                        d: 1,
-                                        ty: "el",
-                                        s: { a: 0, k: [200, 200], ix: 2 },
-                                        p: { a: 0, k: [0, 0], ix: 3 },
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Shape - Ellipse",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tm",
-                                        s: { a: 0, k: 0, ix: 1 },
-                                        e: { a: 0, k: 5, ix: 2 },
-                                        o: {
-                                          a: 1,
-                                          k: [
-                                            {
-                                              i: { x: [0.667], y: [1] },
-                                              o: { x: [0.333], y: [0] },
-                                              t: 230,
-                                              s: [0]
-                                            },
-                                            { t: 260, s: [120] }
-                                          ],
-                                          ix: 3
-                                        },
-                                        m: 1,
-                                        ix: 2,
-                                        nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
-                                        mn: "ADBE Vector Filter - Trim",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "st",
-                                        c: {
-                                          a: 0,
-                                          k: [0.5098, 0.3294, 0.7765, 1],
-                                          ix: 3
-                                        },
-                                        o: { a: 0, k: 100, ix: 4 },
-                                        w: { a: 0, k: 40, ix: 5 },
-                                        lc: 2,
-                                        lj: 1,
-                                        ml: 4,
-                                        bm: 0,
-                                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
-                                        mn: "ADBE Vector Graphic - Stroke",
-                                        hd: false
-                                      },
-                                      {
-                                        ty: "tr",
-                                        p: { a: 0, k: [1.258, 2.078], ix: 2 },
-                                        a: { a: 0, k: [0, 0], ix: 1 },
-                                        s: { a: 0, k: [100, 100], ix: 3 },
-                                        r: { a: 0, k: 0, ix: 6 },
-                                        o: { a: 0, k: 100, ix: 7 },
-                                        sk: { a: 0, k: 0, ix: 4 },
-                                        sa: { a: 0, k: 0, ix: 5 },
-                                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
-                                      }
-                                    ],
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
-                                    np: 4,
-                                    cix: 2,
-                                    bm: 0,
-                                    ix: 1,
-                                    mn: "ADBE Vector Group",
-                                    hd: false
-                                  }
-                                ],
-                                ip: 180,
-                                op: 301,
-                                st: 230,
-                                bm: 0
-                              }
-                            ]
-                          }
-                        ],
-                        layers: [
-                          {
-                            ddd: 0,
-                            ind: 1,
-                            ty: 0,
-                            nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
-                            refId: "comp_0",
-                            sr: 1,
-                            ks: {
-                              o: { a: 0, k: 100, ix: 11 },
-                              r: { a: 0, k: 0, ix: 10 },
-                              p: { a: 0, k: [400, 300, 0], ix: 2 },
-                              a: { a: 0, k: [400, 300, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100, 100], ix: 6 }
-                            },
-                            ao: 0,
-                            ef: [
-                              {
-                                ty: 5,
-                                nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
-                                np: 4,
-                                mn: "ADBE Simple Choker",
-                                ix: 1,
-                                en: 1,
-                                ef: [
-                                  {
-                                    ty: 7,
-                                    nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
-                                    mn: "ADBE Simple Choker-0001",
-                                    ix: 1,
-                                    v: { a: 0, k: 1, ix: 1 }
-                                  },
-                                  {
-                                    ty: 0,
-                                    nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
-                                    mn: "ADBE Simple Choker-0002",
-                                    ix: 2,
-                                    v: { a: 0, k: 14, ix: 2 }
-                                  }
-                                ]
-                              },
-                              {
-                                ty: 5,
-                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
-                                np: 10,
-                                mn: "ADBE Ramp",
-                                ix: 2,
-                                en: 1,
-                                ef: [
-                                  {
-                                    ty: 3,
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
-                                    mn: "ADBE Ramp-0001",
-                                    ix: 1,
-                                    v: { a: 0, k: [400, 0], ix: 1 }
-                                  },
-                                  {
-                                    ty: 2,
-                                    nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
-                                    mn: "ADBE Ramp-0002",
-                                    ix: 2,
-                                    v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
-                                  },
-                                  {
-                                    ty: 3,
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
-                                    mn: "ADBE Ramp-0003",
-                                    ix: 3,
-                                    v: { a: 0, k: [400, 600], ix: 3 }
-                                  },
-                                  {
-                                    ty: 2,
-                                    nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
-                                    mn: "ADBE Ramp-0004",
-                                    ix: 4,
-                                    v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
-                                  },
-                                  {
-                                    ty: 7,
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
-                                    mn: "ADBE Ramp-0005",
-                                    ix: 5,
-                                    v: { a: 0, k: 1, ix: 5 }
-                                  },
-                                  {
-                                    ty: 0,
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
-                                    mn: "ADBE Ramp-0006",
-                                    ix: 6,
-                                    v: { a: 0, k: 0, ix: 6 }
-                                  },
-                                  {
-                                    ty: 0,
-                                    nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
-                                    mn: "ADBE Ramp-0007",
-                                    ix: 7,
-                                    v: { a: 0, k: 0, ix: 7 }
-                                  },
-                                  {
-                                    ty: 6,
-                                    nm: "",
-                                    mn: "ADBE Ramp-0008",
-                                    ix: 8,
-                                    v: 0
-                                  }
-                                ]
-                              }
-                            ],
-                            w: 800,
-                            h: 600,
-                            ip: 0,
-                            op: 300,
-                            st: 0,
-                            bm: 0
-                          },
-                          {
-                            ddd: 0,
-                            ind: 2,
-                            ty: 0,
-                            nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
-                            refId: "comp_0",
-                            sr: 1,
-                            ks: {
-                              o: { a: 0, k: 56, ix: 11 },
-                              r: { a: 0, k: 0, ix: 10 },
-                              p: { a: 0, k: [400, 320, 0], ix: 2 },
-                              a: { a: 0, k: [400, 300, 0], ix: 1 },
-                              s: { a: 0, k: [100, 100, 100], ix: 6 }
-                            },
-                            ao: 0,
-                            ef: [
-                              {
-                                ty: 5,
-                                nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
-                                np: 4,
-                                mn: "ADBE Simple Choker",
-                                ix: 1,
-                                en: 1,
-                                ef: [
-                                  {
-                                    ty: 7,
-                                    nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
-                                    mn: "ADBE Simple Choker-0001",
-                                    ix: 1,
-                                    v: { a: 0, k: 1, ix: 1 }
-                                  },
-                                  {
-                                    ty: 0,
-                                    nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
-                                    mn: "ADBE Simple Choker-0002",
-                                    ix: 2,
-                                    v: { a: 0, k: 14, ix: 2 }
-                                  }
-                                ]
-                              },
-                              {
-                                ty: 5,
-                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
-                                np: 10,
-                                mn: "ADBE Ramp",
-                                ix: 2,
-                                en: 1,
-                                ef: [
-                                  {
-                                    ty: 3,
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
-                                    mn: "ADBE Ramp-0001",
-                                    ix: 1,
-                                    v: { a: 0, k: [400, 0], ix: 1 }
-                                  },
-                                  {
-                                    ty: 2,
-                                    nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
-                                    mn: "ADBE Ramp-0002",
-                                    ix: 2,
-                                    v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
-                                  },
-                                  {
-                                    ty: 3,
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
-                                    mn: "ADBE Ramp-0003",
-                                    ix: 3,
-                                    v: { a: 0, k: [400, 600], ix: 3 }
-                                  },
-                                  {
-                                    ty: 2,
-                                    nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
-                                    mn: "ADBE Ramp-0004",
-                                    ix: 4,
-                                    v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
-                                  },
-                                  {
-                                    ty: 7,
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
-                                    mn: "ADBE Ramp-0005",
-                                    ix: 5,
-                                    v: { a: 0, k: 1, ix: 5 }
-                                  },
-                                  {
-                                    ty: 0,
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
-                                    mn: "ADBE Ramp-0006",
-                                    ix: 6,
-                                    v: { a: 0, k: 0, ix: 6 }
-                                  },
-                                  {
-                                    ty: 0,
-                                    nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
-                                    mn: "ADBE Ramp-0007",
-                                    ix: 7,
-                                    v: { a: 0, k: 0, ix: 7 }
-                                  },
-                                  {
-                                    ty: 6,
-                                    nm: "",
-                                    mn: "ADBE Ramp-0008",
-                                    ix: 8,
-                                    v: 0
-                                  }
-                                ]
-                              },
-                              {
-                                ty: 29,
-                                nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00ab\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a",
-                                np: 5,
-                                mn: "ADBE Gaussian Blur 2",
-                                ix: 3,
-                                en: 1,
-                                ef: [
-                                  {
-                                    ty: 0,
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6",
-                                    mn: "ADBE Gaussian Blur 2-0001",
-                                    ix: 1,
-                                    v: { a: 0, k: 41.3, ix: 1 }
-                                  },
-                                  {
-                                    ty: 7,
-                                    nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0091",
-                                    mn: "ADBE Gaussian Blur 2-0002",
-                                    ix: 2,
-                                    v: { a: 0, k: 1, ix: 2 }
-                                  },
-                                  {
-                                    ty: 7,
-                                    nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0087\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bc\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b4\u00c3\u0082\u00c2\u00a0",
-                                    mn: "ADBE Gaussian Blur 2-0003",
-                                    ix: 3,
-                                    v: { a: 0, k: 0, ix: 3 }
-                                  }
-                                ]
-                              }
-                            ],
-                            w: 800,
-                            h: 600,
-                            ip: 0,
-                            op: 300,
-                            st: 0,
-                            bm: 0
-                          }
-                        ],
-                        markers: []
-                      }}
-                      className={classNames("__wab_instance", sty.lottie)}
-                    />
-                  }
-                  method={"GET"}
-                  onError={generateStateOnChangeProp($state, [
-                    "getTask",
-                    "error"
-                  ])}
-                  onLoading={generateStateOnChangeProp($state, [
-                    "getTask",
-                    "loading"
-                  ])}
-                  onSuccess={generateStateOnChangeProp($state, [
-                    "getTask",
-                    "data"
-                  ])}
-                  params={(() => {
-                    try {
-                      return {
-                        weekNumber: $state.weekNum,
-                        userId: $ctx.query.userId
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  url={"https://n8n.staas.ir/webhook/task"}
-                />
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__xEhu3
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return $state.getTask.data[
+                                            currentIndex
+                                          ].text;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "ddddd";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                </div>
+                              </AntdCheckbox>
+                            );
+                          })();
+                        })
+                      : null}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          ) : null}
+          <ApiRequest
+            data-plasmic-name={"getTask"}
+            data-plasmic-override={overrides.getTask}
+            className={classNames("__wab_instance", sty.getTask)}
+            errorDisplay={null}
+            loadingDisplay={
+              <LottieWrapper
+                animationData={{
+                  v: "5.6.10",
+                  fr: 30,
+                  ip: 30,
+                  op: 210,
+                  w: 800,
+                  h: 600,
+                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
+                  ddd: 0,
+                  assets: [
+                    {
+                      id: "comp_0",
+                      layers: [
+                        {
+                          ddd: 0,
+                          ind: 1,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 18",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 340, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 0,
+                                        s: [0]
+                                      },
+                                      { t: 30, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 121,
+                          st: 0,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 2,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 17",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 320, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 10,
+                                        s: [0]
+                                      },
+                                      { t: 40, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 121,
+                          st: 10,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 3,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 16",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 300, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 20,
+                                        s: [0]
+                                      },
+                                      { t: 50, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 121,
+                          st: 20,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 4,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 15",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 280, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 30,
+                                        s: [0]
+                                      },
+                                      { t: 60, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 121,
+                          st: 30,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 5,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 14",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 260, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 40,
+                                        s: [0]
+                                      },
+                                      { t: 70, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 121,
+                          st: 40,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 6,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 13",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 240, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 50,
+                                        s: [0]
+                                      },
+                                      { t: 80, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 121,
+                          st: 50,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 7,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 12",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 220, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 60,
+                                        s: [0]
+                                      },
+                                      { t: 90, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 181,
+                          st: 60,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 8,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 11",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 200, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 70,
+                                        s: [0]
+                                      },
+                                      { t: 100, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 181,
+                          st: 70,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 9,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 10",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 180, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 80,
+                                        s: [0]
+                                      },
+                                      { t: 110, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 181,
+                          st: 80,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 10,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 9",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 160, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 90,
+                                        s: [0]
+                                      },
+                                      { t: 120, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 181,
+                          st: 90,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 11,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 8",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 140, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 100,
+                                        s: [0]
+                                      },
+                                      { t: 130, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 181,
+                          st: 100,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 12,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 7",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 120, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 110,
+                                        s: [0]
+                                      },
+                                      { t: 140, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 0,
+                          op: 181,
+                          st: 110,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 13,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 6",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 100, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 120,
+                                        s: [0]
+                                      },
+                                      { t: 150, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 78,
+                          op: 420,
+                          st: 120,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 14,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 5",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 80, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 130,
+                                        s: [0]
+                                      },
+                                      { t: 160, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 78,
+                          op: 430,
+                          st: 130,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 15,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 4",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 60, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 140,
+                                        s: [0]
+                                      },
+                                      { t: 170, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 78,
+                          op: 440,
+                          st: 140,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 16,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 3",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 40, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 150,
+                                        s: [0]
+                                      },
+                                      { t: 180, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 78,
+                          op: 450,
+                          st: 150,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 17,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 2",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 20, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 160,
+                                        s: [0]
+                                      },
+                                      { t: 190, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 78,
+                          op: 460,
+                          st: 160,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 18,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 1",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 0, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 170,
+                                        s: [0]
+                                      },
+                                      { t: 200, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 78,
+                          op: 470,
+                          st: 170,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 19,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 24",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 340, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 180,
+                                        s: [0]
+                                      },
+                                      { t: 210, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 180,
+                          op: 301,
+                          st: 180,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 20,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 23",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 320, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 190,
+                                        s: [0]
+                                      },
+                                      { t: 220, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 180,
+                          op: 301,
+                          st: 190,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 21,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 22",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 300, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 200,
+                                        s: [0]
+                                      },
+                                      { t: 230, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 180,
+                          op: 301,
+                          st: 200,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 22,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 21",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 280, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 210,
+                                        s: [0]
+                                      },
+                                      { t: 240, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 180,
+                          op: 301,
+                          st: 210,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 23,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 20",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 260, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 220,
+                                        s: [0]
+                                      },
+                                      { t: 250, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 180,
+                          op: 301,
+                          st: 220,
+                          bm: 0
+                        },
+                        {
+                          ddd: 0,
+                          ind: 24,
+                          ty: 4,
+                          nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 19",
+                          sr: 1,
+                          ks: {
+                            o: { a: 0, k: 100, ix: 11 },
+                            r: { a: 0, k: 240, ix: 10 },
+                            p: { a: 0, k: [400, 300, 0], ix: 2 },
+                            a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                            s: { a: 0, k: [100, 100, 100], ix: 6 }
+                          },
+                          ao: 0,
+                          shapes: [
+                            {
+                              ty: "gr",
+                              it: [
+                                {
+                                  d: 1,
+                                  ty: "el",
+                                  s: { a: 0, k: [200, 200], ix: 2 },
+                                  p: { a: 0, k: [0, 0], ix: 3 },
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Shape - Ellipse",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tm",
+                                  s: { a: 0, k: 0, ix: 1 },
+                                  e: { a: 0, k: 5, ix: 2 },
+                                  o: {
+                                    a: 1,
+                                    k: [
+                                      {
+                                        i: { x: [0.667], y: [1] },
+                                        o: { x: [0.333], y: [0] },
+                                        t: 230,
+                                        s: [0]
+                                      },
+                                      { t: 260, s: [120] }
+                                    ],
+                                    ix: 3
+                                  },
+                                  m: 1,
+                                  ix: 2,
+                                  nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                  mn: "ADBE Vector Filter - Trim",
+                                  hd: false
+                                },
+                                {
+                                  ty: "st",
+                                  c: {
+                                    a: 0,
+                                    k: [0.5098, 0.3294, 0.7765, 1],
+                                    ix: 3
+                                  },
+                                  o: { a: 0, k: 100, ix: 4 },
+                                  w: { a: 0, k: 40, ix: 5 },
+                                  lc: 2,
+                                  lj: 1,
+                                  ml: 4,
+                                  bm: 0,
+                                  nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                  mn: "ADBE Vector Graphic - Stroke",
+                                  hd: false
+                                },
+                                {
+                                  ty: "tr",
+                                  p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                  a: { a: 0, k: [0, 0], ix: 1 },
+                                  s: { a: 0, k: [100, 100], ix: 3 },
+                                  r: { a: 0, k: 0, ix: 6 },
+                                  o: { a: 0, k: 100, ix: 7 },
+                                  sk: { a: 0, k: 0, ix: 4 },
+                                  sa: { a: 0, k: 0, ix: 5 },
+                                  nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                                }
+                              ],
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                              np: 4,
+                              cix: 2,
+                              bm: 0,
+                              ix: 1,
+                              mn: "ADBE Vector Group",
+                              hd: false
+                            }
+                          ],
+                          ip: 180,
+                          op: 301,
+                          st: 230,
+                          bm: 0
+                        }
+                      ]
+                    }
+                  ],
+                  layers: [
+                    {
+                      ddd: 0,
+                      ind: 1,
+                      ty: 0,
+                      nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
+                      refId: "comp_0",
+                      sr: 1,
+                      ks: {
+                        o: { a: 0, k: 100, ix: 11 },
+                        r: { a: 0, k: 0, ix: 10 },
+                        p: { a: 0, k: [400, 300, 0], ix: 2 },
+                        a: { a: 0, k: [400, 300, 0], ix: 1 },
+                        s: { a: 0, k: [100, 100, 100], ix: 6 }
+                      },
+                      ao: 0,
+                      ef: [
+                        {
+                          ty: 5,
+                          nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
+                          np: 4,
+                          mn: "ADBE Simple Choker",
+                          ix: 1,
+                          en: 1,
+                          ef: [
+                            {
+                              ty: 7,
+                              nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
+                              mn: "ADBE Simple Choker-0001",
+                              ix: 1,
+                              v: { a: 0, k: 1, ix: 1 }
+                            },
+                            {
+                              ty: 0,
+                              nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
+                              mn: "ADBE Simple Choker-0002",
+                              ix: 2,
+                              v: { a: 0, k: 14, ix: 2 }
+                            }
+                          ]
+                        },
+                        {
+                          ty: 5,
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
+                          np: 10,
+                          mn: "ADBE Ramp",
+                          ix: 2,
+                          en: 1,
+                          ef: [
+                            {
+                              ty: 3,
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                              mn: "ADBE Ramp-0001",
+                              ix: 1,
+                              v: { a: 0, k: [400, 0], ix: 1 }
+                            },
+                            {
+                              ty: 2,
+                              nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                              mn: "ADBE Ramp-0002",
+                              ix: 2,
+                              v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
+                            },
+                            {
+                              ty: 3,
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                              mn: "ADBE Ramp-0003",
+                              ix: 3,
+                              v: { a: 0, k: [400, 600], ix: 3 }
+                            },
+                            {
+                              ty: 2,
+                              nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                              mn: "ADBE Ramp-0004",
+                              ix: 4,
+                              v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
+                            },
+                            {
+                              ty: 7,
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
+                              mn: "ADBE Ramp-0005",
+                              ix: 5,
+                              v: { a: 0, k: 1, ix: 5 }
+                            },
+                            {
+                              ty: 0,
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
+                              mn: "ADBE Ramp-0006",
+                              ix: 6,
+                              v: { a: 0, k: 0, ix: 6 }
+                            },
+                            {
+                              ty: 0,
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
+                              mn: "ADBE Ramp-0007",
+                              ix: 7,
+                              v: { a: 0, k: 0, ix: 7 }
+                            },
+                            { ty: 6, nm: "", mn: "ADBE Ramp-0008", ix: 8, v: 0 }
+                          ]
+                        }
+                      ],
+                      w: 800,
+                      h: 600,
+                      ip: 0,
+                      op: 300,
+                      st: 0,
+                      bm: 0
+                    },
+                    {
+                      ddd: 0,
+                      ind: 2,
+                      ty: 0,
+                      nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
+                      refId: "comp_0",
+                      sr: 1,
+                      ks: {
+                        o: { a: 0, k: 56, ix: 11 },
+                        r: { a: 0, k: 0, ix: 10 },
+                        p: { a: 0, k: [400, 320, 0], ix: 2 },
+                        a: { a: 0, k: [400, 300, 0], ix: 1 },
+                        s: { a: 0, k: [100, 100, 100], ix: 6 }
+                      },
+                      ao: 0,
+                      ef: [
+                        {
+                          ty: 5,
+                          nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
+                          np: 4,
+                          mn: "ADBE Simple Choker",
+                          ix: 1,
+                          en: 1,
+                          ef: [
+                            {
+                              ty: 7,
+                              nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
+                              mn: "ADBE Simple Choker-0001",
+                              ix: 1,
+                              v: { a: 0, k: 1, ix: 1 }
+                            },
+                            {
+                              ty: 0,
+                              nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
+                              mn: "ADBE Simple Choker-0002",
+                              ix: 2,
+                              v: { a: 0, k: 14, ix: 2 }
+                            }
+                          ]
+                        },
+                        {
+                          ty: 5,
+                          nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
+                          np: 10,
+                          mn: "ADBE Ramp",
+                          ix: 2,
+                          en: 1,
+                          ef: [
+                            {
+                              ty: 3,
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                              mn: "ADBE Ramp-0001",
+                              ix: 1,
+                              v: { a: 0, k: [400, 0], ix: 1 }
+                            },
+                            {
+                              ty: 2,
+                              nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                              mn: "ADBE Ramp-0002",
+                              ix: 2,
+                              v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
+                            },
+                            {
+                              ty: 3,
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                              mn: "ADBE Ramp-0003",
+                              ix: 3,
+                              v: { a: 0, k: [400, 600], ix: 3 }
+                            },
+                            {
+                              ty: 2,
+                              nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                              mn: "ADBE Ramp-0004",
+                              ix: 4,
+                              v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
+                            },
+                            {
+                              ty: 7,
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
+                              mn: "ADBE Ramp-0005",
+                              ix: 5,
+                              v: { a: 0, k: 1, ix: 5 }
+                            },
+                            {
+                              ty: 0,
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
+                              mn: "ADBE Ramp-0006",
+                              ix: 6,
+                              v: { a: 0, k: 0, ix: 6 }
+                            },
+                            {
+                              ty: 0,
+                              nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
+                              mn: "ADBE Ramp-0007",
+                              ix: 7,
+                              v: { a: 0, k: 0, ix: 7 }
+                            },
+                            { ty: 6, nm: "", mn: "ADBE Ramp-0008", ix: 8, v: 0 }
+                          ]
+                        },
+                        {
+                          ty: 29,
+                          nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00ab\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a",
+                          np: 5,
+                          mn: "ADBE Gaussian Blur 2",
+                          ix: 3,
+                          en: 1,
+                          ef: [
+                            {
+                              ty: 0,
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6",
+                              mn: "ADBE Gaussian Blur 2-0001",
+                              ix: 1,
+                              v: { a: 0, k: 41.3, ix: 1 }
+                            },
+                            {
+                              ty: 7,
+                              nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0091",
+                              mn: "ADBE Gaussian Blur 2-0002",
+                              ix: 2,
+                              v: { a: 0, k: 1, ix: 2 }
+                            },
+                            {
+                              ty: 7,
+                              nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0087\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bc\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b4\u00c3\u0082\u00c2\u00a0",
+                              mn: "ADBE Gaussian Blur 2-0003",
+                              ix: 3,
+                              v: { a: 0, k: 0, ix: 3 }
+                            }
+                          ]
+                        }
+                      ],
+                      w: 800,
+                      h: 600,
+                      ip: 0,
+                      op: 300,
+                      st: 0,
+                      bm: 0
+                    }
+                  ],
+                  markers: []
+                }}
+                className={classNames("__wab_instance", sty.lottie__urmm5)}
+              />
+            }
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, ["getTask", "error"])}
+            onLoading={generateStateOnChangeProp($state, [
+              "getTask",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, ["getTask", "data"])}
+            params={(() => {
+              try {
+                return {
+                  weekNumber: $state.weekNum,
+                  userId: $ctx.query.userId
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/task"}
+          />
+
+          <ApiRequest
+            data-plasmic-name={"getInfo"}
+            data-plasmic-override={overrides.getInfo}
+            className={classNames("__wab_instance", sty.getInfo)}
+            errorDisplay={null}
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__sIfyM
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, ["getInfo", "error"])}
+            onLoading={generateStateOnChangeProp($state, [
+              "getInfo",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, ["getInfo", "data"])}
+          />
+
+          {(() => {
+            try {
+              return $state.getTask.loading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <LottieWrapper
+              animationData={{
+                v: "5.6.10",
+                fr: 30,
+                ip: 30,
+                op: 210,
+                w: 800,
+                h: 600,
+                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
+                ddd: 0,
+                assets: [
+                  {
+                    id: "comp_0",
+                    layers: [
+                      {
+                        ddd: 0,
+                        ind: 1,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 18",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 340, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 0,
+                                      s: [0]
+                                    },
+                                    { t: 30, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 121,
+                        st: 0,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 2,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 17",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 320, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 10,
+                                      s: [0]
+                                    },
+                                    { t: 40, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 121,
+                        st: 10,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 3,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 16",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 300, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 20,
+                                      s: [0]
+                                    },
+                                    { t: 50, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 121,
+                        st: 20,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 4,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 15",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 280, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 30,
+                                      s: [0]
+                                    },
+                                    { t: 60, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 121,
+                        st: 30,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 5,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 14",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 260, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 40,
+                                      s: [0]
+                                    },
+                                    { t: 70, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 121,
+                        st: 40,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 6,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 13",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 240, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 50,
+                                      s: [0]
+                                    },
+                                    { t: 80, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 121,
+                        st: 50,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 7,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 12",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 220, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 60,
+                                      s: [0]
+                                    },
+                                    { t: 90, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 60,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 8,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 11",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 200, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 70,
+                                      s: [0]
+                                    },
+                                    { t: 100, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 70,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 9,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 10",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 180, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 80,
+                                      s: [0]
+                                    },
+                                    { t: 110, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 80,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 10,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 9",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 160, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 90,
+                                      s: [0]
+                                    },
+                                    { t: 120, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 90,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 11,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 8",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 140, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 100,
+                                      s: [0]
+                                    },
+                                    { t: 130, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 100,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 12,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 7",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 120, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 110,
+                                      s: [0]
+                                    },
+                                    { t: 140, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 0,
+                        op: 181,
+                        st: 110,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 13,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 6",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 100, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 120,
+                                      s: [0]
+                                    },
+                                    { t: 150, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 420,
+                        st: 120,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 14,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 5",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 80, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 130,
+                                      s: [0]
+                                    },
+                                    { t: 160, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 430,
+                        st: 130,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 15,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 4",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 60, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 140,
+                                      s: [0]
+                                    },
+                                    { t: 170, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 440,
+                        st: 140,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 16,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 3",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 40, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 150,
+                                      s: [0]
+                                    },
+                                    { t: 180, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 450,
+                        st: 150,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 17,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 2",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 20, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 160,
+                                      s: [0]
+                                    },
+                                    { t: 190, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 460,
+                        st: 160,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 18,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 1",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 0, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 170,
+                                      s: [0]
+                                    },
+                                    { t: 200, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 78,
+                        op: 470,
+                        st: 170,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 19,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 24",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 340, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 180,
+                                      s: [0]
+                                    },
+                                    { t: 210, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 180,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 20,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 23",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 320, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 190,
+                                      s: [0]
+                                    },
+                                    { t: 220, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 190,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 21,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 22",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 300, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 200,
+                                      s: [0]
+                                    },
+                                    { t: 230, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 200,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 22,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 21",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 280, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 210,
+                                      s: [0]
+                                    },
+                                    { t: 240, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 210,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 23,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 20",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 260, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 220,
+                                      s: [0]
+                                    },
+                                    { t: 250, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 220,
+                        bm: 0
+                      },
+                      {
+                        ddd: 0,
+                        ind: 24,
+                        ty: 4,
+                        nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b1\u00c3\u0082\u00c2\u0082 19",
+                        sr: 1,
+                        ks: {
+                          o: { a: 0, k: 100, ix: 11 },
+                          r: { a: 0, k: 240, ix: 10 },
+                          p: { a: 0, k: [400, 300, 0], ix: 2 },
+                          a: { a: 0, k: [1.258, 2.078, 0], ix: 1 },
+                          s: { a: 0, k: [100, 100, 100], ix: 6 }
+                        },
+                        ao: 0,
+                        shapes: [
+                          {
+                            ty: "gr",
+                            it: [
+                              {
+                                d: 1,
+                                ty: "el",
+                                s: { a: 0, k: [200, 200], ix: 2 },
+                                p: { a: 0, k: [0, 0], ix: 3 },
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Shape - Ellipse",
+                                hd: false
+                              },
+                              {
+                                ty: "tm",
+                                s: { a: 0, k: 0, ix: 1 },
+                                e: { a: 0, k: 5, ix: 2 },
+                                o: {
+                                  a: 1,
+                                  k: [
+                                    {
+                                      i: { x: [0.667], y: [1] },
+                                      o: { x: [0.333], y: [0] },
+                                      t: 230,
+                                      s: [0]
+                                    },
+                                    { t: 260, s: [120] }
+                                  ],
+                                  ix: 3
+                                },
+                                m: 1,
+                                ix: 2,
+                                nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00bf\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00aa\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u0084 1",
+                                mn: "ADBE Vector Filter - Trim",
+                                hd: false
+                              },
+                              {
+                                ty: "st",
+                                c: {
+                                  a: 0,
+                                  k: [0.5098, 0.3294, 0.7765, 1],
+                                  ix: 3
+                                },
+                                o: { a: 0, k: 100, ix: 4 },
+                                w: { a: 0, k: 40, ix: 5 },
+                                lc: 2,
+                                lj: 1,
+                                ml: 4,
+                                bm: 0,
+                                nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9 1",
+                                mn: "ADBE Vector Graphic - Stroke",
+                                hd: false
+                              },
+                              {
+                                ty: "tr",
+                                p: { a: 0, k: [1.258, 2.078], ix: 2 },
+                                a: { a: 0, k: [0, 0], ix: 1 },
+                                s: { a: 0, k: [100, 100], ix: 3 },
+                                r: { a: 0, k: 0, ix: 6 },
+                                o: { a: 0, k: 100, ix: 7 },
+                                sk: { a: 0, k: 0, ix: 4 },
+                                sa: { a: 0, k: 0, ix: 5 },
+                                nm: "\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u00a2"
+                              }
+                            ],
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u00ad\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009c\u00c3\u0082\u00c2\u0086 1",
+                            np: 4,
+                            cix: 2,
+                            bm: 0,
+                            ix: 1,
+                            mn: "ADBE Vector Group",
+                            hd: false
+                          }
+                        ],
+                        ip: 180,
+                        op: 301,
+                        st: 230,
+                        bm: 0
+                      }
+                    ]
+                  }
+                ],
+                layers: [
+                  {
+                    ddd: 0,
+                    ind: 1,
+                    ty: 0,
+                    nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
+                    refId: "comp_0",
+                    sr: 1,
+                    ks: {
+                      o: { a: 0, k: 100, ix: 11 },
+                      r: { a: 0, k: 0, ix: 10 },
+                      p: { a: 0, k: [400, 300, 0], ix: 2 },
+                      a: { a: 0, k: [400, 300, 0], ix: 1 },
+                      s: { a: 0, k: [100, 100, 100], ix: 6 }
+                    },
+                    ao: 0,
+                    ef: [
+                      {
+                        ty: 5,
+                        nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
+                        np: 4,
+                        mn: "ADBE Simple Choker",
+                        ix: 1,
+                        en: 1,
+                        ef: [
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
+                            mn: "ADBE Simple Choker-0001",
+                            ix: 1,
+                            v: { a: 0, k: 1, ix: 1 }
+                          },
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
+                            mn: "ADBE Simple Choker-0002",
+                            ix: 2,
+                            v: { a: 0, k: 14, ix: 2 }
+                          }
+                        ]
+                      },
+                      {
+                        ty: 5,
+                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
+                        np: 10,
+                        mn: "ADBE Ramp",
+                        ix: 2,
+                        en: 1,
+                        ef: [
+                          {
+                            ty: 3,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                            mn: "ADBE Ramp-0001",
+                            ix: 1,
+                            v: { a: 0, k: [400, 0], ix: 1 }
+                          },
+                          {
+                            ty: 2,
+                            nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                            mn: "ADBE Ramp-0002",
+                            ix: 2,
+                            v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
+                          },
+                          {
+                            ty: 3,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                            mn: "ADBE Ramp-0003",
+                            ix: 3,
+                            v: { a: 0, k: [400, 600], ix: 3 }
+                          },
+                          {
+                            ty: 2,
+                            nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                            mn: "ADBE Ramp-0004",
+                            ix: 4,
+                            v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
+                          },
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
+                            mn: "ADBE Ramp-0005",
+                            ix: 5,
+                            v: { a: 0, k: 1, ix: 5 }
+                          },
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
+                            mn: "ADBE Ramp-0006",
+                            ix: 6,
+                            v: { a: 0, k: 0, ix: 6 }
+                          },
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
+                            mn: "ADBE Ramp-0007",
+                            ix: 7,
+                            v: { a: 0, k: 0, ix: 7 }
+                          },
+                          { ty: 6, nm: "", mn: "ADBE Ramp-0008", ix: 8, v: 0 }
+                        ]
+                      }
+                    ],
+                    w: 800,
+                    h: 600,
+                    ip: 0,
+                    op: 300,
+                    st: 0,
+                    bm: 0
+                  },
+                  {
+                    ddd: 0,
+                    ind: 2,
+                    ty: 0,
+                    nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u0084\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0088\u00c3\u0082\u00c2\u0090 1",
+                    refId: "comp_0",
+                    sr: 1,
+                    ks: {
+                      o: { a: 0, k: 56, ix: 11 },
+                      r: { a: 0, k: 0, ix: 10 },
+                      p: { a: 0, k: [400, 320, 0], ix: 2 },
+                      a: { a: 0, k: [400, 300, 0], ix: 1 },
+                      s: { a: 0, k: [100, 100, 100], ix: 6 }
+                    },
+                    ao: 0,
+                    ef: [
+                      {
+                        ty: 5,
+                        nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00ae\u00c3\u0082\u00c2\u0080\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008d\u00c3\u0082\u00c2\u0095\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00a5\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0085\u00c3\u0082\u00c2\u00b7",
+                        np: 4,
+                        mn: "ADBE Simple Choker",
+                        ix: 1,
+                        en: 1,
+                        ef: [
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u0086\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be",
+                            mn: "ADBE Simple Choker-0001",
+                            ix: 1,
+                            v: { a: 0, k: 1, ix: 1 }
+                          },
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0098\u00c3\u0082\u00c2\u00bb\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a1\u00c3\u0082\u00c2\u009e\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0081\u00c3\u0082\u00c2\u00ae\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a9",
+                            mn: "ADBE Simple Choker-0002",
+                            ix: 2,
+                            v: { a: 0, k: 14, ix: 2 }
+                          }
+                        ]
+                      },
+                      {
+                        ty: 5,
+                        nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098",
+                        np: 10,
+                        mn: "ADBE Ramp",
+                        ix: 2,
+                        en: 1,
+                        ef: [
+                          {
+                            ty: 3,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                            mn: "ADBE Ramp-0001",
+                            ix: 1,
+                            v: { a: 0, k: [400, 0], ix: 1 }
+                          },
+                          {
+                            ty: 2,
+                            nm: "\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00b5\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                            mn: "ADBE Ramp-0002",
+                            ix: 2,
+                            v: { a: 0, k: [0.556, 0.26, 1, 1], ix: 2 }
+                          },
+                          {
+                            ty: 3,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0088\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u0082\u00c3\u0082\u00c2\u00b9",
+                            mn: "ADBE Ramp-0003",
+                            ix: 3,
+                            v: { a: 0, k: [400, 600], ix: 3 }
+                          },
+                          {
+                            ty: 2,
+                            nm: "\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bb\u00c3\u0082\u00c2\u0093\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u009d\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00a2\u00c3\u0082\u00c2\u009c\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u0089\u00c3\u0082\u00c2\u00b2",
+                            mn: "ADBE Ramp-0004",
+                            ix: 4,
+                            v: { a: 0, k: [0.616, 0.36, 1, 1], ix: 4 }
+                          },
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00bd\u00c3\u0082\u00c2\u00a2\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u008a\u00c3\u0082\u00c2\u00b6",
+                            mn: "ADBE Ramp-0005",
+                            ix: 5,
+                            v: { a: 0, k: 1, ix: 5 }
+                          },
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u0090\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008f\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0095\u00c3\u0082\u00c2\u00a3\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00b0\u00c3\u0082\u00c2\u0084",
+                            mn: "ADBE Ramp-0006",
+                            ix: 6,
+                            v: { a: 0, k: 0, ix: 6 }
+                          },
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a4\u00c3\u0082\u00c2\u00b8\u00c3\u0082\u00c2\u008e\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u008e\u00c3\u0082\u00c2\u009f\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a7\u00c3\u0082\u00c2\u008b\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u009b\u00c3\u0082\u00c2\u00be\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00b7\u00c3\u0082\u00c2\u00b7\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0088",
+                            mn: "ADBE Ramp-0007",
+                            ix: 7,
+                            v: { a: 0, k: 0, ix: 7 }
+                          },
+                          { ty: 6, nm: "", mn: "ADBE Ramp-0008", ix: 8, v: 0 }
+                        ]
+                      },
+                      {
+                        ty: 29,
+                        nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u00ab\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00af\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a",
+                        np: 5,
+                        mn: "ADBE Gaussian Blur 2",
+                        ix: 3,
+                        en: 1,
+                        ef: [
+                          {
+                            ty: 0,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00ba\u00c3\u0082\u00c2\u00a6",
+                            mn: "ADBE Gaussian Blur 2-0001",
+                            ix: 1,
+                            v: { a: 0, k: 41.3, ix: 1 }
+                          },
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u00a8\u00c3\u0082\u00c2\u00a1\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b3\u00c3\u0082\u00c2\u008a\u00c3\u0083\u00c2\u00a6\u00c3\u0082\u00c2\u0096\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0090\u00c3\u0082\u00c2\u0091",
+                            mn: "ADBE Gaussian Blur 2-0002",
+                            ix: 2,
+                            v: { a: 0, k: 1, ix: 2 }
+                          },
+                          {
+                            ty: 7,
+                            nm: "\u00c3\u0083\u00c2\u00a9\u00c3\u0082\u00c2\u0087\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u00a4\u00c3\u0082\u00c2\u008d\u00c3\u0083\u00c2\u00a8\u00c3\u0082\u00c2\u00be\u00c3\u0082\u00c2\u00b9\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00bc\u00c3\u0082\u00c2\u0098\u00c3\u0083\u00c2\u00a5\u00c3\u0082\u00c2\u0083\u00c3\u0082\u00c2\u008f\u00c3\u0083\u00c2\u00a7\u00c3\u0082\u00c2\u00b4\u00c3\u0082\u00c2\u00a0",
+                            mn: "ADBE Gaussian Blur 2-0003",
+                            ix: 3,
+                            v: { a: 0, k: 0, ix: 3 }
+                          }
+                        ]
+                      }
+                    ],
+                    w: 800,
+                    h: 600,
+                    ip: 0,
+                    op: 300,
+                    st: 0,
+                    bm: 0
+                  }
+                ],
+                markers: []
+              }}
+              className={classNames("__wab_instance", sty.lottie__wUfw3)}
+            />
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -3464,10 +6035,10 @@ function PlasmicPregnancy__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "checkbox", "getTask", "lottie"],
+  root: ["root", "checkbox", "getTask", "getInfo"],
   checkbox: ["checkbox"],
-  getTask: ["getTask", "lottie"],
-  lottie: ["lottie"]
+  getTask: ["getTask"],
+  getInfo: ["getInfo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3476,7 +6047,7 @@ type NodeDefaultElementType = {
   root: "div";
   checkbox: typeof AntdCheckbox;
   getTask: typeof ApiRequest;
-  lottie: typeof LottieWrapper;
+  getInfo: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3566,7 +6137,7 @@ export const PlasmicPregnancy = Object.assign(
     // Helper components rendering sub-elements
     checkbox: makeNodeComponent("checkbox"),
     getTask: makeNodeComponent("getTask"),
-    lottie: makeNodeComponent("lottie"),
+    getInfo: makeNodeComponent("getInfo"),
 
     // Metadata about props expected for PlasmicPregnancy
     internalVariantProps: PlasmicPregnancy__VariantProps,
