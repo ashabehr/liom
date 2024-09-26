@@ -1402,6 +1402,7 @@
 }
 @media (max-width: 640px) {
   .freeBox__ebGwv {
+    display: flex;
     padding: 0px;
   }
 }

@@ -78,7 +78,6 @@
   color: #9551ff;
   font-size: 18px;
   font-weight: 700;
-  font-family: "Inter", sans-serif;
   font-style: normal;
   text-transform: none;
   line-height: 1.5;
@@ -126,7 +125,6 @@
   text-align: center;
   z-index: 1;
   font-size: var(--token-7WXNdURMr8wH);
-  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-style: normal;
   color: #535353;
@@ -215,12 +213,14 @@
   margin-top: var(--token-_8m4SPxiIjg9);
   margin-bottom: var(--token-_8m4SPxiIjg9);
   min-width: 0;
-  padding: 8px;
+  padding: 8px 0px;
 }
 .freeBox__eeRlb > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-content: stretch;
   min-width: 0;
   margin-left: calc(0px - 30px);
   width: calc(100% + 30px);
@@ -289,8 +289,8 @@
   .freeBox__mB5CK {
     justify-content: space-evenly;
     background: #8254c61a;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     margin-left: calc(0px + 15px) !important;
     margin-top: calc(0px + 0px) !important;
     flex-shrink: 0;
@@ -321,7 +321,6 @@
   text-align: center;
   user-select: text;
   font-weight: 700;
-  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-style: normal;
   color: #535353;
@@ -382,8 +381,8 @@
   .freeBox__euqJ7 {
     justify-content: space-evenly;
     background: #00c3711a;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     margin-left: calc(0px + 15px) !important;
     margin-top: calc(0px + 0px) !important;
     flex-shrink: 0;
@@ -414,7 +413,6 @@
   text-align: center;
   user-select: text;
   font-weight: 700;
-  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-style: normal;
   color: #535353;
@@ -474,8 +472,8 @@
 @media (max-width: 640px) {
   .freeBox__vmLw3 {
     background: #eb464a1a;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     margin-left: calc(0px + 15px) !important;
     margin-top: calc(0px + 0px) !important;
     flex-shrink: 0;
@@ -506,7 +504,6 @@
   text-align: center;
   user-select: text;
   font-weight: 700;
-  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-style: normal;
   color: #535353;
@@ -595,7 +592,6 @@
   text-align: right;
   font-size: var(--token-2xQ-Ews6Hwx4);
   font-weight: 700;
-  font-family: "Inter", sans-serif;
   font-style: normal;
   color: #535353;
   text-transform: none;
@@ -651,7 +647,6 @@
   left: 0px;
   top: 0px;
   text-align: center;
-  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
   font-style: normal;
@@ -824,7 +819,6 @@
   font-size: var(--token-tjteaUKFnUfH);
   padding-right: var(--token-VmvIyNmCXbhh);
   padding-left: var(--token-VmvIyNmCXbhh);
-  font-family: "Inter", sans-serif;
   font-weight: 600;
   font-style: normal;
   color: #000000;
@@ -904,7 +898,6 @@
   color: #2e2e2e;
   text-align: right;
   font-size: var(--token-hYndcje43OGL);
-  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-style: normal;
   text-transform: none;
@@ -924,7 +917,6 @@
   color: #2e2e2e;
   text-align: right;
   font-size: var(--token-hYndcje43OGL);
-  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-style: normal;
   text-transform: none;
@@ -944,7 +936,6 @@
   color: #2e2e2e;
   text-align: right;
   font-size: var(--token-hYndcje43OGL);
-  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-style: normal;
   text-transform: none;
@@ -964,7 +955,6 @@
   color: #2e2e2e;
   text-align: right;
   font-size: var(--token-hYndcje43OGL);
-  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-style: normal;
   text-transform: none;
