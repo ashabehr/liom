@@ -83,6 +83,7 @@ import Navbaricon2 from "../../Navbaricon2"; // plasmic-import: yohgcniRcj2Q/com
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -98,15 +99,22 @@ import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: 8spC6Q9XO
 import Icon4Icon from "./icons/PlasmicIcon__Icon4"; // plasmic-import: halWdf8bhZV9/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
+import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 
 createPlasmicElementProxy;
 
-export type PlasmicHamyar__VariantMembers = {};
-export type PlasmicHamyar__VariantsArgs = {};
+export type PlasmicHamyar__VariantMembers = {
+  shopPage: "shopPage";
+};
+export type PlasmicHamyar__VariantsArgs = {
+  shopPage?: SingleBooleanChoiceArg<"shopPage">;
+};
 type VariantPropType = keyof PlasmicHamyar__VariantsArgs;
-export const PlasmicHamyar__VariantProps = new Array<VariantPropType>();
+export const PlasmicHamyar__VariantProps = new Array<VariantPropType>(
+  "shopPage"
+);
 
 export type PlasmicHamyar__ArgsType = {};
 type ArgPropType = keyof PlasmicHamyar__ArgsType;
@@ -125,6 +133,7 @@ export type PlasmicHamyar__OverridesType = {
   button3?: Flex__<typeof Button>;
   modal2?: Flex__<typeof AntdModal>;
   modal3?: Flex__<typeof AntdModal>;
+  img?: Flex__<typeof PlasmicImg__>;
   ol?: Flex__<"ol">;
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof Button>;
@@ -138,6 +147,8 @@ export type PlasmicHamyar__OverridesType = {
   lottie?: Flex__<typeof LottieWrapper>;
   user?: Flex__<typeof ApiRequest>;
   shop?: Flex__<typeof ApiRequest>;
+  favicon?: Flex__<typeof Embed>;
+  pullToRefresh?: Flex__<typeof PullToRefresh>;
 };
 
 export interface DefaultHamyarProps {}
@@ -704,6 +715,12 @@ function PlasmicHamyar__RenderFunc(props: {
                   throw e;
                 }
               })()
+      },
+      {
+        path: "shopPage",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.shopPage
       }
     ],
     [$props, $ctx, $refs]
@@ -745,7 +762,8 @@ function PlasmicHamyar__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.root
+            sty.root,
+            { [sty.rootshopPage]: hasVariant($state, "shopPage", "shopPage") }
           )}
           onLoad={async event => {
             const $steps = {};
@@ -773,7 +791,9 @@ function PlasmicHamyar__RenderFunc(props: {
           }}
         >
           {(
-            hasVariant(globalVariants, "screen", "mobile")
+            hasVariant($state, "shopPage", "shopPage")
+              ? true
+              : hasVariant(globalVariants, "screen", "mobile")
               ? (() => {
                   try {
                     return !($state.user.loading || $state.name == "");
@@ -801,16 +821,36 @@ function PlasmicHamyar__RenderFunc(props: {
                   }
                 })()
           ) ? (
-            <div className={classNames(projectcss.all, sty.freeBox__kJv6J)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__kJv6J, {
+                [sty.freeBoxshopPage__kJv6JNvNhc]: hasVariant(
+                  $state,
+                  "shopPage",
+                  "shopPage"
+                )
+              })}
+            >
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__tNnSf)}
+                className={classNames(projectcss.all, sty.freeBox__tNnSf, {
+                  [sty.freeBoxshopPage__tNnSfNvNhc]: hasVariant(
+                    $state,
+                    "shopPage",
+                    "shopPage"
+                  )
+                })}
               >
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__d2GZw)}
+                  className={classNames(projectcss.all, sty.freeBox__d2GZw, {
+                    [sty.freeBoxshopPage__d2GZwNvNhc]: hasVariant(
+                      $state,
+                      "shopPage",
+                      "shopPage"
+                    )
+                  })}
                 >
                   <div
                     className={classNames(projectcss.all, sty.freeBox__vjsSc)}
@@ -945,8 +985,18 @@ function PlasmicHamyar__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__uHwR
+                            sty.freeBox__uHwR,
+                            {
+                              [sty.freeBoxshopPage__uHwRNvNhc]: hasVariant(
+                                $state,
+                                "shopPage",
+                                "shopPage"
+                              )
+                            }
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+                          }}
                         >
                           <div
                             className={classNames(
@@ -1084,8 +1134,18 @@ function PlasmicHamyar__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__d1Foh
+                            sty.freeBox__d1Foh,
+                            {
+                              [sty.freeBoxshopPage__d1FohNvNhc]: hasVariant(
+                                $state,
+                                "shopPage",
+                                "shopPage"
+                              )
+                            }
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+                          }}
                         >
                           <div
                             className={classNames(
@@ -1192,7 +1252,14 @@ function PlasmicHamyar__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__lFbQr
+                    sty.text__lFbQr,
+                    {
+                      [sty.textshopPage__lFbQrNvNhc]: hasVariant(
+                        $state,
+                        "shopPage",
+                        "shopPage"
+                      )
+                    }
                   )}
                 >
                   {hasVariant(globalVariants, "screen", "mobile")
@@ -1200,12 +1267,24 @@ function PlasmicHamyar__RenderFunc(props: {
                     : "\u0628\u0627 \u0627\u06cc\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u062d\u0645\u0627\u06cc\u062a\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647 \u0628\u0647\u0634 \u0628\u062f\u06cc. \u0627\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647\u06cc \u0628\u0647\u0634 \u0627\u062d\u0633\u0627\u0633 \u0622\u0631\u0627\u0645\u0634 \u0645\u06cc\u200c\u062f\u0647 \u0648 \u062d\u0627\u0644 \u0647\u0631 \u062f\u0648\u06cc \u0634\u0645\u0627 \u0631\u0648 \u0628\u0647\u062a\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647."}
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___2F0Aw)}
+                  className={classNames(projectcss.all, sty.freeBox___2F0Aw, {
+                    [sty.freeBoxshopPage___2F0AwNvNhc]: hasVariant(
+                      $state,
+                      "shopPage",
+                      "shopPage"
+                    )
+                  })}
                 >
                   <Cyclebox
                     data-plasmic-name={"cyclebox"}
                     data-plasmic-override={overrides.cyclebox}
-                    className={classNames("__wab_instance", sty.cyclebox)}
+                    className={classNames("__wab_instance", sty.cyclebox, {
+                      [sty.cycleboxshopPage]: hasVariant(
+                        $state,
+                        "shopPage",
+                        "shopPage"
+                      )
+                    })}
                     cycle={generateStateValueProp($state, [
                       "cyclebox",
                       "cycle"
@@ -1335,10 +1414,18 @@ function PlasmicHamyar__RenderFunc(props: {
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__ztbQr)}
+                  className={classNames(projectcss.all, sty.freeBox__ztbQr, {
+                    [sty.freeBoxshopPage__ztbQrNvNhc]: hasVariant(
+                      $state,
+                      "shopPage",
+                      "shopPage"
+                    )
+                  })}
                 >
                   {(
-                    hasVariant(globalVariants, "screen", "mobile")
+                    hasVariant($state, "shopPage", "shopPage")
+                      ? true
+                      : hasVariant(globalVariants, "screen", "mobile")
                       ? (() => {
                           try {
                             return $state.cyclebox.cycle != "white";
@@ -1369,7 +1456,17 @@ function PlasmicHamyar__RenderFunc(props: {
                     <Stack__
                       as={"div"}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__vXdnm)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__vXdnm,
+                        {
+                          [sty.freeBoxshopPage__vXdnmNvNhc]: hasVariant(
+                            $state,
+                            "shopPage",
+                            "shopPage"
+                          )
+                        }
+                      )}
                     >
                       <Icon3Icon
                         className={classNames(projectcss.all, sty.svg__oaXvf)}
@@ -1672,31 +1769,49 @@ function PlasmicHamyar__RenderFunc(props: {
                     </Stack__>
                   ) : null}
                 </Stack__>
-                {(() => {
-                  try {
-                    return (
-                      !$state.user.data.result.todoNotTodoLists.todo.length == 0
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
+                {(
+                  hasVariant($state, "shopPage", "shopPage")
+                    ? true
+                    : (() => {
+                        try {
+                          return (
+                            !$state.user.data.result.todoNotTodoLists.todo
+                              .length == 0
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                ) ? (
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__mdVrf)}
+                    className={classNames(projectcss.all, sty.freeBox__mdVrf, {
+                      [sty.freeBoxshopPage__mdVrfNvNhc]: hasVariant(
+                        $state,
+                        "shopPage",
+                        "shopPage"
+                      )
+                    })}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__bQyyx
+                        sty.text__bQyyx,
+                        {
+                          [sty.textshopPage__bQyyxNvNhc]: hasVariant(
+                            $state,
+                            "shopPage",
+                            "shopPage"
+                          )
+                        }
                       )}
                     >
                       <React.Fragment>
@@ -1723,7 +1838,14 @@ function PlasmicHamyar__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__i8DoG
+                        sty.text__i8DoG,
+                        {
+                          [sty.textshopPage__i8DoGNvNhc]: hasVariant(
+                            $state,
+                            "shopPage",
+                            "shopPage"
+                          )
+                        }
                       )}
                     >
                       {hasVariant(globalVariants, "screen", "mobile")
@@ -1767,7 +1889,14 @@ function PlasmicHamyar__RenderFunc(props: {
                             const child$Props = {
                               className: classNames(
                                 "__wab_instance",
-                                sty.useful
+                                sty.useful,
+                                {
+                                  [sty.usefulshopPage]: hasVariant(
+                                    $state,
+                                    "shopPage",
+                                    "shopPage"
+                                  )
+                                }
                               ),
                               icon: generateStateValueProp($state, [
                                 "useful",
@@ -1937,32 +2066,49 @@ function PlasmicHamyar__RenderFunc(props: {
                     </Reveal>
                   </Stack__>
                 ) : null}
-                {(() => {
-                  try {
-                    return (
-                      !$state.user.data.result.todoNotTodoLists.notToDo
-                        .length == 0
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
+                {(
+                  hasVariant($state, "shopPage", "shopPage")
+                    ? true
+                    : (() => {
+                        try {
+                          return (
+                            !$state.user.data.result.todoNotTodoLists.notToDo
+                              .length == 0
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                ) ? (
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__zg2Fg)}
+                    className={classNames(projectcss.all, sty.freeBox__zg2Fg, {
+                      [sty.freeBoxshopPage__zg2FgNvNhc]: hasVariant(
+                        $state,
+                        "shopPage",
+                        "shopPage"
+                      )
+                    })}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__sfnFu
+                        sty.text__sfnFu,
+                        {
+                          [sty.textshopPage__sfnFuNvNhc]: hasVariant(
+                            $state,
+                            "shopPage",
+                            "shopPage"
+                          )
+                        }
                       )}
                     >
                       <React.Fragment>
@@ -2024,7 +2170,14 @@ function PlasmicHamyar__RenderFunc(props: {
                           const child$Props = {
                             className: classNames(
                               "__wab_instance",
-                              sty.harmful
+                              sty.harmful,
+                              {
+                                [sty.harmfulshopPage]: hasVariant(
+                                  $state,
+                                  "shopPage",
+                                  "shopPage"
+                                )
+                              }
                             ),
                             icon: generateStateValueProp($state, [
                               "harmful",
@@ -2212,7 +2365,14 @@ function PlasmicHamyar__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__veXrR
+                          sty.text__veXrR,
+                          {
+                            [sty.textshopPage__veXrRNvNhc]: hasVariant(
+                              $state,
+                              "shopPage",
+                              "shopPage"
+                            )
+                          }
                         )}
                       >
                         {"Enter some text"}
@@ -2955,10 +3115,100 @@ function PlasmicHamyar__RenderFunc(props: {
                     </div>
                   </Stack__>
                 </AntdModal>
-                <div className={classNames(projectcss.all, sty.freeBox__sA0)}>
+                <div className={classNames(projectcss.all, sty.freeBox__bfhi6)}>
+                  <Icon22Icon
+                    className={classNames(projectcss.all, sty.svg__nW1Mx, {
+                      [sty.svgshopPage__nW1MxNvNhc]: hasVariant(
+                        $state,
+                        "shopPage",
+                        "shopPage"
+                      )
+                    })}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateShopPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "shopPage",
+                              operation: 6,
+                              value: "shopPage"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, false);
+                              return false;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateShopPage"] != null &&
+                        typeof $steps["updateShopPage"] === "object" &&
+                        typeof $steps["updateShopPage"].then === "function"
+                      ) {
+                        $steps["updateShopPage"] = await $steps[
+                          "updateShopPage"
+                        ];
+                      }
+                    }}
+                    role={"img"}
+                  />
+
+                  <PlasmicImg__
+                    data-plasmic-name={"img"}
+                    data-plasmic-override={overrides.img}
+                    alt={""}
+                    className={classNames(sty.img, {
+                      [sty.imgshopPage]: hasVariant(
+                        $state,
+                        "shopPage",
+                        "shopPage"
+                      )
+                    })}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image7.png",
+                      fullWidth: 1302,
+                      fullHeight: 900,
+                      aspectRatio: undefined
+                    }}
+                  />
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__sA0, {
+                    [sty.freeBoxshopPage__sA0NvNhc]: hasVariant(
+                      $state,
+                      "shopPage",
+                      "shopPage"
+                    )
+                  })}
+                >
                   {(
-                    hasVariant(globalVariants, "screen", "mobile")
+                    hasVariant($state, "shopPage", "shopPage")
                       ? true
+                      : hasVariant(globalVariants, "screen", "mobile")
+                      ? (() => {
+                          try {
+                            return !$state.user.data.result.man.hamyarStatus;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
                       : (() => {
                           try {
                             return !$state.user.data.result.man.hamyarStatus;
@@ -2976,12 +3226,29 @@ function PlasmicHamyar__RenderFunc(props: {
                     <Stack__
                       as={"div"}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__ebGwv)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__ebGwv,
+                        {
+                          [sty.freeBoxshopPage__ebGwvNvNhc]: hasVariant(
+                            $state,
+                            "shopPage",
+                            "shopPage"
+                          )
+                        }
+                      )}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__uC58N
+                          sty.freeBox__uC58N,
+                          {
+                            [sty.freeBoxshopPage__uC58NNvNhc]: hasVariant(
+                              $state,
+                              "shopPage",
+                              "shopPage"
+                            )
+                          }
                         )}
                       >
                         <div
@@ -4849,21 +5116,27 @@ function PlasmicHamyar__RenderFunc(props: {
               </SlideinModal>
             </div>
           ) : null}
-          {(() => {
-            try {
-              return (
-                $state.user.loading || $state.name == "" || $state.shop.loading
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
+          {(
+            hasVariant($state, "shopPage", "shopPage")
+              ? true
+              : (() => {
+                  try {
+                    return (
+                      $state.user.loading ||
+                      $state.name == "" ||
+                      $state.shop.loading
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+          ) ? (
             <LottieWrapper
               data-plasmic-name={"lottie"}
               data-plasmic-override={overrides.lottie}
@@ -7367,7 +7640,9 @@ function PlasmicHamyar__RenderFunc(props: {
                 markers: []
               }}
               autoplay={true}
-              className={classNames("__wab_instance", sty.lottie)}
+              className={classNames("__wab_instance", sty.lottie, {
+                [sty.lottieshopPage]: hasVariant($state, "shopPage", "shopPage")
+              })}
               loop={true}
               preview={false}
             />
@@ -7667,6 +7942,45 @@ function PlasmicHamyar__RenderFunc(props: {
             }}
             url={"https://n8n.staas.ir/webhook/hamyar/shop"}
           />
+
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              "<script>\r\nvar link = document.querySelector(\"link[rel~='icon']\");\r\nif (!link) {\r\n    link = document.createElement('link');\r\n    link.rel = 'icon';\r\n    document.head.appendChild(link);\r\n}\r\nlink.href = '<https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico>';\r\n</script>"
+            }
+          />
+
+          <PullToRefresh
+            data-plasmic-name={"pullToRefresh"}
+            data-plasmic-override={overrides.pullToRefresh}
+            className={classNames("__wab_instance", sty.pullToRefresh)}
+            onRefresh={async () => {
+              const $steps = {};
+
+              $steps["refreshData"] = true
+                ? (() => {
+                    const actionArgs = {
+                      queryInvalidation: ["plasmic_refresh_all"]
+                    };
+                    return (async ({ queryInvalidation }) => {
+                      if (!queryInvalidation) {
+                        return;
+                      }
+                      await plasmicInvalidate(queryInvalidation);
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["refreshData"] != null &&
+                typeof $steps["refreshData"] === "object" &&
+                typeof $steps["refreshData"].then === "function"
+              ) {
+                $steps["refreshData"] = await $steps["refreshData"];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -7687,6 +8001,7 @@ const PlasmicDescendants = {
     "button3",
     "modal2",
     "modal3",
+    "img",
     "ol",
     "input",
     "button",
@@ -7699,7 +8014,9 @@ const PlasmicDescendants = {
     "button4",
     "lottie",
     "user",
-    "shop"
+    "shop",
+    "favicon",
+    "pullToRefresh"
   ],
   switchbest: ["switchbest"],
   countdown2: ["countdown2"],
@@ -7712,6 +8029,7 @@ const PlasmicDescendants = {
   button3: ["button3"],
   modal2: ["modal2"],
   modal3: ["modal3"],
+  img: ["img"],
   ol: ["ol"],
   input: ["input"],
   button: ["button"],
@@ -7724,7 +8042,9 @@ const PlasmicDescendants = {
   button4: ["button4"],
   lottie: ["lottie"],
   user: ["user"],
-  shop: ["shop"]
+  shop: ["shop"],
+  favicon: ["favicon"],
+  pullToRefresh: ["pullToRefresh"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -7742,6 +8062,7 @@ type NodeDefaultElementType = {
   button3: typeof Button;
   modal2: typeof AntdModal;
   modal3: typeof AntdModal;
+  img: typeof PlasmicImg__;
   ol: "ol";
   input: typeof AntdInput;
   button: typeof Button;
@@ -7755,6 +8076,8 @@ type NodeDefaultElementType = {
   lottie: typeof LottieWrapper;
   user: typeof ApiRequest;
   shop: typeof ApiRequest;
+  favicon: typeof Embed;
+  pullToRefresh: typeof PullToRefresh;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -7853,6 +8176,7 @@ export const PlasmicHamyar = Object.assign(
     button3: makeNodeComponent("button3"),
     modal2: makeNodeComponent("modal2"),
     modal3: makeNodeComponent("modal3"),
+    img: makeNodeComponent("img"),
     ol: makeNodeComponent("ol"),
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),
@@ -7866,6 +8190,8 @@ export const PlasmicHamyar = Object.assign(
     lottie: makeNodeComponent("lottie"),
     user: makeNodeComponent("user"),
     shop: makeNodeComponent("shop"),
+    favicon: makeNodeComponent("favicon"),
+    pullToRefresh: makeNodeComponent("pullToRefresh"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,

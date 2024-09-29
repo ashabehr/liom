@@ -64,6 +64,10 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
+import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -100,6 +104,12 @@ export type PlasmicBioritm__OverridesType = {
   embedHtml?: Flex__<typeof Embed>;
   slideinModal?: Flex__<typeof SlideinModal>;
   slideinModal2?: Flex__<typeof SlideinModal>;
+  fragmentApiRequest?: Flex__<typeof ApiRequest>;
+  slideinModal3?: Flex__<typeof SlideinModal>;
+  datePickers?: Flex__<typeof DatePickers>;
+  button?: Flex__<typeof Button>;
+  button4?: Flex__<typeof Button>;
+  pullToRefresh?: Flex__<typeof PullToRefresh>;
 };
 
 export interface DefaultBioritmProps {}
@@ -169,6 +179,58 @@ function PlasmicBioritm__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentApiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentApiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentApiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "slideinModal3.click",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "datePickers.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "birthday",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          day: 10,
+          month: 10,
+          year: 1379
+        })
       }
     ],
     [$props, $ctx, $refs]
@@ -274,12 +336,12 @@ function PlasmicBioritm__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["updateSlideinModal2Click"] = true
+                    $steps["updateSlideinModal3Click"] = true
                       ? (() => {
                           const actionArgs = {
                             variable: {
                               objRoot: $state,
-                              variablePath: ["slideinModal2", "click"]
+                              variablePath: ["slideinModal3", "click"]
                             },
                             operation: 0,
                             value: true
@@ -301,38 +363,40 @@ function PlasmicBioritm__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["updateSlideinModal2Click"] != null &&
-                      typeof $steps["updateSlideinModal2Click"] === "object" &&
-                      typeof $steps["updateSlideinModal2Click"].then ===
+                      $steps["updateSlideinModal3Click"] != null &&
+                      typeof $steps["updateSlideinModal3Click"] === "object" &&
+                      typeof $steps["updateSlideinModal3Click"].then ===
                         "function"
                     ) {
-                      $steps["updateSlideinModal2Click"] = await $steps[
-                        "updateSlideinModal2Click"
+                      $steps["updateSlideinModal3Click"] = await $steps[
+                        "updateSlideinModal3Click"
                       ];
                     }
                   }}
                 >
                   {hasVariant(globalVariants, "screen", "mobile") ? (
                     <React.Fragment>
-                      <React.Fragment>
-                        {
-                          "\u0627\u06cc\u0646 \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f  "
+                      {(() => {
+                        try {
+                          return (
+                            "این بیوریتم بر اساس تاریخ تولد " +
+                            $state.birthday.year +
+                            "/" +
+                            $state.birthday.month +
+                            "/" +
+                            $state.birthday.day +
+                            "  محاسبه شده است ."
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
                         }
-                      </React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{
-                          color: "var(--token-55cSeNPovQFh)",
-                          fontWeight: 600
-                        }}
-                      >
-                        {"\u06f1\u06f3\u06f8\u06f0/\u06f8/\u06f9"}
-                      </span>
-                      <React.Fragment>
-                        {
-                          "  \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a ."
-                        }
-                      </React.Fragment>
+                      })()}
                     </React.Fragment>
                   ) : (
                     "\u0627\u06cc\u0646 \u0628\u06cc\u0648 \u0631\u06cc\u062a\u0645 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f "
@@ -480,19 +544,15 @@ function PlasmicBioritm__RenderFunc(props: {
                 >
                   {"\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646"}
                 </p>
-                {(
-                  hasVariant(globalVariants, "screen", "mobile") ? true : false
-                ) ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__w30PV
-                    )}
-                  >
-                    {"50%"}
-                  </div>
-                ) : null}
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__w30PV
+                  )}
+                >
+                  {"50%"}
+                </div>
               </Stack__>
               <div className={classNames(projectcss.all, sty.freeBox___6Kw2M)}>
                 <div
@@ -502,7 +562,48 @@ function PlasmicBioritm__RenderFunc(props: {
                     sty.text___3Hd4I
                   )}
                 >
-                  {"22 \u0645\u0631\u062f\u0627\u062f 1403"}
+                  {hasVariant(globalVariants, "screen", "mobile") ? (
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            parseInt(
+                              $state.fragmentApiRequest.data.date.day.number.en
+                            ) +
+                            " " +
+                            $state.fragmentApiRequest.data.date.month.name +
+                            " " +
+                            $state.fragmentApiRequest.data.date.year.number.fa
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "---";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  ) : (
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.fragmentApiRequest.data.date.full
+                            .official.usual.fa;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "22 \u0645\u0631\u062f\u0627\u062f 1403";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  )}
                 </div>
               </div>
               <Stack__
@@ -518,12 +619,12 @@ function PlasmicBioritm__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["updateSlideinModal2Click"] = true
+                    $steps["updateSlideinModal3Click"] = true
                       ? (() => {
                           const actionArgs = {
                             variable: {
                               objRoot: $state,
-                              variablePath: ["slideinModal2", "click"]
+                              variablePath: ["slideinModal3", "click"]
                             },
                             operation: 0,
                             value: true
@@ -545,45 +646,14 @@ function PlasmicBioritm__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["updateSlideinModal2Click"] != null &&
-                      typeof $steps["updateSlideinModal2Click"] === "object" &&
-                      typeof $steps["updateSlideinModal2Click"].then ===
+                      $steps["updateSlideinModal3Click"] != null &&
+                      typeof $steps["updateSlideinModal3Click"] === "object" &&
+                      typeof $steps["updateSlideinModal3Click"].then ===
                         "function"
                     ) {
-                      $steps["updateSlideinModal2Click"] = await $steps[
-                        "updateSlideinModal2Click"
+                      $steps["updateSlideinModal3Click"] = await $steps[
+                        "updateSlideinModal3Click"
                       ];
-                    }
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                window.addEventListener(
-                                  "wheel",
-                                  preventScroll,
-                                  { passive: false }
-                                );
-                                return window.addEventListener(
-                                  "touchmove",
-                                  preventScroll,
-                                  { passive: false }
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                   onColorChange={(...eventArgs) => {
@@ -910,6 +980,337 @@ function PlasmicBioritm__RenderFunc(props: {
               </SlideinModal>
             ) : null}
           </div>
+          <ApiRequest
+            data-plasmic-name={"fragmentApiRequest"}
+            data-plasmic-override={overrides.fragmentApiRequest}
+            className={classNames("__wab_instance", sty.fragmentApiRequest)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__sxJZ
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__n67PU
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, [
+              "fragmentApiRequest",
+              "error"
+            ])}
+            onLoading={generateStateOnChangeProp($state, [
+              "fragmentApiRequest",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, [
+              "fragmentApiRequest",
+              "data"
+            ])}
+            url={"https://api.keybit.ir/time/"}
+          />
+
+          {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
+            <SlideinModal
+              data-plasmic-name={"slideinModal3"}
+              data-plasmic-override={overrides.slideinModal3}
+              className={classNames("__wab_instance", sty.slideinModal3)}
+              click={generateStateValueProp($state, ["slideinModal3", "click"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateSlideinModalClick"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["slideinModal", "click"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSlideinModalClick"] != null &&
+                  typeof $steps["updateSlideinModalClick"] === "object" &&
+                  typeof $steps["updateSlideinModalClick"].then === "function"
+                ) {
+                  $steps["updateSlideinModalClick"] = await $steps[
+                    "updateSlideinModalClick"
+                  ];
+                }
+              }}
+              onClickChange={generateStateOnChangeProp($state, [
+                "slideinModal3",
+                "click"
+              ])}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__dgIxQ)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ayIcY
+                  )}
+                >
+                  {
+                    "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
+                  }
+                </div>
+                <DatePickers
+                  data-plasmic-name={"datePickers"}
+                  data-plasmic-override={overrides.datePickers}
+                  SelectedDay={(() => {
+                    try {
+                      return $state.birthday.day;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return 10;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  SelectedMonth={(() => {
+                    try {
+                      return $state.birthday.month;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return 10;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  SelectedYear={(() => {
+                    try {
+                      return $state.birthday.year;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return 1379;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  className={classNames("__wab_instance", sty.datePickers)}
+                  onChange={generateStateOnChangeProp($state, [
+                    "datePickers",
+                    "value"
+                  ])}
+                  selectedValues={generateStateValueProp($state, [
+                    "datePickers",
+                    "value"
+                  ])}
+                />
+
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__cmxW3)}
+                >
+                  <Button
+                    data-plasmic-name={"button"}
+                    data-plasmic-override={overrides.button}
+                    className={classNames("__wab_instance", sty.button)}
+                    color={generateStateValueProp($state, ["button", "color"])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateBirthday"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["birthday"]
+                              },
+                              operation: 0,
+                              value: $state.datePickers.value
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateBirthday"] != null &&
+                        typeof $steps["updateBirthday"] === "object" &&
+                        typeof $steps["updateBirthday"].then === "function"
+                      ) {
+                        $steps["updateBirthday"] = await $steps[
+                          "updateBirthday"
+                        ];
+                      }
+
+                      $steps["updateSlideinModal3Click"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["slideinModal3", "click"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateSlideinModal3Click"] != null &&
+                        typeof $steps["updateSlideinModal3Click"] ===
+                          "object" &&
+                        typeof $steps["updateSlideinModal3Click"].then ===
+                          "function"
+                      ) {
+                        $steps["updateSlideinModal3Click"] = await $steps[
+                          "updateSlideinModal3Click"
+                        ];
+                      }
+                    }}
+                    onColorChange={(...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "color"])(
+                        eventArgs[0]
+                      );
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__wdozi
+                      )}
+                    >
+                      {"\u0627\u0646\u062a\u062e\u0627\u0628"}
+                    </div>
+                  </Button>
+                  <Button
+                    data-plasmic-name={"button4"}
+                    data-plasmic-override={overrides.button4}
+                    className={classNames("__wab_instance", sty.button4)}
+                    color={generateStateValueProp($state, ["button4", "color"])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateSlideinModal3Click"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["slideinModal3", "click"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateSlideinModal3Click"] != null &&
+                        typeof $steps["updateSlideinModal3Click"] ===
+                          "object" &&
+                        typeof $steps["updateSlideinModal3Click"].then ===
+                          "function"
+                      ) {
+                        $steps["updateSlideinModal3Click"] = await $steps[
+                          "updateSlideinModal3Click"
+                        ];
+                      }
+                    }}
+                    onColorChange={(...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button4", "color"])(
+                        eventArgs[0]
+                      );
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__yPvXg
+                      )}
+                    >
+                      {"\u0628\u0631\u06af\u0634\u062a"}
+                    </div>
+                  </Button>
+                </Stack__>
+              </div>
+            </SlideinModal>
+          ) : null}
+          <PullToRefresh
+            data-plasmic-name={"pullToRefresh"}
+            data-plasmic-override={overrides.pullToRefresh}
+            className={classNames("__wab_instance", sty.pullToRefresh)}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -925,7 +1326,13 @@ const PlasmicDescendants = {
     "ul",
     "embedHtml",
     "slideinModal",
-    "slideinModal2"
+    "slideinModal2",
+    "fragmentApiRequest",
+    "slideinModal3",
+    "datePickers",
+    "button",
+    "button4",
+    "pullToRefresh"
   ],
   link: ["link"],
   button2: ["button2"],
@@ -933,7 +1340,13 @@ const PlasmicDescendants = {
   ul: ["ul"],
   embedHtml: ["embedHtml"],
   slideinModal: ["slideinModal"],
-  slideinModal2: ["slideinModal2"]
+  slideinModal2: ["slideinModal2"],
+  fragmentApiRequest: ["fragmentApiRequest"],
+  slideinModal3: ["slideinModal3", "datePickers", "button", "button4"],
+  datePickers: ["datePickers"],
+  button: ["button"],
+  button4: ["button4"],
+  pullToRefresh: ["pullToRefresh"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -947,6 +1360,12 @@ type NodeDefaultElementType = {
   embedHtml: typeof Embed;
   slideinModal: typeof SlideinModal;
   slideinModal2: typeof SlideinModal;
+  fragmentApiRequest: typeof ApiRequest;
+  slideinModal3: typeof SlideinModal;
+  datePickers: typeof DatePickers;
+  button: typeof Button;
+  button4: typeof Button;
+  pullToRefresh: typeof PullToRefresh;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1041,6 +1460,12 @@ export const PlasmicBioritm = Object.assign(
     embedHtml: makeNodeComponent("embedHtml"),
     slideinModal: makeNodeComponent("slideinModal"),
     slideinModal2: makeNodeComponent("slideinModal2"),
+    fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
+    slideinModal3: makeNodeComponent("slideinModal3"),
+    datePickers: makeNodeComponent("datePickers"),
+    button: makeNodeComponent("button"),
+    button4: makeNodeComponent("button4"),
+    pullToRefresh: makeNodeComponent("pullToRefresh"),
 
     // Metadata about props expected for PlasmicBioritm
     internalVariantProps: PlasmicBioritm__VariantProps,

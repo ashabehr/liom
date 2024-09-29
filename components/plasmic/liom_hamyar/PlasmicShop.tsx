@@ -64,6 +64,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -97,6 +98,7 @@ export type PlasmicShop__OverridesType = {
   input2?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
+  fragmentApiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultShopProps {}
@@ -174,6 +176,24 @@ function PlasmicShop__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "fragmentApiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentApiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentApiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -643,6 +663,78 @@ function PlasmicShop__RenderFunc(props: {
               </Stack__>
             </div>
           </div>
+          <ApiRequest
+            data-plasmic-name={"fragmentApiRequest"}
+            data-plasmic-override={overrides.fragmentApiRequest}
+            body={(() => {
+              try {
+                return { refCode: $ctx.query.r };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.fragmentApiRequest)}
+            config={(() => {
+              try {
+                return {
+                  headers: {
+                    "Content-Type": "application/json",
+                    Authorization: $ctx.query.t
+                  }
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__rvvIy
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__p5HqF
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"POST"}
+            onError={generateStateOnChangeProp($state, [
+              "fragmentApiRequest",
+              "error"
+            ])}
+            onLoading={generateStateOnChangeProp($state, [
+              "fragmentApiRequest",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, [
+              "fragmentApiRequest",
+              "data"
+            ])}
+            url={"https://n8n.staas.ir/webhook/hamyar/shop"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -650,12 +742,21 @@ function PlasmicShop__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "ol", "input2", "button", "button2"],
+  root: [
+    "root",
+    "img",
+    "ol",
+    "input2",
+    "button",
+    "button2",
+    "fragmentApiRequest"
+  ],
   img: ["img"],
   ol: ["ol"],
   input2: ["input2"],
   button: ["button"],
-  button2: ["button2"]
+  button2: ["button2"],
+  fragmentApiRequest: ["fragmentApiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -667,6 +768,7 @@ type NodeDefaultElementType = {
   input2: typeof AntdInput;
   button: typeof Button;
   button2: typeof Button;
+  fragmentApiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -759,6 +861,7 @@ export const PlasmicShop = Object.assign(
     input2: makeNodeComponent("input2"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
+    fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
 
     // Metadata about props expected for PlasmicShop
     internalVariantProps: PlasmicShop__VariantProps,
