@@ -678,6 +678,11 @@
           "id": "ATaZjEVdEO_f",
           "name": "image 8",
           "filePath": "../public/plasmic/liom_hamyar/images/image8.png"
+        },
+        {
+          "id": "ontKcCxiG2V7",
+          "name": "3d-icon-quick-tip-vector-600nw-2287064749.png",
+          "filePath": "../public/plasmic/liom_hamyar/images/_3DIconQuickTipVector600Nw2287064749Png.png"
         }
       ],
       "indirect": false,
@@ -1693,6 +1698,21 @@
       ],
       "customFunctions": [],
       "jsBundleThemes": []
+    },
+    {
+      "projectId": "kpio2pzukKRJkKg6SSrKTe",
+      "projectApiToken": "RQWq7rprDm1NKSqBCJ6XhafPCYH8pp3AYWcnbb3alqbiK2xY5YbnycM2kg5gTDZzfVqbKidLvQzjfXrnlgGgg",
+      "projectName": "dayjs",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/dayjs/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [],
+      "customFunctions": []
     }
   ],
   "globalVariants": {

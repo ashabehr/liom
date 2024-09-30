@@ -101,6 +101,7 @@ export type PlasmicBioritm__OverridesType = {
   button2?: Flex__<typeof Button>;
   button3?: Flex__<typeof Button>;
   ul?: Flex__<"ul">;
+  li?: Flex__<"li">;
   embedHtml?: Flex__<typeof Embed>;
   slideinModal?: Flex__<typeof SlideinModal>;
   slideinModal2?: Flex__<typeof SlideinModal>;
@@ -110,6 +111,7 @@ export type PlasmicBioritm__OverridesType = {
   button?: Flex__<typeof Button>;
   button4?: Flex__<typeof Button>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
+  fragmentApiRequest2?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultBioritmProps {}
@@ -227,10 +229,35 @@ function PlasmicBioritm__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({
-          day: 10,
+          day: 5,
           month: 10,
           year: 1379
         })
+      },
+      {
+        path: "fragmentApiRequest2.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentApiRequest2.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "fragmentApiRequest2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "bday",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          `2002-01-10${undefined}`
       }
     ],
     [$props, $ctx, $refs]
@@ -453,7 +480,10 @@ function PlasmicBioritm__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__eeRlb)}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__mB5CK)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__mB5CK)}
+                  dir={"ltr"}
+                >
                   <Icon19Icon
                     className={classNames(projectcss.all, sty.svg__vvztf)}
                     role={"img"}
@@ -472,13 +502,34 @@ function PlasmicBioritm__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__zd6RW
+                      sty.text__zd6RW,
+                      "negative"
                     )}
                   >
-                    {"50%"}
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            $state.fragmentApiRequest2.data.result
+                              .intellectual + "%"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "--";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__euqJ7)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__euqJ7)}
+                  dir={"ltr"}
+                >
                   <Icon21Icon
                     className={classNames(projectcss.all, sty.svg__okNfK)}
                     role={"img"}
@@ -497,13 +548,35 @@ function PlasmicBioritm__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__n2Lt
+                      sty.text__n2Lt,
+                      "negative"
                     )}
+                    dir={"ltr"}
                   >
-                    {"50%"}
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            $state.fragmentApiRequest2.data.result.physical +
+                            "%"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "--";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__vmLw3)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__vmLw3)}
+                  dir={"ltr"}
+                >
                   <Icon16Icon
                     className={classNames(projectcss.all, sty.svg___2Mzr0)}
                     role={"img"}
@@ -522,10 +595,28 @@ function PlasmicBioritm__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__o2VP9
+                      sty.text__o2VP9,
+                      "negative"
                     )}
                   >
-                    {"50%"}
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            $state.fragmentApiRequest2.data.result.emotional +
+                            "%"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "--";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
                   </div>
                 </div>
               </Stack__>
@@ -548,10 +639,52 @@ function PlasmicBioritm__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__w30PV
+                    sty.text__w30PV,
+                    "negative"
                   )}
+                  dir={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? "rtl"
+                      : undefined
+                  }
                 >
-                  {"50%"}
+                  {hasVariant(globalVariants, "screen", "mobile") ? (
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            $state.fragmentApiRequest2.data.result.avg + "%"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "--";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  ) : (
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            $state.fragmentApiRequest2.data.result.avg + "%"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "--";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  )}
                 </div>
               </Stack__>
               <div className={classNames(projectcss.all, sty.freeBox___6Kw2M)}>
@@ -590,8 +723,15 @@ function PlasmicBioritm__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $state.fragmentApiRequest.data.date.full
-                            .official.usual.fa;
+                          return (
+                            parseInt(
+                              $state.fragmentApiRequest.data.date.day.number.en
+                            ) +
+                            " " +
+                            $state.fragmentApiRequest.data.date.month.name +
+                            " " +
+                            $state.fragmentApiRequest.data.date.year.number.fa
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -737,54 +877,76 @@ function PlasmicBioritm__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, projectcss.ul, sty.ul)}
                 >
-                  <li
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.li,
-                      projectcss.__wab_text,
-                      sty.li__u9LKw
-                    )}
-                  >
-                    {
-                      "\u0627\u0645\u0631\u0648\u0632 \u062e\u0644\u0627\u0642\u06cc"
-                    }
-                  </li>
-                  <li
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.li,
-                      projectcss.__wab_text,
-                      sty.li__woGd
-                    )}
-                  >
-                    {
-                      "\u0627\u0645\u0631\u0648\u0632 \u062e\u0644\u0627\u0642\u06cc"
-                    }
-                  </li>
-                  <li
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.li,
-                      projectcss.__wab_text,
-                      sty.li___3Xx7K
-                    )}
-                  >
-                    {
-                      "\u0627\u0645\u0631\u0648\u0632 \u062e\u0644\u0627\u0642\u06cc"
-                    }
-                  </li>
-                  <li
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.li,
-                      projectcss.__wab_text,
-                      sty.li__mwxvF
-                    )}
-                  >
-                    {
-                      "\u0627\u0645\u0631\u0648\u0632 \u062e\u0644\u0627\u0642\u06cc"
-                    }
-                  </li>
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return (() => {
+                          return $state.fragmentApiRequest2.data.result.advice
+                            .split("\n")
+                            .filter(item => item.trim() !== "")
+                            .map(item => item.replace(/^- /, ""));
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <li
+                        data-plasmic-name={"li"}
+                        data-plasmic-override={overrides.li}
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.li,
+                          projectcss.__wab_text,
+                          sty.li
+                        )}
+                        key={currentIndex}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0627\u0645\u0631\u0648\u0632 \u062e\u0644\u0627\u0642\u06cc";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "--";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
+                      </li>
+                    );
+                  })}
                 </Stack__>
               </div>
             </div>
@@ -1311,6 +1473,70 @@ function PlasmicBioritm__RenderFunc(props: {
             data-plasmic-override={overrides.pullToRefresh}
             className={classNames("__wab_instance", sty.pullToRefresh)}
           />
+
+          <ApiRequest
+            data-plasmic-name={"fragmentApiRequest2"}
+            data-plasmic-override={overrides.fragmentApiRequest2}
+            body={(() => {
+              try {
+                return {
+                  birthDate: $state.bday
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.fragmentApiRequest2)}
+            config={{
+              headers: {
+                "Content-Type": "application/json",
+                Authorization:
+                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhhN2E2Yzk4LTc5YmYtNDhkZS04M2VhLWU5YjU5ZGVlMzNkYiIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNzI3Njg3Nzc0fQ.XLwNmFMkcaLca5XmdkYWmOYDH1F3zio7d-TxqUI7EYY"
+              }
+            }}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__v3UcZ
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__mleZe
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"POST"}
+            onError={generateStateOnChangeProp($state, [
+              "fragmentApiRequest2",
+              "error"
+            ])}
+            onLoading={generateStateOnChangeProp($state, [
+              "fragmentApiRequest2",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, [
+              "fragmentApiRequest2",
+              "data"
+            ])}
+            url={"https://n8n.staas.ir/webhook/hamyar/biorhythm"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -1324,6 +1550,7 @@ const PlasmicDescendants = {
     "button2",
     "button3",
     "ul",
+    "li",
     "embedHtml",
     "slideinModal",
     "slideinModal2",
@@ -1332,12 +1559,14 @@ const PlasmicDescendants = {
     "datePickers",
     "button",
     "button4",
-    "pullToRefresh"
+    "pullToRefresh",
+    "fragmentApiRequest2"
   ],
   link: ["link"],
   button2: ["button2"],
   button3: ["button3"],
-  ul: ["ul"],
+  ul: ["ul", "li"],
+  li: ["li"],
   embedHtml: ["embedHtml"],
   slideinModal: ["slideinModal"],
   slideinModal2: ["slideinModal2"],
@@ -1346,7 +1575,8 @@ const PlasmicDescendants = {
   datePickers: ["datePickers"],
   button: ["button"],
   button4: ["button4"],
-  pullToRefresh: ["pullToRefresh"]
+  pullToRefresh: ["pullToRefresh"],
+  fragmentApiRequest2: ["fragmentApiRequest2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1357,6 +1587,7 @@ type NodeDefaultElementType = {
   button2: typeof Button;
   button3: typeof Button;
   ul: "ul";
+  li: "li";
   embedHtml: typeof Embed;
   slideinModal: typeof SlideinModal;
   slideinModal2: typeof SlideinModal;
@@ -1366,6 +1597,7 @@ type NodeDefaultElementType = {
   button: typeof Button;
   button4: typeof Button;
   pullToRefresh: typeof PullToRefresh;
+  fragmentApiRequest2: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1457,6 +1689,7 @@ export const PlasmicBioritm = Object.assign(
     button2: makeNodeComponent("button2"),
     button3: makeNodeComponent("button3"),
     ul: makeNodeComponent("ul"),
+    li: makeNodeComponent("li"),
     embedHtml: makeNodeComponent("embedHtml"),
     slideinModal: makeNodeComponent("slideinModal"),
     slideinModal2: makeNodeComponent("slideinModal2"),
@@ -1466,6 +1699,7 @@ export const PlasmicBioritm = Object.assign(
     button: makeNodeComponent("button"),
     button4: makeNodeComponent("button4"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
+    fragmentApiRequest2: makeNodeComponent("fragmentApiRequest2"),
 
     // Metadata about props expected for PlasmicBioritm
     internalVariantProps: PlasmicBioritm__VariantProps,

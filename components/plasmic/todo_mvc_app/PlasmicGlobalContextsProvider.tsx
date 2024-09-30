@@ -18,20 +18,16 @@ export interface GlobalContextsProviderProps {
   fragmentProps?: Partial<
     Omit<React.ComponentProps<typeof Fragment>, "children">
   >;
-
   growthBookProps?: Partial<
     Omit<React.ComponentProps<typeof GrowthBook>, "children">
   >;
-
   splunkProps?: Partial<Omit<React.ComponentProps<typeof Splunk>, "children">>;
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
-
   cmsCredentialsProviderProps?: Partial<
     Omit<React.ComponentProps<typeof CmsCredentialsProvider>, "children">
   >;
@@ -210,7 +206,7 @@ export default function GlobalContextsProvider(
               css={
                 embedCssProps && "css" in embedCssProps
                   ? embedCssProps.css!
-                  : "@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/2cc89407b67c2a224551a27524742893.ttf');\r\n  font-weight: normal;\r\n}\r\n@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/4951d0b74643aa85723536045c0e1258.ttf');\r\n  font-weight: bold;\r\n}\r\n@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/953dde47a63d8fcd8933aeaa704331ef.ttf');\r\n  font-weight: 600;\r\n}\r\n*{\r\n  direction: rtl;\r\n  font-family: 'yekan bakh';\r\n}\r\n    @media (max-width: 767px) {\r\n      body::-webkit-scrollbar {\r\n        display: none; \r\n      }\r\n    }"
+                  : "@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/2cc89407b67c2a224551a27524742893.ttf');\r\n  font-weight: normal;\r\n}\r\n@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/4951d0b74643aa85723536045c0e1258.ttf');\r\n  font-weight: bold;\r\n}\r\n@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/953dde47a63d8fcd8933aeaa704331ef.ttf');\r\n  font-weight: 600;\r\n}\r\n*{\r\n  direction: rtl;\r\n  font-family: 'yekan bakh';\r\n}\r\n    @media (max-width: 767px) {\r\n      body::-webkit-scrollbar {\r\n        display: none; \r\n      }\r\n    }\r\n.negative {\r\n    direction: ltr;\r\n}"
               }
             >
               <CmsCredentialsProvider

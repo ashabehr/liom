@@ -133,7 +133,6 @@ export type PlasmicHamyar__OverridesType = {
   button3?: Flex__<typeof Button>;
   modal2?: Flex__<typeof AntdModal>;
   modal3?: Flex__<typeof AntdModal>;
-  img?: Flex__<typeof PlasmicImg__>;
   ol?: Flex__<"ol">;
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof Button>;
@@ -149,6 +148,7 @@ export type PlasmicHamyar__OverridesType = {
   shop?: Flex__<typeof ApiRequest>;
   favicon?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
+  advice?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultHamyarProps {}
@@ -721,6 +721,24 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.shopPage
+      },
+      {
+        path: "advice.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "advice.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "advice.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -963,12 +981,11 @@ function PlasmicHamyar__RenderFunc(props: {
                           : (() => {
                               try {
                                 return (() => {
-                                  let current_date = new Date();
-                                  let delta = $state.expdate - current_date;
-                                  let days_remaining = Math.floor(
-                                    delta / (1000 * 60 * 60 * 24)
-                                  );
-                                  if (days_remaining > 3) return true;
+                                  if (
+                                    $state.user.data.result.man
+                                      .timeToEndHamyarTime.days > 3
+                                  )
+                                    return true;
                                   else return false;
                                 })();
                               } catch (e) {
@@ -1054,19 +1071,12 @@ function PlasmicHamyar__RenderFunc(props: {
                                 {(() => {
                                   try {
                                     return (() => {
-                                      let current_date = new Date();
-                                      let delta = $state.expdate - current_date;
-                                      let days_remaining = Math.floor(
-                                        delta / (1000 * 60 * 60 * 24)
-                                      );
-                                      let hours_remaining = Math.floor(
-                                        (delta % (1000 * 60 * 60 * 24)) /
-                                          (1000 * 60 * 60)
-                                      );
                                       return (
-                                        days_remaining +
+                                        $state.user.data.result.man
+                                          .timeToEndHamyarTime.days +
                                         " روز و " +
-                                        hours_remaining +
+                                        $state.user.data.result.man
+                                          .timeToEndHamyarTime.hour +
                                         " ساعت باقیمانده"
                                       );
                                     })();
@@ -1112,12 +1122,11 @@ function PlasmicHamyar__RenderFunc(props: {
                           : (() => {
                               try {
                                 return (() => {
-                                  let current_date = new Date();
-                                  let delta = $state.expdate - current_date;
-                                  let days_remaining = Math.floor(
-                                    delta / (1000 * 60 * 60 * 24)
-                                  );
-                                  if (days_remaining > 3) return false;
+                                  if (
+                                    $state.user.data.result.man
+                                      .timeToEndHamyarTime.days > 3
+                                  )
+                                    return false;
                                   else return true;
                                 })();
                               } catch (e) {
@@ -1639,29 +1648,35 @@ function PlasmicHamyar__RenderFunc(props: {
                                         return "تا پایان امروز";
                                       return days_remaining1 + " روز " + "دیگر";
                                     case "pms":
-                                      let future2 = new Date(
-                                        $state.user.data.result.userStatus.pmsEnd
-                                      );
-                                      let current_date2 = new Date();
-                                      let delta2 = future2 - current_date2;
-                                      let days_remaining2 = Math.floor(
-                                        delta2 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining2 == 0)
+                                      if (
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPms == 0 ||
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPms == 1
+                                      )
                                         return "تا پایان امروز";
-                                      return days_remaining2 + " روز " + "دیگر";
+                                      return (
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPms -
+                                        1 +
+                                        " روز " +
+                                        "دیگر"
+                                      );
                                     case "blood":
-                                      let future3 = new Date(
-                                        $state.user.data.result.userStatus.periodEnd
-                                      );
-                                      let current_date3 = new Date();
-                                      let delta3 = future3 - current_date3;
-                                      let days_remaining3 = Math.floor(
-                                        delta3 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining3 == 0)
+                                      if (
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPeriod == 1 ||
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPeriod == 0
+                                      )
                                         return "تا پایان امروز";
-                                      return days_remaining3 + " روز " + "دیگر";
+                                      return (
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPeriod -
+                                        1 +
+                                        " روز " +
+                                        "دیگر"
+                                      );
                                     default:
                                       return "";
                                   }
@@ -1742,17 +1757,20 @@ function PlasmicHamyar__RenderFunc(props: {
                           {(() => {
                             try {
                               return (() => {
-                                let future3 = new Date(
-                                  $state.user.data.result.userStatus.pmsEnd
-                                );
-                                let current_date3 = new Date();
-                                let delta3 = future3 - current_date3;
-                                let days_remaining3 = Math.floor(
-                                  delta3 / (1000 * 60 * 60 * 24)
-                                );
-                                if (days_remaining3 == 0)
+                                if (
+                                  $state.user.data.result.userStatus
+                                    .daysToStartPeriod == 0 ||
+                                  $state.user.data.result.userStatus
+                                    .daysToStartPeriod == 1
+                                )
                                   return "تا پایان امروز";
-                                return days_remaining3 + " روز " + "دیگر";
+                                return (
+                                  $state.user.data.result.userStatus
+                                    .daysToStartPeriod -
+                                  1 +
+                                  " روز " +
+                                  "دیگر"
+                                );
                               })();
                             } catch (e) {
                               if (
@@ -1769,6 +1787,153 @@ function PlasmicHamyar__RenderFunc(props: {
                     </Stack__>
                   ) : null}
                 </Stack__>
+                {(
+                  hasVariant($state, "shopPage", "shopPage")
+                    ? true
+                    : hasVariant(globalVariants, "screen", "mobile")
+                    ? (() => {
+                        try {
+                          return $state.cyclebox.cycle != "white";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : true
+                ) ? (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__aHEn, {
+                      [sty.freeBoxshopPage__aHEnNvNhc]: hasVariant(
+                        $state,
+                        "shopPage",
+                        "shopPage"
+                      )
+                    })}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___7thYx,
+                        {
+                          [sty.freeBoxshopPage___7thYxNvNhc]: hasVariant(
+                            $state,
+                            "shopPage",
+                            "shopPage"
+                          )
+                        }
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__paRvK
+                        )}
+                      >
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__z9Sdj)}
+                          displayHeight={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? "35px"
+                              : "60px"
+                          }
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? "35px"
+                              : "60px"
+                          }
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/liom_hamyar/images/_3DIconQuickTipVector600Nw2287064749Png.png",
+                            fullWidth: 371,
+                            fullHeight: 374,
+                            aspectRatio: undefined
+                          }}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___24Wkh
+                          )}
+                        >
+                          {
+                            "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632"
+                          }
+                        </div>
+                      </div>
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___2QF1T
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__snKk8
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.advice.data[0].name;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__wjo14
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.advice.data[0].doc;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </Stack__>
+                    </Stack__>
+                  </Stack__>
+                ) : null}
                 {(
                   hasVariant($state, "shopPage", "shopPage")
                     ? true
@@ -3158,11 +3323,9 @@ function PlasmicHamyar__RenderFunc(props: {
                   />
 
                   <PlasmicImg__
-                    data-plasmic-name={"img"}
-                    data-plasmic-override={overrides.img}
                     alt={""}
-                    className={classNames(sty.img, {
-                      [sty.imgshopPage]: hasVariant(
+                    className={classNames(sty.img__bj79E, {
+                      [sty.imgshopPage__bj79ENvNhc]: hasVariant(
                         $state,
                         "shopPage",
                         "shopPage"
@@ -7948,7 +8111,9 @@ function PlasmicHamyar__RenderFunc(props: {
             data-plasmic-override={overrides.favicon}
             className={classNames("__wab_instance", sty.favicon)}
             code={
-              "<script>\r\nvar link = document.querySelector(\"link[rel~='icon']\");\r\nif (!link) {\r\n    link = document.createElement('link');\r\n    link.rel = 'icon';\r\n    document.head.appendChild(link);\r\n}\r\nlink.href = '<https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico>';\r\n</script>"
+              hasVariant(globalVariants, "screen", "mobile")
+                ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
             }
           />
 
@@ -7981,6 +8146,35 @@ function PlasmicHamyar__RenderFunc(props: {
               }
             }}
           />
+
+          <ApiRequest
+            data-plasmic-name={"advice"}
+            data-plasmic-override={overrides.advice}
+            className={classNames("__wab_instance", sty.advice)}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, ["advice", "error"])}
+            onLoading={generateStateOnChangeProp($state, ["advice", "loading"])}
+            onSuccess={generateStateOnChangeProp($state, ["advice", "data"])}
+            params={(() => {
+              try {
+                return {
+                  status: $state.cyclebox.cycle,
+                  limit: 1
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/hamyar/advice"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -8001,7 +8195,6 @@ const PlasmicDescendants = {
     "button3",
     "modal2",
     "modal3",
-    "img",
     "ol",
     "input",
     "button",
@@ -8016,7 +8209,8 @@ const PlasmicDescendants = {
     "user",
     "shop",
     "favicon",
-    "pullToRefresh"
+    "pullToRefresh",
+    "advice"
   ],
   switchbest: ["switchbest"],
   countdown2: ["countdown2"],
@@ -8029,7 +8223,6 @@ const PlasmicDescendants = {
   button3: ["button3"],
   modal2: ["modal2"],
   modal3: ["modal3"],
-  img: ["img"],
   ol: ["ol"],
   input: ["input"],
   button: ["button"],
@@ -8044,7 +8237,8 @@ const PlasmicDescendants = {
   user: ["user"],
   shop: ["shop"],
   favicon: ["favicon"],
-  pullToRefresh: ["pullToRefresh"]
+  pullToRefresh: ["pullToRefresh"],
+  advice: ["advice"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -8062,7 +8256,6 @@ type NodeDefaultElementType = {
   button3: typeof Button;
   modal2: typeof AntdModal;
   modal3: typeof AntdModal;
-  img: typeof PlasmicImg__;
   ol: "ol";
   input: typeof AntdInput;
   button: typeof Button;
@@ -8078,6 +8271,7 @@ type NodeDefaultElementType = {
   shop: typeof ApiRequest;
   favicon: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
+  advice: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -8176,7 +8370,6 @@ export const PlasmicHamyar = Object.assign(
     button3: makeNodeComponent("button3"),
     modal2: makeNodeComponent("modal2"),
     modal3: makeNodeComponent("modal3"),
-    img: makeNodeComponent("img"),
     ol: makeNodeComponent("ol"),
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),
@@ -8192,6 +8385,7 @@ export const PlasmicHamyar = Object.assign(
     shop: makeNodeComponent("shop"),
     favicon: makeNodeComponent("favicon"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
+    advice: makeNodeComponent("advice"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,
