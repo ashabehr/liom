@@ -376,19 +376,6 @@
           "componentType": "component"
         },
         {
-          "id": "6sTznFJMP8UH",
-          "name": "Dialog",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDialog.tsx",
-          "importSpec": {
-            "modulePath": "Dialog.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicDialog.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "aqM8xdUvFVmZ",
           "name": "Shop",
           "type": "managed",
@@ -469,6 +456,34 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/pregnancy"
+        },
+        {
+          "id": "YKiT8gl73-sD",
+          "name": "Notification",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNotification.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/notification.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicNotification.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/notification"
+        },
+        {
+          "id": "jWPq984-uehl",
+          "name": "PregnancyDark",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancyDark.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/pregnancy-dark.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancyDark.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/pregnancy-dark"
         }
       ],
       "icons": [
@@ -621,6 +636,16 @@
           "id": "32haUKsu6raY",
           "name": "Icon22Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon22.tsx"
+        },
+        {
+          "id": "3iiTmpS-_IX-",
+          "name": "Icon23Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon23.tsx"
+        },
+        {
+          "id": "3dtEf5Pd9666",
+          "name": "Icon24Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon24.tsx"
         }
       ],
       "images": [

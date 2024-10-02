@@ -97,7 +97,6 @@ export const PlasmicBioritm__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicBioritm__OverridesType = {
   root?: Flex__<"div">;
-  link?: Flex__<"a"> & Partial<LinkProps>;
   button2?: Flex__<typeof Button>;
   button3?: Flex__<typeof Button>;
   ul?: Flex__<"ul">;
@@ -105,13 +104,14 @@ export type PlasmicBioritm__OverridesType = {
   embedHtml?: Flex__<typeof Embed>;
   slideinModal?: Flex__<typeof SlideinModal>;
   slideinModal2?: Flex__<typeof SlideinModal>;
-  fragmentApiRequest?: Flex__<typeof ApiRequest>;
+  information?: Flex__<typeof ApiRequest>;
+  biorhythm?: Flex__<typeof ApiRequest>;
+  time?: Flex__<typeof ApiRequest>;
   slideinModal3?: Flex__<typeof SlideinModal>;
   datePickers?: Flex__<typeof DatePickers>;
   button?: Flex__<typeof Button>;
   button4?: Flex__<typeof Button>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
-  fragmentApiRequest2?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultBioritmProps {}
@@ -183,19 +183,19 @@ function PlasmicBioritm__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "fragmentApiRequest.data",
+        path: "time.data",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "fragmentApiRequest.error",
+        path: "time.error",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "fragmentApiRequest.loading",
+        path: "time.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -228,26 +228,37 @@ function PlasmicBioritm__RenderFunc(props: {
         path: "birthday",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({
-          day: 5,
-          month: 10,
-          year: 1379
-        })
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.information.data[0].Bday == null
+                ? { day: 7, month: 7, year: 1377 }
+                : $state.information.data[0].Bday;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return { day: 7, month: 7, year: 1377 };
+              }
+              throw e;
+            }
+          })()
       },
       {
-        path: "fragmentApiRequest2.data",
+        path: "biorhythm.data",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "fragmentApiRequest2.error",
+        path: "biorhythm.error",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "fragmentApiRequest2.loading",
+        path: "biorhythm.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -257,7 +268,68 @@ function PlasmicBioritm__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          `2002-01-10${undefined}`
+          (() => {
+            try {
+              return (() => {
+                let jy = $state.birthday.year;
+                let jm = $state.birthday.month;
+                let jd = $state.birthday.day;
+                let gy = jy + 621;
+                let shamsiMonthDays = [
+                  31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29
+                ];
+
+                let miladiDaysInMonth = [
+                  31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+                ];
+
+                let isLeapYear =
+                  gy % 4 === 0 && (gy % 100 !== 0 || gy % 400 === 0);
+                if (isLeapYear) {
+                  miladiDaysInMonth[1] = 29;
+                }
+                let daysPassedShamsi = jd;
+                for (let i = 0; i < jm - 1; i++) {
+                  daysPassedShamsi += shamsiMonthDays[i];
+                }
+                let daysInMiladiYear = isLeapYear ? 366 : 365;
+                let miladiStartDay = new Date(gy, 2, 21);
+                miladiStartDay.setDate(
+                  miladiStartDay.getDate() + daysPassedShamsi - 1
+                );
+                let finalMiladiDay = miladiStartDay.getDate();
+                let finalMiladiMonth = miladiStartDay.getMonth() + 1;
+                let finalMiladiYear = miladiStartDay.getFullYear();
+                return `${finalMiladiYear}-${finalMiladiMonth}-${finalMiladiDay}`;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "information.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "information.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "information.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -426,53 +498,30 @@ function PlasmicBioritm__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   ) : (
-                    "\u0627\u06cc\u0646 \u0628\u06cc\u0648 \u0631\u06cc\u062a\u0645 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f "
-                  )}
-                </div>
-                <PlasmicLink__
-                  data-plasmic-name={"link"}
-                  data-plasmic-override={overrides.link}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.a,
-                    projectcss.__wab_text,
-                    sty.link
-                  )}
-                  component={Link}
-                  platform={"nextjs"}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return (
-                          $state.datePickers.value.year +
-                          "/" +
-                          $state.datePickers.value.month +
-                          "/" +
-                          $state.datePickers.value.day
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "1380/8/9";
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            "این بیوریتم بر اساس تاریخ تولد " +
+                            $state.birthday.year +
+                            "/" +
+                            $state.birthday.month +
+                            "/" +
+                            $state.birthday.day +
+                            "  محاسبه شده است ."
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0627\u06cc\u0646 \u0628\u06cc\u0648 \u0631\u06cc\u062a\u0645 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f ";
+                          }
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </PlasmicLink__>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__dQjfV
+                      })()}
+                    </React.Fragment>
                   )}
-                >
-                  {
-                    " \u0645\u062d\u0627\u0633\u0628\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a ."
-                  }
                 </div>
               </div>
               <Stack__
@@ -510,8 +559,7 @@ function PlasmicBioritm__RenderFunc(props: {
                       {(() => {
                         try {
                           return (
-                            $state.fragmentApiRequest2.data.result
-                              .intellectual + "%"
+                            $state.biorhythm.data.result.intellectual + "%"
                           );
                         } catch (e) {
                           if (
@@ -556,10 +604,7 @@ function PlasmicBioritm__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return (
-                            $state.fragmentApiRequest2.data.result.physical +
-                            "%"
-                          );
+                          return $state.biorhythm.data.result.physical + "%";
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -602,10 +647,7 @@ function PlasmicBioritm__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return (
-                            $state.fragmentApiRequest2.data.result.emotional +
-                            "%"
-                          );
+                          return $state.biorhythm.data.result.emotional + "%";
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -652,9 +694,7 @@ function PlasmicBioritm__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return (
-                            $state.fragmentApiRequest2.data.result.avg + "%"
-                          );
+                          return $state.biorhythm.data.result.avg + "%";
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -670,9 +710,7 @@ function PlasmicBioritm__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return (
-                            $state.fragmentApiRequest2.data.result.avg + "%"
-                          );
+                          return $state.biorhythm.data.result.avg + "%";
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -700,13 +738,11 @@ function PlasmicBioritm__RenderFunc(props: {
                       {(() => {
                         try {
                           return (
-                            parseInt(
-                              $state.fragmentApiRequest.data.date.day.number.en
-                            ) +
+                            parseInt($state.time.data.date.day.number.en) +
                             " " +
-                            $state.fragmentApiRequest.data.date.month.name +
+                            $state.time.data.date.month.name +
                             " " +
-                            $state.fragmentApiRequest.data.date.year.number.fa
+                            $state.time.data.date.year.number.fa
                           );
                         } catch (e) {
                           if (
@@ -724,13 +760,11 @@ function PlasmicBioritm__RenderFunc(props: {
                       {(() => {
                         try {
                           return (
-                            parseInt(
-                              $state.fragmentApiRequest.data.date.day.number.en
-                            ) +
+                            parseInt($state.time.data.date.day.number.en) +
                             " " +
-                            $state.fragmentApiRequest.data.date.month.name +
+                            $state.time.data.date.month.name +
                             " " +
-                            $state.fragmentApiRequest.data.date.year.number.fa
+                            $state.time.data.date.year.number.fa
                           );
                         } catch (e) {
                           if (
@@ -880,12 +914,10 @@ function PlasmicBioritm__RenderFunc(props: {
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
-                        return (() => {
-                          return $state.fragmentApiRequest2.data.result.advice
-                            .split("\n")
-                            .filter(item => item.trim() !== "")
-                            .map(item => item.replace(/^- /, ""));
-                        })();
+                        return $state.biorhythm.data.result.advice
+                          .split("\n")
+                          .filter(item => item.trim() !== "")
+                          .map(item => item.replace(/^- /, ""));
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -955,241 +987,15 @@ function PlasmicBioritm__RenderFunc(props: {
               data-plasmic-override={overrides.embedHtml}
               className={classNames("__wab_instance", sty.embedHtml)}
               code={
-                "    <script>\r\n        // \u0627\u0641\u0632\u0648\u062f\u0646 \u062a\u0627\u0628\u0639 \u0628\u0647 String.prototype\r\n        String.prototype.EntoFa = function() {\r\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\r\n        }\r\n        // \u062a\u0627\u0628\u0639 \u0628\u0631\u0627\u06cc \u062a\u0628\u062f\u06cc\u0644 \u0627\u0639\u062f\u0627\u062f \u062f\u0631 \u062a\u0645\u0627\u0645\u06cc \u0645\u062a\u0646\u200c\u0647\u0627\u06cc \u0635\u0641\u062d\u0647\r\n        function convertNumbersInPage() {\r\n                        console.log(\"hiiii\");\r\n\r\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\r\n            elements.forEach(element => {\r\n                element.childNodes.forEach(node => {\r\n                    if (node.nodeType === Node.TEXT_NODE) {\r\n                        node.nodeValue = node.nodeValue.EntoFa();\r\n                    }\r\n                });\r\n            });\r\n        }\r\n\r\n      convertNumbersInPage();\r\n    </script>"
+                "    <script>\r\n        // \u0627\u0641\u0632\u0648\u062f\u0646 \u062a\u0627\u0628\u0639 \u0628\u0647 String.prototype\r\n        String.prototype.EntoFa = function() {\r\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\r\n        }\r\n        // \u062a\u0627\u0628\u0639 \u0628\u0631\u0627\u06cc \u062a\u0628\u062f\u06cc\u0644 \u0627\u0639\u062f\u0627\u062f \u062f\u0631 \u062a\u0645\u0627\u0645\u06cc \u0645\u062a\u0646\u200c\u0647\u0627\u06cc \u0635\u0641\u062d\u0647\r\n        function convertNumbersInPage() {\r\n                        console.log(\"hiiii\");\r\n\r\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\r\n            elements.forEach(element => {\r\n                element.childNodes.forEach(node => {\r\n                    if (node.nodeType === Node.TEXT_NODE) {\r\n                        node.nodeValue = node.nodeValue.EntoFa();\r\n                    }\r\n                });\r\n            });\r\n        }\r\n\r\n    setTimeout(convertNumbersInPage, 1000);\r\n    </script>"
               }
             />
 
-            {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
-              <SlideinModal
-                data-plasmic-name={"slideinModal"}
-                data-plasmic-override={overrides.slideinModal}
-                className={classNames("__wab_instance", sty.slideinModal)}
-                click={generateStateValueProp($state, [
-                  "slideinModal",
-                  "click"
-                ])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateSlideinModalClick"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["slideinModal", "click"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateSlideinModalClick"] != null &&
-                    typeof $steps["updateSlideinModalClick"] === "object" &&
-                    typeof $steps["updateSlideinModalClick"].then === "function"
-                  ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
-                  }
-                }}
-                onClickChange={generateStateOnChangeProp($state, [
-                  "slideinModal",
-                  "click"
-                ])}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__qqw6C)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__vdlfo
-                    )}
-                  >
-                    {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__pvJpc
-                    )}
-                  >
-                    {
-                      "\u0634\u062f\u0647 \u06af\u0627\u0647\u06cc \u0627\u0648\u0642\u0627\u062a \u0628\u0627 \u062e\u0648\u062f\u062a \u0628\u06af\u06cc \u0627\u0644\u0627\u0646 \u00bb \u062d\u0648\u0635\u0644\u0647 \u0647\u06cc\u0686 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0646\u062f\u0627\u0631\u0645 \u061b \u06cc\u0627 \u0627\u0645\u0631\u0648\u0632 \u0631\u0648\u06cc \u0645\u0646 \u0646\u06cc\u0633\u062a . \u00bb \u0627\u06cc\u0646\u0637\u0648\u0631 \u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0631\u0633\u0647 \u06a9\u0647 \u062f\u0631 \u0628\u0639\u0636\u06cc \u0634\u0631\u0627\u06cc\u0637 \u060c \u0642\u062f\u0631\u062a \u062c\u0633\u0645\u06cc \u0630\u0647\u0646\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u06cc \u060c \u0645\u0627 \u0628\u0627 \u0647\u0645 . \u0647\u0645\u0627\u0647\u0646\u06af \u0646\u06cc\u0633\u062a\u0646 \u06a9\u0647 \u0647\u0645\u0647 \u0627\u06cc\u0646\u0647\u0627 \u0628\u0647 \u0633\u06cc\u06a9\u0644\u0647\u0627\u06cc \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0628\u0631\u0645\u06cc\u06af\u0631\u062f\u0647.\n\u062f\u0631 \u0648\u0627\u0642\u0639 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0646\u0628\u0636 \u062d\u064a\u0627\u062a \u06cc\u0627 \u0632\u06cc\u0633\u062a \u060c \u0622\u0647\u0646\u06af \u0639\u0644\u0645 \u0648 \u062f\u0627\u0646\u0634\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0628\u0647 \u0648\u0627\u0633\u0637\u0647 \u0627\u0648\u0646 \u0631\u06cc\u062a\u0645\u0647\u0627\u06cc \u0628\u062f\u0646 \u0627\u0646\u0633\u0627\u0646 \u0634\u0646\u0627\u062e\u062a\u0647 \u0645\u06cc\u0634\u0647 \u0628\u0631\u0627\u0633\u0627\u0633 \u0646\u0638\u0631\u064a\u0647 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0633\u0637\u0648\u062d \u0645\u062e\u062a\u0644\u0641\u06cc \u0627\u0632 \u0627\u0646\u0631\u0698\u06cc \u0627\u0632 \u0647\u0645\u0627\u0646 \u0627\u0628\u062a\u062f\u0627\u06cc \u062a\u0648\u0644\u062f \u062f\u0631 \u0627\u0646\u0633\u0627\u0646 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u0647 \u062f\u0631 \u0648\u0627\u0642\u0639 \u0634\u0631\u0648\u0639 \u0648 \u067e\u0627\u06cc\u0627\u0646 \u0647\u0631 \u0686\u0631\u062e\u0647 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0641\u0631\u062f \u062a\u0639\u06cc\u06cc\u0646 \u0645\u06cc\u0634\u0647 \u0627\u06cc\u0646 \u0627\u0646\u0631\u0698\u06cc \u062f\u0631 \u06cc\u06a9 \u0628\u0627\u0632\u0647 \u0632\u0645\u0627\u0646\u06cc \u0645\u0634\u062e\u0635 \u06a9\u0645 \u0648 \u0632\u06cc\u0627\u062f \u0645\u06cc\u0634\u0647 \u0648 \u0631\u0648\u06cc \u0631\u0641\u062a\u0627\u0631 \u0648 \u062d\u0627\u0644\u0627\u062a \u0627\u0646\u0633\u0627\u0646 \u062a\u0623\u062b\u06cc\u0631 \u0645\u06cc\u0630\u0627\u0631\u0647. \n\n1- \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc ( Physical ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0647\u0631 \u06f2\u06f3 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u0627\u062a\u0641\u0627\u0642 \u0645\u06cc\u0627\u0641\u062a\u062f \u0632\u0645\u0627\u0646\u06cc \u06a9\u0647 \u062f\u0631 \u0627\u0648\u062c \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631\u06cc \u0627\u0639\u062a\u0645\u0627\u062f \u0628\u0647 \u0646\u0641\u0633 \u060c \u0627\u0646\u0631\u0698\u06cc \u0648 ... \u062f\u0627\u0631\u06cc\u062f . \u0627\u06cc\u0646 \u062f\u0631 \u062d\u0627\u0644\u06cc \u0627\u0633\u062a \u06a9\u0647 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0628\u06cc\u0634\u062a\u0631 \u062a\u062d\u062a \u062a\u0623\u062b\u06cc\u0631 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627 \u0642\u0631\u0627\u0631 \u0645\u06cc \u06af\u06cc\u0631\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0627\u0633\u062a \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n\n\u06f2- \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc ( Emotional ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u06f2\u06f8 \u0631\u0648\u0632\u0647 \u0627\u0633\u062a \u0648\u0642\u062a\u06cc \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0627\u062d\u0633\u0627\u0633 \u0645\u06cc\u06a9\u0646\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631 \u0634\u0627\u062f \u0648 \u0628\u0627\u0637\u0631\u0627\u0648\u062a \u0647\u0633\u062a\u06cc\u062f . \u062f\u0631 \u0645\u0642\u0627\u0628\u0644 \u0622\u0646 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u062a\u062d\u0631\u06cc\u06a9 \u067e\u0630\u06cc\u0631\u06cc \u0628\u0627\u0644\u0627\u06cc\u06cc \u062f\u0627\u0631\u06cc\u062f \u061b \u0627\u062d\u062a\u0645\u0627\u0644\u0627 \u0647\u0645\u0627\u0646 \u0631\u0648\u0632\u0647\u0627\u06cc\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0645\u062b\u0644\u0627 \u0645\u06cc\u06af\u0648\u06cc\u06cc\u062f \u062d\u0648\u0635\u0644\u0647 \u0646\u062f\u0627\u0631\u0645 \u0648\u0644\u0645 \u06a9\u0646\u06cc\u062f \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631\u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0631\u0648\u062d\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n \n\u06f3- \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc ( Intellectual ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0631\u0627 \u0647\u0631 \u0663\u0663 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u062a\u062c\u0631\u0628\u0647 \u0645\u06cc.\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u062f\u0631\u062a \u062a\u0635\u0645\u06cc\u0645 \u06af\u06cc\u0631\u06cc \u062e\u0648\u0628\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0645\u06cc \u062a\u0648\u0627\u0646\u06cc\u062f \u0645\u0633\u0627\u0626\u0644 \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0631\u0627 \u062d\u0644 \u0648 \u0645\u062f\u06cc\u0631\u06cc\u062a .\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0641\u0648\u0644 \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u062a\u0645\u0631\u06a9\u0632 \u0628\u0633\u06cc\u0627\u0631 \u06a9\u0645\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u062d\u062a\u06cc \u0634\u0627\u06cc\u062f \u062a\u0648\u0627\u0646 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u0646 \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0642\u0628\u0644\u0627 \u062f\u0627\u0634\u062a\u06cc\u062f \u0631\u0627 \u0646\u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0630\u0647\u0646\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc. \n"
-                    }
-                  </div>
-                </Stack__>
-              </SlideinModal>
-            ) : null}
-            {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
-              <SlideinModal
-                data-plasmic-name={"slideinModal2"}
-                data-plasmic-override={overrides.slideinModal2}
-                className={classNames("__wab_instance", sty.slideinModal2)}
-                click={generateStateValueProp($state, [
-                  "slideinModal2",
-                  "click"
-                ])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateSlideinModalClick"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["slideinModal2", "click"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateSlideinModalClick"] != null &&
-                    typeof $steps["updateSlideinModalClick"] === "object" &&
-                    typeof $steps["updateSlideinModalClick"].then === "function"
-                  ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
-                  }
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              window.removeEventListener(
-                                "wheel",
-                                preventScroll
-                              );
-                              return window.removeEventListener(
-                                "touchmove",
-                                preventScroll
-                              );
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-                onClickChange={generateStateOnChangeProp($state, [
-                  "slideinModal2",
-                  "click"
-                ])}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox___8GBeh)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___8Hl0G
-                    )}
-                  >
-                    {
-                      "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
-                    }
-                  </div>
-                </Stack__>
-              </SlideinModal>
-            ) : null}
-          </div>
-          <ApiRequest
-            data-plasmic-name={"fragmentApiRequest"}
-            data-plasmic-override={overrides.fragmentApiRequest}
-            className={classNames("__wab_instance", sty.fragmentApiRequest)}
-            errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__sxJZ
-                )}
-              >
-                {"Error fetching data"}
-              </div>
-            }
-            loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__n67PU
-                )}
-              >
-                {"Loading..."}
-              </div>
-            }
-            method={"GET"}
-            onError={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
-              "error"
-            ])}
-            onLoading={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
-              "data"
-            ])}
-            url={"https://api.keybit.ir/time/"}
-          />
-
-          {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
             <SlideinModal
-              data-plasmic-name={"slideinModal3"}
-              data-plasmic-override={overrides.slideinModal3}
-              className={classNames("__wab_instance", sty.slideinModal3)}
-              click={generateStateValueProp($state, ["slideinModal3", "click"])}
+              data-plasmic-name={"slideinModal"}
+              data-plasmic-override={overrides.slideinModal}
+              className={classNames("__wab_instance", sty.slideinModal)}
+              click={generateStateValueProp($state, ["slideinModal", "click"])}
               onClick={async event => {
                 const $steps = {};
 
@@ -1230,253 +1036,171 @@ function PlasmicBioritm__RenderFunc(props: {
                 }
               }}
               onClickChange={generateStateOnChangeProp($state, [
-                "slideinModal3",
+                "slideinModal",
                 "click"
               ])}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__dgIxQ)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__qqw6C)}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__ayIcY
+                    sty.text__vdlfo
+                  )}
+                >
+                  {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__pvJpc
+                  )}
+                >
+                  {
+                    "\u0634\u062f\u0647 \u06af\u0627\u0647\u06cc \u0627\u0648\u0642\u0627\u062a \u0628\u0627 \u062e\u0648\u062f\u062a \u0628\u06af\u06cc \u0627\u0644\u0627\u0646 \u00bb \u062d\u0648\u0635\u0644\u0647 \u0647\u06cc\u0686 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0646\u062f\u0627\u0631\u0645 \u061b \u06cc\u0627 \u0627\u0645\u0631\u0648\u0632 \u0631\u0648\u06cc \u0645\u0646 \u0646\u06cc\u0633\u062a . \u00bb \u0627\u06cc\u0646\u0637\u0648\u0631 \u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0631\u0633\u0647 \u06a9\u0647 \u062f\u0631 \u0628\u0639\u0636\u06cc \u0634\u0631\u0627\u06cc\u0637 \u060c \u0642\u062f\u0631\u062a \u062c\u0633\u0645\u06cc \u0630\u0647\u0646\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u06cc \u060c \u0645\u0627 \u0628\u0627 \u0647\u0645 . \u0647\u0645\u0627\u0647\u0646\u06af \u0646\u06cc\u0633\u062a\u0646 \u06a9\u0647 \u0647\u0645\u0647 \u0627\u06cc\u0646\u0647\u0627 \u0628\u0647 \u0633\u06cc\u06a9\u0644\u0647\u0627\u06cc \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0628\u0631\u0645\u06cc\u06af\u0631\u062f\u0647.\n\u062f\u0631 \u0648\u0627\u0642\u0639 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0646\u0628\u0636 \u062d\u064a\u0627\u062a \u06cc\u0627 \u0632\u06cc\u0633\u062a \u060c \u0622\u0647\u0646\u06af \u0639\u0644\u0645 \u0648 \u062f\u0627\u0646\u0634\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0628\u0647 \u0648\u0627\u0633\u0637\u0647 \u0627\u0648\u0646 \u0631\u06cc\u062a\u0645\u0647\u0627\u06cc \u0628\u062f\u0646 \u0627\u0646\u0633\u0627\u0646 \u0634\u0646\u0627\u062e\u062a\u0647 \u0645\u06cc\u0634\u0647 \u0628\u0631\u0627\u0633\u0627\u0633 \u0646\u0638\u0631\u064a\u0647 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0633\u0637\u0648\u062d \u0645\u062e\u062a\u0644\u0641\u06cc \u0627\u0632 \u0627\u0646\u0631\u0698\u06cc \u0627\u0632 \u0647\u0645\u0627\u0646 \u0627\u0628\u062a\u062f\u0627\u06cc \u062a\u0648\u0644\u062f \u062f\u0631 \u0627\u0646\u0633\u0627\u0646 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u0647 \u062f\u0631 \u0648\u0627\u0642\u0639 \u0634\u0631\u0648\u0639 \u0648 \u067e\u0627\u06cc\u0627\u0646 \u0647\u0631 \u0686\u0631\u062e\u0647 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0641\u0631\u062f \u062a\u0639\u06cc\u06cc\u0646 \u0645\u06cc\u0634\u0647 \u0627\u06cc\u0646 \u0627\u0646\u0631\u0698\u06cc \u062f\u0631 \u06cc\u06a9 \u0628\u0627\u0632\u0647 \u0632\u0645\u0627\u0646\u06cc \u0645\u0634\u062e\u0635 \u06a9\u0645 \u0648 \u0632\u06cc\u0627\u062f \u0645\u06cc\u0634\u0647 \u0648 \u0631\u0648\u06cc \u0631\u0641\u062a\u0627\u0631 \u0648 \u062d\u0627\u0644\u0627\u062a \u0627\u0646\u0633\u0627\u0646 \u062a\u0623\u062b\u06cc\u0631 \u0645\u06cc\u0630\u0627\u0631\u0647. \n\n1- \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc ( Physical ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0647\u0631 \u06f2\u06f3 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u0627\u062a\u0641\u0627\u0642 \u0645\u06cc\u0627\u0641\u062a\u062f \u0632\u0645\u0627\u0646\u06cc \u06a9\u0647 \u062f\u0631 \u0627\u0648\u062c \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631\u06cc \u0627\u0639\u062a\u0645\u0627\u062f \u0628\u0647 \u0646\u0641\u0633 \u060c \u0627\u0646\u0631\u0698\u06cc \u0648 ... \u062f\u0627\u0631\u06cc\u062f . \u0627\u06cc\u0646 \u062f\u0631 \u062d\u0627\u0644\u06cc \u0627\u0633\u062a \u06a9\u0647 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0628\u06cc\u0634\u062a\u0631 \u062a\u062d\u062a \u062a\u0623\u062b\u06cc\u0631 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627 \u0642\u0631\u0627\u0631 \u0645\u06cc \u06af\u06cc\u0631\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0627\u0633\u062a \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n\n\u06f2- \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc ( Emotional ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u06f2\u06f8 \u0631\u0648\u0632\u0647 \u0627\u0633\u062a \u0648\u0642\u062a\u06cc \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0627\u062d\u0633\u0627\u0633 \u0645\u06cc\u06a9\u0646\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631 \u0634\u0627\u062f \u0648 \u0628\u0627\u0637\u0631\u0627\u0648\u062a \u0647\u0633\u062a\u06cc\u062f . \u062f\u0631 \u0645\u0642\u0627\u0628\u0644 \u0622\u0646 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u062a\u062d\u0631\u06cc\u06a9 \u067e\u0630\u06cc\u0631\u06cc \u0628\u0627\u0644\u0627\u06cc\u06cc \u062f\u0627\u0631\u06cc\u062f \u061b \u0627\u062d\u062a\u0645\u0627\u0644\u0627 \u0647\u0645\u0627\u0646 \u0631\u0648\u0632\u0647\u0627\u06cc\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0645\u062b\u0644\u0627 \u0645\u06cc\u06af\u0648\u06cc\u06cc\u062f \u062d\u0648\u0635\u0644\u0647 \u0646\u062f\u0627\u0631\u0645 \u0648\u0644\u0645 \u06a9\u0646\u06cc\u062f \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631\u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0631\u0648\u062d\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n \n\u06f3- \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc ( Intellectual ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0631\u0627 \u0647\u0631 \u0663\u0663 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u062a\u062c\u0631\u0628\u0647 \u0645\u06cc.\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u062f\u0631\u062a \u062a\u0635\u0645\u06cc\u0645 \u06af\u06cc\u0631\u06cc \u062e\u0648\u0628\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0645\u06cc \u062a\u0648\u0627\u0646\u06cc\u062f \u0645\u0633\u0627\u0626\u0644 \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0631\u0627 \u062d\u0644 \u0648 \u0645\u062f\u06cc\u0631\u06cc\u062a .\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0641\u0648\u0644 \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u062a\u0645\u0631\u06a9\u0632 \u0628\u0633\u06cc\u0627\u0631 \u06a9\u0645\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u062d\u062a\u06cc \u0634\u0627\u06cc\u062f \u062a\u0648\u0627\u0646 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u0646 \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0642\u0628\u0644\u0627 \u062f\u0627\u0634\u062a\u06cc\u062f \u0631\u0627 \u0646\u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0630\u0647\u0646\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc. \n"
+                  }
+                </div>
+              </Stack__>
+            </SlideinModal>
+            <SlideinModal
+              data-plasmic-name={"slideinModal2"}
+              data-plasmic-override={overrides.slideinModal2}
+              className={classNames("__wab_instance", sty.slideinModal2)}
+              click={generateStateValueProp($state, ["slideinModal2", "click"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateSlideinModalClick"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["slideinModal2", "click"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateSlideinModalClick"] != null &&
+                  typeof $steps["updateSlideinModalClick"] === "object" &&
+                  typeof $steps["updateSlideinModalClick"].then === "function"
+                ) {
+                  $steps["updateSlideinModalClick"] = await $steps[
+                    "updateSlideinModalClick"
+                  ];
+                }
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            window.removeEventListener("wheel", preventScroll);
+                            return window.removeEventListener(
+                              "touchmove",
+                              preventScroll
+                            );
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
+              onClickChange={generateStateOnChangeProp($state, [
+                "slideinModal2",
+                "click"
+              ])}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___8GBeh)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___8Hl0G
                   )}
                 >
                   {
                     "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
                   }
                 </div>
-                <DatePickers
-                  data-plasmic-name={"datePickers"}
-                  data-plasmic-override={overrides.datePickers}
-                  SelectedDay={(() => {
-                    try {
-                      return $state.birthday.day;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return 10;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  SelectedMonth={(() => {
-                    try {
-                      return $state.birthday.month;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return 10;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  SelectedYear={(() => {
-                    try {
-                      return $state.birthday.year;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return 1379;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  className={classNames("__wab_instance", sty.datePickers)}
-                  onChange={generateStateOnChangeProp($state, [
-                    "datePickers",
-                    "value"
-                  ])}
-                  selectedValues={generateStateValueProp($state, [
-                    "datePickers",
-                    "value"
-                  ])}
-                />
-
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__cmxW3)}
-                >
-                  <Button
-                    data-plasmic-name={"button"}
-                    data-plasmic-override={overrides.button}
-                    className={classNames("__wab_instance", sty.button)}
-                    color={generateStateValueProp($state, ["button", "color"])}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateBirthday"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["birthday"]
-                              },
-                              operation: 0,
-                              value: $state.datePickers.value
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateBirthday"] != null &&
-                        typeof $steps["updateBirthday"] === "object" &&
-                        typeof $steps["updateBirthday"].then === "function"
-                      ) {
-                        $steps["updateBirthday"] = await $steps[
-                          "updateBirthday"
-                        ];
-                      }
-
-                      $steps["updateSlideinModal3Click"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["slideinModal3", "click"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateSlideinModal3Click"] != null &&
-                        typeof $steps["updateSlideinModal3Click"] ===
-                          "object" &&
-                        typeof $steps["updateSlideinModal3Click"].then ===
-                          "function"
-                      ) {
-                        $steps["updateSlideinModal3Click"] = await $steps[
-                          "updateSlideinModal3Click"
-                        ];
-                      }
-                    }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button", "color"])(
-                        eventArgs[0]
-                      );
-                    }}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__wdozi
-                      )}
-                    >
-                      {"\u0627\u0646\u062a\u062e\u0627\u0628"}
-                    </div>
-                  </Button>
-                  <Button
-                    data-plasmic-name={"button4"}
-                    data-plasmic-override={overrides.button4}
-                    className={classNames("__wab_instance", sty.button4)}
-                    color={generateStateValueProp($state, ["button4", "color"])}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateSlideinModal3Click"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["slideinModal3", "click"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateSlideinModal3Click"] != null &&
-                        typeof $steps["updateSlideinModal3Click"] ===
-                          "object" &&
-                        typeof $steps["updateSlideinModal3Click"].then ===
-                          "function"
-                      ) {
-                        $steps["updateSlideinModal3Click"] = await $steps[
-                          "updateSlideinModal3Click"
-                        ];
-                      }
-                    }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button4", "color"])(
-                        eventArgs[0]
-                      );
-                    }}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__yPvXg
-                      )}
-                    >
-                      {"\u0628\u0631\u06af\u0634\u062a"}
-                    </div>
-                  </Button>
-                </Stack__>
-              </div>
+              </Stack__>
             </SlideinModal>
-          ) : null}
-          <PullToRefresh
-            data-plasmic-name={"pullToRefresh"}
-            data-plasmic-override={overrides.pullToRefresh}
-            className={classNames("__wab_instance", sty.pullToRefresh)}
+          </div>
+          <ApiRequest
+            data-plasmic-name={"information"}
+            data-plasmic-override={overrides.information}
+            className={classNames("__wab_instance", sty.information)}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, [
+              "information",
+              "error"
+            ])}
+            onLoading={generateStateOnChangeProp($state, [
+              "information",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, [
+              "information",
+              "data"
+            ])}
+            params={(() => {
+              try {
+                return {
+                  refCode: $ctx.query.m
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/hamyar/information"}
           />
 
           <ApiRequest
-            data-plasmic-name={"fragmentApiRequest2"}
-            data-plasmic-override={overrides.fragmentApiRequest2}
+            data-plasmic-name={"biorhythm"}
+            data-plasmic-override={overrides.biorhythm}
             body={(() => {
               try {
                 return {
@@ -1492,7 +1216,7 @@ function PlasmicBioritm__RenderFunc(props: {
                 throw e;
               }
             })()}
-            className={classNames("__wab_instance", sty.fragmentApiRequest2)}
+            className={classNames("__wab_instance", sty.biorhythm)}
             config={{
               headers: {
                 "Content-Type": "application/json",
@@ -1500,12 +1224,28 @@ function PlasmicBioritm__RenderFunc(props: {
                   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhhN2E2Yzk4LTc5YmYtNDhkZS04M2VhLWU5YjU5ZGVlMzNkYiIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNzI3Njg3Nzc0fQ.XLwNmFMkcaLca5XmdkYWmOYDH1F3zio7d-TxqUI7EYY"
               }
             }}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"POST"}
+            onError={generateStateOnChangeProp($state, ["biorhythm", "error"])}
+            onLoading={generateStateOnChangeProp($state, [
+              "biorhythm",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, ["biorhythm", "data"])}
+            url={"https://n8n.staas.ir/webhook/hamyar/biorhythm"}
+          />
+
+          <ApiRequest
+            data-plasmic-name={"time"}
+            data-plasmic-override={overrides.time}
+            className={classNames("__wab_instance", sty.time)}
             errorDisplay={
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__v3UcZ
+                  sty.text__sxJZ
                 )}
               >
                 {"Error fetching data"}
@@ -1516,26 +1256,296 @@ function PlasmicBioritm__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__mleZe
+                  sty.text__n67PU
                 )}
               >
                 {"Loading..."}
               </div>
             }
-            method={"POST"}
-            onError={generateStateOnChangeProp($state, [
-              "fragmentApiRequest2",
-              "error"
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, ["time", "error"])}
+            onLoading={generateStateOnChangeProp($state, ["time", "loading"])}
+            onSuccess={generateStateOnChangeProp($state, ["time", "data"])}
+            url={"https://api.keybit.ir/time/"}
+          />
+
+          <SlideinModal
+            data-plasmic-name={"slideinModal3"}
+            data-plasmic-override={overrides.slideinModal3}
+            className={classNames("__wab_instance", sty.slideinModal3)}
+            click={generateStateValueProp($state, ["slideinModal3", "click"])}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateSlideinModalClick"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["slideinModal", "click"]
+                      },
+                      operation: 0,
+                      value: false
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateSlideinModalClick"] != null &&
+                typeof $steps["updateSlideinModalClick"] === "object" &&
+                typeof $steps["updateSlideinModalClick"].then === "function"
+              ) {
+                $steps["updateSlideinModalClick"] = await $steps[
+                  "updateSlideinModalClick"
+                ];
+              }
+            }}
+            onClickChange={generateStateOnChangeProp($state, [
+              "slideinModal3",
+              "click"
             ])}
-            onLoading={generateStateOnChangeProp($state, [
-              "fragmentApiRequest2",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "fragmentApiRequest2",
-              "data"
-            ])}
-            url={"https://n8n.staas.ir/webhook/hamyar/biorhythm"}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__dgIxQ)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ayIcY
+                )}
+              >
+                {
+                  "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
+                }
+              </div>
+              <DatePickers
+                data-plasmic-name={"datePickers"}
+                data-plasmic-override={overrides.datePickers}
+                SelectedDay={(() => {
+                  try {
+                    return $state.birthday.day;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return 10;
+                    }
+                    throw e;
+                  }
+                })()}
+                SelectedMonth={(() => {
+                  try {
+                    return $state.birthday.month;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return 10;
+                    }
+                    throw e;
+                  }
+                })()}
+                SelectedYear={(() => {
+                  try {
+                    return $state.birthday.year;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return 1379;
+                    }
+                    throw e;
+                  }
+                })()}
+                className={classNames("__wab_instance", sty.datePickers)}
+                onChange={generateStateOnChangeProp($state, [
+                  "datePickers",
+                  "value"
+                ])}
+                selectedValues={generateStateValueProp($state, [
+                  "datePickers",
+                  "value"
+                ])}
+              />
+
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__cmxW3)}
+              >
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
+                  color={generateStateValueProp($state, ["button", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateBirthday"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["birthday"]
+                            },
+                            operation: 0,
+                            value: $state.datePickers.value
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateBirthday"] != null &&
+                      typeof $steps["updateBirthday"] === "object" &&
+                      typeof $steps["updateBirthday"].then === "function"
+                    ) {
+                      $steps["updateBirthday"] = await $steps["updateBirthday"];
+                    }
+
+                    $steps["updateSlideinModal3Click"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["slideinModal3", "click"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSlideinModal3Click"] != null &&
+                      typeof $steps["updateSlideinModal3Click"] === "object" &&
+                      typeof $steps["updateSlideinModal3Click"].then ===
+                        "function"
+                    ) {
+                      $steps["updateSlideinModal3Click"] = await $steps[
+                        "updateSlideinModal3Click"
+                      ];
+                    }
+                  }}
+                  onColorChange={(...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__wdozi
+                    )}
+                  >
+                    {"\u0627\u0646\u062a\u062e\u0627\u0628"}
+                  </div>
+                </Button>
+                <Button
+                  data-plasmic-name={"button4"}
+                  data-plasmic-override={overrides.button4}
+                  className={classNames("__wab_instance", sty.button4)}
+                  color={generateStateValueProp($state, ["button4", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateSlideinModal3Click"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["slideinModal3", "click"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSlideinModal3Click"] != null &&
+                      typeof $steps["updateSlideinModal3Click"] === "object" &&
+                      typeof $steps["updateSlideinModal3Click"].then ===
+                        "function"
+                    ) {
+                      $steps["updateSlideinModal3Click"] = await $steps[
+                        "updateSlideinModal3Click"
+                      ];
+                    }
+                  }}
+                  onColorChange={(...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button4", "color"])(
+                      eventArgs[0]
+                    );
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__yPvXg
+                    )}
+                  >
+                    {"\u0628\u0631\u06af\u0634\u062a"}
+                  </div>
+                </Button>
+              </Stack__>
+            </div>
+          </SlideinModal>
+          <PullToRefresh
+            data-plasmic-name={"pullToRefresh"}
+            data-plasmic-override={overrides.pullToRefresh}
+            className={classNames("__wab_instance", sty.pullToRefresh)}
           />
         </div>
       </div>
@@ -1546,7 +1556,6 @@ function PlasmicBioritm__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "link",
     "button2",
     "button3",
     "ul",
@@ -1554,15 +1563,15 @@ const PlasmicDescendants = {
     "embedHtml",
     "slideinModal",
     "slideinModal2",
-    "fragmentApiRequest",
+    "information",
+    "biorhythm",
+    "time",
     "slideinModal3",
     "datePickers",
     "button",
     "button4",
-    "pullToRefresh",
-    "fragmentApiRequest2"
+    "pullToRefresh"
   ],
-  link: ["link"],
   button2: ["button2"],
   button3: ["button3"],
   ul: ["ul", "li"],
@@ -1570,20 +1579,20 @@ const PlasmicDescendants = {
   embedHtml: ["embedHtml"],
   slideinModal: ["slideinModal"],
   slideinModal2: ["slideinModal2"],
-  fragmentApiRequest: ["fragmentApiRequest"],
+  information: ["information"],
+  biorhythm: ["biorhythm"],
+  time: ["time"],
   slideinModal3: ["slideinModal3", "datePickers", "button", "button4"],
   datePickers: ["datePickers"],
   button: ["button"],
   button4: ["button4"],
-  pullToRefresh: ["pullToRefresh"],
-  fragmentApiRequest2: ["fragmentApiRequest2"]
+  pullToRefresh: ["pullToRefresh"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  link: "a";
   button2: typeof Button;
   button3: typeof Button;
   ul: "ul";
@@ -1591,13 +1600,14 @@ type NodeDefaultElementType = {
   embedHtml: typeof Embed;
   slideinModal: typeof SlideinModal;
   slideinModal2: typeof SlideinModal;
-  fragmentApiRequest: typeof ApiRequest;
+  information: typeof ApiRequest;
+  biorhythm: typeof ApiRequest;
+  time: typeof ApiRequest;
   slideinModal3: typeof SlideinModal;
   datePickers: typeof DatePickers;
   button: typeof Button;
   button4: typeof Button;
   pullToRefresh: typeof PullToRefresh;
-  fragmentApiRequest2: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1685,7 +1695,6 @@ export const PlasmicBioritm = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    link: makeNodeComponent("link"),
     button2: makeNodeComponent("button2"),
     button3: makeNodeComponent("button3"),
     ul: makeNodeComponent("ul"),
@@ -1693,13 +1702,14 @@ export const PlasmicBioritm = Object.assign(
     embedHtml: makeNodeComponent("embedHtml"),
     slideinModal: makeNodeComponent("slideinModal"),
     slideinModal2: makeNodeComponent("slideinModal2"),
-    fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
+    information: makeNodeComponent("information"),
+    biorhythm: makeNodeComponent("biorhythm"),
+    time: makeNodeComponent("time"),
     slideinModal3: makeNodeComponent("slideinModal3"),
     datePickers: makeNodeComponent("datePickers"),
     button: makeNodeComponent("button"),
     button4: makeNodeComponent("button4"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
-    fragmentApiRequest2: makeNodeComponent("fragmentApiRequest2"),
 
     // Metadata about props expected for PlasmicBioritm
     internalVariantProps: PlasmicBioritm__VariantProps,
