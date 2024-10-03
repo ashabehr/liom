@@ -3969,41 +3969,6 @@ function PlasmicBioritm__RenderFunc(props: {
                           "invokeGlobalAction2"
                         ];
                       }
-
-                      $steps["updateButton2Color"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["button2", "color"]
-                              },
-                              operation: 0
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateButton2Color"] != null &&
-                        typeof $steps["updateButton2Color"] === "object" &&
-                        typeof $steps["updateButton2Color"].then === "function"
-                      ) {
-                        $steps["updateButton2Color"] = await $steps[
-                          "updateButton2Color"
-                        ];
-                      }
                     }}
                     onColorChange={(...eventArgs) => {
                       generateStateOnChangeProp($state, ["button5", "color"])(
@@ -4289,43 +4254,6 @@ function PlasmicBioritm__RenderFunc(props: {
                       $steps["updateBirthday"] = await $steps["updateBirthday"];
                     }
 
-                    $steps["updateSlideinModal3Click"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["slideinModal3", "click"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateSlideinModal3Click"] != null &&
-                      typeof $steps["updateSlideinModal3Click"] === "object" &&
-                      typeof $steps["updateSlideinModal3Click"].then ===
-                        "function"
-                    ) {
-                      $steps["updateSlideinModal3Click"] = await $steps[
-                        "updateSlideinModal3Click"
-                      ];
-                    }
-
                     $steps["invokeGlobalAction"] = true
                       ? (() => {
                           const actionArgs = {
@@ -4381,6 +4309,43 @@ function PlasmicBioritm__RenderFunc(props: {
                     ) {
                       $steps["invokeGlobalAction"] = await $steps[
                         "invokeGlobalAction"
+                      ];
+                    }
+
+                    $steps["updateSlideinModal3Click"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["slideinModal3", "click"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSlideinModal3Click"] != null &&
+                      typeof $steps["updateSlideinModal3Click"] === "object" &&
+                      typeof $steps["updateSlideinModal3Click"].then ===
+                        "function"
+                    ) {
+                      $steps["updateSlideinModal3Click"] = await $steps[
+                        "updateSlideinModal3Click"
                       ];
                     }
 

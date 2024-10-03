@@ -9281,115 +9281,129 @@ function PlasmicHamyar__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/hamyar/advice"}
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__maG1)}
-          >
-            <div
-              className={classNames(projectcss.all, sty.freeBox___5YvYk)}
-              onClick={async event => {
-                const $steps = {};
-              }}
+          {(() => {
+            try {
+              return $ctx.query.m == "3ZjitMAEm";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__maG1)}
             >
-              <Icon7Icon
-                className={classNames(projectcss.all, sty.svg__nzzVb)}
-                role={"img"}
-              />
-
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___0Tc1Z
-                )}
+                className={classNames(projectcss.all, sty.freeBox___5YvYk)}
+                onClick={async event => {
+                  const $steps = {};
+                }}
               >
-                {"\u0647\u0645\u06cc\u0627\u0631"}
-              </div>
-            </div>
-            <div
-              aria-pressed={undefined}
-              className={classNames(projectcss.all, sty.freeBox__bHpZ)}
-              onClick={async event => {
-                const $steps = {};
+                <Icon7Icon
+                  className={classNames(projectcss.all, sty.svg__nzzVb)}
+                  role={"img"}
+                />
 
-                $steps["goToPage"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return (
-                              "https://apps.liom.app/bioritm/" +
-                              "?t=" +
-                              "ksheulxn" +
-                              $state.tokenUser +
-                              "jvkvkjvj" +
-                              "&y=" +
-                              $state.user.data.result.man.birthDate.year +
-                              "&m=" +
-                              $state.user.data.result.man.birthDate.month +
-                              "&d=" +
-                              $state.user.data.result.man.birthDate.day +
-                              "&r=" +
-                              $state.r +
-                              "&man=" +
-                              $state.m
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return `/bioritm`;
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___0Tc1Z
+                  )}
+                >
+                  {"\u0647\u0645\u06cc\u0627\u0631"}
+                </div>
+              </div>
+              <div
+                aria-pressed={undefined}
+                className={classNames(projectcss.all, sty.freeBox__bHpZ)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToPage"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return (
+                                "https://apps.liom.app/bioritm/" +
+                                "?t=" +
+                                "ksheulxn" +
+                                $state.tokenUser +
+                                "jvkvkjvj" +
+                                "&y=" +
+                                $state.user.data.result.man.birthDate.year +
+                                "&m=" +
+                                $state.user.data.result.man.birthDate.month +
+                                "&d=" +
+                                $state.user.data.result.man.birthDate.day +
+                                "&r=" +
+                                $state.r +
+                                "&man=" +
+                                $state.m
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return `/bioritm`;
+                              }
+                              throw e;
                             }
-                            throw e;
+                          })()
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
                           }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
-                ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
-                }
-              }}
-            >
-              <PlasmicIcon__
-                PlasmicIconType={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? Icon23Icon
-                    : Icon23Icon
-                }
-                className={classNames(projectcss.all, sty.svg__guU78)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___4Ln4F
-                )}
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
+                  ) {
+                    $steps["goToPage"] = await $steps["goToPage"];
+                  }
+                }}
               >
-                {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
+                <PlasmicIcon__
+                  PlasmicIconType={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? Icon23Icon
+                      : Icon23Icon
+                  }
+                  className={classNames(projectcss.all, sty.svg__guU78)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___4Ln4F
+                  )}
+                >
+                  {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
+                </div>
               </div>
-            </div>
-          </Stack__>
+            </Stack__>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
