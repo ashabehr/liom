@@ -78,13 +78,11 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicBioritm.module.css"; // plasmic-import: u78Ppal5dPeL/css
 
-import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
-import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
-import Icon19Icon from "./icons/PlasmicIcon__Icon19"; // plasmic-import: uVWC2f5sKg_c/icon
 import Icon25Icon from "./icons/PlasmicIcon__Icon25"; // plasmic-import: XHEd0iacr6dw/icon
-import Icon21Icon from "./icons/PlasmicIcon__Icon21"; // plasmic-import: ZlBOcl4Z66lm/icon
+import Icon17Icon from "./icons/PlasmicIcon__Icon17"; // plasmic-import: 03X0usOEHK8l/icon
 import Icon16Icon from "./icons/PlasmicIcon__Icon16"; // plasmic-import: JYHABEI9HtQe/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fcuIp/icon
 import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
 
@@ -560,15 +558,21 @@ function PlasmicBioritm__RenderFunc(props: {
                         dangerouslySetInnerHTML={{
                           __html: (() => {
                             try {
-                              return (
-                                'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
-                                $state.birthday.year +
-                                "/" +
-                                $state.birthday.month +
-                                "/" +
-                                $state.birthday.day +
-                                "</b> محاسبه شده است."
-                              );
+                              return (() => {
+                                if ($state.birthday.year != "NaN") {
+                                  return (
+                                    'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
+                                    $state.birthday.year +
+                                    "/" +
+                                    $state.birthday.month +
+                                    "/" +
+                                    $state.birthday.day +
+                                    "</b> محاسبه شده است."
+                                  );
+                                } else {
+                                  return "";
+                                }
+                              })();
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -587,15 +591,21 @@ function PlasmicBioritm__RenderFunc(props: {
                         dangerouslySetInnerHTML={{
                           __html: (() => {
                             try {
-                              return (
-                                'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
-                                $state.birthday.year +
-                                "/" +
-                                $state.birthday.month +
-                                "/" +
-                                $state.birthday.day +
-                                "</b> محاسبه شده است."
-                              );
+                              return (() => {
+                                if ($state.birthday.year != "NaN") {
+                                  return (
+                                    'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
+                                    $state.birthday.year +
+                                    "/" +
+                                    $state.birthday.month +
+                                    "/" +
+                                    $state.birthday.day +
+                                    "</b> محاسبه شده است."
+                                  );
+                                } else {
+                                  return "";
+                                }
+                              })();
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -611,28 +621,61 @@ function PlasmicBioritm__RenderFunc(props: {
                     )}
                   </div>
                 ) : null}
-                {(() => {
-                  try {
-                    return $state.biorhythm.loading;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <PlasmicIcon__
-                    PlasmicIconType={
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? Icon11Icon
-                        : Icon12Icon
-                    }
-                    className={classNames(projectcss.all, sty.svg__mpC5V)}
-                    role={"img"}
-                  />
+                {(
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? (() => {
+                        try {
+                          return $state.biorhythm.loading;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : (() => {
+                        try {
+                          return $state.biorhythm.loading;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                ) ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___5FrJa
+                    )}
+                  >
+                    <div
+                      className={projectcss.__wab_expr_html_text}
+                      dangerouslySetInnerHTML={{
+                        __html: (() => {
+                          try {
+                            return "در حال دریافت اطلاعات از سرور ...";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "--";
+                            }
+                            throw e;
+                          }
+                        })()
+                      }}
+                    />
+                  </div>
                 ) : null}
               </div>
               <Stack__
@@ -648,7 +691,7 @@ function PlasmicBioritm__RenderFunc(props: {
                     PlasmicIconType={
                       hasVariant(globalVariants, "screen", "mobile")
                         ? Icon25Icon
-                        : Icon19Icon
+                        : Icon25Icon
                     }
                     className={classNames(projectcss.all, sty.svg__vvztf)}
                     role={"img"}
@@ -694,7 +737,7 @@ function PlasmicBioritm__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.freeBox__euqJ7)}
                   dir={"ltr"}
                 >
-                  <Icon21Icon
+                  <Icon17Icon
                     className={classNames(projectcss.all, sty.svg__okNfK)}
                     role={"img"}
                   />
