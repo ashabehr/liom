@@ -83,6 +83,8 @@ import Icon21Icon from "./icons/PlasmicIcon__Icon21"; // plasmic-import: ZlBOcl4
 import Icon16Icon from "./icons/PlasmicIcon__Icon16"; // plasmic-import: JYHABEI9HtQe/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
+import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fcuIp/icon
+import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
 
 createPlasmicElementProxy;
 
@@ -234,9 +236,9 @@ function PlasmicBioritm__RenderFunc(props: {
             try {
               return (() => {
                 if (
-                  $ctx.query.y == "null" ||
-                  $ctx.query.m == "null" ||
-                  $ctx.query.d == "null"
+                  $ctx.query.y == "" ||
+                  $ctx.query.m == "" ||
+                  $ctx.query.d == ""
                 ) {
                   return {
                     day: 7,
@@ -1674,6 +1676,104 @@ function PlasmicBioritm__RenderFunc(props: {
             data-plasmic-override={overrides.pullToRefresh}
             className={classNames("__wab_instance", sty.pullToRefresh)}
           />
+
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__nexdh)}
+          >
+            <div
+              className={classNames(projectcss.all, sty.freeBox__y2Vrr)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["goToPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return (
+                              "https://apps.liom.app/hamyar/?r=" +
+                              $ctx.query.r +
+                              "&m=" +
+                              $ctx.query.m
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return `/hamyar`;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+              }}
+            >
+              <Icon6Icon
+                className={classNames(projectcss.all, sty.svg__wDbr)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__pxVLk
+                )}
+              >
+                {"\u0647\u0645\u06cc\u0627\u0631"}
+              </div>
+            </div>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__osP9Y)}
+              onClick={async event => {
+                const $steps = {};
+              }}
+            >
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? Icon24Icon
+                    : Icon24Icon
+                }
+                className={classNames(projectcss.all, sty.svg__ghYg)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__wzccl
+                )}
+              >
+                {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
+              </div>
+            </div>
+          </Stack__>
         </div>
       </div>
     </React.Fragment>

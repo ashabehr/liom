@@ -66,7 +66,6 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
-import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
@@ -104,22 +103,14 @@ import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzm
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: UbRafB34Z-K-/icon
-import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fcuIp/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
-import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
 
 createPlasmicElementProxy;
 
-export type PlasmicHamyar__VariantMembers = {
-  bioritm: "bioritm";
-};
-export type PlasmicHamyar__VariantsArgs = {
-  bioritm?: SingleBooleanChoiceArg<"bioritm">;
-};
+export type PlasmicHamyar__VariantMembers = {};
+export type PlasmicHamyar__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHamyar__VariantsArgs;
-export const PlasmicHamyar__VariantProps = new Array<VariantPropType>(
-  "bioritm"
-);
+export const PlasmicHamyar__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicHamyar__ArgsType = {};
 type ArgPropType = keyof PlasmicHamyar__ArgsType;
@@ -127,7 +118,6 @@ export const PlasmicHamyar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHamyar__OverridesType = {
   root?: Flex__<"div">;
-  iframe?: Flex__<typeof Iframe>;
   switchbest?: Flex__<typeof Switchbest>;
   countdown2?: Flex__<typeof Countdown>;
   cyclebox?: Flex__<typeof Cyclebox>;
@@ -744,17 +734,10 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "bioritm",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.bioritm
-      },
-      {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "bioritm", "bioritm") ? false : false
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "input2.value",
@@ -816,8 +799,7 @@ function PlasmicHamyar__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.root,
-            { [sty.rootbioritm]: hasVariant($state, "bioritm", "bioritm") }
+            sty.root
           )}
           onLoad={async event => {
             const $steps = {};
@@ -844,44 +826,8 @@ function PlasmicHamyar__RenderFunc(props: {
             }
           }}
         >
-          <Iframe
-            data-plasmic-name={"iframe"}
-            data-plasmic-override={overrides.iframe}
-            className={classNames("__wab_instance", sty.iframe, {
-              [sty.iframebioritm]: hasVariant($state, "bioritm", "bioritm")
-            })}
-            preview={true}
-            src={(() => {
-              try {
-                return (
-                  "https://apps.liom.app/bioritm/" +
-                  "?t=" +
-                  "ksheulxn" +
-                  $state.tokenUser +
-                  "jvkvkjvj" +
-                  "&y=" +
-                  $state.user.data.result.man.birthDate.year +
-                  "&m=" +
-                  $state.user.data.result.man.birthDate.month +
-                  "&d=" +
-                  $state.user.data.result.man.birthDate.day
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-          />
-
           {(
-            hasVariant($state, "bioritm", "bioritm")
-              ? true
-              : hasVariant(globalVariants, "screen", "mobile")
+            hasVariant(globalVariants, "screen", "mobile")
               ? (() => {
                   try {
                     return !($state.user.loading || $state.name == "");
@@ -909,15 +855,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   }
                 })()
           ) ? (
-            <div
-              className={classNames(projectcss.all, sty.freeBox__kJv6J, {
-                [sty.freeBoxbioritm__kJv6JeudNp]: hasVariant(
-                  $state,
-                  "bioritm",
-                  "bioritm"
-                )
-              })}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__kJv6J)}>
               <Stack__
                 as={"div"}
                 hasGap={true}
@@ -5111,9 +5049,7 @@ function PlasmicHamyar__RenderFunc(props: {
               <AntdModal
                 data-plasmic-name={"modal"}
                 data-plasmic-override={overrides.modal}
-                className={classNames("__wab_instance", sty.modal, {
-                  [sty.modalbioritm]: hasVariant($state, "bioritm", "bioritm")
-                })}
+                className={classNames("__wab_instance", sty.modal)}
                 closeButtonClassName={classNames({
                   [sty["pcls_PTZbDpNuqWJg"]]: true,
                   [sty["pcls_a8S9-aK3uWAD"]]: hasVariant(
@@ -6456,27 +6392,21 @@ function PlasmicHamyar__RenderFunc(props: {
               </AntdModal>
             </div>
           ) : null}
-          {(
-            hasVariant($state, "bioritm", "bioritm")
-              ? true
-              : (() => {
-                  try {
-                    return (
-                      $state.user.loading ||
-                      $state.name == "" ||
-                      $state.shop.loading
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          ) ? (
+          {(() => {
+            try {
+              return (
+                $state.user.loading || $state.name == "" || $state.shop.loading
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
             <LottieWrapper
               data-plasmic-name={"lottie"}
               data-plasmic-override={overrides.lottie}
@@ -8980,9 +8910,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 markers: []
               }}
               autoplay={true}
-              className={classNames("__wab_instance", sty.lottie, {
-                [sty.lottiebioritm]: hasVariant($state, "bioritm", "bioritm")
-              })}
+              className={classNames("__wab_instance", sty.lottie)}
               loop={true}
               preview={false}
             />
@@ -9027,9 +8955,7 @@ function PlasmicHamyar__RenderFunc(props: {
                     }
                   })()
             }
-            className={classNames("__wab_instance", sty.user, {
-              [sty.userbioritm]: hasVariant($state, "bioritm", "bioritm")
-            })}
+            className={classNames("__wab_instance", sty.user)}
             config={{ headers: { "Content-Type": "application/json" } }}
             errorDisplay={null}
             loadingDisplay={null}
@@ -9249,9 +9175,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 throw e;
               }
             })()}
-            className={classNames("__wab_instance", sty.shop, {
-              [sty.shopbioritm]: hasVariant($state, "bioritm", "bioritm")
-            })}
+            className={classNames("__wab_instance", sty.shop)}
             config={(() => {
               try {
                 return {
@@ -9290,9 +9214,7 @@ function PlasmicHamyar__RenderFunc(props: {
           <Embed
             data-plasmic-name={"favicon"}
             data-plasmic-override={overrides.favicon}
-            className={classNames("__wab_instance", sty.favicon, {
-              [sty.faviconbioritm]: hasVariant($state, "bioritm", "bioritm")
-            })}
+            className={classNames("__wab_instance", sty.favicon)}
             code={
               hasVariant(globalVariants, "screen", "mobile")
                 ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
@@ -9303,13 +9225,7 @@ function PlasmicHamyar__RenderFunc(props: {
           <PullToRefresh
             data-plasmic-name={"pullToRefresh"}
             data-plasmic-override={overrides.pullToRefresh}
-            className={classNames("__wab_instance", sty.pullToRefresh, {
-              [sty.pullToRefreshbioritm]: hasVariant(
-                $state,
-                "bioritm",
-                "bioritm"
-              )
-            })}
+            className={classNames("__wab_instance", sty.pullToRefresh)}
             onRefresh={async () => {
               const $steps = {};
 
@@ -9339,9 +9255,7 @@ function PlasmicHamyar__RenderFunc(props: {
           <ApiRequest
             data-plasmic-name={"advice"}
             data-plasmic-override={overrides.advice}
-            className={classNames("__wab_instance", sty.advice, {
-              [sty.advicebioritm]: hasVariant($state, "bioritm", "bioritm")
-            })}
+            className={classNames("__wab_instance", sty.advice)}
             errorDisplay={null}
             loadingDisplay={null}
             method={"GET"}
@@ -9367,152 +9281,128 @@ function PlasmicHamyar__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/hamyar/advice"}
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__maG1, {
-              [sty.freeBoxbioritm__maG1EudNp]: hasVariant(
-                $state,
-                "bioritm",
-                "bioritm"
-              )
-            })}
-          >
-            <div
-              className={classNames(projectcss.all, sty.freeBox___5YvYk, {
-                [sty.freeBoxbioritm___5YvYKeudNp]: hasVariant(
-                  $state,
-                  "bioritm",
-                  "bioritm"
-                )
-              })}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["updateBioritm"] = true
-                  ? (() => {
-                      const actionArgs = { vgroup: "bioritm", operation: 6 };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
-                        }
-
-                        $stateSet($state, vgroup, false);
-                        return false;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateBioritm"] != null &&
-                  typeof $steps["updateBioritm"] === "object" &&
-                  typeof $steps["updateBioritm"].then === "function"
-                ) {
-                  $steps["updateBioritm"] = await $steps["updateBioritm"];
-                }
-              }}
+          {(() => {
+            try {
+              return $state.m == "3ZjitMAEm" ? true : false;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__maG1)}
             >
-              <PlasmicIcon__
-                PlasmicIconType={
-                  hasVariant($state, "bioritm", "bioritm")
-                    ? Icon6Icon
-                    : Icon7Icon
-                }
-                className={classNames(projectcss.all, sty.svg__nzzVb, {
-                  [sty.svgbioritm__nzzVbeudNp]: hasVariant(
-                    $state,
-                    "bioritm",
-                    "bioritm"
-                  )
-                })}
-                role={"img"}
-              />
-
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___0Tc1Z,
-                  {
-                    [sty.textbioritm___0Tc1ZeudNp]: hasVariant(
-                      $state,
-                      "bioritm",
-                      "bioritm"
-                    )
-                  }
-                )}
+                className={classNames(projectcss.all, sty.freeBox___5YvYk)}
+                onClick={async event => {
+                  const $steps = {};
+                }}
               >
-                {"\u0647\u0645\u06cc\u0627\u0631"}
+                <Icon7Icon
+                  className={classNames(projectcss.all, sty.svg__nzzVb)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___0Tc1Z
+                  )}
+                >
+                  {"\u0647\u0645\u06cc\u0627\u0631"}
+                </div>
               </div>
-            </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__bHpZ, {
-                [sty.freeBoxbioritm__bHpZeudNp]: hasVariant(
-                  $state,
-                  "bioritm",
-                  "bioritm"
-                )
-              })}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["updateBioritm"] = true
-                  ? (() => {
-                      const actionArgs = { vgroup: "bioritm", operation: 4 };
-                      return (({ vgroup, value }) => {
-                        if (typeof value === "string") {
-                          value = [value];
-                        }
-
-                        $stateSet($state, vgroup, true);
-                        return true;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateBioritm"] != null &&
-                  typeof $steps["updateBioritm"] === "object" &&
-                  typeof $steps["updateBioritm"].then === "function"
-                ) {
-                  $steps["updateBioritm"] = await $steps["updateBioritm"];
-                }
-              }}
-            >
-              <PlasmicIcon__
-                PlasmicIconType={
-                  hasVariant($state, "bioritm", "bioritm")
-                    ? Icon24Icon
-                    : hasVariant(globalVariants, "screen", "mobile")
-                    ? Icon23Icon
-                    : Icon23Icon
-                }
-                className={classNames(projectcss.all, sty.svg__guU78, {
-                  [sty.svgbioritm__guU78EudNp]: hasVariant(
-                    $state,
-                    "bioritm",
-                    "bioritm"
-                  )
-                })}
-                role={"img"}
-              />
-
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___4Ln4F,
-                  {
-                    [sty.textbioritm___4Ln4FeudNp]: hasVariant(
-                      $state,
-                      "bioritm",
-                      "bioritm"
-                    )
+                className={classNames(projectcss.all, sty.freeBox__bHpZ)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToPage"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return (
+                                "https://apps.liom.app/bioritm/" +
+                                "?t=" +
+                                "ksheulxn" +
+                                $state.tokenUser +
+                                "jvkvkjvj" +
+                                "&y=" +
+                                $state.user.data.result.man.birthDate.year +
+                                "&m=" +
+                                $state.user.data.result.man.birthDate.month +
+                                "&d=" +
+                                $state.user.data.result.man.birthDate.day +
+                                "&r=" +
+                                $state.r +
+                                "&m=" +
+                                $state.m
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return `/bioritm`;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
+                  ) {
+                    $steps["goToPage"] = await $steps["goToPage"];
                   }
-                )}
+                }}
               >
-                {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
+                <PlasmicIcon__
+                  PlasmicIconType={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? Icon23Icon
+                      : Icon23Icon
+                  }
+                  className={classNames(projectcss.all, sty.svg__guU78)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___4Ln4F
+                  )}
+                >
+                  {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
+                </div>
               </div>
-            </div>
-          </Stack__>
+            </Stack__>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -9522,7 +9412,6 @@ function PlasmicHamyar__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "iframe",
     "switchbest",
     "countdown2",
     "cyclebox",
@@ -9554,7 +9443,6 @@ const PlasmicDescendants = {
     "pullToRefresh",
     "advice"
   ],
-  iframe: ["iframe"],
   switchbest: ["switchbest"],
   countdown2: ["countdown2"],
   cyclebox: ["cyclebox"],
@@ -9591,7 +9479,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  iframe: typeof Iframe;
   switchbest: typeof Switchbest;
   countdown2: typeof Countdown;
   cyclebox: typeof Cyclebox;
@@ -9709,7 +9596,6 @@ export const PlasmicHamyar = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    iframe: makeNodeComponent("iframe"),
     switchbest: makeNodeComponent("switchbest"),
     countdown2: makeNodeComponent("countdown2"),
     cyclebox: makeNodeComponent("cyclebox"),
