@@ -78,11 +78,13 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicBioritm.module.css"; // plasmic-import: u78Ppal5dPeL/css
 
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon19Icon from "./icons/PlasmicIcon__Icon19"; // plasmic-import: uVWC2f5sKg_c/icon
+import Icon25Icon from "./icons/PlasmicIcon__Icon25"; // plasmic-import: XHEd0iacr6dw/icon
 import Icon21Icon from "./icons/PlasmicIcon__Icon21"; // plasmic-import: ZlBOcl4Z66lm/icon
 import Icon16Icon from "./icons/PlasmicIcon__Icon16"; // plasmic-import: JYHABEI9HtQe/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fcuIp/icon
 import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
 
@@ -110,7 +112,6 @@ export type PlasmicBioritm__OverridesType = {
   datePickers2?: Flex__<typeof DatePickers>;
   button5?: Flex__<typeof Button>;
   biorhythm?: Flex__<typeof ApiRequest>;
-  time?: Flex__<typeof ApiRequest>;
   slideinModal3?: Flex__<typeof SlideinModal>;
   datePickers?: Flex__<typeof DatePickers>;
   button?: Flex__<typeof Button>;
@@ -201,24 +202,6 @@ function PlasmicBioritm__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "time.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "time.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "time.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "slideinModal3.click",
@@ -551,63 +534,106 @@ function PlasmicBioritm__RenderFunc(props: {
                   : "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f"}
               </p>
               <div className={classNames(projectcss.all, sty.freeBox__kcgv6)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__omFzt
-                  )}
-                >
-                  {hasVariant(globalVariants, "screen", "mobile") ? (
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (
-                            "این بیوریتم بر اساس تاریخ تولد " +
-                            $state.birthday.year +
-                            "/" +
-                            $state.birthday.month +
-                            "/" +
-                            $state.birthday.day +
-                            "  محاسبه شده است ."
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  ) : (
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (
-                            "این بیوریتم بر اساس تاریخ تولد " +
-                            $state.birthday.year +
-                            "/" +
-                            $state.birthday.month +
-                            "/" +
-                            $state.birthday.day +
-                            "  محاسبه شده است ."
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "--";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  )}
-                </div>
+                {(() => {
+                  try {
+                    return !$state.biorhythm.loading;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__omFzt
+                    )}
+                  >
+                    {hasVariant(globalVariants, "screen", "mobile") ? (
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return (
+                                'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
+                                $state.birthday.year +
+                                "/" +
+                                $state.birthday.month +
+                                "/" +
+                                $state.birthday.day +
+                                "</b> محاسبه شده است."
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
+                    ) : (
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return (
+                                'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
+                                $state.birthday.year +
+                                "/" +
+                                $state.birthday.month +
+                                "/" +
+                                $state.birthday.day +
+                                "</b> محاسبه شده است."
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "--";
+                              }
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
+                    )}
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return $state.biorhythm.loading;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? Icon11Icon
+                        : Icon12Icon
+                    }
+                    className={classNames(projectcss.all, sty.svg__mpC5V)}
+                    role={"img"}
+                  />
+                ) : null}
               </div>
               <Stack__
                 as={"div"}
@@ -618,7 +644,12 @@ function PlasmicBioritm__RenderFunc(props: {
                   className={classNames(projectcss.all, sty.freeBox__mB5CK)}
                   dir={"ltr"}
                 >
-                  <Icon19Icon
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? Icon25Icon
+                        : Icon19Icon
+                    }
                     className={classNames(projectcss.all, sty.svg__vvztf)}
                     role={"img"}
                   />
@@ -810,61 +841,6 @@ function PlasmicBioritm__RenderFunc(props: {
                   )}
                 </div>
               </Stack__>
-              <div className={classNames(projectcss.all, sty.freeBox___6Kw2M)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___3Hd4I
-                  )}
-                >
-                  {hasVariant(globalVariants, "screen", "mobile") ? (
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (
-                            parseInt($state.time.data.date.day.number.en) +
-                            " " +
-                            $state.time.data.date.month.name +
-                            " " +
-                            $state.time.data.date.year.number.fa
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "---";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  ) : (
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (
-                            parseInt($state.time.data.date.day.number.en) +
-                            " " +
-                            $state.time.data.date.month.name +
-                            " " +
-                            $state.time.data.date.year.number.fa
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "22 \u0645\u0631\u062f\u0627\u062f 1403";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  )}
-                </div>
-              </div>
               <Stack__
                 as={"div"}
                 hasGap={true}
@@ -981,7 +957,7 @@ function PlasmicBioritm__RenderFunc(props: {
                                     text:
                                       "لیوم \n" +
                                       biorythmText +
-                                      "\n برای دانلود رایگان لیوم و بررسی بیوریتم خود به لینک زیر مراجعه کنید :",
+                                      "\n برای دانلود رایگان لیوم و بررسی بیوریتم خود به لینک زیر مراجعه کنید :\n",
                                     url: "https://liom.app/link/man"
                                   });
                                 }
@@ -4092,41 +4068,69 @@ function PlasmicBioritm__RenderFunc(props: {
               "biorhythm",
               "loading"
             ])}
-            onSuccess={generateStateOnChangeProp($state, ["biorhythm", "data"])}
-            url={"https://n8n.staas.ir/webhook/hamyar/biorhythm"}
-          />
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["biorhythm", "data"]).apply(
+                null,
+                eventArgs
+              );
+              (async data => {
+                const $steps = {};
 
-          <ApiRequest
-            data-plasmic-name={"time"}
-            data-plasmic-override={overrides.time}
-            className={classNames("__wab_instance", sty.time)}
-            errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__sxJZ
-                )}
-              >
-                {"Error fetching data"}
-              </div>
-            }
-            loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__n67PU
-                )}
-              >
-                {"Loading..."}
-              </div>
-            }
-            method={"GET"}
-            onError={generateStateOnChangeProp($state, ["time", "error"])}
-            onLoading={generateStateOnChangeProp($state, ["time", "loading"])}
-            onSuccess={generateStateOnChangeProp($state, ["time", "data"])}
-            url={"https://api.keybit.ir/time/"}
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/service/log",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                userId: $ctx.query.man,
+                                pageName: "biorhythm",
+                                action: "loadePage",
+                                extraData: {
+                                  refCode: $ctx.query.r,
+                                  mobile: $ctx.query.man
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          {
+                            headers: {
+                              "Content-Type": "application/json",
+                              Authorization:
+                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                            }
+                          }
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+              }).apply(null, eventArgs);
+            }}
+            url={"https://n8n.staas.ir/webhook/hamyar/biorhythm"}
           />
 
           <SlideinModal
@@ -4596,7 +4600,7 @@ function PlasmicBioritm__RenderFunc(props: {
             code={
               hasVariant(globalVariants, "screen", "mobile")
                 ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
-                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n    document.title = '\u0647\u0645\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645';\r\n})();\r\n</script>\r\n"
             }
           />
         </div>
@@ -4619,7 +4623,6 @@ const PlasmicDescendants = {
     "datePickers2",
     "button5",
     "biorhythm",
-    "time",
     "slideinModal3",
     "datePickers",
     "button",
@@ -4638,7 +4641,6 @@ const PlasmicDescendants = {
   datePickers2: ["datePickers2"],
   button5: ["button5"],
   biorhythm: ["biorhythm"],
-  time: ["time"],
   slideinModal3: ["slideinModal3", "datePickers", "button", "button4"],
   datePickers: ["datePickers"],
   button: ["button"],
@@ -4662,7 +4664,6 @@ type NodeDefaultElementType = {
   datePickers2: typeof DatePickers;
   button5: typeof Button;
   biorhythm: typeof ApiRequest;
-  time: typeof ApiRequest;
   slideinModal3: typeof SlideinModal;
   datePickers: typeof DatePickers;
   button: typeof Button;
@@ -4767,7 +4768,6 @@ export const PlasmicBioritm = Object.assign(
     datePickers2: makeNodeComponent("datePickers2"),
     button5: makeNodeComponent("button5"),
     biorhythm: makeNodeComponent("biorhythm"),
-    time: makeNodeComponent("time"),
     slideinModal3: makeNodeComponent("slideinModal3"),
     datePickers: makeNodeComponent("datePickers"),
     button: makeNodeComponent("button"),
