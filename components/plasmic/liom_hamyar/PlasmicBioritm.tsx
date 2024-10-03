@@ -3849,6 +3849,76 @@ function PlasmicBioritm__RenderFunc(props: {
                         ];
                       }
 
+                      $steps["updateBday"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["bday"]
+                              },
+                              operation: 0,
+                              value: (() => {
+                                let jy = $state.birthday.year;
+                                let jm = $state.birthday.month;
+                                let jd = $state.birthday.day;
+                                let gy = jy + 621;
+                                let shamsiMonthDays = [
+                                  31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29
+                                ];
+
+                                let miladiDaysInMonth = [
+                                  31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+                                ];
+
+                                let isLeapYear =
+                                  gy % 4 === 0 &&
+                                  (gy % 100 !== 0 || gy % 400 === 0);
+                                if (isLeapYear) {
+                                  miladiDaysInMonth[1] = 29;
+                                }
+                                let daysPassedShamsi = jd;
+                                for (let i = 0; i < jm - 1; i++) {
+                                  daysPassedShamsi += shamsiMonthDays[i];
+                                }
+                                let daysInMiladiYear = isLeapYear ? 366 : 365;
+                                let miladiStartDay = new Date(gy, 2, 21);
+                                miladiStartDay.setDate(
+                                  miladiStartDay.getDate() +
+                                    daysPassedShamsi -
+                                    1
+                                );
+                                let finalMiladiDay = miladiStartDay.getDate();
+                                let finalMiladiMonth =
+                                  miladiStartDay.getMonth() + 1;
+                                let finalMiladiYear =
+                                  miladiStartDay.getFullYear();
+                                return `${finalMiladiYear}-${finalMiladiMonth}-${finalMiladiDay}`;
+                              })()
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateBday"] != null &&
+                        typeof $steps["updateBday"] === "object" &&
+                        typeof $steps["updateBday"].then === "function"
+                      ) {
+                        $steps["updateBday"] = await $steps["updateBday"];
+                      }
+
                       $steps["updateSlideinModal2Click"] = true
                         ? (() => {
                             const actionArgs = {
@@ -3969,6 +4039,45 @@ function PlasmicBioritm__RenderFunc(props: {
                           "invokeGlobalAction2"
                         ];
                       }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  let url = new URL(window.location.href);
+                                  url.searchParams.set(
+                                    "y",
+                                    $state.bday.split("-")[0]
+                                  );
+                                  url.searchParams.set(
+                                    "m",
+                                    $state.bday.split("-")[1]
+                                  );
+                                  url.searchParams.set(
+                                    "d",
+                                    $state.bday.split("-")[2]
+                                  );
+                                  return window.history.replaceState(
+                                    {},
+                                    "",
+                                    url
+                                  );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
                     }}
                     onColorChange={(...eventArgs) => {
                       generateStateOnChangeProp($state, ["button5", "color"])(
@@ -4017,13 +4126,24 @@ function PlasmicBioritm__RenderFunc(props: {
                       Authorization: $state.token
                     }
                   }
-                : {
-                    headers: {
-                      "Content-Type": "application/json",
-                      Authorization:
-                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhhN2E2Yzk4LTc5YmYtNDhkZS04M2VhLWU5YjU5ZGVlMzNkYiIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNzI3Njg3Nzc0fQ.XLwNmFMkcaLca5XmdkYWmOYDH1F3zio7d-TxqUI7EYY"
+                : (() => {
+                    try {
+                      return {
+                        headers: {
+                          "Content-Type": "application/json",
+                          Authorization: $state.token
+                        }
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
                     }
-                  }
+                  })()
             }
             errorDisplay={null}
             loadingDisplay={null}
@@ -4254,6 +4374,74 @@ function PlasmicBioritm__RenderFunc(props: {
                       $steps["updateBirthday"] = await $steps["updateBirthday"];
                     }
 
+                    $steps["updateBday"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["bday"]
+                            },
+                            operation: 0,
+                            value: (() => {
+                              let jy = $state.birthday.year;
+                              let jm = $state.birthday.month;
+                              let jd = $state.birthday.day;
+                              let gy = jy + 621;
+                              let shamsiMonthDays = [
+                                31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29
+                              ];
+
+                              let miladiDaysInMonth = [
+                                31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+                              ];
+
+                              let isLeapYear =
+                                gy % 4 === 0 &&
+                                (gy % 100 !== 0 || gy % 400 === 0);
+                              if (isLeapYear) {
+                                miladiDaysInMonth[1] = 29;
+                              }
+                              let daysPassedShamsi = jd;
+                              for (let i = 0; i < jm - 1; i++) {
+                                daysPassedShamsi += shamsiMonthDays[i];
+                              }
+                              let daysInMiladiYear = isLeapYear ? 366 : 365;
+                              let miladiStartDay = new Date(gy, 2, 21);
+                              miladiStartDay.setDate(
+                                miladiStartDay.getDate() + daysPassedShamsi - 1
+                              );
+                              let finalMiladiDay = miladiStartDay.getDate();
+                              let finalMiladiMonth =
+                                miladiStartDay.getMonth() + 1;
+                              let finalMiladiYear =
+                                miladiStartDay.getFullYear();
+                              return `${finalMiladiYear}-${finalMiladiMonth}-${finalMiladiDay}`;
+                            })()
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateBday"] != null &&
+                      typeof $steps["updateBday"] === "object" &&
+                      typeof $steps["updateBday"].then === "function"
+                    ) {
+                      $steps["updateBday"] = await $steps["updateBday"];
+                    }
+
                     $steps["invokeGlobalAction"] = true
                       ? (() => {
                           const actionArgs = {
@@ -4373,6 +4561,41 @@ function PlasmicBioritm__RenderFunc(props: {
                       $steps["invokeGlobalAction2"] = await $steps[
                         "invokeGlobalAction2"
                       ];
+                    }
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                let url = new URL(window.location.href);
+                                url.searchParams.set(
+                                  "y",
+                                  $state.bday.split("-")[0]
+                                );
+                                url.searchParams.set(
+                                  "m",
+                                  $state.bday.split("-")[1]
+                                );
+                                url.searchParams.set(
+                                  "d",
+                                  $state.bday.split("-")[2]
+                                );
+                                return window.history.replaceState({}, "", url);
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
                     }
                   }}
                   onColorChange={(...eventArgs) => {
