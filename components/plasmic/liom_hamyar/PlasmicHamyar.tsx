@@ -853,7 +853,19 @@ function PlasmicHamyar__RenderFunc(props: {
             preview={true}
             src={(() => {
               try {
-                return "https://apps.liom.app/bioritm/" + "?m=" + $ctx.query.m;
+                return (
+                  "https://apps.liom.app/bioritm/" +
+                  "?t=" +
+                  "ksheulxn" +
+                  $state.tokenUser +
+                  "jvkvkjvj" +
+                  "&y=" +
+                  $state.user.data.result.man.birthDate.year +
+                  "&m=" +
+                  $state.user.data.result.man.birthDate.month +
+                  "&d=" +
+                  $state.user.data.result.man.birthDate.day
+                );
               } catch (e) {
                 if (
                   e instanceof TypeError ||

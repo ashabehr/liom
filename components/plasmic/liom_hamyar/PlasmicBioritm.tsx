@@ -104,7 +104,6 @@ export type PlasmicBioritm__OverridesType = {
   embedHtml?: Flex__<typeof Embed>;
   slideinModal?: Flex__<typeof SlideinModal>;
   slideinModal2?: Flex__<typeof SlideinModal>;
-  information?: Flex__<typeof ApiRequest>;
   biorhythm?: Flex__<typeof ApiRequest>;
   time?: Flex__<typeof ApiRequest>;
   slideinModal3?: Flex__<typeof SlideinModal>;
@@ -153,6 +152,8 @@ function PlasmicBioritm__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -231,9 +232,74 @@ function PlasmicBioritm__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.information.data[0].Bday == null
-                ? { day: 7, month: 7, year: 1377 }
-                : $state.information.data[0].Bday;
+              return (() => {
+                if (
+                  $ctx.query.y == "null" ||
+                  $ctx.query.m == "null" ||
+                  $ctx.query.d == "null"
+                ) {
+                  return {
+                    day: 7,
+                    month: 7,
+                    year: 1377
+                  };
+                } else {
+                  let gy = parseInt($ctx.query.y);
+                  let gm = parseInt($ctx.query.m);
+                  let gd = parseInt($ctx.query.d);
+                  let shamsiMonthDays = [
+                    31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29
+                  ];
+
+                  let miladiDaysInMonth = [
+                    31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
+                  ];
+
+                  let isLeapYear =
+                    gy % 4 === 0 && (gy % 100 !== 0 || gy % 400 === 0);
+                  if (isLeapYear) {
+                    miladiDaysInMonth[1] = 29;
+                  }
+                  let daysPassedMiladi = gd;
+                  for (let i = 0; i < gm - 1; i++) {
+                    daysPassedMiladi += miladiDaysInMonth[i];
+                  }
+                  let shamsiNewYearDay = new Date(gy, 2, 21);
+                  let shamsiStartDayInMiladi =
+                    (shamsiNewYearDay - new Date(gy, 0, 1)) /
+                    (1000 * 60 * 60 * 24);
+                  let daysPassedInShamsiYear =
+                    daysPassedMiladi - shamsiStartDayInMiladi;
+                  if (daysPassedInShamsiYear < 0) {
+                    gy--;
+                    shamsiNewYearDay = new Date(gy, 2, 21);
+                    shamsiStartDayInMiladi =
+                      (shamsiNewYearDay - new Date(gy, 0, 1)) /
+                      (1000 * 60 * 60 * 24);
+                    daysPassedInShamsiYear =
+                      daysPassedMiladi + (365 - shamsiStartDayInMiladi);
+                    if (isLeapYear) {
+                      daysPassedInShamsiYear++;
+                    }
+                  }
+                  let jy = gy - 621;
+                  let jm = 0;
+                  let jd = daysPassedInShamsiYear;
+                  for (let i = 0; i < shamsiMonthDays.length; i++) {
+                    if (jd <= shamsiMonthDays[i]) {
+                      jm = i + 1;
+                      break;
+                    } else {
+                      jd -= shamsiMonthDays[i];
+                    }
+                  }
+                  return {
+                    day: jd,
+                    month: jm,
+                    year: jy
+                  };
+                }
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -314,22 +380,27 @@ function PlasmicBioritm__RenderFunc(props: {
           })()
       },
       {
-        path: "information.data",
+        path: "token",
         type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "information.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "information.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                let t = $ctx.query.t.replace("ksheulxn", "");
+                t = t.replace("jvkvkjvj", "");
+                return t;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1162,43 +1233,6 @@ function PlasmicBioritm__RenderFunc(props: {
             </SlideinModal>
           </div>
           <ApiRequest
-            data-plasmic-name={"information"}
-            data-plasmic-override={overrides.information}
-            className={classNames("__wab_instance", sty.information)}
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={"GET"}
-            onError={generateStateOnChangeProp($state, [
-              "information",
-              "error"
-            ])}
-            onLoading={generateStateOnChangeProp($state, [
-              "information",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "information",
-              "data"
-            ])}
-            params={(() => {
-              try {
-                return {
-                  refCode: $ctx.query.m
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            url={"https://n8n.staas.ir/webhook/hamyar/information"}
-          />
-
-          <ApiRequest
             data-plasmic-name={"biorhythm"}
             data-plasmic-override={overrides.biorhythm}
             body={(() => {
@@ -1217,13 +1251,22 @@ function PlasmicBioritm__RenderFunc(props: {
               }
             })()}
             className={classNames("__wab_instance", sty.biorhythm)}
-            config={{
-              headers: {
-                "Content-Type": "application/json",
-                Authorization:
-                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhhN2E2Yzk4LTc5YmYtNDhkZS04M2VhLWU5YjU5ZGVlMzNkYiIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNzI3Njg3Nzc0fQ.XLwNmFMkcaLca5XmdkYWmOYDH1F3zio7d-TxqUI7EYY"
-              }
-            }}
+            config={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? {
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: $state.token
+                    }
+                  }
+                : {
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization:
+                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhhN2E2Yzk4LTc5YmYtNDhkZS04M2VhLWU5YjU5ZGVlMzNkYiIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNzI3Njg3Nzc0fQ.XLwNmFMkcaLca5XmdkYWmOYDH1F3zio7d-TxqUI7EYY"
+                    }
+                  }
+            }
             errorDisplay={null}
             loadingDisplay={null}
             method={"POST"}
@@ -1461,6 +1504,90 @@ function PlasmicBioritm__RenderFunc(props: {
                         "updateSlideinModal3Click"
                       ];
                     }
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "PUT",
+                              "https://n8n.staas.ir/webhook/hamyar/biorhythm",
+                              undefined,
+                              (() => {
+                                try {
+                                  return { birthDate: $state.bday };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              (() => {
+                                try {
+                                  return {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization: $state.token
+                                    }
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction2"] =
+                      $steps.invokeGlobalAction.data.success == true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                undefined,
+                                "\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
+                                "top-left"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                    if (
+                      $steps["invokeGlobalAction2"] != null &&
+                      typeof $steps["invokeGlobalAction2"] === "object" &&
+                      typeof $steps["invokeGlobalAction2"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction2"] = await $steps[
+                        "invokeGlobalAction2"
+                      ];
+                    }
                   }}
                   onColorChange={(...eventArgs) => {
                     generateStateOnChangeProp($state, ["button", "color"])(
@@ -1563,7 +1690,6 @@ const PlasmicDescendants = {
     "embedHtml",
     "slideinModal",
     "slideinModal2",
-    "information",
     "biorhythm",
     "time",
     "slideinModal3",
@@ -1579,7 +1705,6 @@ const PlasmicDescendants = {
   embedHtml: ["embedHtml"],
   slideinModal: ["slideinModal"],
   slideinModal2: ["slideinModal2"],
-  information: ["information"],
   biorhythm: ["biorhythm"],
   time: ["time"],
   slideinModal3: ["slideinModal3", "datePickers", "button", "button4"],
@@ -1600,7 +1725,6 @@ type NodeDefaultElementType = {
   embedHtml: typeof Embed;
   slideinModal: typeof SlideinModal;
   slideinModal2: typeof SlideinModal;
-  information: typeof ApiRequest;
   biorhythm: typeof ApiRequest;
   time: typeof ApiRequest;
   slideinModal3: typeof SlideinModal;
@@ -1702,7 +1826,6 @@ export const PlasmicBioritm = Object.assign(
     embedHtml: makeNodeComponent("embedHtml"),
     slideinModal: makeNodeComponent("slideinModal"),
     slideinModal2: makeNodeComponent("slideinModal2"),
-    information: makeNodeComponent("information"),
     biorhythm: makeNodeComponent("biorhythm"),
     time: makeNodeComponent("time"),
     slideinModal3: makeNodeComponent("slideinModal3"),
