@@ -559,7 +559,7 @@ function PlasmicBioritm__RenderFunc(props: {
                           __html: (() => {
                             try {
                               return (() => {
-                                if ($state.birthday.year != "NaN") {
+                                if ($state.birthday.year != NaN) {
                                   return (
                                     'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
                                     $state.birthday.year +
@@ -592,7 +592,7 @@ function PlasmicBioritm__RenderFunc(props: {
                           __html: (() => {
                             try {
                               return (() => {
-                                if ($state.birthday.year != "NaN") {
+                                if ($state.birthday.year != NaN) {
                                   return (
                                     'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
                                     $state.birthday.year +
