@@ -9321,6 +9321,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 </div>
               </div>
               <div
+                aria-pressed={undefined}
                 className={classNames(projectcss.all, sty.freeBox__bHpZ)}
                 onClick={async event => {
                   const $steps = {};
