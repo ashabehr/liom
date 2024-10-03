@@ -9344,7 +9344,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                 $state.user.data.result.man.birthDate.day +
                                 "&r=" +
                                 $state.r +
-                                "&m=" +
+                                "&man=" +
                                 $state.m
                               );
                             } catch (e) {

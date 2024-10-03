@@ -1696,7 +1696,7 @@ function PlasmicBioritm__RenderFunc(props: {
                               "https://apps.liom.app/hamyar/?r=" +
                               $ctx.query.r +
                               "&m=" +
-                              $ctx.query.m
+                              $ctx.query.man
                             );
                           } catch (e) {
                             if (

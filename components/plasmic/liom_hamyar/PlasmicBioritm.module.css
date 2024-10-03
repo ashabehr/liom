@@ -36,6 +36,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  margin-bottom: 100px;
   min-width: 0;
   padding: 8px;
 }
@@ -43,6 +44,7 @@
   .freeBox__l2VNg {
     width: auto;
     justify-self: flex-start;
+    margin-bottom: 80px;
   }
 }
 .freeBox__kQaHu {
