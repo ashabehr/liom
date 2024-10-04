@@ -4750,7 +4750,12 @@ function PlasmicBioritm__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToPage"] = true
+                $steps["goToPage"] = !(
+                  $ctx.query.man == undefined ||
+                  $ctx.query.r == undefined ||
+                  $ctx.query.r == "" ||
+                  $ctx.query.man == ""
+                )
                   ? (() => {
                       const actionArgs = {
                         destination: (() => {
