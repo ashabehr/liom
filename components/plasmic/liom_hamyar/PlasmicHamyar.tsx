@@ -777,7 +777,20 @@ function PlasmicHamyar__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicHamyar.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicHamyar.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicHamyar.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -9218,7 +9231,7 @@ function PlasmicHamyar__RenderFunc(props: {
             code={
               hasVariant(globalVariants, "screen", "mobile")
                 ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
-                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n    document.title = '\u0647\u0645\u06cc\u0627\u0631 \u0644\u06cc\u0648\u0645';\r\n})();\r\n</script>\r\n"
+                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
             }
           />
 
@@ -9281,129 +9294,115 @@ function PlasmicHamyar__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/hamyar/advice"}
           />
 
-          {(() => {
-            try {
-              return $ctx.query.m == "3ZjitMAEm";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__maG1)}
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__maG1)}
+          >
+            <div
+              className={classNames(projectcss.all, sty.freeBox___5YvYk)}
+              onClick={async event => {
+                const $steps = {};
+              }}
             >
+              <Icon7Icon
+                className={classNames(projectcss.all, sty.svg__nzzVb)}
+                role={"img"}
+              />
+
               <div
-                className={classNames(projectcss.all, sty.freeBox___5YvYk)}
-                onClick={async event => {
-                  const $steps = {};
-                }}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___0Tc1Z
+                )}
               >
-                <Icon7Icon
-                  className={classNames(projectcss.all, sty.svg__nzzVb)}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___0Tc1Z
-                  )}
-                >
-                  {"\u0647\u0645\u06cc\u0627\u0631"}
-                </div>
+                {"\u0647\u0645\u06cc\u0627\u0631"}
               </div>
-              <div
-                aria-pressed={undefined}
-                className={classNames(projectcss.all, sty.freeBox__bHpZ)}
-                onClick={async event => {
-                  const $steps = {};
+            </div>
+            <div
+              aria-pressed={undefined}
+              className={classNames(projectcss.all, sty.freeBox__bHpZ)}
+              onClick={async event => {
+                const $steps = {};
 
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return (
-                                "https://apps.liom.app/bioritm/" +
-                                "?t=" +
-                                "ksheulxn" +
-                                $state.tokenUser +
-                                "jvkvkjvj" +
-                                "&y=" +
-                                $state.user.data.result.man.birthDate.year +
-                                "&m=" +
-                                $state.user.data.result.man.birthDate.month +
-                                "&d=" +
-                                $state.user.data.result.man.birthDate.day +
-                                "&r=" +
-                                $state.r +
-                                "&man=" +
-                                $state.m
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return `/bioritm`;
-                              }
-                              throw e;
+                $steps["goToPage"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return (
+                              "https://apps.liom.app/bioritm/" +
+                              "?t=" +
+                              "ksheulxn" +
+                              $state.tokenUser +
+                              "jvkvkjvj" +
+                              "&y=" +
+                              $state.user.data.result.man.birthDate.year +
+                              "&m=" +
+                              $state.user.data.result.man.birthDate.month +
+                              "&d=" +
+                              $state.user.data.result.man.birthDate.day +
+                              "&r=" +
+                              $state.r +
+                              "&man=" +
+                              $state.m
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return `/bioritm`;
                             }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
+                            throw e;
                           }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-                }}
-              >
-                <PlasmicIcon__
-                  PlasmicIconType={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? Icon23Icon
-                      : Icon23Icon
-                  }
-                  className={classNames(projectcss.all, sty.svg__guU78)}
-                  role={"img"}
-                />
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+              }}
+            >
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? Icon23Icon
+                    : Icon23Icon
+                }
+                className={classNames(projectcss.all, sty.svg__guU78)}
+                role={"img"}
+              />
 
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___4Ln4F
-                  )}
-                >
-                  {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
-                </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___4Ln4F
+                )}
+              >
+                {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
               </div>
-            </Stack__>
-          ) : null}
+            </div>
+          </Stack__>
         </div>
       </div>
     </React.Fragment>
@@ -9634,7 +9633,7 @@ export const PlasmicHamyar = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "همیار لیوم",
       description: "",
       ogImageSrc: "",
       canonical: ""
