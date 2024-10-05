@@ -64,6 +64,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import { AntdCheckbox } from "@plasmicpkgs/antd5/skinny/registerCheckbox";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -168,7 +169,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getInfo.data[0].weeksPregnant;
+              return $state.getInfo.data[0].result.weeksPregnant;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -546,7 +547,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                   {(() => {
                     try {
                       return (
-                        $state.weekNum == $state.getInfo.data[0].weeksPregnant
+                        $state.weekNum ==
+                        $state.getInfo.data[0].result.weeksPregnant
                       );
                     } catch (e) {
                       if (
@@ -569,7 +571,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         {(() => {
                           try {
                             return (
-                              $state.getInfo.data[0].daysPregnant +
+                              $state.getInfo.data[0].result.daysPregnant +
                               " روز مانده تا زایمان"
                             );
                           } catch (e) {
@@ -583,6 +585,74 @@ function PlasmicPregnancy__RenderFunc(props: {
                           }
                         })()}
                       </React.Fragment>
+                    </div>
+                  ) : null}
+                  {(() => {
+                    try {
+                      return !(
+                        $state.weekNum ==
+                        $state.getInfo.data[0].result.weeksPregnant
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__tEkeo
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateWeekNum"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["weekNum"]
+                                },
+                                operation: 0,
+                                value:
+                                  $state.getInfo.data[0].result.weeksPregnant
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateWeekNum"] != null &&
+                          typeof $steps["updateWeekNum"] === "object" &&
+                          typeof $steps["updateWeekNum"].then === "function"
+                        ) {
+                          $steps["updateWeekNum"] = await $steps[
+                            "updateWeekNum"
+                          ];
+                        }
+                      }}
+                    >
+                      {
+                        "\u0628\u0631\u06af\u0631\u062f \u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc"
+                      }
                     </div>
                   ) : null}
                 </div>

@@ -62,6 +62,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import NotifBox from "../../NotifBox"; // plasmic-import: xI5TnebPGhVr/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -76,13 +78,16 @@ createPlasmicElementProxy;
 
 export type PlasmicNotification__VariantMembers = {
   noNotification: "noNotification";
+  notification: "notification";
 };
 export type PlasmicNotification__VariantsArgs = {
   noNotification?: SingleBooleanChoiceArg<"noNotification">;
+  notification?: SingleBooleanChoiceArg<"notification">;
 };
 type VariantPropType = keyof PlasmicNotification__VariantsArgs;
 export const PlasmicNotification__VariantProps = new Array<VariantPropType>(
-  "noNotification"
+  "noNotification",
+  "notification"
 );
 
 export type PlasmicNotification__ArgsType = {};
@@ -93,6 +98,9 @@ export type PlasmicNotification__OverridesType = {
   root?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
   lottie?: Flex__<typeof LottieWrapper>;
+  freeBox?: Flex__<"div">;
+  notifBox?: Flex__<typeof NotifBox>;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultNotificationProps {}
@@ -135,6 +143,8 @@ function PlasmicNotification__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -144,6 +154,50 @@ function PlasmicNotification__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.noNotification
+      },
+      {
+        path: "notification",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.notification
+      },
+      {
+        path: "notifBox[].title",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "notifBox[].text",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "notifBox[].date",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "notifBox[].seen",
+        type: "private",
+        variableType: "boolean"
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -188,6 +242,11 @@ function PlasmicNotification__RenderFunc(props: {
               $state,
               "noNotification",
               "noNotification"
+            ),
+            [sty.rootnotification]: hasVariant(
+              $state,
+              "notification",
+              "notification"
             )
           }
         )}
@@ -228,7 +287,9 @@ function PlasmicNotification__RenderFunc(props: {
         />
 
         {(
-          hasVariant($state, "noNotification", "noNotification")
+          hasVariant($state, "notification", "notification")
+            ? true
+            : hasVariant($state, "noNotification", "noNotification")
             ? true
             : (() => {
                 try {
@@ -2752,21 +2813,331 @@ function PlasmicNotification__RenderFunc(props: {
                 $state,
                 "noNotification",
                 "noNotification"
+              ),
+              [sty.lottienotification]: hasVariant(
+                $state,
+                "notification",
+                "notification"
               )
             })}
             loop={true}
             preview={false}
           />
         ) : null}
+        <Stack__
+          as={"div"}
+          data-plasmic-name={"freeBox"}
+          data-plasmic-override={overrides.freeBox}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox, {
+            [sty.freeBoxnotification]: hasVariant(
+              $state,
+              "notification",
+              "notification"
+            )
+          })}
+        >
+          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+            (() => {
+              try {
+                return $state.apiRequest.data;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
+              }
+            })()
+          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+            const notifItem = __plasmic_item_0;
+            const currentIndex = __plasmic_idx_0;
+            return (() => {
+              const child$Props = {
+                className: classNames("__wab_instance", sty.notifBox, {
+                  [sty.notifBoxnotification]: hasVariant(
+                    $state,
+                    "notification",
+                    "notification"
+                  )
+                }),
+                date: generateStateValueProp($state, [
+                  "notifBox",
+                  __plasmic_idx_0,
+                  "date"
+                ]),
+                key: currentIndex,
+                onChange: async activeIds => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return ($state.notifBox[currentIndex].seen = true);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+
+                  $steps["invokeGlobalAction"] = (
+                    notifItem.is_seen == null ? true : false
+                  )
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://n8n.staas.ir/webhook/notification",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  userId: "101",
+                                  notifId: notifItem.id
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+                },
+                onDateChange: generateStateOnChangeProp($state, [
+                  "notifBox",
+                  __plasmic_idx_0,
+                  "date"
+                ]),
+                onSeenChange: generateStateOnChangeProp($state, [
+                  "notifBox",
+                  __plasmic_idx_0,
+                  "seen"
+                ]),
+                onTextChange: generateStateOnChangeProp($state, [
+                  "notifBox",
+                  __plasmic_idx_0,
+                  "text"
+                ]),
+                onTitleChange: generateStateOnChangeProp($state, [
+                  "notifBox",
+                  __plasmic_idx_0,
+                  "title"
+                ]),
+                open:
+                  hasVariant($state, "notification", "notification") &&
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? false
+                    : undefined,
+                seen: generateStateValueProp($state, [
+                  "notifBox",
+                  __plasmic_idx_0,
+                  "seen"
+                ]),
+                text: generateStateValueProp($state, [
+                  "notifBox",
+                  __plasmic_idx_0,
+                  "text"
+                ]),
+                title: generateStateValueProp($state, [
+                  "notifBox",
+                  __plasmic_idx_0,
+                  "title"
+                ])
+              };
+
+              initializePlasmicStates(
+                $state,
+                [
+                  {
+                    name: "notifBox[].title",
+                    initFunc: ({ $props, $state, $queries }) =>
+                      hasVariant($state, "notification", "notification")
+                        ? (() => {
+                            try {
+                              return notifItem.title;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : ""
+                  },
+                  {
+                    name: "notifBox[].text",
+                    initFunc: ({ $props, $state, $queries }) =>
+                      hasVariant($state, "notification", "notification")
+                        ? (() => {
+                            try {
+                              return notifItem.text;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : ""
+                  },
+                  {
+                    name: "notifBox[].date",
+                    initFunc: ({ $props, $state, $queries }) =>
+                      hasVariant($state, "notification", "notification")
+                        ? (() => {
+                            try {
+                              return notifItem.date;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : ""
+                  },
+                  {
+                    name: "notifBox[].seen",
+                    initFunc: ({ $props, $state, $queries }) =>
+                      hasVariant($state, "notification", "notification")
+                        ? (() => {
+                            try {
+                              return notifItem.is_seen == null ? false : true;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        : undefined
+                  }
+                ],
+                [__plasmic_idx_0]
+              );
+              return (
+                <NotifBox
+                  data-plasmic-name={"notifBox"}
+                  data-plasmic-override={overrides.notifBox}
+                  {...child$Props}
+                />
+              );
+            })();
+          })}
+        </Stack__>
+        <ApiRequest
+          data-plasmic-name={"apiRequest"}
+          data-plasmic-override={overrides.apiRequest}
+          className={classNames("__wab_instance", sty.apiRequest, {
+            [sty.apiRequestnotification]: hasVariant(
+              $state,
+              "notification",
+              "notification"
+            )
+          })}
+          errorDisplay={
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__aAweX
+              )}
+            >
+              {"Error fetching data"}
+            </div>
+          }
+          loadingDisplay={
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__mFmFa
+              )}
+            >
+              {"Loading..."}
+            </div>
+          }
+          method={"GET"}
+          onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
+          onLoading={generateStateOnChangeProp($state, [
+            "apiRequest",
+            "loading"
+          ])}
+          onSuccess={generateStateOnChangeProp($state, ["apiRequest", "data"])}
+          params={(() => {
+            try {
+              return {
+                userId: "101",
+                appKey: "com.app.example"
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()}
+          url={"https://n8n.staas.ir/webhook/notification"}
+        />
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "lottie"],
+  root: ["root", "img", "lottie", "freeBox", "notifBox", "apiRequest"],
   img: ["img"],
-  lottie: ["lottie"]
+  lottie: ["lottie"],
+  freeBox: ["freeBox", "notifBox"],
+  notifBox: ["notifBox"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2775,6 +3146,9 @@ type NodeDefaultElementType = {
   root: "div";
   img: typeof PlasmicImg__;
   lottie: typeof LottieWrapper;
+  freeBox: "div";
+  notifBox: typeof NotifBox;
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2864,6 +3238,9 @@ export const PlasmicNotification = Object.assign(
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
     lottie: makeNodeComponent("lottie"),
+    freeBox: makeNodeComponent("freeBox"),
+    notifBox: makeNodeComponent("notifBox"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicNotification
     internalVariantProps: PlasmicNotification__VariantProps,

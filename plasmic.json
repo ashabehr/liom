@@ -472,18 +472,17 @@
           "path": "/notification"
         },
         {
-          "id": "jWPq984-uehl",
-          "name": "PregnancyDark",
+          "id": "xI5TnebPGhVr",
+          "name": "NotifBox",
           "type": "managed",
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancyDark.tsx",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNotifBox.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/pregnancy-dark.tsx"
+            "modulePath": "NotifBox.tsx"
           },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancyDark.module.css",
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicNotifBox.module.css",
           "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/pregnancy-dark"
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -651,6 +650,11 @@
           "id": "XHEd0iacr6dw",
           "name": "Icon25Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon25.tsx"
+        },
+        {
+          "id": "MKSedampsAFw",
+          "name": "Icon26Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon26.tsx"
         }
       ],
       "images": [
@@ -718,6 +722,11 @@
           "id": "sQHssVykf86H",
           "name": "image 9",
           "filePath": "../public/plasmic/liom_hamyar/images/image9.png"
+        },
+        {
+          "id": "726PKQxnoMdo",
+          "name": "image 10",
+          "filePath": "../public/plasmic/liom_hamyar/images/image10.ico"
         }
       ],
       "indirect": false,

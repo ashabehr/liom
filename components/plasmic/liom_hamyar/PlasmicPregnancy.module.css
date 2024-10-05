@@ -231,6 +231,37 @@
     font-size: 15px;
   }
 }
+.text__tEkeo {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  color: #91654c;
+  font-size: 14px;
+  font-weight: 700;
+  top: auto;
+  left: auto;
+  white-space: pre-wrap;
+  user-select: text;
+  z-index: 1;
+  font-style: normal;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-decoration-line: none;
+  text-overflow: clip;
+  border-radius: 20px;
+  padding: 4px;
+  border: 2px solid #e7a686;
+}
+@media (max-width: 640px) {
+  .text__tEkeo {
+    font-size: 15px;
+    left: auto;
+    top: auto;
+  }
+}
 .freeBox__wxfFc {
   display: flex;
   flex-direction: row;
