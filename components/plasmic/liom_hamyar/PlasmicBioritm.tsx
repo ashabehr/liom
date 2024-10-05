@@ -4216,59 +4216,6 @@ function PlasmicBioritm__RenderFunc(props: {
               );
               (async data => {
                 const $steps = {};
-
-                $steps["invokeGlobalAction"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "POST",
-                          "https://api.liom.app/service/log",
-                          undefined,
-                          (() => {
-                            try {
-                              return {
-                                userId: $ctx.query.man,
-                                pageName: "biorhythm",
-                                action: "loadePage",
-                                extraData: {
-                                  refCode: $ctx.query.r,
-                                  mobile: $ctx.query.man
-                                }
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          {
-                            headers: {
-                              "Content-Type": "application/json",
-                              Authorization:
-                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                            }
-                          }
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
-                if (
-                  $steps["invokeGlobalAction"] != null &&
-                  typeof $steps["invokeGlobalAction"] === "object" &&
-                  typeof $steps["invokeGlobalAction"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
-                }
               }).apply(null, eventArgs);
             }}
             url={"https://n8n.staas.ir/webhook/hamyar/biorhythm"}

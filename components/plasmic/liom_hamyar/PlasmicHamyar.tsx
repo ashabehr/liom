@@ -9326,6 +9326,59 @@ function PlasmicHamyar__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://api.liom.app/service/log",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                userId: $state.user.data.result.man.id,
+                                pageName: "biorhythm",
+                                action: "loadePage",
+                                extraData: {
+                                  refCode: $ctx.query.r,
+                                  mobile: $state.user.data.result.man.mobile
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          {
+                            headers: {
+                              "Content-Type": "application/json",
+                              Authorization:
+                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                            }
+                          }
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+
                 $steps["goToPage"] = !(
                   $state.tokenUser == undefined || $state.tokenUser == ""
                 )
