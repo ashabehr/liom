@@ -4843,7 +4843,20 @@ function PlasmicBioritm__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
-                            return window.history.back();
+                            const previousUrl = document.referrer;
+                            if (
+                              previousUrl.startsWith(
+                                "https://apps.liom.app/hamyar"
+                              )
+                            ) {
+                              return window.history.back();
+                            } else {
+                              return (window.location.href =
+                                "https://apps.liom.app/hamyar/?r=" +
+                                $ctx.query.r +
+                                "&m=" +
+                                $ctx.query.m);
+                            }
                           })();
                         }
                       };

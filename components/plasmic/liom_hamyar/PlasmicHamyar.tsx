@@ -875,7 +875,11 @@ function PlasmicHamyar__RenderFunc(props: {
             hasVariant(globalVariants, "screen", "mobile")
               ? (() => {
                   try {
-                    return !($state.user.loading || $state.name == "");
+                    return !(
+                      $state.user.loading ||
+                      $state.name == "" ||
+                      $state.shop.loading
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -9654,13 +9658,18 @@ function PlasmicHamyar__RenderFunc(props: {
                         const actionArgs = {
                           destination: (() => {
                             try {
-                              return "https://apps.liom.app/bioritm/";
+                              return (
+                                "https://apps.liom.app/bioritm/?r=" +
+                                $ctx.query.r +
+                                "&m=" +
+                                $ctx.query.m
+                              );
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return `/bioritm`;
+                                return undefined;
                               }
                               throw e;
                             }
