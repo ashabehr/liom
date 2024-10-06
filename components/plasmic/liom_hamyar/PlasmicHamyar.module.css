@@ -44,6 +44,7 @@
   .freeBox__kJv6J {
     width: 100%;
     margin-bottom: 90px;
+    margin-top: 5px;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
     display: flex;
@@ -1055,6 +1056,8 @@
     font-size: 15px;
     opacity: 0.8;
     color: #535353;
+    text-align: justify;
+    padding-left: 15px;
   }
 }
 .freeBox___2QF1T {
