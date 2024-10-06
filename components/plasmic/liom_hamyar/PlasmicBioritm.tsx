@@ -4785,7 +4785,7 @@ function PlasmicBioritm__RenderFunc(props: {
                   sty.text__wzccl
                 )}
               >
-                {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
+                {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
               </div>
             </div>
           </Stack__>

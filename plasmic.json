@@ -727,6 +727,11 @@
           "id": "726PKQxnoMdo",
           "name": "image 10",
           "filePath": "../public/plasmic/liom_hamyar/images/image10.ico"
+        },
+        {
+          "id": "EwdFlxfFEODy",
+          "name": "image 11",
+          "filePath": "../public/plasmic/liom_hamyar/images/image11.gif"
         }
       ],
       "indirect": false,

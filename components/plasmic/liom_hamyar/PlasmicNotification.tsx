@@ -153,13 +153,39 @@ function PlasmicNotification__RenderFunc(props: {
         path: "noNotification",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.noNotification
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.apiRequest.data.length <= 0;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.noNotification
       },
       {
         path: "notification",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.notification
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.apiRequest.data.length > 0;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.notification
       },
       {
         path: "notifBox[].title",
@@ -2893,7 +2919,7 @@ function PlasmicNotification__RenderFunc(props: {
                   }
 
                   $steps["invokeGlobalAction"] = (
-                    notifItem.is_seen == null ? true : false
+                    notifItem.seen == 0 ? true : false
                   )
                     ? (() => {
                         const actionArgs = {
@@ -3043,7 +3069,7 @@ function PlasmicNotification__RenderFunc(props: {
                       hasVariant($state, "notification", "notification")
                         ? (() => {
                             try {
-                              return notifItem.is_seen == null ? false : true;
+                              return notifItem.seen == 0 ? false : true;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -3079,28 +3105,8 @@ function PlasmicNotification__RenderFunc(props: {
               "notification"
             )
           })}
-          errorDisplay={
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__aAweX
-              )}
-            >
-              {"Error fetching data"}
-            </div>
-          }
-          loadingDisplay={
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__mFmFa
-              )}
-            >
-              {"Loading..."}
-            </div>
-          }
+          errorDisplay={null}
+          loadingDisplay={null}
           method={"GET"}
           onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
           onLoading={generateStateOnChangeProp($state, [
@@ -3108,22 +3114,42 @@ function PlasmicNotification__RenderFunc(props: {
             "loading"
           ])}
           onSuccess={generateStateOnChangeProp($state, ["apiRequest", "data"])}
-          params={(() => {
-            try {
-              return {
-                userId: "101",
-                appKey: "com.app.example"
-              };
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}
+          params={
+            hasVariant(globalVariants, "screen", "mobile")
+              ? (() => {
+                  try {
+                    return {
+                      count: "false",
+                      userId: "101",
+                      appKey: "com.app.example"
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
+              : (() => {
+                  try {
+                    return {
+                      userId: "101",
+                      appKey: "com.app.example"
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
+          }
           url={"https://n8n.staas.ir/webhook/notification"}
         />
       </div>

@@ -252,7 +252,15 @@ function PlasmicNotifBox__RenderFunc(props: {
           ghost: true,
           headerClass: classNames({ [sty["pcls_hM-HJRo8TQiR"]]: true }),
           label2: (
-            <div className={classNames(projectcss.all, sty.freeBox___5FqYh)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox___5FqYh, {
+                [sty.freeBoxseen___5FqYhofXyw]: hasVariant(
+                  $state,
+                  "seen",
+                  "seen"
+                )
+              })}
+            >
               <PlasmicImg__
                 data-plasmic-name={"img"}
                 data-plasmic-override={overrides.img}
@@ -262,7 +270,7 @@ function PlasmicNotifBox__RenderFunc(props: {
                 })}
                 displayHeight={
                   hasVariant(globalVariants, "screen", "mobile")
-                    ? "30px"
+                    ? "25px"
                     : "30px"
                 }
                 displayMaxHeight={
@@ -275,7 +283,7 @@ function PlasmicNotifBox__RenderFunc(props: {
                 displayMinWidth={"0"}
                 displayWidth={
                   hasVariant(globalVariants, "screen", "mobile")
-                    ? "30px"
+                    ? "25px"
                     : "30px"
                 }
                 loading={"lazy"}
@@ -443,7 +451,10 @@ function PlasmicNotifBox__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__v0Ba
+                sty.text__v0Ba,
+                {
+                  [sty.textseen__v0BaofXyw]: hasVariant($state, "seen", "seen")
+                }
               )}
             >
               {hasVariant(globalVariants, "screen", "mobile") ? (

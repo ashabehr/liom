@@ -95,13 +95,13 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHamyar.module.css"; // plasmic-import: TOxGOz1ONYz_/css
 
+import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: 8spC6Q9XOGVd/icon
 import Icon4Icon from "./icons/PlasmicIcon__Icon4"; // plasmic-import: halWdf8bhZV9/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
-import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: UbRafB34Z-K-/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
 
@@ -758,6 +758,38 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "guideShow",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                let value = localStorage.getItem("guideShow");
+                if (value) {
+                  return false;
+                } else {
+                  return true;
+                }
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1249,17 +1281,147 @@ function PlasmicHamyar__RenderFunc(props: {
                     </div>
                   ) : null}
                 </Stack__>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lFbQr
-                  )}
-                >
-                  {hasVariant(globalVariants, "screen", "mobile")
-                    ? "\u0628\u0627 \u0627\u06cc\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u062d\u0645\u0627\u06cc\u062a\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647 \u0628\u0647\u0634 \u0628\u062f\u06cc. \u0627\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647\u06cc \u0628\u0647\u0634 \u0627\u062d\u0633\u0627\u0633 \u0622\u0631\u0627\u0645\u0634 \u0645\u06cc\u200c\u062f\u0647 \u0648 \u062d\u0627\u0644 \u0647\u0631 \u062f\u0648\u06cc \u0634\u0645\u0627 \u0631\u0648 \u0628\u0647\u062a\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647."
-                    : "\u0628\u0627 \u0627\u06cc\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u062d\u0645\u0627\u06cc\u062a\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647 \u0628\u0647\u0634 \u0628\u062f\u06cc. \u0627\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647\u06cc \u0628\u0647\u0634 \u0627\u062d\u0633\u0627\u0633 \u0622\u0631\u0627\u0645\u0634 \u0645\u06cc\u200c\u062f\u0647 \u0648 \u062d\u0627\u0644 \u0647\u0631 \u062f\u0648\u06cc \u0634\u0645\u0627 \u0631\u0648 \u0628\u0647\u062a\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647."}
-                </div>
+                {(
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? (() => {
+                        try {
+                          return $state.guideShow;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : (() => {
+                        try {
+                          return $state.guideShow;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                ) ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ymeZw)}
+                  >
+                    {(
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? true
+                        : (() => {
+                            try {
+                              return $state.cyclebox.cycle != "white";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })()
+                    ) ? (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___9KPu1
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__lFbQr
+                          )}
+                        >
+                          {hasVariant(globalVariants, "screen", "mobile")
+                            ? "\u0628\u0627 \u0645\u062d\u062a\u0648\u0627\u06cc \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647\u062a\u0631 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u062d\u0645\u0627\u06cc\u062a\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647\u060c \u0628\u0647\u0634 \u0628\u062f\u06cc. \u0627\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647\u06cc \u0628\u0627\u0639\u062b \u0622\u0631\u0627\u0645\u0634 \u0648 \u0628\u0647\u0628\u0648\u062f \u062d\u0627\u0644 \u0647\u0631 \u062f\u0648\u06cc \u0634\u0645\u0627 \u0645\u06cc\u200c\u0634\u0647."
+                            : "\u0628\u0627 \u0645\u062d\u062a\u0648\u0627\u06cc \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647\u062a\u0631 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u062d\u0645\u0627\u06cc\u062a\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647\u060c \u0628\u0647\u0634 \u0628\u062f\u06cc. \u0627\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647\u06cc \u0628\u0627\u0639\u062b \u0622\u0631\u0627\u0645\u0634 \u0648 \u0628\u0647\u0628\u0648\u062f \u062d\u0627\u0644 \u0647\u0631 \u062f\u0648\u06cc \u0634\u0645\u0627 \u0645\u06cc\u200c\u0634\u0647."}
+                        </div>
+                        <Icon22Icon
+                          className={classNames(projectcss.all, sty.svg__qlXq2)}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateGuideShow"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["guideShow"]
+                                    },
+                                    operation: 0,
+                                    value: false
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateGuideShow"] != null &&
+                              typeof $steps["updateGuideShow"] === "object" &&
+                              typeof $steps["updateGuideShow"].then ===
+                                "function"
+                            ) {
+                              $steps["updateGuideShow"] = await $steps[
+                                "updateGuideShow"
+                              ];
+                            }
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        return localStorage.setItem(
+                                          "guideShow",
+                                          "false"
+                                        );
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }}
+                          role={"img"}
+                        />
+                      </Stack__>
+                    ) : null}
+                  </div>
+                ) : null}
                 <div
                   className={classNames(projectcss.all, sty.freeBox___2F0Aw)}
                 >
@@ -1708,36 +1870,69 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.text__v9Vi8
                         )}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  if (
+                                    $state.user.data.result.userStatus
+                                      .daysToStartPeriod == 0 ||
+                                    $state.user.data.result.userStatus
+                                      .daysToStartPeriod == 1
+                                  )
+                                    return "تا پایان امروز";
+                                  return (
+                                    $state.user.data.result.userStatus
+                                      .daysToStartPeriod -
+                                    1 +
+                                    " روز " +
+                                    "دیگر"
+                                  );
+                                })();
+                              } catch (e) {
                                 if (
-                                  $state.user.data.result.userStatus
-                                    .daysToStartPeriod == 0 ||
-                                  $state.user.data.result.userStatus
-                                    .daysToStartPeriod == 1
-                                )
-                                  return "تا پایان امروز";
-                                return (
-                                  $state.user.data.result.userStatus
-                                    .daysToStartPeriod -
-                                  1 +
-                                  " روز " +
-                                  "دیگر"
-                                );
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "-";
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "-";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  if (
+                                    $state.user.data.result.userStatus
+                                      .daysToStartPeriod == 0 ||
+                                    $state.user.data.result.userStatus
+                                      .daysToStartPeriod == 1
+                                  )
+                                    return "تا پایان امروز";
+                                  return (
+                                    $state.user.data.result.userStatus
+                                      .daysToStartPeriod -
+                                    1 +
+                                    " روز " +
+                                    "دیگر"
+                                  );
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "-";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
                       </div>
                     </Stack__>
                   ) : null}
@@ -1783,8 +1978,8 @@ function PlasmicHamyar__RenderFunc(props: {
                           className={classNames(sty.img__z9Sdj)}
                           displayHeight={
                             hasVariant(globalVariants, "screen", "mobile")
-                              ? "35px"
-                              : "60px"
+                              ? "30px"
+                              : "50px"
                           }
                           displayMaxHeight={"none"}
                           displayMaxWidth={"100%"}
@@ -1792,14 +1987,14 @@ function PlasmicHamyar__RenderFunc(props: {
                           displayMinWidth={"0"}
                           displayWidth={
                             hasVariant(globalVariants, "screen", "mobile")
-                              ? "35px"
-                              : "60px"
+                              ? "30px"
+                              : "50px"
                           }
                           loading={"lazy"}
                           src={{
-                            src: "/plasmic/liom_hamyar/images/_3DIconQuickTipVector600Nw2287064749Png.png",
-                            fullWidth: 371,
-                            fullHeight: 374,
+                            src: "/plasmic/liom_hamyar/images/image11.gif",
+                            fullWidth: 1500,
+                            fullHeight: 1500,
                             aspectRatio: undefined
                           }}
                         />
@@ -1811,9 +2006,61 @@ function PlasmicHamyar__RenderFunc(props: {
                             sty.text___24Wkh
                           )}
                         >
-                          {
-                            "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632"
-                          }
+                          {hasVariant(globalVariants, "screen", "mobile") ? (
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return (
+                                      "<b>" +
+                                      "توصیه امروز : " +
+                                      "</b>" +
+                                      '<spen style="color: #8254C6;">' +
+                                      $state.advice.data[0].name +
+                                      "</spen>"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          ) : (
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return (
+                                      "<b>" +
+                                      "توصیه امروز : " +
+                                      "</b>" +
+                                      '<spen style="color: #8254C6;">' +
+                                      $state.advice.data[0].name +
+                                      "</spen>"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          )}
                         </div>
                       </div>
                       <Stack__
@@ -1824,29 +2071,6 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.freeBox___2QF1T
                         )}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__snKk8
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.advice.data[0].name;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
                         <div
                           className={classNames(
                             projectcss.all,
@@ -8984,7 +9208,10 @@ function PlasmicHamyar__RenderFunc(props: {
                 const $steps = {};
 
                 $steps["invokeGlobalAction2"] =
-                  $state.name == "" && $ctx.query.r != "" && $ctx.query.m != ""
+                  ($state.name == "" &&
+                    $ctx.query.r != "" &&
+                    $ctx.query.m != "") ||
+                  $ctx.query.m != "3ZjitMAEm"
                     ? (() => {
                         const actionArgs = {
                           args: [
@@ -9326,49 +9553,51 @@ function PlasmicHamyar__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["invokeGlobalAction"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          "POST",
-                          "https://api.liom.app/service/log",
-                          undefined,
-                          (() => {
-                            try {
-                              return {
-                                userId: $state.user.data.result.man.id,
-                                pageName: "biorhythm",
-                                action: "loadePage",
-                                extraData: {
-                                  refCode: $ctx.query.r,
-                                  mobile: $state.user.data.result.man.mobile
+                $steps["invokeGlobalAction"] =
+                  !($state.tokenUser == undefined || $state.tokenUser == "") &&
+                  $ctx.query.m != "3ZjitMAEm"
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://api.liom.app/service/log",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  userId: $state.user.data.result.man.id,
+                                  pageName: "biorhythm",
+                                  action: "loadePage",
+                                  extraData: {
+                                    refCode: $ctx.query.r,
+                                    mobile: $state.user.data.result.man.mobile
+                                  }
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
                                 }
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
+                                throw e;
                               }
-                              throw e;
+                            })(),
+                            {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                              }
                             }
-                          })(),
-                          {
-                            headers: {
-                              "Content-Type": "application/json",
-                              Authorization:
-                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                            }
-                          }
-                        ]
-                      };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
-                    })()
-                  : undefined;
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
                 if (
                   $steps["invokeGlobalAction"] != null &&
                   typeof $steps["invokeGlobalAction"] === "object" &&
@@ -9454,7 +9683,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   sty.text___4Ln4F
                 )}
               >
-                {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
+                {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
               </div>
             </div>
           </Stack__>

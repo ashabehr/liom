@@ -175,7 +175,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return 1;
+                return 0;
               }
               throw e;
             }
@@ -355,7 +355,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 })()
               : (() => {
                   try {
-                    return !$state.getInfo.loading;
+                    return !$state.getInfo.loading && $state.weekNum != 0;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -3895,7 +3895,7 @@ function PlasmicPregnancy__RenderFunc(props: {
 
           {(() => {
             try {
-              return $state.getInfo.loading;
+              return $state.getInfo.loading || $state.weekNum == 0;
             } catch (e) {
               if (
                 e instanceof TypeError ||
