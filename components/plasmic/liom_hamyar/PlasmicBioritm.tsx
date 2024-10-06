@@ -88,10 +88,16 @@ import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5P
 
 createPlasmicElementProxy;
 
-export type PlasmicBioritm__VariantMembers = {};
-export type PlasmicBioritm__VariantsArgs = {};
+export type PlasmicBioritm__VariantMembers = {
+  ferstTimepage: "ferstTimepage";
+};
+export type PlasmicBioritm__VariantsArgs = {
+  ferstTimepage?: SingleBooleanChoiceArg<"ferstTimepage">;
+};
 type VariantPropType = keyof PlasmicBioritm__VariantsArgs;
-export const PlasmicBioritm__VariantProps = new Array<VariantPropType>();
+export const PlasmicBioritm__VariantProps = new Array<VariantPropType>(
+  "ferstTimepage"
+);
 
 export type PlasmicBioritm__ArgsType = {};
 type ArgPropType = keyof PlasmicBioritm__ArgsType;
@@ -233,20 +239,18 @@ function PlasmicBioritm__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if (
-                  $ctx.query.y == "" ||
-                  $ctx.query.m == "" ||
-                  $ctx.query.d == ""
-                ) {
+                let birthDate = localStorage.getItem("birthDate");
+                if (birthDate == "undefined" || birthDate == null) {
                   return {
                     day: 7,
                     month: 7,
                     year: 1377
                   };
                 } else {
-                  let gy = parseInt($ctx.query.y);
-                  let gm = parseInt($ctx.query.m);
-                  let gd = parseInt($ctx.query.d);
+                  birthDate = JSON.parse(birthDate);
+                  let gy = birthDate.year;
+                  let gm = birthDate.month;
+                  let gd = birthDate.day;
                   let shamsiMonthDays = [
                     31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29
                   ];
@@ -384,15 +388,19 @@ function PlasmicBioritm__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          `${(() => {
-            let value = localStorage.getItem("token");
-            return value;
-          })()}${(() => {
-            let value = localStorage.getItem("token");
-            if (value) {
-              return value;
+          (() => {
+            try {
+              return localStorage.getItem("token");
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
             }
-          })()}`
+          })()
       },
       {
         path: "datePickers2.value",
@@ -413,11 +421,10 @@ function PlasmicBioritm__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.query.y == "" ||
-                $ctx.query.m == "" ||
-                $ctx.query.d == ""
-                ? true
-                : false;
+              return (
+                localStorage.getItem("birthDate") == "undefined" ||
+                localStorage.getItem("birthDate") == null
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -428,6 +435,25 @@ function PlasmicBioritm__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "ferstTimepage",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.firstTime;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.ferstTimepage
       }
     ],
     [$props, $ctx, $refs]
@@ -480,17 +506,39 @@ function PlasmicBioritm__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.root
+            sty.root,
+            {
+              [sty.rootferstTimepage]: hasVariant(
+                $state,
+                "ferstTimepage",
+                "ferstTimepage"
+              )
+            }
           )}
         >
           <div className={classNames(projectcss.all, sty.freeBox__l2VNg)}>
-            <div className={classNames(projectcss.all, sty.freeBox__kQaHu)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__kQaHu, {
+                [sty.freeBoxferstTimepage__kQaHuSTpN]: hasVariant(
+                  $state,
+                  "ferstTimepage",
+                  "ferstTimepage"
+                )
+              })}
+            >
               <p
                 className={classNames(
                   projectcss.all,
                   projectcss.p,
                   projectcss.__wab_text,
-                  sty.p__f1TwP
+                  sty.p__f1TwP,
+                  {
+                    [sty.pferstTimepage__f1TwPSTpN]: hasVariant(
+                      $state,
+                      "ferstTimepage",
+                      "ferstTimepage"
+                    )
+                  }
                 )}
                 onClick={async event => {
                   const $steps = {};
@@ -536,25 +584,44 @@ function PlasmicBioritm__RenderFunc(props: {
                   ? "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f  > "
                   : "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f"}
               </p>
-              <div className={classNames(projectcss.all, sty.freeBox__kcgv6)}>
-                {(() => {
-                  try {
-                    return !$state.biorhythm.loading;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
+              <div
+                className={classNames(projectcss.all, sty.freeBox__kcgv6, {
+                  [sty.freeBoxferstTimepage__kcgv6STpN]: hasVariant(
+                    $state,
+                    "ferstTimepage",
+                    "ferstTimepage"
+                  )
+                })}
+              >
+                {(
+                  hasVariant($state, "ferstTimepage", "ferstTimepage")
+                    ? true
+                    : (() => {
+                        try {
+                          return !$state.biorhythm.loading;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                ) ? (
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__omFzt
+                      sty.text__omFzt,
+                      {
+                        [sty.textferstTimepage__omFztSTpN]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      }
                     )}
                   >
                     {hasVariant(globalVariants, "screen", "mobile") ? (
@@ -659,7 +726,14 @@ function PlasmicBioritm__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text___5FrJa
+                      sty.text___5FrJa,
+                      {
+                        [sty.textferstTimepage___5FrJaSTpN]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      }
                     )}
                   >
                     <div
@@ -686,7 +760,13 @@ function PlasmicBioritm__RenderFunc(props: {
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__eeRlb)}
+                className={classNames(projectcss.all, sty.freeBox__eeRlb, {
+                  [sty.freeBoxferstTimepage__eeRlbSTpN]: hasVariant(
+                    $state,
+                    "ferstTimepage",
+                    "ferstTimepage"
+                  )
+                })}
               >
                 <div
                   className={classNames(projectcss.all, sty.freeBox__mB5CK)}
@@ -706,7 +786,14 @@ function PlasmicBioritm__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__i9991
+                      sty.text__i9991,
+                      {
+                        [sty.textferstTimepage__i9991STpN]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      }
                     )}
                   >
                     {"\u0641\u06a9\u0631\u06cc"}
@@ -716,7 +803,14 @@ function PlasmicBioritm__RenderFunc(props: {
                       projectcss.all,
                       projectcss.__wab_text,
                       sty.text__zd6RW,
-                      "negative"
+                      "negative",
+                      {
+                        [sty.textferstTimepage__zd6RWSTpN]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      }
                     )}
                   >
                     <React.Fragment>
@@ -761,7 +855,14 @@ function PlasmicBioritm__RenderFunc(props: {
                       projectcss.all,
                       projectcss.__wab_text,
                       sty.text__n2Lt,
-                      "negative"
+                      "negative",
+                      {
+                        [sty.textferstTimepage__n2LtSTpN]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      }
                     )}
                     dir={"ltr"}
                   >
@@ -805,7 +906,14 @@ function PlasmicBioritm__RenderFunc(props: {
                       projectcss.all,
                       projectcss.__wab_text,
                       sty.text__o2VP9,
-                      "negative"
+                      "negative",
+                      {
+                        [sty.textferstTimepage__o2VP9STpN]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      }
                     )}
                   >
                     <React.Fragment>
@@ -829,7 +937,13 @@ function PlasmicBioritm__RenderFunc(props: {
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__zqEyN)}
+                className={classNames(projectcss.all, sty.freeBox__zqEyN, {
+                  [sty.freeBoxferstTimepage__zqEyNSTpN]: hasVariant(
+                    $state,
+                    "ferstTimepage",
+                    "ferstTimepage"
+                  )
+                })}
               >
                 <p
                   className={classNames(
@@ -846,7 +960,14 @@ function PlasmicBioritm__RenderFunc(props: {
                     projectcss.all,
                     projectcss.__wab_text,
                     sty.text__w30PV,
-                    "negative"
+                    "negative",
+                    {
+                      [sty.textferstTimepage__w30PVSTpN]: hasVariant(
+                        $state,
+                        "ferstTimepage",
+                        "ferstTimepage"
+                      )
+                    }
                   )}
                   dir={
                     hasVariant(globalVariants, "screen", "mobile")
@@ -952,8 +1073,19 @@ function PlasmicBioritm__RenderFunc(props: {
                 <Button
                   data-plasmic-name={"button3"}
                   data-plasmic-override={overrides.button3}
-                  className={classNames("__wab_instance", sty.button3)}
+                  className={classNames("__wab_instance", sty.button3, {
+                    [sty.button3ferstTimepage]: hasVariant(
+                      $state,
+                      "ferstTimepage",
+                      "ferstTimepage"
+                    )
+                  })}
                   color={generateStateValueProp($state, ["button3", "color"])}
+                  isDisabled={
+                    hasVariant($state, "ferstTimepage", "ferstTimepage")
+                      ? true
+                      : undefined
+                  }
                   onClick={async event => {
                     const $steps = {};
 
@@ -1037,7 +1169,15 @@ function PlasmicBioritm__RenderFunc(props: {
                 </Button>
               </Stack__>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__dx6At)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__dx6At, {
+                [sty.freeBoxferstTimepage__dx6AtSTpN]: hasVariant(
+                  $state,
+                  "ferstTimepage",
+                  "ferstTimepage"
+                )
+              })}
+            >
               <div className={classNames(projectcss.all, sty.freeBox__eoCeA)}>
                 <p
                   className={classNames(
@@ -1053,19 +1193,23 @@ function PlasmicBioritm__RenderFunc(props: {
                 </p>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox___4Cio4)}>
-                {(() => {
-                  try {
-                    return !$state.biorhythm.loading;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
+                {(
+                  hasVariant($state, "ferstTimepage", "ferstTimepage")
+                    ? true
+                    : (() => {
+                        try {
+                          return !$state.biorhythm.loading;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                ) ? (
                   <Stack__
                     as={"ul"}
                     data-plasmic-name={"ul"}
@@ -1074,7 +1218,14 @@ function PlasmicBioritm__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.ul,
-                      sty.ul
+                      sty.ul,
+                      {
+                        [sty.ulferstTimepage]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      }
                     )}
                   >
                     {(_par =>
@@ -3773,7 +3924,13 @@ function PlasmicBioritm__RenderFunc(props: {
             <SlideinModal
               data-plasmic-name={"slideinModal2"}
               data-plasmic-override={overrides.slideinModal2}
-              className={classNames("__wab_instance", sty.slideinModal2)}
+              className={classNames("__wab_instance", sty.slideinModal2, {
+                [sty.slideinModal2ferstTimepage]: hasVariant(
+                  $state,
+                  "ferstTimepage",
+                  "ferstTimepage"
+                )
+              })}
               click={generateStateValueProp($state, ["slideinModal2", "click"])}
               onClick={async event => {
                 const $steps = {};
@@ -3856,7 +4013,13 @@ function PlasmicBioritm__RenderFunc(props: {
                   <Button
                     data-plasmic-name={"button5"}
                     data-plasmic-override={overrides.button5}
-                    className={classNames("__wab_instance", sty.button5)}
+                    className={classNames("__wab_instance", sty.button5, {
+                      [sty.button5ferstTimepage]: hasVariant(
+                        $state,
+                        "ferstTimepage",
+                        "ferstTimepage"
+                      )
+                    })}
                     color={generateStateValueProp($state, ["button5", "color"])}
                     onClick={async event => {
                       const $steps = {};
@@ -4093,23 +4256,15 @@ function PlasmicBioritm__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
-                                  let url = new URL(window.location.href);
-                                  url.searchParams.set(
-                                    "y",
-                                    $state.bday.split("-")[0]
-                                  );
-                                  url.searchParams.set(
-                                    "m",
-                                    $state.bday.split("-")[1]
-                                  );
-                                  url.searchParams.set(
-                                    "d",
-                                    $state.bday.split("-")[2]
-                                  );
-                                  return window.history.replaceState(
-                                    {},
-                                    "",
-                                    url
+                                  return localStorage.setItem(
+                                    "birthDate",
+                                    JSON.stringify({
+                                      year: parseInt($state.bday.split("-")[0]),
+                                      month: parseInt(
+                                        $state.bday.split("-")[1]
+                                      ),
+                                      day: parseInt($state.bday.split("-")[2])
+                                    })
                                   );
                                 })();
                               }
@@ -4179,7 +4334,7 @@ function PlasmicBioritm__RenderFunc(props: {
                       return {
                         headers: {
                           "Content-Type": "application/json",
-                          Authorization: localStorage.getItem("token")
+                          Authorization: $state.token
                         }
                       };
                     } catch (e) {
@@ -4437,6 +4592,43 @@ function PlasmicBioritm__RenderFunc(props: {
                       $steps["updateBday"] = await $steps["updateBday"];
                     }
 
+                    $steps["updateSlideinModal3Click"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["slideinModal3", "click"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSlideinModal3Click"] != null &&
+                      typeof $steps["updateSlideinModal3Click"] === "object" &&
+                      typeof $steps["updateSlideinModal3Click"].then ===
+                        "function"
+                    ) {
+                      $steps["updateSlideinModal3Click"] = await $steps[
+                        "updateSlideinModal3Click"
+                      ];
+                    }
+
                     $steps["invokeGlobalAction"] = true
                       ? (() => {
                           const actionArgs = {
@@ -4495,43 +4687,6 @@ function PlasmicBioritm__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["updateSlideinModal3Click"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["slideinModal3", "click"]
-                            },
-                            operation: 0,
-                            value: false
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateSlideinModal3Click"] != null &&
-                      typeof $steps["updateSlideinModal3Click"] === "object" &&
-                      typeof $steps["updateSlideinModal3Click"].then ===
-                        "function"
-                    ) {
-                      $steps["updateSlideinModal3Click"] = await $steps[
-                        "updateSlideinModal3Click"
-                      ];
-                    }
-
                     $steps["invokeGlobalAction2"] =
                       $steps.invokeGlobalAction.data.success == true
                         ? (() => {
@@ -4563,20 +4718,14 @@ function PlasmicBioritm__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                let url = new URL(window.location.href);
-                                url.searchParams.set(
-                                  "y",
-                                  $state.bday.split("-")[0]
+                                return localStorage.setItem(
+                                  "birthDate",
+                                  JSON.stringify({
+                                    year: parseInt($state.bday.split("-")[0]),
+                                    month: parseInt($state.bday.split("-")[1]),
+                                    day: parseInt($state.bday.split("-")[2])
+                                  })
                                 );
-                                url.searchParams.set(
-                                  "m",
-                                  $state.bday.split("-")[1]
-                                );
-                                url.searchParams.set(
-                                  "d",
-                                  $state.bday.split("-")[2]
-                                );
-                                return window.history.replaceState({}, "", url);
                               })();
                             }
                           };
@@ -4689,53 +4838,26 @@ function PlasmicBioritm__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToPage"] = !(
-                  $ctx.query.man == undefined ||
-                  $ctx.query.r == undefined ||
-                  $ctx.query.r == "" ||
-                  $ctx.query.man == ""
-                )
+                $steps["runCode"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return (
-                              "https://apps.liom.app/hamyar/?r=" +
-                              $ctx.query.r +
-                              "&m=" +
-                              $ctx.query.man
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return `/hamyar`;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
+                        customFunction: async () => {
+                          return (() => {
+                            return window.history.back();
+                          })();
                         }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
               }}
             >

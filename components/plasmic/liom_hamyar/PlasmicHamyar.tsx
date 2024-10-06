@@ -888,7 +888,11 @@ function PlasmicHamyar__RenderFunc(props: {
                 })()
               : (() => {
                   try {
-                    return !($state.user.loading || $state.name == "");
+                    return !(
+                      $state.user.loading ||
+                      $state.name == "" ||
+                      $state.shop.loading
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -1937,167 +1941,143 @@ function PlasmicHamyar__RenderFunc(props: {
                     </Stack__>
                   ) : null}
                 </Stack__>
-                {(
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? (() => {
-                        try {
-                          return $state.cyclebox.cycle != "white";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })()
-                    : true
-                ) ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__aHEn)}
+                >
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__aHEn)}
+                    className={classNames(projectcss.all, sty.freeBox___7thYx)}
                   >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__paRvK)}
+                    >
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__z9Sdj)}
+                        displayHeight={
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? "30px"
+                            : "50px"
+                        }
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? "30px"
+                            : "50px"
+                        }
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/liom_hamyar/images/image11.gif",
+                          fullWidth: 1500,
+                          fullHeight: 1500,
+                          aspectRatio: undefined
+                        }}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___24Wkh
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <div
+                            className={projectcss.__wab_expr_html_text}
+                            dangerouslySetInnerHTML={{
+                              __html: (() => {
+                                try {
+                                  return (
+                                    "<b>" +
+                                    "توصیه امروز : " +
+                                    "</b>" +
+                                    '<spen style="color: #8254C6;">' +
+                                    $state.advice.data[0].name +
+                                    "</spen>"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            }}
+                          />
+                        ) : (
+                          <div
+                            className={projectcss.__wab_expr_html_text}
+                            dangerouslySetInnerHTML={{
+                              __html: (() => {
+                                try {
+                                  return (
+                                    "<b>" +
+                                    "توصیه امروز : " +
+                                    "</b>" +
+                                    '<spen style="color: #8254C6;">' +
+                                    $state.advice.data[0].name +
+                                    "</spen>"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            }}
+                          />
+                        )}
+                      </div>
+                    </div>
                     <Stack__
                       as={"div"}
                       hasGap={true}
                       className={classNames(
                         projectcss.all,
-                        sty.freeBox___7thYx
+                        sty.freeBox___2QF1T
                       )}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__paRvK
+                          projectcss.__wab_text,
+                          sty.text__wjo14
                         )}
                       >
-                        <PlasmicImg__
-                          alt={""}
-                          className={classNames(sty.img__z9Sdj)}
-                          displayHeight={
-                            hasVariant(globalVariants, "screen", "mobile")
-                              ? "30px"
-                              : "50px"
-                          }
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={
-                            hasVariant(globalVariants, "screen", "mobile")
-                              ? "30px"
-                              : "50px"
-                          }
-                          loading={"lazy"}
-                          src={{
-                            src: "/plasmic/liom_hamyar/images/image11.gif",
-                            fullWidth: 1500,
-                            fullHeight: 1500,
-                            aspectRatio: undefined
-                          }}
-                        />
-
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___24Wkh
-                          )}
-                        >
-                          {hasVariant(globalVariants, "screen", "mobile") ? (
-                            <div
-                              className={projectcss.__wab_expr_html_text}
-                              dangerouslySetInnerHTML={{
-                                __html: (() => {
-                                  try {
-                                    return (
-                                      "<b>" +
-                                      "توصیه امروز : " +
-                                      "</b>" +
-                                      '<spen style="color: #8254C6;">' +
-                                      $state.advice.data[0].name +
-                                      "</spen>"
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              }}
-                            />
-                          ) : (
-                            <div
-                              className={projectcss.__wab_expr_html_text}
-                              dangerouslySetInnerHTML={{
-                                __html: (() => {
-                                  try {
-                                    return (
-                                      "<b>" +
-                                      "توصیه امروز : " +
-                                      "</b>" +
-                                      '<spen style="color: #8254C6;">' +
-                                      $state.advice.data[0].name +
-                                      "</spen>"
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              }}
-                            />
-                          )}
-                        </div>
-                      </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___2QF1T
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__wjo14
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.advice.data[0].doc;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
-                                }
-                                throw e;
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.advice.data[0].doc;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </Stack__>
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
                     </Stack__>
                   </Stack__>
-                ) : null}
+                </Stack__>
                 {(() => {
                   try {
                     return (
@@ -9340,9 +9320,12 @@ function PlasmicHamyar__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
+                            localStorage.setItem("token", $state.tokenUser);
                             return localStorage.setItem(
-                              "token",
-                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhhN2E2Yzk4LTc5YmYtNDhkZS04M2VhLWU5YjU5ZGVlMzNkYiIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNzI4MjE2MzI0fQ.IbgEV-SHvfUCTQzs1D2y8-6l2nSCVJMft2LoK0WKd3w"
+                              "birthDate",
+                              JSON.stringify(
+                                $state.user.data.result.man.birthDate
+                              )
                             );
                           })();
                         }
