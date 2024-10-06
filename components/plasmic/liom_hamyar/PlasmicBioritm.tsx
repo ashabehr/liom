@@ -387,7 +387,7 @@ function PlasmicBioritm__RenderFunc(props: {
           `${(() => {
             let value = localStorage.getItem("token");
             return value;
-          })()}${undefined}${(() => {
+          })()}${(() => {
             let value = localStorage.getItem("token");
             if (value) {
               return value;
@@ -4179,7 +4179,7 @@ function PlasmicBioritm__RenderFunc(props: {
                       return {
                         headers: {
                           "Content-Type": "application/json",
-                          Authorization: $state.token
+                          Authorization: localStorage.getItem("token")
                         }
                       };
                     } catch (e) {

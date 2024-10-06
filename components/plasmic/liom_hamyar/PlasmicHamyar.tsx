@@ -9342,7 +9342,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           return (() => {
                             return localStorage.setItem(
                               "token",
-                              $state.tokenUser
+                              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhhN2E2Yzk4LTc5YmYtNDhkZS04M2VhLWU5YjU5ZGVlMzNkYiIsInR5cGUiOiJ1c2VyIiwiaWF0IjoxNzI4MjE2MzI0fQ.IbgEV-SHvfUCTQzs1D2y8-6l2nSCVJMft2LoK0WKd3w"
                             );
                           })();
                         }
