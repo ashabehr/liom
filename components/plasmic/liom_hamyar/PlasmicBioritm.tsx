@@ -384,23 +384,16 @@ function PlasmicBioritm__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                let t = $ctx.query.t.replace("ksheulxn", "");
-                t = t.replace("jvkvkjvj", "");
-                return t;
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
+          `${(() => {
+            let t = $ctx.query.t.replace("ksheulxn", "");
+            t = t.replace("jvkvkjvj", "");
+            return t;
+          })()}${undefined}${(() => {
+            let value = localStorage.getItem("token");
+            if (value) {
+              return value;
             }
-          })()
+          })()}`
       },
       {
         path: "datePickers2.value",

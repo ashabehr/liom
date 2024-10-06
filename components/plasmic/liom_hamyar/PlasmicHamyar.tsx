@@ -9335,6 +9335,31 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateTokenUser"] = await $steps["updateTokenUser"];
                 }
 
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return localStorage.setItem(
+                              "token",
+                              $state.tokenUser
+                            );
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
                 $steps["updateName"] = (() => {
                   if (typeof $state.user.data.success !== "undefined") {
                     return $state.user.data.success;
