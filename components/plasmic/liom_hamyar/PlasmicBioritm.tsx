@@ -385,9 +385,8 @@ function PlasmicBioritm__RenderFunc(props: {
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           `${(() => {
-            let t = $ctx.query.t.replace("ksheulxn", "");
-            t = t.replace("jvkvkjvj", "");
-            return t;
+            let value = localStorage.getItem("token");
+            return value;
           })()}${undefined}${(() => {
             let value = localStorage.getItem("token");
             if (value) {
