@@ -1711,29 +1711,35 @@ function PlasmicHamyar__RenderFunc(props: {
                                         return "تا پایان امروز";
                                       return days_remaining1 + " روز " + "دیگر";
                                     case "pms":
-                                      let future2 = new Date(
-                                        $state.user.data.result.userStatus.pmsEnd
-                                      );
-                                      let current_date2 = new Date();
-                                      let delta2 = future2 - current_date2;
-                                      let days_remaining2 = Math.floor(
-                                        delta2 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining2 == 0)
+                                      if (
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPms == 0 ||
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPms == 1
+                                      )
                                         return "تا پایان امروز";
-                                      return days_remaining2 + " روز " + "دیگر";
+                                      return (
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPms -
+                                        1 +
+                                        " روز " +
+                                        "دیگر"
+                                      );
                                     case "blood":
-                                      let future3 = new Date(
-                                        $state.user.data.result.userStatus.periodEnd
-                                      );
-                                      let current_date3 = new Date();
-                                      let delta3 = future3 - current_date3;
-                                      let days_remaining3 = Math.floor(
-                                        delta3 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining3 == 0)
+                                      if (
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPeriod == 1 ||
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPeriod == 0
+                                      )
                                         return "تا پایان امروز";
-                                      return days_remaining3 + " روز " + "دیگر";
+                                      return (
+                                        $state.user.data.result.userStatus
+                                          .daysToEndPeriod -
+                                        1 +
+                                        " روز " +
+                                        "دیگر"
+                                      );
                                     default:
                                       return "";
                                   }
@@ -1883,20 +1889,17 @@ function PlasmicHamyar__RenderFunc(props: {
                             {(() => {
                               try {
                                 return (() => {
-                                  if (
-                                    $state.user.data.result.userStatus
-                                      .daysToStartPeriod == 0 ||
-                                    $state.user.data.result.userStatus
-                                      .daysToStartPeriod == 1
-                                  )
-                                    return "تا پایان امروز";
-                                  return (
-                                    $state.user.data.result.userStatus
-                                      .daysToStartPeriod -
-                                    1 +
-                                    " روز " +
-                                    "دیگر"
+                                  let future1 = new Date(
+                                    $state.user.data.result.userStatus.pmsEnd
                                   );
+                                  let current_date1 = new Date();
+                                  let delta1 = future1 - current_date1;
+                                  let days_remaining1 = Math.floor(
+                                    delta1 / (1000 * 60 * 60 * 24)
+                                  );
+                                  if (days_remaining1 == 0)
+                                    return "تا پایان امروز";
+                                  return days_remaining1 + " روز " + "دیگر";
                                 })();
                               } catch (e) {
                                 if (
@@ -1914,20 +1917,17 @@ function PlasmicHamyar__RenderFunc(props: {
                             {(() => {
                               try {
                                 return (() => {
-                                  if (
-                                    $state.user.data.result.userStatus
-                                      .daysToStartPeriod == 0 ||
-                                    $state.user.data.result.userStatus
-                                      .daysToStartPeriod == 1
-                                  )
-                                    return "تا پایان امروز";
-                                  return (
-                                    $state.user.data.result.userStatus
-                                      .daysToStartPeriod -
-                                    1 +
-                                    " روز " +
-                                    "دیگر"
+                                  let future1 = new Date(
+                                    $state.user.data.result.userStatus.pmsEnd
                                   );
+                                  let current_date1 = new Date();
+                                  let delta1 = future1 - current_date1;
+                                  let days_remaining1 = Math.floor(
+                                    delta1 / (1000 * 60 * 60 * 24)
+                                  );
+                                  if (days_remaining1 == 0)
+                                    return "تا پایان امروز";
+                                  return days_remaining1 + " روز " + "دیگر";
                                 })();
                               } catch (e) {
                                 if (
@@ -3095,8 +3095,16 @@ function PlasmicHamyar__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return $steps.invokeGlobalAction.data
-                                      .result;
+                                    return (() => {
+                                      if (
+                                        $steps.invokeGlobalAction.data.result ==
+                                        false
+                                      ) {
+                                        return $ctx.pagePath;
+                                      } else
+                                        return $steps.invokeGlobalAction.data
+                                          .result;
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -4442,8 +4450,16 @@ function PlasmicHamyar__RenderFunc(props: {
                                       const actionArgs = {
                                         destination: (() => {
                                           try {
-                                            return $steps.invokeGlobalAction
-                                              .data.result;
+                                            return (() => {
+                                              if (
+                                                $steps.invokeGlobalAction.data
+                                                  .result == false
+                                              ) {
+                                                return $ctx.pagePath;
+                                              } else
+                                                return $steps.invokeGlobalAction
+                                                  .data.result;
+                                            })();
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
@@ -4519,6 +4535,46 @@ function PlasmicHamyar__RenderFunc(props: {
                                 $steps["updateLoadingshop2"] = await $steps[
                                   "updateLoadingshop2"
                                 ];
+                              }
+
+                              $steps["updateSwitchbestIsChecked"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: [
+                                          "switchbest",
+                                          "isChecked"
+                                        ]
+                                      },
+                                      operation: 0
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateSwitchbestIsChecked"] != null &&
+                                typeof $steps["updateSwitchbestIsChecked"] ===
+                                  "object" &&
+                                typeof $steps["updateSwitchbestIsChecked"]
+                                  .then === "function"
+                              ) {
+                                $steps["updateSwitchbestIsChecked"] =
+                                  await $steps["updateSwitchbestIsChecked"];
                               }
                             }}
                             onColorChange={(...eventArgs) => {
@@ -5220,8 +5276,16 @@ function PlasmicHamyar__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return $steps.invokeGlobalAction.data
-                                      .result;
+                                    return (() => {
+                                      if (
+                                        $steps.invokeGlobalAction.data.result ==
+                                        false
+                                      ) {
+                                        return $ctx.pagePath;
+                                      } else
+                                        return $steps.invokeGlobalAction.data
+                                          .result;
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
