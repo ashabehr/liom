@@ -9669,193 +9669,161 @@ function PlasmicHamyar__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/hamyar/advice"}
           />
 
-          {(
-            hasVariant(globalVariants, "screen", "mobile")
-              ? (() => {
-                  try {
-                    return $ctx.query.m == "5X6qMIrL8";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-              : (() => {
-                  try {
-                    return $ctx.query.m == "3ZjitMAEm";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          ) ? (
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__maG1)}
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__maG1)}
+          >
+            <div
+              className={classNames(projectcss.all, sty.freeBox___5YvYk)}
+              onClick={async event => {
+                const $steps = {};
+              }}
             >
+              <Icon7Icon
+                className={classNames(projectcss.all, sty.svg__nzzVb)}
+                role={"img"}
+              />
+
               <div
-                className={classNames(projectcss.all, sty.freeBox___5YvYk)}
-                onClick={async event => {
-                  const $steps = {};
-                }}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___0Tc1Z
+                )}
               >
-                <Icon7Icon
-                  className={classNames(projectcss.all, sty.svg__nzzVb)}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___0Tc1Z
-                  )}
-                >
-                  {"\u0647\u0645\u06cc\u0627\u0631"}
-                </div>
+                {"\u0647\u0645\u06cc\u0627\u0631"}
               </div>
-              <div
-                aria-pressed={undefined}
-                className={classNames(projectcss.all, sty.freeBox__bHpZ)}
-                onClick={async event => {
-                  const $steps = {};
+            </div>
+            <div
+              aria-pressed={undefined}
+              className={classNames(projectcss.all, sty.freeBox__bHpZ)}
+              onClick={async event => {
+                const $steps = {};
 
-                  $steps["invokeGlobalAction"] =
-                    !(
-                      $state.tokenUser == undefined || $state.tokenUser == ""
-                    ) && $ctx.query.m != "3ZjitMAEm"
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://api.liom.app/service/log",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    userId: $state.user.data.result.man.id,
-                                    pageName: "biorhythm",
-                                    action: "loadePage",
-                                    extraData: {
-                                      refCode: $ctx.query.r,
-                                      mobile: $state.user.data.result.man.mobile
-                                    }
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              {
-                                headers: {
-                                  "Content-Type": "application/json",
-                                  Authorization:
-                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                                }
-                              }
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                  if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
-                  }
-
-                  $steps["goToPage"] = !(
-                    $state.tokenUser == undefined || $state.tokenUser == ""
-                  )
+                $steps["invokeGlobalAction"] =
+                  !($state.tokenUser == undefined || $state.tokenUser == "") &&
+                  $ctx.query.m != "3ZjitMAEm"
                     ? (() => {
                         const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return (
-                                "https://apps.liom.app/bioritm/?r=" +
-                                $ctx.query.r +
-                                "&m=" +
-                                $ctx.query.m
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
+                          args: [
+                            "POST",
+                            "https://api.liom.app/service/log",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  userId: $state.user.data.result.man.id,
+                                  pageName: "biorhythm",
+                                  action: "loadePage",
+                                  extraData: {
+                                    refCode: $ctx.query.r,
+                                    mobile: $state.user.data.result.man.mobile
+                                  }
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
                               }
-                              throw e;
+                            })(),
+                            {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                              }
                             }
-                          })()
+                          ]
                         };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
                       })()
                     : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-                }}
-              >
-                <PlasmicIcon__
-                  PlasmicIconType={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? Icon23Icon
-                      : Icon23Icon
-                  }
-                  className={classNames(projectcss.all, sty.svg__guU78)}
-                  role={"img"}
-                />
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
 
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___4Ln4F
-                  )}
-                >
-                  {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
-                </div>
+                $steps["goToPage"] = !(
+                  $state.tokenUser == undefined || $state.tokenUser == ""
+                )
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return (
+                              "https://apps.liom.app/bioritm/?r=" +
+                              $ctx.query.r +
+                              "&m=" +
+                              $ctx.query.m
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+              }}
+            >
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? Icon23Icon
+                    : Icon23Icon
+                }
+                className={classNames(projectcss.all, sty.svg__guU78)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___4Ln4F
+                )}
+              >
+                {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
               </div>
-            </Stack__>
-          ) : null}
+            </div>
+          </Stack__>
         </div>
       </div>
     </React.Fragment>
