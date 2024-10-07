@@ -3090,21 +3090,14 @@ function PlasmicHamyar__RenderFunc(props: {
                       }
 
                       $steps["goToPage"] =
-                        $steps.invokeGlobalAction.data.success == true
+                        $steps.invokeGlobalAction.data.success == true &&
+                        $steps.invokeGlobalAction.data.result != false
                           ? (() => {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return (() => {
-                                      if (
-                                        $steps.invokeGlobalAction.data.result ==
-                                        false
-                                      ) {
-                                        return $ctx.pagePath;
-                                      } else
-                                        return $steps.invokeGlobalAction.data
-                                          .result;
-                                    })();
+                                    return $steps.invokeGlobalAction.data
+                                      .result;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -3209,6 +3202,32 @@ function PlasmicHamyar__RenderFunc(props: {
                       ) {
                         $steps["updateShopModalWebOpen"] = await $steps[
                           "updateShopModalWebOpen"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction2"] =
+                        $steps.invokeGlobalAction.data.success == false ||
+                        $steps.invokeGlobalAction.data.result == false
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                                  "top-left"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
                         ];
                       }
                     }}
@@ -4445,21 +4464,15 @@ function PlasmicHamyar__RenderFunc(props: {
                               }
 
                               $steps["goToPage"] =
-                                $steps.invokeGlobalAction.data.success == true
+                                $steps.invokeGlobalAction.data.success ==
+                                  true &&
+                                $steps.invokeGlobalAction.data.result != false
                                   ? (() => {
                                       const actionArgs = {
                                         destination: (() => {
                                           try {
-                                            return (() => {
-                                              if (
-                                                $steps.invokeGlobalAction.data
-                                                  .result == false
-                                              ) {
-                                                return $ctx.pagePath;
-                                              } else
-                                                return $steps.invokeGlobalAction
-                                                  .data.result;
-                                            })();
+                                            return $steps.invokeGlobalAction
+                                              .data.result;
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
@@ -4537,44 +4550,33 @@ function PlasmicHamyar__RenderFunc(props: {
                                 ];
                               }
 
-                              $steps["updateSwitchbestIsChecked"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      variable: {
-                                        objRoot: $state,
-                                        variablePath: [
-                                          "switchbest",
-                                          "isChecked"
+                              $steps["invokeGlobalAction2"] =
+                                $steps.invokeGlobalAction.data.success ==
+                                  false ||
+                                $steps.invokeGlobalAction.data.result == false
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "error",
+                                          "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                                          "top-left"
                                         ]
-                                      },
-                                      operation: 0
-                                    };
-                                    return (({
-                                      variable,
-                                      value,
-                                      startIndex,
-                                      deleteCount
-                                    }) => {
-                                      if (!variable) {
-                                        return;
-                                      }
-                                      const { objRoot, variablePath } =
-                                        variable;
-
-                                      $stateSet(objRoot, variablePath, value);
-                                      return value;
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
+                                      };
+                                      return $globalActions[
+                                        "Fragment.showToast"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
                               if (
-                                $steps["updateSwitchbestIsChecked"] != null &&
-                                typeof $steps["updateSwitchbestIsChecked"] ===
+                                $steps["invokeGlobalAction2"] != null &&
+                                typeof $steps["invokeGlobalAction2"] ===
                                   "object" &&
-                                typeof $steps["updateSwitchbestIsChecked"]
-                                  .then === "function"
+                                typeof $steps["invokeGlobalAction2"].then ===
+                                  "function"
                               ) {
-                                $steps["updateSwitchbestIsChecked"] =
-                                  await $steps["updateSwitchbestIsChecked"];
+                                $steps["invokeGlobalAction2"] = await $steps[
+                                  "invokeGlobalAction2"
+                                ];
                               }
                             }}
                             onColorChange={(...eventArgs) => {
@@ -5271,21 +5273,14 @@ function PlasmicHamyar__RenderFunc(props: {
                       }
 
                       $steps["goToPage"] =
-                        $steps.invokeGlobalAction.data.success == true
+                        $steps.invokeGlobalAction.data.success == true &&
+                        $steps.invokeGlobalAction.data.result != false
                           ? (() => {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return (() => {
-                                      if (
-                                        $steps.invokeGlobalAction.data.result ==
-                                        false
-                                      ) {
-                                        return $ctx.pagePath;
-                                      } else
-                                        return $steps.invokeGlobalAction.data
-                                          .result;
-                                    })();
+                                    return $steps.invokeGlobalAction.data
+                                      .result;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -5391,6 +5386,32 @@ function PlasmicHamyar__RenderFunc(props: {
                       ) {
                         $steps["updateShopModalMobileClick"] = await $steps[
                           "updateShopModalMobileClick"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction2"] =
+                        $steps.invokeGlobalAction.data.success == false ||
+                        $steps.invokeGlobalAction.data.result == false
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                                  "top-left"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
                         ];
                       }
                     }}
