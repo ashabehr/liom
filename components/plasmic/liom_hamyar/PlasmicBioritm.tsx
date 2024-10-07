@@ -3848,7 +3848,13 @@ function PlasmicBioritm__RenderFunc(props: {
             <SlideinModal
               data-plasmic-name={"slideinModal"}
               data-plasmic-override={overrides.slideinModal}
-              className={classNames("__wab_instance", sty.slideinModal)}
+              className={classNames("__wab_instance", sty.slideinModal, {
+                [sty.slideinModalferstTimepage]: hasVariant(
+                  $state,
+                  "ferstTimepage",
+                  "ferstTimepage"
+                )
+              })}
               click={generateStateValueProp($state, ["slideinModal", "click"])}
               onClick={async event => {
                 const $steps = {};
@@ -3940,7 +3946,15 @@ function PlasmicBioritm__RenderFunc(props: {
                 "click"
               ])}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__pzBPo)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__pzBPo, {
+                  [sty.freeBoxferstTimepage__pzBPoSTpN]: hasVariant(
+                    $state,
+                    "ferstTimepage",
+                    "ferstTimepage"
+                  )
+                })}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
@@ -4008,7 +4022,13 @@ function PlasmicBioritm__RenderFunc(props: {
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox___6AxPh)}
+                  className={classNames(projectcss.all, sty.freeBox___6AxPh, {
+                    [sty.freeBoxferstTimepage___6AxPhSTpN]: hasVariant(
+                      $state,
+                      "ferstTimepage",
+                      "ferstTimepage"
+                    )
+                  })}
                 >
                   <Button
                     data-plasmic-name={"button5"}
@@ -4255,18 +4275,14 @@ function PlasmicBioritm__RenderFunc(props: {
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
-                                return (() => {
-                                  return localStorage.setItem(
-                                    "birthDate",
-                                    JSON.stringify({
-                                      year: parseInt($state.bday.split("-")[0]),
-                                      month: parseInt(
-                                        $state.bday.split("-")[1]
-                                      ),
-                                      day: parseInt($state.bday.split("-")[2])
-                                    })
-                                  );
-                                })();
+                                return localStorage.setItem(
+                                  "birthDate",
+                                  JSON.stringify({
+                                    year: parseInt($state.bday.split("-")[0]),
+                                    month: parseInt($state.bday.split("-")[1]),
+                                    day: parseInt($state.bday.split("-")[2])
+                                  })
+                                );
                               }
                             };
                             return (({ customFunction }) => {
@@ -4280,6 +4296,34 @@ function PlasmicBioritm__RenderFunc(props: {
                         typeof $steps["runCode"].then === "function"
                       ) {
                         $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["updateFerstTimepage"] =
+                        $steps.invokeGlobalAction.data.success == true
+                          ? (() => {
+                              const actionArgs = {
+                                vgroup: "ferstTimepage",
+                                operation: 6,
+                                value: "ferstTimepage"
+                              };
+                              return (({ vgroup, value }) => {
+                                if (typeof value === "string") {
+                                  value = [value];
+                                }
+
+                                $stateSet($state, vgroup, false);
+                                return false;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateFerstTimepage"] != null &&
+                        typeof $steps["updateFerstTimepage"] === "object" &&
+                        typeof $steps["updateFerstTimepage"].then === "function"
+                      ) {
+                        $steps["updateFerstTimepage"] = await $steps[
+                          "updateFerstTimepage"
+                        ];
                       }
                     }}
                     onColorChange={(...eventArgs) => {
@@ -4371,7 +4415,13 @@ function PlasmicBioritm__RenderFunc(props: {
           <SlideinModal
             data-plasmic-name={"slideinModal3"}
             data-plasmic-override={overrides.slideinModal3}
-            className={classNames("__wab_instance", sty.slideinModal3)}
+            className={classNames("__wab_instance", sty.slideinModal3, {
+              [sty.slideinModal3ferstTimepage]: hasVariant(
+                $state,
+                "ferstTimepage",
+                "ferstTimepage"
+              )
+            })}
             click={generateStateValueProp($state, ["slideinModal3", "click"])}
             onClick={async event => {
               const $steps = {};
@@ -4412,7 +4462,15 @@ function PlasmicBioritm__RenderFunc(props: {
               "click"
             ])}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__dgIxQ)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__dgIxQ, {
+                [sty.freeBoxferstTimepage__dgIxQSTpN]: hasVariant(
+                  $state,
+                  "ferstTimepage",
+                  "ferstTimepage"
+                )
+              })}
+            >
               <div
                 className={classNames(
                   projectcss.all,
@@ -4480,12 +4538,24 @@ function PlasmicBioritm__RenderFunc(props: {
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__cmxW3)}
+                className={classNames(projectcss.all, sty.freeBox__cmxW3, {
+                  [sty.freeBoxferstTimepage__cmxW3STpN]: hasVariant(
+                    $state,
+                    "ferstTimepage",
+                    "ferstTimepage"
+                  )
+                })}
               >
                 <Button
                   data-plasmic-name={"button"}
                   data-plasmic-override={overrides.button}
-                  className={classNames("__wab_instance", sty.button)}
+                  className={classNames("__wab_instance", sty.button, {
+                    [sty.buttonferstTimepage]: hasVariant(
+                      $state,
+                      "ferstTimepage",
+                      "ferstTimepage"
+                    )
+                  })}
                   color={generateStateValueProp($state, ["button", "color"])}
                   onClick={async event => {
                     const $steps = {};
@@ -4717,16 +4787,14 @@ function PlasmicBioritm__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return (() => {
-                                return localStorage.setItem(
-                                  "birthDate",
-                                  JSON.stringify({
-                                    year: parseInt($state.bday.split("-")[0]),
-                                    month: parseInt($state.bday.split("-")[1]),
-                                    day: parseInt($state.bday.split("-")[2])
-                                  })
-                                );
-                              })();
+                              return localStorage.setItem(
+                                "birthDate",
+                                JSON.stringify({
+                                  year: parseInt($state.bday.split("-")[0]),
+                                  month: parseInt($state.bday.split("-")[1]),
+                                  day: parseInt($state.bday.split("-")[2])
+                                })
+                              );
                             }
                           };
                           return (({ customFunction }) => {
@@ -4740,6 +4808,34 @@ function PlasmicBioritm__RenderFunc(props: {
                       typeof $steps["runCode"].then === "function"
                     ) {
                       $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["updateFerstTimepage"] =
+                      $steps.invokeGlobalAction.data.success == true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "ferstTimepage",
+                              operation: 6,
+                              value: "ferstTimepage"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, false);
+                              return false;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["updateFerstTimepage"] != null &&
+                      typeof $steps["updateFerstTimepage"] === "object" &&
+                      typeof $steps["updateFerstTimepage"].then === "function"
+                    ) {
+                      $steps["updateFerstTimepage"] = await $steps[
+                        "updateFerstTimepage"
+                      ];
                     }
                   }}
                   onColorChange={(...eventArgs) => {
@@ -4761,7 +4857,13 @@ function PlasmicBioritm__RenderFunc(props: {
                 <Button
                   data-plasmic-name={"button4"}
                   data-plasmic-override={overrides.button4}
-                  className={classNames("__wab_instance", sty.button4)}
+                  className={classNames("__wab_instance", sty.button4, {
+                    [sty.button4ferstTimepage]: hasVariant(
+                      $state,
+                      "ferstTimepage",
+                      "ferstTimepage"
+                    )
+                  })}
                   color={generateStateValueProp($state, ["button4", "color"])}
                   onClick={async event => {
                     const $steps = {};

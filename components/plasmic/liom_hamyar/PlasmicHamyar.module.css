@@ -2062,7 +2062,7 @@
 }
 @media (max-width: 640px) {
   .text__vHrq {
-    font-size: 12px;
+    font-size: 14px;
     align-self: auto;
     font-weight: 600;
   }
@@ -2105,7 +2105,7 @@
 }
 @media (max-width: 640px) {
   .text__fkgDb {
-    font-size: 10px;
+    font-size: 12px;
     align-self: center;
     padding-left: 30px;
   }
@@ -2134,7 +2134,7 @@
 }
 @media (max-width: 640px) {
   .text___9KXbh {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
   }
 }
@@ -2188,6 +2188,7 @@
 @media (max-width: 640px) {
   .text__vAf7O {
     font-size: 10px;
+    align-self: auto;
   }
 }
 .text__p5Zbh {

@@ -2952,6 +2952,19 @@ function PlasmicHamyar__RenderFunc(props: {
                         role={"img"}
                       />
                     }
+                    isDisabled={(() => {
+                      try {
+                        return $state.loadingshop;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     onClick={async event => {
                       const $steps = {};
 
@@ -3151,6 +3164,43 @@ function PlasmicHamyar__RenderFunc(props: {
                       ) {
                         $steps["updateLoadingshop2"] = await $steps[
                           "updateLoadingshop2"
+                        ];
+                      }
+
+                      $steps["updateShopModalWebOpen"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["shopModalWeb", "open"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateShopModalWebOpen"] != null &&
+                        typeof $steps["updateShopModalWebOpen"] === "object" &&
+                        typeof $steps["updateShopModalWebOpen"].then ===
+                          "function"
+                      ) {
+                        $steps["updateShopModalWebOpen"] = await $steps[
+                          "updateShopModalWebOpen"
                         ];
                       }
                     }}
@@ -4186,6 +4236,37 @@ function PlasmicHamyar__RenderFunc(props: {
                                 role={"img"}
                               />
                             }
+                            isDisabled={
+                              hasVariant(globalVariants, "screen", "mobile")
+                                ? (() => {
+                                    try {
+                                      return $state.loadingshop;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                : (() => {
+                                    try {
+                                      return $state.loadingshop;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                            }
                             onClick={async event => {
                               const $steps = {};
 
@@ -4454,7 +4535,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "showEndIcon";
+                                  return [];
                                 }
                                 throw e;
                               }
@@ -4992,6 +5073,23 @@ function PlasmicHamyar__RenderFunc(props: {
                         role={"img"}
                       />
                     }
+                    isDisabled={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? (() => {
+                            try {
+                              return $state.loadingshop;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        : undefined
+                    }
                     onClick={async event => {
                       const $steps = {};
 
@@ -5191,6 +5289,44 @@ function PlasmicHamyar__RenderFunc(props: {
                       ) {
                         $steps["updateLoadingshop2"] = await $steps[
                           "updateLoadingshop2"
+                        ];
+                      }
+
+                      $steps["updateShopModalMobileClick"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["shopModalMobile", "click"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateShopModalMobileClick"] != null &&
+                        typeof $steps["updateShopModalMobileClick"] ===
+                          "object" &&
+                        typeof $steps["updateShopModalMobileClick"].then ===
+                          "function"
+                      ) {
+                        $steps["updateShopModalMobileClick"] = await $steps[
+                          "updateShopModalMobileClick"
                         ];
                       }
                     }}
@@ -9319,34 +9455,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateTokenUser"] = await $steps["updateTokenUser"];
                 }
 
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            localStorage.setItem("token", $state.tokenUser);
-                            return localStorage.setItem(
-                              "birthDate",
-                              JSON.stringify(
-                                $state.user.data.result.man.birthDate
-                              )
-                            );
-                          })();
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await $steps["runCode"];
-                }
-
                 $steps["updateName"] = (() => {
                   if (typeof $state.user.data.success !== "undefined") {
                     return $state.user.data.success;
@@ -9385,6 +9493,34 @@ function PlasmicHamyar__RenderFunc(props: {
                   typeof $steps["updateName"].then === "function"
                 ) {
                   $steps["updateName"] = await $steps["updateName"];
+                }
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            localStorage.setItem("token", $state.tokenUser);
+                            return localStorage.setItem(
+                              "birthDate",
+                              JSON.stringify(
+                                $state.user.data.result.man.birthDate
+                              )
+                            );
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
                 }
               }).apply(null, eventArgs);
             }}
@@ -9537,7 +9673,7 @@ function PlasmicHamyar__RenderFunc(props: {
             hasVariant(globalVariants, "screen", "mobile")
               ? (() => {
                   try {
-                    return $ctx.query.m == "3ZjitMAEm";
+                    return $ctx.query.m == "5X6qMIrL8";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

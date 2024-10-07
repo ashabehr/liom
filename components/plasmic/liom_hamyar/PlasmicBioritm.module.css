@@ -931,6 +931,9 @@
     flex-shrink: 0;
   }
 }
+.slideinModalferstTimepage:global(.__wab_instance) {
+  flex-shrink: 0;
+}
 .freeBox__qqw6C {
   display: flex;
   flex-direction: column;
