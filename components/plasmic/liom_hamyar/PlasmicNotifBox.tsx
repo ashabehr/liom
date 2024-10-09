@@ -245,7 +245,9 @@ function PlasmicNotifBox__RenderFunc(props: {
       {(() => {
         const child$Props = {
           bordered: true,
-          className: classNames("__wab_instance", sty.collapse),
+          className: classNames("__wab_instance", sty.collapse, {
+            [sty.collapseseen]: hasVariant($state, "seen", "seen")
+          }),
           defaultOpen: args.open,
           expandIcon: null,
           expandIconPosition: "end",

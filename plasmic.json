@@ -483,6 +483,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicNotifBox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "0x91e3BeeLCM",
+          "name": "TodoList",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicTodoList.tsx",
+          "importSpec": {
+            "modulePath": "TodoList.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicTodoList.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -655,6 +668,11 @@
           "id": "MKSedampsAFw",
           "name": "Icon26Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon26.tsx"
+        },
+        {
+          "id": "N8lACQIgd0OU",
+          "name": "Icon27Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon27.tsx"
         }
       ],
       "images": [
@@ -732,6 +750,31 @@
           "id": "EwdFlxfFEODy",
           "name": "image 11",
           "filePath": "../public/plasmic/liom_hamyar/images/image11.gif"
+        },
+        {
+          "id": "Rb_qnJoqOvWx",
+          "name": "image 12",
+          "filePath": "../public/plasmic/liom_hamyar/images/image12.svg"
+        },
+        {
+          "id": "OFbB5g8eCPSr",
+          "name": "image 13",
+          "filePath": "../public/plasmic/liom_hamyar/images/image13.svg"
+        },
+        {
+          "id": "O31B7YzSWLvx",
+          "name": "image 14",
+          "filePath": "../public/plasmic/liom_hamyar/images/image14.png"
+        },
+        {
+          "id": "E1B5jZkHLNgw",
+          "name": "image 15",
+          "filePath": "../public/plasmic/liom_hamyar/images/image15.png"
+        },
+        {
+          "id": "OyHkM0gQB0x6",
+          "name": "image 16",
+          "filePath": "../public/plasmic/liom_hamyar/images/image16.svg"
         }
       ],
       "indirect": false,

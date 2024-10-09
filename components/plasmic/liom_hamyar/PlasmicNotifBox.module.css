@@ -8,13 +8,15 @@
   max-width: 100%;
   background: #ffffff;
   position: relative;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
   min-width: 0;
   border-radius: 12px;
   padding: 0px;
-  border-width: 2px;
 }
 .rootseen {
-  background: #f4f4f4;
+  background: #ffffff80;
+  opacity: 0.8;
+  box-shadow: 0px 4px 16px 0px #00000014;
 }
 .collapse:global(.__wab_instance) {
   width: 100%;
@@ -91,6 +93,9 @@
   .freeBox__lpV3T {
     padding-left: 0px;
   }
+}
+.freeBoxseen__lpV3TofXyw {
+  opacity: 0.8;
 }
 .freeBox__d92Y7 {
   display: flex;

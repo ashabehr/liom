@@ -78,8 +78,6 @@ import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
-import Navbaricon from "../../Navbaricon"; // plasmic-import: rrvRSiS3qm7y/component
-import Navbaricon2 from "../../Navbaricon2"; // plasmic-import: yohgcniRcj2Q/component
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
@@ -133,8 +131,6 @@ export type PlasmicHamyar__OverridesType = {
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   embedHtml?: Flex__<typeof Embed>;
-  navbaricon?: Flex__<typeof Navbaricon>;
-  navbaricon2?: Flex__<typeof Navbaricon2>;
   shopModalMobile?: Flex__<typeof SlideinModal>;
   subscription2?: Flex__<typeof Subscription>;
   button4?: Flex__<typeof Button>;
@@ -285,18 +281,6 @@ function PlasmicHamyar__RenderFunc(props: {
       },
       {
         path: "shop.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "navbaricon.click",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "navbaricon2.click",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -737,7 +721,8 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "modal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
       },
       {
         path: "input2.value",
@@ -1053,6 +1038,46 @@ function PlasmicHamyar__RenderFunc(props: {
                             projectcss.all,
                             sty.freeBox__uHwR
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateModalOpen"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["modal", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateModalOpen"] != null &&
+                              typeof $steps["updateModalOpen"] === "object" &&
+                              typeof $steps["updateModalOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateModalOpen"] = await $steps[
+                                "updateModalOpen"
+                              ];
+                            }
+                          }}
                         >
                           <div
                             className={classNames(
@@ -1186,6 +1211,43 @@ function PlasmicHamyar__RenderFunc(props: {
                           )}
                           onClick={async event => {
                             const $steps = {};
+
+                            $steps["updateModalOpen"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["modal", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateModalOpen"] != null &&
+                              typeof $steps["updateModalOpen"] === "object" &&
+                              typeof $steps["updateModalOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateModalOpen"] = await $steps[
+                                "updateModalOpen"
+                              ];
+                            }
                           }}
                         >
                           <div
@@ -4800,39 +4862,6 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
               />
 
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__wFGhb)}
-              >
-                <Navbaricon
-                  data-plasmic-name={"navbaricon"}
-                  data-plasmic-override={overrides.navbaricon}
-                  className={classNames("__wab_instance", sty.navbaricon)}
-                  click={generateStateValueProp($state, [
-                    "navbaricon",
-                    "click"
-                  ])}
-                  onClickChange={generateStateOnChangeProp($state, [
-                    "navbaricon",
-                    "click"
-                  ])}
-                />
-
-                <Navbaricon2
-                  data-plasmic-name={"navbaricon2"}
-                  data-plasmic-override={overrides.navbaricon2}
-                  className={classNames("__wab_instance", sty.navbaricon2)}
-                  click={generateStateValueProp($state, [
-                    "navbaricon2",
-                    "click"
-                  ])}
-                  onClickChange={generateStateOnChangeProp($state, [
-                    "navbaricon2",
-                    "click"
-                  ])}
-                />
-              </Stack__>
               <SlideinModal
                 data-plasmic-name={"shopModalMobile"}
                 data-plasmic-override={overrides.shopModalMobile}
@@ -5534,7 +5563,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 trigger={null}
                 width={
                   hasVariant(globalVariants, "screen", "mobile")
-                    ? "520px"
+                    ? "100vw"
                     : "100%"
                 }
                 wrapClassName={classNames({
@@ -9933,8 +9962,6 @@ const PlasmicDescendants = {
     "button",
     "button2",
     "embedHtml",
-    "navbaricon",
-    "navbaricon2",
     "shopModalMobile",
     "subscription2",
     "button4",
@@ -9964,8 +9991,6 @@ const PlasmicDescendants = {
   button: ["button"],
   button2: ["button2"],
   embedHtml: ["embedHtml"],
-  navbaricon: ["navbaricon"],
-  navbaricon2: ["navbaricon2"],
   shopModalMobile: ["shopModalMobile", "subscription2", "button4"],
   subscription2: ["subscription2"],
   button4: ["button4"],
@@ -10000,8 +10025,6 @@ type NodeDefaultElementType = {
   button: typeof Button;
   button2: typeof Button;
   embedHtml: typeof Embed;
-  navbaricon: typeof Navbaricon;
-  navbaricon2: typeof Navbaricon2;
   shopModalMobile: typeof SlideinModal;
   subscription2: typeof Subscription;
   button4: typeof Button;
@@ -10117,8 +10140,6 @@ export const PlasmicHamyar = Object.assign(
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
     embedHtml: makeNodeComponent("embedHtml"),
-    navbaricon: makeNodeComponent("navbaricon"),
-    navbaricon2: makeNodeComponent("navbaricon2"),
     shopModalMobile: makeNodeComponent("shopModalMobile"),
     subscription2: makeNodeComponent("subscription2"),
     button4: makeNodeComponent("button4"),

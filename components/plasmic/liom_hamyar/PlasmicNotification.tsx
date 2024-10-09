@@ -74,6 +74,8 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicNotification.module.css"; // plasmic-import: YKiT8gl73-sD/css
 
+import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
+
 createPlasmicElementProxy;
 
 export type PlasmicNotification__VariantMembers = {
@@ -96,9 +98,10 @@ export const PlasmicNotification__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicNotification__OverridesType = {
   root?: Flex__<"div">;
+  text?: Flex__<"div">;
+  svg?: Flex__<"svg">;
   img?: Flex__<typeof PlasmicImg__>;
   lottie?: Flex__<typeof LottieWrapper>;
-  freeBox?: Flex__<"div">;
   notifBox?: Flex__<typeof NotifBox>;
   apiRequest?: Flex__<typeof ApiRequest>;
 };
@@ -277,6 +280,25 @@ function PlasmicNotification__RenderFunc(props: {
           }
         )}
       >
+        <div className={classNames(projectcss.all, sty.freeBox___7R3Ay)}>
+          <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text
+            )}
+          >
+            {"\u0627\u0639\u0644\u0627\u0646\u0627\u062a"}
+          </div>
+          <Icon22Icon
+            data-plasmic-name={"svg"}
+            data-plasmic-override={overrides.svg}
+            className={classNames(projectcss.all, sty.svg)}
+            role={"img"}
+          />
+        </div>
         <PlasmicImg__
           data-plasmic-name={"img"}
           data-plasmic-override={overrides.img}
@@ -2852,11 +2874,9 @@ function PlasmicNotification__RenderFunc(props: {
         ) : null}
         <Stack__
           as={"div"}
-          data-plasmic-name={"freeBox"}
-          data-plasmic-override={overrides.freeBox}
           hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox, {
-            [sty.freeBoxnotification]: hasVariant(
+          className={classNames(projectcss.all, sty.freeBox__dhTjq, {
+            [sty.freeBoxnotification__dhTjqFbnFk]: hasVariant(
               $state,
               "notification",
               "notification"
@@ -3158,10 +3178,11 @@ function PlasmicNotification__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img", "lottie", "freeBox", "notifBox", "apiRequest"],
+  root: ["root", "text", "svg", "img", "lottie", "notifBox", "apiRequest"],
+  text: ["text"],
+  svg: ["svg"],
   img: ["img"],
   lottie: ["lottie"],
-  freeBox: ["freeBox", "notifBox"],
   notifBox: ["notifBox"],
   apiRequest: ["apiRequest"]
 } as const;
@@ -3170,9 +3191,10 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  text: "div";
+  svg: "svg";
   img: typeof PlasmicImg__;
   lottie: typeof LottieWrapper;
-  freeBox: "div";
   notifBox: typeof NotifBox;
   apiRequest: typeof ApiRequest;
 };
@@ -3262,9 +3284,10 @@ export const PlasmicNotification = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    text: makeNodeComponent("text"),
+    svg: makeNodeComponent("svg"),
     img: makeNodeComponent("img"),
     lottie: makeNodeComponent("lottie"),
-    freeBox: makeNodeComponent("freeBox"),
     notifBox: makeNodeComponent("notifBox"),
     apiRequest: makeNodeComponent("apiRequest"),
 

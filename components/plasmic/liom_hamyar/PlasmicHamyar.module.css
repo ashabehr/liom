@@ -23,6 +23,12 @@
   grid-column: 4;
 }
 @media (max-width: 640px) {
+  .root {
+    justify-items: center;
+    align-content: flex-start;
+  }
+}
+@media (max-width: 640px) {
   .root > * {
     grid-column: 4;
   }
@@ -1053,11 +1059,12 @@
 }
 @media (max-width: 640px) {
   .text___24Wkh {
-    font-size: 15px;
+    font-size: 14px;
     opacity: 0.8;
     color: #535353;
     text-align: justify;
     padding-left: 15px;
+    padding-top: 5px;
   }
 }
 .freeBox___2QF1T {
@@ -2408,45 +2415,6 @@
   max-width: 100%;
   object-fit: cover;
 }
-.freeBox__wFGhb {
-  flex-direction: row;
-  position: fixed;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  left: 0;
-  top: auto;
-  z-index: 1;
-  right: 0;
-  bottom: 0;
-  background: #ffffff;
-  box-shadow: 0px 4px 5px 10px #0000002e;
-  display: none;
-  padding: 8px 20px;
-}
-.freeBox__wFGhb > :global(.__wab_flex-container) {
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin-left: calc(0px - 40px);
-  width: calc(100% + 40px);
-}
-.freeBox__wFGhb > :global(.__wab_flex-container) > *,
-.freeBox__wFGhb > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__wFGhb > :global(.__wab_flex-container) > picture > img,
-.freeBox__wFGhb
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-left: 40px;
-}
-.navbaricon:global(.__wab_instance) {
-  max-width: 100%;
-}
-.navbaricon2:global(.__wab_instance) {
-  position: relative;
-}
 .shopModalMobile:global(.__wab_instance) {
   max-width: 100%;
   left: 0;
@@ -2572,6 +2540,7 @@
   flex-shrink: 0;
 }
 .modal__modal :global(.ant-modal-content) {
+  background: #f7f7f7;
   outline: none;
   border-radius: 0px;
 }
@@ -2613,15 +2582,16 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   max-width: 100%;
   overflow: auto;
-  min-height: 0;
+  min-height: 100vh;
+  max-height: 100vh;
   padding: 8px;
 }
 @media (max-width: 640px) {
   .freeBox__omzcJ {
-    height: 150%;
+    height: 100vh;
     padding: 0px;
   }
 }
@@ -2654,6 +2624,7 @@
 @media (max-width: 640px) {
   .img__vFfed {
     width: auto;
+    margin-bottom: 24px;
   }
 }
 .freeBox__oqT6B {
@@ -2978,7 +2949,7 @@
 }
 @media (max-width: 640px) {
   .text___4HpdT {
-    font-size: 12px;
+    font-size: 14px;
     align-self: auto;
     font-weight: 600;
   }
@@ -3021,7 +2992,7 @@
 }
 @media (max-width: 640px) {
   .text___7SdD5 {
-    font-size: 10px;
+    font-size: 12px;
     align-self: center;
     padding-left: 30px;
   }
@@ -3050,7 +3021,7 @@
 }
 @media (max-width: 640px) {
   .text__lNcfe {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
   }
 }
