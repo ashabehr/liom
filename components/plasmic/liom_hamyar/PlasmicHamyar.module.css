@@ -3,14 +3,14 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: 100vh;
-  align-content: center;
+  height: 100%;
+  align-content: flex-start;
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
   background: #f7f7f7;
-  overflow: auto;
   min-width: 0;
+  min-height: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -25,7 +25,7 @@
 @media (max-width: 640px) {
   .root {
     justify-items: center;
-    align-content: center;
+    align-content: flex-start;
   }
 }
 @media (max-width: 640px) {
@@ -3304,6 +3304,27 @@
     width: 30px;
   }
 }
+.freeBox__q7NB {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  padding: 8px;
+}
+@media (max-width: 640px) {
+  .freeBox__q7NB {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    padding: 0px;
+  }
+}
 .lottie:global(.__wab_instance) {
   max-width: 200%;
   object-fit: cover;
@@ -3311,6 +3332,7 @@
   background: none;
   height: 200px;
   width: 200px;
+  flex-shrink: 0;
 }
 .user:global(.__wab_instance) {
   max-width: 100%;
