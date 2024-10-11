@@ -63,6 +63,8 @@
   --plasmic-token-green: var(--token-G-IZ_XhVdlqp);
   --token-4RAe7M2gInqR: #eb464a;
   --plasmic-token-red: var(--token-4RAe7M2gInqR);
+  --token-Pgu9NqBtA3c7: #91654c;
+  --plasmic-token-aaa: var(--token-Pgu9NqBtA3c7);
 }
 
 .plasmic_tokens {

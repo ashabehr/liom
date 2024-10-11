@@ -2141,6 +2141,16 @@
       }
     },
     {
+      "name": "aaa",
+      "type": "color",
+      "value": "#91654C",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "Pgu9NqBtA3c7"
+      }
+    },
+    {
       "name": "app bg",
       "type": "color",
       "value": "#ffffff",

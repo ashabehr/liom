@@ -9,8 +9,8 @@ import { hasVariant, ensureGlobalVariants } from "@plasmicapp/react-web";
 import { Fragment } from "@/fragment/fragment"; // plasmic-import: ndlOltyewsQb/codeComponent
 import { GrowthBook } from "@/fragment/growthbook"; // plasmic-import: EEWwb4qBFl4l/codeComponent
 import { Splunk } from "@/fragment/splunk"; // plasmic-import: lER0gVvAHk4k/codeComponent
-import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider";
 import { EmbedCss } from "@plasmicpkgs/plasmic-embed-css";
+import { AntdConfigProvider } from "@plasmicpkgs/antd5/skinny/registerConfigProvider";
 import { CmsCredentialsProvider } from "@plasmicpkgs/plasmic-cms";
 
 export interface GlobalContextsProviderProps {
@@ -18,20 +18,16 @@ export interface GlobalContextsProviderProps {
   fragmentProps?: Partial<
     Omit<React.ComponentProps<typeof Fragment>, "children">
   >;
-
   growthBookProps?: Partial<
     Omit<React.ComponentProps<typeof GrowthBook>, "children">
   >;
-
   splunkProps?: Partial<Omit<React.ComponentProps<typeof Splunk>, "children">>;
-  antdConfigProviderProps?: Partial<
-    Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
-  >;
-
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
-
+  antdConfigProviderProps?: Partial<
+    Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
+  >;
   cmsCredentialsProviderProps?: Partial<
     Omit<React.ComponentProps<typeof CmsCredentialsProvider>, "children">
   >;
@@ -45,8 +41,8 @@ export default function GlobalContextsProvider(
     fragmentProps,
     growthBookProps,
     splunkProps,
-    antdConfigProviderProps,
     embedCssProps,
+    antdConfigProviderProps,
     cmsCredentialsProviderProps
   } = props;
 
@@ -103,114 +99,118 @@ export default function GlobalContextsProvider(
               : undefined
           }
         >
-          <AntdConfigProvider
-            {...antdConfigProviderProps}
-            borderRadius={
-              antdConfigProviderProps &&
-              "borderRadius" in antdConfigProviderProps
-                ? antdConfigProviderProps.borderRadius!
-                : 6
-            }
-            colorBgBase={
-              antdConfigProviderProps &&
-              "colorBgBase" in antdConfigProviderProps
-                ? antdConfigProviderProps.colorBgBase!
-                : "#ffffff"
-            }
-            colorError={
-              antdConfigProviderProps && "colorError" in antdConfigProviderProps
-                ? antdConfigProviderProps.colorError!
-                : "#ff4d4f"
-            }
-            colorInfo={
-              antdConfigProviderProps && "colorInfo" in antdConfigProviderProps
-                ? antdConfigProviderProps.colorInfo!
-                : "#1677ff"
-            }
-            colorPrimary={
-              antdConfigProviderProps &&
-              "colorPrimary" in antdConfigProviderProps
-                ? antdConfigProviderProps.colorPrimary!
-                : "#327CE4"
-            }
-            colorSuccess={
-              antdConfigProviderProps &&
-              "colorSuccess" in antdConfigProviderProps
-                ? antdConfigProviderProps.colorSuccess!
-                : "#52c41a"
-            }
-            colorWarning={
-              antdConfigProviderProps &&
-              "colorWarning" in antdConfigProviderProps
-                ? antdConfigProviderProps.colorWarning!
-                : "#faad14"
-            }
-            controlHeight={
-              antdConfigProviderProps &&
-              "controlHeight" in antdConfigProviderProps
-                ? antdConfigProviderProps.controlHeight!
-                : 32
-            }
-            defaultDark={
-              antdConfigProviderProps &&
-              "defaultDark" in antdConfigProviderProps
-                ? antdConfigProviderProps.defaultDark!
-                : false
-            }
-            lineWidth={
-              antdConfigProviderProps && "lineWidth" in antdConfigProviderProps
-                ? antdConfigProviderProps.lineWidth!
-                : 1
-            }
-            loadingText={
-              antdConfigProviderProps &&
-              "loadingText" in antdConfigProviderProps
-                ? antdConfigProviderProps.loadingText!
-                : undefined
-            }
-            removeLoading={
-              antdConfigProviderProps &&
-              "removeLoading" in antdConfigProviderProps
-                ? antdConfigProviderProps.removeLoading!
-                : undefined
-            }
-            sizeStep={
-              antdConfigProviderProps && "sizeStep" in antdConfigProviderProps
-                ? antdConfigProviderProps.sizeStep!
-                : 4
-            }
-            sizeUnit={
-              antdConfigProviderProps && "sizeUnit" in antdConfigProviderProps
-                ? antdConfigProviderProps.sizeUnit!
-                : 4
-            }
-            themeStyles={
-              antdConfigProviderProps &&
-              "themeStyles" in antdConfigProviderProps
-                ? antdConfigProviderProps.themeStyles!
-                : true
-                ? {
-                    fontFamily: "Roboto",
-                    fontSize: "14px",
-                    fontWeight: "normal",
-                    lineHeight: "1.5",
-                    color: "#535353",
-                    letterSpacing: "normal"
-                  }
-                : undefined
-            }
-            wireframe={
-              antdConfigProviderProps && "wireframe" in antdConfigProviderProps
-                ? antdConfigProviderProps.wireframe!
-                : false
+          <EmbedCss
+            {...embedCssProps}
+            css={
+              embedCssProps && "css" in embedCssProps
+                ? embedCssProps.css!
+                : " \n@font-face{\n  font-family: 'yekan bakh';\n  src: url('https://site-assets.plasmic.app/2cc89407b67c2a224551a27524742893.ttf');\n  font-weight: normal;\n}\n@font-face{\n  font-family: 'yekan bakh';\n  src: url('https://site-assets.plasmic.app/4951d0b74643aa85723536045c0e1258.ttf');\n  font-weight: bold;\n}\n@font-face{\n  font-family: 'yekan bakh';\n  src: url('https://site-assets.plasmic.app/953dde47a63d8fcd8933aeaa704331ef.ttf');\n  font-weight: 600;\n}\n*{\n  direction: rtl;\n  font-family: 'yekan bakh';\n  font-feature-settings: 'lnum' 0, 'tnum' 0;\n}\n    @media (max-width: 767px) {\n      body::-webkit-scrollbar {\n        display: none; \n      }\n    }\n.negative {\n    direction: ltr;\n}"
             }
           >
-            <EmbedCss
-              {...embedCssProps}
-              css={
-                embedCssProps && "css" in embedCssProps
-                  ? embedCssProps.css!
-                  : "@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/2cc89407b67c2a224551a27524742893.ttf');\r\n  font-weight: normal;\r\n}\r\n@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/4951d0b74643aa85723536045c0e1258.ttf');\r\n  font-weight: bold;\r\n}\r\n@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/953dde47a63d8fcd8933aeaa704331ef.ttf');\r\n  font-weight: 600;\r\n}\r\n*{\r\n  direction: rtl;\r\n  font-family: 'yekan bakh';\r\n}\r\n    @media (max-width: 767px) {\r\n      body::-webkit-scrollbar {\r\n        display: none; \r\n      }\r\n    }\r\n.negative {\r\n    direction: ltr;\r\n}"
+            <AntdConfigProvider
+              {...antdConfigProviderProps}
+              borderRadius={
+                antdConfigProviderProps &&
+                "borderRadius" in antdConfigProviderProps
+                  ? antdConfigProviderProps.borderRadius!
+                  : 6
+              }
+              colorBgBase={
+                antdConfigProviderProps &&
+                "colorBgBase" in antdConfigProviderProps
+                  ? antdConfigProviderProps.colorBgBase!
+                  : "#ffffff"
+              }
+              colorError={
+                antdConfigProviderProps &&
+                "colorError" in antdConfigProviderProps
+                  ? antdConfigProviderProps.colorError!
+                  : "#ff4d4f"
+              }
+              colorInfo={
+                antdConfigProviderProps &&
+                "colorInfo" in antdConfigProviderProps
+                  ? antdConfigProviderProps.colorInfo!
+                  : "#1677ff"
+              }
+              colorPrimary={
+                antdConfigProviderProps &&
+                "colorPrimary" in antdConfigProviderProps
+                  ? antdConfigProviderProps.colorPrimary!
+                  : "#327CE4"
+              }
+              colorSuccess={
+                antdConfigProviderProps &&
+                "colorSuccess" in antdConfigProviderProps
+                  ? antdConfigProviderProps.colorSuccess!
+                  : "#52c41a"
+              }
+              colorWarning={
+                antdConfigProviderProps &&
+                "colorWarning" in antdConfigProviderProps
+                  ? antdConfigProviderProps.colorWarning!
+                  : "#faad14"
+              }
+              controlHeight={
+                antdConfigProviderProps &&
+                "controlHeight" in antdConfigProviderProps
+                  ? antdConfigProviderProps.controlHeight!
+                  : 32
+              }
+              defaultDark={
+                antdConfigProviderProps &&
+                "defaultDark" in antdConfigProviderProps
+                  ? antdConfigProviderProps.defaultDark!
+                  : false
+              }
+              lineWidth={
+                antdConfigProviderProps &&
+                "lineWidth" in antdConfigProviderProps
+                  ? antdConfigProviderProps.lineWidth!
+                  : 1
+              }
+              loadingText={
+                antdConfigProviderProps &&
+                "loadingText" in antdConfigProviderProps
+                  ? antdConfigProviderProps.loadingText!
+                  : undefined
+              }
+              removeLoading={
+                antdConfigProviderProps &&
+                "removeLoading" in antdConfigProviderProps
+                  ? antdConfigProviderProps.removeLoading!
+                  : undefined
+              }
+              sizeStep={
+                antdConfigProviderProps && "sizeStep" in antdConfigProviderProps
+                  ? antdConfigProviderProps.sizeStep!
+                  : 4
+              }
+              sizeUnit={
+                antdConfigProviderProps && "sizeUnit" in antdConfigProviderProps
+                  ? antdConfigProviderProps.sizeUnit!
+                  : 4
+              }
+              themeStyles={
+                antdConfigProviderProps &&
+                "themeStyles" in antdConfigProviderProps
+                  ? antdConfigProviderProps.themeStyles!
+                  : true
+                  ? {
+                      fontFamily: "Roboto",
+                      fontSize: "14px",
+                      fontWeight: "normal",
+                      lineHeight: "1.5",
+                      color: "#535353",
+                      letterSpacing: "normal"
+                    }
+                  : undefined
+              }
+              wireframe={
+                antdConfigProviderProps &&
+                "wireframe" in antdConfigProviderProps
+                  ? antdConfigProviderProps.wireframe!
+                  : false
               }
             >
               <CmsCredentialsProvider
@@ -242,8 +242,8 @@ export default function GlobalContextsProvider(
               >
                 {children}
               </CmsCredentialsProvider>
-            </EmbedCss>
-          </AntdConfigProvider>
+            </AntdConfigProvider>
+          </EmbedCss>
         </Splunk>
       </GrowthBook>
     </Fragment>

@@ -61,6 +61,7 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
@@ -92,6 +93,7 @@ export const PlasmicPregnancy__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicPregnancy__OverridesType = {
   root?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
   todoList?: Flex__<typeof TodoList>;
   getInfo?: Flex__<typeof ApiRequest>;
   lottie?: Flex__<typeof LottieWrapper>;
@@ -344,6 +346,15 @@ function PlasmicPregnancy__RenderFunc(props: {
             }
           )}
         >
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              "    <script>\n        String.prototype.EntoFa = function() {\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\n        }\n        function convertNumbersInPage() {\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\n            elements.forEach(element => {\n                element.childNodes.forEach(node => {\n                    if (node.nodeType === Node.TEXT_NODE) {\n                        node.nodeValue = node.nodeValue.EntoFa();\n                    }\n                });\n            });\n        }\n    setTimeout(convertNumbersInPage, 1000);\n    </script>\n    "
+            }
+          />
+
           {(
             hasVariant(globalVariants, "screen", "mobile")
               ? (() => {
@@ -849,25 +860,9 @@ function PlasmicPregnancy__RenderFunc(props: {
               "loading"
             ])}
             onSuccess={generateStateOnChangeProp($state, ["getInfo", "data"])}
-            params={(() => {
-              try {
-                return {
-                  token:
-                    "kkkkkkeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU4NTViNTQ2LTFmNzItNDllNi1hZDAyLTRiYzViNDMyNTMxMiIsImlhdCI6MTcyNjY0NTUxMX0.4AuRUCncNqyBJjpwyjbe4grdpPYzm6fZ3Xs3YbiYjiEkkk"
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return {
-                    token:
-                      "kkkkkkeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU4NTViNTQ2LTFmNzItNDllNi1hZDAyLTRiYzViNDMyNTMxMiIsImlhdCI6MTcyNjY0NTUxMX0.4AuRUCncNqyBJjpwyjbe4grdpPYzm6fZ3Xs3YbiYjiEkkk"
-                  };
-                }
-                throw e;
-              }
-            })()}
+            params={{
+              token: $ctx.query.token
+            }}
             url={"https://n8n.staas.ir/webhook/info"}
           />
 
@@ -3456,7 +3451,8 @@ function PlasmicPregnancy__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "todoList", "getInfo", "lottie", "getTask"],
+  root: ["root", "embedHtml", "todoList", "getInfo", "lottie", "getTask"],
+  embedHtml: ["embedHtml"],
   todoList: ["todoList"],
   getInfo: ["getInfo"],
   lottie: ["lottie"],
@@ -3467,6 +3463,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  embedHtml: typeof Embed;
   todoList: typeof TodoList;
   getInfo: typeof ApiRequest;
   lottie: typeof LottieWrapper;
@@ -3558,6 +3555,7 @@ export const PlasmicPregnancy = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    embedHtml: makeNodeComponent("embedHtml"),
     todoList: makeNodeComponent("todoList"),
     getInfo: makeNodeComponent("getInfo"),
     lottie: makeNodeComponent("lottie"),

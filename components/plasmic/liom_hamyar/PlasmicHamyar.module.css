@@ -3,14 +3,14 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   align-content: center;
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
   background: #f7f7f7;
+  overflow: auto;
   min-width: 0;
-  min-height: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -25,7 +25,7 @@
 @media (max-width: 640px) {
   .root {
     justify-items: center;
-    align-content: flex-start;
+    align-content: center;
   }
 }
 @media (max-width: 640px) {
@@ -44,13 +44,15 @@
   max-width: 100%;
   justify-self: flex-start;
   padding: 0px;
-  margin: 15px 0px 115px;
+  margin: 0px 0px 115px;
 }
 @media (max-width: 640px) {
   .freeBox__kJv6J {
     width: 100%;
     margin-bottom: 90px;
     margin-top: 5px;
+    height: auto;
+    max-height: 100%;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
     display: flex;

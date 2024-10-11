@@ -71,6 +71,12 @@
   background: #ffffff;
   padding: 8px;
 }
+@media (max-width: 640px) {
+  .freeBox___7R3Ay {
+    display: flex;
+    flex-direction: row;
+  }
+}
 .text {
   position: absolute;
   width: 100%;
@@ -81,6 +87,15 @@
   text-align: right;
   min-width: 0;
 }
+@media (max-width: 640px) {
+  .text {
+    position: relative;
+    left: auto;
+    top: auto;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
 .svg {
   object-fit: cover;
   max-width: 100%;
@@ -89,6 +104,16 @@
   top: 0px;
   z-index: 1;
   height: 1em;
+}
+@media (max-width: 640px) {
+  .svg {
+    position: sticky;
+    left: 8px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
 }
 .img {
   object-fit: cover;
@@ -148,6 +173,7 @@
     padding-right: 0px;
     padding-left: 0px;
     width: 100%;
+    margin-top: 40px;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
     min-height: 0;
@@ -204,8 +230,8 @@
   .freeBoxnotification__dhTjqFbnFk > :global(.__wab_flex-container) {
     margin-left: calc(0px - 0px);
     width: calc(100% + 0px);
-    margin-top: calc(0px - 12px);
-    height: calc(100% + 12px);
+    margin-top: calc(0px - 5px);
+    height: calc(100% + 5px);
   }
 }
 @media (max-width: 640px) {
@@ -224,7 +250,7 @@
     > picture
     > img {
     margin-left: 0px;
-    margin-top: 12px;
+    margin-top: 5px;
   }
 }
 .notifBox:global(.__wab_instance) {
