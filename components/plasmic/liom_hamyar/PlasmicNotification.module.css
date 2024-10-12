@@ -238,8 +238,8 @@
   .freeBoxnotification___8LpCifbnFk > :global(.__wab_flex-container) {
     margin-left: calc(0px - 0px);
     width: calc(100% + 0px);
-    margin-top: calc(0px - 5px);
-    height: calc(100% + 5px);
+    margin-top: calc(0px - 12px);
+    height: calc(100% + 12px);
   }
 }
 @media (max-width: 640px) {
@@ -258,7 +258,7 @@
     > picture
     > img {
     margin-left: 0px;
-    margin-top: 5px;
+    margin-top: 12px;
   }
 }
 .notifBox2:global(.__wab_instance) {
