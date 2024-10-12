@@ -193,8 +193,8 @@
 .freeBoxnotification___8LpCifbnFk {
   height: 100%;
   flex-direction: column-reverse;
-  margin-top: 0px;
-  padding-top: 40px;
+  margin-top: 40px;
+  padding-top: 20px;
   min-height: 0;
   display: flex;
 }
@@ -230,8 +230,8 @@
 @media (max-width: 640px) {
   .freeBoxnotification___8LpCifbnFk {
     height: 100%;
-    padding-top: 30px;
-    margin-top: 0px;
+    padding-top: 20px;
+    margin-top: 40px;
   }
 }
 @media (max-width: 640px) {

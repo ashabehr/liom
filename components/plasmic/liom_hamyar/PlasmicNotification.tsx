@@ -298,7 +298,19 @@ function PlasmicNotification__RenderFunc(props: {
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text___8KVfJ
+              sty.text___8KVfJ,
+              {
+                [sty.textnoNotification___8KVfJobwoa]: hasVariant(
+                  $state,
+                  "noNotification",
+                  "noNotification"
+                ),
+                [sty.textnotification___8KVfJfbnFk]: hasVariant(
+                  $state,
+                  "notification",
+                  "notification"
+                )
+              }
             )}
           >
             {"\u0627\u0639\u0644\u0627\u0646\u0627\u062a"}
