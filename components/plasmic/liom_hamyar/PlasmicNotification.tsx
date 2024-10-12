@@ -294,7 +294,15 @@ function PlasmicNotification__RenderFunc(props: {
             }
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox___7R3Ay)}>
+          <div
+            className={classNames(projectcss.all, sty.freeBox___7R3Ay, {
+              [sty.freeBoxnotification___7R3AyFbnFk]: hasVariant(
+                $state,
+                "notification",
+                "notification"
+              )
+            })}
+          >
             <div
               className={classNames(
                 projectcss.all,
@@ -319,7 +327,13 @@ function PlasmicNotification__RenderFunc(props: {
             <Icon22Icon
               data-plasmic-name={"svg"}
               data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
+              className={classNames(projectcss.all, sty.svg, {
+                [sty.svgnotification]: hasVariant(
+                  $state,
+                  "notification",
+                  "notification"
+                )
+              })}
               role={"img"}
             />
           </div>
@@ -366,6 +380,25 @@ function PlasmicNotification__RenderFunc(props: {
                 aspectRatio: undefined
               }}
             />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__uV80F,
+                {
+                  [sty.textnoNotification__uV80Fobwoa]: hasVariant(
+                    $state,
+                    "noNotification",
+                    "noNotification"
+                  )
+                }
+              )}
+            >
+              {hasVariant($state, "noNotification", "noNotification")
+                ? "\u0627\u0639\u0644\u0627\u0646\u06cc \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0648\u062c\u0648\u062f \u0646\u062f\u0627\u0631\u062f."
+                : "Enter some text"}
+            </div>
           </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__deVdt, {
