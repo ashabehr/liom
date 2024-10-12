@@ -93,6 +93,7 @@ export const PlasmicPregnancy__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicPregnancy__OverridesType = {
   root?: Flex__<"div">;
+  favIcone?: Flex__<typeof Embed>;
   embedHtml?: Flex__<typeof Embed>;
   todoList?: Flex__<typeof TodoList>;
   getInfo?: Flex__<typeof ApiRequest>;
@@ -347,11 +348,11 @@ function PlasmicPregnancy__RenderFunc(props: {
           )}
         >
           <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
+            data-plasmic-name={"favIcone"}
+            data-plasmic-override={overrides.favIcone}
+            className={classNames("__wab_instance", sty.favIcone)}
             code={
-              "    <script>\n        String.prototype.EntoFa = function() {\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\n        }\n        function convertNumbersInPage() {\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\n            elements.forEach(element => {\n                element.childNodes.forEach(node => {\n                    if (node.nodeType === Node.TEXT_NODE) {\n                        node.nodeValue = node.nodeValue.EntoFa();\n                    }\n                });\n            });\n        }\n    setTimeout(convertNumbersInPage, 1000);\n    </script>\n    "
+              "<script>\n(function() {\n    var link = document.querySelector(\"link[rel='icon']\");\n    if (!link) {\n        link = document.createElement('link');\n        link.rel = 'icon';\n        document.head.appendChild(link);\n    }\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\n})();\n</script>\n\n"
             }
           />
 
@@ -385,6 +386,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                 })()
           ) ? (
             <div className={classNames(projectcss.all, sty.freeBox__z49Xy)}>
+              <Embed
+                data-plasmic-name={"embedHtml"}
+                data-plasmic-override={overrides.embedHtml}
+                className={classNames("__wab_instance", sty.embedHtml)}
+                code={
+                  "    <script>\n        String.prototype.EntoFa = function() {\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\n        }\n        function convertNumbersInPage() {\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\n            elements.forEach(element => {\n                element.childNodes.forEach(node => {\n                    if (node.nodeType === Node.TEXT_NODE) {\n                        node.nodeValue = node.nodeValue.EntoFa();\n                    }\n                });\n            });\n        }\n    setTimeout(convertNumbersInPage, 1000);\n    </script>\n    "
+                }
+              />
+
               <div className={classNames(projectcss.all, sty.freeBox__a0Om)}>
                 <div className={classNames(projectcss.all, sty.freeBox__on3Mg)}>
                   <div
@@ -3451,7 +3461,16 @@ function PlasmicPregnancy__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "embedHtml", "todoList", "getInfo", "lottie", "getTask"],
+  root: [
+    "root",
+    "favIcone",
+    "embedHtml",
+    "todoList",
+    "getInfo",
+    "lottie",
+    "getTask"
+  ],
+  favIcone: ["favIcone"],
   embedHtml: ["embedHtml"],
   todoList: ["todoList"],
   getInfo: ["getInfo"],
@@ -3463,6 +3482,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  favIcone: typeof Embed;
   embedHtml: typeof Embed;
   todoList: typeof TodoList;
   getInfo: typeof ApiRequest;
@@ -3555,6 +3575,7 @@ export const PlasmicPregnancy = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    favIcone: makeNodeComponent("favIcone"),
     embedHtml: makeNodeComponent("embedHtml"),
     todoList: makeNodeComponent("todoList"),
     getInfo: makeNodeComponent("getInfo"),

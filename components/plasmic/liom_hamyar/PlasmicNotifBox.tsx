@@ -61,6 +61,7 @@ import {
 
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -71,16 +72,28 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicNotifBox.module.css"; // plasmic-import: xI5TnebPGhVr/css
 
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
+import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
+
 createPlasmicElementProxy;
 
 export type PlasmicNotifBox__VariantMembers = {
   seen: "seen";
+  forAll: "forAll";
+  delet: "delet";
 };
 export type PlasmicNotifBox__VariantsArgs = {
   seen?: SingleBooleanChoiceArg<"seen">;
+  forAll?: SingleBooleanChoiceArg<"forAll">;
+  delet?: SingleBooleanChoiceArg<"delet">;
 };
 type VariantPropType = keyof PlasmicNotifBox__VariantsArgs;
-export const PlasmicNotifBox__VariantProps = new Array<VariantPropType>("seen");
+export const PlasmicNotifBox__VariantProps = new Array<VariantPropType>(
+  "seen",
+  "forAll",
+  "delet"
+);
 
 export type PlasmicNotifBox__ArgsType = {
   onSeenChange?: (val: any) => void;
@@ -92,6 +105,10 @@ export type PlasmicNotifBox__ArgsType = {
   onDateChange?: (val: string) => void;
   open?: boolean;
   onChange?: (activeIds: any) => void;
+  children?: React.ReactNode;
+  onClick?: (event: any) => void;
+  button2?: React.ReactNode;
+  onDeletChange?: (val: any) => void;
 };
 type ArgPropType = keyof PlasmicNotifBox__ArgsType;
 export const PlasmicNotifBox__ArgProps = new Array<ArgPropType>(
@@ -103,13 +120,17 @@ export const PlasmicNotifBox__ArgProps = new Array<ArgPropType>(
   "date",
   "onDateChange",
   "open",
-  "onChange"
+  "onChange",
+  "children",
+  "onClick",
+  "button2",
+  "onDeletChange"
 );
 
 export type PlasmicNotifBox__OverridesType = {
   root?: Flex__<"div">;
   collapse?: Flex__<typeof AntdSingleCollapse>;
-  img?: Flex__<typeof PlasmicImg__>;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultNotifBoxProps {
@@ -122,7 +143,13 @@ export interface DefaultNotifBoxProps {
   onDateChange?: (val: string) => void;
   open?: boolean;
   onChange?: (activeIds: any) => void;
+  children?: React.ReactNode;
+  onClick?: (event: any) => void;
+  button2?: React.ReactNode;
+  onDeletChange?: (val: any) => void;
   seen?: SingleBooleanChoiceArg<"seen">;
+  forAll?: SingleBooleanChoiceArg<"forAll">;
+  delet?: SingleBooleanChoiceArg<"delet">;
   className?: string;
 }
 
@@ -209,6 +236,20 @@ function PlasmicNotifBox__RenderFunc(props: {
 
         valueProp: "date",
         onChangeProp: "onDateChange"
+      },
+      {
+        path: "forAll",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.forAll
+      },
+      {
+        path: "delet",
+        type: "writable",
+        variableType: "variant",
+
+        valueProp: "delet",
+        onChangeProp: "onDeletChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -239,18 +280,30 @@ function PlasmicNotifBox__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
-        { [sty.rootseen]: hasVariant($state, "seen", "seen") }
+        {
+          [sty.rootdelet]: hasVariant($state, "delet", "delet"),
+          [sty.rootforAll]: hasVariant($state, "forAll", "forAll"),
+          [sty.rootseen]: hasVariant($state, "seen", "seen"),
+          [sty.rootseen_forAll]:
+            hasVariant($state, "seen", "seen") &&
+            hasVariant($state, "forAll", "forAll")
+        }
       )}
     >
       {(() => {
         const child$Props = {
           bordered: true,
           className: classNames("__wab_instance", sty.collapse, {
-            [sty.collapseseen]: hasVariant($state, "seen", "seen")
+            [sty.collapseforAll]: hasVariant($state, "forAll", "forAll"),
+            [sty.collapseseen]: hasVariant($state, "seen", "seen"),
+            [sty.collapseseen_forAll]:
+              hasVariant($state, "seen", "seen") &&
+              hasVariant($state, "forAll", "forAll")
           }),
           defaultOpen: args.open,
           expandIcon: null,
           expandIconPosition: "end",
+          extra: null,
           ghost: true,
           headerClass: classNames({ [sty["pcls_hM-HJRo8TQiR"]]: true }),
           label2: (
@@ -263,40 +316,29 @@ function PlasmicNotifBox__RenderFunc(props: {
                 )
               })}
             >
-              <PlasmicImg__
-                data-plasmic-name={"img"}
-                data-plasmic-override={overrides.img}
-                alt={""}
-                className={classNames(sty.img, {
-                  [sty.imgseen]: hasVariant($state, "seen", "seen")
-                })}
-                displayHeight={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? "25px"
-                    : "30px"
-                }
-                displayMaxHeight={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? "100%"
-                    : "100%"
-                }
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? "25px"
-                    : "30px"
-                }
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/liom_hamyar/images/image10.ico",
-                  fullWidth: 256,
-                  fullHeight: 256,
-                  aspectRatio: undefined
-                }}
-              />
+              {renderPlasmicSlot({
+                defaultContents: (
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__llEtj)}
+                    displayHeight={"30px"}
+                    displayMaxHeight={"100%"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"30px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image10.ico",
+                      fullWidth: 256,
+                      fullHeight: 256,
+                      aspectRatio: undefined
+                    }}
+                  />
+                ),
 
+                value: args.children
+              })}
               <div
                 className={classNames(projectcss.all, sty.freeBox__lpV3T, {
                   [sty.freeBoxseen__lpV3TofXyw]: hasVariant(
@@ -453,62 +495,67 @@ function PlasmicNotifBox__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__v0Ba,
-                {
-                  [sty.textseen__v0BaofXyw]: hasVariant($state, "seen", "seen")
-                }
+                sty.text__ifEqi
               )}
             >
-              {hasVariant(globalVariants, "screen", "mobile") ? (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $state.text;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "Collapsible text...";
-                      }
-                      throw e;
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.text;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "Collapsible text...";
                     }
-                  })()}
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $state.text;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "Collapsible text...";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              )}
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
+            {renderPlasmicSlot({
+              defaultContents: (
+                <Button
+                  className={classNames("__wab_instance", sty.button__zf9Wf)}
+                />
+              ),
+
+              value: args.button2
+            })}
           </AntdSingleCollapse>
         );
       })()}
       <div
         className={classNames(projectcss.all, sty.freeBox__cebvZ, {
+          [sty.freeBoxforAll__cebvZq4BdZ]: hasVariant(
+            $state,
+            "forAll",
+            "forAll"
+          ),
           [sty.freeBoxseen__cebvZofXyw]: hasVariant($state, "seen", "seen")
         })}
+      />
+
+      <Icon22Icon
+        data-plasmic-name={"svg"}
+        data-plasmic-override={overrides.svg}
+        className={classNames(projectcss.all, sty.svg, {
+          [sty.svgseen_forAll]:
+            hasVariant($state, "seen", "seen") &&
+            hasVariant($state, "forAll", "forAll")
+        })}
+        onClick={args.onClick}
+        role={"img"}
       />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "collapse", "img"],
-  collapse: ["collapse", "img"],
-  img: ["img"]
+  root: ["root", "collapse", "svg"],
+  collapse: ["collapse"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -516,7 +563,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   collapse: typeof AntdSingleCollapse;
-  img: typeof PlasmicImg__;
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -580,7 +627,7 @@ export const PlasmicNotifBox = Object.assign(
   {
     // Helper components rendering sub-elements
     collapse: makeNodeComponent("collapse"),
-    img: makeNodeComponent("img"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicNotifBox
     internalVariantProps: PlasmicNotifBox__VariantProps,
