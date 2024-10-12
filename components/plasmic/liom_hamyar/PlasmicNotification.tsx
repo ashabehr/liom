@@ -65,7 +65,6 @@ import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import NotifBox from "../../NotifBox"; // plasmic-import: xI5TnebPGhVr/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -102,11 +101,11 @@ export const PlasmicNotification__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicNotification__OverridesType = {
   root?: Flex__<"div">;
-  text?: Flex__<"div">;
   svg?: Flex__<"svg">;
   img?: Flex__<typeof PlasmicImg__>;
   lottie?: Flex__<typeof LottieWrapper>;
   notifBox2?: Flex__<typeof NotifBox>;
+  button?: Flex__<typeof Button>;
   apiRequest?: Flex__<typeof ApiRequest>;
 };
 
@@ -238,27 +237,6 @@ function PlasmicNotification__RenderFunc(props: {
         variableType: "text"
       },
       {
-        path: "notId",
-        type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                return JSON.parse(localStorage.getItem("notId")) || [];
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
-      },
-      {
         path: "notifBox2[].delet",
         type: "private",
         variableType: "boolean"
@@ -317,12 +295,10 @@ function PlasmicNotification__RenderFunc(props: {
       >
         <div className={classNames(projectcss.all, sty.freeBox___7R3Ay)}>
           <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text
+              sty.text___8KVfJ
             )}
           >
             {"\u0627\u0639\u0644\u0627\u0646\u0627\u062a"}
@@ -2938,6 +2914,128 @@ function PlasmicNotification__RenderFunc(props: {
               const currentIndex = __plasmic_idx_0;
               return (() => {
                 const child$Props = {
+                  button2: (() => {
+                    try {
+                      return notifItem.btnAction != null;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
+                    ? (() => {
+                        const child$Props = {
+                          className: classNames("__wab_instance", sty.button),
+                          color: generateStateValueProp($state, [
+                            "button",
+                            __plasmic_idx_0,
+                            "color"
+                          ]),
+                          onColorChange: (...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button",
+                              __plasmic_idx_0,
+                              "color"
+                            ])(eventArgs[0]);
+                          }
+                        };
+
+                        initializePlasmicStates(
+                          $state,
+                          [
+                            {
+                              name: "button[].color",
+                              initFunc: ({ $props, $state, $queries }) =>
+                                undefined
+                            }
+                          ],
+                          [__plasmic_idx_0]
+                        );
+                        return (
+                          <Button
+                            data-plasmic-name={"button"}
+                            data-plasmic-override={overrides.button}
+                            {...child$Props}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__kbJWf
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["goToPage"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        destination: (() => {
+                                          try {
+                                            return notifItem.btnAction;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      };
+                                      return (({ destination }) => {
+                                        if (
+                                          typeof destination === "string" &&
+                                          destination.startsWith("#")
+                                        ) {
+                                          document
+                                            .getElementById(
+                                              destination.substr(1)
+                                            )
+                                            .scrollIntoView({
+                                              behavior: "smooth"
+                                            });
+                                        } else {
+                                          __nextRouter?.push(destination);
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["goToPage"] != null &&
+                                  typeof $steps["goToPage"] === "object" &&
+                                  typeof $steps["goToPage"].then === "function"
+                                ) {
+                                  $steps["goToPage"] = await $steps["goToPage"];
+                                }
+                              }}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return notifItem.btnText;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "Button";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </Button>
+                        );
+                      })()
+                    : null,
                   className: classNames("__wab_instance", sty.notifBox2, {
                     [sty.notifBox2notification]: hasVariant(
                       $state,
@@ -3292,8 +3390,7 @@ function PlasmicNotification__RenderFunc(props: {
                   try {
                     return {
                       userId: "101",
-                      appKey: "com.app.example",
-                      notId: $state.notId || 0
+                      appKey: "com.app.example"
                     };
                   } catch (e) {
                     if (
@@ -3348,12 +3445,12 @@ function PlasmicNotification__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text", "svg", "img", "lottie", "notifBox2", "apiRequest"],
-  text: ["text"],
+  root: ["root", "svg", "img", "lottie", "notifBox2", "button", "apiRequest"],
   svg: ["svg"],
   img: ["img"],
   lottie: ["lottie"],
-  notifBox2: ["notifBox2"],
+  notifBox2: ["notifBox2", "button"],
+  button: ["button"],
   apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -3361,11 +3458,11 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  text: "div";
   svg: "svg";
   img: typeof PlasmicImg__;
   lottie: typeof LottieWrapper;
   notifBox2: typeof NotifBox;
+  button: typeof Button;
   apiRequest: typeof ApiRequest;
 };
 
@@ -3454,11 +3551,11 @@ export const PlasmicNotification = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    text: makeNodeComponent("text"),
     svg: makeNodeComponent("svg"),
     img: makeNodeComponent("img"),
     lottie: makeNodeComponent("lottie"),
     notifBox2: makeNodeComponent("notifBox2"),
+    button: makeNodeComponent("button"),
     apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicNotification
