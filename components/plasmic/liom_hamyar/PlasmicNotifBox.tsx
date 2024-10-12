@@ -309,6 +309,11 @@ function PlasmicNotifBox__RenderFunc(props: {
           label2: (
             <div
               className={classNames(projectcss.all, sty.freeBox___5FqYh, {
+                [sty.freeBoxforAll___5FqYhq4BdZ]: hasVariant(
+                  $state,
+                  "forAll",
+                  "forAll"
+                ),
                 [sty.freeBoxseen___5FqYhofXyw]: hasVariant(
                   $state,
                   "seen",
