@@ -70,12 +70,24 @@
   right: 0;
   background: #ffffff;
   flex-direction: row;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 8px 10px;
 }
 @media (max-width: 640px) {
   .freeBox___7R3Ay {
     display: flex;
     flex-direction: row;
+  }
+}
+.freeBoxnotification___7R3AyFbnFk {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  box-shadow: 0px 4px 5px 0px #0000001a;
+}
+@media (max-width: 640px) {
+  .freeBoxnotification___7R3AyFbnFk {
+    padding-bottom: 12px;
+    padding-top: 12px;
   }
 }
 .text___8KVfJ {
@@ -97,6 +109,11 @@
     top: auto;
     font-size: 16px;
     font-weight: 700;
+  }
+}
+@media (max-width: 640px) {
+  .textnotification___8KVfJfbnFk {
+    font-size: 16px;
   }
 }
 .svg {
