@@ -18,20 +18,16 @@ export interface GlobalContextsProviderProps {
   fragmentProps?: Partial<
     Omit<React.ComponentProps<typeof Fragment>, "children">
   >;
-
   growthBookProps?: Partial<
     Omit<React.ComponentProps<typeof GrowthBook>, "children">
   >;
-
   splunkProps?: Partial<Omit<React.ComponentProps<typeof Splunk>, "children">>;
   embedCssProps?: Partial<
     Omit<React.ComponentProps<typeof EmbedCss>, "children">
   >;
-
   antdConfigProviderProps?: Partial<
     Omit<React.ComponentProps<typeof AntdConfigProvider>, "children">
   >;
-
   cmsCredentialsProviderProps?: Partial<
     Omit<React.ComponentProps<typeof CmsCredentialsProvider>, "children">
   >;
@@ -108,7 +104,7 @@ export default function GlobalContextsProvider(
             css={
               embedCssProps && "css" in embedCssProps
                 ? embedCssProps.css!
-                : " \n@font-face{\n  font-family: 'yekan bakh';\n  src: url('https://site-assets.plasmic.app/2cc89407b67c2a224551a27524742893.ttf');\n  font-weight: normal;\n}\n@font-face{\n  font-family: 'yekan bakh';\n  src: url('https://site-assets.plasmic.app/4951d0b74643aa85723536045c0e1258.ttf');\n  font-weight: bold;\n}\n@font-face{\n  font-family: 'yekan bakh';\n  src: url('https://site-assets.plasmic.app/953dde47a63d8fcd8933aeaa704331ef.ttf');\n  font-weight: 600;\n}\n*{\n  direction: rtl;\n  font-family: 'yekan bakh';\n  font-feature-settings: 'lnum' 0, 'tnum' 0;\n}\n    @media (max-width: 767px) {\n      body::-webkit-scrollbar {\n        display: none; \n      }\n    }\n.negative {\n    direction: ltr;\n}"
+                : " \r\n@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/2cc89407b67c2a224551a27524742893.ttf');\r\n  font-weight: normal;\r\n}\r\n@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/4951d0b74643aa85723536045c0e1258.ttf');\r\n  font-weight: bold;\r\n}\r\n@font-face{\r\n  font-family: 'yekan bakh';\r\n  src: url('https://site-assets.plasmic.app/953dde47a63d8fcd8933aeaa704331ef.ttf');\r\n  font-weight: 600;\r\n}\r\n*{\r\n  direction: rtl;\r\n  font-family: 'yekan bakh';\r\n  font-feature-settings: 'lnum' 0, 'tnum' 0;\r\n}\r\n    @media (max-width: 767px) {\r\n      body::-webkit-scrollbar {\r\n        display: none; \r\n      }\r\n}\r\n\r\n.negative {\r\n    direction: ltr;\r\n}\r\n.ant-collapse-arrow{\r\n      transform: scaleX(-1);\r\n      position: relative;\r\n      top: 50%;\r\n}\r\n"
             }
           >
             <AntdConfigProvider
