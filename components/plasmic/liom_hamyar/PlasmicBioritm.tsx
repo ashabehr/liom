@@ -4417,13 +4417,11 @@ function PlasmicBioritm__RenderFunc(props: {
               const $steps = {};
 
               $steps["invokeGlobalAction"] =
-                $state.log == "" ||
-                $state.userInfo != "undefined" ||
-                $state.userInfo != null
+                $state.userInfo != "undefined" || $state.userInfo != null
                   ? (() => {
                       const actionArgs = {
                         args: [
-                          undefined,
+                          "POST",
                           "https://api.liom.app/service/log",
                           undefined,
                           (() => {
@@ -4470,35 +4468,6 @@ function PlasmicBioritm__RenderFunc(props: {
                 $steps["invokeGlobalAction"] = await $steps[
                   "invokeGlobalAction"
                 ];
-              }
-
-              $steps["updateLog"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["log"]
-                      },
-                      operation: 0,
-                      value: "LIOM"
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["updateLog"] != null &&
-                typeof $steps["updateLog"] === "object" &&
-                typeof $steps["updateLog"].then === "function"
-              ) {
-                $steps["updateLog"] = await $steps["updateLog"];
               }
             }).apply(null, eventArgs);
           }}

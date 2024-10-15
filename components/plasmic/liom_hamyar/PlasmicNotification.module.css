@@ -100,6 +100,7 @@
   text-align: right;
   font-size: 20px;
   font-weight: 700;
+  color: var(--token-2aHIw8xI62Xi);
   min-width: 0;
 }
 @media (max-width: 640px) {
