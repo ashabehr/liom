@@ -454,6 +454,34 @@ function PlasmicBioritm__RenderFunc(props: {
               throw e;
             }
           })() ?? $props.ferstTimepage
+      },
+      {
+        path: "userInfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                let userinfo = localStorage.getItem("userinfo");
+                return (userinfo = JSON.parse(userinfo));
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "log",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -4387,6 +4415,91 @@ function PlasmicBioritm__RenderFunc(props: {
             );
             (async data => {
               const $steps = {};
+
+              $steps["invokeGlobalAction"] =
+                $state.log == "" ||
+                $state.userInfo != "undefined" ||
+                $state.userInfo != null
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "https://api.liom.app/service/log",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                userId: $state.userInfo.man.id,
+                                pageName: "biorhythm",
+                                action: "loadePage",
+                                extraData: {
+                                  refCode: $ctx.query.r,
+                                  mobile: $state.userInfo.man.mobile
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          {
+                            headers: {
+                              "Content-Type": "application/json",
+                              Authorization:
+                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
+                            }
+                          }
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
+
+              $steps["updateLog"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["log"]
+                      },
+                      operation: 0,
+                      value: "LIOM"
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateLog"] != null &&
+                typeof $steps["updateLog"] === "object" &&
+                typeof $steps["updateLog"].then === "function"
+              ) {
+                $steps["updateLog"] = await $steps["updateLog"];
+              }
             }).apply(null, eventArgs);
           }}
           url={"https://n8n.staas.ir/webhook/hamyar/biorhythm"}

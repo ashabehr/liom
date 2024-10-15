@@ -8,6 +8,7 @@
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
+  background: #ffffff;
   min-width: 0;
   min-height: 0;
   grid-template-columns:
@@ -28,6 +29,22 @@
 }
 .rootglobal_theme_dark > * {
   grid-column: 4;
+}
+.rootdarkMod {
+  background: #d0bbbb;
+}
+.rootdarkMod > * {
+  grid-column: 4;
+}
+@media (max-width: 640px) {
+  .rootdarkMod {
+    background: #ffffff;
+  }
+}
+@media (max-width: 640px) {
+  .rootdarkMod > * {
+    grid-column: 4;
+  }
 }
 .favIcone:global(.__wab_instance) {
   max-width: 100%;
@@ -325,6 +342,9 @@
   > picture
   > img {
   margin-top: 5px;
+}
+.freeBoxdarkMod__rfrx1OQOo {
+  background: #000000;
 }
 .img__t3Ygq {
   object-fit: contain;

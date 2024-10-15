@@ -217,6 +217,7 @@
   }
 }
 .freeBox__kpKeP {
+  display: flex;
   flex-direction: column;
   position: relative;
   align-items: flex-end;
@@ -225,12 +226,11 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-  display: none;
   padding: 8px;
 }
 @media (max-width: 640px) {
   .freeBox__kpKeP {
-    display: none;
+    display: flex;
   }
 }
 .switchbest:global(.__wab_instance) {
@@ -239,7 +239,12 @@
 @media (max-width: 640px) {
   .switchbest:global(.__wab_instance) {
     margin-left: 10px;
-    display: none;
+    width: auto;
+  }
+}
+@media (max-width: 640px) {
+  .text__kix0P {
+    font-size: 14px;
   }
 }
 .freeBox__bph6 {

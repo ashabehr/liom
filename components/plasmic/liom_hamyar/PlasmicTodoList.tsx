@@ -71,21 +71,29 @@ import sty from "./PlasmicTodoList.module.css"; // plasmic-import: 0x91e3BeeLCM/
 
 createPlasmicElementProxy;
 
-export type PlasmicTodoList__VariantMembers = {};
-export type PlasmicTodoList__VariantsArgs = {};
+export type PlasmicTodoList__VariantMembers = {
+  darkMod: "darkMod";
+};
+export type PlasmicTodoList__VariantsArgs = {
+  darkMod?: SingleBooleanChoiceArg<"darkMod">;
+};
 type VariantPropType = keyof PlasmicTodoList__VariantsArgs;
-export const PlasmicTodoList__VariantProps = new Array<VariantPropType>();
+export const PlasmicTodoList__VariantProps = new Array<VariantPropType>(
+  "darkMod"
+);
 
 export type PlasmicTodoList__ArgsType = {
   title?: string;
   tasks?: any;
   loading?: boolean;
+  userId?: string;
 };
 type ArgPropType = keyof PlasmicTodoList__ArgsType;
 export const PlasmicTodoList__ArgProps = new Array<ArgPropType>(
   "title",
   "tasks",
-  "loading"
+  "loading",
+  "userId"
 );
 
 export type PlasmicTodoList__OverridesType = {
@@ -98,6 +106,8 @@ export interface DefaultTodoListProps {
   title?: string;
   tasks?: any;
   loading?: boolean;
+  userId?: string;
+  darkMod?: SingleBooleanChoiceArg<"darkMod">;
   className?: string;
 }
 
@@ -151,6 +161,12 @@ function PlasmicTodoList__RenderFunc(props: {
         path: "checkbox[].checked",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "darkMod",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.darkMod
       }
     ],
     [$props, $ctx, $refs]
@@ -176,7 +192,8 @@ function PlasmicTodoList__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod") }
       )}
     >
       <div className={classNames(projectcss.all, sty.freeBox___13YdZ)}>
@@ -2794,7 +2811,7 @@ function PlasmicTodoList__RenderFunc(props: {
                                   (() => {
                                     try {
                                       return {
-                                        userId: $ctx.query.userId,
+                                        userId: $props.userId,
                                         todoId: currentItem.id
                                       };
                                     } catch (e) {

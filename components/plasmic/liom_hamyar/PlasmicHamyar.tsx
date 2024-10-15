@@ -196,7 +196,20 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "switchbest.isChecked",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "isChecked"
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.user.data.result.man.hamyarStatus;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "input.value",
@@ -936,27 +949,136 @@ function PlasmicHamyar__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__kpKeP)}
-                  >
-                    <Switchbest
-                      data-plasmic-name={"switchbest"}
-                      data-plasmic-override={overrides.switchbest}
-                      className={classNames("__wab_instance", sty.switchbest)}
-                      isChecked={
-                        generateStateValueProp($state, [
-                          "switchbest",
-                          "isChecked"
-                        ]) ?? false
-                      }
-                      onChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "switchbest",
-                          "isChecked"
-                        ])(eventArgs[0]);
-                      }}
-                    />
-                  </div>
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? (() => {
+                          try {
+                            return !$state.user.data.result.man.hamyarStatus;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (() => {
+                          try {
+                            return !$state.user.data.result.man.hamyarStatus;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                  ) ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__kpKeP)}
+                    >
+                      <Switchbest
+                        data-plasmic-name={"switchbest"}
+                        data-plasmic-override={overrides.switchbest}
+                        className={classNames("__wab_instance", sty.switchbest)}
+                        isChecked={
+                          generateStateValueProp($state, [
+                            "switchbest",
+                            "isChecked"
+                          ]) ?? false
+                        }
+                        onChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "switchbest",
+                              "isChecked"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+                          (async isChecked => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        return window.scrollTo({
+                                          top: document.body.scrollHeight,
+                                          behavior: "smooth"
+                                        });
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+
+                            $steps["updateSwitchbestIsChecked"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["switchbest", "isChecked"]
+                                    },
+                                    operation: 0,
+                                    value: false
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateSwitchbestIsChecked"] != null &&
+                              typeof $steps["updateSwitchbestIsChecked"] ===
+                                "object" &&
+                              typeof $steps["updateSwitchbestIsChecked"]
+                                .then === "function"
+                            ) {
+                              $steps["updateSwitchbestIsChecked"] =
+                                await $steps["updateSwitchbestIsChecked"];
+                            }
+                          }).apply(null, eventArgs);
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__kix0P
+                          )}
+                        >
+                          {
+                            "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u062f\u0648\u0631\u0647"
+                          }
+                        </div>
+                      </Switchbest>
+                    </div>
+                  ) : null}
                   {(
                     hasVariant(globalVariants, "screen", "mobile")
                       ? (() => {
@@ -3151,47 +3273,31 @@ function PlasmicHamyar__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["goToPage"] =
+                      $steps["runCode"] =
                         $steps.invokeGlobalAction.data.success == true &&
                         $steps.invokeGlobalAction.data.result != false
                           ? (() => {
                               const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return $steps.invokeGlobalAction.data
-                                      .result;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
+                                customFunction: async () => {
+                                  return (() => {
+                                    return window.open(
+                                      $steps.invokeGlobalAction.data.result,
+                                      "_blank"
+                                    );
+                                  })();
                                 }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
                       if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
                       ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
+                        $steps["runCode"] = await $steps["runCode"];
                       }
 
                       $steps["updateLoadingshop2"] = true
@@ -4525,52 +4631,33 @@ function PlasmicHamyar__RenderFunc(props: {
                                 ];
                               }
 
-                              $steps["goToPage"] =
+                              $steps["runCode"] =
                                 $steps.invokeGlobalAction.data.success ==
                                   true &&
                                 $steps.invokeGlobalAction.data.result != false
                                   ? (() => {
                                       const actionArgs = {
-                                        destination: (() => {
-                                          try {
-                                            return $steps.invokeGlobalAction
-                                              .data.result;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      };
-                                      return (({ destination }) => {
-                                        if (
-                                          typeof destination === "string" &&
-                                          destination.startsWith("#")
-                                        ) {
-                                          document
-                                            .getElementById(
-                                              destination.substr(1)
-                                            )
-                                            .scrollIntoView({
-                                              behavior: "smooth"
-                                            });
-                                        } else {
-                                          __nextRouter?.push(destination);
+                                        customFunction: async () => {
+                                          return (() => {
+                                            return window.open(
+                                              $steps.invokeGlobalAction.data
+                                                .result,
+                                              "_blank"
+                                            );
+                                          })();
                                         }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
                                       })?.apply(null, [actionArgs]);
                                     })()
                                   : undefined;
                               if (
-                                $steps["goToPage"] != null &&
-                                typeof $steps["goToPage"] === "object" &&
-                                typeof $steps["goToPage"].then === "function"
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
                               ) {
-                                $steps["goToPage"] = await $steps["goToPage"];
+                                $steps["runCode"] = await $steps["runCode"];
                               }
 
                               $steps["updateLoadingshop2"] = true
@@ -5301,47 +5388,31 @@ function PlasmicHamyar__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["goToPage"] =
+                      $steps["runCode"] =
                         $steps.invokeGlobalAction.data.success == true &&
                         $steps.invokeGlobalAction.data.result != false
                           ? (() => {
                               const actionArgs = {
-                                destination: (() => {
-                                  try {
-                                    return $steps.invokeGlobalAction.data
-                                      .result;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
+                                customFunction: async () => {
+                                  return (() => {
+                                    return window.open(
+                                      $steps.invokeGlobalAction.data.result,
+                                      "_blank"
+                                    );
+                                  })();
                                 }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
                       if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
                       ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
+                        $steps["runCode"] = await $steps["runCode"];
                       }
 
                       $steps["updateLoadingshop2"] = true
@@ -6395,6 +6466,19 @@ function PlasmicHamyar__RenderFunc(props: {
                                 role={"img"}
                               />
                             }
+                            isDisabled={(() => {
+                              try {
+                                return $state.loadingshop;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()}
                             onClick={async event => {
                               const $steps = {};
 
@@ -6564,50 +6648,31 @@ function PlasmicHamyar__RenderFunc(props: {
                                 ];
                               }
 
-                              $steps["goToPage"] =
-                                $steps.invokeGlobalAction.data.success == true
+                              $steps["runCode"] =
+                                $steps.invokeGlobalAction.data.success ==
+                                  true &&
+                                $steps.invokeGlobalAction.data.result != false
                                   ? (() => {
                                       const actionArgs = {
-                                        destination: (() => {
-                                          try {
-                                            return $steps.invokeGlobalAction
-                                              .data.result;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      };
-                                      return (({ destination }) => {
-                                        if (
-                                          typeof destination === "string" &&
-                                          destination.startsWith("#")
-                                        ) {
-                                          document
-                                            .getElementById(
-                                              destination.substr(1)
-                                            )
-                                            .scrollIntoView({
-                                              behavior: "smooth"
-                                            });
-                                        } else {
-                                          __nextRouter?.push(destination);
+                                        customFunction: async () => {
+                                          return window.open(
+                                            $steps.invokeGlobalAction.data
+                                              .result,
+                                            "_blank"
+                                          );
                                         }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
                                       })?.apply(null, [actionArgs]);
                                     })()
                                   : undefined;
                               if (
-                                $steps["goToPage"] != null &&
-                                typeof $steps["goToPage"] === "object" &&
-                                typeof $steps["goToPage"].then === "function"
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
                               ) {
-                                $steps["goToPage"] = await $steps["goToPage"];
+                                $steps["runCode"] = await $steps["runCode"];
                               }
 
                               $steps["updateLoadingshop2"] = true
@@ -6646,6 +6711,35 @@ function PlasmicHamyar__RenderFunc(props: {
                               ) {
                                 $steps["updateLoadingshop2"] = await $steps[
                                   "updateLoadingshop2"
+                                ];
+                              }
+
+                              $steps["invokeGlobalAction2"] =
+                                $steps.invokeGlobalAction.data.success ==
+                                  false ||
+                                $steps.invokeGlobalAction.data.result == false
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "error",
+                                          "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                                          "top-left"
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.showToast"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["invokeGlobalAction2"] != null &&
+                                typeof $steps["invokeGlobalAction2"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction2"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction2"] = await $steps[
+                                  "invokeGlobalAction2"
                                 ];
                               }
                             }}
@@ -9669,11 +9763,15 @@ function PlasmicHamyar__RenderFunc(props: {
                         customFunction: async () => {
                           return (() => {
                             localStorage.setItem("token", $state.tokenUser);
-                            return localStorage.setItem(
+                            localStorage.setItem(
                               "birthDate",
                               JSON.stringify(
                                 $state.user.data.result.man.birthDate
                               )
+                            );
+                            return localStorage.setItem(
+                              "userinfo",
+                              JSON.stringify($state.user.data.result)
                             );
                           })();
                         }
@@ -9869,105 +9967,41 @@ function PlasmicHamyar__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["invokeGlobalAction"] =
-                  !($state.tokenUser == undefined || $state.tokenUser == "") &&
-                  $ctx.query.m != "3ZjitMAEm"
+                $steps["runCode"] =
+                  localStorage.getItem("token") != "undefined" ||
+                  localStorage.getItem("token") != null
                     ? (() => {
                         const actionArgs = {
-                          args: [
-                            "POST",
-                            "https://api.liom.app/service/log",
-                            undefined,
-                            (() => {
-                              try {
-                                return {
-                                  userId: $state.user.data.result.man.id,
-                                  pageName: "biorhythm",
-                                  action: "loadePage",
-                                  extraData: {
-                                    refCode: $ctx.query.r,
-                                    mobile: $state.user.data.result.man.mobile
-                                  }
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
+                          customFunction: async () => {
+                            return (() => {
+                              const previousUrl = document.referrer;
+                              if (
+                                previousUrl.startsWith(
+                                  "https://apps.liom.app/bioritm"
+                                )
+                              ) {
+                                return window.history.back();
+                              } else {
+                                return (window.location.href =
+                                  "https://apps.liom.app/bioritm/?r=" +
+                                  $ctx.query.r +
+                                  "&m=" +
+                                  $ctx.query.m);
                               }
-                            })(),
-                            {
-                              headers: {
-                                "Content-Type": "application/json",
-                                Authorization:
-                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                              }
-                            }
-                          ]
+                            })();
+                          }
                         };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                 if (
-                  $steps["invokeGlobalAction"] != null &&
-                  typeof $steps["invokeGlobalAction"] === "object" &&
-                  typeof $steps["invokeGlobalAction"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
-                }
-
-                $steps["goToPage"] = !(
-                  $state.tokenUser == undefined || $state.tokenUser == ""
-                )
-                  ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return (
-                              "https://apps.liom.app/bioritm/?r=" +
-                              $ctx.query.r +
-                              "&m=" +
-                              $ctx.query.m
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
-                ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
               }}
             >

@@ -82,10 +82,16 @@ import sty from "./PlasmicPregnancy.module.css"; // plasmic-import: PDbEkiKHzqMX
 
 createPlasmicElementProxy;
 
-export type PlasmicPregnancy__VariantMembers = {};
-export type PlasmicPregnancy__VariantsArgs = {};
+export type PlasmicPregnancy__VariantMembers = {
+  darkMod: "darkMod";
+};
+export type PlasmicPregnancy__VariantsArgs = {
+  darkMod?: SingleBooleanChoiceArg<"darkMod">;
+};
 type VariantPropType = keyof PlasmicPregnancy__VariantsArgs;
-export const PlasmicPregnancy__VariantProps = new Array<VariantPropType>();
+export const PlasmicPregnancy__VariantProps = new Array<VariantPropType>(
+  "darkMod"
+);
 
 export type PlasmicPregnancy__ArgsType = {};
 type ArgPropType = keyof PlasmicPregnancy__ArgsType;
@@ -152,7 +158,9 @@ function PlasmicPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getInfo.data[0].result.weeksPregnant;
+              return $state.getInfo.data[0].result.weeksPregnant == 0
+                ? 1
+                : $state.getInfo.data[0].result.weeksPregnant;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -172,8 +180,13 @@ function PlasmicPregnancy__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if ($state.weekNum < 10) return "0" + $state.weekNum.toString();
-                else return $state.weekNum.toString();
+                if ($state.weekNum == 0) {
+                  return "01";
+                } else if ($state.weekNum < 10) {
+                  return "0" + $state.weekNum.toString();
+                } else {
+                  return $state.weekNum.toString();
+                }
               })();
             } catch (e) {
               if (
@@ -297,6 +310,12 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "darkMod",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.darkMod
       }
     ],
     [$props, $ctx, $refs]
@@ -339,6 +358,7 @@ function PlasmicPregnancy__RenderFunc(props: {
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root,
             {
+              [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod"),
               [sty.rootglobal_theme_dark]: hasVariant(
                 globalVariants,
                 "theme",
@@ -385,7 +405,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                   }
                 })()
           ) ? (
-            <div className={classNames(projectcss.all, sty.freeBox__z49Xy)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__z49Xy, {
+                [sty.freeBoxdarkMod__z49XyOQOo]: hasVariant(
+                  $state,
+                  "darkMod",
+                  "darkMod"
+                )
+              })}
+            >
               <Embed
                 data-plasmic-name={"embedHtml"}
                 data-plasmic-override={overrides.embedHtml}
@@ -710,7 +738,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                     <Stack__
                       as={"div"}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__rfrx1)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__rfrx1,
+                        {
+                          [sty.freeBoxdarkMod__rfrx1OQOo]: hasVariant(
+                            $state,
+                            "darkMod",
+                            "darkMod"
+                          )
+                        }
+                      )}
                       key={currentIndex}
                       onClick={async event => {
                         const $steps = {};
@@ -814,7 +852,13 @@ function PlasmicPregnancy__RenderFunc(props: {
               <TodoList
                 data-plasmic-name={"todoList"}
                 data-plasmic-override={overrides.todoList}
-                className={classNames("__wab_instance", sty.todoList)}
+                className={classNames("__wab_instance", sty.todoList, {
+                  [sty.todoListdarkMod]: hasVariant(
+                    $state,
+                    "darkMod",
+                    "darkMod"
+                  )
+                })}
                 loading={(() => {
                   try {
                     return $state.getTask.loading;
@@ -844,6 +888,19 @@ function PlasmicPregnancy__RenderFunc(props: {
                 title={
                   "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u06cc\u0646 \u0647\u0641\u062a\u0647 \u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647\u0645:"
                 }
+                userId={(() => {
+                  try {
+                    return $ctx.query.userId;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
               />
             </div>
           ) : null}
