@@ -130,7 +130,6 @@ export type PlasmicHamyar__OverridesType = {
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
-  embedHtml?: Flex__<typeof Embed>;
   shopModalMobile?: Flex__<typeof SlideinModal>;
   subscription2?: Flex__<typeof Subscription>;
   button4?: Flex__<typeof Button>;
@@ -4941,9 +4940,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 </div>
               </Stack__>
               <Embed
-                data-plasmic-name={"embedHtml"}
-                data-plasmic-override={overrides.embedHtml}
-                className={classNames("__wab_instance", sty.embedHtml)}
+                className={classNames("__wab_instance", sty.embedHtml__uGsI4)}
                 code={
                   "    <script>\r\n        String.prototype.EntoFa = function() {\r\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\r\n        }\r\n        function convertNumbersInPage() {\r\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\r\n            elements.forEach(element => {\r\n                element.childNodes.forEach(node => {\r\n                    if (node.nodeType === Node.TEXT_NODE) {\r\n                        node.nodeValue = node.nodeValue.EntoFa();\r\n                    }\r\n                });\r\n            });\r\n        }\r\n    setTimeout(convertNumbersInPage, 1000);\r\n    </script>"
                 }
@@ -10026,6 +10023,12 @@ function PlasmicHamyar__RenderFunc(props: {
               </div>
             </div>
           </Stack__>
+          <Embed
+            className={classNames("__wab_instance", sty.embedHtml__mj9Yt)}
+            code={
+              "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -10049,7 +10052,6 @@ const PlasmicDescendants = {
     "input",
     "button",
     "button2",
-    "embedHtml",
     "shopModalMobile",
     "subscription2",
     "button4",
@@ -10078,7 +10080,6 @@ const PlasmicDescendants = {
   input: ["input"],
   button: ["button"],
   button2: ["button2"],
-  embedHtml: ["embedHtml"],
   shopModalMobile: ["shopModalMobile", "subscription2", "button4"],
   subscription2: ["subscription2"],
   button4: ["button4"],
@@ -10112,7 +10113,6 @@ type NodeDefaultElementType = {
   input: typeof AntdInput;
   button: typeof Button;
   button2: typeof Button;
-  embedHtml: typeof Embed;
   shopModalMobile: typeof SlideinModal;
   subscription2: typeof Subscription;
   button4: typeof Button;
@@ -10227,7 +10227,6 @@ export const PlasmicHamyar = Object.assign(
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
-    embedHtml: makeNodeComponent("embedHtml"),
     shopModalMobile: makeNodeComponent("shopModalMobile"),
     subscription2: makeNodeComponent("subscription2"),
     button4: makeNodeComponent("button4"),
