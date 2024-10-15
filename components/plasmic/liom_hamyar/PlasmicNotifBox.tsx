@@ -75,6 +75,7 @@ import sty from "./PlasmicNotifBox.module.css"; // plasmic-import: xI5TnebPGhVr/
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
+import Icon35Icon from "./icons/PlasmicIcon__Icon35"; // plasmic-import: nQOo7Yl-ugpF/icon
 
 createPlasmicElementProxy;
 
@@ -130,7 +131,6 @@ export const PlasmicNotifBox__ArgProps = new Array<ArgPropType>(
 export type PlasmicNotifBox__OverridesType = {
   root?: Flex__<"div">;
   collapse?: Flex__<typeof AntdSingleCollapse>;
-  svg?: Flex__<"svg">;
 };
 
 export interface DefaultNotifBoxProps {
@@ -261,6 +261,11 @@ function PlasmicNotifBox__RenderFunc(props: {
     $refs
   });
 
+  const [isRootHover, triggerRootHoverProps] = useTrigger("useHover", {});
+  const triggers = {
+    hover_root: isRootHover
+  };
+
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6BytLjmha8VC()
   });
@@ -292,6 +297,7 @@ function PlasmicNotifBox__RenderFunc(props: {
             hasVariant($state, "forAll", "forAll")
         }
       )}
+      data-plasmic-trigger-props={[triggerRootHoverProps]}
     >
       {(() => {
         const child$Props = {
@@ -549,12 +555,24 @@ function PlasmicNotifBox__RenderFunc(props: {
       />
 
       <Icon22Icon
-        data-plasmic-name={"svg"}
-        data-plasmic-override={overrides.svg}
-        className={classNames(projectcss.all, sty.svg, {
-          [sty.svgseen_forAll]:
+        className={classNames(projectcss.all, sty.svg__t65Sq, {
+          [sty.svgseen_forAll__t65SQofXywQ4BdZ]:
             hasVariant($state, "seen", "seen") &&
             hasVariant($state, "forAll", "forAll")
+        })}
+        onClick={args.onClick}
+        role={"img"}
+      />
+
+      <Icon35Icon
+        className={classNames(projectcss.all, sty.svg__v6Bn5, {
+          [sty.svgdelet_seen_forAll__v6Bn53NCiOfXywQ4BdZ]:
+            hasVariant($state, "forAll", "forAll") &&
+            hasVariant($state, "seen", "seen") &&
+            hasVariant($state, "delet", "delet"),
+          [sty.svgseen_forAll__v6Bn5OfXywQ4BdZ]:
+            hasVariant($state, "forAll", "forAll") &&
+            hasVariant($state, "seen", "seen")
         })}
         onClick={args.onClick}
         role={"img"}
@@ -564,9 +582,8 @@ function PlasmicNotifBox__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "collapse", "svg"],
-  collapse: ["collapse"],
-  svg: ["svg"]
+  root: ["root", "collapse"],
+  collapse: ["collapse"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -574,7 +591,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   collapse: typeof AntdSingleCollapse;
-  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -638,7 +654,6 @@ export const PlasmicNotifBox = Object.assign(
   {
     // Helper components rendering sub-elements
     collapse: makeNodeComponent("collapse"),
-    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicNotifBox
     internalVariantProps: PlasmicNotifBox__VariantProps,
