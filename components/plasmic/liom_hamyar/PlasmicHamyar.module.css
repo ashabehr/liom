@@ -230,6 +230,7 @@
 }
 @media (max-width: 640px) {
   .freeBox__kpKeP {
+    width: auto;
     display: flex;
   }
 }
