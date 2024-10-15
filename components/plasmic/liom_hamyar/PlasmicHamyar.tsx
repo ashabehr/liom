@@ -1073,7 +1073,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           )}
                         >
                           {
-                            "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u062f\u0648\u0631\u0647"
+                            "\u0641\u0639\u0627\u0644\u200c\u0633\u0627\u0632\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631"
                           }
                         </div>
                       </Switchbest>

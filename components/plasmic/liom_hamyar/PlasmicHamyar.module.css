@@ -150,7 +150,7 @@
 }
 @media (max-width: 640px) {
   .freeBox__d2GZw > :global(.__wab_flex-container) {
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     min-height: 0;
     margin-left: calc(0px - 5px);
@@ -243,9 +243,13 @@
     width: auto;
   }
 }
+.text__kix0P {
+  font-weight: 700;
+}
 @media (max-width: 640px) {
   .text__kix0P {
     font-size: 14px;
+    font-weight: 400;
   }
 }
 .freeBox__bph6 {
