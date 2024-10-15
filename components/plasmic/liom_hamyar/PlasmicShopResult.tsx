@@ -1275,7 +1275,16 @@ function PlasmicShopResult__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return (window.location.href = "liom://app");
+                              return (() => {
+                                const url =
+                                  "https://apps.liom.app/hamyar/?r=" +
+                                  $ctx.query.r +
+                                  "&m=" +
+                                  $ctx.query.m;
+                                return (window.location.href =
+                                  "liom://app?redirect=" +
+                                  encodeURIComponent(url));
+                              })();
                             }
                           };
                           return (({ customFunction }) => {
