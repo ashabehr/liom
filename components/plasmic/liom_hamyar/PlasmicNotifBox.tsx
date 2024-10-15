@@ -282,6 +282,9 @@ function PlasmicNotifBox__RenderFunc(props: {
         sty.root,
         {
           [sty.rootdelet]: hasVariant($state, "delet", "delet"),
+          [sty.rootdelet_forAll]:
+            hasVariant($state, "forAll", "forAll") &&
+            hasVariant($state, "delet", "delet"),
           [sty.rootforAll]: hasVariant($state, "forAll", "forAll"),
           [sty.rootseen]: hasVariant($state, "seen", "seen"),
           [sty.rootseen_forAll]:
@@ -318,7 +321,10 @@ function PlasmicNotifBox__RenderFunc(props: {
                   $state,
                   "seen",
                   "seen"
-                )
+                ),
+                [sty.freeBoxseen_forAll___5FqYhofXywQ4BdZ]:
+                  hasVariant($state, "seen", "seen") &&
+                  hasVariant($state, "forAll", "forAll")
               })}
             >
               {renderPlasmicSlot({

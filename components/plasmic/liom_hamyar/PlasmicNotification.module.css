@@ -90,6 +90,28 @@
     padding-top: 12px;
   }
 }
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  position: sticky;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  width: 25px;
+  height: 25px;
+  color: var(--token-2aHIw8xI62Xi);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg {
+    position: sticky;
+    left: 8px;
+    top: 8px;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+}
 .text___8KVfJ {
   position: relative;
   width: 100%;
@@ -101,6 +123,7 @@
   font-size: 20px;
   font-weight: 700;
   color: var(--token-2aHIw8xI62Xi);
+  padding-right: 10px;
   min-width: 0;
 }
 @media (max-width: 640px) {
@@ -115,27 +138,6 @@
 @media (max-width: 640px) {
   .textnotification___8KVfJfbnFk {
     font-size: 16px;
-  }
-}
-.svg {
-  object-fit: cover;
-  max-width: 100%;
-  position: sticky;
-  left: 0px;
-  top: 0px;
-  z-index: 1;
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-}
-@media (max-width: 640px) {
-  .svg {
-    position: sticky;
-    left: 8px;
-    top: 8px;
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
   }
 }
 .freeBox__xZf {

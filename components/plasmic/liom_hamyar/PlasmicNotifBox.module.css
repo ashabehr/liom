@@ -195,7 +195,7 @@
   display: none;
 }
 .svgseen_forAll {
-  display: block;
+  display: none;
 }
 @media (max-width: 640px) {
   .svgseen_forAll {

@@ -303,6 +303,19 @@ function PlasmicNotification__RenderFunc(props: {
               )
             })}
           >
+            <Icon22Icon
+              data-plasmic-name={"svg"}
+              data-plasmic-override={overrides.svg}
+              className={classNames(projectcss.all, sty.svg, {
+                [sty.svgnotification]: hasVariant(
+                  $state,
+                  "notification",
+                  "notification"
+                )
+              })}
+              role={"img"}
+            />
+
             <div
               className={classNames(
                 projectcss.all,
@@ -324,18 +337,6 @@ function PlasmicNotification__RenderFunc(props: {
             >
               {"\u0627\u0639\u0644\u0627\u0646\u0627\u062a"}
             </div>
-            <Icon22Icon
-              data-plasmic-name={"svg"}
-              data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg, {
-                [sty.svgnotification]: hasVariant(
-                  $state,
-                  "notification",
-                  "notification"
-                )
-              })}
-              role={"img"}
-            />
           </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__xZf, {
