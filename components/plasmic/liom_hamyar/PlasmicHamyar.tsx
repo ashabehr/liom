@@ -3303,7 +3303,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                   return (() => {
                                     return window.open(
                                       $steps.invokeGlobalAction.data.result,
-                                      "_blank"
+                                      "_system"
                                     );
                                   })();
                                 }
@@ -4663,7 +4663,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                             return window.open(
                                               $steps.invokeGlobalAction.data
                                                 .result,
-                                              "_blank"
+                                              "_system"
                                             );
                                           })();
                                         }
@@ -5416,7 +5416,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                   return (() => {
                                     return window.open(
                                       $steps.invokeGlobalAction.data.result,
-                                      "_blank"
+                                      "_system"
                                     );
                                   })();
                                 }
@@ -6674,11 +6674,13 @@ function PlasmicHamyar__RenderFunc(props: {
                                   ? (() => {
                                       const actionArgs = {
                                         customFunction: async () => {
-                                          return window.open(
-                                            $steps.invokeGlobalAction.data
-                                              .result,
-                                            "_blank"
-                                          );
+                                          return (() => {
+                                            return window.open(
+                                              $steps.invokeGlobalAction.data
+                                                .result,
+                                              "_system"
+                                            );
+                                          })();
                                         }
                                       };
                                       return (({ customFunction }) => {
