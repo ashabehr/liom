@@ -159,25 +159,25 @@
   display: flex;
   flex-direction: column;
 }
-.img {
+.img___6DKUy {
   object-fit: cover;
   max-width: 30%;
   display: none !important;
 }
-.img > picture > img {
+.img___6DKUy > picture > img {
   object-fit: cover;
 }
 @media (max-width: 640px) {
-  .img {
+  .img___6DKUy {
     max-width: 50%;
   }
 }
-.imgnoNotification {
+.imgnoNotification___6DKUyobwoa {
   max-width: 30%;
   display: block !important;
 }
 @media (max-width: 640px) {
-  .imgnoNotification {
+  .imgnoNotification___6DKUyobwoa {
     max-width: 50%;
   }
 }

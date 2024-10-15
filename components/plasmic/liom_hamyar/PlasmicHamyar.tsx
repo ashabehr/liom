@@ -66,6 +66,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import Nofiticon from "../../Nofiticon"; // plasmic-import: J7iX9VyuSoJi/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
@@ -116,6 +117,7 @@ export const PlasmicHamyar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHamyar__OverridesType = {
   root?: Flex__<"div">;
+  nofiticon?: Flex__<typeof Nofiticon>;
   switchbest?: Flex__<typeof Switchbest>;
   countdown2?: Flex__<typeof Countdown>;
   cyclebox?: Flex__<typeof Cyclebox>;
@@ -787,6 +789,12 @@ function PlasmicHamyar__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "nofiticon.number",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -916,6 +924,20 @@ function PlasmicHamyar__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__d2GZw)}
                 >
+                  <Nofiticon
+                    data-plasmic-name={"nofiticon"}
+                    data-plasmic-override={overrides.nofiticon}
+                    className={classNames("__wab_instance", sty.nofiticon)}
+                    number={generateStateValueProp($state, [
+                      "nofiticon",
+                      "number"
+                    ])}
+                    onNumberChange={generateStateOnChangeProp($state, [
+                      "nofiticon",
+                      "number"
+                    ])}
+                  />
+
                   <div
                     className={classNames(projectcss.all, sty.freeBox__vjsSc)}
                   >
@@ -10038,6 +10060,7 @@ function PlasmicHamyar__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "nofiticon",
     "switchbest",
     "countdown2",
     "cyclebox",
@@ -10066,6 +10089,7 @@ const PlasmicDescendants = {
     "pullToRefresh",
     "advice"
   ],
+  nofiticon: ["nofiticon"],
   switchbest: ["switchbest"],
   countdown2: ["countdown2"],
   cyclebox: ["cyclebox"],
@@ -10099,6 +10123,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  nofiticon: typeof Nofiticon;
   switchbest: typeof Switchbest;
   countdown2: typeof Countdown;
   cyclebox: typeof Cyclebox;
@@ -10213,6 +10238,7 @@ export const PlasmicHamyar = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    nofiticon: makeNodeComponent("nofiticon"),
     switchbest: makeNodeComponent("switchbest"),
     countdown2: makeNodeComponent("countdown2"),
     cyclebox: makeNodeComponent("cyclebox"),

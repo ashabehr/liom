@@ -102,7 +102,6 @@ export const PlasmicNotification__ArgProps = new Array<ArgPropType>();
 export type PlasmicNotification__OverridesType = {
   root?: Flex__<"div">;
   svg?: Flex__<"svg">;
-  img?: Flex__<typeof PlasmicImg__>;
   lottie?: Flex__<typeof LottieWrapper>;
   notifBox2?: Flex__<typeof NotifBox>;
   button?: Flex__<typeof Button>;
@@ -162,7 +161,7 @@ function PlasmicNotification__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.apiRequest.data.length <= 0;
+              return $state.apiRequest.data[0].id == null;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -181,7 +180,7 @@ function PlasmicNotification__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.apiRequest.data.length > 0;
+              return $state.apiRequest.data[0].id != null;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -240,6 +239,28 @@ function PlasmicNotification__RenderFunc(props: {
         path: "notifBox2[].delet",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "userInfo",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                let userinfo = localStorage.getItem("userinfo");
+                return (userinfo = JSON.parse(userinfo));
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -348,11 +369,9 @@ function PlasmicNotification__RenderFunc(props: {
             })}
           >
             <PlasmicImg__
-              data-plasmic-name={"img"}
-              data-plasmic-override={overrides.img}
               alt={""}
-              className={classNames(sty.img, {
-                [sty.imgnoNotification]: hasVariant(
+              className={classNames(sty.img___6DKUy, {
+                [sty.imgnoNotification___6DKUyobwoa]: hasVariant(
                   $state,
                   "noNotification",
                   "noNotification"
@@ -2969,7 +2988,7 @@ function PlasmicNotification__RenderFunc(props: {
                   const child$Props = {
                     button2: (() => {
                       try {
-                        return notifItem.btnAction != null;
+                        return notifItem.btnText != null;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -2988,6 +3007,51 @@ function PlasmicNotification__RenderFunc(props: {
                               __plasmic_idx_0,
                               "color"
                             ]),
+                            onClick: async event => {
+                              const $steps = {};
+
+                              $steps["goToPage"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: (() => {
+                                        try {
+                                          return notifItem.btnAction;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["goToPage"] != null &&
+                                typeof $steps["goToPage"] === "object" &&
+                                typeof $steps["goToPage"].then === "function"
+                              ) {
+                                $steps["goToPage"] = await $steps["goToPage"];
+                              }
+                            },
                             onColorChange: (...eventArgs) => {
                               generateStateOnChangeProp($state, [
                                 "button",
@@ -3421,7 +3485,43 @@ function PlasmicNotification__RenderFunc(props: {
                       data-plasmic-name={"notifBox2"}
                       data-plasmic-override={overrides.notifBox2}
                       {...child$Props}
-                    />
+                    >
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__w0FQd, {
+                          [sty.imgnotification__w0FQdFbnFk]: hasVariant(
+                            $state,
+                            "notification",
+                            "notification"
+                          )
+                        })}
+                        displayHeight={"30px"}
+                        displayMaxHeight={"100%"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"30px"}
+                        loading={"lazy"}
+                        src={(() => {
+                          try {
+                            return notifItem.icon;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return {
+                                src: "/plasmic/liom_hamyar/images/image10.ico",
+                                fullWidth: 256,
+                                fullHeight: 256,
+                                aspectRatio: undefined
+                              };
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    </NotifBox>
                   );
                 })();
               })}
@@ -3472,8 +3572,7 @@ function PlasmicNotification__RenderFunc(props: {
                 ? (() => {
                     try {
                       return {
-                        userId: "101",
-                        appKey: "com.app.example"
+                        userId: "105"
                       };
                     } catch (e) {
                       if (
@@ -3506,8 +3605,7 @@ function PlasmicNotification__RenderFunc(props: {
                 : (() => {
                     try {
                       return {
-                        userId: "101",
-                        appKey: "com.app.example"
+                        userId: $state.userInfo.man.id
                       };
                     } catch (e) {
                       if (
@@ -3520,7 +3618,9 @@ function PlasmicNotification__RenderFunc(props: {
                     }
                   })()
             }
-            url={"https://n8n.staas.ir/webhook/notification"}
+            url={
+              "https://n8n.staas.ir/webhook/ed58810c-60d2-4c40-9e7c-ecfcf1dfa57a"
+            }
           />
         </div>
       </div>
@@ -3529,9 +3629,8 @@ function PlasmicNotification__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg", "img", "lottie", "notifBox2", "button", "apiRequest"],
+  root: ["root", "svg", "lottie", "notifBox2", "button", "apiRequest"],
   svg: ["svg"],
-  img: ["img"],
   lottie: ["lottie"],
   notifBox2: ["notifBox2", "button"],
   button: ["button"],
@@ -3543,7 +3642,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   svg: "svg";
-  img: typeof PlasmicImg__;
   lottie: typeof LottieWrapper;
   notifBox2: typeof NotifBox;
   button: typeof Button;
@@ -3636,7 +3734,6 @@ export const PlasmicNotification = Object.assign(
   {
     // Helper components rendering sub-elements
     svg: makeNodeComponent("svg"),
-    img: makeNodeComponent("img"),
     lottie: makeNodeComponent("lottie"),
     notifBox2: makeNodeComponent("notifBox2"),
     button: makeNodeComponent("button"),

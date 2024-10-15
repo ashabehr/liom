@@ -172,6 +172,19 @@
     margin-top: 0px;
   }
 }
+.nofiticon:global(.__wab_instance) {
+  max-width: 100%;
+  width: 50px;
+  align-self: center;
+  height: 50px;
+  flex-shrink: 0;
+  display: none;
+}
+@media (max-width: 640px) {
+  .nofiticon:global(.__wab_instance) {
+    width: auto;
+  }
+}
 .freeBox__vjsSc {
   display: flex;
   flex-direction: column;

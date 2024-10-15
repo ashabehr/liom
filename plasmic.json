@@ -509,6 +509,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicBoxselect.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "J7iX9VyuSoJi",
+          "name": "Nofiticon",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNofiticon.tsx",
+          "importSpec": {
+            "modulePath": "Nofiticon.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicNofiticon.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -726,6 +739,16 @@
           "id": "nQOo7Yl-ugpF",
           "name": "Icon35Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon35.tsx"
+        },
+        {
+          "id": "4rvOLBwK1Dnn",
+          "name": "Icon36Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon36.tsx"
+        },
+        {
+          "id": "LIjpTvvD6DcR",
+          "name": "Icon37Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon37.tsx"
         }
       ],
       "images": [
