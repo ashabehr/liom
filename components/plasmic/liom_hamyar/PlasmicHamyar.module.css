@@ -302,7 +302,7 @@
   .freeBox__uHwR {
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     align-items: center;
     justify-content: center;
