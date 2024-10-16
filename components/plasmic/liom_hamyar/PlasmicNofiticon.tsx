@@ -84,11 +84,13 @@ export const PlasmicNofiticon__VariantProps = new Array<VariantPropType>(
 export type PlasmicNofiticon__ArgsType = {
   number?: number;
   onNumberChange?: (val: string) => void;
+  onClick?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicNofiticon__ArgsType;
 export const PlasmicNofiticon__ArgProps = new Array<ArgPropType>(
   "number",
-  "onNumberChange"
+  "onNumberChange",
+  "onClick"
 );
 
 export type PlasmicNofiticon__OverridesType = {
@@ -101,6 +103,7 @@ export type PlasmicNofiticon__OverridesType = {
 export interface DefaultNofiticonProps {
   number?: number;
   onNumberChange?: (val: string) => void;
+  onClick?: (event: any) => void;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   className?: string;
 }
@@ -194,6 +197,7 @@ function PlasmicNofiticon__RenderFunc(props: {
           )
         }
       )}
+      onClick={args.onClick}
     >
       <Icon37Icon
         data-plasmic-name={"svg"}

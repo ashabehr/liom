@@ -96,6 +96,8 @@ export type PlasmicCyclebox__ArgsType = {
   cycle?: string;
   onCycleChange?: (val: string) => void;
   onClickDescription?: (event: any) => void;
+  textsycle?: string;
+  onTextsycleChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicCyclebox__ArgsType;
 export const PlasmicCyclebox__ArgProps = new Array<ArgPropType>(
@@ -106,13 +108,13 @@ export const PlasmicCyclebox__ArgProps = new Array<ArgPropType>(
   "onPeriodChange",
   "cycle",
   "onCycleChange",
-  "onClickDescription"
+  "onClickDescription",
+  "textsycle",
+  "onTextsycleChange"
 );
 
 export type PlasmicCyclebox__OverridesType = {
   root?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
-  text?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
 };
 
@@ -125,6 +127,8 @@ export interface DefaultCycleboxProps {
   cycle?: string;
   onCycleChange?: (val: string) => void;
   onClickDescription?: (event: any) => void;
+  textsycle?: string;
+  onTextsycleChange?: (val: string) => void;
   pms?: SingleBooleanChoiceArg<"pms">;
   fertility?: SingleBooleanChoiceArg<"fertility">;
   period?: SingleBooleanChoiceArg<"period">;
@@ -204,6 +208,14 @@ function PlasmicCyclebox__RenderFunc(props: {
 
         valueProp: "cycle",
         onChangeProp: "onCycleChange"
+      },
+      {
+        path: "textsycle",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "textsycle",
+        onChangeProp: "onTextsycleChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -243,13 +255,19 @@ function PlasmicCyclebox__RenderFunc(props: {
     >
       <Stack__
         as={"div"}
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
         hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBoxfertility]: hasVariant($state, "fertility", "fertility"),
-          [sty.freeBoxperiod]: hasVariant($state, "period", "period"),
-          [sty.freeBoxpms]: hasVariant($state, "pms", "pms")
+        className={classNames(projectcss.all, sty.freeBox__dhejs, {
+          [sty.freeBoxfertility__dhejsvlklK]: hasVariant(
+            $state,
+            "fertility",
+            "fertility"
+          ),
+          [sty.freeBoxperiod__dhejs6AdLd]: hasVariant(
+            $state,
+            "period",
+            "period"
+          ),
+          [sty.freeBoxpms__dhejssscqc]: hasVariant($state, "pms", "pms")
         })}
       >
         {renderPlasmicSlot({
@@ -322,51 +340,158 @@ function PlasmicCyclebox__RenderFunc(props: {
         })}
       </Stack__>
       <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
-          [sty.textfertility]: hasVariant($state, "fertility", "fertility"),
-          [sty.textpms]: hasVariant($state, "pms", "pms")
+        className={classNames(projectcss.all, sty.freeBox___66Lnm, {
+          [sty.freeBoxpms___66Lnmsscqc]: hasVariant($state, "pms", "pms")
         })}
+      >
+        <PlasmicImg__
+          data-plasmic-name={"img"}
+          data-plasmic-override={overrides.img}
+          alt={""}
+          className={classNames(sty.img, {
+            [sty.imgfertility]: hasVariant($state, "fertility", "fertility"),
+            [sty.imgperiod]: hasVariant($state, "period", "period"),
+            [sty.imgpms]: hasVariant($state, "pms", "pms")
+          })}
+          displayHeight={
+            hasVariant(globalVariants, "screen", "mobile") ? "85px" : "150px"
+          }
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={
+            hasVariant(globalVariants, "screen", "mobile") ? "85px" : "150px"
+          }
+          loading={"lazy"}
+          src={{
+            src: "/plasmic/liom_hamyar/images/_72508101Png.png",
+            fullWidth: 491,
+            fullHeight: 450,
+            aspectRatio: undefined
+          }}
+        />
+
+        <div
+          className={classNames(projectcss.all, sty.freeBox__nCGi, {
+            [sty.freeBoxfertility__nCGIvlklK]: hasVariant(
+              $state,
+              "fertility",
+              "fertility"
+            ),
+            [sty.freeBoxperiod__nCGi6AdLd]: hasVariant(
+              $state,
+              "period",
+              "period"
+            ),
+            [sty.freeBoxpms__nCGIsscqc]: hasVariant($state, "pms", "pms")
+          })}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__srBvc,
+              {
+                [sty.textfertility__srBvcvlklK]: hasVariant(
+                  $state,
+                  "fertility",
+                  "fertility"
+                ),
+                [sty.textperiod__srBvc6AdLd]: hasVariant(
+                  $state,
+                  "period",
+                  "period"
+                ),
+                [sty.textpms__srBvcsscqc]: hasVariant($state, "pms", "pms")
+              }
+            )}
+          >
+            {"\u0627\u062a\u0645\u0627\u0645 \u0648\u0636\u0639\u06cc\u062a:"}
+          </div>
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__r4Hpw,
+              {
+                [sty.textfertility__r4HpWvlklK]: hasVariant(
+                  $state,
+                  "fertility",
+                  "fertility"
+                ),
+                [sty.textperiod__r4Hpw6AdLd]: hasVariant(
+                  $state,
+                  "period",
+                  "period"
+                ),
+                [sty.textpms__r4HpWsscqc]: hasVariant($state, "pms", "pms")
+              }
+            )}
+          >
+            {hasVariant($state, "pms", "pms") &&
+            hasVariant(globalVariants, "screen", "mobile") ? (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.textsycle;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "5 \u0631\u0648\u0632";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.textsycle;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            )}
+          </div>
+        </div>
+      </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__brqp2,
+          {
+            [sty.textfertility__brqp2VlklK]: hasVariant(
+              $state,
+              "fertility",
+              "fertility"
+            ),
+            [sty.textpms__brqp2Sscqc]: hasVariant($state, "pms", "pms")
+          }
+        )}
         onClick={args.onClickDescription}
       >
         {hasVariant($state, "pms", "pms")
           ? "pms \u0686\u06cc\u0633\u062a\u061f"
           : "\u062a\u062e\u0645\u06a9 \u06af\u0630\u0627\u0631\u06cc \u0686\u06cc\u0633\u062a\u061f"}
       </div>
-      <PlasmicImg__
-        data-plasmic-name={"img"}
-        data-plasmic-override={overrides.img}
-        alt={""}
-        className={classNames(sty.img, {
-          [sty.imgfertility]: hasVariant($state, "fertility", "fertility")
-        })}
-        displayHeight={
-          hasVariant(globalVariants, "screen", "mobile") ? "85px" : "150px"
-        }
-        displayMaxHeight={"none"}
-        displayMaxWidth={"100%"}
-        displayMinHeight={"0"}
-        displayMinWidth={"0"}
-        displayWidth={
-          hasVariant(globalVariants, "screen", "mobile") ? "85px" : "150px"
-        }
-        loading={"lazy"}
-        src={{
-          src: "/plasmic/liom_hamyar/images/_72508101Png.png",
-          fullWidth: 491,
-          fullHeight: 450,
-          aspectRatio: undefined
-        }}
-      />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "text", "img"],
-  freeBox: ["freeBox"],
-  text: ["text"],
+  root: ["root", "img"],
   img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -374,8 +499,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  freeBox: "div";
-  text: "div";
   img: typeof PlasmicImg__;
 };
 
@@ -439,8 +562,6 @@ export const PlasmicCyclebox = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
-    text: makeNodeComponent("text"),
     img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicCyclebox

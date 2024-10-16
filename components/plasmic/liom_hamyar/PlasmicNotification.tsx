@@ -334,6 +334,44 @@ function PlasmicNotification__RenderFunc(props: {
                   "notification"
                 )
               })}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            const previousUrl = document.referrer;
+                            if (
+                              previousUrl.startsWith(
+                                "https://apps.liom.app/hamyar"
+                              )
+                            ) {
+                              return window.history.back();
+                            } else {
+                              return (window.location.href =
+                                "https://apps.liom.app/hamyar/?r=" +
+                                $ctx.query.r +
+                                "&m=" +
+                                $ctx.query.m);
+                            }
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
               role={"img"}
             />
 
@@ -3618,9 +3656,7 @@ function PlasmicNotification__RenderFunc(props: {
                     }
                   })()
             }
-            url={
-              "https://n8n.staas.ir/webhook/ed58810c-60d2-4c40-9e7c-ecfcf1dfa57a"
-            }
+            url={"https://n8n.staas.ir/webhook/hamyar/notif"}
           />
         </div>
       </div>

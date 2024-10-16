@@ -522,6 +522,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicNofiticon.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "ESQYCy2CI8c6",
+          "name": "Pregnancy2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancy2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/pregnancy-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancy2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/pregnancy-2"
         }
       ],
       "icons": [

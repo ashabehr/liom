@@ -95,7 +95,6 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicHamyar.module.css"; // plasmic-import: TOxGOz1ONYz_/css
 
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
-import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: 8spC6Q9XOGVd/icon
 import Icon4Icon from "./icons/PlasmicIcon__Icon4"; // plasmic-import: halWdf8bhZV9/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
@@ -145,6 +144,7 @@ export type PlasmicHamyar__OverridesType = {
   favicon?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   advice?: Flex__<typeof ApiRequest>;
+  countNotif?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultHamyarProps {}
@@ -794,7 +794,175 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "nofiticon.number",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile")
+            ? (() => {
+                try {
+                  return $state.countNotif.data[0].unseen_count;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return 0;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return $state.countNotif.data[0].unseen_count;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return 0;
+                  }
+                  throw e;
+                }
+              })()
+      },
+      {
+        path: "countNotif.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "countNotif.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "countNotif.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "cyclebox.textsycle",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile")
+            ? (() => {
+                try {
+                  return (() => {
+                    switch ($state.user.data.result.userStatus.periodStatus) {
+                      case null:
+                        return "";
+                      case "fertility":
+                        let future1 = new Date(
+                          $state.user.data.result.userStatus.fertilityEnd
+                        );
+                        let current_date1 = new Date();
+                        let delta1 = future1 - current_date1;
+                        let days_remaining1 = Math.floor(
+                          delta1 / (1000 * 60 * 60 * 24)
+                        );
+                        if (days_remaining1 == 0) return "امروز";
+                        return days_remaining1 + " روز " + "دیگر";
+                      case "pms":
+                        if (
+                          $state.user.data.result.userStatus.daysToEndPms ==
+                            0 ||
+                          $state.user.data.result.userStatus.daysToEndPms == 1
+                        )
+                          return "امروز";
+                        return (
+                          $state.user.data.result.userStatus.daysToEndPms -
+                          1 +
+                          " روز " +
+                          "دیگر"
+                        );
+                      case "blood":
+                        if (
+                          $state.user.data.result.userStatus.daysToEndPeriod ==
+                            1 ||
+                          $state.user.data.result.userStatus.daysToEndPeriod ==
+                            0
+                        )
+                          return "امروز";
+                        return (
+                          $state.user.data.result.userStatus.daysToEndPeriod -
+                          1 +
+                          " روز " +
+                          "دیگر"
+                        );
+                      default:
+                        return "";
+                    }
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return (() => {
+                    switch ($state.user.data.result.userStatus.periodStatus) {
+                      case null:
+                        return "";
+                      case "fertility":
+                        let future1 = new Date(
+                          $state.user.data.result.userStatus.fertilityEnd
+                        );
+                        let current_date1 = new Date();
+                        let delta1 = future1 - current_date1;
+                        let days_remaining1 = Math.floor(
+                          delta1 / (1000 * 60 * 60 * 24)
+                        );
+                        if (days_remaining1 == 0) return "تا پایان امروز";
+                        return days_remaining1 + " روز " + "دیگر";
+                      case "pms":
+                        if (
+                          $state.user.data.result.userStatus.daysToEndPms ==
+                            0 ||
+                          $state.user.data.result.userStatus.daysToEndPms == 1
+                        )
+                          return "تا پایان امروز";
+                        return (
+                          $state.user.data.result.userStatus.daysToEndPms -
+                          1 +
+                          " روز " +
+                          "دیگر"
+                        );
+                      case "blood":
+                        if (
+                          $state.user.data.result.userStatus.daysToEndPeriod ==
+                            1 ||
+                          $state.user.data.result.userStatus.daysToEndPeriod ==
+                            0
+                        )
+                          return "تا پایان امروز";
+                        return (
+                          $state.user.data.result.userStatus.daysToEndPeriod -
+                          1 +
+                          " روز " +
+                          "دیگر"
+                        );
+                      default:
+                        return "-";
+                    }
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
       }
     ],
     [$props, $ctx, $refs]
@@ -932,10 +1100,73 @@ function PlasmicHamyar__RenderFunc(props: {
                       "nofiticon",
                       "number"
                     ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToNotification"] = true
+                        ? (() => {
+                            const actionArgs = { destination: `/notification` };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToNotification"] != null &&
+                        typeof $steps["goToNotification"] === "object" &&
+                        typeof $steps["goToNotification"].then === "function"
+                      ) {
+                        $steps["goToNotification"] = await $steps[
+                          "goToNotification"
+                        ];
+                      }
+                    }}
                     onNumberChange={generateStateOnChangeProp($state, [
                       "nofiticon",
                       "number"
                     ])}
+                    unnamedVariant={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? (() => {
+                            try {
+                              return (
+                                $state.countNotif.data[0].unseen_count != 0
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "unnamedVariant";
+                              }
+                              throw e;
+                            }
+                          })()
+                        : (() => {
+                            try {
+                              return (
+                                $state.countNotif.data[0].unseen_count != 0
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                    }
                   />
 
                   <div
@@ -1635,654 +1866,765 @@ function PlasmicHamyar__RenderFunc(props: {
                     ) : null}
                   </div>
                 ) : null}
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___2F0Aw)}
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__nRwCr)}
                 >
-                  <Cyclebox
-                    data-plasmic-name={"cyclebox"}
-                    data-plasmic-override={overrides.cyclebox}
-                    className={classNames("__wab_instance", sty.cyclebox)}
-                    cycle={generateStateValueProp($state, [
-                      "cyclebox",
-                      "cycle"
-                    ])}
-                    fertility={generateStateValueProp($state, [
-                      "cyclebox",
-                      "fertility"
-                    ])}
-                    onClickDescription={async event => {
-                      const $steps = {};
+                  {(() => {
+                    const child$Props = {
+                      className: classNames("__wab_instance", sty.cyclebox),
+                      cycle: generateStateValueProp($state, [
+                        "cyclebox",
+                        "cycle"
+                      ]),
+                      fertility: generateStateValueProp($state, [
+                        "cyclebox",
+                        "fertility"
+                      ]),
+                      onClickDescription: async event => {
+                        const $steps = {};
 
-                      $steps["updateModal3Open"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["modal3", "open"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
+                        $steps["updateModal3Open"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["modal3", "open"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
 
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateModal3Open"] != null &&
-                        typeof $steps["updateModal3Open"] === "object" &&
-                        typeof $steps["updateModal3Open"].then === "function"
-                      ) {
-                        $steps["updateModal3Open"] = await $steps[
-                          "updateModal3Open"
-                        ];
-                      }
-                    }}
-                    onCycleChange={generateStateOnChangeProp($state, [
-                      "cyclebox",
-                      "cycle"
-                    ])}
-                    onFertilityChange={generateStateOnChangeProp($state, [
-                      "cyclebox",
-                      "fertility"
-                    ])}
-                    onPeriodChange={generateStateOnChangeProp($state, [
-                      "cyclebox",
-                      "period"
-                    ])}
-                    onPmsChange={generateStateOnChangeProp($state, [
-                      "cyclebox",
-                      "pms"
-                    ])}
-                    period={generateStateValueProp($state, [
-                      "cyclebox",
-                      "period"
-                    ])}
-                    pms={generateStateValueProp($state, ["cyclebox", "pms"])}
-                    userData={$state.userData}
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateModal3Open"] != null &&
+                          typeof $steps["updateModal3Open"] === "object" &&
+                          typeof $steps["updateModal3Open"].then === "function"
+                        ) {
+                          $steps["updateModal3Open"] = await $steps[
+                            "updateModal3Open"
+                          ];
+                        }
+                      },
+                      onCycleChange: generateStateOnChangeProp($state, [
+                        "cyclebox",
+                        "cycle"
+                      ]),
+                      onFertilityChange: generateStateOnChangeProp($state, [
+                        "cyclebox",
+                        "fertility"
+                      ]),
+                      onPeriodChange: generateStateOnChangeProp($state, [
+                        "cyclebox",
+                        "period"
+                      ]),
+                      onPmsChange: generateStateOnChangeProp($state, [
+                        "cyclebox",
+                        "pms"
+                      ]),
+                      onTextsycleChange: generateStateOnChangeProp($state, [
+                        "cyclebox",
+                        "textsycle"
+                      ]),
+                      period: generateStateValueProp($state, [
+                        "cyclebox",
+                        "period"
+                      ]),
+                      pms: generateStateValueProp($state, ["cyclebox", "pms"]),
+                      textsycle: generateStateValueProp($state, [
+                        "cyclebox",
+                        "textsycle"
+                      ]),
+                      userData: $state.userData
+                    };
+
+                    initializePlasmicStates(
+                      $state,
+                      [
+                        {
+                          name: "cyclebox.textsycle",
+                          initFunc: ({ $props, $state, $queries }) =>
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? (() => {
+                                  try {
+                                    return (() => {
+                                      switch (
+                                        $state.user.data.result.userStatus
+                                          .periodStatus
+                                      ) {
+                                        case null:
+                                          return "";
+                                        case "fertility":
+                                          let future1 = new Date(
+                                            $state.user.data.result.userStatus.fertilityEnd
+                                          );
+                                          let current_date1 = new Date();
+                                          let delta1 = future1 - current_date1;
+                                          let days_remaining1 = Math.floor(
+                                            delta1 / (1000 * 60 * 60 * 24)
+                                          );
+                                          if (days_remaining1 == 0)
+                                            return "امروز";
+                                          return (
+                                            days_remaining1 + " روز " + "دیگر"
+                                          );
+                                        case "pms":
+                                          if (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms == 0 ||
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms == 1
+                                          )
+                                            return "امروز";
+                                          return (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms -
+                                            1 +
+                                            " روز " +
+                                            "دیگر"
+                                          );
+                                        case "blood":
+                                          if (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPeriod == 1 ||
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPeriod == 0
+                                          )
+                                            return "امروز";
+                                          return (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPeriod -
+                                            1 +
+                                            " روز " +
+                                            "دیگر"
+                                          );
+                                        default:
+                                          return "";
+                                      }
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              : (() => {
+                                  try {
+                                    return (() => {
+                                      switch (
+                                        $state.user.data.result.userStatus
+                                          .periodStatus
+                                      ) {
+                                        case null:
+                                          return "";
+                                        case "fertility":
+                                          let future1 = new Date(
+                                            $state.user.data.result.userStatus.fertilityEnd
+                                          );
+                                          let current_date1 = new Date();
+                                          let delta1 = future1 - current_date1;
+                                          let days_remaining1 = Math.floor(
+                                            delta1 / (1000 * 60 * 60 * 24)
+                                          );
+                                          if (days_remaining1 == 0)
+                                            return "تا پایان امروز";
+                                          return (
+                                            days_remaining1 + " روز " + "دیگر"
+                                          );
+                                        case "pms":
+                                          if (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms == 0 ||
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms == 1
+                                          )
+                                            return "تا پایان امروز";
+                                          return (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms -
+                                            1 +
+                                            " روز " +
+                                            "دیگر"
+                                          );
+                                        case "blood":
+                                          if (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPeriod == 1 ||
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPeriod == 0
+                                          )
+                                            return "تا پایان امروز";
+                                          return (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPeriod -
+                                            1 +
+                                            " روز " +
+                                            "دیگر"
+                                          );
+                                        default:
+                                          return "-";
+                                      }
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                        }
+                      ],
+                      []
+                    );
+                    return (
+                      <Cyclebox
+                        data-plasmic-name={"cyclebox"}
+                        data-plasmic-override={overrides.cyclebox}
+                        {...child$Props}
+                      >
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__psqU
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__in0Fg
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return "وضعیت " + $state.name + " : ";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "-";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ej0Pi
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (() => {
+                                    switch (
+                                      $state.user.data.result.userStatus
+                                        .periodStatus
+                                    ) {
+                                      case "white":
+                                        return "عادی";
+                                      case "fertility":
+                                        return "تخمک گذاری";
+                                      case "pms":
+                                        return "pms";
+                                      case "blood":
+                                        return "پریود";
+                                      default:
+                                        return "-";
+                                    }
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "-";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </Stack__>
+                      </Cyclebox>
+                    );
+                  })()}
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__ztbQr)}
                   >
                     <Stack__
                       as={"div"}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__psqU)}
+                      className={classNames(projectcss.all, sty.freeBox__su6M)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__in0Fg
+                          sty.freeBox___1QlVh
                         )}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                switch (
-                                  $state.user.data.result.userStatus
-                                    .periodStatus
-                                ) {
-                                  case "white":
-                                    return (
-                                      $state.name + " الان در وضعیت عادی است."
-                                    );
-                                  case "fertility":
-                                    return (
-                                      $state.name +
-                                      " الان در وضعیت تخمک گذاری است."
-                                    );
-                                  case "pms":
-                                    return (
-                                      $state.name + " الان در وضعیت pms است."
-                                    );
-                                  case "blood":
-                                    return (
-                                      $state.name + " الان در وضعیت پریود است."
-                                    );
-                                  default:
-                                    return "-";
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "-";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </Stack__>
-                  </Cyclebox>
-                </div>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__ztbQr)}
-                >
-                  {(
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? (() => {
-                          try {
-                            return $state.cyclebox.cycle != "white";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__amA4S)}
+                          displayHeight={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? "25px"
+                              : "50px"
                           }
-                        })()
-                      : (() => {
-                          try {
-                            return $state.cyclebox.cycle != "white";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? "25px"
+                              : "50px"
                           }
-                        })()
-                  ) ? (
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__vXdnm)}
-                    >
-                      <Icon3Icon
-                        className={classNames(projectcss.all, sty.svg__oaXvf)}
-                        role={"img"}
-                      />
+                          loading={"lazy"}
+                          src={{
+                            src: "/plasmic/liom_hamyar/images/image11.gif",
+                            fullWidth: 1500,
+                            fullHeight: 1500,
+                            aspectRatio: undefined
+                          }}
+                        />
 
-                      <div
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__gfJmW
+                          )}
+                        >
+                          {hasVariant(globalVariants, "screen", "mobile") ? (
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return (
+                                      "<b>" +
+                                      "توصیه امروز : " +
+                                      "</b>" +
+                                      '<spen style="color: #8254C6;">' +
+                                      $state.advice.data[0].name +
+                                      "</spen>"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          ) : (
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return (
+                                      "<b>" +
+                                      "توصیه امروز : " +
+                                      "</b>" +
+                                      '<spen style="color: #8254C6;">' +
+                                      $state.advice.data[0].name +
+                                      "</spen>"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          )}
+                        </div>
+                      </div>
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__zwcWp
+                          sty.freeBox__kH1Sk
                         )}
                       >
-                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__aCPbG
+                          )}
+                        >
                           <React.Fragment>
                             {(() => {
                               try {
-                                return (() => {
-                                  switch (
-                                    $state.user.data.result.userStatus
-                                      .periodStatus
-                                  ) {
-                                    case "white":
-                                      return "پایان وضعیت عادی :";
-                                    case "fertility":
-                                      return " پایان وضعیت تخمک گذاری :";
-                                    case "pms":
-                                      return "پایان وضعیت pms : ";
-                                    case "blood":
-                                      return " پایان وضعیت پریود :";
-                                    default:
-                                      return "-";
-                                  }
-                                })();
+                                return $state.advice.data[0].doc;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "\u0631\u0648\u0632 \u0647\u0627\u06cc \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f : ";
+                                  return "";
                                 }
                                 throw e;
                               }
                             })()}
                           </React.Fragment>
-                        ) : (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  switch (
-                                    $state.user.data.result.userStatus
-                                      .periodStatus
-                                  ) {
-                                    case "white":
-                                      return "پایان وضعیت عادی :";
-                                    case "fertility":
-                                      return " پایان وضعیت تخمک گذاری :";
-                                    case "pms":
-                                      return "پایان وضعیت pms : ";
-                                    case "blood":
-                                      return " پایان وضعیت پریود :";
-                                    default:
-                                      return "-";
-                                  }
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u067e\u0627\u06cc\u0627\u0646 \u0648\u0636\u0639\u06cc\u062a";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        )}
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__rdcxn
-                        )}
-                      >
-                        {hasVariant(globalVariants, "screen", "mobile") ? (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  switch (
-                                    $state.user.data.result.userStatus
-                                      .periodStatus
-                                  ) {
-                                    case null:
-                                      return "";
-                                    case "fertility":
-                                      let future1 = new Date(
-                                        $state.user.data.result.userStatus.fertilityEnd
-                                      );
-                                      let current_date1 = new Date();
-                                      let delta1 = future1 - current_date1;
-                                      let days_remaining1 = Math.floor(
-                                        delta1 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining1 == 0)
-                                        return "تا پایان امروز";
-                                      return days_remaining1 + " روز " + "دیگر";
-                                    case "pms":
-                                      if (
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPms == 0 ||
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPms == 1
-                                      )
-                                        return "تا پایان امروز";
-                                      return (
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPms -
-                                        1 +
-                                        " روز " +
-                                        "دیگر"
-                                      );
-                                    case "blood":
-                                      if (
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPeriod == 1 ||
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPeriod == 0
-                                      )
-                                        return "تا پایان امروز";
-                                      return (
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPeriod -
-                                        1 +
-                                        " روز " +
-                                        "دیگر"
-                                      );
-                                    default:
-                                      return "";
-                                  }
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "-";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        ) : (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  switch (
-                                    $state.user.data.result.userStatus
-                                      .periodStatus
-                                  ) {
-                                    case null:
-                                      return "";
-                                    case "fertility":
-                                      let future1 = new Date(
-                                        $state.user.data.result.userStatus.fertilityEnd
-                                      );
-                                      let current_date1 = new Date();
-                                      let delta1 = future1 - current_date1;
-                                      let days_remaining1 = Math.floor(
-                                        delta1 / (1000 * 60 * 60 * 24)
-                                      );
-                                      if (days_remaining1 == 0)
-                                        return "تا پایان امروز";
-                                      return days_remaining1 + " روز " + "دیگر";
-                                    case "pms":
-                                      if (
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPms == 0 ||
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPms == 1
-                                      )
-                                        return "تا پایان امروز";
-                                      return (
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPms -
-                                        1 +
-                                        " روز " +
-                                        "دیگر"
-                                      );
-                                    case "blood":
-                                      if (
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPeriod == 1 ||
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPeriod == 0
-                                      )
-                                        return "تا پایان امروز";
-                                      return (
-                                        $state.user.data.result.userStatus
-                                          .daysToEndPeriod -
-                                        1 +
-                                        " روز " +
-                                        "دیگر"
-                                      );
-                                    default:
-                                      return "";
-                                  }
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "-";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        )}
-                      </div>
+                        </div>
+                      </Stack__>
                     </Stack__>
-                  ) : null}
-                  {(
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? (() => {
-                          try {
-                            return $state.cyclebox.cycle != "blood";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })()
-                      : (() => {
-                          try {
-                            return $state.cyclebox.cycle != "blood";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })()
-                  ) ? (
                     <Stack__
                       as={"div"}
                       hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__dZlCa)}
                     >
-                      <Icon4Icon
-                        className={classNames(projectcss.all, sty.svg__eOpc2)}
-                        role={"img"}
-                      />
-
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__pSXtV
+                          sty.freeBox__vn5Ws
                         )}
                       >
-                        {
-                          "\u0631\u0648\u0632 \u0647\u0627\u06cc \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 \u062a\u0627 \u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f:"
-                        }
+                        <Icon4Icon
+                          className={classNames(projectcss.all, sty.svg__wvuj)}
+                          role={"img"}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__bF0Qh
+                          )}
+                        >
+                          {hasVariant(globalVariants, "screen", "mobile") ? (
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return "روز شمار";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          ) : (
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return "روز شمار";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          )}
+                        </div>
                       </div>
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__v9Vi8
+                          sty.freeBox__njNi1
                         )}
                       >
-                        {hasVariant(globalVariants, "screen", "mobile") ? (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  let future1 = new Date(
-                                    $state.user.data.result.userStatus.pmsEnd
-                                  );
-                                  let current_date1 = new Date();
-                                  let delta1 = future1 - current_date1;
-                                  let days_remaining1 = Math.floor(
-                                    delta1 / (1000 * 60 * 60 * 24)
-                                  );
-                                  if (days_remaining1 == 0)
-                                    return "تا پایان امروز";
-                                  return days_remaining1 + " روز " + "دیگر";
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "-";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        ) : (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  let future1 = new Date(
-                                    $state.user.data.result.userStatus.pmsEnd
-                                  );
-                                  let current_date1 = new Date();
-                                  let delta1 = future1 - current_date1;
-                                  let days_remaining1 = Math.floor(
-                                    delta1 / (1000 * 60 * 60 * 24)
-                                  );
-                                  if (days_remaining1 == 0)
-                                    return "تا پایان امروز";
-                                  return days_remaining1 + " روز " + "دیگر";
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "-";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        )}
-                      </div>
-                    </Stack__>
-                  ) : null}
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__aHEn)}
-                >
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox___7thYx)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__paRvK)}
-                    >
-                      <PlasmicImg__
-                        alt={""}
-                        className={classNames(sty.img__z9Sdj)}
-                        displayHeight={
+                        {(
                           hasVariant(globalVariants, "screen", "mobile")
-                            ? "30px"
-                            : "50px"
-                        }
-                        displayMaxHeight={"none"}
-                        displayMaxWidth={"100%"}
-                        displayMinHeight={"0"}
-                        displayMinWidth={"0"}
-                        displayWidth={
-                          hasVariant(globalVariants, "screen", "mobile")
-                            ? "30px"
-                            : "50px"
-                        }
-                        loading={"lazy"}
-                        src={{
-                          src: "/plasmic/liom_hamyar/images/image11.gif",
-                          fullWidth: 1500,
-                          fullHeight: 1500,
-                          aspectRatio: undefined
-                        }}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___24Wkh
-                        )}
-                      >
-                        {hasVariant(globalVariants, "screen", "mobile") ? (
-                          <div
-                            className={projectcss.__wab_expr_html_text}
-                            dangerouslySetInnerHTML={{
-                              __html: (() => {
+                            ? (() => {
                                 try {
-                                  return (
-                                    "<b>" +
-                                    "توصیه امروز : " +
-                                    "</b>" +
-                                    '<spen style="color: #8254C6;">' +
-                                    $state.advice.data[0].name +
-                                    "</spen>"
-                                  );
+                                  return $state.cyclebox.cycle != "blood";
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    return true;
                                   }
                                   throw e;
                                 }
                               })()
-                            }}
-                          />
-                        ) : (
-                          <div
-                            className={projectcss.__wab_expr_html_text}
-                            dangerouslySetInnerHTML={{
-                              __html: (() => {
+                            : (() => {
                                 try {
-                                  return (
-                                    "<b>" +
-                                    "توصیه امروز : " +
-                                    "</b>" +
-                                    '<spen style="color: #8254C6;">' +
-                                    $state.advice.data[0].name +
-                                    "</spen>"
-                                  );
+                                  return $state.cyclebox.cycle != "blood";
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    return true;
                                   }
                                   throw e;
                                 }
                               })()
-                            }}
-                          />
-                        )}
-                      </div>
-                    </div>
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___2QF1T
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__wjo14
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return $state.advice.data[0].doc;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
+                        ) ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___7HwaX
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__pSXtV
+                              )}
+                            >
+                              {hasVariant(globalVariants, "screen", "mobile")
+                                ? "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f:"
+                                : "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f:"}
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__v9Vi8
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobile"
+                              ) ? (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (() => {
+                                        let future1 = new Date(
+                                          $state.user.data.result.userStatus.pmsEnd
+                                        );
+                                        let current_date1 = new Date();
+                                        let delta1 = future1 - current_date1;
+                                        let days_remaining1 = Math.floor(
+                                          delta1 / (1000 * 60 * 60 * 24)
+                                        );
+                                        if (days_remaining1 == 0)
+                                          return "تا پایان امروز";
+                                        return (
+                                          days_remaining1 + " روز " + "دیگر"
+                                        );
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "-";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              ) : (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (() => {
+                                        let future1 = new Date(
+                                          $state.user.data.result.userStatus.pmsEnd
+                                        );
+                                        let current_date1 = new Date();
+                                        let delta1 = future1 - current_date1;
+                                        let days_remaining1 = Math.floor(
+                                          delta1 / (1000 * 60 * 60 * 24)
+                                        );
+                                        if (days_remaining1 == 0)
+                                          return "تا پایان امروز";
+                                        return (
+                                          days_remaining1 + " روز " + "دیگر"
+                                        );
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "-";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              )}
+                            </div>
+                          </div>
+                        ) : null}
+                        {(() => {
+                          try {
+                            return $state.cyclebox.cycle != "pms";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
                             }
-                          })()}
-                        </React.Fragment>
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___6A6Xj
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__wcSo3
+                              )}
+                            >
+                              {hasVariant(globalVariants, "screen", "mobile")
+                                ? "\u0634\u0631\u0648\u0639 pms :"
+                                : "\u0634\u0631\u0648\u0639 pms :"}
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__n80C
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobile"
+                              ) ? (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (() => {
+                                        let future1 = new Date(
+                                          $state.user.data.result.userStatus.pmsEnd
+                                        );
+                                        let current_date1 = new Date();
+                                        let delta1 = future1 - current_date1;
+                                        let days_remaining1 = Math.floor(
+                                          delta1 / (1000 * 60 * 60 * 24)
+                                        );
+                                        if (days_remaining1 == 0)
+                                          return "تا پایان امروز";
+                                        return (
+                                          days_remaining1 + " روز " + "دیگر"
+                                        );
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "-";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              ) : (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (() => {
+                                        let future1 = new Date(
+                                          $state.user.data.result.userStatus.pmsStart
+                                        );
+                                        let current_date1 = new Date();
+                                        let delta1 = future1 - current_date1;
+                                        let days_remaining1 = Math.floor(
+                                          delta1 / (1000 * 60 * 60 * 24)
+                                        );
+                                        if (days_remaining1 == 0)
+                                          return "تا پایان امروز";
+                                        return (
+                                          days_remaining1 + " روز " + "دیگر"
+                                        );
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "-";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              )}
+                            </div>
+                          </div>
+                        ) : null}
                       </div>
                     </Stack__>
                   </Stack__>
@@ -10053,6 +10395,40 @@ function PlasmicHamyar__RenderFunc(props: {
               "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
             }
           />
+
+          <ApiRequest
+            data-plasmic-name={"countNotif"}
+            data-plasmic-override={overrides.countNotif}
+            body={(() => {
+              try {
+                return {
+                  userId: $state.user.data.result.man.id
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            className={classNames("__wab_instance", sty.countNotif)}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"POST"}
+            onError={generateStateOnChangeProp($state, ["countNotif", "error"])}
+            onLoading={generateStateOnChangeProp($state, [
+              "countNotif",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, [
+              "countNotif",
+              "data"
+            ])}
+            url={"https://n8n.staas.ir/webhook/hamyar/notif"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -10089,7 +10465,8 @@ const PlasmicDescendants = {
     "shop",
     "favicon",
     "pullToRefresh",
-    "advice"
+    "advice",
+    "countNotif"
   ],
   nofiticon: ["nofiticon"],
   switchbest: ["switchbest"],
@@ -10118,7 +10495,8 @@ const PlasmicDescendants = {
   shop: ["shop"],
   favicon: ["favicon"],
   pullToRefresh: ["pullToRefresh"],
-  advice: ["advice"]
+  advice: ["advice"],
+  countNotif: ["countNotif"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -10153,6 +10531,7 @@ type NodeDefaultElementType = {
   favicon: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
   advice: typeof ApiRequest;
+  countNotif: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -10268,6 +10647,7 @@ export const PlasmicHamyar = Object.assign(
     favicon: makeNodeComponent("favicon"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     advice: makeNodeComponent("advice"),
+    countNotif: makeNodeComponent("countNotif"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,

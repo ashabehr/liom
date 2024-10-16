@@ -821,7 +821,12 @@ function PlasmicShopResult__RenderFunc(props: {
                     [sty.button2failed]: hasVariant($state, "failed", "failed"),
                     [sty.button2failed_successful]:
                       hasVariant($state, "failed", "failed") &&
-                      hasVariant($state, "successful", "successful")
+                      hasVariant($state, "successful", "successful"),
+                    [sty.button2successful]: hasVariant(
+                      $state,
+                      "successful",
+                      "successful"
+                    )
                   })}
                   color={generateStateValueProp($state, ["button2", "color"])}
                   endIcon={
@@ -1269,35 +1274,6 @@ function PlasmicShopResult__RenderFunc(props: {
                       $steps["invokeGlobalAction"] = await $steps[
                         "invokeGlobalAction"
                       ];
-                    }
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                const url =
-                                  "https://apps.liom.app/hamyar/?r=" +
-                                  $ctx.query.r +
-                                  "&m=" +
-                                  $ctx.query.m;
-                                return (window.location.href =
-                                  "liom://app?redirect=" +
-                                  encodeURIComponent(url));
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
                     }
 
                     $steps["goToPage"] = true
