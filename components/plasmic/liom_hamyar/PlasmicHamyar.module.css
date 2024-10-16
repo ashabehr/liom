@@ -1283,7 +1283,7 @@
 }
 @media (max-width: 640px) {
   .freeBox__mdVrf {
-    height: 200px;
+    height: 220px;
     flex-shrink: 0;
     padding: 0px 24px 0px 0px;
   }
@@ -1439,7 +1439,7 @@
 }
 @media (max-width: 640px) {
   .freeBox__zg2Fg {
-    height: 200px;
+    height: 220px;
     width: auto;
     flex-shrink: 0;
     padding: 0px 24px 0px 0px;
