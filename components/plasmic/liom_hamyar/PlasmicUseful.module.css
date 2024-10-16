@@ -8,6 +8,7 @@
   position: relative;
   transition-property: all;
   transition-duration: 1s;
+  box-shadow: 0px 4px 10px 0px #0000001a;
   -webkit-transition-property: all;
   -webkit-transition-duration: 1s;
   border-radius: var(--token-81l0SCMdhZN_);

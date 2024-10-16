@@ -346,6 +346,11 @@ function PlasmicCyclebox__RenderFunc(props: {
             "fertility",
             "fertility"
           ),
+          [sty.freeBoxperiod___66Lnm6AdLd]: hasVariant(
+            $state,
+            "period",
+            "period"
+          ),
           [sty.freeBoxpms___66Lnmsscqc]: hasVariant($state, "pms", "pms")
         })}
       >
