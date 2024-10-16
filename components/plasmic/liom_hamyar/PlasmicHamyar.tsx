@@ -95,7 +95,8 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicHamyar.module.css"; // plasmic-import: TOxGOz1ONYz_/css
 
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
-import Icon4Icon from "./icons/PlasmicIcon__Icon4"; // plasmic-import: halWdf8bhZV9/icon
+import Icon39Icon from "./icons/PlasmicIcon__Icon39"; // plasmic-import: G3nZy4Yv7luo/icon
+import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: boEzwrzcFMy4/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
@@ -135,6 +136,7 @@ export type PlasmicHamyar__OverridesType = {
   subscription2?: Flex__<typeof Subscription>;
   button4?: Flex__<typeof Button>;
   modal?: Flex__<typeof AntdModal>;
+  img?: Flex__<typeof PlasmicImg__>;
   input2?: Flex__<typeof AntdInput>;
   button5?: Flex__<typeof Button>;
   button6?: Flex__<typeof Button>;
@@ -1103,9 +1105,31 @@ function PlasmicHamyar__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["goToNotification"] = true
+                      $steps["goToPage"] = true
                         ? (() => {
-                            const actionArgs = { destination: `/notification` };
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return (() => {
+                                    return (
+                                      "https://apps.liom.app/notification/?r=" +
+                                      $ctx.query.r +
+                                      "&m=" +
+                                      $ctx.query.m
+                                    );
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return `/notification`;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
                             return (({ destination }) => {
                               if (
                                 typeof destination === "string" &&
@@ -1121,13 +1145,11 @@ function PlasmicHamyar__RenderFunc(props: {
                           })()
                         : undefined;
                       if (
-                        $steps["goToNotification"] != null &&
-                        typeof $steps["goToNotification"] === "object" &&
-                        typeof $steps["goToNotification"].then === "function"
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
                       ) {
-                        $steps["goToNotification"] = await $steps[
-                          "goToNotification"
-                        ];
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
                     onNumberChange={generateStateOnChangeProp($state, [
@@ -1485,12 +1507,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                         (delta % (1000 * 60 * 60 * 24)) /
                                           (1000 * 60 * 60)
                                       );
-                                      return (
-                                        days_remaining +
-                                        " روز و " +
-                                        hours_remaining +
-                                        " ساعت باقیمانده"
-                                      );
+                                      return days_remaining + " روز باقیمانده ";
                                     })();
                                   } catch (e) {
                                     if (
@@ -1512,10 +1529,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                       return (
                                         $state.user.data.result.man
                                           .timeToEndHamyarTime.days +
-                                        " روز و " +
-                                        $state.user.data.result.man
-                                          .timeToEndHamyarTime.hour +
-                                        " ساعت باقیمانده"
+                                        " روز باقی مانده"
                                       );
                                     })();
                                   } catch (e) {
@@ -2198,30 +2212,17 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.freeBox___1QlVh
                         )}
                       >
-                        <PlasmicImg__
-                          alt={""}
-                          className={classNames(sty.img__amA4S)}
-                          displayHeight={
+                        <PlasmicIcon__
+                          PlasmicIconType={
                             hasVariant(globalVariants, "screen", "mobile")
-                              ? "25px"
-                              : "50px"
+                              ? Icon39Icon
+                              : Icon39Icon
                           }
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={
-                            hasVariant(globalVariants, "screen", "mobile")
-                              ? "25px"
-                              : "50px"
-                          }
-                          loading={"lazy"}
-                          src={{
-                            src: "/plasmic/liom_hamyar/images/image11.gif",
-                            fullWidth: 1500,
-                            fullHeight: 1500,
-                            aspectRatio: undefined
-                          }}
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg___4TMsI
+                          )}
+                          role={"img"}
                         />
 
                         <div
@@ -2237,14 +2238,7 @@ function PlasmicHamyar__RenderFunc(props: {
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
-                                    return (
-                                      "<b>" +
-                                      "توصیه امروز : " +
-                                      "</b>" +
-                                      '<spen style="color: #8254C6;">' +
-                                      $state.advice.data[0].name +
-                                      "</spen>"
-                                    );
+                                    return "توصیه امروز";
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -2264,14 +2258,7 @@ function PlasmicHamyar__RenderFunc(props: {
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
-                                    return (
-                                      "<b>" +
-                                      "توصیه امروز : " +
-                                      "</b>" +
-                                      '<spen style="color: #8254C6;">' +
-                                      $state.advice.data[0].name +
-                                      "</spen>"
-                                    );
+                                    return "توصیه امروز";
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -2332,7 +2319,12 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.freeBox__vn5Ws
                         )}
                       >
-                        <Icon4Icon
+                        <PlasmicIcon__
+                          PlasmicIconType={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? Icon38Icon
+                              : Icon38Icon
+                          }
                           className={classNames(projectcss.all, sty.svg__wvuj)}
                           role={"img"}
                         />
@@ -2565,7 +2557,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     try {
                                       return (() => {
                                         let future1 = new Date(
-                                          $state.user.data.result.userStatus.pmsEnd
+                                          $state.user.data.result.userStatus.pmsStart
                                         );
                                         let current_date1 = new Date();
                                         let delta1 = future1 - current_date1;
@@ -6012,8 +6004,10 @@ function PlasmicHamyar__RenderFunc(props: {
                     className={classNames(projectcss.all, sty.freeBox__onx50)}
                   >
                     <PlasmicImg__
+                      data-plasmic-name={"img"}
+                      data-plasmic-override={overrides.img}
                       alt={""}
-                      className={classNames(sty.img__vFfed)}
+                      className={classNames(sty.img)}
                       displayHeight={"auto"}
                       displayMaxHeight={"none"}
                       displayMaxWidth={"100%"}
@@ -10457,6 +10451,7 @@ const PlasmicDescendants = {
     "subscription2",
     "button4",
     "modal",
+    "img",
     "input2",
     "button5",
     "button6",
@@ -10486,7 +10481,8 @@ const PlasmicDescendants = {
   shopModalMobile: ["shopModalMobile", "subscription2", "button4"],
   subscription2: ["subscription2"],
   button4: ["button4"],
-  modal: ["modal", "input2", "button5", "button6"],
+  modal: ["modal", "img", "input2", "button5", "button6"],
+  img: ["img"],
   input2: ["input2"],
   button5: ["button5"],
   button6: ["button6"],
@@ -10522,6 +10518,7 @@ type NodeDefaultElementType = {
   subscription2: typeof Subscription;
   button4: typeof Button;
   modal: typeof AntdModal;
+  img: typeof PlasmicImg__;
   input2: typeof AntdInput;
   button5: typeof Button;
   button6: typeof Button;
@@ -10638,6 +10635,7 @@ export const PlasmicHamyar = Object.assign(
     subscription2: makeNodeComponent("subscription2"),
     button4: makeNodeComponent("button4"),
     modal: makeNodeComponent("modal"),
+    img: makeNodeComponent("img"),
     input2: makeNodeComponent("input2"),
     button5: makeNodeComponent("button5"),
     button6: makeNodeComponent("button6"),
