@@ -105,6 +105,7 @@ export type PlasmicPregnancy__OverridesType = {
   getInfo?: Flex__<typeof ApiRequest>;
   lottie?: Flex__<typeof LottieWrapper>;
   getTask?: Flex__<typeof ApiRequest>;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultPregnancyProps {}
@@ -316,6 +317,24 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.darkMod
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -3676,6 +3695,60 @@ function PlasmicPregnancy__RenderFunc(props: {
             })()}
             url={"https://n8n.staas.ir/webhook/task"}
           />
+
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            className={classNames("__wab_instance", sty.apiRequest)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__pd6Ju
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__lL0Mf
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
+            onLoading={generateStateOnChangeProp($state, [
+              "apiRequest",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, [
+              "apiRequest",
+              "data"
+            ])}
+            params={(() => {
+              try {
+                return {
+                  weekNumber: $state.weekNum
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/getAdvice"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -3690,14 +3763,16 @@ const PlasmicDescendants = {
     "todoList",
     "getInfo",
     "lottie",
-    "getTask"
+    "getTask",
+    "apiRequest"
   ],
   favIcone: ["favIcone"],
   embedHtml: ["embedHtml"],
   todoList: ["todoList"],
   getInfo: ["getInfo"],
   lottie: ["lottie"],
-  getTask: ["getTask"]
+  getTask: ["getTask"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3710,6 +3785,7 @@ type NodeDefaultElementType = {
   getInfo: typeof ApiRequest;
   lottie: typeof LottieWrapper;
   getTask: typeof ApiRequest;
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3803,6 +3879,7 @@ export const PlasmicPregnancy = Object.assign(
     getInfo: makeNodeComponent("getInfo"),
     lottie: makeNodeComponent("lottie"),
     getTask: makeNodeComponent("getTask"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicPregnancy
     internalVariantProps: PlasmicPregnancy__VariantProps,

@@ -341,6 +341,11 @@ function PlasmicCyclebox__RenderFunc(props: {
       </Stack__>
       <div
         className={classNames(projectcss.all, sty.freeBox___66Lnm, {
+          [sty.freeBoxfertility___66LnmvlklK]: hasVariant(
+            $state,
+            "fertility",
+            "fertility"
+          ),
           [sty.freeBoxpms___66Lnmsscqc]: hasVariant($state, "pms", "pms")
         })}
       >
