@@ -159,7 +159,8 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "weekNum",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          $state.getInfo.data[0].result.weeksPregnant + 1
       },
       {
         path: "week",
