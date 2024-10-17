@@ -63,6 +63,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -101,6 +102,7 @@ export type PlasmicPregnancy__OverridesType = {
   root?: Flex__<"div">;
   favIcone?: Flex__<typeof Embed>;
   embedHtml?: Flex__<typeof Embed>;
+  progress?: Flex__<typeof AntdProgress>;
   todoList?: Flex__<typeof TodoList>;
   getInfo?: Flex__<typeof ApiRequest>;
   getAdvice?: Flex__<typeof ApiRequest>;
@@ -147,6 +149,8 @@ function PlasmicPregnancy__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -155,22 +159,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "weekNum",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.getInfo.data[0].result.weeksPregnant == 0
-                ? 1
-                : $state.getInfo.data[0].result.weeksPregnant;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return 0;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => 1
       },
       {
         path: "week",
@@ -334,6 +323,34 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "randomText",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          "\u0646\u06cc \u0646\u06cc \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u062a\u0648 \u0628\u063a\u0644\u062a\u0647 :)",
+          "\u0641\u0631\u0634\u062a\u0647 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0628\u0647 \u062f\u0646\u06cc\u0627 \u0645\u06cc\u0627\u062f :)"
+        ]
+      },
+      {
+        path: "weekString",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -444,22 +461,111 @@ function PlasmicPregnancy__RenderFunc(props: {
               <div className={classNames(projectcss.all, sty.freeBox__qqMWg)}>
                 <div className={classNames(projectcss.all, sty.freeBox__ntnB)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__whQxm
-                    )}
+                    className={classNames(projectcss.all, sty.freeBox__b6F1Z)}
                   >
-                    {"\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632"}
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__whQxm
+                      )}
+                    >
+                      {
+                        "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__gAwV
+                      )}
+                    >
+                      {"\u0635\u0628\u062d \u0628\u062e\u06cc\u0631"}
+                    </div>
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__gAwV
-                    )}
+                    className={classNames(projectcss.all, sty.freeBox___3EX3U)}
                   >
-                    {"\u0635\u0628\u062d \u0628\u062e\u06cc\u0631"}
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__elV8W
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              " تو در روز " +
+                              (($state.weekNum - 1) * 7 +
+                                (7 -
+                                  parseInt(
+                                    (
+                                      $state.getInfo.data[0].result
+                                        .daysPregnant / 7
+                                    )
+                                      .toLocaleString()
+                                      .split(".")[1]
+                                      .substring(0, 1)
+                                  ))) +
+                              " , هفته " +
+                              $state.weekNum +
+                              " و ماه " +
+                              ($state.weekNum / 7).toFixed() +
+                              " بارداری هستی  "
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__ge6XU)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__lCre
+                      )}
+                    >
+                      {
+                        "\u062a\u0627\u0631\u06cc\u062e \u062a\u0642\u0631\u06cc\u0628\u06cc \u0632\u0627\u06cc\u0645\u0627\u0646 "
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__xfyK0
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getInfo.data[0].result.childbirthDate;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
                   </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__r3Lbc)}>
@@ -1119,10 +1225,58 @@ function PlasmicPregnancy__RenderFunc(props: {
                         sty.text__nDlQy
                       )}
                     >
-                      {
-                        "\u0645\u062a\u062a\u06cc\u06a9\u0645\u0628\u062a\u06a9\u0645\u06cc\u0628\u062a\u0646\u0645\u06cc\n\u0628\u06cc\u0633\u0645\u06af\u0628\u0645\u06cc\u0633\u0628\u06cc\u0633\u0633\u06cc\u0628"
-                      }
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              $state.weekNum -
+                              1 +
+                              " هفته و " +
+                              (7 -
+                                parseInt(
+                                  (
+                                    $state.getInfo.data[0].result.daysPregnant /
+                                    7
+                                  )
+                                    .toLocaleString()
+                                    .split(".")[1]
+                                    .substring(0, 1)
+                                )) +
+                              " روز از بارداریت رو سپری کردی و " +
+                              $state.getInfo.data[0].result.daysPregnant +
+                              " روز دیگه " +
+                              $state.randomText[
+                                Math.floor(
+                                  Math.random() *
+                                    ($state.randomText.length - 1 - 0 + 1)
+                                ) + 0
+                              ]
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u0645\u062a\u062a\u06cc\u06a9\u0645\u0628\u062a\u06a9\u0645\u06cc\u0628\u062a\u0646\u0645\u06cc\n\u0628\u06cc\u0633\u0645\u06af\u0628\u0645\u06cc\u0633\u0628\u06cc\u0633\u0633\u06cc\u0628";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
                     </div>
+                    <AntdProgress
+                      data-plasmic-name={"progress"}
+                      data-plasmic-override={overrides.progress}
+                      className={classNames("__wab_instance", sty.progress)}
+                      percent={(
+                        ($state.getInfo.data[0].result.daysPregnant * 100) /
+                        280
+                      ).toFixed()}
+                      strokeColor={
+                        true ? "var(--antd-colorWarningText)" : undefined
+                      }
+                      type={"line"}
+                    />
                   </div>
                 </div>
               </div>
@@ -1165,7 +1319,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         try {
                           return (
                             $state.weekNum ==
-                            $state.getInfo.data[0].result.weeksPregnant
+                            $state.getInfo.data[0].result.weeksPregnant + 1
                           );
                         } catch (e) {
                           if (
@@ -1679,9 +1833,24 @@ function PlasmicPregnancy__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                title={
-                  "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u06cc\u0646 \u0647\u0641\u062a\u0647 \u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647\u0645:"
-                }
+                title={(() => {
+                  try {
+                    return (
+                      " کارهایی که هفته " +
+                      $state.weekNum +
+                      " اًم " +
+                      "  باید انجام بدی:"
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
                 userId={(() => {
                   try {
                     return $ctx.query.userId;
@@ -1710,7 +1879,31 @@ function PlasmicPregnancy__RenderFunc(props: {
               "getInfo",
               "loading"
             ])}
-            onSuccess={generateStateOnChangeProp($state, ["getInfo", "data"])}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
+                null,
+                eventArgs
+              );
+              (async data => {
+                const $steps = {};
+
+                $steps["updateWeekNum2"] = true
+                  ? (() => {
+                      const actionArgs = { args: [undefined, "xxxxx"] };
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateWeekNum2"] != null &&
+                  typeof $steps["updateWeekNum2"] === "object" &&
+                  typeof $steps["updateWeekNum2"].then === "function"
+                ) {
+                  $steps["updateWeekNum2"] = await $steps["updateWeekNum2"];
+                }
+              }).apply(null, eventArgs);
+            }}
             params={{
               token: $ctx.query.token
             }}
@@ -4340,6 +4533,7 @@ const PlasmicDescendants = {
     "root",
     "favIcone",
     "embedHtml",
+    "progress",
     "todoList",
     "getInfo",
     "getAdvice",
@@ -4347,6 +4541,7 @@ const PlasmicDescendants = {
   ],
   favIcone: ["favIcone"],
   embedHtml: ["embedHtml"],
+  progress: ["progress"],
   todoList: ["todoList"],
   getInfo: ["getInfo", "getAdvice"],
   getAdvice: ["getAdvice"],
@@ -4359,6 +4554,7 @@ type NodeDefaultElementType = {
   root: "div";
   favIcone: typeof Embed;
   embedHtml: typeof Embed;
+  progress: typeof AntdProgress;
   todoList: typeof TodoList;
   getInfo: typeof ApiRequest;
   getAdvice: typeof ApiRequest;
@@ -4452,6 +4648,7 @@ export const PlasmicPregnancy = Object.assign(
     // Helper components rendering sub-elements
     favIcone: makeNodeComponent("favIcone"),
     embedHtml: makeNodeComponent("embedHtml"),
+    progress: makeNodeComponent("progress"),
     todoList: makeNodeComponent("todoList"),
     getInfo: makeNodeComponent("getInfo"),
     getAdvice: makeNodeComponent("getAdvice"),

@@ -95,7 +95,7 @@
   position: relative;
   align-items: flex-end;
   justify-content: flex-start;
-  width: 45%;
+  width: 70%;
   height: auto;
   max-width: 100%;
   box-shadow: 0px 4px 16px 0px #12121214;
@@ -105,12 +105,23 @@
   padding: 8px;
   margin: 8px;
 }
-.text__whQxm {
+.freeBox__b6F1Z {
+  display: flex;
+  flex-direction: column;
   position: relative;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: right;
+  min-width: 0;
+  padding: 8px;
+}
+.text__whQxm {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
   flex-shrink: 1;
   flex-basis: auto;
   flex-grow: 0;
@@ -121,8 +132,68 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  text-align: right;
+  text-align: center;
   min-width: 0;
+}
+.freeBox___3EX3U {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text__elV8W {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  white-space: pre-wrap;
+  background: #fffbff;
+  color: #8254c6;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid var(--token-55cSeNPovQFh);
+}
+.freeBox__ge6XU {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.text__lCre {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  color: #535353;
+  font-weight: 700;
+  min-width: 0;
+}
+.text__xfyK0 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  color: #fffbff;
+  background: #8254c6;
+  margin-top: 8px;
+  border-radius: 8px;
+  padding: 4px 8px;
 }
 .freeBox__r3Lbc {
   display: flex;
@@ -159,6 +230,9 @@
   flex-shrink: 1;
   flex-basis: auto;
   flex-grow: 0;
+  color: #35006f;
+  font-weight: 700;
+  font-size: 20px;
   min-width: 0;
 }
 .text__vzKjM {
@@ -167,6 +241,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
+  margin-top: 8px;
   min-width: 0;
 }
 .lottie__oawi:global(.__wab_instance) {
@@ -197,6 +272,9 @@
   flex-shrink: 1;
   flex-basis: auto;
   flex-grow: 0;
+  color: #dd911e;
+  font-size: 20px;
+  font-weight: 700;
   min-width: 0;
 }
 .text__nDlQy {
@@ -206,6 +284,13 @@
   max-width: 100%;
   text-align: right;
   min-width: 0;
+  margin: 8px;
+}
+.progress:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  text-align: left;
+  align-self: auto;
 }
 .freeBox__d784V {
   display: flex;
@@ -586,7 +671,7 @@
   height: 100%;
   background: #ffffff;
   align-self: stretch;
-  box-shadow: 0px 4px 16px 0px #12121214;
+  box-shadow: 0px 4px 16px 0px #0a0a0a0a;
   min-width: auto;
   min-height: 0;
   border-radius: 8px;
