@@ -62,10 +62,10 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
@@ -101,12 +101,12 @@ export const PlasmicPregnancy__ArgProps = new Array<ArgPropType>();
 export type PlasmicPregnancy__OverridesType = {
   root?: Flex__<"div">;
   favIcone?: Flex__<typeof Embed>;
-  embedHtml?: Flex__<typeof Embed>;
-  progress?: Flex__<typeof AntdProgress>;
-  todoList?: Flex__<typeof TodoList>;
   getInfo?: Flex__<typeof ApiRequest>;
   getAdvice?: Flex__<typeof ApiRequest>;
   getTask?: Flex__<typeof ApiRequest>;
+  embedHtml?: Flex__<typeof Embed>;
+  progress?: Flex__<typeof AntdProgress>;
+  todoList?: Flex__<typeof TodoList>;
 };
 
 export interface DefaultPregnancyProps {}
@@ -149,8 +149,6 @@ function PlasmicPregnancy__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const $globalActions = useGlobalActions?.();
-
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -159,8 +157,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "weekNum",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          $state.getInfo.data[0].result.weeksPregnant + 1
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "week",
@@ -170,12 +167,12 @@ function PlasmicPregnancy__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if ($state.weekNum == 0) {
+                if ($state.weekNum === 0) {
                   return "01";
-                } else if ($state.weekNum < 10) {
-                  return "0" + $state.weekNum.toString();
                 } else {
-                  return $state.weekNum.toString();
+                  return $state.weekNum < 10
+                    ? "0" + $state.weekNum
+                    : $state.weekNum.toString();
                 }
               })();
             } catch (e) {
@@ -333,25 +330,6 @@ function PlasmicPregnancy__RenderFunc(props: {
           "\u0646\u06cc \u0646\u06cc \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u062a\u0648 \u0628\u063a\u0644\u062a\u0647 :)",
           "\u0641\u0631\u0634\u062a\u0647 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0628\u0647 \u062f\u0646\u06cc\u0627 \u0645\u06cc\u0627\u062f :)"
         ]
-      },
-      {
-        path: "weekString",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -410,6 +388,136 @@ function PlasmicPregnancy__RenderFunc(props: {
             code={
               "<script>\n(function() {\n    var link = document.querySelector(\"link[rel='icon']\");\n    if (!link) {\n        link = document.createElement('link');\n        link.rel = 'icon';\n        document.head.appendChild(link);\n    }\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\n})();\n</script>\n\n"
             }
+          />
+
+          <ApiRequest
+            data-plasmic-name={"getInfo"}
+            data-plasmic-override={overrides.getInfo}
+            className={classNames("__wab_instance", sty.getInfo)}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, ["getInfo", "error"])}
+            onLoading={generateStateOnChangeProp($state, [
+              "getInfo",
+              "loading"
+            ])}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
+                null,
+                eventArgs
+              );
+              (async data => {
+                const $steps = {};
+
+                $steps["updateWeekNum"] = $state.getInfo.data[0].success
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["weekNum"]
+                        },
+                        operation: 0,
+                        value: $state.getInfo.data[0].result.weeksPregnant + 1
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateWeekNum"] != null &&
+                  typeof $steps["updateWeekNum"] === "object" &&
+                  typeof $steps["updateWeekNum"].then === "function"
+                ) {
+                  $steps["updateWeekNum"] = await $steps["updateWeekNum"];
+                }
+              }).apply(null, eventArgs);
+            }}
+            params={{
+              token: $ctx.query.token
+            }}
+            url={"https://n8n.staas.ir/webhook/info"}
+          >
+            <ApiRequest
+              data-plasmic-name={"getAdvice"}
+              data-plasmic-override={overrides.getAdvice}
+              className={classNames("__wab_instance", sty.getAdvice)}
+              errorDisplay={null}
+              loadingDisplay={null}
+              method={"GET"}
+              onError={generateStateOnChangeProp($state, [
+                "getAdvice",
+                "error"
+              ])}
+              onLoading={generateStateOnChangeProp($state, [
+                "getAdvice",
+                "loading"
+              ])}
+              onSuccess={generateStateOnChangeProp($state, [
+                "getAdvice",
+                "data"
+              ])}
+              params={(() => {
+                try {
+                  return {
+                    weekNumber: $state.weekNum
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://n8n.staas.ir/webhook/getAdvice"}
+            />
+          </ApiRequest>
+          <ApiRequest
+            data-plasmic-name={"getTask"}
+            data-plasmic-override={overrides.getTask}
+            className={classNames("__wab_instance", sty.getTask)}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, ["getTask", "error"])}
+            onLoading={generateStateOnChangeProp($state, [
+              "getTask",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, ["getTask", "data"])}
+            params={(() => {
+              try {
+                return {
+                  weekNumber: $state.weekNum,
+                  userId: $ctx.query.userId,
+                  appKey: "com.diacotdj.liom"
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/task"}
           />
 
           {(
@@ -492,7 +600,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__elV8W
+                        sty.text__vIHxo
                       )}
                     >
                       <React.Fragment>
@@ -500,21 +608,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                           try {
                             return (
                               " تو در روز " +
-                              (($state.weekNum - 1) * 7 +
-                                (7 -
-                                  parseInt(
-                                    (
-                                      $state.getInfo.data[0].result
-                                        .daysPregnant / 7
-                                    )
-                                      .toLocaleString()
-                                      .split(".")[1]
-                                      .substring(0, 1)
-                                  ))) +
-                              " , هفته " +
-                              $state.weekNum +
-                              " و ماه " +
-                              ($state.weekNum / 7).toFixed() +
+                              (280 -
+                                $state.getInfo.data[0].result.daysPregnant) +
+                              " , " +
+                              ("هفته " + $state.weekNum) +
+                              (" و ماه " + ($state.weekNum / 7).toFixed()) +
                               " بارداری هستی  "
                             );
                           } catch (e) {
@@ -522,7 +620,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return "";
+                              return '" \u062a\u0648 \u062f\u0631 \u0631\u0648\u0632 " +  (($state.weekNum - 1 ) * 7 + ( 7 - parseInt(($state.getInfo.data[0].result.daysPregnant / 7 ).toLocaleString().split(\'.\')[1].substring(0,1))))  + " , \u0647\u0641\u062a\u0647 " + $state.weekNum + " \u0648 \u0645\u0627\u0647 " + ($state.weekNum/7).toFixed() + " \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0647\u0633\u062a\u06cc  " \n';
                             }
                             throw e;
                           }
@@ -584,20 +682,34 @@ function PlasmicPregnancy__RenderFunc(props: {
                         "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632 : "
                       }
                     </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__vzKjM
-                      )}
-                    >
-                      <React.Fragment>
-                        {$state.getAdvice.data[0].text}
-                      </React.Fragment>
-                    </div>
                     {(() => {
                       try {
-                        return $state.getAdvice.loading;
+                        return !$state.getAdvice.loading;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__vzKjM
+                        )}
+                      >
+                        <React.Fragment>
+                          {$state.getAdvice.data[0].text}
+                        </React.Fragment>
+                      </div>
+                    ) : null}
+                    {(() => {
+                      try {
+                        return true;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -611,11 +723,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                       <LottieWrapper
                         animationData={{
                           v: "5.7.11",
-                          fr: 60,
+                          fr: 0,
                           ip: 0,
-                          op: 81,
-                          w: 1920,
-                          h: 1080,
+                          op: 0,
+                          w: 500,
+                          h: 200,
                           nm: "Loading Dots",
                           ddd: 0,
                           assets: [],
@@ -654,7 +766,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       i: { x: 0.667, y: 1 },
                                       o: { x: 0.333, y: 0 },
                                       t: 25,
-                                      s: [1142, 540, 0],
+                                      s: [432, 150, 0],
                                       to: null,
                                       ti: null
                                     },
@@ -662,11 +774,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       i: { x: 0.667, y: 1 },
                                       o: { x: 0.333, y: 0 },
                                       t: 39,
-                                      s: [1142, 500, 0],
+                                      s: [432, 500, 0],
                                       to: null,
                                       ti: null
                                     },
-                                    { t: 55, s: [1142, 540, 0] }
+                                    { t: 55, s: [432, 150, 0] }
                                   ],
                                   ix: 2,
                                   l: 2
@@ -798,7 +910,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       i: { x: 0.667, y: 1 },
                                       o: { x: 0.333, y: 0 },
                                       t: 17,
-                                      s: [1022, 540, 0],
+                                      s: [312, 150, 0],
                                       to: null,
                                       ti: null
                                     },
@@ -806,11 +918,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       i: { x: 0.667, y: 1 },
                                       o: { x: 0.333, y: 0 },
                                       t: 31,
-                                      s: [1022, 500, 0],
+                                      s: [312, 500, 0],
                                       to: null,
                                       ti: null
                                     },
-                                    { t: 47, s: [1022, 540, 0] }
+                                    { t: 47, s: [312, 150, 0] }
                                   ],
                                   ix: 2,
                                   l: 2
@@ -942,7 +1054,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       i: { x: 0.667, y: 1 },
                                       o: { x: 0.333, y: 0 },
                                       t: 9,
-                                      s: [902, 540, 0],
+                                      s: [192, 150, 0],
                                       to: null,
                                       ti: null
                                     },
@@ -950,11 +1062,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       i: { x: 0.667, y: 1 },
                                       o: { x: 0.333, y: 0 },
                                       t: 23,
-                                      s: [902, 500, 0],
+                                      s: [192, 500, 0],
                                       to: null,
                                       ti: null
                                     },
-                                    { t: 39, s: [902, 540, 0] }
+                                    { t: 39, s: [192, 150, 0] }
                                   ],
                                   ix: 2,
                                   l: 2
@@ -1086,7 +1198,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       i: { x: 0.667, y: 1 },
                                       o: { x: 0.333, y: 0 },
                                       t: 0,
-                                      s: [782, 540, 0],
+                                      s: [72, 150, 0],
                                       to: null,
                                       ti: null
                                     },
@@ -1094,11 +1206,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       i: { x: 0.667, y: 1 },
                                       o: { x: 0.333, y: 0 },
                                       t: 14,
-                                      s: [782, 500, 0],
+                                      s: [72, 500, 0],
                                       to: null,
                                       ti: null
                                     },
-                                    { t: 30, s: [782, 540, 0] }
+                                    { t: 30, s: [72, 150, 0] }
                                   ],
                                   ix: 2,
                                   l: 2
@@ -1204,6 +1316,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           "__wab_instance",
                           sty.lottie__oawi
                         )}
+                        preview={true}
                       />
                     ) : null}
                   </div>
@@ -1868,85 +1981,6 @@ function PlasmicPregnancy__RenderFunc(props: {
               />
             </div>
           ) : null}
-          <ApiRequest
-            data-plasmic-name={"getInfo"}
-            data-plasmic-override={overrides.getInfo}
-            className={classNames("__wab_instance", sty.getInfo)}
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={"GET"}
-            onError={generateStateOnChangeProp($state, ["getInfo", "error"])}
-            onLoading={generateStateOnChangeProp($state, [
-              "getInfo",
-              "loading"
-            ])}
-            onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
-                null,
-                eventArgs
-              );
-              (async data => {
-                const $steps = {};
-
-                $steps["updateWeekNum2"] = true
-                  ? (() => {
-                      const actionArgs = { args: [undefined, "xxxxx"] };
-                      return $globalActions["Fragment.showToast"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateWeekNum2"] != null &&
-                  typeof $steps["updateWeekNum2"] === "object" &&
-                  typeof $steps["updateWeekNum2"].then === "function"
-                ) {
-                  $steps["updateWeekNum2"] = await $steps["updateWeekNum2"];
-                }
-              }).apply(null, eventArgs);
-            }}
-            params={{
-              token: $ctx.query.token
-            }}
-            url={"https://n8n.staas.ir/webhook/info"}
-          >
-            <ApiRequest
-              data-plasmic-name={"getAdvice"}
-              data-plasmic-override={overrides.getAdvice}
-              className={classNames("__wab_instance", sty.getAdvice)}
-              errorDisplay={null}
-              loadingDisplay={null}
-              method={"GET"}
-              onError={generateStateOnChangeProp($state, [
-                "getAdvice",
-                "error"
-              ])}
-              onLoading={generateStateOnChangeProp($state, [
-                "getAdvice",
-                "loading"
-              ])}
-              onSuccess={generateStateOnChangeProp($state, [
-                "getAdvice",
-                "data"
-              ])}
-              params={(() => {
-                try {
-                  return {
-                    weekNumber: $state.weekNum
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              url={"https://n8n.staas.ir/webhook/getAdvice"}
-            />
-          </ApiRequest>
           {(() => {
             try {
               return $state.getInfo.loading || $state.weekNum == 0;
@@ -4491,38 +4525,6 @@ function PlasmicPregnancy__RenderFunc(props: {
               ) : null}
             </div>
           ) : null}
-          <ApiRequest
-            data-plasmic-name={"getTask"}
-            data-plasmic-override={overrides.getTask}
-            className={classNames("__wab_instance", sty.getTask)}
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={"GET"}
-            onError={generateStateOnChangeProp($state, ["getTask", "error"])}
-            onLoading={generateStateOnChangeProp($state, [
-              "getTask",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, ["getTask", "data"])}
-            params={(() => {
-              try {
-                return {
-                  weekNumber: $state.weekNum,
-                  userId: $ctx.query.userId,
-                  appKey: "com.diacotdj.liom"
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            url={"https://n8n.staas.ir/webhook/task"}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -4533,20 +4535,20 @@ const PlasmicDescendants = {
   root: [
     "root",
     "favIcone",
-    "embedHtml",
-    "progress",
-    "todoList",
     "getInfo",
     "getAdvice",
-    "getTask"
+    "getTask",
+    "embedHtml",
+    "progress",
+    "todoList"
   ],
   favIcone: ["favIcone"],
-  embedHtml: ["embedHtml"],
-  progress: ["progress"],
-  todoList: ["todoList"],
   getInfo: ["getInfo", "getAdvice"],
   getAdvice: ["getAdvice"],
-  getTask: ["getTask"]
+  getTask: ["getTask"],
+  embedHtml: ["embedHtml"],
+  progress: ["progress"],
+  todoList: ["todoList"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4554,12 +4556,12 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   favIcone: typeof Embed;
-  embedHtml: typeof Embed;
-  progress: typeof AntdProgress;
-  todoList: typeof TodoList;
   getInfo: typeof ApiRequest;
   getAdvice: typeof ApiRequest;
   getTask: typeof ApiRequest;
+  embedHtml: typeof Embed;
+  progress: typeof AntdProgress;
+  todoList: typeof TodoList;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4648,12 +4650,12 @@ export const PlasmicPregnancy = Object.assign(
   {
     // Helper components rendering sub-elements
     favIcone: makeNodeComponent("favIcone"),
-    embedHtml: makeNodeComponent("embedHtml"),
-    progress: makeNodeComponent("progress"),
-    todoList: makeNodeComponent("todoList"),
     getInfo: makeNodeComponent("getInfo"),
     getAdvice: makeNodeComponent("getAdvice"),
     getTask: makeNodeComponent("getTask"),
+    embedHtml: makeNodeComponent("embedHtml"),
+    progress: makeNodeComponent("progress"),
+    todoList: makeNodeComponent("todoList"),
 
     // Metadata about props expected for PlasmicPregnancy
     internalVariantProps: PlasmicPregnancy__VariantProps,

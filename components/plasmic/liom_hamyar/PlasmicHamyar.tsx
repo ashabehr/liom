@@ -70,6 +70,7 @@ import Nofiticon from "../../Nofiticon"; // plasmic-import: J7iX9VyuSoJi/compone
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
+import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Useful from "../../Useful"; // plasmic-import: 2qiQ4nSmOYBA/component
 import Harmful from "../../Harmful"; // plasmic-import: XLWl_YcBNVp7/component
@@ -80,11 +81,15 @@ import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
-import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
+import {
+  ThemeValue,
+  useTheme
+} from "../todo_mvc_app/PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -121,6 +126,7 @@ export type PlasmicHamyar__OverridesType = {
   switchbest?: Flex__<typeof Switchbest>;
   countdown2?: Flex__<typeof Countdown>;
   cyclebox?: Flex__<typeof Cyclebox>;
+  checkbox?: Flex__<typeof Checkbox>;
   reveal?: Flex__<typeof Reveal>;
   useful?: Flex__<typeof Useful>;
   harmful?: Flex__<typeof Harmful>;
@@ -140,6 +146,7 @@ export type PlasmicHamyar__OverridesType = {
   input2?: Flex__<typeof AntdInput>;
   button5?: Flex__<typeof Button>;
   button6?: Flex__<typeof Button>;
+  todo?: Flex__<typeof ApiRequest>;
   lottie?: Flex__<typeof LottieWrapper>;
   user?: Flex__<typeof ApiRequest>;
   shop?: Flex__<typeof ApiRequest>;
@@ -965,6 +972,29 @@ function PlasmicHamyar__RenderFunc(props: {
                   throw e;
                 }
               })()
+      },
+      {
+        path: "todo.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "todo.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "todo.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox[].isChecked",
+        type: "private",
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -979,6 +1009,7 @@ function PlasmicHamyar__RenderFunc(props: {
   const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
+    theme: useTheme(),
     screen: useScreenVariants_6BytLjmha8VC()
   });
 
@@ -1019,7 +1050,14 @@ function PlasmicHamyar__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.root
+            sty.root,
+            {
+              [sty.rootglobal_theme_dark]: hasVariant(
+                globalVariants,
+                "theme",
+                "dark"
+              )
+            }
           )}
           onLoad={async event => {
             const $steps = {};
@@ -2621,6 +2659,360 @@ function PlasmicHamyar__RenderFunc(props: {
                     </Stack__>
                   </Stack__>
                 </Stack__>
+                {(
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? (() => {
+                        try {
+                          return $state.cyclebox.cycle != "white";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : (() => {
+                        try {
+                          return $state.cyclebox.cycle != "white";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                ) ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___1J2Yv)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___4OOqT
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___70Fr
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___4QMIr
+                          )}
+                        >
+                          {hasVariant(globalVariants, "screen", "mobile") ? (
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return (
+                                      " کارهای ویژه برای وضعیت " +
+                                      ($state.user.data.result.userStatus
+                                        .periodStatus === "white"
+                                        ? "عادی"
+                                        : $state.user.data.result.userStatus
+                                            .periodStatus === "fertility"
+                                        ? "تخمک گذاری"
+                                        : $state.user.data.result.userStatus
+                                            .periodStatus === "pms"
+                                        ? "pms"
+                                        : $state.user.data.result.userStatus
+                                            .periodStatus === "blood"
+                                        ? "پریود"
+                                        : "-") +
+                                      " " +
+                                      $state.name
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          ) : (
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return (
+                                      " کارهای ویژه برای وضعیت " +
+                                      ($state.user.data.result.userStatus
+                                        .periodStatus === "white"
+                                        ? "عادی"
+                                        : $state.user.data.result.userStatus
+                                            .periodStatus === "fertility"
+                                        ? "تخمک گذاری"
+                                        : $state.user.data.result.userStatus
+                                            .periodStatus === "pms"
+                                        ? "pms"
+                                        : $state.user.data.result.userStatus
+                                            .periodStatus === "blood"
+                                        ? "پریود"
+                                        : "-") +
+                                      " " +
+                                      $state.name
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          )}
+                        </div>
+                      </div>
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__e0JxP
+                        )}
+                      >
+                        {(_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return $state.todo.data;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                          const currentItem = __plasmic_item_0;
+                          const currentIndex = __plasmic_idx_0;
+                          return (() => {
+                            const child$Props = {
+                              className: classNames(
+                                "__wab_instance",
+                                sty.checkbox
+                              ),
+                              isChecked:
+                                generateStateValueProp($state, [
+                                  "checkbox",
+                                  __plasmic_idx_0,
+                                  "isChecked"
+                                ]) ?? false,
+                              key: currentIndex,
+                              onChange: async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "checkbox",
+                                    __plasmic_idx_0,
+                                    "isChecked"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+                                (async isChecked => {
+                                  const $steps = {};
+
+                                  $steps["invokeGlobalAction"] = $state
+                                    .checkbox[currentIndex].isChecked
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "POST",
+                                            "https://n8n.staas.ir/webhook/hamyar/todo",
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return {
+                                                  userId:
+                                                    $state.user.data.result.man
+                                                      .id,
+                                                  todoId: currentItem.id
+                                                };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["invokeGlobalAction"] != null &&
+                                    typeof $steps["invokeGlobalAction"] ===
+                                      "object" &&
+                                    typeof $steps["invokeGlobalAction"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["invokeGlobalAction"] = await $steps[
+                                      "invokeGlobalAction"
+                                    ];
+                                  }
+
+                                  $steps["invokeGlobalAction2"] = !$state
+                                    .checkbox[currentIndex].isChecked
+                                    ? (() => {
+                                        const actionArgs = {
+                                          args: [
+                                            "PUT",
+                                            "https://n8n.staas.ir/webhook/task",
+                                            undefined,
+                                            (() => {
+                                              try {
+                                                return { id: currentItem.id };
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return undefined;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          ]
+                                        };
+                                        return $globalActions[
+                                          "Fragment.apiRequest"
+                                        ]?.apply(null, [...actionArgs.args]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["invokeGlobalAction2"] != null &&
+                                    typeof $steps["invokeGlobalAction2"] ===
+                                      "object" &&
+                                    typeof $steps["invokeGlobalAction2"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["invokeGlobalAction2"] =
+                                      await $steps["invokeGlobalAction2"];
+                                  }
+                                }).apply(null, eventArgs);
+                              }
+                            };
+
+                            initializePlasmicStates(
+                              $state,
+                              [
+                                {
+                                  name: "checkbox[].isChecked",
+                                  initFunc: ({ $props, $state, $queries }) =>
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                      ? (() => {
+                                          try {
+                                            return (
+                                              currentItem.is_completed != null
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      : (() => {
+                                          try {
+                                            return (
+                                              currentItem.is_completed != null
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                }
+                              ],
+                              [__plasmic_idx_0]
+                            );
+                            return (
+                              <Checkbox
+                                data-plasmic-name={"checkbox"}
+                                data-plasmic-override={overrides.checkbox}
+                                {...child$Props}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__skCw3
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return currentItem.text;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              </Checkbox>
+                            );
+                          })();
+                        })}
+                      </Stack__>
+                    </Stack__>
+                  </div>
+                ) : null}
                 {(() => {
                   try {
                     return (
@@ -7312,6 +7704,57 @@ function PlasmicHamyar__RenderFunc(props: {
                   </div>
                 </div>
               </AntdModal>
+              <ApiRequest
+                data-plasmic-name={"todo"}
+                data-plasmic-override={overrides.todo}
+                className={classNames("__wab_instance", sty.todo)}
+                errorDisplay={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zksYl
+                    )}
+                  >
+                    {"Error fetching data"}
+                  </div>
+                }
+                loadingDisplay={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__nCzPr
+                    )}
+                  >
+                    {"Loading..."}
+                  </div>
+                }
+                method={"GET"}
+                onError={generateStateOnChangeProp($state, ["todo", "error"])}
+                onLoading={generateStateOnChangeProp($state, [
+                  "todo",
+                  "loading"
+                ])}
+                onSuccess={generateStateOnChangeProp($state, ["todo", "data"])}
+                params={(() => {
+                  try {
+                    return {
+                      status: $state.cyclebox.cycle,
+                      userId: $state.user.data.result.man.id
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                url={"https://n8n.staas.ir/webhook/hamyar/todo"}
+              />
             </div>
           ) : null}
           {(
@@ -10436,6 +10879,7 @@ const PlasmicDescendants = {
     "switchbest",
     "countdown2",
     "cyclebox",
+    "checkbox",
     "reveal",
     "useful",
     "harmful",
@@ -10455,6 +10899,7 @@ const PlasmicDescendants = {
     "input2",
     "button5",
     "button6",
+    "todo",
     "lottie",
     "user",
     "shop",
@@ -10467,6 +10912,7 @@ const PlasmicDescendants = {
   switchbest: ["switchbest"],
   countdown2: ["countdown2"],
   cyclebox: ["cyclebox"],
+  checkbox: ["checkbox"],
   reveal: ["reveal", "useful"],
   useful: ["useful"],
   harmful: ["harmful"],
@@ -10486,6 +10932,7 @@ const PlasmicDescendants = {
   input2: ["input2"],
   button5: ["button5"],
   button6: ["button6"],
+  todo: ["todo"],
   lottie: ["lottie"],
   user: ["user"],
   shop: ["shop"],
@@ -10503,6 +10950,7 @@ type NodeDefaultElementType = {
   switchbest: typeof Switchbest;
   countdown2: typeof Countdown;
   cyclebox: typeof Cyclebox;
+  checkbox: typeof Checkbox;
   reveal: typeof Reveal;
   useful: typeof Useful;
   harmful: typeof Harmful;
@@ -10522,6 +10970,7 @@ type NodeDefaultElementType = {
   input2: typeof AntdInput;
   button5: typeof Button;
   button6: typeof Button;
+  todo: typeof ApiRequest;
   lottie: typeof LottieWrapper;
   user: typeof ApiRequest;
   shop: typeof ApiRequest;
@@ -10620,6 +11069,7 @@ export const PlasmicHamyar = Object.assign(
     switchbest: makeNodeComponent("switchbest"),
     countdown2: makeNodeComponent("countdown2"),
     cyclebox: makeNodeComponent("cyclebox"),
+    checkbox: makeNodeComponent("checkbox"),
     reveal: makeNodeComponent("reveal"),
     useful: makeNodeComponent("useful"),
     harmful: makeNodeComponent("harmful"),
@@ -10639,6 +11089,7 @@ export const PlasmicHamyar = Object.assign(
     input2: makeNodeComponent("input2"),
     button5: makeNodeComponent("button5"),
     button6: makeNodeComponent("button6"),
+    todo: makeNodeComponent("todo"),
     lottie: makeNodeComponent("lottie"),
     user: makeNodeComponent("user"),
     shop: makeNodeComponent("shop"),

@@ -67,6 +67,13 @@
   --plasmic-token-aaa: var(--token-Pgu9NqBtA3c7);
 }
 
+@media (max-width: 640px) {
+  .plasmic_tokens {
+    --token-G-IZ_XhVdlqp: #00af65;
+    --plasmic-token-green: var(--token-G-IZ_XhVdlqp);
+  }
+}
+
 .plasmic_tokens {
   --plsmc-standard-width: 800px;
   --plsmc-wide-width: 1280px;

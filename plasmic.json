@@ -536,6 +536,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/pregnancy-2"
+        },
+        {
+          "id": "IwXl9xUH-ZMp",
+          "name": "Checkbox",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCheckbox.tsx",
+          "importSpec": {
+            "modulePath": "Checkbox.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCheckbox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "checkbox"
         }
       ],
       "icons": [
@@ -773,6 +787,21 @@
           "id": "G3nZy4Yv7luo",
           "name": "Icon39Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon39.tsx"
+        },
+        {
+          "id": "3C1XYJAwQsTb",
+          "name": "SquareSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__SquareSvg.tsx"
+        },
+        {
+          "id": "p6YfH-sngYmY",
+          "name": "SquareCheckFilledSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__SquareCheckFilledSvg.tsx"
+        },
+        {
+          "id": "1zgY9O889QK_",
+          "name": "SquareMinusSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__SquareMinusSvg.tsx"
         }
       ],
       "images": [

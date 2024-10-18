@@ -61,6 +61,8 @@ import {
 
 import * as pp from "@plasmicapp/react-web";
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -289,6 +291,10 @@ function PlasmicButton__RenderFunc(props: {
   const triggers = {
     focusVisibleWithin_root: isRootFocusVisibleWithin
   };
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
+  });
 
   return (
     <Stack__
