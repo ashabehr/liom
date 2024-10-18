@@ -7708,28 +7708,8 @@ function PlasmicHamyar__RenderFunc(props: {
                 data-plasmic-name={"todo"}
                 data-plasmic-override={overrides.todo}
                 className={classNames("__wab_instance", sty.todo)}
-                errorDisplay={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zksYl
-                    )}
-                  >
-                    {"Error fetching data"}
-                  </div>
-                }
-                loadingDisplay={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nCzPr
-                    )}
-                  >
-                    {"Loading..."}
-                  </div>
-                }
+                errorDisplay={null}
+                loadingDisplay={null}
                 method={"GET"}
                 onError={generateStateOnChangeProp($state, ["todo", "error"])}
                 onLoading={generateStateOnChangeProp($state, [
