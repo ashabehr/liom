@@ -745,7 +745,7 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? true : true
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
       },
       {
         path: "input2.value",
