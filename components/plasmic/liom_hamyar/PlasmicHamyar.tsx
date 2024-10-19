@@ -745,7 +745,7 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile") ? false : false
+          hasVariant(globalVariants, "screen", "mobile") ? true : true
       },
       {
         path: "input2.value",
@@ -6333,73 +6333,104 @@ function PlasmicHamyar__RenderFunc(props: {
                   </Button>
                 </div>
               </SlideinModal>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__qxEtn,
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? "modalmox"
-                    : "modalmox"
+              <AntdModal
+                data-plasmic-name={"modal"}
+                data-plasmic-override={overrides.modal}
+                className={classNames("__wab_instance", sty.modal)}
+                closeButtonClassName={classNames({
+                  [sty["pcls_PTZbDpNuqWJg"]]: true,
+                  [sty["pcls_a8S9-aK3uWAD"]]: hasVariant(
+                    globalVariants,
+                    "screen",
+                    "mobile"
+                  )
+                })}
+                closeIcon={
+                  <Icon22Icon
+                    className={classNames(projectcss.all, sty.svg___4HhRn)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateModalOpen"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["modal", "open"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateModalOpen"] != null &&
+                        typeof $steps["updateModalOpen"] === "object" &&
+                        typeof $steps["updateModalOpen"].then === "function"
+                      ) {
+                        $steps["updateModalOpen"] = await $steps[
+                          "updateModalOpen"
+                        ];
+                      }
+                    }}
+                    role={"img"}
+                  />
+                }
+                defaultStylesClassName={classNames(
+                  projectcss.root_reset,
+                  projectcss.plasmic_default_styles,
+                  projectcss.plasmic_mixins,
+                  projectcss.plasmic_tokens,
+                  plasmic_antd_5_hostless_css.plasmic_tokens,
+                  plasmic_plasmic_rich_components_css.plasmic_tokens
                 )}
+                hideFooter={true}
+                maskClosable={false}
+                modalContentClassName={classNames({
+                  [sty["pcls_5fTHCx5J-fyn"]]: hasVariant(
+                    globalVariants,
+                    "screen",
+                    "mobile"
+                  ),
+                  [sty["pcls_wZUnArB0s_DI"]]: true
+                })}
+                modalScopeClassName={sty["modal__modal"]}
+                onOpenChange={generateStateOnChangeProp($state, [
+                  "modal",
+                  "open"
+                ])}
+                open={generateStateValueProp($state, ["modal", "open"])}
+                title={null}
+                trigger={null}
+                width={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? "100vw"
+                    : "100vw"
+                }
+                wrapClassName={classNames({
+                  [sty["pcls_6T7XmSvLI7jL"]]: true,
+                  [sty["pcls_g_DxdwsKXuox"]]: hasVariant(
+                    globalVariants,
+                    "screen",
+                    "mobile"
+                  )
+                })}
               >
-                <AntdModal
-                  data-plasmic-name={"modal"}
-                  data-plasmic-override={overrides.modal}
-                  className={classNames("__wab_instance", sty.modal)}
-                  closeButtonClassName={classNames({
-                    [sty["pcls_PTZbDpNuqWJg"]]: true,
-                    [sty["pcls_a8S9-aK3uWAD"]]: hasVariant(
-                      globalVariants,
-                      "screen",
-                      "mobile"
-                    )
-                  })}
-                  closeIcon={
-                    <Icon22Icon
-                      className={classNames(projectcss.all, sty.svg___4HhRn)}
-                      role={"img"}
-                    />
-                  }
-                  defaultStylesClassName={classNames(
-                    projectcss.root_reset,
-                    projectcss.plasmic_default_styles,
-                    projectcss.plasmic_mixins,
-                    projectcss.plasmic_tokens,
-                    plasmic_antd_5_hostless_css.plasmic_tokens,
-                    plasmic_plasmic_rich_components_css.plasmic_tokens
-                  )}
-                  hideFooter={true}
-                  maskClosable={false}
-                  modalContentClassName={classNames({
-                    [sty["pcls_5fTHCx5J-fyn"]]: hasVariant(
-                      globalVariants,
-                      "screen",
-                      "mobile"
-                    ),
-                    [sty["pcls_wZUnArB0s_DI"]]: true
-                  })}
-                  modalScopeClassName={sty["modal__modal"]}
-                  onOpenChange={generateStateOnChangeProp($state, [
-                    "modal",
-                    "open"
-                  ])}
-                  open={generateStateValueProp($state, ["modal", "open"])}
-                  title={null}
-                  trigger={null}
-                  width={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "100vw"
-                      : "100vw"
-                  }
-                  wrapClassName={classNames({
-                    [sty["pcls_6T7XmSvLI7jL"]]: true,
-                    [sty["pcls_g_DxdwsKXuox"]]: hasVariant(
-                      globalVariants,
-                      "screen",
-                      "mobile"
-                    )
-                  })}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__hl29H)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__omzcJ)}
                   >
@@ -6419,7 +6450,7 @@ function PlasmicHamyar__RenderFunc(props: {
                         displayWidth={
                           hasVariant(globalVariants, "screen", "mobile")
                             ? "auto"
-                            : "70%"
+                            : "500px"
                         }
                         loading={"lazy"}
                         src={{
@@ -7748,8 +7779,8 @@ function PlasmicHamyar__RenderFunc(props: {
                       </Stack__>
                     </div>
                   </div>
-                </AntdModal>
-              </div>
+                </div>
+              </AntdModal>
               <ApiRequest
                 data-plasmic-name={"todo"}
                 data-plasmic-override={overrides.todo}
