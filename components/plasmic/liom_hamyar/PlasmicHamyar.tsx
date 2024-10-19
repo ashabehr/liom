@@ -6380,7 +6380,7 @@ function PlasmicHamyar__RenderFunc(props: {
                 width={
                   hasVariant(globalVariants, "screen", "mobile")
                     ? "100vw"
-                    : "100%"
+                    : "100vw"
                 }
                 wrapClassName={classNames({
                   [sty["pcls_6T7XmSvLI7jL"]]: true,
