@@ -157,7 +157,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "weekNum",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) => 1
       },
       {
         path: "week",
@@ -330,6 +330,53 @@ function PlasmicPregnancy__RenderFunc(props: {
           "\u0646\u06cc \u0646\u06cc \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u062a\u0648 \u0628\u063a\u0644\u062a\u0647 :)",
           "\u0641\u0631\u0634\u062a\u0647 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0628\u0647 \u062f\u0646\u06cc\u0627 \u0645\u06cc\u0627\u062f :)"
         ]
+      },
+      {
+        path: "babySize",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          { h: "---", w: "---" },
+          { h: "---", w: "---" },
+          { h: "---", w: "---" },
+          { h: "---", w: "---" },
+          { h: "---", w: "---" },
+          { h: "---", w: "---" },
+          { h: "1.9", w: "1" },
+          { h: "2.3", w: "2" },
+          { h: "3.1", w: "2" },
+          { h: "4.1", w: "7" },
+          { h: "5.4", w: "14" },
+          { h: "7.4", w: "23" },
+          { h: "8.7", w: "43" },
+          { h: "10.1", w: "70" },
+          { h: "11.6", w: "100" },
+          { h: "13", w: "140" },
+          { h: "14.2", w: "190" },
+          { h: "15.3", w: "240" },
+          { h: "25.6", w: "300" },
+          { h: "26.7", w: "360" },
+          { h: "27.8", w: "430" },
+          { h: "28.9", w: "500" },
+          { h: "30", w: "600" },
+          { h: "34.6", w: "660" },
+          { h: "35.6", w: "760" },
+          { h: "36.6", w: "875" },
+          { h: "37.6", w: "1" },
+          { h: "38.6", w: "1.2" },
+          { h: "39.9", w: "1.3" },
+          { h: "41.1", w: "1.5" },
+          { h: "42.4", w: "1.7" },
+          { h: "43.7", w: "1.9" },
+          { h: "45", w: "2.1" },
+          { h: "46.2", w: "2.4" },
+          { h: "47.4", w: "2.6" },
+          { h: "48.6", w: "2.9" },
+          { h: "49.8", w: "3.1" },
+          { h: "50.7", w: "3.3" },
+          { h: "51.2", w: "3.5" },
+          { h: "52.2", w: "3.8" }
+        ]
       }
     ],
     [$props, $ctx, $refs]
@@ -486,40 +533,40 @@ function PlasmicPregnancy__RenderFunc(props: {
               })()}
               url={"https://n8n.staas.ir/webhook/getAdvice"}
             />
-          </ApiRequest>
-          <ApiRequest
-            data-plasmic-name={"getTask"}
-            data-plasmic-override={overrides.getTask}
-            className={classNames("__wab_instance", sty.getTask)}
-            errorDisplay={null}
-            loadingDisplay={null}
-            method={"GET"}
-            onError={generateStateOnChangeProp($state, ["getTask", "error"])}
-            onLoading={generateStateOnChangeProp($state, [
-              "getTask",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, ["getTask", "data"])}
-            params={(() => {
-              try {
-                return {
-                  weekNumber: $state.weekNum,
-                  userId: $ctx.query.userId,
-                  appKey: "com.diacotdj.liom"
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            url={"https://n8n.staas.ir/webhook/task"}
-          />
 
+            <ApiRequest
+              data-plasmic-name={"getTask"}
+              data-plasmic-override={overrides.getTask}
+              className={classNames("__wab_instance", sty.getTask)}
+              errorDisplay={null}
+              loadingDisplay={null}
+              method={"GET"}
+              onError={generateStateOnChangeProp($state, ["getTask", "error"])}
+              onLoading={generateStateOnChangeProp($state, [
+                "getTask",
+                "loading"
+              ])}
+              onSuccess={generateStateOnChangeProp($state, ["getTask", "data"])}
+              params={(() => {
+                try {
+                  return {
+                    weekNumber: $state.weekNum,
+                    userId: $ctx.query.userId,
+                    appKey: "com.diacotdj.liom"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://n8n.staas.ir/webhook/task"}
+            />
+          </ApiRequest>
           {(
             hasVariant(globalVariants, "screen", "mobile")
               ? (() => {
@@ -2842,8 +2889,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       data-plasmic-override={overrides.progress}
                       className={classNames("__wab_instance", sty.progress)}
                       percent={(
-                        ((280 - $state.getInfo.data[0].result.daysPregnant) *
-                          100) /
+                        ($state.getInfo.data[0].result.daysPregnant * 100) /
                         280
                       ).toFixed()}
                       strokeColor={
@@ -2859,101 +2905,175 @@ function PlasmicPregnancy__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__eX259)}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__g8VH)}
-                    >
+                    {(() => {
+                      try {
+                        return true;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__xOWaI
+                          sty.freeBox__g8VH
                         )}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return " هفته " + $state.weekNum + " اُم";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0647\u0641\u062a\u0647 4 ";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__qzbQg)}
-                    >
-                      {(() => {
-                        try {
-                          return (
-                            $state.weekNum ==
-                            $state.getInfo.data[0].result.weeksPregnant + 1
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__qrcJv
+                            sty.text__xOWaI
                           )}
                         >
                           <React.Fragment>
                             {(() => {
                               try {
-                                return (
-                                  $state.getInfo.data[0].result.daysPregnant +
-                                  " روز مانده تا زایمان"
-                                );
+                                return " هفته " + $state.weekNum + " اُم";
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "250 \u0631\u0648\u0632 l\u0627\u0646\u062f\u0647 \u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646";
+                                  return "\u0647\u0641\u062a\u0647 4 ";
                                 }
                                 throw e;
                               }
                             })()}
                           </React.Fragment>
                         </div>
-                      ) : null}
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__p5XJx
-                      )}
-                    >
-                      {
-                        "\u0648\u0632\u0646 : \u06a9\u0645\u062a\u0631 \u0627\u0632 1 \u06af\u0631\u0645"
+                      </div>
+                    ) : null}
+                    {(() => {
+                      try {
+                        return (
+                          $state.weekNum ==
+                          $state.getInfo.data[0].result.weeksPregnant + 1
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
                       }
-                    </div>
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__j66VY
+                        )}
+                      >
+                        {(() => {
+                          try {
+                            return (
+                              $state.weekNum ==
+                              $state.getInfo.data[0].result.weeksPregnant + 1
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__qrcJv
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    $state.getInfo.data[0].result.daysPregnant +
+                                    " روز مانده تا زایمان"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "250 \u0631\u0648\u0632 l\u0627\u0646\u062f\u0647 \u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        ) : null}
+                      </div>
+                    ) : null}
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__osmaP
-                      )}
+                      className={classNames(projectcss.all, sty.freeBox__qzbQg)}
                     >
-                      {
-                        "\u0642\u062f : \u06a9\u0645\u062a\u0631 \u0627\u0632 1 \u0633\u0627\u0646\u062a\u06cc \u0645\u062a\u0631"
-                      }
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__p5XJx
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                "وزن : " +
+                                $state.babySize[$state.weekNum - 1].w +
+                                ($state.weekNum >= 27 ? " کیلوگرم " : " گرم ")
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0648\u0632\u0646 : \u06a9\u0645\u062a\u0631 \u0627\u0632 1 \u06af\u0631\u0645";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__osmaP
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                "قد : " +
+                                $state.babySize[$state.weekNum - 1].h +
+                                " سانتی متر "
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0642\u062f : \u06a9\u0645\u062a\u0631 \u0627\u0632 1 \u0633\u0627\u0646\u062a\u06cc \u0645\u062a\u0631";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
                     </div>
                   </div>
                   <div
@@ -4007,7 +4127,7 @@ const PlasmicDescendants = {
     "todoList"
   ],
   favIcone: ["favIcone"],
-  getInfo: ["getInfo", "getAdvice"],
+  getInfo: ["getInfo", "getAdvice", "getTask"],
   getAdvice: ["getAdvice"],
   getTask: ["getTask"],
   embedHtml: ["embedHtml"],
