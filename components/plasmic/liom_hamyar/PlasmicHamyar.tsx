@@ -863,16 +863,20 @@ function PlasmicHamyar__RenderFunc(props: {
                       case null:
                         return "";
                       case "fertility":
-                        let future1 = new Date(
-                          $state.user.data.result.userStatus.fertilityEnd
+                        if (
+                          $state.user.data.result.userStatus
+                            .daysToEndFertility == 0 ||
+                          $state.user.data.result.userStatus
+                            .daysToEndFertility == 1
+                        )
+                          return "تا پایان امروز";
+                        return (
+                          $state.user.data.result.userStatus
+                            .daysToEndFertility -
+                          1 +
+                          " روز " +
+                          "دیگر"
                         );
-                        let current_date1 = new Date();
-                        let delta1 = future1 - current_date1;
-                        let days_remaining1 = Math.floor(
-                          delta1 / (1000 * 60 * 60 * 24)
-                        );
-                        if (days_remaining1 == 0) return "امروز";
-                        return days_remaining1 + " روز " + "دیگر";
                       case "pms":
                         if (
                           $state.user.data.result.userStatus.daysToEndPms ==
@@ -921,16 +925,20 @@ function PlasmicHamyar__RenderFunc(props: {
                       case null:
                         return "";
                       case "fertility":
-                        let future1 = new Date(
-                          $state.user.data.result.userStatus.fertilityEnd
+                        if (
+                          $state.user.data.result.userStatus
+                            .daysToEndFertility == 0 ||
+                          $state.user.data.result.userStatus
+                            .daysToEndFertility == 1
+                        )
+                          return "تا پایان امروز";
+                        return (
+                          $state.user.data.result.userStatus
+                            .daysToEndFertility -
+                          1 +
+                          " روز " +
+                          "دیگر"
                         );
-                        let current_date1 = new Date();
-                        let delta1 = future1 - current_date1;
-                        let days_remaining1 = Math.floor(
-                          delta1 / (1000 * 60 * 60 * 24)
-                        );
-                        if (days_remaining1 == 0) return "تا پایان امروز";
-                        return days_remaining1 + " روز " + "دیگر";
                       case "pms":
                         if (
                           $state.user.data.result.userStatus.daysToEndPms ==
@@ -1935,317 +1943,157 @@ function PlasmicHamyar__RenderFunc(props: {
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__nRwCr)}
                 >
-                  {(() => {
-                    const child$Props = {
-                      className: classNames("__wab_instance", sty.cyclebox),
-                      cycle: generateStateValueProp($state, [
-                        "cyclebox",
-                        "cycle"
-                      ]),
-                      fertility: generateStateValueProp($state, [
-                        "cyclebox",
-                        "fertility"
-                      ]),
-                      onClickDescription: async event => {
-                        const $steps = {};
+                  <Cyclebox
+                    data-plasmic-name={"cyclebox"}
+                    data-plasmic-override={overrides.cyclebox}
+                    className={classNames("__wab_instance", sty.cyclebox)}
+                    cycle={generateStateValueProp($state, [
+                      "cyclebox",
+                      "cycle"
+                    ])}
+                    fertility={generateStateValueProp($state, [
+                      "cyclebox",
+                      "fertility"
+                    ])}
+                    onClickDescription={async event => {
+                      const $steps = {};
 
-                        $steps["updateModal3Open"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["modal3", "open"]
-                                },
-                                operation: 0,
-                                value: true
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                      $steps["updateModal3Open"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["modal3", "open"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateModal3Open"] != null &&
-                          typeof $steps["updateModal3Open"] === "object" &&
-                          typeof $steps["updateModal3Open"].then === "function"
-                        ) {
-                          $steps["updateModal3Open"] = await $steps[
-                            "updateModal3Open"
-                          ];
-                        }
-                      },
-                      onCycleChange: generateStateOnChangeProp($state, [
-                        "cyclebox",
-                        "cycle"
-                      ]),
-                      onFertilityChange: generateStateOnChangeProp($state, [
-                        "cyclebox",
-                        "fertility"
-                      ]),
-                      onPeriodChange: generateStateOnChangeProp($state, [
-                        "cyclebox",
-                        "period"
-                      ]),
-                      onPmsChange: generateStateOnChangeProp($state, [
-                        "cyclebox",
-                        "pms"
-                      ]),
-                      onTextsycleChange: generateStateOnChangeProp($state, [
-                        "cyclebox",
-                        "textsycle"
-                      ]),
-                      period: generateStateValueProp($state, [
-                        "cyclebox",
-                        "period"
-                      ]),
-                      pms: generateStateValueProp($state, ["cyclebox", "pms"]),
-                      textsycle: generateStateValueProp($state, [
-                        "cyclebox",
-                        "textsycle"
-                      ]),
-                      userData: $state.userData
-                    };
-
-                    initializePlasmicStates(
-                      $state,
-                      [
-                        {
-                          name: "cyclebox.textsycle",
-                          initFunc: ({ $props, $state, $queries }) =>
-                            hasVariant(globalVariants, "screen", "mobile")
-                              ? (() => {
-                                  try {
-                                    return (() => {
-                                      switch (
-                                        $state.user.data.result.userStatus
-                                          .periodStatus
-                                      ) {
-                                        case null:
-                                          return "";
-                                        case "fertility":
-                                          let future1 = new Date(
-                                            $state.user.data.result.userStatus.fertilityEnd
-                                          );
-                                          let current_date1 = new Date();
-                                          let delta1 = future1 - current_date1;
-                                          let days_remaining1 = Math.floor(
-                                            delta1 / (1000 * 60 * 60 * 24)
-                                          );
-                                          if (days_remaining1 == 0)
-                                            return "امروز";
-                                          return (
-                                            days_remaining1 + " روز " + "دیگر"
-                                          );
-                                        case "pms":
-                                          if (
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPms == 0 ||
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPms == 1
-                                          )
-                                            return "امروز";
-                                          return (
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPms -
-                                            1 +
-                                            " روز " +
-                                            "دیگر"
-                                          );
-                                        case "blood":
-                                          if (
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPeriod == 1 ||
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPeriod == 0
-                                          )
-                                            return "امروز";
-                                          return (
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPeriod -
-                                            1 +
-                                            " روز " +
-                                            "دیگر"
-                                          );
-                                        default:
-                                          return "";
-                                      }
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              : (() => {
-                                  try {
-                                    return (() => {
-                                      switch (
-                                        $state.user.data.result.userStatus
-                                          .periodStatus
-                                      ) {
-                                        case null:
-                                          return "";
-                                        case "fertility":
-                                          let future1 = new Date(
-                                            $state.user.data.result.userStatus.fertilityEnd
-                                          );
-                                          let current_date1 = new Date();
-                                          let delta1 = future1 - current_date1;
-                                          let days_remaining1 = Math.floor(
-                                            delta1 / (1000 * 60 * 60 * 24)
-                                          );
-                                          if (days_remaining1 == 0)
-                                            return "تا پایان امروز";
-                                          return (
-                                            days_remaining1 + " روز " + "دیگر"
-                                          );
-                                        case "pms":
-                                          if (
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPms == 0 ||
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPms == 1
-                                          )
-                                            return "تا پایان امروز";
-                                          return (
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPms -
-                                            1 +
-                                            " روز " +
-                                            "دیگر"
-                                          );
-                                        case "blood":
-                                          if (
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPeriod == 1 ||
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPeriod == 0
-                                          )
-                                            return "تا پایان امروز";
-                                          return (
-                                            $state.user.data.result.userStatus
-                                              .daysToEndPeriod -
-                                            1 +
-                                            " روز " +
-                                            "دیگر"
-                                          );
-                                        default:
-                                          return "-";
-                                      }
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                        }
-                      ],
-                      []
-                    );
-                    return (
-                      <Cyclebox
-                        data-plasmic-name={"cyclebox"}
-                        data-plasmic-override={overrides.cyclebox}
-                        {...child$Props}
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateModal3Open"] != null &&
+                        typeof $steps["updateModal3Open"] === "object" &&
+                        typeof $steps["updateModal3Open"].then === "function"
+                      ) {
+                        $steps["updateModal3Open"] = await $steps[
+                          "updateModal3Open"
+                        ];
+                      }
+                    }}
+                    onCycleChange={generateStateOnChangeProp($state, [
+                      "cyclebox",
+                      "cycle"
+                    ])}
+                    onFertilityChange={generateStateOnChangeProp($state, [
+                      "cyclebox",
+                      "fertility"
+                    ])}
+                    onPeriodChange={generateStateOnChangeProp($state, [
+                      "cyclebox",
+                      "period"
+                    ])}
+                    onPmsChange={generateStateOnChangeProp($state, [
+                      "cyclebox",
+                      "pms"
+                    ])}
+                    onTextsycleChange={generateStateOnChangeProp($state, [
+                      "cyclebox",
+                      "textsycle"
+                    ])}
+                    period={generateStateValueProp($state, [
+                      "cyclebox",
+                      "period"
+                    ])}
+                    pms={generateStateValueProp($state, ["cyclebox", "pms"])}
+                    textsycle={generateStateValueProp($state, [
+                      "cyclebox",
+                      "textsycle"
+                    ])}
+                    userData={$state.userData}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__psqU)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__in0Fg
+                        )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__psqU
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__in0Fg
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return "وضعیت " + $state.name + " : ";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return "وضعیت " + $state.name + " : ";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "-";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ej0Pi
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                switch (
+                                  $state.user.data.result.userStatus
+                                    .periodStatus
+                                ) {
+                                  case "white":
+                                    return "عادی";
+                                  case "fertility":
+                                    return "تخمک گذاری";
+                                  case "pms":
+                                    return "pms";
+                                  case "blood":
+                                    return "پریود";
+                                  default:
                                     return "-";
-                                  }
-                                  throw e;
                                 }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__ej0Pi
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return (() => {
-                                    switch (
-                                      $state.user.data.result.userStatus
-                                        .periodStatus
-                                    ) {
-                                      case "white":
-                                        return "عادی";
-                                      case "fertility":
-                                        return "تخمک گذاری";
-                                      case "pms":
-                                        return "pms";
-                                      case "blood":
-                                        return "پریود";
-                                      default:
-                                        return "-";
-                                    }
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "-";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        </Stack__>
-                      </Cyclebox>
-                    );
-                  })()}
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "-";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </Stack__>
+                  </Cyclebox>
                   <Stack__
                     as={"div"}
                     hasGap={true}
@@ -2499,18 +2347,19 @@ function PlasmicHamyar__RenderFunc(props: {
                                   {(() => {
                                     try {
                                       return (() => {
-                                        let future1 = new Date(
-                                          $state.user.data.result.userStatus.pmsEnd
-                                        );
-                                        let current_date1 = new Date();
-                                        let delta1 = future1 - current_date1;
-                                        let days_remaining1 = Math.floor(
-                                          delta1 / (1000 * 60 * 60 * 24)
-                                        );
-                                        if (days_remaining1 == 0)
+                                        if (
+                                          $state.user.data.result.userStatus
+                                            .daysToEndPms == 0 ||
+                                          $state.user.data.result.userStatus
+                                            .daysToEndPms == 1
+                                        )
                                           return "تا پایان امروز";
                                         return (
-                                          days_remaining1 + " روز " + "دیگر"
+                                          $state.user.data.result.userStatus
+                                            .daysToEndPms -
+                                          1 +
+                                          " روز " +
+                                          "دیگر"
                                         );
                                       })();
                                     } catch (e) {
@@ -2732,22 +2581,9 @@ function PlasmicHamyar__RenderFunc(props: {
                                 __html: (() => {
                                   try {
                                     return (
-                                      " کارهای ویژه برای وضعیت " +
-                                      ($state.user.data.result.userStatus
-                                        .periodStatus === "white"
-                                        ? "عادی"
-                                        : $state.user.data.result.userStatus
-                                            .periodStatus === "fertility"
-                                        ? "تخمک گذاری"
-                                        : $state.user.data.result.userStatus
-                                            .periodStatus === "pms"
-                                        ? "pms"
-                                        : $state.user.data.result.userStatus
-                                            .periodStatus === "blood"
-                                        ? "پریود"
-                                        : "-") +
-                                      " " +
-                                      $state.name
+                                      "این روزا برای " +
+                                      $state.name +
+                                      " چیکار کنم؟"
                                     );
                                   } catch (e) {
                                     if (
