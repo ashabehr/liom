@@ -995,6 +995,18 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "checkbox[].isChecked",
         type: "private",
         variableType: "boolean"
+      },
+      {
+        path: "payam",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          "\u0639\u0634\u0642\u0645\u060c \u0647\u0631 \u0627\u062a\u0641\u0627\u0642\u06cc \u0628\u06cc\u0641\u062a\u0647 \u0645\u0646 \u0647\u0645\u06cc\u0634\u0647 \u067e\u06cc\u0634\u062a\u0645. \u0647\u0631 \u0648\u0642\u062a \u062d\u0633 \u06a9\u0631\u062f\u06cc \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u060c \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0645\u0646 \u0627\u06cc\u0646\u062c\u0627\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0648\u0642\u062a \u062a\u0646\u0647\u0627\u062a \u0646\u0645\u06cc\u200c\u0630\u0627\u0631\u0645. \u062a\u0648 \u0642\u0644\u0628\u0645\u06cc \u0648 \u0647\u0645\u06cc\u0634\u0647 \u0628\u0627 \u0647\u0645\u06cc\u0645!",
+          "\u0639\u0634\u0642\u0645\u060c \u0647\u0631 \u0631\u0648\u0632 \u06a9\u0647 \u0645\u06cc\u200c\u06af\u0630\u0631\u0647 \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u06cc\u0634\u0647 \u062d\u0633 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0648 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0627\u062a\u0641\u0627\u0642 \u0632\u0646\u062f\u06af\u06cc\u0645\u06cc. \u0628\u062f\u0648\u0646 \u06a9\u0647 \u062a\u0648 \u0647\u0631 \u0634\u0631\u0627\u06cc\u0637\u06cc \u0645\u0646 \u06a9\u0646\u0627\u0631\u062a\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0686\u06cc\u0632\u06cc \u0646\u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0627\u06cc\u0646\u0648 \u0639\u0648\u0636 \u06a9\u0646\u0647. \u062f\u0644\u0645 \u0647\u0645\u06cc\u0634\u0647 \u067e\u06cc\u0634 \u062a\u0648\u0626\u0647!",
+          "\u0642\u0644\u0628\u0645\u060c \u0647\u0631 \u0644\u062d\u0638\u0647 \u0628\u0647 \u062a\u0648 \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u0648 \u0645\u06cc\u200c\u062f\u0648\u0646\u0645 \u0647\u06cc\u0686\u200c\u06a9\u0633 \u0645\u062b\u0644 \u062a\u0648 \u0628\u0631\u0627\u0645 \u0646\u06cc\u0633\u062a. \u0647\u0631 \u062c\u0627 \u0628\u0631\u06cc\u060c \u0645\u0646 \u0628\u0627\u0647\u0627\u062a\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0648\u0642\u062a \u062a\u0646\u0647\u0627\u062a \u0646\u0645\u06cc\u200c\u0630\u0627\u0631\u0645. \u062a\u0648 \u0647\u0645\u0647 \u062f\u0646\u06cc\u0627\u06cc \u0645\u0646\u06cc",
+          "\u0639\u0632\u06cc\u0632 \u062f\u0644\u0645\u060c \u0647\u0631 \u0648\u0642\u062a \u062d\u0633 \u06a9\u0631\u062f\u06cc \u062f\u0646\u06cc\u0627 \u0633\u0646\u06af\u06cc\u0646\u0647\u060c \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0645\u0646 \u0627\u06cc\u0646\u062c\u0627\u0645. \u0628\u0627 \u0647\u0645 \u0627\u0632 \u067e\u0633 \u0647\u0645\u0647\u200c\u0686\u06cc \u0628\u0631\u0645\u06cc\u0627\u06cc\u0645\u060c \u0686\u0648\u0646 \u0647\u06cc\u0686\u200c\u0686\u06cc\u0632\u06cc \u0628\u0631\u0627\u06cc \u0645\u0646 \u0645\u0647\u0645\u200c\u062a\u0631 \u0627\u0632 \u062a\u0648 \u0646\u06cc\u0633\u062a.",
+          "\u0639\u0634\u0642\u0645\u060c \u0648\u0642\u062a\u06cc \u0628\u0647\u062a \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645\u060c \u0647\u0645\u0647\u200c\u0686\u06cc\u0632 \u0642\u0634\u0646\u06af\u200c\u062a\u0631 \u0645\u06cc\u200c\u0634\u0647. \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0647\u0645\u06cc\u0634\u0647 \u062a\u0648 \u0630\u0647\u0646 \u0648 \u0642\u0644\u0628 \u0645\u0646\u06cc\u060c \u0647\u0631\u062c\u0627 \u06a9\u0647 \u0628\u0627\u0634\u06cc\u060c \u0645\u0646 \u06a9\u0646\u0627\u0631\u062a \u0647\u0633\u062a\u0645."
+        ]
       }
     ],
     [$props, $ctx, $refs]
@@ -2518,18 +2530,19 @@ function PlasmicHamyar__RenderFunc(props: {
                                   {(() => {
                                     try {
                                       return (() => {
-                                        let future1 = new Date(
-                                          $state.user.data.result.userStatus.pmsEnd
-                                        );
-                                        let current_date1 = new Date();
-                                        let delta1 = future1 - current_date1;
-                                        let days_remaining1 = Math.floor(
-                                          delta1 / (1000 * 60 * 60 * 24)
-                                        );
-                                        if (days_remaining1 == 0)
+                                        if (
+                                          $state.user.data.result.userStatus
+                                            .daysToEndPms == 0 ||
+                                          $state.user.data.result.userStatus
+                                            .daysToEndPms == 1
+                                        )
                                           return "تا پایان امروز";
                                         return (
-                                          days_remaining1 + " روز " + "دیگر"
+                                          $state.user.data.result.userStatus
+                                            .daysToEndPms -
+                                          1 +
+                                          " روز " +
+                                          "دیگر"
                                         );
                                       })();
                                     } catch (e) {
@@ -2756,22 +2769,9 @@ function PlasmicHamyar__RenderFunc(props: {
                                 __html: (() => {
                                   try {
                                     return (
-                                      " کارهای ویژه برای وضعیت " +
-                                      ($state.user.data.result.userStatus
-                                        .periodStatus === "white"
-                                        ? "عادی"
-                                        : $state.user.data.result.userStatus
-                                            .periodStatus === "fertility"
-                                        ? "تخمک گذاری"
-                                        : $state.user.data.result.userStatus
-                                            .periodStatus === "pms"
-                                        ? "pms"
-                                        : $state.user.data.result.userStatus
-                                            .periodStatus === "blood"
-                                        ? "پریود"
-                                        : "-") +
-                                      " " +
-                                      $state.name
+                                      "این روزا برای " +
+                                      $state.name +
+                                      " چیکار کنم؟"
                                     );
                                   } catch (e) {
                                     if (
