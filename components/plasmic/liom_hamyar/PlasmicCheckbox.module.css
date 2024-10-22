@@ -7,7 +7,8 @@
 }
 .root > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   margin-left: calc(0px - 4px);
   width: calc(100% + 4px);
 }
@@ -16,6 +17,10 @@
 .root > :global(.__wab_flex-container) > picture > img,
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-left: 4px;
+}
+.rootisChecked > :global(.__wab_flex-container) {
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 .freeBox {
   display: flex;
@@ -131,7 +136,7 @@
   overflow: hidden;
 }
 .slotTargetChildrenisChecked {
-  color: var(--token-2aHIw8xI62Xi);
+  color: var(--token-y50Rafqey4Ec);
 }
 .slotTargetChildrenisChecked > :global(.__wab_text),
 .slotTargetChildrenisChecked > :global(.__wab_expr_html_text),

@@ -802,6 +802,11 @@
           "id": "1zgY9O889QK_",
           "name": "SquareMinusSvgIcon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__SquareMinusSvg.tsx"
+        },
+        {
+          "id": "TAZvQuv78adE",
+          "name": "Icon40Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon40.tsx"
         }
       ],
       "images": [
@@ -1982,6 +1987,21 @@
       ],
       "customFunctions": [],
       "jsBundleThemes": []
+    },
+    {
+      "projectId": "aEHVN5v6mfM4eovDsL8Z7d",
+      "projectApiToken": "whnW133t80zLKU3zunlnszewVOEyVOxXKzwV7BG0moXtgGeWc7ggKBeDRLZRWBfP5J3nqMN96EsKaTRQYp2aw",
+      "projectName": "copy-to-clipboard",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/copy_to_clipboard/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [],
+      "customFunctions": []
     }
   ],
   "globalVariants": {

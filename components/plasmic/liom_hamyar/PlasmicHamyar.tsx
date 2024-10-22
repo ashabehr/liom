@@ -102,12 +102,15 @@ import sty from "./PlasmicHamyar.module.css"; // plasmic-import: TOxGOz1ONYz_/cs
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import Icon39Icon from "./icons/PlasmicIcon__Icon39"; // plasmic-import: G3nZy4Yv7luo/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: boEzwrzcFMy4/icon
+import Icon40Icon from "./icons/PlasmicIcon__Icon40"; // plasmic-import: TAZvQuv78adE/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: UbRafB34Z-K-/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
+
+import __lib_copyToClipboard from "copy-to-clipboard";
 
 createPlasmicElementProxy;
 
@@ -158,7 +161,9 @@ export type PlasmicHamyar__OverridesType = {
 
 export interface DefaultHamyarProps {}
 
-const $$ = {};
+const $$ = {
+  copyToClipboard: __lib_copyToClipboard
+};
 
 function useNextRouter() {
   try {
@@ -1009,12 +1014,63 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
-          "\u0639\u0634\u0642\u0645\u060c \u0647\u0631 \u0627\u062a\u0641\u0627\u0642\u06cc \u0628\u06cc\u0641\u062a\u0647 \u0645\u0646 \u0647\u0645\u06cc\u0634\u0647 \u067e\u06cc\u0634\u062a\u0645. \u0647\u0631 \u0648\u0642\u062a \u062d\u0633 \u06a9\u0631\u062f\u06cc \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u060c \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0645\u0646 \u0627\u06cc\u0646\u062c\u0627\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0648\u0642\u062a \u062a\u0646\u0647\u0627\u062a \u0646\u0645\u06cc\u200c\u0630\u0627\u0631\u0645. \u062a\u0648 \u0642\u0644\u0628\u0645\u06cc \u0648 \u0647\u0645\u06cc\u0634\u0647 \u0628\u0627 \u0647\u0645\u06cc\u0645!",
-          "\u0639\u0634\u0642\u0645\u060c \u0647\u0631 \u0631\u0648\u0632 \u06a9\u0647 \u0645\u06cc\u200c\u06af\u0630\u0631\u0647 \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u06cc\u0634\u0647 \u062d\u0633 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0648 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0627\u062a\u0641\u0627\u0642 \u0632\u0646\u062f\u06af\u06cc\u0645\u06cc. \u0628\u062f\u0648\u0646 \u06a9\u0647 \u062a\u0648 \u0647\u0631 \u0634\u0631\u0627\u06cc\u0637\u06cc \u0645\u0646 \u06a9\u0646\u0627\u0631\u062a\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0686\u06cc\u0632\u06cc \u0646\u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0627\u06cc\u0646\u0648 \u0639\u0648\u0636 \u06a9\u0646\u0647. \u062f\u0644\u0645 \u0647\u0645\u06cc\u0634\u0647 \u067e\u06cc\u0634 \u062a\u0648\u0626\u0647!",
-          "\u0642\u0644\u0628\u0645\u060c \u0647\u0631 \u0644\u062d\u0638\u0647 \u0628\u0647 \u062a\u0648 \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u0648 \u0645\u06cc\u200c\u062f\u0648\u0646\u0645 \u0647\u06cc\u0686\u200c\u06a9\u0633 \u0645\u062b\u0644 \u062a\u0648 \u0628\u0631\u0627\u0645 \u0646\u06cc\u0633\u062a. \u0647\u0631 \u062c\u0627 \u0628\u0631\u06cc\u060c \u0645\u0646 \u0628\u0627\u0647\u0627\u062a\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0648\u0642\u062a \u062a\u0646\u0647\u0627\u062a \u0646\u0645\u06cc\u200c\u0630\u0627\u0631\u0645. \u062a\u0648 \u0647\u0645\u0647 \u062f\u0646\u06cc\u0627\u06cc \u0645\u0646\u06cc",
-          "\u0639\u0632\u06cc\u0632 \u062f\u0644\u0645\u060c \u0647\u0631 \u0648\u0642\u062a \u062d\u0633 \u06a9\u0631\u062f\u06cc \u062f\u0646\u06cc\u0627 \u0633\u0646\u06af\u06cc\u0646\u0647\u060c \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0645\u0646 \u0627\u06cc\u0646\u062c\u0627\u0645. \u0628\u0627 \u0647\u0645 \u0627\u0632 \u067e\u0633 \u0647\u0645\u0647\u200c\u0686\u06cc \u0628\u0631\u0645\u06cc\u0627\u06cc\u0645\u060c \u0686\u0648\u0646 \u0647\u06cc\u0686\u200c\u0686\u06cc\u0632\u06cc \u0628\u0631\u0627\u06cc \u0645\u0646 \u0645\u0647\u0645\u200c\u062a\u0631 \u0627\u0632 \u062a\u0648 \u0646\u06cc\u0633\u062a.",
-          "\u0639\u0634\u0642\u0645\u060c \u0648\u0642\u062a\u06cc \u0628\u0647\u062a \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645\u060c \u0647\u0645\u0647\u200c\u0686\u06cc\u0632 \u0642\u0634\u0646\u06af\u200c\u062a\u0631 \u0645\u06cc\u200c\u0634\u0647. \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0647\u0645\u06cc\u0634\u0647 \u062a\u0648 \u0630\u0647\u0646 \u0648 \u0642\u0644\u0628 \u0645\u0646\u06cc\u060c \u0647\u0631\u062c\u0627 \u06a9\u0647 \u0628\u0627\u0634\u06cc\u060c \u0645\u0646 \u06a9\u0646\u0627\u0631\u062a \u0647\u0633\u062a\u0645."
+          {
+            pms: [
+              "\u0639\u0634\u0642\u0645\u060c \u0647\u0631 \u0627\u062a\u0641\u0627\u0642\u06cc \u0628\u06cc\u0641\u062a\u0647 \u0645\u0646 \u0647\u0645\u06cc\u0634\u0647 \u067e\u06cc\u0634\u062a\u0645. \u0647\u0631 \u0648\u0642\u062a \u062d\u0633 \u06a9\u0631\u062f\u06cc \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u060c \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0645\u0646 \u0627\u06cc\u0646\u062c\u0627\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0648\u0642\u062a \u062a\u0646\u0647\u0627\u062a \u0646\u0645\u06cc\u200c\u0630\u0627\u0631\u0645. \u062a\u0648 \u0642\u0644\u0628\u0645\u06cc \u0648 \u0647\u0645\u06cc\u0634\u0647 \u0628\u0627 \u0647\u0645\u06cc\u0645!",
+              "\u0639\u0634\u0642\u0645\u060c \u0647\u0631 \u0631\u0648\u0632 \u06a9\u0647 \u0645\u06cc\u200c\u06af\u0630\u0631\u0647 \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u06cc\u0634\u0647 \u062d\u0633 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0648 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0627\u062a\u0641\u0627\u0642 \u0632\u0646\u062f\u06af\u06cc\u0645\u06cc. \u0628\u062f\u0648\u0646 \u06a9\u0647 \u062a\u0648 \u0647\u0631 \u0634\u0631\u0627\u06cc\u0637\u06cc \u0645\u0646 \u06a9\u0646\u0627\u0631\u062a\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0686\u06cc\u0632\u06cc \u0646\u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0627\u06cc\u0646\u0648 \u0639\u0648\u0636 \u06a9\u0646\u0647. \u062f\u0644\u0645 \u0647\u0645\u06cc\u0634\u0647 \u067e\u06cc\u0634 \u062a\u0648\u0626\u0647!",
+              "\u0642\u0644\u0628\u0645\u060c \u0647\u0631 \u0644\u062d\u0638\u0647 \u0628\u0647 \u062a\u0648 \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u0648 \u0645\u06cc\u200c\u062f\u0648\u0646\u0645 \u0647\u06cc\u0686\u200c\u06a9\u0633 \u0645\u062b\u0644 \u062a\u0648 \u0628\u0631\u0627\u0645 \u0646\u06cc\u0633\u062a. \u0647\u0631 \u062c\u0627 \u0628\u0631\u06cc\u060c \u0645\u0646 \u0628\u0627\u0647\u0627\u062a\u0645 \u0648 \u0647\u06cc\u0686\u200c\u0648\u0642\u062a \u062a\u0646\u0647\u0627\u062a \u0646\u0645\u06cc\u200c\u0630\u0627\u0631\u0645. \u062a\u0648 \u0647\u0645\u0647 \u062f\u0646\u06cc\u0627\u06cc \u0645\u0646\u06cc.",
+              "\u0639\u0632\u06cc\u0632 \u062f\u0644\u0645\u060c \u0647\u0631 \u0648\u0642\u062a \u062d\u0633 \u06a9\u0631\u062f\u06cc \u062f\u0646\u06cc\u0627 \u0633\u0646\u06af\u06cc\u0646\u0647\u060c \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0645\u0646 \u0627\u06cc\u0646\u062c\u0627\u0645. \u0628\u0627 \u0647\u0645 \u0627\u0632 \u067e\u0633 \u0647\u0645\u0647\u200c\u0686\u06cc \u0628\u0631\u0645\u06cc\u0627\u06cc\u0645\u060c \u0686\u0648\u0646 \u0647\u06cc\u0686\u200c\u0686\u06cc\u0632\u06cc \u0628\u0631\u0627\u06cc \u0645\u0646 \u0645\u0647\u0645\u200c\u062a\u0631 \u0627\u0632 \u062a\u0648 \u0646\u06cc\u0633\u062a.",
+              "\u0639\u0634\u0642\u0645\u060c \u0648\u0642\u062a\u06cc \u0628\u0647\u062a \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645\u060c \u0647\u0645\u0647\u200c\u0686\u06cc\u0632 \u0642\u0634\u0646\u06af\u200c\u062a\u0631 \u0645\u06cc\u200c\u0634\u0647. \u0628\u062f\u0648\u0646 \u06a9\u0647 \u0647\u0645\u06cc\u0634\u0647 \u062a\u0648 \u0630\u0647\u0646 \u0648 \u0642\u0644\u0628 \u0645\u0646\u06cc\u060c \u0647\u0631\u062c\u0627 \u06a9\u0647 \u0628\u0627\u0634\u06cc\u060c \u0645\u0646 \u06a9\u0646\u0627\u0631\u062a \u0647\u0633\u062a\u0645!",
+              "\u0639\u0632\u06cc\u0632\u0645\u060c \u0645\u06cc\u200c\u062f\u0648\u0646\u06cc \u06a9\u0647 \u062a\u0648 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0642\u0633\u0645\u062a \u0632\u0646\u062f\u06af\u06cc \u0645\u0646\u06cc. \u0647\u0631 \u0644\u062d\u0638\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0628\u0627 \u062a\u0648 \u0645\u06cc\u200c\u06af\u0630\u0631\u0627\u0646\u0645\u060c \u0645\u062b\u0644 \u06cc\u06a9 \u0631\u0648\u06cc\u0627\u0633\u062a \u0648 \u062f\u0644\u0645 \u0645\u06cc\u200c\u062e\u0648\u0627\u062f \u0627\u06cc\u0646 \u0644\u062d\u0638\u0627\u062a \u0647\u06cc\u0686\u200c\u0648\u0642\u062a \u062a\u0645\u0648\u0645 \u0646\u0634\u0647."
+            ]
+          },
+          {
+            blood: [
+              "\u0639\u0634\u0642\u0645\u060c \u062a\u0648 \u0645\u062b\u0644 \u062e\u0648\u0646 \u062a\u0648\u06cc \u0631\u06af\u200c\u0647\u0627\u0645 \u0647\u0633\u062a\u06cc. \u0628\u062f\u0648\u0646 \u062a\u0648 \u0632\u0646\u062f\u06af\u06cc \u0628\u0631\u0627\u06cc \u0645\u0646 \u0645\u0639\u0646\u0627\u06cc\u06cc \u0646\u062f\u0627\u0631\u0647. \u0647\u0631 \u0644\u062d\u0638\u0647 \u0628\u0627 \u062a\u0648 \u0628\u0648\u062f\u0646\u060c \u0628\u0647\u062a\u0631\u06cc\u0646 \u0644\u062d\u0638\u0627\u062a\u0647!",
+              "\u0645\u062d\u0628\u0648\u0628\u0645\u060c \u0647\u0631 \u0631\u0648\u0632 \u0628\u06cc\u0634\u062a\u0631 \u0628\u0647\u062a \u0648\u0627\u0628\u0633\u062a\u0647 \u0645\u06cc\u200c\u0634\u0645. \u062a\u0648 \u0646\u0647 \u062a\u0646\u0647\u0627 \u0639\u0634\u0642 \u0645\u0646\u06cc\u060c \u0628\u0644\u06a9\u0647 \u0628\u0647\u062a\u0631\u06cc\u0646 \u062f\u0648\u0633\u062a\u0645 \u0647\u0645 \u0647\u0633\u062a\u06cc. \u0646\u0645\u06cc\u200c\u062a\u0648\u0646\u0645 \u062a\u0635\u0648\u0631 \u06a9\u0646\u0645 \u0628\u062f\u0648\u0646 \u062a\u0648 \u0686\u0637\u0648\u0631 \u0645\u06cc\u200c\u06af\u0630\u0631\u0647.",
+              "\u0639\u0632\u06cc\u0632\u0645\u060c \u062a\u0648 \u062a\u0645\u0627\u0645 \u0634\u0627\u062f\u06cc\u200c\u0647\u0627\u06cc \u0645\u0646\u06cc. \u0647\u0631 \u0648\u0642\u062a \u0628\u0647\u062a \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645\u060c \u0644\u0628\u062e\u0646\u062f \u0628\u0647 \u0644\u0628\u0645 \u0645\u06cc\u0627\u062f. \u0632\u0646\u062f\u06af\u06cc \u0628\u062f\u0648\u0646 \u062a\u0648 \u0628\u0631\u0627\u0645 \u0631\u0646\u06af\u06cc \u0646\u062f\u0627\u0631\u0647.",
+              "\u0642\u0644\u0628\u0645\u060c \u062a\u0648 \u0646\u0648\u0631\u06cc \u0647\u0633\u062a\u06cc \u06a9\u0647 \u062a\u0648\u06cc \u062a\u0627\u0631\u06cc\u06a9\u06cc \u0645\u06cc\u200c\u062f\u0631\u062e\u0634\u0647. \u0645\u06cc\u200c\u062f\u0648\u0646\u0645 \u06a9\u0647 \u0628\u0627 \u062a\u0648 \u0645\u06cc\u200c\u062a\u0648\u0646\u0645 \u0627\u0632 \u067e\u0633 \u0647\u0631\u0686\u06cc\u0632\u06cc \u0628\u0631\u0628\u06cc\u0627\u0645. \u0647\u0645\u06cc\u0634\u0647 \u06a9\u0646\u0627\u0631\u062a \u0647\u0633\u062a\u0645.",
+              "\u0639\u0634\u0642\u0645\u060c \u0647\u0631 \u0628\u0627\u0631 \u0628\u0647 \u0686\u0634\u0645\u0627\u06cc \u0642\u0634\u0646\u06af\u062a \u0646\u06af\u0627\u0647 \u0645\u06cc\u200c\u06a9\u0646\u0645\u060c \u062d\u0633 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u0647\u06cc\u0686 \u0686\u06cc\u0632\u06cc \u0646\u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0645\u0627 \u0631\u0648 \u0627\u0632 \u0647\u0645 \u062c\u062f\u0627 \u06a9\u0646\u0647. \u062a\u0648 \u0647\u0645\u06cc\u0634\u0647 \u062a\u0648\u06cc \u0642\u0644\u0628 \u0645\u0646\u06cc.",
+              "\u0639\u0632\u06cc\u0632 \u062f\u0644\u0645\u060c \u062a\u0648 \u062f\u0644\u06cc\u0644 \u0644\u0628\u062e\u0646\u062f\u0647\u0627\u06cc \u0645\u0646\u06cc. \u062a\u0648 \u0645\u062b\u0644 \u06cc\u06a9 \u0631\u0627\u0632 \u0642\u0634\u0646\u06af \u062a\u0648\u06cc \u0642\u0644\u0628\u0645 \u0647\u0633\u062a\u06cc \u0648 \u0647\u0631 \u0631\u0648\u0632 \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u062f\u06cc\u0631\u0648\u0632 \u0639\u0627\u0634\u0642\u062a\u0645."
+            ]
+          },
+          {
+            white: [
+              "\u0639\u0632\u06cc\u0632\u0645\u060c \u062a\u0648 \u0647\u0645\u06cc\u0634\u0647 \u06cc\u0647 \u0627\u0646\u0631\u0698\u06cc \u0645\u062b\u0628\u062a \u0628\u0647 \u0631\u0648\u0632\u0645 \u0645\u06cc\u062f\u06cc. \u06a9\u0646\u0627\u0631\u062a \u0628\u0648\u062f\u0646 \u062d\u0633 \u062e\u0648\u0628\u06cc \u062f\u0627\u0631\u0647.",
+              "\u0639\u0634\u0642\u0645\u060c \u0648\u0642\u062a\u06cc \u0628\u0627 \u0647\u0645 \u062d\u0631\u0641 \u0645\u06cc\u200c\u0632\u0646\u06cc\u0645\u060c \u062d\u0633 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u0647\u0645\u0647\u200c\u0686\u06cc \u0628\u0647\u062a\u0631\u0647. \u062f\u0648\u0633\u062a \u062f\u0627\u0631\u0645 \u0627\u06cc\u0646 \u0644\u062d\u0638\u0647\u200c\u0647\u0627 \u0631\u0648.",
+              "\u0645\u062d\u0628\u0648\u0628\u0645\u060c \u0632\u0646\u062f\u06af\u06cc \u0628\u0627 \u062a\u0648 \u0628\u0631\u0627\u0645 \u067e\u0631 \u0627\u0632 \u0644\u062d\u0638\u0647\u200c\u0647\u0627\u06cc \u062e\u0648\u0628 \u0648 \u0648\u0627\u0642\u0639\u06cc \u0634\u062f\u0647. \u0627\u0632\u062a \u0645\u0645\u0646\u0648\u0646\u0645 \u06a9\u0647 \u0647\u0633\u062a\u06cc.",
+              "\u0642\u0644\u0628\u0645\u060c \u062a\u0648 \u0647\u0645\u0648\u0646 \u06a9\u0633\u06cc \u0647\u0633\u062a\u06cc \u06a9\u0647 \u0647\u0645\u06cc\u0634\u0647 \u0645\u06cc\u200c\u062e\u0648\u0627\u0645 \u06a9\u0646\u0627\u0631\u0634 \u0628\u0627\u0634\u0645. \u0647\u0645\u06cc\u0646 \u0628\u0631\u0627\u0645 \u06a9\u0627\u0641\u06cc\u0647.",
+              "\u0639\u0634\u0642\u0645\u060c \u0648\u0642\u062a\u06cc \u06a9\u0646\u0627\u0631\u062a\u0645\u060c \u0627\u0646\u06af\u0627\u0631 \u0647\u0645\u0647 \u0686\u06cc\u0632 \u0633\u0627\u062f\u0647\u200c\u062a\u0631 \u0645\u06cc\u0634\u0647. \u062f\u0644\u062a\u0646\u06af \u0644\u062d\u0638\u0647\u200c\u0647\u0627\u0645\u0648\u0646\u0645.",
+              "\u0639\u0632\u06cc\u0632 \u062f\u0644\u0645\u060c \u0647\u0631 \u0631\u0648\u0632 \u06a9\u0647 \u0645\u06cc\u200c\u0628\u06cc\u0646\u0645\u062a\u060c \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0642\u0628\u0644 \u0628\u0647 \u0627\u06cc\u0646 \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u06a9\u0647 \u0686\u0642\u062f\u0631 \u062d\u0636\u0648\u0631\u062a \u0628\u0631\u0627\u0645 \u0645\u0647\u0645\u0647."
+            ]
+          }
         ]
+      },
+      {
+        path: "p",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const whiteMessages = $state.payam.find(
+                  item => item[$state.cyclebox.cycle]
+                )[$state.cyclebox.cycle];
+                return whiteMessages[
+                  Math.floor(Math.random() * whiteMessages.length)
+                ];
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -2521,301 +2577,267 @@ function PlasmicHamyar__RenderFunc(props: {
                     </Stack__>
                   </Stack__>
                 </Stack__>
-                {(
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? (() => {
-                        try {
-                          return $state.cyclebox.cycle != "white";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })()
-                    : (() => {
-                        try {
-                          return $state.cyclebox.cycle != "white";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })()
-                ) ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___1J2Yv)}
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___1J2Yv)}
+                >
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___4OOqT)}
                   >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___4OOqT
-                      )}
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox___70Fr)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox___70Fr
+                          projectcss.__wab_text,
+                          sty.text___4QMIr
                         )}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___4QMIr
-                          )}
-                        >
-                          {hasVariant(globalVariants, "screen", "mobile") ? (
-                            <div
-                              className={projectcss.__wab_expr_html_text}
-                              dangerouslySetInnerHTML={{
-                                __html: (() => {
-                                  try {
-                                    return (
-                                      "این روزا برای " +
-                                      $state.name +
-                                      " چیکار کنم؟"
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
-                                    }
-                                    throw e;
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <div
+                            className={projectcss.__wab_expr_html_text}
+                            dangerouslySetInnerHTML={{
+                              __html: (() => {
+                                try {
+                                  return (
+                                    "این روزا برای " +
+                                    $state.name +
+                                    " چیکار کنم؟"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
                                   }
-                                })()
-                              }}
-                            />
-                          ) : (
-                            <div
-                              className={projectcss.__wab_expr_html_text}
-                              dangerouslySetInnerHTML={{
-                                __html: (() => {
-                                  try {
-                                    return (
-                                      "این روزا برای " +
-                                      $state.name +
-                                      " چیکار کنم؟"
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
-                                    }
-                                    throw e;
+                                  throw e;
+                                }
+                              })()
+                            }}
+                          />
+                        ) : (
+                          <div
+                            className={projectcss.__wab_expr_html_text}
+                            dangerouslySetInnerHTML={{
+                              __html: (() => {
+                                try {
+                                  return (
+                                    "این روزا برای " +
+                                    $state.name +
+                                    " چیکار کنم؟"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
                                   }
-                                })()
-                              }}
-                            />
-                          )}
-                        </div>
+                                  throw e;
+                                }
+                              })()
+                            }}
+                          />
+                        )}
                       </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__e0JxP
-                        )}
-                      >
-                        {(_par =>
-                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                          (() => {
-                            try {
-                              return $state.todo.data;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
+                    </div>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__e0JxP)}
+                    >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.todo.data;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
                             }
-                          })()
-                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                          const currentItem = __plasmic_item_0;
-                          const currentIndex = __plasmic_idx_0;
-                          return (() => {
-                            const child$Props = {
-                              className: classNames(
-                                "__wab_instance",
-                                sty.checkbox
-                              ),
-                              isChecked:
-                                generateStateValueProp($state, [
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (() => {
+                          const child$Props = {
+                            className: classNames(
+                              "__wab_instance",
+                              sty.checkbox
+                            ),
+                            isChecked:
+                              generateStateValueProp($state, [
+                                "checkbox",
+                                __plasmic_idx_0,
+                                "isChecked"
+                              ]) ?? false,
+                            key: currentIndex,
+                            onChange: async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
                                   "checkbox",
                                   __plasmic_idx_0,
                                   "isChecked"
-                                ]) ?? false,
-                              key: currentIndex,
-                              onChange: async (...eventArgs: any) => {
-                                ((...eventArgs) => {
-                                  generateStateOnChangeProp($state, [
-                                    "checkbox",
-                                    __plasmic_idx_0,
-                                    "isChecked"
-                                  ])(eventArgs[0]);
-                                }).apply(null, eventArgs);
-                                (async isChecked => {
-                                  const $steps = {};
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+                              (async isChecked => {
+                                const $steps = {};
 
-                                  $steps["invokeGlobalAction"] = $state
-                                    .checkbox[currentIndex].isChecked
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            "POST",
-                                            "https://n8n.staas.ir/webhook/hamyar/todo",
-                                            undefined,
-                                            (() => {
-                                              try {
-                                                return {
-                                                  userId:
-                                                    $state.user.data.result.man
-                                                      .id,
-                                                  todoId: currentItem.id
-                                                };
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
+                                $steps["invokeGlobalAction"] = $state.checkbox[
+                                  currentIndex
+                                ].isChecked
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "POST",
+                                          "https://n8n.staas.ir/webhook/hamyar/todo",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return {
+                                                userId:
+                                                  $state.user.data.result.man
+                                                    .id,
+                                                todoId: currentItem.id
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
                                               }
-                                            })()
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "Fragment.apiRequest"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction"] != null &&
-                                    typeof $steps["invokeGlobalAction"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["invokeGlobalAction"] = await $steps[
-                                      "invokeGlobalAction"
-                                    ];
-                                  }
-
-                                  $steps["invokeGlobalAction2"] = !$state
-                                    .checkbox[currentIndex].isChecked
-                                    ? (() => {
-                                        const actionArgs = {
-                                          args: [
-                                            "PUT",
-                                            "https://n8n.staas.ir/webhook/task",
-                                            undefined,
-                                            (() => {
-                                              try {
-                                                return { id: currentItem.id };
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()
-                                          ]
-                                        };
-                                        return $globalActions[
-                                          "Fragment.apiRequest"
-                                        ]?.apply(null, [...actionArgs.args]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction2"] != null &&
-                                    typeof $steps["invokeGlobalAction2"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction2"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["invokeGlobalAction2"] =
-                                      await $steps["invokeGlobalAction2"];
-                                  }
-                                }).apply(null, eventArgs);
-                              }
-                            };
-
-                            initializePlasmicStates(
-                              $state,
-                              [
-                                {
-                                  name: "checkbox[].isChecked",
-                                  initFunc: ({ $props, $state, $queries }) =>
-                                    hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "mobile"
-                                    )
-                                      ? (() => {
-                                          try {
-                                            return (
-                                              currentItem.is_completed != null
-                                            );
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return [];
+                                              throw e;
                                             }
-                                            throw e;
-                                          }
-                                        })()
-                                      : (() => {
-                                          try {
-                                            return (
-                                              currentItem.is_completed != null
-                                            );
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return [];
-                                            }
-                                            throw e;
-                                          }
-                                        })()
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["invokeGlobalAction"] != null &&
+                                  typeof $steps["invokeGlobalAction"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction"] = await $steps[
+                                    "invokeGlobalAction"
+                                  ];
                                 }
-                              ],
-                              [__plasmic_idx_0]
-                            );
-                            return (
-                              <Checkbox
-                                data-plasmic-name={"checkbox"}
-                                data-plasmic-override={overrides.checkbox}
-                                {...child$Props}
+
+                                $steps["invokeGlobalAction2"] = !$state
+                                  .checkbox[currentIndex].isChecked
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "PUT",
+                                          "https://n8n.staas.ir/webhook/task",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return { id: currentItem.id };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })()
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["invokeGlobalAction2"] != null &&
+                                  typeof $steps["invokeGlobalAction2"] ===
+                                    "object" &&
+                                  typeof $steps["invokeGlobalAction2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["invokeGlobalAction2"] = await $steps[
+                                    "invokeGlobalAction2"
+                                  ];
+                                }
+                              }).apply(null, eventArgs);
+                            }
+                          };
+
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "checkbox[].isChecked",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  hasVariant(globalVariants, "screen", "mobile")
+                                    ? (() => {
+                                        try {
+                                          return (
+                                            currentItem.is_completed != null
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return [];
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    : (() => {
+                                        try {
+                                          return (
+                                            currentItem.is_completed != null
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return [];
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                              }
+                            ],
+                            [__plasmic_idx_0]
+                          );
+                          return (
+                            <Checkbox
+                              data-plasmic-name={"checkbox"}
+                              data-plasmic-override={overrides.checkbox}
+                              {...child$Props}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__aqbZi
+                                )}
                               >
                                 <div
                                   className={classNames(
@@ -2841,14 +2863,126 @@ function PlasmicHamyar__RenderFunc(props: {
                                     })()}
                                   </React.Fragment>
                                 </div>
-                              </Checkbox>
-                            );
-                          })();
-                        })}
-                      </Stack__>
+                                {(() => {
+                                  try {
+                                    return currentItem.action == "copy";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return true;
+                                    }
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox___7UfPx
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__zLwup
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return $state.p;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                    <Icon40Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__l5EaU
+                                      )}
+                                      onClick={async event => {
+                                        const $steps = {};
+
+                                        $steps["runCode"] = true
+                                          ? (() => {
+                                              const actionArgs = {
+                                                customFunction: async () => {
+                                                  return $$.copyToClipboard(
+                                                    $state.p
+                                                  );
+                                                }
+                                              };
+                                              return (({ customFunction }) => {
+                                                return customFunction();
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                        if (
+                                          $steps["runCode"] != null &&
+                                          typeof $steps["runCode"] ===
+                                            "object" &&
+                                          typeof $steps["runCode"].then ===
+                                            "function"
+                                        ) {
+                                          $steps["runCode"] = await $steps[
+                                            "runCode"
+                                          ];
+                                        }
+
+                                        $steps["invokeGlobalAction"] =
+                                          $steps.runCode == true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  args: [
+                                                    "success",
+                                                    "\u0645\u062a\u0646 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u06a9\u067e\u06cc \u0634\u062f!",
+                                                    "top-left"
+                                                  ]
+                                                };
+                                                return $globalActions[
+                                                  "Fragment.showToast"
+                                                ]?.apply(null, [
+                                                  ...actionArgs.args
+                                                ]);
+                                              })()
+                                            : undefined;
+                                        if (
+                                          $steps["invokeGlobalAction"] !=
+                                            null &&
+                                          typeof $steps[
+                                            "invokeGlobalAction"
+                                          ] === "object" &&
+                                          typeof $steps["invokeGlobalAction"]
+                                            .then === "function"
+                                        ) {
+                                          $steps["invokeGlobalAction"] =
+                                            await $steps["invokeGlobalAction"];
+                                        }
+                                      }}
+                                      role={"img"}
+                                    />
+                                  </div>
+                                ) : null}
+                              </div>
+                            </Checkbox>
+                          );
+                        })();
+                      })}
                     </Stack__>
-                  </div>
-                ) : null}
+                  </Stack__>
+                </div>
                 {(() => {
                   try {
                     return (

@@ -34,6 +34,7 @@
     "antd": "^5.20.6",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
+    "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.13",
     "jalaali-js": "^1.2.7",
     "jalali-moment": "^3.3.11",
