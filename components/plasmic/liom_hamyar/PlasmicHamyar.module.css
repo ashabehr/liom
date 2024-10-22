@@ -1553,6 +1553,19 @@
     height: auto;
   }
 }
+.freeBox___2W2Z3 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  border-radius: 8px;
+  padding: 4px;
+  border: 1px solid var(--token-55cSeNPovQFh);
+}
 .text___8Kbww {
   font-size: 11px;
   color: var(--token-55cSeNPovQFh);
@@ -1564,7 +1577,7 @@
 }
 @media (max-width: 640px) {
   .text___8Kbww {
-    font-size: 9px;
+    font-size: 8px;
     text-align: justify;
     white-space: pre;
     height: auto;

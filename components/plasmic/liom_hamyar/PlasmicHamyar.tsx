@@ -2904,76 +2904,87 @@ function PlasmicHamyar__RenderFunc(props: {
                                     <div
                                       className={classNames(
                                         projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text___8Kbww
+                                        sty.freeBox___2W2Z3
                                       )}
-                                      onClick={async event => {
-                                        const $steps = {};
+                                    >
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text___8Kbww
+                                        )}
+                                        onClick={async event => {
+                                          const $steps = {};
 
-                                        $steps["runCode"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                customFunction: async () => {
-                                                  return $$.copyToClipboard(
-                                                    $state.p
-                                                  );
-                                                }
-                                              };
-                                              return (({ customFunction }) => {
-                                                return customFunction();
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["runCode"] != null &&
-                                          typeof $steps["runCode"] ===
-                                            "object" &&
-                                          typeof $steps["runCode"].then ===
-                                            "function"
-                                        ) {
-                                          $steps["runCode"] = await $steps[
-                                            "runCode"
-                                          ];
-                                        }
-
-                                        $steps["invokeGlobalAction"] =
-                                          $steps.runCode == true
+                                          $steps["runCode"] = true
                                             ? (() => {
                                                 const actionArgs = {
-                                                  args: [
-                                                    undefined,
-                                                    "\u0645\u062a\u0646 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u06a9\u067e\u06cc \u0634\u062f!",
-                                                    "top-left"
-                                                  ]
+                                                  customFunction: async () => {
+                                                    return $$.copyToClipboard(
+                                                      $state.p
+                                                    );
+                                                  }
                                                 };
-                                                return $globalActions[
-                                                  "Fragment.showToast"
-                                                ]?.apply(null, [
-                                                  ...actionArgs.args
-                                                ]);
+                                                return (({
+                                                  customFunction
+                                                }) => {
+                                                  return customFunction();
+                                                })?.apply(null, [actionArgs]);
                                               })()
                                             : undefined;
-                                        if (
-                                          $steps["invokeGlobalAction"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "invokeGlobalAction"
-                                          ] === "object" &&
-                                          typeof $steps["invokeGlobalAction"]
-                                            .then === "function"
-                                        ) {
+                                          if (
+                                            $steps["runCode"] != null &&
+                                            typeof $steps["runCode"] ===
+                                              "object" &&
+                                            typeof $steps["runCode"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["runCode"] = await $steps[
+                                              "runCode"
+                                            ];
+                                          }
+
                                           $steps["invokeGlobalAction"] =
-                                            await $steps["invokeGlobalAction"];
-                                        }
-                                      }}
-                                    >
-                                      {hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobile"
-                                      )
-                                        ? "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646"
-                                        : "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646"}
+                                            $steps.runCode == true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    args: [
+                                                      undefined,
+                                                      "\u0645\u062a\u0646 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u06a9\u067e\u06cc \u0634\u062f!",
+                                                      "top-left"
+                                                    ]
+                                                  };
+                                                  return $globalActions[
+                                                    "Fragment.showToast"
+                                                  ]?.apply(null, [
+                                                    ...actionArgs.args
+                                                  ]);
+                                                })()
+                                              : undefined;
+                                          if (
+                                            $steps["invokeGlobalAction"] !=
+                                              null &&
+                                            typeof $steps[
+                                              "invokeGlobalAction"
+                                            ] === "object" &&
+                                            typeof $steps["invokeGlobalAction"]
+                                              .then === "function"
+                                          ) {
+                                            $steps["invokeGlobalAction"] =
+                                              await $steps[
+                                                "invokeGlobalAction"
+                                              ];
+                                          }
+                                        }}
+                                      >
+                                        {hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                          ? "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646"
+                                          : "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646"}
+                                      </div>
                                     </div>
                                   </Stack__>
                                 ) : null}
