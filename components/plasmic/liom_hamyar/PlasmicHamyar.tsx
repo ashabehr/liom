@@ -1053,14 +1053,7 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (() => {
-                const whiteMessages = $state.payam.find(
-                  item => item[$state.cyclebox.cycle]
-                )[$state.cyclebox.cycle];
-                return whiteMessages[
-                  Math.floor(Math.random() * whiteMessages.length)
-                ];
-              })();
+              return undefined;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -7763,7 +7756,56 @@ function PlasmicHamyar__RenderFunc(props: {
                   "todo",
                   "loading"
                 ])}
-                onSuccess={generateStateOnChangeProp($state, ["todo", "data"])}
+                onSuccess={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["todo", "data"]).apply(
+                    null,
+                    eventArgs
+                  );
+                  (async data => {
+                    const $steps = {};
+
+                    $steps["updateP"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["p"]
+                            },
+                            operation: 0,
+                            value: (() => {
+                              const whiteMessages = $state.payam.find(
+                                item => item[$state.cyclebox.cycle]
+                              )[$state.cyclebox.cycle];
+                              return whiteMessages[
+                                Math.floor(Math.random() * whiteMessages.length)
+                              ];
+                            })()
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateP"] != null &&
+                      typeof $steps["updateP"] === "object" &&
+                      typeof $steps["updateP"].then === "function"
+                    ) {
+                      $steps["updateP"] = await $steps["updateP"];
+                    }
+                  }).apply(null, eventArgs);
+                }}
                 params={(() => {
                   try {
                     return {
