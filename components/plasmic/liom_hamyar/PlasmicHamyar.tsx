@@ -102,7 +102,6 @@ import sty from "./PlasmicHamyar.module.css"; // plasmic-import: TOxGOz1ONYz_/cs
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import Icon39Icon from "./icons/PlasmicIcon__Icon39"; // plasmic-import: G3nZy4Yv7luo/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: boEzwrzcFMy4/icon
-import Icon40Icon from "./icons/PlasmicIcon__Icon40"; // plasmic-import: TAZvQuv78adE/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
@@ -2870,7 +2869,9 @@ function PlasmicHamyar__RenderFunc(props: {
                                     throw e;
                                   }
                                 })() ? (
-                                  <div
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox___7UfPx
@@ -2900,10 +2901,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                         })()}
                                       </React.Fragment>
                                     </div>
-                                    <Icon40Icon
+                                    <div
                                       className={classNames(
                                         projectcss.all,
-                                        sty.svg__l5EaU
+                                        projectcss.__wab_text,
+                                        sty.text___8Kbww
                                       )}
                                       onClick={async event => {
                                         const $steps = {};
@@ -2939,7 +2941,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                             ? (() => {
                                                 const actionArgs = {
                                                   args: [
-                                                    "success",
+                                                    undefined,
                                                     "\u0645\u062a\u0646 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u06a9\u067e\u06cc \u0634\u062f!",
                                                     "top-left"
                                                   ]
@@ -2964,9 +2966,16 @@ function PlasmicHamyar__RenderFunc(props: {
                                             await $steps["invokeGlobalAction"];
                                         }
                                       }}
-                                      role={"img"}
-                                    />
-                                  </div>
+                                    >
+                                      {hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "mobile"
+                                      )
+                                        ? "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646"
+                                        : "\u06a9\u067e\u06cc \u06a9\u0631\u062f\u0646"}
+                                    </div>
+                                  </Stack__>
                                 ) : null}
                               </div>
                             </Checkbox>
