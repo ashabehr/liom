@@ -1729,6 +1729,17 @@
     min-height: 0;
   }
 }
+.useful2:global(.__wab_instance) {
+  position: relative;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .useful2:global(.__wab_instance) {
+    margin-left: calc(0px + 15px) !important;
+    flex-shrink: 0;
+  }
+}
 .useful:global(.__wab_instance) {
   position: relative;
   flex-shrink: 0;
@@ -1889,6 +1900,20 @@
 @media (max-width: 640px) {
   .freeBox__qskKw > :global(.__wab_flex-container) {
     min-height: 0;
+  }
+}
+.harmful2:global(.__wab_instance) {
+  position: relative;
+  transition-property: all;
+  transition-duration: 1s;
+  align-self: flex-start;
+  flex-shrink: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+@media (max-width: 640px) {
+  .harmful2:global(.__wab_instance) {
+    flex-shrink: 0;
   }
 }
 .harmful:global(.__wab_instance) {

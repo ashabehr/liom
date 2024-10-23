@@ -325,6 +325,7 @@
   max-width: 100%;
   flex-direction: column;
   object-fit: cover;
+  display: none;
 }
 .freeBox__yFMi {
   display: flex;
@@ -930,13 +931,15 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   width: 100%;
   height: 100px;
   max-width: 100%;
   margin-top: 0px;
   overflow: auto;
+  flex-wrap: nowrap;
+  align-content: stretch;
   flex-shrink: 0;
   padding: 8px;
 }

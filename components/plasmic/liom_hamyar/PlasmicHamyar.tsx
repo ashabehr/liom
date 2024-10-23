@@ -130,7 +130,9 @@ export type PlasmicHamyar__OverridesType = {
   cyclebox?: Flex__<typeof Cyclebox>;
   checkbox?: Flex__<typeof Checkbox>;
   reveal?: Flex__<typeof Reveal>;
+  useful2?: Flex__<typeof Useful>;
   useful?: Flex__<typeof Useful>;
+  harmful2?: Flex__<typeof Harmful>;
   harmful?: Flex__<typeof Harmful>;
   shopModalWeb?: Flex__<typeof AntdModal>;
   subscription?: Flex__<typeof Subscription>;
@@ -1063,6 +1065,164 @@ function PlasmicHamyar__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "variable2",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "dosAndDonts",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          blood: {
+            todo: [
+              {
+                title:
+                  "\u06a9\u0645\u06a9 \u062a\u0648 \u06a9\u0627\u0631\u0627\u06cc \u062e\u0648\u0646\u0647",
+                desc: "\u062f\u0631 \u062f\u0648\u0631\u0627\u0646 \u067e\u0631\u06cc\u0648\u062f\u060c \u0627\u0646\u0631\u0698\u06cc \u06a9\u0645\u062a\u0631\u06cc \u062f\u0627\u0631\u0647 \u0648 \u0645\u0645\u06a9\u0646\u0647 \u0627\u062d\u0633\u0627\u0633 \u062e\u0633\u062a\u06af\u06cc \u06a9\u0646\u0647. \u067e\u0633 \u062a\u0648 \u06a9\u0627\u0631\u0647\u0627\u06cc \u062e\u0648\u0646\u0647 \u0628\u0647\u0634 \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0647\u0645 \u0627\u0632 \u0644\u062d\u0627\u0638 \u0641\u06cc\u0632\u06cc\u06a9\u06cc \u0641\u0634\u0627\u0631 \u06a9\u0645\u062a\u0631\u06cc \u0631\u0648\u0634 \u0628\u0627\u0634\u0647 \u0648 \u0647\u0645 \u062d\u0633 \u06a9\u0646\u0647 \u06a9\u0647 \u062a\u0646\u0647\u0627 \u0646\u06cc\u0633\u062a.",
+                icon: "\ud83e\uddf9",
+                type: "menstruation"
+              },
+              {
+                title:
+                  "\u0627\u0628\u0631\u0627\u0632 \u0627\u062d\u0633\u0627\u0633\u0627\u062a",
+                desc: "\u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627 \u0646\u0648\u0633\u0627\u0646\u0627\u062a \u062e\u0644\u0642\u06cc \u0634\u062f\u06cc\u062f\u06cc \u062f\u0627\u0631\u0647 \u0648 \u0645\u0645\u06a9\u0646\u0647 \u0628\u0647 \u0645\u062d\u0628\u062a \u0648 \u062a\u0648\u062c\u0647 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0646\u06cc\u0627\u0632 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u0647. \u0628\u0647\u062a\u0631\u0647 \u0628\u06cc\u0634\u062a\u0631 \u0627\u0628\u0631\u0627\u0632 \u0627\u062d\u0633\u0627\u0633\u0627\u062a \u06a9\u0646\u06cc\u060c \u062d\u0645\u0627\u06cc\u062a\u0634 \u06a9\u0646\u06cc \u0648 \u0628\u0647\u0634 \u0646\u0634\u0648\u0646 \u0628\u062f\u06cc \u06a9\u0647 \u062f\u0631\u06a9\u0634 \u0645\u06cc\u200c\u06a9\u0646\u06cc.",
+                icon: "\ud83d\udc96",
+                type: "menstruation"
+              },
+              {
+                title: "\u0645\u0627\u0633\u0627\u0698",
+                desc: "\u06cc\u06a9 \u0645\u0627\u0633\u0627\u0698 \u0645\u0644\u0627\u06cc\u0645 \u0645\u062e\u0635\u0648\u0635\u0627\u064b \u0628\u0631\u0627\u06cc \u06a9\u0645\u0631 \u0648 \u0634\u06a9\u0645\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u06a9\u0645\u06a9 \u0628\u0632\u0631\u06af\u06cc \u0628\u0647 \u062a\u0633\u06a9\u06cc\u0646 \u062f\u0631\u062f\u0647\u0627\u0634 \u06a9\u0646\u0647 \u0648 \u062d\u0633 \u0631\u0627\u062d\u062a\u06cc \u0628\u06cc\u0634\u062a\u0631\u06cc \u0628\u0647\u0634 \u0628\u062f\u0647.",
+                icon: "\ud83d\udc86\ud83c\udffb\u200d\u2640\ufe0f",
+                type: "menstruation"
+              }
+            ],
+            notToDo: [
+              {
+                title:
+                  "\u0627\u0646\u062a\u0642\u0627\u062f \u0627\u0632 \u062e\u0644\u0642 \u0648 \u062e\u0648",
+                desc: "\u0646\u0648\u0633\u0627\u0646\u0627\u062a \u0647\u0648\u0631\u0645\u0648\u0646\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0628\u0627\u0639\u062b \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062e\u0644\u0642\u06cc \u0645\u06cc\u200c\u0634\u0647. \u0627\u06af\u0631 \u0645\u06cc\u200c\u0628\u06cc\u0646\u06cc \u06a9\u0647 \u0639\u0635\u0628\u06cc \u06cc\u0627 \u06a9\u0645\u200c\u062d\u0648\u0635\u0644\u0647 \u0634\u062f\u0647\u060c \u0627\u0632\u0634 \u0627\u0646\u062a\u0642\u0627\u062f \u0646\u06a9\u0646 \u0648 \u0633\u0639\u06cc \u06a9\u0646 \u0634\u0631\u0627\u06cc\u0637 \u0631\u0648 \u062f\u0631\u06a9 \u06a9\u0646\u06cc.",
+                icon: "\ud83d\ude20",
+                type: "menstruation"
+              },
+              {
+                title:
+                  "\u0628\u06cc\u200c\u062a\u0648\u062c\u0647\u06cc \u0628\u0647 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634",
+                desc: "\u062f\u0631 \u0627\u06cc\u0646 \u062f\u0648\u0631\u0627\u0646\u060c \u0645\u0645\u06a9\u0646\u0647 \u062d\u0633\u0627\u0633\u200c\u062a\u0631 \u0628\u0634\u0647 \u0648 \u0628\u0647 \u062a\u0648\u062c\u0647 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0646\u06cc\u0627\u0632 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u0647. \u0628\u06cc\u200c\u062a\u0648\u062c\u0647\u06cc \u0628\u0647 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634 \u06cc\u0627 \u0646\u0627\u062f\u06cc\u062f\u0647 \u06af\u0631\u0641\u062a\u0646 \u0646\u06cc\u0627\u0632\u0647\u0627\u0634 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0628\u0627\u0639\u062b \u062f\u0644\u062e\u0648\u0631\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633 \u062a\u0646\u0647\u0627\u06cc\u06cc \u0628\u0634\u0647.",
+                icon: "\ud83d\ude47\ud83c\udffb\u200d\u2640\ufe0f",
+                type: "menstruation"
+              },
+              {
+                title:
+                  "\u0628\u0631\u06cc\u062f\u0646 \u0627\u0631\u062a\u0628\u0627\u0637",
+                desc: "\u0642\u0637\u0639 \u06a9\u0631\u062f\u0646 \u0627\u0631\u062a\u0628\u0627\u0637 \u06cc\u0627 \u0641\u0627\u0635\u0644\u0647 \u06af\u0631\u0641\u062a\u0646 \u0627\u0632\u0634\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0628\u0627\u0639\u062b \u0628\u0634\u0647 \u062d\u0633 \u06a9\u0646\u0647 \u062a\u0646\u0647\u0627\u0633\u062a \u0648 \u0627\u0632 \u062d\u0645\u0627\u06cc\u062a \u062a\u0648 \u0645\u062d\u0631\u0648\u0645 \u0634\u062f\u0647. \u0628\u0647\u062a\u0631\u0647 \u0627\u0631\u062a\u0628\u0627\u0637\u062a \u0631\u0648 \u062d\u0641\u0638 \u06a9\u0646\u06cc \u0648 \u0647\u0645\u0631\u0627\u0647\u0634 \u0628\u0627\u0634\u06cc.",
+                icon: "\ud83d\ude45\ud83c\udffb\u200d\u2642\ufe0f",
+                type: "menstruation"
+              }
+            ]
+          },
+          pms: {
+            todo: [
+              {
+                title: "\u0635\u0628\u0648\u0631 \u0628\u0648\u062f\u0646",
+                desc: "\u062a\u0648 \u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627 \u06a9\u0645\u06cc \u0635\u0628\u0648\u0631 \u0628\u0627\u0634. \u0645\u0645\u06a9\u0646\u0647 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0647\u0648\u0631\u0645\u0648\u0646\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u06cc \u062f\u0633\u062a \u0648 \u067e\u0646\u062c\u0647 \u0646\u0631\u0645 \u06a9\u0646\u0647. \u0628\u0627 \u062f\u0631\u06a9 \u0648 \u062d\u0645\u0627\u06cc\u062a \u0627\u0632\u0634\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc\u062f \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0631\u0648 \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0628\u06af\u0630\u0631\u0648\u0646\u06cc\u062f.",
+                icon: "\ud83d\udc96",
+                type: "pms"
+              },
+              {
+                title:
+                  "\u062d\u0645\u0627\u06cc\u062a \u0639\u0627\u0637\u0641\u06cc",
+                desc: "\u062e\u06cc\u0644\u06cc \u0645\u0647\u0645\u0647 \u06a9\u0647 \u062f\u0631 \u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627 \u0628\u0627\u0632\u0634 \u062d\u0645\u0627\u06cc\u062a \u0639\u0627\u0637\u0641\u06cc \u06a9\u0646\u06cc. \u0627\u0628\u0631\u0627\u0632 \u0645\u062d\u0628\u062a \u0648 \u062a\u0648\u062c\u0647 \u062a\u0648 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u062d\u0627\u0644\u0634 \u0631\u0648 \u0628\u0647\u062a\u0631 \u06a9\u0646\u0647. \u06cc\u06a9 \u06a9\u0644\u0645\u0647 \u0645\u062d\u0628\u062a\u200c\u0622\u0645\u06cc\u0632 \u06cc\u0627 \u062d\u062a\u06cc \u06cc\u06a9 \u06a9\u0627\u0631 \u06a9\u0648\u0686\u06a9 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0627\u062d\u0633\u0627\u0633 \u0627\u0645\u0646\u06cc\u062a \u0648 \u0622\u0631\u0627\u0645\u0634 \u0631\u0648 \u0628\u0631\u0627\u0634 \u0628\u0647 \u0627\u0631\u0645\u063a\u0627\u0646 \u0628\u06cc\u0627\u0631\u0647.",
+                icon: "\ud83e\udd17",
+                type: "pms"
+              }
+            ],
+            notToDo: [
+              {
+                title: "\u0628\u062d\u062b \u0648 \u062f\u0639\u0648\u0627",
+                desc: "\u062a\u0648 \u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627 \u0627\u0632 \u0628\u062d\u062b \u0648 \u062f\u0639\u0648\u0627 \u062f\u0648\u0631\u06cc \u06a9\u0646. \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0641\u0642\u0637 \u0627\u0633\u062a\u0631\u0633 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647 \u0648 \u0645\u0645\u06a9\u0646\u0647 \u0628\u0647 \u0627\u062e\u062a\u0644\u0627\u0641\u0627\u062a \u0628\u06cc\u0634\u062a\u0631\u06cc \u0645\u0646\u062c\u0631 \u0628\u0634\u0647. \u0627\u06af\u0631 \u0645\u0648\u0636\u0648\u0639\u06cc \u0628\u0631\u0627\u062a \u0645\u0647\u0645\u0647\u060c \u0628\u0647\u062a\u0631\u0647 \u0628\u0647 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0647\u200c\u0627\u06cc \u0645\u0648\u06a9\u0648\u0644\u0634 \u06a9\u0646\u06cc.",
+                icon: "\u26a0\ufe0f",
+                type: "pms"
+              },
+              {
+                title:
+                  "\u0641\u0634\u0627\u0631 \u0622\u0648\u0631\u062f\u0646",
+                desc: "\u0628\u0647\u0634 \u0641\u0634\u0627\u0631 \u0646\u06cc\u0627\u0648\u0631. \u062f\u0631\u06a9 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634 \u0648 \u0627\u06cc\u062c\u0627\u062f \u0641\u0636\u0627\u06cc\u06cc \u0622\u0631\u0627\u0645 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u062e\u06cc\u0644\u06cc \u06a9\u0645\u06a9 \u06a9\u0646\u0647. \u0627\u06af\u0631 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0627\u062d\u0633\u0627\u0633 \u0628\u062f\u06cc \u062f\u0627\u0631\u0647\u060c \u0627\u062c\u0627\u0632\u0647 \u0628\u062f\u0647 \u06a9\u0645\u06cc \u0628\u0627 \u062e\u0648\u062f\u0634 \u062a\u0646\u0647\u0627 \u0628\u0627\u0634\u0647.",
+                icon: "\ud83d\uded1",
+                type: "pms"
+              },
+              {
+                title:
+                  "\u062d\u0631\u0641 \u0632\u062f\u0646 \u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0648\u0636\u0648\u0639\u0627\u062a \u0645\u0647\u0645",
+                desc: "\u0628\u0647\u062a\u0631\u0647 \u0627\u0632 \u0635\u062d\u0628\u062a \u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0648\u0636\u0648\u0639\u0627\u062a \u062d\u0633\u0627\u0633 \u062f\u0648\u0631\u06cc \u06a9\u0646\u06cc. \u0645\u0645\u06a9\u0646\u0647 \u0646\u062a\u0648\u0646\u0647 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634 \u0631\u0648 \u0628\u0647 \u062f\u0631\u0633\u062a\u06cc \u0628\u06cc\u0627\u0646 \u06a9\u0646\u0647 \u0648 \u0627\u06cc\u0646 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0628\u0627\u0639\u062b \u0633\u0648\u062a\u0641\u0627\u0647\u0645 \u0628\u0634\u0647. \u0628\u0647 \u062c\u0627\u06cc \u0627\u0648\u0646\u060c \u0645\u0648\u0636\u0648\u0639\u0627\u062a \u0633\u0628\u06a9\u200c\u062a\u0631 \u0648 \u062e\u0648\u0634\u0627\u06cc\u0646\u062f\u062a\u0631 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 \u062a\u0627 \u0641\u0636\u0627\u06cc \u0645\u062b\u0628\u062a\u200c\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u0628\u0634\u0647.",
+                icon: "\u274c",
+                type: "pms"
+              }
+            ]
+          },
+          fertility: {
+            todo: [
+              {
+                title:
+                  "\u062d\u0645\u0627\u06cc\u062a \u0627\u0632 \u062a\u0635\u0645\u06cc\u0645\u200c\u06af\u06cc\u0631\u06cc\u200c\u0647\u0627\u06cc\u0634",
+                desc: "\u0627\u06cc\u0646 \u062f\u0648\u0631\u0627\u0646 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0632\u0645\u0627\u0646 \u0628\u0631\u0627\u06cc \u062a\u0635\u0645\u06cc\u0645\u200c\u06af\u06cc\u0631\u06cc\u200c\u0647\u0627\u06cc \u0645\u0647\u0645\u0647 \u0686\u0648\u0646 \u0647\u0645\u0633\u0631\u062a \u0645\u0646\u0637\u0642\u06cc\u200c\u062a\u0631 \u0648 \u0645\u0637\u0645\u0626\u0646\u200c\u062a\u0631 \u062a\u0635\u0645\u06cc\u0645 \u0645\u06cc\u200c\u06af\u06cc\u0631\u0647. \u0627\u0632 \u0646\u0638\u0631\u0627\u062a \u0648 \u062a\u0635\u0645\u06cc\u0645\u200c\u0647\u0627\u0634 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646 \u0648 \u0628\u0647\u0634 \u0627\u0639\u062a\u0645\u0627\u062f \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634. \u0627\u06cc\u0646 \u062d\u0645\u0627\u06cc\u062a \u0627\u0639\u062a\u0645\u0627\u062f \u0628\u0647 \u0646\u0641\u0633\u0634 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u0645\u06cc\u200c\u06a9\u0646\u0647.",
+                icon: "\ud83e\udde0",
+                type: "ovulation"
+              },
+              {
+                title:
+                  "\u0627\u0628\u0631\u0627\u0632 \u0627\u062d\u0633\u0627\u0633\u0627\u062a \u0628\u06cc\u0634\u062a\u0631",
+                desc: "\u062f\u0631 \u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627\u060c \u0627\u0628\u0631\u0627\u0632 \u0627\u062d\u0633\u0627\u0633\u0627\u062a \u0648 \u0645\u062d\u0628\u062a \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u0632 \u0637\u0631\u0641 \u062a\u0648 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0631\u0648 \u0642\u0648\u06cc\u200c\u062a\u0631 \u06a9\u0646\u0647. \u0627\u06cc\u0646 \u062f\u0648\u0631\u0627\u0646\u060c \u0647\u0645\u0633\u0631\u062a \u0627\u0632 \u0644\u062d\u0627\u0638 \u0639\u0627\u0637\u0641\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u06cc \u067e\u0630\u06cc\u0631\u0627\u062a\u0631 \u0648 \u0642\u0648\u06cc\u200c\u062a\u0631\u0647\u060c \u067e\u0633 \u0628\u0627 \u0646\u0634\u0648\u0646 \u062f\u0627\u062f\u0646 \u0645\u062d\u0628\u062a \u0648 \u062a\u0648\u062c\u0647\u060c \u0627\u062d\u0633\u0627\u0633 \u0646\u0632\u062f\u06cc\u06a9\u06cc \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646.",
+                icon: "\ud83d\udc9e",
+                type: "ovulation"
+              }
+            ],
+            notToDo: [
+              {
+                title:
+                  "\u0627\u06cc\u062c\u0627\u062f \u0627\u0633\u062a\u0631\u0633",
+                desc: "\u062f\u0631 \u0627\u06cc\u0646 \u0631\u0648\u0632\u0647\u0627 \u0627\u0632 \u0627\u06cc\u062c\u0627\u062f \u0645\u0648\u0642\u0639\u06cc\u062a\u200c\u0647\u0627\u06cc \u0627\u0633\u062a\u0631\u0633\u200c\u0632\u0627 \u062f\u0648\u0631\u06cc \u06a9\u0646. \u0627\u0633\u062a\u0631\u0633 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u062a\u0623\u062b\u06cc\u0631 \u0645\u0646\u0641\u06cc \u0631\u0648\u06cc \u062e\u0644\u0642 \u0648 \u062e\u0648\u06cc \u0647\u0645\u0633\u0631\u062a \u0628\u0630\u0627\u0631\u0647 \u0648 \u0627\u0632 \u0627\u0646\u0631\u0698\u06cc \u0645\u062b\u0628\u062a\u0634 \u06a9\u0645 \u06a9\u0646\u0647. \u0628\u0647 \u062c\u0627\u06cc \u0627\u0648\u0646\u060c \u0641\u0636\u0627\u06cc\u06cc \u0622\u0631\u0627\u0645 \u0648 \u067e\u0631 \u0627\u0632 \u062d\u0645\u0627\u06cc\u062a \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646.",
+                icon: "\ud83d\ude30",
+                type: "ovulation"
+              },
+              {
+                title:
+                  "\u0646\u0627\u062f\u06cc\u062f\u0647 \u06af\u0631\u0641\u062a\u0646 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634",
+                desc: "\u062f\u0631 \u0627\u06cc\u0646 \u062f\u0648\u0631\u0627\u0646\u060c \u0647\u0645\u0633\u0631\u062a \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647 \u06a9\u0647 \u0628\u06cc\u0634\u062a\u0631 \u0628\u0647 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634 \u062a\u0648\u062c\u0647 \u06a9\u0646\u06cc. \u0646\u0627\u062f\u06cc\u062f\u0647 \u06af\u0631\u0641\u062a\u0646 \u06cc\u0627 \u0628\u06cc\u200c\u062a\u0648\u062c\u0647\u06cc \u0628\u0647 \u0627\u062d\u0633\u0627\u0633\u0627\u062a\u0634 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0628\u0627\u0639\u062b \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0628\u0634\u0647. \u0628\u0627 \u0645\u062d\u0628\u062a \u0648 \u0647\u0645\u062f\u0644\u06cc \u0628\u0647\u0634 \u0646\u0634\u0648\u0646 \u0628\u062f\u0647 \u06a9\u0647 \u06a9\u0646\u0627\u0631\u0634 \u0647\u0633\u062a\u06cc \u0648 \u0628\u0647 \u062d\u0627\u0644 \u0648 \u0647\u0648\u0627\u06cc \u062f\u0631\u0648\u0646\u06cc\u200c\u0627\u0634 \u0627\u0647\u0645\u06cc\u062a \u0645\u06cc\u062f\u06cc.",
+                icon: "\ud83d\udc94",
+                type: "ovulation"
+              }
+            ]
+          }
+        })
+      },
+      {
+        path: "useful2[].text",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "useful2[].icon",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "harmful2[].title",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "harmful2[].text",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "harmful2[].icon",
+        type: "private",
+        variableType: "text"
       }
     ],
     [$props, $ctx, $refs]
@@ -3027,9 +3187,9 @@ function PlasmicHamyar__RenderFunc(props: {
                         {(() => {
                           try {
                             return (
-                              "کارهایی که امروز " +
+                              "کارهایی که باید برای " +
                               $state.name +
-                              " باید انجام بده :"
+                              " انجام بدی:"
                             );
                           } catch (e) {
                             if (
@@ -3068,6 +3228,186 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.freeBox__tkGdc
                         )}
                       >
+                        {(_par =>
+                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                          (() => {
+                            try {
+                              return $state.dosAndDonts[$state.cyclebox.cycle]
+                                .todo;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                          const currentItem = __plasmic_item_0;
+                          const currentIndex = __plasmic_idx_0;
+                          return (() => {
+                            const child$Props = {
+                              className: classNames(
+                                "__wab_instance",
+                                sty.useful2
+                              ),
+                              icon: generateStateValueProp($state, [
+                                "useful2",
+                                __plasmic_idx_0,
+                                "icon"
+                              ]),
+                              key: currentIndex,
+                              onClick: async event => {
+                                const $steps = {};
+
+                                $steps["updateModal2Open"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["modal2", "open"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateModal2Open"] != null &&
+                                  typeof $steps["updateModal2Open"] ===
+                                    "object" &&
+                                  typeof $steps["updateModal2Open"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateModal2Open"] = await $steps[
+                                    "updateModal2Open"
+                                  ];
+                                }
+
+                                $steps["updateIndexusefull"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["itemtodo"]
+                                        },
+                                        operation: 0,
+                                        value: currentItem
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateIndexusefull"] != null &&
+                                  typeof $steps["updateIndexusefull"] ===
+                                    "object" &&
+                                  typeof $steps["updateIndexusefull"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateIndexusefull"] = await $steps[
+                                    "updateIndexusefull"
+                                  ];
+                                }
+                              },
+                              onIconChange: generateStateOnChangeProp($state, [
+                                "useful2",
+                                __plasmic_idx_0,
+                                "icon"
+                              ]),
+                              onTextChange: generateStateOnChangeProp($state, [
+                                "useful2",
+                                __plasmic_idx_0,
+                                "text"
+                              ]),
+                              text: generateStateValueProp($state, [
+                                "useful2",
+                                __plasmic_idx_0,
+                                "text"
+                              ])
+                            };
+
+                            initializePlasmicStates(
+                              $state,
+                              [
+                                {
+                                  name: "useful2[].text",
+                                  initFunc: ({ $props, $state, $queries }) =>
+                                    (() => {
+                                      try {
+                                        return currentItem.title;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                },
+                                {
+                                  name: "useful2[].icon",
+                                  initFunc: ({ $props, $state, $queries }) =>
+                                    (() => {
+                                      try {
+                                        return currentItem.icon;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                }
+                              ],
+                              [__plasmic_idx_0]
+                            );
+                            return (
+                              <Useful
+                                data-plasmic-name={"useful2"}
+                                data-plasmic-override={overrides.useful2}
+                                {...child$Props}
+                              />
+                            );
+                          })();
+                        })}
                         {(_par =>
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
@@ -3293,9 +3633,9 @@ function PlasmicHamyar__RenderFunc(props: {
                         {(() => {
                           try {
                             return (
-                              "کارهایی که امروز " +
+                              "کارهایی که نباید برای " +
                               $state.name +
-                              " نباید انجام بده :"
+                              " انجام بدی:"
                             );
                           } catch (e) {
                             if (
@@ -3325,6 +3665,213 @@ function PlasmicHamyar__RenderFunc(props: {
                       hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__qskKw)}
                     >
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.dosAndDonts[$state.cyclebox.cycle]
+                              .notToDo;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (() => {
+                          const child$Props = {
+                            className: classNames(
+                              "__wab_instance",
+                              sty.harmful2
+                            ),
+                            icon: generateStateValueProp($state, [
+                              "harmful2",
+                              __plasmic_idx_0,
+                              "icon"
+                            ]),
+                            key: currentIndex,
+                            onClick: async event => {
+                              const $steps = {};
+
+                              $steps["updateItemtodo"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["itemtodo"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateItemtodo"] != null &&
+                                typeof $steps["updateItemtodo"] === "object" &&
+                                typeof $steps["updateItemtodo"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateItemtodo"] = await $steps[
+                                  "updateItemtodo"
+                                ];
+                              }
+
+                              $steps["updateModal2Open"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["modal2", "open"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateModal2Open"] != null &&
+                                typeof $steps["updateModal2Open"] ===
+                                  "object" &&
+                                typeof $steps["updateModal2Open"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateModal2Open"] = await $steps[
+                                  "updateModal2Open"
+                                ];
+                              }
+                            },
+                            onIconChange: generateStateOnChangeProp($state, [
+                              "harmful2",
+                              __plasmic_idx_0,
+                              "icon"
+                            ]),
+                            onTextChange: generateStateOnChangeProp($state, [
+                              "harmful2",
+                              __plasmic_idx_0,
+                              "text"
+                            ]),
+                            onTitleChange: generateStateOnChangeProp($state, [
+                              "harmful2",
+                              __plasmic_idx_0,
+                              "title"
+                            ]),
+                            text: generateStateValueProp($state, [
+                              "harmful2",
+                              __plasmic_idx_0,
+                              "text"
+                            ]),
+                            title: generateStateValueProp($state, [
+                              "harmful2",
+                              __plasmic_idx_0,
+                              "title"
+                            ])
+                          };
+
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "harmful2[].title",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.title;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              },
+                              {
+                                name: "harmful2[].text",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.desc;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              },
+                              {
+                                name: "harmful2[].icon",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.icon;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              }
+                            ],
+                            [__plasmic_idx_0]
+                          );
+                          return (
+                            <Harmful
+                              data-plasmic-name={"harmful2"}
+                              data-plasmic-override={overrides.harmful2}
+                              {...child$Props}
+                            />
+                          );
+                        })();
+                      })}
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
@@ -10970,7 +11517,9 @@ const PlasmicDescendants = {
     "cyclebox",
     "checkbox",
     "reveal",
+    "useful2",
     "useful",
+    "harmful2",
     "harmful",
     "shopModalWeb",
     "subscription",
@@ -11002,8 +11551,10 @@ const PlasmicDescendants = {
   countdown2: ["countdown2"],
   cyclebox: ["cyclebox"],
   checkbox: ["checkbox"],
-  reveal: ["reveal", "useful"],
+  reveal: ["reveal", "useful2", "useful"],
+  useful2: ["useful2"],
   useful: ["useful"],
+  harmful2: ["harmful2"],
   harmful: ["harmful"],
   shopModalWeb: ["shopModalWeb", "subscription", "button3"],
   subscription: ["subscription"],
@@ -11041,7 +11592,9 @@ type NodeDefaultElementType = {
   cyclebox: typeof Cyclebox;
   checkbox: typeof Checkbox;
   reveal: typeof Reveal;
+  useful2: typeof Useful;
   useful: typeof Useful;
+  harmful2: typeof Harmful;
   harmful: typeof Harmful;
   shopModalWeb: typeof AntdModal;
   subscription: typeof Subscription;
@@ -11160,7 +11713,9 @@ export const PlasmicHamyar = Object.assign(
     cyclebox: makeNodeComponent("cyclebox"),
     checkbox: makeNodeComponent("checkbox"),
     reveal: makeNodeComponent("reveal"),
+    useful2: makeNodeComponent("useful2"),
     useful: makeNodeComponent("useful"),
+    harmful2: makeNodeComponent("harmful2"),
     harmful: makeNodeComponent("harmful"),
     shopModalWeb: makeNodeComponent("shopModalWeb"),
     subscription: makeNodeComponent("subscription"),
