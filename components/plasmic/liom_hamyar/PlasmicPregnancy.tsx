@@ -310,12 +310,30 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => [
-          { h: "---", w: "---" },
-          { h: "---", w: "---" },
-          { h: "---", w: "---" },
-          { h: "---", w: "---" },
-          { h: "---", w: "---" },
-          { h: "---", w: "---" },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
           { h: "1.9", w: "1" },
           { h: "2.3", w: "2" },
           { h: "3.1", w: "2" },
@@ -524,6 +542,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                         {
                           "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632"
                         }
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__oOri2
+                        )}
+                      >
+                        {"\u0635\u0628\u062d\u062a \u0628\u062e\u06cc\u0631"}
                       </div>
                       <LottieWrapper
                         animationData={{
@@ -3523,7 +3550,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                             {(() => {
                               try {
                                 return (
-                                  $state.getInfo.data[0].result.daysPregnant +
+                                  $state.getInfo.data[0].result.daysPregnant -
+                                  1 +
                                   " روز مانده تا زایمان"
                                 );
                               } catch (e) {
