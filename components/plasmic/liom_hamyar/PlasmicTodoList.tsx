@@ -203,13 +203,36 @@ function PlasmicTodoList__RenderFunc(props: {
         { [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod") }
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox___13YdZ)}>
-        <div className={classNames(projectcss.all, sty.freeBox__jThwy)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox___13YdZ, {
+          [sty.freeBoxdarkMod___13YdZkgh4P]: hasVariant(
+            $state,
+            "darkMod",
+            "darkMod"
+          )
+        })}
+      >
+        <div
+          className={classNames(projectcss.all, sty.freeBox__jThwy, {
+            [sty.freeBoxdarkMod__jThwyKgh4P]: hasVariant(
+              $state,
+              "darkMod",
+              "darkMod"
+            )
+          })}
+        >
           <div
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text__qy4Jx
+              sty.text__qy4Jx,
+              {
+                [sty.textdarkMod__qy4Jxkgh4P]: hasVariant(
+                  $state,
+                  "darkMod",
+                  "darkMod"
+                )
+              }
             )}
           >
             <React.Fragment>
@@ -945,7 +968,14 @@ function PlasmicTodoList__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__wJuU4
+                            sty.text__wJuU4,
+                            {
+                              [sty.textdarkMod__wJuU4Kgh4P]: hasVariant(
+                                $state,
+                                "darkMod",
+                                "darkMod"
+                              )
+                            }
                           )}
                         >
                           <React.Fragment>
@@ -956,7 +986,14 @@ function PlasmicTodoList__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__mCiwA
+                            sty.text__mCiwA,
+                            {
+                              [sty.textdarkMod__mCiwAkgh4P]: hasVariant(
+                                $state,
+                                "darkMod",
+                                "darkMod"
+                              )
+                            }
                           )}
                         >
                           <React.Fragment>

@@ -43,6 +43,9 @@
     min-width: 0;
   }
 }
+.freeBoxdarkMod__jThwyKgh4P {
+  background: var(--token-w7oYmzqeGvkw);
+}
 .text__qy4Jx {
   position: relative;
   width: 100%;
@@ -65,6 +68,9 @@
   text-decoration-line: none;
   text-overflow: clip;
   min-width: 0;
+}
+.textdarkMod__qy4Jxkgh4P {
+  color: var(--token-jgohepLVeKvh);
 }
 .lottie:global(.__wab_instance) {
   max-width: 100%;
@@ -114,6 +120,9 @@
   user-select: text;
   text-overflow: clip;
 }
+.textdarkMod__wJuU4Kgh4P {
+  color: var(--token-jgohepLVeKvh);
+}
 .text__mCiwA {
   position: relative;
   width: 100%;
@@ -132,6 +141,9 @@
   text-decoration-line: none;
   text-overflow: clip;
   min-width: 0;
+}
+.textdarkMod__mCiwAkgh4P {
+  color: var(--token-Pxe4wDL2kJpb);
 }
 .checkbox2:global(.__wab_instance) {
   max-width: 100%;

@@ -2171,6 +2171,16 @@
       }
     },
     {
+      "name": "back_card_dark",
+      "type": "color",
+      "value": "#212121",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "w7oYmzqeGvkw"
+      }
+    },
+    {
       "name": "border gray light",
       "type": "color",
       "value": "rgb(230,230,230)",
@@ -2308,6 +2318,16 @@
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
         "id": "4RAe7M2gInqR"
+      }
+    },
+    {
+      "name": "surface",
+      "type": "color",
+      "value": "#FFFBFF",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "sN1yASr7oAvM"
       }
     },
     {

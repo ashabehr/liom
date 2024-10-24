@@ -889,7 +889,7 @@ function PlasmicHamyar__RenderFunc(props: {
                             0 ||
                           $state.user.data.result.userStatus.daysToEndPms == 1
                         )
-                          return "امروز";
+                          return "تا پایان امروز";
                         return (
                           $state.user.data.result.userStatus.daysToEndPms -
                           1 +
@@ -903,7 +903,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           $state.user.data.result.userStatus.daysToEndPeriod ==
                             0
                         )
-                          return "امروز";
+                          return "تا پایان امروز";
                         return (
                           $state.user.data.result.userStatus.daysToEndPeriod -
                           1 +
@@ -911,7 +911,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           "دیگر"
                         );
                       default:
-                        return "";
+                        return "-";
                     }
                   })();
                 } catch (e) {
@@ -1223,6 +1223,13 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "harmful2[].icon",
         type: "private",
         variableType: "text"
+      },
+      {
+        path: "deleteDate",
+        type: "private",
+        variableType: "dateString",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "2024-10-24T07:00:28.998Z"
       }
     ],
     [$props, $ctx, $refs]
@@ -2860,7 +2867,8 @@ function PlasmicHamyar__RenderFunc(props: {
                                                 userId:
                                                   $state.user.data.result.man
                                                     .id,
-                                                todoId: currentItem.id
+                                                todoId: currentItem.id,
+                                                deleteDate: $state.deleteDate
                                               };
                                             } catch (e) {
                                               if (
@@ -11223,6 +11231,68 @@ function PlasmicHamyar__RenderFunc(props: {
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateDeleteDate"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["deleteDate"]
+                        },
+                        operation: 0,
+                        value: (() => {
+                          switch (
+                            $state.user.data.result.userStatus.periodStatus
+                          ) {
+                            case null:
+                              return "";
+                            case "fertility":
+                              return $state.user.data.result.userStatus
+                                .fertilityEnd;
+                            case "pms":
+                              return $state.user.data.result.userStatus.pmsEnd;
+                            case "blood":
+                              return $state.user.data.result.userStatus
+                                .periodEnd;
+                            case "white":
+                              if (
+                                $state.user.data.result.userStatus.pmsStart >
+                                $state.user.data.result.userStatus
+                                  .fertilityStart
+                              )
+                                return ($state.deleteDate =
+                                  $state.user.data.result.userStatus.fertilityStart);
+                              else
+                                return ($state.deleteDate =
+                                  $state.user.data.result.userStatus.pmsStart);
+                            default:
+                              return "-";
+                          }
+                        })()
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateDeleteDate"] != null &&
+                  typeof $steps["updateDeleteDate"] === "object" &&
+                  typeof $steps["updateDeleteDate"].then === "function"
+                ) {
+                  $steps["updateDeleteDate"] = await $steps["updateDeleteDate"];
                 }
               }).apply(null, eventArgs);
             }}
