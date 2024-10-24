@@ -276,7 +276,20 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "darkMod",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props.darkMod
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.query.theme == "dark";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.darkMod
       },
       {
         path: "getAdvice.data",
@@ -618,7 +631,33 @@ function PlasmicPregnancy__RenderFunc(props: {
                           }
                         )}
                       >
-                        {"\u0635\u0628\u062d\u062a \u0628\u062e\u06cc\u0631"}
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                const now = new Date();
+                                const hour = now.getHours();
+                                if (hour >= 5 && hour < 12) {
+                                  return "صبح بخیر";
+                                } else if (hour >= 12 && hour < 16) {
+                                  return "ظهر بخیر";
+                                } else if (hour >= 16 && hour < 19) {
+                                  return "عصر بخیر";
+                                } else {
+                                  return "شب بخیر";
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0635\u0628\u062d\u062a \u0628\u062e\u06cc\u0631";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
                       </div>
                       <LottieWrapper
                         animationData={{
@@ -3045,12 +3084,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 280
                               ).toFixed()
                             )}
-                            strokeColor={
-                              true ? "var(--antd-colorWarningText)" : undefined
-                            }
+                            strokeColor={"#FAAD14"}
                             strokeLinecap={
                               hasVariant($state, "darkMod", "darkMod")
                                 ? "round"
+                                : undefined
+                            }
+                            trailColor={
+                              hasVariant($state, "darkMod", "darkMod")
+                                ? "#F4E9D3"
                                 : undefined
                             }
                             type={"line"}

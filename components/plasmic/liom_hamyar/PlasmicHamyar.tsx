@@ -11257,9 +11257,9 @@ function PlasmicHamyar__RenderFunc(props: {
                                 .periodEnd;
                             case "white":
                               if (
-                                $state.user.data.result.userStatus.pmsStart >
-                                $state.user.data.result.userStatus
-                                  .fertilityStart
+                                new Date(
+                                  $state.user.data.result.userStatus.fertilityStart
+                                ) > new Date()
                               )
                                 return ($state.deleteDate =
                                   $state.user.data.result.userStatus.fertilityStart);
