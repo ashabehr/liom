@@ -2236,7 +2236,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return '" \u062a\u0648 \u062f\u0631 \u0631\u0648\u0632 " +  (($state.weekNum - 1 ) * 7 + ( 7 - parseInt(($state.getInfo.data[0].result.daysPregnant / 7 ).toLocaleString().split(\'.\')[1].substring(0,1))))  + " , \u0647\u0641\u062a\u0647 " + $state.weekNum + " \u0648 \u0645\u0627\u0647 " + ($state.weekNum/7).toFixed() + " \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0647\u0633\u062a\u06cc  " \n';
+                                return "--";
                               }
                               throw e;
                             }
@@ -2994,62 +2994,81 @@ function PlasmicPregnancy__RenderFunc(props: {
                           sty.freeBox__vSrpC
                         )}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__nDlQy,
-                            {
-                              [sty.textdarkMod__nDlQyOQOo]: hasVariant(
-                                $state,
-                                "darkMod",
-                                "darkMod"
-                              )
-                            }
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  $state.getInfo.data[0].result.weeksPregnant +
-                                  " هفته و " +
-                                  ((
-                                    (280 -
-                                      $state.getInfo.data[0].result
-                                        .daysPregnant) /
-                                    7
-                                  )
-                                    .toString()
-                                    .split(".")[1]
-                                    .substring(0, 1) -
-                                    1) +
-                                  " روز از بارداریت رو سپری کردی و " +
-                                  ($state.getInfo.data[0].result.daysPregnant -
-                                    1) +
-                                  " روز دیگه " +
-                                  $state.randomText[
-                                    Math.floor(
-                                      Math.random() *
-                                        ($state.randomText.length - 1 - 0 + 1)
-                                    ) + 0
-                                  ]
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0645\u062a\u062a\u06cc\u06a9\u0645\u0628\u062a\u06a9\u0645\u06cc\u0628\u062a\u0646\u0645\u06cc\n\u0628\u06cc\u0633\u0645\u06af\u0628\u0645\u06cc\u0633\u0628\u06cc\u0633\u0633\u06cc\u0628";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
                         {(() => {
                           try {
                             return (
+                              $state.getInfo.data[0].result.weeksPregnant !=
+                                null &&
+                              $state.getInfo.data[0].result.daysPregnant !=
+                                null &&
+                              $state.randomText != null &&
+                              $state.randomText.length > 0
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__nDlQy,
+                              {
+                                [sty.textdarkMod__nDlQyOQOo]: hasVariant(
+                                  $state,
+                                  "darkMod",
+                                  "darkMod"
+                                )
+                              }
+                            )}
+                          >
+                            <React.Fragment>
+                              {$state.getInfo.data[0].result.weeksPregnant +
+                                " هفته " +
+                                ((
+                                  (280 -
+                                    $state.getInfo.data[0].result
+                                      .daysPregnant) /
+                                  7
+                                )
+                                  .toString()
+                                  .indexOf(".") >= 0
+                                  ? "و " +
+                                    ((
+                                      (280 -
+                                        $state.getInfo.data[0].result
+                                          .daysPregnant) /
+                                      7
+                                    )
+                                      .toString()
+                                      .split(".")[1]
+                                      .substring(0, 1) -
+                                      1) +
+                                    "روز"
+                                  : "") +
+                                " از بارداریت رو سپری کردی و " +
+                                ($state.getInfo.data[0].result.daysPregnant -
+                                  1) +
+                                " روز دیگه " +
+                                $state.randomText[
+                                  Math.floor(
+                                    Math.random() *
+                                      ($state.randomText.length - 1 - 0 + 1)
+                                  ) + 0
+                                ]}
+                            </React.Fragment>
+                          </div>
+                        ) : null}
+                        {(() => {
+                          try {
+                            return (
+                              $state.getInfo.data[0].success &&
                               !$state.getInfo.loading &&
                               $state.getInfo.data != null
                             );
@@ -3058,7 +3077,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return true;
+                              return false;
                             }
                             throw e;
                           }
@@ -3096,6 +3115,545 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 : undefined
                             }
                             type={"line"}
+                          />
+                        ) : null}
+                        {(() => {
+                          try {
+                            return !$state.getInfo.data[0].success;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <LottieWrapper
+                            animationData={{
+                              nm: "Loading Dots",
+                              ddd: 0,
+                              h: 50,
+                              w: 100,
+                              meta: { g: "@lottiefiles/toolkit-js 0.33.2" },
+                              layers: [
+                                {
+                                  ty: 4,
+                                  nm: "Dot4",
+                                  sr: 1,
+                                  st: 0,
+                                  op: 360,
+                                  ip: 0,
+                                  hd: false,
+                                  ddd: 0,
+                                  bm: 0,
+                                  hasMask: false,
+                                  ao: 0,
+                                  ks: {
+                                    a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                                    s: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [2.61, 2.32, 100],
+                                          t: 25
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [3.91, 3.47, 100],
+                                          t: 39
+                                        },
+                                        { s: [2.61, 2.32, 100], t: 55 }
+                                      ],
+                                      ix: 6
+                                    },
+                                    sk: { a: 0, k: 0 },
+                                    p: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [59.48, 25, 0],
+                                          t: 25
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [59.48, 23.15, 0],
+                                          t: 39
+                                        },
+                                        { s: [59.48, 25, 0], t: 55 }
+                                      ],
+                                      ix: 2
+                                    },
+                                    r: { a: 0, k: 0, ix: 10 },
+                                    sa: { a: 0, k: 0 },
+                                    o: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [25],
+                                          t: 25
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [100],
+                                          t: 39
+                                        },
+                                        { s: [25], t: 55 }
+                                      ],
+                                      ix: 11
+                                    }
+                                  },
+                                  ef: [],
+                                  shapes: [
+                                    {
+                                      ty: "gr",
+                                      bm: 0,
+                                      hd: false,
+                                      mn: "ADBE Vector Group",
+                                      nm: "Ellipse 1",
+                                      ix: 1,
+                                      cix: 2,
+                                      np: 3,
+                                      it: [
+                                        {
+                                          ty: "el",
+                                          bm: 0,
+                                          hd: false,
+                                          mn: "ADBE Vector Shape - Ellipse",
+                                          nm: "Ellipse Path 1",
+                                          d: 1,
+                                          p: { a: 0, k: [0, 0], ix: 3 },
+                                          s: { a: 0, k: [120, 120], ix: 2 }
+                                        },
+                                        {
+                                          ty: "fl",
+                                          bm: 0,
+                                          hd: false,
+                                          mn: "ADBE Vector Graphic - Fill",
+                                          nm: "Fill 1",
+                                          c: {
+                                            a: 0,
+                                            k: [0.5098, 0.3294, 0.7765],
+                                            ix: 4
+                                          },
+                                          r: 1,
+                                          o: { a: 0, k: 100, ix: 5 }
+                                        },
+                                        {
+                                          ty: "tr",
+                                          a: { a: 0, k: [0, 0], ix: 1 },
+                                          s: { a: 0, k: [100, 100], ix: 3 },
+                                          sk: { a: 0, k: 0, ix: 4 },
+                                          p: { a: 0, k: [-284, 92], ix: 2 },
+                                          r: { a: 0, k: 0, ix: 6 },
+                                          sa: { a: 0, k: 0, ix: 5 },
+                                          o: { a: 0, k: 100, ix: 7 }
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  ind: 1
+                                },
+                                {
+                                  ty: 4,
+                                  nm: "Dot3",
+                                  sr: 1,
+                                  st: 0,
+                                  op: 360,
+                                  ip: 0,
+                                  hd: false,
+                                  ddd: 0,
+                                  bm: 0,
+                                  hasMask: false,
+                                  ao: 0,
+                                  ks: {
+                                    a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                                    s: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [2.61, 2.32, 100],
+                                          t: 17
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [3.91, 3.47, 100],
+                                          t: 31
+                                        },
+                                        { s: [2.61, 2.32, 100], t: 47 }
+                                      ],
+                                      ix: 6
+                                    },
+                                    sk: { a: 0, k: 0 },
+                                    p: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [53.23, 25, 0],
+                                          t: 17
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [53.23, 23.15, 0],
+                                          t: 31
+                                        },
+                                        { s: [53.23, 25, 0], t: 47 }
+                                      ],
+                                      ix: 2
+                                    },
+                                    r: { a: 0, k: 0, ix: 10 },
+                                    sa: { a: 0, k: 0 },
+                                    o: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [25],
+                                          t: 17
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [100],
+                                          t: 31
+                                        },
+                                        { s: [25], t: 47 }
+                                      ],
+                                      ix: 11
+                                    }
+                                  },
+                                  ef: [],
+                                  shapes: [
+                                    {
+                                      ty: "gr",
+                                      bm: 0,
+                                      hd: false,
+                                      mn: "ADBE Vector Group",
+                                      nm: "Ellipse 1",
+                                      ix: 1,
+                                      cix: 2,
+                                      np: 3,
+                                      it: [
+                                        {
+                                          ty: "el",
+                                          bm: 0,
+                                          hd: false,
+                                          mn: "ADBE Vector Shape - Ellipse",
+                                          nm: "Ellipse Path 1",
+                                          d: 1,
+                                          p: { a: 0, k: [0, 0], ix: 3 },
+                                          s: { a: 0, k: [120, 120], ix: 2 }
+                                        },
+                                        {
+                                          ty: "fl",
+                                          bm: 0,
+                                          hd: false,
+                                          mn: "ADBE Vector Graphic - Fill",
+                                          nm: "Fill 1",
+                                          c: {
+                                            a: 0,
+                                            k: [0.5098, 0.3294, 0.7765],
+                                            ix: 4
+                                          },
+                                          r: 1,
+                                          o: { a: 0, k: 100, ix: 5 }
+                                        },
+                                        {
+                                          ty: "tr",
+                                          a: { a: 0, k: [0, 0], ix: 1 },
+                                          s: { a: 0, k: [100, 100], ix: 3 },
+                                          sk: { a: 0, k: 0, ix: 4 },
+                                          p: { a: 0, k: [-284, 92], ix: 2 },
+                                          r: { a: 0, k: 0, ix: 6 },
+                                          sa: { a: 0, k: 0, ix: 5 },
+                                          o: { a: 0, k: 100, ix: 7 }
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  ind: 2
+                                },
+                                {
+                                  ty: 4,
+                                  nm: "Dot2",
+                                  sr: 1,
+                                  st: 0,
+                                  op: 360,
+                                  ip: 0,
+                                  hd: false,
+                                  ddd: 0,
+                                  bm: 0,
+                                  hasMask: false,
+                                  ao: 0,
+                                  ks: {
+                                    a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                                    s: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [2.61, 2.32, 100],
+                                          t: 9
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [3.91, 3.47, 100],
+                                          t: 23
+                                        },
+                                        { s: [2.61, 2.32, 100], t: 39 }
+                                      ],
+                                      ix: 6
+                                    },
+                                    sk: { a: 0, k: 0 },
+                                    p: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [46.98, 25, 0],
+                                          t: 9
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [46.98, 23.15, 0],
+                                          t: 23
+                                        },
+                                        { s: [46.98, 25, 0], t: 39 }
+                                      ],
+                                      ix: 2
+                                    },
+                                    r: { a: 0, k: 0, ix: 10 },
+                                    sa: { a: 0, k: 0 },
+                                    o: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [25],
+                                          t: 9
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [100],
+                                          t: 23
+                                        },
+                                        { s: [25], t: 39 }
+                                      ],
+                                      ix: 11
+                                    }
+                                  },
+                                  ef: [],
+                                  shapes: [
+                                    {
+                                      ty: "gr",
+                                      bm: 0,
+                                      hd: false,
+                                      mn: "ADBE Vector Group",
+                                      nm: "Ellipse 1",
+                                      ix: 1,
+                                      cix: 2,
+                                      np: 3,
+                                      it: [
+                                        {
+                                          ty: "el",
+                                          bm: 0,
+                                          hd: false,
+                                          mn: "ADBE Vector Shape - Ellipse",
+                                          nm: "Ellipse Path 1",
+                                          d: 1,
+                                          p: { a: 0, k: [0, 0], ix: 3 },
+                                          s: { a: 0, k: [120, 120], ix: 2 }
+                                        },
+                                        {
+                                          ty: "fl",
+                                          bm: 0,
+                                          hd: false,
+                                          mn: "ADBE Vector Graphic - Fill",
+                                          nm: "Fill 1",
+                                          c: {
+                                            a: 0,
+                                            k: [0.5098, 0.3294, 0.7765],
+                                            ix: 4
+                                          },
+                                          r: 1,
+                                          o: { a: 0, k: 100, ix: 5 }
+                                        },
+                                        {
+                                          ty: "tr",
+                                          a: { a: 0, k: [0, 0], ix: 1 },
+                                          s: { a: 0, k: [100, 100], ix: 3 },
+                                          sk: { a: 0, k: 0, ix: 4 },
+                                          p: { a: 0, k: [-284, 92], ix: 2 },
+                                          r: { a: 0, k: 0, ix: 6 },
+                                          sa: { a: 0, k: 0, ix: 5 },
+                                          o: { a: 0, k: 100, ix: 7 }
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  ind: 3
+                                },
+                                {
+                                  ty: 4,
+                                  nm: "Dot1",
+                                  sr: 1,
+                                  st: 0,
+                                  op: 360,
+                                  ip: 0,
+                                  hd: false,
+                                  ddd: 0,
+                                  bm: 0,
+                                  hasMask: false,
+                                  ao: 0,
+                                  ks: {
+                                    a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                                    s: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [2.61, 2.32, 100],
+                                          t: 0
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [3.91, 3.47, 100],
+                                          t: 14
+                                        },
+                                        { s: [2.61, 2.32, 100], t: 30 }
+                                      ],
+                                      ix: 6
+                                    },
+                                    sk: { a: 0, k: 0 },
+                                    p: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [40.73, 25, 0],
+                                          t: 0
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [40.73, 23.15, 0],
+                                          t: 14
+                                        },
+                                        { s: [40.73, 25, 0], t: 30 }
+                                      ],
+                                      ix: 2
+                                    },
+                                    r: { a: 0, k: 0, ix: 10 },
+                                    sa: { a: 0, k: 0 },
+                                    o: {
+                                      a: 1,
+                                      k: [
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [25],
+                                          t: 0
+                                        },
+                                        {
+                                          o: { x: 0.333, y: 0 },
+                                          i: { x: 0.667, y: 1 },
+                                          s: [100],
+                                          t: 14
+                                        },
+                                        { s: [25], t: 30 }
+                                      ],
+                                      ix: 11
+                                    }
+                                  },
+                                  ef: [],
+                                  shapes: [
+                                    {
+                                      ty: "gr",
+                                      bm: 0,
+                                      hd: false,
+                                      mn: "ADBE Vector Group",
+                                      nm: "Ellipse 1",
+                                      ix: 1,
+                                      cix: 2,
+                                      np: 3,
+                                      it: [
+                                        {
+                                          ty: "el",
+                                          bm: 0,
+                                          hd: false,
+                                          mn: "ADBE Vector Shape - Ellipse",
+                                          nm: "Ellipse Path 1",
+                                          d: 1,
+                                          p: { a: 0, k: [0, 0], ix: 3 },
+                                          s: { a: 0, k: [120, 120], ix: 2 }
+                                        },
+                                        {
+                                          ty: "fl",
+                                          bm: 0,
+                                          hd: false,
+                                          mn: "ADBE Vector Graphic - Fill",
+                                          nm: "Fill 1",
+                                          c: {
+                                            a: 0,
+                                            k: [0.5098, 0.3294, 0.7765],
+                                            ix: 4
+                                          },
+                                          r: 1,
+                                          o: { a: 0, k: 100, ix: 5 }
+                                        },
+                                        {
+                                          ty: "tr",
+                                          a: { a: 0, k: [0, 0], ix: 1 },
+                                          s: { a: 0, k: [100, 100], ix: 3 },
+                                          sk: { a: 0, k: 0, ix: 4 },
+                                          p: { a: 0, k: [-284, 92], ix: 2 },
+                                          r: { a: 0, k: 0, ix: 6 },
+                                          sa: { a: 0, k: 0, ix: 5 },
+                                          o: { a: 0, k: 100, ix: 7 }
+                                        }
+                                      ]
+                                    }
+                                  ],
+                                  ind: 4
+                                }
+                              ],
+                              v: "5.7.11",
+                              fr: 60,
+                              op: 81,
+                              ip: 0,
+                              assets: []
+                            }}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.lottie__zRy1
+                            )}
+                            preview={true}
                           />
                         ) : null}
                       </div>
@@ -3718,7 +4276,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return "\u0647\u0641\u062a\u0647 4 ";
+                                    return "\u0647\u0641\u062a\u0647 --";
                                   }
                                   throw e;
                                 }
@@ -3753,7 +4311,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "250 \u0631\u0648\u0632 l\u0627\u0646\u062f\u0647 \u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646";
+                                  return "--";
                                 }
                                 throw e;
                               }
@@ -3799,7 +4357,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "\u0648\u0632\u0646 : \u06a9\u0645\u062a\u0631 \u0627\u0632 1 \u06af\u0631\u0645";
+                                  return "\u0648\u0632\u0646 : --";
                                 }
                                 throw e;
                               }
@@ -3835,7 +4393,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "\u0642\u062f : \u06a9\u0645\u062a\u0631 \u0627\u0632 1 \u0633\u0627\u0646\u062a\u06cc \u0645\u062a\u0631";
+                                  return "\u0642\u062f : --";
                                 }
                                 throw e;
                               }
@@ -3856,6 +4414,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         displayMinHeight={"0"}
                         displayMinWidth={"0"}
                         displayWidth={"auto"}
+                        height={"170"}
                         loading={"lazy"}
                         src={(() => {
                           try {
@@ -4201,10 +4760,7 @@ function PlasmicPregnancy__RenderFunc(props: {
           </ApiRequest>
           {(() => {
             try {
-              return (
-                $state.getInfo.loading ||
-                $state.getInfo.data[0].result.weeksPregnant == null
-              );
+              return $state.getInfo.loading;
             } catch (e) {
               if (
                 e instanceof TypeError ||

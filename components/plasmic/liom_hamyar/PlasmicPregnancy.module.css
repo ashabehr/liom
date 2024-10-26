@@ -412,6 +412,13 @@
 .progressdarkMod:global(.__wab_instance) {
   color: var(--token-jgohepLVeKvh);
 }
+.lottie__zRy1:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 200px;
+  height: 80px;
+  flex-shrink: 0;
+}
 .sliderCarousel:global(.__wab_instance) {
   width: 300px;
   max-width: 100%;
