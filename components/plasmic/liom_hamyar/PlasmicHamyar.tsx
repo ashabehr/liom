@@ -82,6 +82,7 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { AntdTooltip } from "@plasmicpkgs/antd5/skinny/registerTooltip";
 import Heart from "../../Heart"; // plasmic-import: OuOhJXUpgiRr/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
@@ -152,6 +153,7 @@ export type PlasmicHamyar__OverridesType = {
   button5?: Flex__<typeof Button>;
   button6?: Flex__<typeof Button>;
   todo?: Flex__<typeof ApiRequest>;
+  tooltip?: Flex__<typeof AntdTooltip>;
   heart?: Flex__<typeof Heart>;
   lottie?: Flex__<typeof LottieWrapper>;
   user?: Flex__<typeof ApiRequest>;
@@ -8402,13 +8404,25 @@ function PlasmicHamyar__RenderFunc(props: {
                 url={"https://n8n.staas.ir/webhook/hamyar/todo"}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox___81Z6T)}>
-                <Heart
-                  data-plasmic-name={"heart"}
-                  data-plasmic-override={overrides.heart}
-                  className={classNames("__wab_instance", sty.heart)}
-                />
-              </div>
+              <AntdTooltip
+                data-plasmic-name={"tooltip"}
+                data-plasmic-override={overrides.tooltip}
+                className={classNames("__wab_instance", sty.tooltip)}
+                placement={"left"}
+                titleText={
+                  "\u0628\u0647\u0634 \u0628\u06af\u0648 \u062d\u0648\u0627\u0633\u0645 \u0628\u0647\u062a \u0647\u0633\u062a."
+                }
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___81Z6T)}
+                >
+                  <Heart
+                    data-plasmic-name={"heart"}
+                    data-plasmic-override={overrides.heart}
+                    className={classNames("__wab_instance", sty.heart)}
+                  />
+                </div>
+              </AntdTooltip>
             </div>
           ) : null}
           {(
@@ -11618,6 +11632,7 @@ const PlasmicDescendants = {
     "button5",
     "button6",
     "todo",
+    "tooltip",
     "heart",
     "lottie",
     "user",
@@ -11654,6 +11669,7 @@ const PlasmicDescendants = {
   button5: ["button5"],
   button6: ["button6"],
   todo: ["todo"],
+  tooltip: ["tooltip", "heart"],
   heart: ["heart"],
   lottie: ["lottie"],
   user: ["user"],
@@ -11695,6 +11711,7 @@ type NodeDefaultElementType = {
   button5: typeof Button;
   button6: typeof Button;
   todo: typeof ApiRequest;
+  tooltip: typeof AntdTooltip;
   heart: typeof Heart;
   lottie: typeof LottieWrapper;
   user: typeof ApiRequest;
@@ -11817,6 +11834,7 @@ export const PlasmicHamyar = Object.assign(
     button5: makeNodeComponent("button5"),
     button6: makeNodeComponent("button6"),
     todo: makeNodeComponent("todo"),
+    tooltip: makeNodeComponent("tooltip"),
     heart: makeNodeComponent("heart"),
     lottie: makeNodeComponent("lottie"),
     user: makeNodeComponent("user"),
