@@ -536,6 +536,19 @@
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "checkbox"
+        },
+        {
+          "id": "OuOhJXUpgiRr",
+          "name": "Heart",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHeart.tsx",
+          "importSpec": {
+            "modulePath": "Heart.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHeart.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -793,6 +806,16 @@
           "id": "TAZvQuv78adE",
           "name": "Icon40Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon40.tsx"
+        },
+        {
+          "id": "r6SoVxvsvftJ",
+          "name": "Icon41Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon41.tsx"
+        },
+        {
+          "id": "ZW36J2U_A-qx",
+          "name": "Icon42Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon42.tsx"
         }
       ],
       "images": [

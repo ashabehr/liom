@@ -1,0 +1,28 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+}
+.svg {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-RvPI6LyeIPmd);
+  transition-property: all;
+  transition-duration: 1s;
+  height: 1em;
+  flex-shrink: 0;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 1s;
+}
+.svgclick {
+  color: var(--token-4RAe7M2gInqR);
+}
+.root:hover .svg {
+  transform: scaleX(1.2) scaleY(1.2) scaleZ(1);
+  color: var(--token-4RAe7M2gInqR);
+}

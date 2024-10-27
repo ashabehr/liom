@@ -4421,15 +4421,19 @@ function PlasmicPregnancy__RenderFunc(props: {
                             return (() => {
                               var week;
                               if (
-                                $state.getInfo.data[0].result.weeksPregnant < 10
+                                $state.getInfo.data[0].result.weeksPregnant +
+                                  1 <
+                                10
                               )
                                 week =
                                   "0" +
-                                  $state.getInfo.data[0].result.weeksPregnant;
+                                  ($state.getInfo.data[0].result.weeksPregnant +
+                                    1);
                               else
                                 week =
                                   "" +
-                                  $state.getInfo.data[0].result.weeksPregnant;
+                                  ($state.getInfo.data[0].result.weeksPregnant +
+                                    1);
                               return (
                                 "https://liom.storage.c2.liara.space/config/pregnancy/week" +
                                 week +
