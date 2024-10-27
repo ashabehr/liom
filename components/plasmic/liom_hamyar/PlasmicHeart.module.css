@@ -1,12 +1,12 @@
 .root {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   justify-content: flex-start;
   align-items: center;
-  min-width: 0;
+  justify-self: flex-start;
 }
 .svg {
   object-fit: cover;

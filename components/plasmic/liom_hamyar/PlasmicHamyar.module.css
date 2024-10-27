@@ -1356,8 +1356,8 @@
     height: auto;
     max-width: 100%;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: stretch;
+    justify-content: flex-end;
+    align-items: center;
     border-bottom-color: #00af6580;
     min-width: 0;
     padding: 0px;
@@ -1383,6 +1383,8 @@
     opacity: 0.8;
     color: #009657;
     text-align: justify;
+    width: 100%;
+    min-width: 0;
     padding: 8px 15px;
   }
 }
@@ -3823,6 +3825,48 @@
 .todo:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+}
+.freeBox___81Z6T {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: #ffffff;
+  box-shadow: 0px 4px 16px 0px #0000003b;
+  display: none;
+  border-radius: 50%;
+  padding: 8px;
+}
+@media (max-width: 640px) {
+  .freeBox___81Z6T {
+    left: auto;
+    top: auto;
+    z-index: 1;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 80px;
+    margin-right: 24px;
+    box-shadow: 0px 4px 10px 2px #0000003b;
+  }
+}
+.heart:global(.__wab_instance) {
+  max-width: 100%;
+  position: sticky;
+  left: 0px;
+  top: 0px;
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+}
+@media (max-width: 640px) {
+  .heart:global(.__wab_instance) {
+    transform: translateX(-1px) translateY(15px) translateZ(0px) scaleX(2)
+      scaleY(2) scaleZ(1);
+    position: sticky;
+    left: 0px;
+    top: 0px;
+  }
 }
 .freeBox__q7NB {
   display: flex;

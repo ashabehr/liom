@@ -67,7 +67,7 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicHeart.module.css"; // plasmic-import: OuOhJXUpgiRr/css
 
 import Icon41Icon from "./icons/PlasmicIcon__Icon41"; // plasmic-import: r6SoVxvsvftJ/icon
-import Icon42Icon from "./icons/PlasmicIcon__Icon42"; // plasmic-import: ZW36J2U_A-qx/icon
+import Icon43Icon from "./icons/PlasmicIcon__Icon43"; // plasmic-import: zSmDwH85ZJh8/icon
 
 createPlasmicElementProxy;
 
@@ -169,12 +169,40 @@ function PlasmicHeart__RenderFunc(props: {
         sty.root,
         { [sty.rootclick]: hasVariant($state, "click", "click") }
       )}
+      onClick={async event => {
+        const $steps = {};
+
+        $steps["updateClick"] = true
+          ? (() => {
+              const actionArgs = {
+                vgroup: "click",
+                operation: 4,
+                value: "click"
+              };
+              return (({ vgroup, value }) => {
+                if (typeof value === "string") {
+                  value = [value];
+                }
+
+                $stateSet($state, vgroup, true);
+                return true;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateClick"] != null &&
+          typeof $steps["updateClick"] === "object" &&
+          typeof $steps["updateClick"].then === "function"
+        ) {
+          $steps["updateClick"] = await $steps["updateClick"];
+        }
+      }}
     >
       <PlasmicIcon__
         data-plasmic-name={"svg"}
         data-plasmic-override={overrides.svg}
         PlasmicIconType={
-          hasVariant($state, "click", "click") ? Icon42Icon : Icon41Icon
+          hasVariant($state, "click", "click") ? Icon43Icon : Icon41Icon
         }
         className={classNames(projectcss.all, sty.svg, {
           [sty.svgclick]: hasVariant($state, "click", "click")

@@ -82,6 +82,7 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import Heart from "../../Heart"; // plasmic-import: OuOhJXUpgiRr/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -151,6 +152,7 @@ export type PlasmicHamyar__OverridesType = {
   button5?: Flex__<typeof Button>;
   button6?: Flex__<typeof Button>;
   todo?: Flex__<typeof ApiRequest>;
+  heart?: Flex__<typeof Heart>;
   lottie?: Flex__<typeof LottieWrapper>;
   user?: Flex__<typeof ApiRequest>;
   shop?: Flex__<typeof ApiRequest>;
@@ -8399,6 +8401,14 @@ function PlasmicHamyar__RenderFunc(props: {
                 })()}
                 url={"https://n8n.staas.ir/webhook/hamyar/todo"}
               />
+
+              <div className={classNames(projectcss.all, sty.freeBox___81Z6T)}>
+                <Heart
+                  data-plasmic-name={"heart"}
+                  data-plasmic-override={overrides.heart}
+                  className={classNames("__wab_instance", sty.heart)}
+                />
+              </div>
             </div>
           ) : null}
           {(
@@ -11608,6 +11618,7 @@ const PlasmicDescendants = {
     "button5",
     "button6",
     "todo",
+    "heart",
     "lottie",
     "user",
     "shop",
@@ -11643,6 +11654,7 @@ const PlasmicDescendants = {
   button5: ["button5"],
   button6: ["button6"],
   todo: ["todo"],
+  heart: ["heart"],
   lottie: ["lottie"],
   user: ["user"],
   shop: ["shop"],
@@ -11683,6 +11695,7 @@ type NodeDefaultElementType = {
   button5: typeof Button;
   button6: typeof Button;
   todo: typeof ApiRequest;
+  heart: typeof Heart;
   lottie: typeof LottieWrapper;
   user: typeof ApiRequest;
   shop: typeof ApiRequest;
@@ -11804,6 +11817,7 @@ export const PlasmicHamyar = Object.assign(
     button5: makeNodeComponent("button5"),
     button6: makeNodeComponent("button6"),
     todo: makeNodeComponent("todo"),
+    heart: makeNodeComponent("heart"),
     lottie: makeNodeComponent("lottie"),
     user: makeNodeComponent("user"),
     shop: makeNodeComponent("shop"),
