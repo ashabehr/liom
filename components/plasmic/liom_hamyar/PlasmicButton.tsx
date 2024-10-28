@@ -95,7 +95,8 @@ export type PlasmicButton__VariantMembers = {
     | "softSand"
     | "clear"
     | "link"
-    | "perper";
+    | "perper"
+    | "line";
   unnamedVariant: "unnamedVariant";
 };
 export type PlasmicButton__VariantsArgs = {
@@ -119,6 +120,7 @@ export type PlasmicButton__VariantsArgs = {
     | "clear"
     | "link"
     | "perper"
+    | "line"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
 };
@@ -184,6 +186,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
     | "clear"
     | "link"
     | "perper"
+    | "line"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
 }
@@ -319,6 +322,7 @@ function PlasmicButton__RenderFunc(props: {
           [sty.rootcolor_blue]: hasVariant($state, "color", "blue"),
           [sty.rootcolor_clear]: hasVariant($state, "color", "clear"),
           [sty.rootcolor_green]: hasVariant($state, "color", "green"),
+          [sty.rootcolor_line]: hasVariant($state, "color", "line"),
           [sty.rootcolor_link]: hasVariant($state, "color", "link"),
           [sty.rootcolor_perper]: hasVariant($state, "color", "perper"),
           [sty.rootcolor_red]: hasVariant($state, "color", "red"),
@@ -508,6 +512,11 @@ function PlasmicButton__RenderFunc(props: {
               $state,
               "color",
               "green"
+            ),
+            [sty.slotTargetChildrencolor_line]: hasVariant(
+              $state,
+              "color",
+              "line"
             ),
             [sty.slotTargetChildrencolor_link]: hasVariant(
               $state,

@@ -549,6 +549,33 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicHeart.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "utcZajxc4g3k",
+          "name": "Food",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicFood.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/food.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicFood.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/food"
+        },
+        {
+          "id": "9Gr6sjq9gB59",
+          "name": "Tick",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicTick.tsx",
+          "importSpec": {
+            "modulePath": "Tick.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicTick.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -821,6 +848,66 @@
           "id": "zSmDwH85ZJh8",
           "name": "Icon43Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon43.tsx"
+        },
+        {
+          "id": "6VtI9bWSM_Li",
+          "name": "Icon44Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon44.tsx"
+        },
+        {
+          "id": "j4dWmFoipQwB",
+          "name": "Icon45Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon45.tsx"
+        },
+        {
+          "id": "3W9q_SCC57tu",
+          "name": "Icon46Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon46.tsx"
+        },
+        {
+          "id": "4mROOlMjOzhC",
+          "name": "Icon47Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon47.tsx"
+        },
+        {
+          "id": "gDaB_rFhdqND",
+          "name": "Icon48Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon48.tsx"
+        },
+        {
+          "id": "VT7Wd_x-12ob",
+          "name": "Icon49Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon49.tsx"
+        },
+        {
+          "id": "OWul-aq2fF6T",
+          "name": "Icon50Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon50.tsx"
+        },
+        {
+          "id": "povCrdwb744L",
+          "name": "Icon51Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon51.tsx"
+        },
+        {
+          "id": "PoQFgDwPJYC-",
+          "name": "Icon52Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon52.tsx"
+        },
+        {
+          "id": "msskGdypf32e",
+          "name": "Icon53Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon53.tsx"
+        },
+        {
+          "id": "OQW4-QIoExuv",
+          "name": "Icon54Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon54.tsx"
+        },
+        {
+          "id": "PmmFWvjFbwTw",
+          "name": "Icon55Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon55.tsx"
         }
       ],
       "images": [
