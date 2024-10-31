@@ -211,6 +211,12 @@
 .rootcolor_perper:active {
   background: #8254c699;
 }
+.rootcolor_line:hover {
+  background: #7444bc1a;
+}
+.rootcolor_line:active {
+  background: #7444bc33;
+}
 .startIconContainer {
   display: flex;
   position: relative;
