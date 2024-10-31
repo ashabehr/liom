@@ -4513,24 +4513,45 @@ function PlasmicFood__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text___59Dtf
+                  sty.text___59Dtf,
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? "negative"
+                    : undefined
                 )}
               >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $state.withe + " kg ";
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "\u0648\u0632\u0646 \u0641\u0639\u0644\u06cc";
+                {hasVariant(globalVariants, "screen", "mobile") ? (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.weight + " kg ";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0648\u0632\u0646 \u0641\u0639\u0644\u06cc";
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
+                    })()}
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.withe + " kg ";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0648\u0632\u0646 \u0641\u0639\u0644\u06cc";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                )}
               </div>
             </Stack__>
             <div className={classNames(projectcss.all, sty.freeBox__nCLc)}>

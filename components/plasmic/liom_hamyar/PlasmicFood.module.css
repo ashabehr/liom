@@ -1852,6 +1852,7 @@
 @media (max-width: 640px) {
   .svg__k9O3X {
     align-self: auto;
+    opacity: 0.5;
   }
 }
 .text__wHeHo {
@@ -1876,6 +1877,11 @@
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg___1Yn2Y {
+    opacity: 0.5;
+  }
 }
 .button2:global(.__wab_instance) {
   max-width: 100%;
