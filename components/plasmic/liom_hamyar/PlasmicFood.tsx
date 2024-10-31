@@ -125,6 +125,7 @@ export type PlasmicFood__OverridesType = {
   lottie?: Flex__<typeof LottieWrapper>;
   button2?: Flex__<typeof Button>;
   slideinModal?: Flex__<typeof SlideinModal>;
+  input4?: Flex__<typeof Input>;
   button?: Flex__<typeof Button>;
   weeknow?: Flex__<typeof ApiRequest>;
   previousWeek?: Flex__<typeof ApiRequest>;
@@ -831,6 +832,25 @@ function PlasmicFood__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input4.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.weight;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -4513,8 +4533,19 @@ function PlasmicFood__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </Stack__>
-            <div className={classNames(projectcss.all, sty.freeBox__nCLc)} />
-
+            <div className={classNames(projectcss.all, sty.freeBox__nCLc)}>
+              <Input
+                data-plasmic-name={"input4"}
+                data-plasmic-override={overrides.input4}
+                className={classNames("__wab_instance", sty.input4)}
+                onChange={generateStateOnChangeProp($state, [
+                  "input4",
+                  "value"
+                ])}
+                type={"text"}
+                value={generateStateValueProp($state, ["input4", "value"])}
+              />
+            </div>
             <Button
               data-plasmic-name={"button"}
               data-plasmic-override={overrides.button}
@@ -4522,6 +4553,40 @@ function PlasmicFood__RenderFunc(props: {
               color={generateStateValueProp($state, ["button", "color"])}
               onClick={async event => {
                 const $steps = {};
+
+                $steps["updateWeight"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["weight"]
+                        },
+                        operation: 0,
+                        value: $state.input4.value
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateWeight"] != null &&
+                  typeof $steps["updateWeight"] === "object" &&
+                  typeof $steps["updateWeight"].then === "function"
+                ) {
+                  $steps["updateWeight"] = await $steps["updateWeight"];
+                }
 
                 $steps["updateSlideinModalClick"] = true
                   ? (() => {
@@ -4867,6 +4932,7 @@ const PlasmicDescendants = {
     "lottie",
     "button2",
     "slideinModal",
+    "input4",
     "button",
     "weeknow",
     "previousWeek",
@@ -4896,7 +4962,8 @@ const PlasmicDescendants = {
   button3: ["button3"],
   lottie: ["lottie"],
   button2: ["button2"],
-  slideinModal: ["slideinModal", "button"],
+  slideinModal: ["slideinModal", "input4", "button"],
+  input4: ["input4"],
   button: ["button"],
   weeknow: ["weeknow"],
   previousWeek: ["previousWeek"],
@@ -4923,6 +4990,7 @@ type NodeDefaultElementType = {
   lottie: typeof LottieWrapper;
   button2: typeof Button;
   slideinModal: typeof SlideinModal;
+  input4: typeof Input;
   button: typeof Button;
   weeknow: typeof ApiRequest;
   previousWeek: typeof ApiRequest;
@@ -5030,6 +5098,7 @@ export const PlasmicFood = Object.assign(
     lottie: makeNodeComponent("lottie"),
     button2: makeNodeComponent("button2"),
     slideinModal: makeNodeComponent("slideinModal"),
+    input4: makeNodeComponent("input4"),
     button: makeNodeComponent("button"),
     weeknow: makeNodeComponent("weeknow"),
     previousWeek: makeNodeComponent("previousWeek"),
