@@ -875,42 +875,33 @@ function PlasmicHamyar__RenderFunc(props: {
                       case "fertility":
                         if (
                           $state.user.data.result.userStatus
-                            .daysToEndFertility == 0 ||
-                          $state.user.data.result.userStatus
-                            .daysToEndFertility == 1
+                            .daysToEndFertility == 0
                         )
                           return "تا پایان امروز";
                         return (
                           $state.user.data.result.userStatus
-                            .daysToEndFertility -
-                          1 +
+                            .daysToEndFertility +
                           " روز " +
                           "دیگر"
                         );
                       case "pms":
                         if (
-                          $state.user.data.result.userStatus.daysToEndPms ==
-                            0 ||
-                          $state.user.data.result.userStatus.daysToEndPms == 1
+                          $state.user.data.result.userStatus.daysToEndPms == 0
                         )
                           return "تا پایان امروز";
                         return (
-                          $state.user.data.result.userStatus.daysToEndPms -
-                          1 +
+                          $state.user.data.result.userStatus.daysToEndPms +
                           " روز " +
                           "دیگر"
                         );
                       case "blood":
                         if (
                           $state.user.data.result.userStatus.daysToEndPeriod ==
-                            1 ||
-                          $state.user.data.result.userStatus.daysToEndPeriod ==
-                            0
+                          0
                         )
                           return "تا پایان امروز";
                         return (
-                          $state.user.data.result.userStatus.daysToEndPeriod -
-                          1 +
+                          $state.user.data.result.userStatus.daysToEndPeriod +
                           " روز " +
                           "دیگر"
                         );
@@ -937,42 +928,33 @@ function PlasmicHamyar__RenderFunc(props: {
                       case "fertility":
                         if (
                           $state.user.data.result.userStatus
-                            .daysToEndFertility == 0 ||
-                          $state.user.data.result.userStatus
-                            .daysToEndFertility == 1
+                            .daysToEndFertility == 0
                         )
                           return "تا پایان امروز";
                         return (
                           $state.user.data.result.userStatus
-                            .daysToEndFertility -
-                          1 +
+                            .daysToEndFertility +
                           " روز " +
                           "دیگر"
                         );
                       case "pms":
                         if (
-                          $state.user.data.result.userStatus.daysToEndPms ==
-                            0 ||
-                          $state.user.data.result.userStatus.daysToEndPms == 1
+                          $state.user.data.result.userStatus.daysToEndPms == 0
                         )
                           return "تا پایان امروز";
                         return (
-                          $state.user.data.result.userStatus.daysToEndPms -
-                          1 +
+                          $state.user.data.result.userStatus.daysToEndPms +
                           " روز " +
                           "دیگر"
                         );
                       case "blood":
                         if (
                           $state.user.data.result.userStatus.daysToEndPeriod ==
-                            1 ||
-                          $state.user.data.result.userStatus.daysToEndPeriod ==
-                            0
+                          0
                         )
                           return "تا پایان امروز";
                         return (
-                          $state.user.data.result.userStatus.daysToEndPeriod -
-                          1 +
+                          $state.user.data.result.userStatus.daysToEndPeriod +
                           " روز " +
                           "دیگر"
                         );
@@ -2568,15 +2550,12 @@ function PlasmicHamyar__RenderFunc(props: {
                                       return (() => {
                                         if (
                                           $state.user.data.result.userStatus
-                                            .daysToEndPms == 0 ||
-                                          $state.user.data.result.userStatus
-                                            .daysToEndPms == 1
+                                            .daysToEndPms == 0
                                         )
                                           return "تا پایان امروز";
                                         return (
                                           $state.user.data.result.userStatus
-                                            .daysToEndPms -
-                                          1 +
+                                            .daysToEndPms +
                                           " روز " +
                                           "دیگر"
                                         );
@@ -2600,15 +2579,12 @@ function PlasmicHamyar__RenderFunc(props: {
                                       return (() => {
                                         if (
                                           $state.user.data.result.userStatus
-                                            .daysToEndPms == 0 ||
-                                          $state.user.data.result.userStatus
-                                            .daysToEndPms == 1
+                                            .daysToEndPms == 0
                                         )
                                           return "تا پایان امروز";
                                         return (
                                           $state.user.data.result.userStatus
-                                            .daysToEndPms -
-                                          1 +
+                                            .daysToEndPms +
                                           " روز " +
                                           "دیگر"
                                         );
