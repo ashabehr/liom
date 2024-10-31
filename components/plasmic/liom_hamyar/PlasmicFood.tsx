@@ -418,7 +418,7 @@ function PlasmicFood__RenderFunc(props: {
           },
           {
             id: 5,
-            icon: "https://www.svgrepo.com/show/114607/sausage.svg",
+            icon: "https://www.svgrepo.com/show/282222/sausage-meat.svg",
             title:
               "\u0633\u0648\u0633\u06cc\u0633 \u0648 \u06a9\u0627\u0644\u0628\u0627\u0633",
             text: "\u0645\u0648\u0627\u062f \u0646\u06af\u0647\u062f\u0627\u0631\u0646\u062f\u0647 + \u0686\u0631\u0628\u06cc \u0628\u0627\u0644\u0627",
@@ -426,7 +426,7 @@ function PlasmicFood__RenderFunc(props: {
           },
           {
             id: 6,
-            icon: "https://www.svgrepo.com/show/84259/candy.svg",
+            icon: "https://www.svgrepo.com/show/384970/chocolate-bar-candy-dairymilk-sweet-dessert.svg",
             title:
               "\u0622\u0628\u200c\u0646\u0628\u0627\u062a \u0648 \u0634\u06a9\u0644\u0627\u062a",
             text: "\u0634\u06a9\u0631 \u0628\u0627\u0644\u0627 + \u067e\u0648\u0633\u06cc\u062f\u06af\u06cc \u062f\u0646\u062f\u0627\u0646",
@@ -434,14 +434,14 @@ function PlasmicFood__RenderFunc(props: {
           },
           {
             id: 7,
-            icon: "https://www.svgrepo.com/show/228544/ice-cream.svg",
+            icon: "https://www.svgrepo.com/show/149193/ice-cream.svg",
             title: "\u0628\u0633\u062a\u0646\u06cc",
             text: "\u0686\u0631\u0628\u06cc \u0648 \u0634\u06a9\u0631 \u0628\u0627\u0644\u0627 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u0648\u0632\u0646",
             score: 8
           },
           {
             id: 8,
-            icon: "https://www.svgrepo.com/show/309427/french-fries.svg",
+            icon: "https://www.svgrepo.com/show/384977/french-fries-fastfood-food-emoj-symbol.svg",
             title:
               "\u0633\u06cc\u0628\u200c\u0632\u0645\u06cc\u0646\u06cc \u0633\u0631\u062e\u200c\u06a9\u0631\u062f\u0647",
             text: "\u0686\u0631\u0628\u06cc \u062a\u0631\u0627\u0646\u0633 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u06a9\u0644\u0633\u062a\u0631\u0648\u0644",
@@ -449,80 +449,51 @@ function PlasmicFood__RenderFunc(props: {
           },
           {
             id: 9,
-            icon: "https://www.svgrepo.com/show/228686/white-bread.svg",
+            icon: "https://www.svgrepo.com/show/425866/bread.svg",
             title: "\u0646\u0627\u0646 \u0633\u0641\u06cc\u062f",
             text: "\u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0633\u0627\u062f\u0647 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u0642\u0646\u062f \u062e\u0648\u0646",
             score: 5
           },
           {
             id: 10,
-            icon: "https://www.svgrepo.com/show/311692/energy-drink.svg",
+            icon: "https://www.svgrepo.com/show/122497/energy-drink.svg",
             title:
               "\u0646\u0648\u0634\u06cc\u062f\u0646\u06cc \u0627\u0646\u0631\u0698\u06cc\u200c\u0632\u0627",
             text: "\u0634\u06a9\u0631 \u0628\u0627\u0644\u0627 + \u062a\u062d\u0631\u06cc\u06a9\u200c\u067e\u0630\u06cc\u0631\u06cc \u0639\u0635\u0628\u06cc",
             score: 9
           },
           {
-            id: 11,
-            icon: "https://www.svgrepo.com/show/153900/potato-chips.svg",
-            title: "\u0686\u06cc\u067e\u0633",
-            text: "\u0686\u0631\u0628\u06cc \u0648 \u0646\u0645\u06a9 \u0628\u0627\u0644\u0627 + \u062e\u0637\u0631 \u0641\u0634\u0627\u0631 \u062e\u0648\u0646",
-            score: 7
-          },
-          {
             id: 12,
-            icon: "https://www.svgrepo.com/show/264073/doughnut-dessert.svg",
+            icon: "https://www.svgrepo.com/show/425852/doughnut.svg",
             title: "\u062f\u0648\u0646\u0627\u062a",
             text: "\u0686\u0631\u0628\u06cc \u0648 \u0634\u06a9\u0631 \u0628\u0627\u0644\u0627 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u0648\u0632\u0646",
             score: 8
           },
           {
-            id: 13,
-            icon: "https://www.svgrepo.com/show/120013/bagel.svg",
-            title: "\u0646\u0627\u0646 \u0634\u06cc\u0631\u06cc\u0646",
-            text: "\u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0633\u0627\u062f\u0647 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u0642\u0646\u062f \u062e\u0648\u0646",
-            score: 6
-          },
-          {
-            id: 14,
-            icon: "https://www.svgrepo.com/show/267338/pastry.svg",
-            title: "\u067e\u0627\u06cc \u0648 \u062a\u0627\u0631\u062a",
-            text: "\u0634\u06a9\u0631 \u0648 \u06a9\u0631\u0647 \u0628\u0627\u0644\u0627 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u06a9\u0627\u0644\u0631\u06cc",
-            score: 7
-          },
-          {
             id: 15,
-            icon: "https://www.svgrepo.com/show/231614/waffle-dessert.svg",
+            icon: "https://www.svgrepo.com/show/407708/waffle.svg",
             title: "\u0648\u0627\u0641\u0644",
             text: "\u0634\u06a9\u0631 \u0648 \u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0628\u0627\u0644\u0627 + \u0686\u0627\u0642\u06cc",
             score: 6
           },
           {
             id: 16,
-            icon: "https://www.svgrepo.com/show/284864/canned-food.svg",
+            icon: "https://www.svgrepo.com/show/404925/canned-food.svg",
             title:
               "\u06a9\u0646\u0633\u0631\u0648\u0647\u0627\u06cc \u0622\u0645\u0627\u062f\u0647",
             text: "\u0645\u0648\u0627\u062f \u0646\u06af\u0647\u062f\u0627\u0631\u0646\u062f\u0647 + \u0633\u062f\u06cc\u0645 \u0628\u0627\u0644\u0627",
             score: 6
           },
           {
-            id: 17,
-            icon: "https://www.svgrepo.com/show/277739/popcorn.svg",
-            title:
-              "\u067e\u0627\u067e\u200c\u06a9\u0648\u0631\u0646 \u06a9\u0631\u0647\u200c\u0627\u06cc",
-            text: "\u0686\u0631\u0628\u06cc \u0627\u0634\u0628\u0627\u0639 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u06a9\u0627\u0644\u0631\u06cc",
-            score: 5
-          },
-          {
             id: 18,
-            icon: "https://www.svgrepo.com/show/377505/milkshake.svg",
+            icon: "https://www.svgrepo.com/show/263324/milkshake-straw.svg",
             title: "\u0645\u06cc\u0644\u06a9\u200c\u0634\u06cc\u06a9",
             text: "\u0634\u06a9\u0631 \u0648 \u0686\u0631\u0628\u06cc \u0628\u0627\u0644\u0627 + \u0686\u0627\u0642\u06cc \u0633\u0631\u06cc\u0639",
             score: 8
           },
           {
             id: 19,
-            icon: "https://www.svgrepo.com/show/122614/sauce.svg",
+            icon: "https://www.svgrepo.com/show/251555/sauces-sauce.svg",
             title:
               "\u0633\u0633\u200c\u0647\u0627\u06cc \u0622\u0645\u0627\u062f\u0647",
             text: "\u0633\u062f\u06cc\u0645 \u0648 \u0686\u0631\u0628\u06cc \u0628\u0627\u0644\u0627 + \u0627\u0641\u0632\u0648\u062f\u0646\u06cc\u200c\u0647\u0627",
@@ -530,28 +501,28 @@ function PlasmicFood__RenderFunc(props: {
           },
           {
             id: 20,
-            icon: "https://www.svgrepo.com/show/193730/alcohol.svg",
+            icon: "https://www.svgrepo.com/show/276745/champagne-alcohol.svg",
             title: "\u0627\u0644\u06a9\u0644",
             text: "\u0622\u0633\u06cc\u0628 \u0628\u0647 \u06a9\u0628\u062f + \u06a9\u0627\u0644\u0631\u06cc \u0628\u0627\u0644\u0627",
             score: 10
           },
           {
             id: 21,
-            icon: "https://www.svgrepo.com/show/235212/coffee-cup.svg",
+            icon: "https://www.svgrepo.com/show/275697/coffee-cup-coffee.svg",
             title: "\u0642\u0647\u0648\u0647",
             text: "\u06a9\u0627\u0641\u0626\u06cc\u0646 \u0628\u0627\u0644\u0627 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u0627\u0636\u0637\u0631\u0627\u0628",
             score: 5
           },
           {
             id: 22,
-            icon: "https://www.svgrepo.com/show/195382/spaghetti.svg",
+            icon: "https://www.svgrepo.com/show/244450/spaghetti-pasta.svg",
             title: "\u067e\u0627\u0633\u062a\u0627",
             text: "\u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0633\u0627\u062f\u0647 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u0642\u0646\u062f \u062e\u0648\u0646",
             score: 6
           },
           {
             id: 23,
-            icon: "https://www.svgrepo.com/show/276329/rice-bowl.svg",
+            icon: "https://www.svgrepo.com/show/505200/rice.svg",
             title: "\u0628\u0631\u0646\u062c \u0633\u0641\u06cc\u062f",
             text: "\u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0628\u0627\u0644\u0627 + \u0627\u0631\u0632\u0634 \u063a\u0630\u0627\u06cc\u06cc \u06a9\u0645\u062a\u0631",
             score: 5
