@@ -71,8 +71,8 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicFoodbox.module.css"; // plasmic-import: n8OlHqhI2V0n/css
 
 import Icon66Icon from "./icons/PlasmicIcon__Icon66"; // plasmic-import: d7_5Tu0fO3u_/icon
-import Icon65Icon from "./icons/PlasmicIcon__Icon65"; // plasmic-import: eRW2Wvt3gw_p/icon
 import Icon64Icon from "./icons/PlasmicIcon__Icon64"; // plasmic-import: 3ZPoxkVeBTgw/icon
+import Icon65Icon from "./icons/PlasmicIcon__Icon65"; // plasmic-import: eRW2Wvt3gw_p/icon
 
 createPlasmicElementProxy;
 
@@ -98,9 +98,8 @@ export const PlasmicFoodbox__ArgProps = new Array<ArgPropType>(
 export type PlasmicFoodbox__OverridesType = {
   root?: Flex__<"div">;
   progress?: Flex__<typeof AntdProgress>;
-  freeBox?: Flex__<"div">;
-  svg?: Flex__<"svg">;
   text?: Flex__<"div">;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultFoodboxProps {
@@ -242,35 +241,10 @@ function PlasmicFoodbox__RenderFunc(props: {
       />
 
       <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBoxavg_alert]: hasVariant($state, "avg", "alert"),
-          [sty.freeBoxavg_bad]: hasVariant($state, "avg", "bad")
-        })}
-      >
-        <PlasmicIcon__
-          data-plasmic-name={"svg"}
-          data-plasmic-override={overrides.svg}
-          PlasmicIconType={
-            hasVariant($state, "avg", "bad")
-              ? Icon65Icon
-              : hasVariant($state, "avg", "good")
-              ? Icon64Icon
-              : Icon66Icon
-          }
-          className={classNames(projectcss.all, sty.svg, {
-            [sty.svgavg_alert]: hasVariant($state, "avg", "alert"),
-            [sty.svgavg_bad]: hasVariant($state, "avg", "bad"),
-            [sty.svgavg_good]: hasVariant($state, "avg", "good")
-          })}
-          role={"img"}
-        />
-      </div>
-      <div
         data-plasmic-name={"text"}
         data-plasmic-override={overrides.text}
         className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
+          [sty.textavg_alert]: hasVariant($state, "avg", "alert"),
           [sty.textavg_bad]: hasVariant($state, "avg", "bad"),
           [sty.textavg_good]: hasVariant($state, "avg", "good")
         })}
@@ -281,16 +255,31 @@ function PlasmicFoodbox__RenderFunc(props: {
           ? "\u062a\u0627 \u0627\u0644\u0627\u0646 \u0639\u0627\u0644\u06cc \u067e\u06cc\u0634 \u0631\u0641\u062a\u06cc!"
           : "\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647\u060c \u062f\u0627\u0631\u0647 \u0632\u06cc\u0627\u062f \u0645\u06cc\u0634\u0647."}
       </div>
+      <PlasmicIcon__
+        data-plasmic-name={"svg"}
+        data-plasmic-override={overrides.svg}
+        PlasmicIconType={
+          hasVariant($state, "avg", "bad")
+            ? Icon65Icon
+            : hasVariant($state, "avg", "good")
+            ? Icon64Icon
+            : Icon66Icon
+        }
+        className={classNames(projectcss.all, sty.svg, {
+          [sty.svgavg_bad]: hasVariant($state, "avg", "bad"),
+          [sty.svgavg_good]: hasVariant($state, "avg", "good")
+        })}
+        role={"img"}
+      />
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "progress", "freeBox", "svg", "text"],
+  root: ["root", "progress", "text", "svg"],
   progress: ["progress"],
-  freeBox: ["freeBox", "svg"],
-  svg: ["svg"],
-  text: ["text"]
+  text: ["text"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -298,9 +287,8 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   progress: typeof AntdProgress;
-  freeBox: "div";
-  svg: "svg";
   text: "div";
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -364,9 +352,8 @@ export const PlasmicFoodbox = Object.assign(
   {
     // Helper components rendering sub-elements
     progress: makeNodeComponent("progress"),
-    freeBox: makeNodeComponent("freeBox"),
-    svg: makeNodeComponent("svg"),
     text: makeNodeComponent("text"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicFoodbox
     internalVariantProps: PlasmicFoodbox__VariantProps,

@@ -1015,7 +1015,7 @@ function PlasmicFood__RenderFunc(props: {
                   avg={(() => {
                     try {
                       return (() => {
-                        let avrg = ($props.variable2 * 50) / $props.variable;
+                        let avrg = ($state.variable2 * 50) / $state.variable;
                         if (avrg <= 40) {
                           return "good";
                         } else if (avrg <= 60 && avrg > 40) {
@@ -1029,7 +1029,7 @@ function PlasmicFood__RenderFunc(props: {
                         e instanceof TypeError ||
                         e?.plasmicType === "PlasmicUndefinedDataError"
                       ) {
-                        return "alert";
+                        return "good";
                       }
                       throw e;
                     }
