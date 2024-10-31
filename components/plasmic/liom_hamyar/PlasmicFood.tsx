@@ -73,7 +73,6 @@ import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
-import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -126,7 +125,6 @@ export type PlasmicFood__OverridesType = {
   lottie?: Flex__<typeof LottieWrapper>;
   button2?: Flex__<typeof Button>;
   slideinModal?: Flex__<typeof SlideinModal>;
-  pickers2?: Flex__<typeof Pickers>;
   button?: Flex__<typeof Button>;
   weeknow?: Flex__<typeof ApiRequest>;
   previousWeek?: Flex__<typeof ApiRequest>;
@@ -308,25 +306,6 @@ function PlasmicFood__RenderFunc(props: {
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
                 return [];
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "pickers2.value",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.withe;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return 80;
               }
               throw e;
             }
@@ -4534,73 +4513,8 @@ function PlasmicFood__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </Stack__>
-            <div className={classNames(projectcss.all, sty.freeBox__nCLc)}>
-              <Pickers
-                data-plasmic-name={"pickers2"}
-                data-plasmic-override={overrides.pickers2}
-                className={classNames("__wab_instance", sty.pickers2)}
-                data={(() => {
-                  try {
-                    return $state.w;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()}
-                initialValue={generateStateValueProp($state, [
-                  "pickers2",
-                  "value"
-                ])}
-                onChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, [
-                    "pickers2",
-                    "value"
-                  ]).apply(null, eventArgs);
-                  (async value => {
-                    const $steps = {};
+            <div className={classNames(projectcss.all, sty.freeBox__nCLc)} />
 
-                    $steps["updateWithe"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["withe"]
-                            },
-                            operation: 0,
-                            value: $state.pickers2.value
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateWithe"] != null &&
-                      typeof $steps["updateWithe"] === "object" &&
-                      typeof $steps["updateWithe"].then === "function"
-                    ) {
-                      $steps["updateWithe"] = await $steps["updateWithe"];
-                    }
-                  }).apply(null, eventArgs);
-                }}
-              />
-            </div>
             <Button
               data-plasmic-name={"button"}
               data-plasmic-override={overrides.button}
@@ -4608,40 +4522,6 @@ function PlasmicFood__RenderFunc(props: {
               color={generateStateValueProp($state, ["button", "color"])}
               onClick={async event => {
                 const $steps = {};
-
-                $steps["updateWeight"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["weight"]
-                        },
-                        operation: 0,
-                        value: $state.pickers2.value
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateWeight"] != null &&
-                  typeof $steps["updateWeight"] === "object" &&
-                  typeof $steps["updateWeight"].then === "function"
-                ) {
-                  $steps["updateWeight"] = await $steps["updateWeight"];
-                }
 
                 $steps["updateSlideinModalClick"] = true
                   ? (() => {
@@ -4987,7 +4867,6 @@ const PlasmicDescendants = {
     "lottie",
     "button2",
     "slideinModal",
-    "pickers2",
     "button",
     "weeknow",
     "previousWeek",
@@ -5017,8 +4896,7 @@ const PlasmicDescendants = {
   button3: ["button3"],
   lottie: ["lottie"],
   button2: ["button2"],
-  slideinModal: ["slideinModal", "pickers2", "button"],
-  pickers2: ["pickers2"],
+  slideinModal: ["slideinModal", "button"],
   button: ["button"],
   weeknow: ["weeknow"],
   previousWeek: ["previousWeek"],
@@ -5045,7 +4923,6 @@ type NodeDefaultElementType = {
   lottie: typeof LottieWrapper;
   button2: typeof Button;
   slideinModal: typeof SlideinModal;
-  pickers2: typeof Pickers;
   button: typeof Button;
   weeknow: typeof ApiRequest;
   previousWeek: typeof ApiRequest;
@@ -5153,7 +5030,6 @@ export const PlasmicFood = Object.assign(
     lottie: makeNodeComponent("lottie"),
     button2: makeNodeComponent("button2"),
     slideinModal: makeNodeComponent("slideinModal"),
-    pickers2: makeNodeComponent("pickers2"),
     button: makeNodeComponent("button"),
     weeknow: makeNodeComponent("weeknow"),
     previousWeek: makeNodeComponent("previousWeek"),

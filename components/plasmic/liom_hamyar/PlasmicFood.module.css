@@ -1967,10 +1967,6 @@
   min-width: 0;
   padding: 8px;
 }
-.pickers2:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
 .button:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
