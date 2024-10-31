@@ -4312,6 +4312,42 @@ function PlasmicFood__RenderFunc(props: {
                             "invokeGlobalAction"
                           ];
                         }
+
+                        $steps["updateVariable2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["variable2"]
+                                },
+                                operation: 0,
+                                value: $state.variable2 + 1
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateVariable2"] != null &&
+                          typeof $steps["updateVariable2"] === "object" &&
+                          typeof $steps["updateVariable2"].then === "function"
+                        ) {
+                          $steps["updateVariable2"] = await $steps[
+                            "updateVariable2"
+                          ];
+                        }
                       }}
                       role={"img"}
                     />
@@ -4385,7 +4421,7 @@ function PlasmicFood__RenderFunc(props: {
                                             number: currentItem.number
                                           },
                                           timestamp: $$.dayjs().format(
-                                            "YYYY-MM-DD HH:mm:ss"
+                                            "YYYY-MM-DD HH:mm:00"
                                           )
                                         };
                                       } catch (e) {
@@ -4414,6 +4450,42 @@ function PlasmicFood__RenderFunc(props: {
                         ) {
                           $steps["invokeGlobalAction"] = await $steps[
                             "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["updateVariable2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["variable2"]
+                                },
+                                operation: 0,
+                                value: $state.variable2 - 1
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateVariable2"] != null &&
+                          typeof $steps["updateVariable2"] === "object" &&
+                          typeof $steps["updateVariable2"].then === "function"
+                        ) {
+                          $steps["updateVariable2"] = await $steps[
+                            "updateVariable2"
                           ];
                         }
                       }}
