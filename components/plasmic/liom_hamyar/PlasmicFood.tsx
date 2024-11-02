@@ -92,6 +92,7 @@ import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasm
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon47Icon from "./icons/PlasmicIcon__Icon47"; // plasmic-import: 4mROOlMjOzhC/icon
 import Icon48Icon from "./icons/PlasmicIcon__Icon48"; // plasmic-import: gDaB_rFhdqND/icon
+import Icon67Icon from "./icons/PlasmicIcon__Icon67"; // plasmic-import: hIAuvrXigDnk/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: OWul-aq2fF6T/icon
 
 import __lib_dayjs from "dayjs";
@@ -130,6 +131,7 @@ export type PlasmicFood__OverridesType = {
   weeknow?: Flex__<typeof ApiRequest>;
   previousWeek?: Flex__<typeof ApiRequest>;
   foodinfo?: Flex__<typeof ApiRequest>;
+  modal3?: Flex__<typeof AntdModal>;
 };
 
 export interface DefaultFoodProps {}
@@ -372,21 +374,27 @@ function PlasmicFood__RenderFunc(props: {
             icon: "https://www.svgrepo.com/show/282188/fast-food-hamburguer.svg",
             title: "\u0641\u0633\u062a \u0641\u0648\u062f",
             text: "\u0627\u0641\u0632\u0627\u06cc\u0634 \u0648\u0632\u0646 + \u0686\u0631\u0628\u06cc\u200c\u0647\u0627\u06cc \u0646\u0627\u0633\u0627\u0644\u0645 \u0628\u0627\u0644\u0627",
-            score: 8
+            score: 8,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0647\u0645\u0628\u0631\u06af\u0631\u060c \u067e\u06cc\u062a\u0632\u0627 \u0648 \u0633\u06cc\u0628\u200c\u0632\u0645\u06cc\u0646\u06cc \u0633\u0631\u062e\u200c\u06a9\u0631\u062f\u0647 \u0627\u0633\u062a \u06a9\u0647 \u067e\u0631 \u0627\u0632 \u0686\u0631\u0628\u06cc\u200c\u0647\u0627\u06cc \u0646\u0627\u0633\u0627\u0644\u0645 \u0648 \u06a9\u0627\u0644\u0631\u06cc \u0628\u0627\u0644\u0627\u0633\u062a. \u0628\u0647\u200c\u0633\u0631\u0639\u062a \u0648\u0632\u0646 \u0631\u0648 \u0628\u0627\u0644\u0627 \u0645\u06cc\u200c\u0628\u0631\u0647 \u0648 \u0628\u0627 \u06a9\u0644\u0633\u062a\u0631\u0648\u0644 \u0628\u0627\u0644\u0627 \u0647\u0645\u0631\u0627\u0647\u0647. \u0627\u06af\u0647 \u0639\u0627\u0634\u0642 \u0637\u0639\u0645\u0634 \u0647\u0633\u062a\u06cc\u060c \u0648\u0644\u06cc \u0645\u0631\u0627\u0642\u0628 \u0628\u0627\u0634 \u06a9\u0647 \u0632\u06cc\u0627\u062f\u0647\u200c\u0631\u0648\u06cc \u0646\u06a9\u0646\u06cc!"
           },
           {
             id: 2,
             icon: "https://www.svgrepo.com/show/398295/shortcake.svg",
             title: "\u0634\u06cc\u0631\u06cc\u0646\u06cc",
             text: "\u0634\u06a9\u0631 \u0628\u0627\u0644\u0627 + \u0686\u0627\u0642\u06cc \u0633\u0631\u06cc\u0639",
-            score: 7
+            score: 7,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0627\u0646\u0648\u0627\u0639 \u06a9\u06cc\u06a9\u060c \u0634\u06cc\u0631\u06cc\u0646\u06cc \u0648 \u0628\u06cc\u0633\u06a9\u0648\u06cc\u06cc\u062a \u06a9\u0647 \u067e\u0631 \u0627\u0632 \u0634\u06a9\u0631 \u0648 \u06a9\u0627\u0644\u0631\u06cc\u0647. \u062e\u0648\u0631\u062f\u0646\u0634 \u0644\u0630\u062a\u200c\u0628\u062e\u0634\u0647\u060c \u0648\u0644\u06cc \u0647\u0645\u06cc\u0646 \u06a9\u0647 \u0627\u0632 \u062f\u0647\u0646 \u067e\u0627\u06cc\u06cc\u0646 \u0628\u0631\u0647\u060c \u0645\u06cc\u200c\u0641\u0647\u0645\u06cc \u0642\u0646\u062f \u062e\u0648\u0646\u062a \u0633\u0631 \u0628\u0647 \u0641\u0644\u06a9 \u06a9\u0634\u06cc\u062f\u0647!"
           },
           {
             id: 3,
             icon: "https://www.svgrepo.com/show/276546/chips-snack.svg",
             title: "\u0647\u0644\u0647\u200c\u0647\u0648\u0644\u0647",
             text: "\u06a9\u0645\u200c\u0627\u0631\u0632\u0634 \u063a\u0630\u0627\u06cc\u06cc + \u0639\u0627\u062f\u062a \u0646\u0627\u0633\u0627\u0644\u0645",
-            score: 6
+            score: 6,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0627\u0646\u0648\u0627\u0639 \u0686\u06cc\u067e\u0633\u060c \u067e\u0641\u06a9 \u0648 \u062e\u0648\u0631\u0627\u06a9\u06cc\u200c\u0647\u0627\u06cc \u0633\u0628\u06a9 \u06a9\u0647 \u0686\u06cc\u0632\u06cc \u062c\u0632 \u0639\u0627\u062f\u062a \u0628\u062f \u0628\u0631\u0627\u062a \u0646\u0645\u06cc\u200c\u0645\u0648\u0646\u0647. \u0627\u0631\u0632\u0634 \u063a\u0630\u0627\u06cc\u06cc \u0646\u062f\u0627\u0631\u0647 \u0648 \u062f\u0631 \u062f\u0631\u0627\u0632\u0645\u062f\u062a \u0645\u0645\u06a9\u0646\u0647 \u0628\u0631\u0627\u062a \u0636\u0631\u0631 \u0647\u0645 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u0647."
           },
           {
             id: 4,
@@ -394,7 +402,9 @@ function PlasmicFood__RenderFunc(props: {
             title:
               "\u0646\u0648\u0634\u06cc\u062f\u0646\u06cc \u06af\u0627\u0632\u062f\u0627\u0631",
             text: "\u0634\u06a9\u0631 \u0632\u06cc\u0627\u062f + \u0622\u0633\u06cc\u0628 \u0628\u0647 \u062f\u0646\u062f\u0627\u0646",
-            score: 9
+            score: 9,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0646\u0648\u0634\u0627\u0628\u0647\u200c\u0647\u0627 \u0648 \u0633\u0627\u06cc\u0631 \u0646\u0648\u0634\u06cc\u062f\u0646\u06cc\u200c\u0647\u0627\u06cc \u0634\u06cc\u0631\u06cc\u0646 \u06af\u0627\u0632\u062f\u0627\u0631. \u0634\u06a9\u0631 \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0631\u0646 \u06a9\u0647 \u0639\u0644\u0627\u0648\u0647 \u0628\u0631 \u0627\u0641\u0632\u0627\u06cc\u0634 \u0648\u0632\u0646\u060c \u0645\u06cc\u200c\u062a\u0648\u0646\u0646 \u062f\u0646\u062f\u0648\u0646\u0627\u062a \u0631\u0648 \u0647\u0645 \u0646\u0627\u0628\u0648\u062f \u06a9\u0646\u0646. \u062e\u0646\u06a9 \u0648 \u062f\u0644\u0686\u0633\u0628\u060c \u0648\u0644\u06cc \u0636\u0631\u0631 \u0647\u0645 \u062f\u0627\u0631\u0647!"
           },
           {
             id: 5,
@@ -402,7 +412,9 @@ function PlasmicFood__RenderFunc(props: {
             title:
               "\u0633\u0648\u0633\u06cc\u0633 \u0648 \u06a9\u0627\u0644\u0628\u0627\u0633",
             text: "\u0645\u0648\u0627\u062f \u0646\u06af\u0647\u062f\u0627\u0631\u0646\u062f\u0647 + \u0686\u0631\u0628\u06cc \u0628\u0627\u0644\u0627",
-            score: 7
+            score: 7,
+            description:
+              "\u0627\u0646\u0648\u0627\u0639 \u0641\u0631\u0622\u0648\u0631\u062f\u0647\u200c\u0647\u0627\u06cc \u06af\u0648\u0634\u062a\u06cc \u0641\u0631\u0627\u0648\u0631\u06cc\u200c\u0634\u062f\u0647 \u0645\u062b\u0644 \u0633\u0648\u0633\u06cc\u0633\u060c \u06a9\u0627\u0644\u0628\u0627\u0633 \u0648 \u0698\u0627\u0645\u0628\u0648\u0646\u060c \u06a9\u0647 \u067e\u0631 \u0627\u0632 \u0645\u0648\u0627\u062f \u0646\u06af\u0647\u062f\u0627\u0631\u0646\u062f\u0647 \u0648 \u0686\u0631\u0628\u06cc \u0628\u0627\u0644\u0627 \u0647\u0633\u062a\u0646. \u062e\u0648\u0634\u0645\u0632\u06af\u06cc\u200c\u0634\u0648\u0646 \u06cc\u0647 \u0637\u0631\u0641\u060c \u0645\u0636\u0631\u0627\u062a\u0634\u0648\u0646 \u0647\u0645 \u06cc\u0647 \u0637\u0631\u0641!"
           },
           {
             id: 6,
@@ -410,14 +422,18 @@ function PlasmicFood__RenderFunc(props: {
             title:
               "\u0622\u0628\u200c\u0646\u0628\u0627\u062a \u0648 \u0634\u06a9\u0644\u0627\u062a",
             text: "\u0634\u06a9\u0631 \u0628\u0627\u0644\u0627 + \u067e\u0648\u0633\u06cc\u062f\u06af\u06cc \u062f\u0646\u062f\u0627\u0646",
-            score: 7
+            score: 7,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0627\u0646\u0648\u0627\u0639 \u0634\u06a9\u0644\u0627\u062a\u060c \u0622\u0628\u200c\u0646\u0628\u0627\u062a \u0648 \u0634\u06cc\u0631\u06cc\u0646\u06cc\u200c\u0647\u0627\u06cc \u06a9\u0648\u0686\u06cc\u06a9 \u067e\u0631 \u0627\u0632 \u0634\u06a9\u0631. \u0644\u0630\u062a \u062e\u0648\u0631\u062f\u0646\u0634 \u06cc\u0647 \u0686\u06cc\u0632\u0647\u060c \u067e\u0648\u0633\u06cc\u062f\u06af\u06cc \u062f\u0646\u062f\u0648\u0646 \u0648 \u06a9\u0627\u0644\u0631\u06cc \u0628\u0627\u0644\u0627 \u06cc\u0647 \u0686\u06cc\u0632 \u062f\u06cc\u06af\u0647!"
           },
           {
             id: 7,
             icon: "https://www.svgrepo.com/show/149193/ice-cream.svg",
             title: "\u0628\u0633\u062a\u0646\u06cc",
             text: "\u0686\u0631\u0628\u06cc \u0648 \u0634\u06a9\u0631 \u0628\u0627\u0644\u0627 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u0648\u0632\u0646",
-            score: 8
+            score: 8,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0628\u0633\u062a\u0646\u06cc\u200c\u0647\u0627\u06cc \u0633\u0646\u062a\u06cc \u0648 \u0635\u0646\u0639\u062a\u06cc \u06a9\u0647 \u0647\u0645 \u0634\u06a9\u0631 \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0631\u0646 \u0648 \u0647\u0645 \u0686\u0631\u0628\u06cc \u0628\u0627\u0644\u0627. \u0627\u06af\u0647 \u062f\u0648\u0633\u062a \u062f\u0627\u0631\u06cc \u0647\u0645\u06cc\u0634\u0647 \u062a\u0648 \u0641\u0631\u06cc\u0632\u0631 \u0628\u0627\u0634\u0647\u060c \u062d\u0648\u0627\u0633\u062a \u0628\u0647 \u06a9\u0627\u0644\u0631\u06cc\u200c\u0647\u0627\u06cc \u0627\u0636\u0627\u0641\u06cc \u0647\u0645 \u0628\u0627\u0634\u0647."
           },
           {
             id: 8,
@@ -425,14 +441,18 @@ function PlasmicFood__RenderFunc(props: {
             title:
               "\u0633\u06cc\u0628\u200c\u0632\u0645\u06cc\u0646\u06cc \u0633\u0631\u062e\u200c\u06a9\u0631\u062f\u0647",
             text: "\u0686\u0631\u0628\u06cc \u062a\u0631\u0627\u0646\u0633 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u06a9\u0644\u0633\u062a\u0631\u0648\u0644",
-            score: 8
+            score: 8,
+            description:
+              "\u067e\u0631 \u0627\u0632 \u0686\u0631\u0628\u06cc \u062a\u0631\u0627\u0646\u0633 \u0648 \u0637\u0639\u0645\u200c\u062f\u0647\u0646\u062f\u0647\u200c\u0647\u0627\u06cc \u0645\u0635\u0646\u0648\u0639\u06cc. \u0639\u0627\u0634\u0642\u0634 \u0645\u06cc\u200c\u0634\u06cc\u060c \u0648\u0644\u06cc \u0628\u0627\u06cc\u062f \u0628\u062f\u0646\u062a \u0631\u0648 \u0622\u0645\u0627\u062f\u0647 \u06a9\u0646\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0644\u0633\u062a\u0631\u0648\u0644 \u0628\u0627\u0644\u0627 \u0648 \u0627\u062d\u062a\u0645\u0627\u0644 \u0627\u0636\u0627\u0641\u0647 \u0648\u0632\u0646."
           },
           {
             id: 9,
             icon: "https://www.svgrepo.com/show/425866/bread.svg",
             title: "\u0646\u0627\u0646 \u0633\u0641\u06cc\u062f",
             text: "\u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0633\u0627\u062f\u0647 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u0642\u0646\u062f \u062e\u0648\u0646",
-            score: 5
+            score: 5,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0646\u0648\u0646\u200c\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0632 \u0622\u0631\u062f \u0633\u0641\u06cc\u062f \u062f\u0631\u0633\u062a \u0634\u062f\u0646\u061b \u0633\u0631\u06cc\u0639 \u0642\u0646\u062f \u062e\u0648\u0646 \u0631\u0648 \u0628\u0627\u0644\u0627 \u0645\u06cc\u200c\u0628\u0631\u0647 \u0648\u0644\u06cc \u0627\u0631\u0632\u0634 \u063a\u0630\u0627\u06cc\u06cc \u0686\u0646\u062f\u0627\u0646\u06cc \u0646\u062f\u0627\u0631\u0647. \u0645\u0635\u0631\u0641 \u0645\u062a\u0639\u0627\u062f\u0644\u0634 \u062e\u0648\u0628\u0647\u060c \u0648\u0644\u06cc \u0632\u06cc\u0627\u062f\u0647\u200c\u0631\u0648\u06cc \u0646\u0647."
           },
           {
             id: 10,
@@ -440,21 +460,27 @@ function PlasmicFood__RenderFunc(props: {
             title:
               "\u0646\u0648\u0634\u06cc\u062f\u0646\u06cc \u0627\u0646\u0631\u0698\u06cc\u200c\u0632\u0627",
             text: "\u0634\u06a9\u0631 \u0628\u0627\u0644\u0627 + \u062a\u062d\u0631\u06cc\u06a9\u200c\u067e\u0630\u06cc\u0631\u06cc \u0639\u0635\u0628\u06cc",
-            score: 9
+            score: 9,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0631\u062f\u0628\u0648\u0644\u060c \u0645\u0627\u0646\u0633\u062a\u0631 \u0648 \u0646\u0648\u0634\u06cc\u062f\u0646\u06cc\u200c\u0647\u0627\u06cc \u062f\u06cc\u06af\u0647 \u06a9\u0647 \u0634\u06a9\u0631 \u0628\u0627\u0644\u0627 \u0648 \u06a9\u0627\u0641\u0626\u06cc\u0646 \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0631\u0646. \u0645\u0645\u06a9\u0646\u0647 \u0628\u0647\u062a \u0627\u0646\u0631\u0698\u06cc \u0628\u062f\u0646\u060c \u0648\u0644\u06cc \u062a\u062d\u0631\u06cc\u06a9\u200c\u067e\u0630\u06cc\u0631\u06cc \u0648 \u0628\u06cc\u200c\u0642\u0631\u0627\u0631\u06cc \u0647\u0645 \u0628\u0647\u200c\u062f\u0646\u0628\u0627\u0644\u0634 \u062f\u0627\u0631\u0647."
           },
           {
             id: 12,
             icon: "https://www.svgrepo.com/show/425852/doughnut.svg",
             title: "\u062f\u0648\u0646\u0627\u062a",
             text: "\u0686\u0631\u0628\u06cc \u0648 \u0634\u06a9\u0631 \u0628\u0627\u0644\u0627 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u0648\u0632\u0646",
-            score: 8
+            score: 8,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0627\u0646\u0648\u0627\u0639 \u062f\u0648\u0646\u0627\u062a\u060c \u067e\u0631 \u0627\u0632 \u0634\u06a9\u0631 \u0648 \u0686\u0631\u0628\u06cc. \u062e\u0648\u0634\u0645\u0632\u06af\u06cc\u200c\u0634\u0648\u0646 \u062e\u06cc\u0644\u06cc \u0648\u0633\u0648\u0633\u0647\u200c\u0627\u0646\u06af\u06cc\u0632\u0647\u060c \u0648\u0644\u06cc \u0648\u0632\u0646 \u0631\u0648 \u0647\u0645 \u0631\u0627\u062d\u062a \u0628\u0627\u0644\u0627 \u0645\u06cc\u200c\u0628\u0631\u0646."
           },
           {
             id: 15,
             icon: "https://www.svgrepo.com/show/407708/waffle.svg",
             title: "\u0648\u0627\u0641\u0644",
             text: "\u0634\u06a9\u0631 \u0648 \u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0628\u0627\u0644\u0627 + \u0686\u0627\u0642\u06cc",
-            score: 6
+            score: 6,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0648\u0627\u0641\u0644\u200c\u0647\u0627\u06cc \u0634\u06cc\u0631\u06cc\u0646 \u0648 \u067e\u064f\u0631\u06a9\u0627\u0644\u0631\u06cc \u06a9\u0647 \u067e\u0631 \u0627\u0632 \u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0648 \u0634\u06a9\u0631\u0647. \u06cc\u0647 \u062f\u0633\u0631 \u062f\u0648\u0633\u062a\u200c\u062f\u0627\u0634\u062a\u0646\u06cc\u060c \u0648\u0644\u06cc \u0645\u0645\u06a9\u0646\u0647 \u0628\u0627 \u062e\u0648\u062f\u0634 \u0686\u0627\u0642\u06cc \u0628\u06cc\u0627\u0631\u0647."
           },
           {
             id: 16,
@@ -462,14 +488,18 @@ function PlasmicFood__RenderFunc(props: {
             title:
               "\u06a9\u0646\u0633\u0631\u0648\u0647\u0627\u06cc \u0622\u0645\u0627\u062f\u0647",
             text: "\u0645\u0648\u0627\u062f \u0646\u06af\u0647\u062f\u0627\u0631\u0646\u062f\u0647 + \u0633\u062f\u06cc\u0645 \u0628\u0627\u0644\u0627",
-            score: 6
+            score: 6,
+            description:
+              "\u0634\u0627\u0645\u0644 \u06a9\u0646\u0633\u0631\u0648\u0647\u0627\u06cc\u06cc \u0645\u062b\u0644 \u0644\u0648\u0628\u06cc\u0627\u060c \u0646\u062e\u0648\u062f\u060c \u0633\u0648\u067e \u0622\u0645\u0627\u062f\u0647 \u0648 \u063a\u0630\u0627\u0647\u0627\u06cc \u062f\u06cc\u06af\u0647 \u06a9\u0647 \u0633\u062f\u06cc\u0645 \u0648 \u0645\u0648\u0627\u062f \u0646\u06af\u0647\u062f\u0627\u0631\u0646\u062f\u0647 \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0631\u0646. \u0631\u0627\u0647\u06cc \u0622\u0633\u0648\u0646 \u0628\u0631\u0627\u06cc \u0648\u0639\u062f\u0647\u200c\u0647\u0627\u06cc \u0633\u0631\u06cc\u0639\u060c \u0627\u0645\u0627 \u0632\u06cc\u0627\u062f\u0647\u200c\u0631\u0648\u06cc \u062f\u0631 \u0645\u0635\u0631\u0641\u0634\u0648\u0646 \u062e\u0648\u0628 \u0646\u06cc\u0633\u062a."
           },
           {
             id: 18,
             icon: "https://www.svgrepo.com/show/263324/milkshake-straw.svg",
             title: "\u0645\u06cc\u0644\u06a9\u200c\u0634\u06cc\u06a9",
             text: "\u0634\u06a9\u0631 \u0648 \u0686\u0631\u0628\u06cc \u0628\u0627\u0644\u0627 + \u0686\u0627\u0642\u06cc \u0633\u0631\u06cc\u0639",
-            score: 8
+            score: 8,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0634\u06cc\u0631 \u0648 \u0628\u0633\u062a\u0646\u06cc \u0628\u0627 \u062a\u0631\u06a9\u06cc\u0628 \u0634\u06a9\u0631 \u0648 \u06af\u0627\u0647\u06cc \u0627\u0641\u0632\u0648\u062f\u0646\u06cc\u200c\u0647\u0627\u06cc \u062f\u06cc\u06af\u0647 \u06a9\u0647 \u062e\u06cc\u0644\u06cc \u06a9\u0627\u0644\u0631\u06cc \u062f\u0627\u0631\u0646. \u06cc\u0647 \u0644\u06cc\u0648\u0627\u0646\u0634 \u062e\u0648\u0634\u0645\u0632\u0647\u200c\u0633\u062a\u060c \u0648\u0644\u06cc \u0645\u0645\u06a9\u0646\u0647 \u06a9\u0627\u0644\u0631\u06cc \u0627\u0636\u0627\u0641\u06cc \u0628\u0647 \u0628\u062f\u0646 \u0628\u0631\u0633\u0648\u0646\u0647."
           },
           {
             id: 19,
@@ -477,35 +507,45 @@ function PlasmicFood__RenderFunc(props: {
             title:
               "\u0633\u0633\u200c\u0647\u0627\u06cc \u0622\u0645\u0627\u062f\u0647",
             text: "\u0633\u062f\u06cc\u0645 \u0648 \u0686\u0631\u0628\u06cc \u0628\u0627\u0644\u0627 + \u0627\u0641\u0632\u0648\u062f\u0646\u06cc\u200c\u0647\u0627",
-            score: 6
+            score: 6,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0627\u0646\u0648\u0627\u0639 \u0633\u0633 \u0645\u062b\u0644 \u0645\u0627\u06cc\u0648\u0646\u0632\u060c \u06a9\u0686\u0627\u067e \u0648 \u0633\u0633\u200c\u0647\u0627\u06cc \u0645\u062e\u0635\u0648\u0635 \u0633\u0627\u0644\u0627\u062f \u06a9\u0647 \u067e\u0631 \u0627\u0632 \u0633\u062f\u06cc\u0645 \u0648 \u0686\u0631\u0628\u06cc \u0628\u0627\u0644\u0627 \u0647\u0633\u062a\u0646. \u0628\u0647 \u063a\u0630\u0627\u0647\u0627 \u0637\u0639\u0645 \u062e\u0648\u0628\u06cc \u0645\u06cc\u200c\u062f\u0646\u060c \u0648\u0644\u06cc \u062f\u0631 \u0645\u0635\u0631\u0641\u0634\u0648\u0646 \u0627\u062d\u062a\u06cc\u0627\u0637 \u06a9\u0646."
           },
           {
             id: 20,
             icon: "https://www.svgrepo.com/show/276745/champagne-alcohol.svg",
             title: "\u0627\u0644\u06a9\u0644",
             text: "\u0622\u0633\u06cc\u0628 \u0628\u0647 \u06a9\u0628\u062f + \u06a9\u0627\u0644\u0631\u06cc \u0628\u0627\u0644\u0627",
-            score: 10
+            score: 10,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0627\u0646\u0648\u0627\u0639 \u0646\u0648\u0634\u06cc\u062f\u0646\u06cc\u200c\u0647\u0627\u06cc \u0627\u0644\u06a9\u0644\u06cc \u06a9\u0647 \u0639\u0644\u0627\u0648\u0647 \u0628\u0631 \u06a9\u0627\u0644\u0631\u06cc \u0628\u0627\u0644\u0627\u060c \u0628\u0647 \u06a9\u0628\u062f \u0647\u0645 \u0622\u0633\u06cc\u0628 \u0645\u06cc\u200c\u0632\u0646\u0646. \u0645\u0635\u0631\u0641 \u062f\u0631 \u062d\u062f \u062a\u0639\u0627\u062f\u0644 \u062a\u0648\u0635\u06cc\u0647 \u0645\u06cc\u200c\u0634\u0647\u060c \u0686\u0648\u0646 \u0645\u06cc\u200c\u062a\u0648\u0646\u0647 \u0631\u0648\u06cc \u0633\u0644\u0627\u0645\u062a \u06a9\u0644\u06cc \u0628\u062f\u0646 \u0627\u062b\u0631 \u0645\u0646\u0641\u06cc \u0628\u0630\u0627\u0631\u0647."
           },
           {
             id: 21,
             icon: "https://www.svgrepo.com/show/275697/coffee-cup-coffee.svg",
             title: "\u0642\u0647\u0648\u0647",
             text: "\u06a9\u0627\u0641\u0626\u06cc\u0646 \u0628\u0627\u0644\u0627 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u0627\u0636\u0637\u0631\u0627\u0628",
-            score: 5
+            score: 5,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0627\u0646\u0648\u0627\u0639 \u0642\u0647\u0648\u0647\u200c\u0647\u0627 \u06a9\u0647 \u06a9\u0627\u0641\u0626\u06cc\u0646 \u0628\u0627\u0644\u0627\u06cc\u06cc \u062f\u0627\u0631\u0646 \u0648 \u0645\u0645\u06a9\u0646\u0647 \u0628\u0627\u0639\u062b \u0627\u0636\u0637\u0631\u0627\u0628 \u0628\u0634\u0646. \u0628\u0631\u0627\u06cc \u0628\u06cc\u062f\u0627\u0631 \u0645\u0648\u0646\u062f\u0646 \u0639\u0627\u0644\u06cc\u0647\u060c \u0648\u0644\u06cc \u0645\u0631\u0627\u0642\u0628 \u0628\u0627\u0634 \u06a9\u0647 \u0645\u0635\u0631\u0641 \u0628\u06cc\u0634 \u0627\u0632 \u062d\u062f\u0634 \u0628\u0647\u062a \u0622\u0633\u06cc\u0628 \u0646\u0632\u0646\u0647."
           },
           {
             id: 22,
             icon: "https://www.svgrepo.com/show/244450/spaghetti-pasta.svg",
             title: "\u067e\u0627\u0633\u062a\u0627",
             text: "\u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0633\u0627\u062f\u0647 + \u0627\u0641\u0632\u0627\u06cc\u0634 \u0642\u0646\u062f \u062e\u0648\u0646",
-            score: 6
+            score: 6,
+            description:
+              "\u0634\u0627\u0645\u0644 \u067e\u0627\u0633\u062a\u0627\u0647\u0627 \u06a9\u0647 \u0627\u0632 \u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0633\u0627\u062f\u0647 \u062a\u0634\u06a9\u06cc\u0644 \u0634\u062f\u0646 \u0648 \u0633\u0631\u06cc\u0639 \u0642\u0646\u062f \u062e\u0648\u0646 \u0631\u0648 \u0628\u0627\u0644\u0627 \u0645\u06cc\u200c\u0628\u0631\u0646. \u062e\u0648\u0634\u0645\u0632\u0647\u200c\u0633\u062a\u060c \u0648\u0644\u06cc \u0632\u06cc\u0627\u062f\u0647\u200c\u0631\u0648\u06cc \u0628\u0627\u0639\u062b \u0686\u0627\u0642\u06cc \u0645\u06cc\u200c\u0634\u0647."
           },
           {
             id: 23,
             icon: "https://www.svgrepo.com/show/505200/rice.svg",
             title: "\u0628\u0631\u0646\u062c \u0633\u0641\u06cc\u062f",
             text: "\u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0628\u0627\u0644\u0627 + \u0627\u0631\u0632\u0634 \u063a\u0630\u0627\u06cc\u06cc \u06a9\u0645\u062a\u0631",
-            score: 5
+            score: 5,
+            description:
+              "\u0634\u0627\u0645\u0644 \u0628\u0631\u0646\u062c \u0633\u0641\u06cc\u062f \u06a9\u0647 \u06a9\u0631\u0628\u0648\u0647\u06cc\u062f\u0631\u0627\u062a \u0633\u0627\u062f\u0647 \u0632\u06cc\u0627\u062f\u06cc \u062f\u0627\u0631\u0647 \u0648 \u0627\u0631\u0632\u0634 \u063a\u0630\u0627\u06cc\u06cc \u0646\u0633\u0628\u062a\u0627 \u06a9\u0645\u062a\u0631\u06cc \u0646\u0633\u0628\u062a \u0628\u0647 \u0628\u0631\u0646\u062c \u0642\u0647\u0648\u0647\u200c\u0627\u06cc \u062f\u0627\u0631\u0647. \u0645\u0635\u0631\u0641 \u062f\u0631 \u062d\u062f \u062a\u0639\u0627\u062f\u0644 \u0645\u0634\u06a9\u0644\u06cc \u0646\u062f\u0627\u0631\u0647."
           }
         ]
       },
@@ -851,6 +891,18 @@ function PlasmicFood__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "modal3.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "infofood",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1241,6 +1293,66 @@ function PlasmicFood__RenderFunc(props: {
                               sty.freeBox___6Cza9
                             )}
                             key={currentIndex}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return ($state.tick[
+                                          currentIndex
+                                        ].click =
+                                          !$state.tick[currentIndex].click);
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["runCode2"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          if (
+                                            $state.ids.includes(currentItem.id)
+                                          )
+                                            return $state.ids.splice(
+                                              $state.ids.indexOf(
+                                                currentItem.id
+                                              ),
+                                              1
+                                            );
+                                          else
+                                            return $state.ids.push(
+                                              currentItem.id
+                                            );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode2"] != null &&
+                                typeof $steps["runCode2"] === "object" &&
+                                typeof $steps["runCode2"].then === "function"
+                              ) {
+                                $steps["runCode2"] = await $steps["runCode2"];
+                              }
+                            }}
                           >
                             <PlasmicImg__
                               alt={""}
@@ -1459,12 +1571,153 @@ function PlasmicFood__RenderFunc(props: {
                           </div>
                         );
                       })}
-                      <div
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__r0KVz
                         )}
-                      />
+                      >
+                        {(() => {
+                          try {
+                            return $state.filter.length == 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__oOb4I
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__uTezX
+                              )}
+                            >
+                              {
+                                "\u0645\u0648\u0631\u062f\u06cc \u067e\u06cc\u062f\u0627 \u0646\u0634\u062f."
+                              }
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__f2Kfg
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateInputValue"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["input", "value"]
+                                        },
+                                        operation: 0,
+                                        value: ""
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateInputValue"] != null &&
+                                  typeof $steps["updateInputValue"] ===
+                                    "object" &&
+                                  typeof $steps["updateInputValue"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateInputValue"] = await $steps[
+                                    "updateInputValue"
+                                  ];
+                                }
+
+                                $steps["updateFilter"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["filter"]
+                                        },
+                                        operation: 0,
+                                        value: $state.harmfulFood
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateFilter"] != null &&
+                                  typeof $steps["updateFilter"] === "object" &&
+                                  typeof $steps["updateFilter"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateFilter"] = await $steps[
+                                    "updateFilter"
+                                  ];
+                                }
+                              }}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return "نمایش همه" + ">";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u0646\u0645\u0627\u06cc\u0634 \u0647\u0645\u0647 <";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </Stack__>
+                        ) : null}
+                      </Stack__>
                     </Stack__>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__yGkNi)}
@@ -2396,10 +2649,10 @@ function PlasmicFood__RenderFunc(props: {
                                                             timestamp:
                                                               $$.dayjs()
                                                                 .subtract(
-                                                                  2,
+                                                                  1,
                                                                   "week"
                                                                 )
-                                                                .day(6)
+                                                                .day(1)
                                                                 .format(
                                                                   "YYYY-MM-DD HH:mm:ss"
                                                                 )
@@ -2534,10 +2787,10 @@ function PlasmicFood__RenderFunc(props: {
                                                               timestamp:
                                                                 $$.dayjs()
                                                                   .subtract(
-                                                                    2,
+                                                                    1,
                                                                     "week"
                                                                   )
-                                                                  .day(6)
+                                                                  .day(1)
                                                                   .format(
                                                                     "YYYY-MM-DD HH:mm:ss"
                                                                   )
@@ -4123,6 +4376,81 @@ function PlasmicFood__RenderFunc(props: {
                 >
                   <div
                     className={classNames(projectcss.all, sty.freeBox__eg6B7)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateInfofood"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["infofood"]
+                              },
+                              operation: 0,
+                              value: currentItem
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateInfofood"] != null &&
+                        typeof $steps["updateInfofood"] === "object" &&
+                        typeof $steps["updateInfofood"].then === "function"
+                      ) {
+                        $steps["updateInfofood"] = await $steps[
+                          "updateInfofood"
+                        ];
+                      }
+
+                      $steps["updateModal3Open"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["modal3", "open"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateModal3Open"] != null &&
+                        typeof $steps["updateModal3Open"] === "object" &&
+                        typeof $steps["updateModal3Open"].then === "function"
+                      ) {
+                        $steps["updateModal3Open"] = await $steps[
+                          "updateModal3Open"
+                        ];
+                      }
+                    }}
                   >
                     <PlasmicImg__
                       alt={""}
@@ -4232,6 +4560,10 @@ function PlasmicFood__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                     </div>
+                    <Icon67Icon
+                      className={classNames(projectcss.all, sty.svg__hrx36)}
+                      role={"img"}
+                    />
                   </div>
                   <Stack__
                     as={"div"}
@@ -4588,7 +4920,7 @@ function PlasmicFood__RenderFunc(props: {
                   sty.text___59Dtf,
                   hasVariant(globalVariants, "screen", "mobile")
                     ? "negative"
-                    : undefined
+                    : "negative"
                 )}
               >
                 {hasVariant(globalVariants, "screen", "mobile") ? (
@@ -4611,7 +4943,7 @@ function PlasmicFood__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return $state.withe + " kg ";
+                        return $state.weight + " kg ";
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -4804,8 +5136,8 @@ function PlasmicFood__RenderFunc(props: {
                   userId: $state.userinfo.man.id,
                   dataType: "food Tracker",
                   startDate: $$.dayjs()
-                    .subtract(1, "week")
-                    .day(6)
+                    .subtract(0, "week")
+                    .day(1)
                     .set("hour", 0)
                     .set("minute", 0)
                     .set("second", 2)
@@ -4851,8 +5183,8 @@ function PlasmicFood__RenderFunc(props: {
                   userId: $state.userinfo.man.id,
                   dataType: "food Tracker",
                   startDate: $$.dayjs()
-                    .subtract(2, "week")
-                    .day(6)
+                    .subtract(1, "week")
+                    .day(1)
                     .set("hour", 0)
                     .set("minute", 0)
                     .set("second", 1)
@@ -4860,7 +5192,7 @@ function PlasmicFood__RenderFunc(props: {
                     .toString(),
                   endDate: $$.dayjs()
                     .subtract(1, "week")
-                    .day(5)
+                    .day(7)
                     .set("hour", 23)
                     .set("minute", 59)
                     .set("second", 59)
@@ -5000,6 +5332,101 @@ function PlasmicFood__RenderFunc(props: {
             })()}
             url={"https://n8n.staas.ir/webhook/hamyar/food"}
           />
+
+          <AntdModal
+            data-plasmic-name={"modal3"}
+            data-plasmic-override={overrides.modal3}
+            className={classNames("__wab_instance", sty.modal3)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            hideFooter={true}
+            maskClosable={true}
+            modalScopeClassName={sty["modal3__modal"]}
+            onOpenChange={generateStateOnChangeProp($state, ["modal3", "open"])}
+            open={generateStateValueProp($state, ["modal3", "open"])}
+            title={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__hybns
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $state.harmfulFood.find(
+                        item => item.id === $state.infofood.id
+                      ).title;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
+            }
+            trigger={null}
+            wrapClassName={classNames({ [sty["pcls_DJz3v7v7F5NR"]]: true })}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__vh0Kg)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__bVlaY
+                )}
+              >
+                {hasVariant(globalVariants, "screen", "mobile") ? (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.harmfulFood[$state.infofood.id]
+                          .description;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "Modal content";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.harmfulFood.find(
+                          item => item.id === $state.infofood.id
+                        ).description;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "Modal content";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                )}
+              </div>
+            </div>
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -5029,7 +5456,8 @@ const PlasmicDescendants = {
     "button",
     "weeknow",
     "previousWeek",
-    "foodinfo"
+    "foodinfo",
+    "modal3"
   ],
   foodbox: ["foodbox"],
   modal: ["modal", "input", "tick", "button4"],
@@ -5060,7 +5488,8 @@ const PlasmicDescendants = {
   button: ["button"],
   weeknow: ["weeknow"],
   previousWeek: ["previousWeek"],
-  foodinfo: ["foodinfo"]
+  foodinfo: ["foodinfo"],
+  modal3: ["modal3"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -5088,6 +5517,7 @@ type NodeDefaultElementType = {
   weeknow: typeof ApiRequest;
   previousWeek: typeof ApiRequest;
   foodinfo: typeof ApiRequest;
+  modal3: typeof AntdModal;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5196,6 +5626,7 @@ export const PlasmicFood = Object.assign(
     weeknow: makeNodeComponent("weeknow"),
     previousWeek: makeNodeComponent("previousWeek"),
     foodinfo: makeNodeComponent("foodinfo"),
+    modal3: makeNodeComponent("modal3"),
 
     // Metadata about props expected for PlasmicFood
     internalVariantProps: PlasmicFood__VariantProps,

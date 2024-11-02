@@ -990,6 +990,11 @@
           "id": "d7_5Tu0fO3u_",
           "name": "Icon66Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon66.tsx"
+        },
+        {
+          "id": "hIAuvrXigDnk",
+          "name": "Icon67Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon67.tsx"
         }
       ],
       "images": [

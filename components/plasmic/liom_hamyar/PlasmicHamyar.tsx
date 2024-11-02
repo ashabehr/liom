@@ -2890,7 +2890,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                           undefined,
                                           (() => {
                                             try {
-                                              return { id: currentItem.id };
+                                              return {
+                                                id: currentItem.id,
+                                                userId:
+                                                  $state.user.data.result.man.id
+                                              };
                                             } catch (e) {
                                               if (
                                                 e instanceof TypeError ||
