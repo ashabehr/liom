@@ -2134,11 +2134,12 @@
   top: auto;
   z-index: 1;
   position: fixed;
+  height: 552px;
   order: 0;
   justify-self: center;
   right: 0;
   bottom: 0;
-  margin-bottom: 379px;
+  margin: 0px;
 }
 .pcls_DJz3v7v7F5NR {
   background: #ffffff00;
@@ -2149,11 +2150,12 @@
     top: auto;
     right: 0;
     bottom: 0;
+    height: 559px;
     padding-right: 20px;
     padding-left: 20px;
     left: 0;
     text-align: center;
-    margin-bottom: 339px;
+    margin: 0px;
   }
 }
 .freeBox__vh0Kg {

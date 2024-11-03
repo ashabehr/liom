@@ -5137,7 +5137,7 @@ function PlasmicFood__RenderFunc(props: {
                   dataType: "food Tracker",
                   startDate: $$.dayjs()
                     .subtract(0, "week")
-                    .day(1)
+                    .day(0)
                     .set("hour", 0)
                     .set("minute", 0)
                     .set("second", 2)
@@ -5184,7 +5184,7 @@ function PlasmicFood__RenderFunc(props: {
                   dataType: "food Tracker",
                   startDate: $$.dayjs()
                     .subtract(1, "week")
-                    .day(1)
+                    .day(0)
                     .set("hour", 0)
                     .set("minute", 0)
                     .set("second", 1)
@@ -5192,7 +5192,7 @@ function PlasmicFood__RenderFunc(props: {
                     .toString(),
                   endDate: $$.dayjs()
                     .subtract(1, "week")
-                    .day(7)
+                    .day(6)
                     .set("hour", 23)
                     .set("minute", 59)
                     .set("second", 59)
@@ -5392,8 +5392,9 @@ function PlasmicFood__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return $state.harmfulFood[$state.infofood.id]
-                          .description;
+                        return $state.harmfulFood.find(
+                          item => item.id === $state.infofood.id
+                        ).description;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
