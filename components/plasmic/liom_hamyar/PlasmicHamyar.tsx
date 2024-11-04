@@ -831,7 +831,7 @@ function PlasmicHamyar__RenderFunc(props: {
               })()
             : (() => {
                 try {
-                  return $state.countNotif.data[0].unseen_count;
+                  return $state.countNotif.data.unseen_count;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1435,9 +1435,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           })()
                         : (() => {
                             try {
-                              return (
-                                $state.countNotif.data[0].unseen_count != 0
-                              );
+                              return $state.countNotif.data.unseen_count != 0;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||

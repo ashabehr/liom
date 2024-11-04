@@ -3478,7 +3478,89 @@ function PlasmicNotification__RenderFunc(props: {
                           hasVariant($state, "notification", "notification")
                             ? (() => {
                                 try {
-                                  return notifItem.date.split(" ")[0];
+                                  return (() => {
+                                    let birthDate =
+                                      notifItem.date.split(" ")[0];
+                                    if (
+                                      !birthDate ||
+                                      birthDate === "undefined"
+                                    ) {
+                                      return "---";
+                                    } else {
+                                      let gy = parseInt(
+                                        birthDate.split("-")[0]
+                                      );
+                                      let gm = parseInt(
+                                        birthDate.split("-")[1]
+                                      );
+                                      let gd = parseInt(
+                                        birthDate.split("-")[2]
+                                      );
+                                      let shamsiMonthDays = [
+                                        31, 31, 31, 31, 31, 31, 30, 30, 30, 30,
+                                        30, 29
+                                      ];
+
+                                      let miladiDaysInMonth = [
+                                        31, 28, 31, 30, 31, 30, 31, 31, 30, 31,
+                                        30, 31
+                                      ];
+
+                                      let isLeapYear =
+                                        gy % 4 === 0 &&
+                                        (gy % 100 !== 0 || gy % 400 === 0);
+                                      if (isLeapYear) {
+                                        miladiDaysInMonth[1] = 29;
+                                      }
+                                      let daysPassedMiladi = gd;
+                                      for (let i = 0; i < gm - 1; i++) {
+                                        daysPassedMiladi +=
+                                          miladiDaysInMonth[i];
+                                      }
+                                      let shamsiNewYearDay = new Date(
+                                        gy,
+                                        2,
+                                        21
+                                      );
+                                      let shamsiStartDayInMiladi =
+                                        (shamsiNewYearDay -
+                                          new Date(gy, 0, 1)) /
+                                        (1000 * 60 * 60 * 24);
+                                      let daysPassedInShamsiYear =
+                                        daysPassedMiladi -
+                                        shamsiStartDayInMiladi;
+                                      if (daysPassedInShamsiYear < 0) {
+                                        gy--;
+                                        shamsiNewYearDay = new Date(gy, 2, 21);
+                                        shamsiStartDayInMiladi =
+                                          (shamsiNewYearDay -
+                                            new Date(gy, 0, 1)) /
+                                          (1000 * 60 * 60 * 24);
+                                        daysPassedInShamsiYear =
+                                          daysPassedMiladi +
+                                          (365 - shamsiStartDayInMiladi);
+                                        if (isLeapYear) {
+                                          daysPassedInShamsiYear++;
+                                        }
+                                      }
+                                      let jy = gy - 621;
+                                      let jm = 0;
+                                      let jd = daysPassedInShamsiYear;
+                                      for (
+                                        let i = 0;
+                                        i < shamsiMonthDays.length;
+                                        i++
+                                      ) {
+                                        if (jd <= shamsiMonthDays[i]) {
+                                          jm = i + 1;
+                                          break;
+                                        } else {
+                                          jd -= shamsiMonthDays[i];
+                                        }
+                                      }
+                                      return jy + "/" + jm + "/" + jd;
+                                    }
+                                  })();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
