@@ -159,6 +159,71 @@ function PlasmicWeekByWeek__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 1
+      },
+      {
+        path: "babySize",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          { h: "1.9", w: "1" },
+          { h: "2.3", w: "2" },
+          { h: "3.1", w: "2" },
+          { h: "4.1", w: "7" },
+          { h: "5.4", w: "14" },
+          { h: "7.4", w: "23" },
+          { h: "8.7", w: "43" },
+          { h: "10.1", w: "70" },
+          { h: "11.6", w: "100" },
+          { h: "13", w: "140" },
+          { h: "14.2", w: "190" },
+          { h: "15.3", w: "240" },
+          { h: "25.6", w: "300" },
+          { h: "26.7", w: "360" },
+          { h: "27.8", w: "430" },
+          { h: "28.9", w: "500" },
+          { h: "30", w: "600" },
+          { h: "34.6", w: "660" },
+          { h: "35.6", w: "760" },
+          { h: "36.6", w: "875" },
+          { h: "37.6", w: "1" },
+          { h: "38.6", w: "1.2" },
+          { h: "39.9", w: "1.3" },
+          { h: "41.1", w: "1.5" },
+          { h: "42.4", w: "1.7" },
+          { h: "43.7", w: "1.9" },
+          { h: "45", w: "2.1" },
+          { h: "46.2", w: "2.4" },
+          { h: "47.4", w: "2.6" },
+          { h: "48.6", w: "2.9" },
+          { h: "49.8", w: "3.1" },
+          { h: "50.7", w: "3.3" },
+          { h: "51.2", w: "3.5" },
+          { h: "52.2", w: "3.8" }
+        ]
       }
     ],
     [$props, $ctx, $refs]
@@ -350,7 +415,9 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__gtrCt)}
                   >
                     <div
@@ -360,32 +427,98 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         sty.text___3Aqi
                       )}
                     >
-                      {"Enter some text"}
+                      {"\u0648\u0632\u0646"}
                     </div>
-                  </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__o6Jcb
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.babySize[$state.selectedWeek - 1].w;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Stack__>
                 ) : null}
-                <div className={classNames(projectcss.all, sty.freeBox__tSlBm)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__tSlBm)}
+                >
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__v2Oyo
+                      sty.text__pmB
                     )}
                   >
-                    {"Enter some text"}
+                    {"\u0627\u0646\u062f\u0627\u0632\u0647"}
                   </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__q9GLq)}>
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__eOmsg
+                      sty.text__gPoKb
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            $state.babySize[$state.selectedWeek - 1].h +
+                            " سانتی متر "
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__q9GLq)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__frIaN
+                    )}
+                  >
+                    {"\u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zr2Df
                     )}
                   >
                     {"Enter some text"}
                   </div>
-                </div>
+                </Stack__>
               </div>
             </div>
           </div>

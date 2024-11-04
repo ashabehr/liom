@@ -2241,6 +2241,16 @@
       }
     },
     {
+      "name": "hint",
+      "type": "color",
+      "value": "#8F8F8F",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "BIuTS8zmWD0f"
+      }
+    },
+    {
       "name": "input placeholder",
       "type": "color",
       "value": "rgb(230,230,230)",
@@ -2388,6 +2398,16 @@
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
         "id": "64O07uLgKimi"
+      }
+    },
+    {
+      "name": "title",
+      "type": "color",
+      "value": "#1D1B1E",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "kjnzcds1FoVY"
       }
     },
     {

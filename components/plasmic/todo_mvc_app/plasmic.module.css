@@ -73,6 +73,10 @@
   --plasmic-token-primary: var(--token-SX03PBUzWAqr);
   --token-RfhqiwT2YAVo: #f8edff;
   --plasmic-token-serface: var(--token-RfhqiwT2YAVo);
+  --token-BIuTS8zmWD0f: #8f8f8f;
+  --plasmic-token-hint: var(--token-BIuTS8zmWD0f);
+  --token-kjnzcds1FoVY: #1d1b1e;
+  --plasmic-token-title: var(--token-kjnzcds1FoVY);
 }
 
 @media (max-width: 640px) {

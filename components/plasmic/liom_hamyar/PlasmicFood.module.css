@@ -701,6 +701,11 @@
 .tick:global(.__wab_instance) {
   flex-shrink: 0;
 }
+@media (max-width: 640px) {
+  .tick:global(.__wab_instance) {
+    flex-shrink: 0;
+  }
+}
 .freeBox__r0KVz {
   display: flex;
   flex-direction: column;
@@ -1875,7 +1880,7 @@
 }
 @media (max-width: 640px) {
   .freeBox__qTzrp {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     margin-top: calc(0px + 20px) !important;
   }
 }
