@@ -61,9 +61,11 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -85,8 +87,9 @@ export const PlasmicWeekByWeek__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicWeekByWeek__OverridesType = {
   root?: Flex__<"div">;
-  apiRequest?: Flex__<typeof ApiRequest>;
   tabWeek?: Flex__<typeof TabWeek>;
+  img?: Flex__<typeof PlasmicImg__>;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultWeekByWeekProps {}
@@ -167,6 +170,10 @@ function PlasmicWeekByWeek__RenderFunc(props: {
     $refs
   });
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -194,59 +201,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
             sty.root
           )}
         >
-          <ApiRequest
-            data-plasmic-name={"apiRequest"}
-            data-plasmic-override={overrides.apiRequest}
-            className={classNames("__wab_instance", sty.apiRequest)}
-            errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__iO2
-                )}
-              >
-                {"Error fetching data"}
-              </div>
-            }
-            loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__nszt0
-                )}
-              >
-                {"Loading..."}
-              </div>
-            }
-            method={"GET"}
-            onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
-            onLoading={generateStateOnChangeProp($state, [
-              "apiRequest",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "apiRequest",
-              "data"
-            ])}
-            params={(() => {
-              try {
-                return {
-                  token: $ctx.query.token
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-            url={"https://n8n.staas.ir/webhook/info"}
-          >
+          <div className={classNames(projectcss.all, sty.freeBox__qDyNj)}>
             <div className={classNames(projectcss.all, sty.freeBox___9BnK7)}>
               <div className={classNames(projectcss.all, sty.freeBox__khEUf)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -334,7 +289,160 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 })}
               </div>
             </div>
-          </ApiRequest>
+            <div className={classNames(projectcss.all, sty.freeBox__p84Rg)}>
+              <div className={classNames(projectcss.all, sty.freeBox__r6HVe)}>
+                <div className={classNames(projectcss.all, sty.freeBox__uySe8)}>
+                  <PlasmicImg__
+                    data-plasmic-name={"img"}
+                    data-plasmic-override={overrides.img}
+                    alt={""}
+                    className={classNames(sty.img)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    height={"170"}
+                    loading={"lazy"}
+                    src={(() => {
+                      try {
+                        return (() => {
+                          var week;
+                          if ($state.selectedWeek < 10)
+                            week = "0" + $state.selectedWeek;
+                          else week = "" + $state.selectedWeek;
+                          return (
+                            "https://liom.storage.c2.liara.space/config/pregnancy/week" +
+                            week +
+                            ".png"
+                          );
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    width={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? "160"
+                        : "170"
+                    }
+                  />
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__qlqYc)}>
+                {(() => {
+                  try {
+                    return true;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__gtrCt)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___3Aqi
+                      )}
+                    >
+                      {"Enter some text"}
+                    </div>
+                  </div>
+                ) : null}
+                <div className={classNames(projectcss.all, sty.freeBox__tSlBm)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__v2Oyo
+                    )}
+                  >
+                    {"Enter some text"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__q9GLq)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__eOmsg
+                    )}
+                  >
+                    {"Enter some text"}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            children={null}
+            className={classNames("__wab_instance", sty.apiRequest)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__iO2
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__nszt0
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
+            onLoading={generateStateOnChangeProp($state, [
+              "apiRequest",
+              "loading"
+            ])}
+            onSuccess={generateStateOnChangeProp($state, [
+              "apiRequest",
+              "data"
+            ])}
+            params={(() => {
+              try {
+                return {
+                  token: $ctx.query.token
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/info"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -342,17 +450,19 @@ function PlasmicWeekByWeek__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "apiRequest", "tabWeek"],
-  apiRequest: ["apiRequest", "tabWeek"],
-  tabWeek: ["tabWeek"]
+  root: ["root", "tabWeek", "img", "apiRequest"],
+  tabWeek: ["tabWeek"],
+  img: ["img"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  apiRequest: typeof ApiRequest;
   tabWeek: typeof TabWeek;
+  img: typeof PlasmicImg__;
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -440,8 +550,9 @@ export const PlasmicWeekByWeek = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    apiRequest: makeNodeComponent("apiRequest"),
     tabWeek: makeNodeComponent("tabWeek"),
+    img: makeNodeComponent("img"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicWeekByWeek
     internalVariantProps: PlasmicWeekByWeek__VariantProps,
