@@ -110,6 +110,7 @@ import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzm
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: UbRafB34Z-K-/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
+import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -8332,12 +8333,19 @@ function PlasmicHamyar__RenderFunc(props: {
                             },
                             operation: 0,
                             value: (() => {
-                              const whiteMessages = $state.payam.find(
-                                item => item[$state.cyclebox.cycle]
-                              )[$state.cyclebox.cycle];
-                              return whiteMessages[
-                                Math.floor(Math.random() * whiteMessages.length)
-                              ];
+                              const whiteMessages =
+                                $state.payam.find(
+                                  item => item[$state.cyclebox.cycle]
+                                )?.[$state.cyclebox.cycle] || [];
+                              const randomMessage =
+                                whiteMessages.length > 0
+                                  ? whiteMessages[
+                                      Math.floor(
+                                        Math.random() * whiteMessages.length
+                                      )
+                                    ]
+                                  : "";
+                              return randomMessage;
                             })()
                           };
                           return (({
@@ -11094,13 +11102,9 @@ function PlasmicHamyar__RenderFunc(props: {
                   ];
                 }
 
-                $steps["goToExpired"] = (() => {
-                  if (typeof $state.user.data.success !== "undefined") {
-                    return !$state.user.data.success;
-                  } else {
-                    return true;
-                  }
-                })()
+                $steps["goToExpired"] = (
+                  $state.user.data?.success ? !$state.user.data.success : false
+                )
                   ? (() => {
                       const actionArgs = { destination: `/expired` };
                       return (({ destination }) => {
@@ -11125,13 +11129,9 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["goToExpired"] = await $steps["goToExpired"];
                 }
 
-                $steps["updateTokenUser"] = (() => {
-                  if (typeof $state.user.data.success !== "undefined") {
-                    return $state.user.data.success;
-                  } else {
-                    return false;
-                  }
-                })()
+                $steps["updateTokenUser"] = (
+                  $state.user.data?.success ? $state.user.data.success : false
+                )
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -11165,13 +11165,9 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateTokenUser"] = await $steps["updateTokenUser"];
                 }
 
-                $steps["updateName"] = (() => {
-                  if (typeof $state.user.data.success !== "undefined") {
-                    return $state.user.data.success;
-                  } else {
-                    return false;
-                  }
-                })()
+                $steps["updateName"] = (
+                  $state.user.data?.success ? $state.user.data.success : false
+                )
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -11205,7 +11201,9 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateName"] = await $steps["updateName"];
                 }
 
-                $steps["runCode"] = true
+                $steps["runCode"] = (
+                  $state.user.data?.success ? $state.user.data.success : false
+                )
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -11237,7 +11235,9 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["runCode"] = await $steps["runCode"];
                 }
 
-                $steps["updateDeleteDate"] = true
+                $steps["updateDeleteDate"] = (
+                  $state.user.data?.success ? $state.user.data.success : false
+                )
                   ? (() => {
                       const actionArgs = {
                         variable: {
@@ -11533,6 +11533,63 @@ function PlasmicHamyar__RenderFunc(props: {
                 )}
               >
                 {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+              </div>
+            </div>
+            <div
+              aria-pressed={undefined}
+              className={classNames(projectcss.all, sty.freeBox__avzuw)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] =
+                  localStorage.getItem("token") != "undefined" ||
+                  localStorage.getItem("token") != null
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return (window.location.href =
+                                "https://apps.liom.app/food/?r=" +
+                                $ctx.query.r +
+                                "&m=" +
+                                $ctx.query.m);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
+            >
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? Icon72Icon
+                    : Icon72Icon
+                }
+                className={classNames(projectcss.all, sty.svg__teWPd)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ssYYa
+                )}
+              >
+                {
+                  "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
+                }
               </div>
             </div>
           </Stack__>

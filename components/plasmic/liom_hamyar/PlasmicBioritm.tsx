@@ -86,6 +86,7 @@ import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasm
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fcuIp/icon
 import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
+import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
 
 createPlasmicElementProxy;
 
@@ -5147,20 +5148,11 @@ function PlasmicBioritm__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return (() => {
-                          const previousUrl = document.referrer;
-                          if (
-                            previousUrl.startsWith(
-                              "https://apps.liom.app/hamyar"
-                            )
-                          ) {
-                            return window.history.back();
-                          } else {
-                            return (window.location.href =
-                              "https://apps.liom.app/hamyar/?r=" +
-                              $ctx.query.r +
-                              "&m=" +
-                              $ctx.query.m);
-                          }
+                          return (window.location.href =
+                            "https://apps.liom.app/hamyar/?r=" +
+                            $ctx.query.r +
+                            "&m=" +
+                            $ctx.query.m);
                         })();
                       }
                     };
@@ -5217,6 +5209,59 @@ function PlasmicBioritm__RenderFunc(props: {
               )}
             >
               {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+            </div>
+          </div>
+          <div
+            aria-pressed={undefined}
+            className={classNames(projectcss.all, sty.freeBox__beErA)}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return (window.location.href =
+                            "https://apps.liom.app/food/?r=" +
+                            $ctx.query.r +
+                            "&m=" +
+                            $ctx.query.m);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          >
+            <PlasmicIcon__
+              PlasmicIconType={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? Icon72Icon
+                  : Icon72Icon
+              }
+              className={classNames(projectcss.all, sty.svg__ga59M)}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__ckkA
+              )}
+            >
+              {"\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"}
             </div>
           </div>
         </Stack__>

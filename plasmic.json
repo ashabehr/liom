@@ -603,6 +603,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicFoodbox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "RNdVvXH9pAWv",
+          "name": "WeekByWeek",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicWeekByWeek.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/week-by-week.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicWeekByWeek.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/week-by-week"
         }
       ],
       "icons": [
@@ -995,6 +1009,36 @@
           "id": "hIAuvrXigDnk",
           "name": "Icon67Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon67.tsx"
+        },
+        {
+          "id": "RQ3PCOwkGyp5",
+          "name": "Icon68Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon68.tsx"
+        },
+        {
+          "id": "bZ238HHG2C95",
+          "name": "Icon69Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon69.tsx"
+        },
+        {
+          "id": "TS2GnNEB_oaZ",
+          "name": "Icon70Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon70.tsx"
+        },
+        {
+          "id": "AuCag434sdiy",
+          "name": "Icon71Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon71.tsx"
+        },
+        {
+          "id": "QcYt9c3IQDGk",
+          "name": "Icon72Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon72.tsx"
+        },
+        {
+          "id": "XKoW755uYxWl",
+          "name": "Icon73Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon73.tsx"
         }
       ],
       "images": [

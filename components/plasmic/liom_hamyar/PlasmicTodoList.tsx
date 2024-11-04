@@ -780,7 +780,7 @@ function PlasmicTodoList__RenderFunc(props: {
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return true;
+                return false;
               }
               throw e;
             }
@@ -885,7 +885,10 @@ function PlasmicTodoList__RenderFunc(props: {
                                   undefined,
                                   (() => {
                                     try {
-                                      return { id: currentItem.id };
+                                      return {
+                                        id: currentItem.id,
+                                        userId: $props.userId
+                                      };
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
