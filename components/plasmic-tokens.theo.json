@@ -2331,6 +2331,16 @@
       }
     },
     {
+      "name": "serface",
+      "type": "color",
+      "value": "#F8EDFF",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "RfhqiwT2YAVo"
+      }
+    },
+    {
       "name": "surface",
       "type": "color",
       "value": "#FFFBFF",

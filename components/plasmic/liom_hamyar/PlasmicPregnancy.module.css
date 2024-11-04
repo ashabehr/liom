@@ -105,6 +105,7 @@
   box-shadow: 0px 4px 16px 0px #12121214;
   flex-wrap: nowrap;
   align-content: stretch;
+  background: #ffffff;
   min-height: 0;
   border-radius: 8px;
   padding: 8px;
@@ -291,6 +292,7 @@
   height: 100%;
   max-width: 100%;
   box-shadow: 0px 4px 16px 0px #12121214;
+  background: #ffffff;
   min-width: 0;
   min-height: 0;
   border-radius: 8px;
@@ -368,6 +370,7 @@
   max-width: 100%;
   box-shadow: 0px 4px 16px 0px #12121214;
   margin-top: 8px;
+  background: #ffffff;
   min-width: 0;
   min-height: 0;
   border-radius: 8px;
