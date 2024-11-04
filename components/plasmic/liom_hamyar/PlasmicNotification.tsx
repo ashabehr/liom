@@ -3698,8 +3698,7 @@ function PlasmicNotification__RenderFunc(props: {
                 ? (() => {
                     try {
                       return {
-                        userId: "101",
-                        appKey: "com.app.example"
+                        userId: $state.userInfo.man.id
                       };
                     } catch (e) {
                       if (

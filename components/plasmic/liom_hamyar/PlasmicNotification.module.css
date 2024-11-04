@@ -39,6 +39,11 @@
 .rootnoNotification > * {
   grid-column: 4;
 }
+@media (max-width: 640px) {
+  .rootnoNotification > * {
+    grid-column: 4;
+  }
+}
 .rootnotification {
   justify-items: center;
   align-content: flex-start;
