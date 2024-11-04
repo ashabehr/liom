@@ -5287,7 +5287,7 @@ function PlasmicFood__RenderFunc(props: {
                     .set("second", 2)
                     .format("YYYY-MM-DD HH:mm:ss")
                     .toString(),
-                  endDate: $$.dayjs().format("YYYY-MM-DD HH:mm:00")
+                  endDate: $$.dayjs().format("YYYY-MM-DD 23:59:00")
                 };
               } catch (e) {
                 if (
@@ -5517,7 +5517,7 @@ function PlasmicFood__RenderFunc(props: {
                     .set("second", 1)
                     .format("YYYY-MM-DD HH:mm:ss")
                     .toString(),
-                  endDate: $$.dayjs().format("YYYY-MM-DD HH:mm:00")
+                  endDate: $$.dayjs().format("YYYY-MM-DD 23:59:00")
                 };
               } catch (e) {
                 if (

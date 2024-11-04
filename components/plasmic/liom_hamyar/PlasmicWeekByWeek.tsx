@@ -439,7 +439,12 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.babySize[$state.selectedWeek - 1].w;
+                            return (
+                              $state.babySize[$state.selectedWeek].w +
+                              ($state.selectedWeek >= 27
+                                ? " کیلوگرم "
+                                : " گرم ")
+                            );
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
