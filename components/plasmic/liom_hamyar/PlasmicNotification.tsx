@@ -161,7 +161,7 @@ function PlasmicNotification__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.apiRequest.data?.[0]?.success === false;
+              return $state.apiRequest.data?.success === false;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -180,7 +180,7 @@ function PlasmicNotification__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return !$state.apiRequest.data?.[0]?.success;
+              return $state.apiRequest.data?.success ?? true;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -3478,7 +3478,7 @@ function PlasmicNotification__RenderFunc(props: {
                           hasVariant($state, "notification", "notification")
                             ? (() => {
                                 try {
-                                  return notifItem.date;
+                                  return notifItem.date.split(" ")[0];
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -3492,7 +3492,20 @@ function PlasmicNotification__RenderFunc(props: {
                               })()
                             : hasVariant(globalVariants, "screen", "mobile")
                             ? ``
-                            : ``
+                            : (() => {
+                                try {
+                                  return notifItem.date.split(" ")[0];
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
                       },
                       {
                         name: "notifBox2[].delet",
