@@ -161,7 +161,7 @@ function PlasmicNotification__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.apiRequest.data[0].id == null;
+              return $state.apiRequest.data?.[0]?.success === false;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -180,7 +180,7 @@ function PlasmicNotification__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.apiRequest.data[0].id != null;
+              return !$state.apiRequest.data?.[0]?.success;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -3026,7 +3026,7 @@ function PlasmicNotification__RenderFunc(props: {
                   const child$Props = {
                     button2: (() => {
                       try {
-                        return notifItem.btnText != null;
+                        return notifItem.btnText != "null";
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -3195,6 +3195,11 @@ function PlasmicNotification__RenderFunc(props: {
                         })()
                       : null,
                     className: classNames("__wab_instance", sty.notifBox2, {
+                      [sty.notifBox2noNotification]: hasVariant(
+                        $state,
+                        "noNotification",
+                        "noNotification"
+                      ),
                       [sty.notifBox2notification]: hasVariant(
                         $state,
                         "notification",
@@ -3274,7 +3279,7 @@ function PlasmicNotification__RenderFunc(props: {
                                   (() => {
                                     try {
                                       return {
-                                        userId: "101",
+                                        userId: $state.userInfo.man.id,
                                         notifId: notifItem.id
                                       };
                                     } catch (e) {
@@ -3569,6 +3574,11 @@ function PlasmicNotification__RenderFunc(props: {
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
             className={classNames("__wab_instance", sty.apiRequest, {
+              [sty.apiRequestnoNotification]: hasVariant(
+                $state,
+                "noNotification",
+                "noNotification"
+              ),
               [sty.apiRequestnotification]: hasVariant(
                 $state,
                 "notification",
@@ -3610,7 +3620,7 @@ function PlasmicNotification__RenderFunc(props: {
                 ? (() => {
                     try {
                       return {
-                        userId: "105"
+                        userId: $state.userInfo.man.id
                       };
                     } catch (e) {
                       if (

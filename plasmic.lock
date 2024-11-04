@@ -28,7 +28,7 @@
         },
         {
           "assetId": "suVPi77vb6vv9K5rYJwyxC",
-          "checksum": "d9c4722c285f455155089503f3f28d0c",
+          "checksum": "c2e8ed21d83ec775537e0f8137d615b5",
           "type": "globalContexts"
         },
         {
@@ -569,12 +569,12 @@
         {
           "type": "renderModule",
           "assetId": "YKiT8gl73-sD",
-          "checksum": "d149700fb79889cb0adfe9e0664c90c3"
+          "checksum": "6aa61f2883621ff97097744d8fa1b250"
         },
         {
           "type": "cssRules",
           "assetId": "YKiT8gl73-sD",
-          "checksum": "d149700fb79889cb0adfe9e0664c90c3"
+          "checksum": "6aa61f2883621ff97097744d8fa1b250"
         },
         {
           "type": "icon",
