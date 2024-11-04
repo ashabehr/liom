@@ -617,6 +617,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/week-by-week"
+        },
+        {
+          "id": "IgINnoB13B8X",
+          "name": "TabWeek",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicTabWeek.tsx",
+          "importSpec": {
+            "modulePath": "TabWeek.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicTabWeek.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

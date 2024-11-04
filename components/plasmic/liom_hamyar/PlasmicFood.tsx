@@ -3421,6 +3421,35 @@ function PlasmicFood__RenderFunc(props: {
                                     "updateButton2Color"
                                   ];
                                 }
+
+                                $steps["updateButton2Color2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        queryInvalidation: [
+                                          "plasmic_refresh_all"
+                                        ]
+                                      };
+                                      return (async ({ queryInvalidation }) => {
+                                        if (!queryInvalidation) {
+                                          return;
+                                        }
+                                        await plasmicInvalidate(
+                                          queryInvalidation
+                                        );
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateButton2Color2"] != null &&
+                                  typeof $steps["updateButton2Color2"] ===
+                                    "object" &&
+                                  typeof $steps["updateButton2Color2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateButton2Color2"] = await $steps[
+                                    "updateButton2Color2"
+                                  ];
+                                }
                               }}
                               onColorChange={(...eventArgs) => {
                                 generateStateOnChangeProp($state, [

@@ -62,6 +62,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -84,7 +86,7 @@ export const PlasmicWeekByWeek__ArgProps = new Array<ArgPropType>();
 export type PlasmicWeekByWeek__OverridesType = {
   root?: Flex__<"div">;
   apiRequest?: Flex__<typeof ApiRequest>;
-  freeBox?: Flex__<"div">;
+  tabWeek?: Flex__<typeof TabWeek>;
 };
 
 export interface DefaultWeekByWeekProps {}
@@ -148,6 +150,12 @@ function PlasmicWeekByWeek__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "selectedWeek",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 1
       }
     ],
     [$props, $ctx, $refs]
@@ -238,23 +246,95 @@ function PlasmicWeekByWeek__RenderFunc(props: {
               }
             })()}
             url={"https://n8n.staas.ir/webhook/info"}
-          />
-
-          <div
-            data-plasmic-name={"freeBox"}
-            data-plasmic-override={overrides.freeBox}
-            className={classNames(projectcss.all, sty.freeBox)}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ogRgq
-              )}
-            >
-              {"Enter some text"}
+            <div className={classNames(projectcss.all, sty.freeBox___9BnK7)}>
+              <div className={classNames(projectcss.all, sty.freeBox__khEUf)}>
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return Array.from(
+                        { length: 40 },
+                        (_, index) => index + 1
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <TabWeek
+                      data-plasmic-name={"tabWeek"}
+                      data-plasmic-override={overrides.tabWeek}
+                      className={classNames("__wab_instance", sty.tabWeek)}
+                      currentItem={currentItem}
+                      key={currentIndex}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateSelectedWeek"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["selectedWeek"]
+                                },
+                                operation: 0,
+                                value: currentItem
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateSelectedWeek"] != null &&
+                          typeof $steps["updateSelectedWeek"] === "object" &&
+                          typeof $steps["updateSelectedWeek"].then ===
+                            "function"
+                        ) {
+                          $steps["updateSelectedWeek"] = await $steps[
+                            "updateSelectedWeek"
+                          ];
+                        }
+                      }}
+                      selected={(() => {
+                        try {
+                          return currentItem == $state.selectedWeek;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          </ApiRequest>
         </div>
       </div>
     </React.Fragment>
@@ -262,9 +342,9 @@ function PlasmicWeekByWeek__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "apiRequest", "freeBox"],
-  apiRequest: ["apiRequest"],
-  freeBox: ["freeBox"]
+  root: ["root", "apiRequest", "tabWeek"],
+  apiRequest: ["apiRequest", "tabWeek"],
+  tabWeek: ["tabWeek"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -272,7 +352,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   apiRequest: typeof ApiRequest;
-  freeBox: "div";
+  tabWeek: typeof TabWeek;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -361,7 +441,7 @@ export const PlasmicWeekByWeek = Object.assign(
   {
     // Helper components rendering sub-elements
     apiRequest: makeNodeComponent("apiRequest"),
-    freeBox: makeNodeComponent("freeBox"),
+    tabWeek: makeNodeComponent("tabWeek"),
 
     // Metadata about props expected for PlasmicWeekByWeek
     internalVariantProps: PlasmicWeekByWeek__VariantProps,
