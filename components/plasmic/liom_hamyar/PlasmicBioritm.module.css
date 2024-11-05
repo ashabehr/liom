@@ -994,10 +994,6 @@
   width: 100px;
   flex-shrink: 0;
 }
-.embedHtml:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
 .slideinModal:global(.__wab_instance) {
   max-width: 100%;
   left: 0;

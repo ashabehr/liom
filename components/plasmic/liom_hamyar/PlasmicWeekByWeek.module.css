@@ -22,6 +22,24 @@
 .root > * {
   grid-column: 4;
 }
+.getInfo:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__nszt0 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text__iO2 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
 .freeBox__qDyNj {
   display: flex;
   flex-direction: column;
@@ -111,7 +129,7 @@
     flex-shrink: 0;
   }
 }
-.img {
+.img__irMrV {
   object-fit: cover;
   max-width: 100%;
   position: absolute;
@@ -121,11 +139,11 @@
   margin: 0px 20px;
   border: 8px solid #8254c64d;
 }
-.img > picture > img {
+.img__irMrV > picture > img {
   object-fit: cover;
 }
 @media (max-width: 640px) {
-  .img {
+  .img__irMrV {
     margin: 0px 10px;
   }
 }
@@ -292,21 +310,146 @@
   text-align: center;
   min-width: 0;
 }
-.apiRequest:global(.__wab_instance) {
+.freeBox__gt682 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
   max-width: 100%;
+  margin-top: 24px;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__krpDp {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 8px;
+}
+.freeBox__krpDp > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: calc(0px - 4px);
+  height: calc(100% + 4px);
+}
+.freeBox__krpDp > :global(.__wab_flex-container) > *,
+.freeBox__krpDp > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__krpDp > :global(.__wab_flex-container) > picture > img,
+.freeBox__krpDp
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 4px;
+}
+.img__gmCe {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img__gmCe > picture > img {
   object-fit: cover;
 }
-.text__nszt0 {
+.text__vsqeh {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  min-width: 0;
+}
+.freeBox__xriI1 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: #ffffff;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-radius: 8px;
+  padding: 8px;
+}
+.freeBox__xriI1 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: calc(0px - 4px);
+  height: calc(100% + 4px);
+}
+.freeBox__xriI1 > :global(.__wab_flex-container) > *,
+.freeBox__xriI1 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__xriI1 > :global(.__wab_flex-container) > picture > img,
+.freeBox__xriI1
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 4px;
+}
+.img__fCWb9 {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img__fCWb9 > picture > img {
+  object-fit: cover;
+}
+.text__dpZt6 {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
   min-width: 0;
 }
-.text__iO2 {
+.freeBox__hjoy3 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 8px;
+}
+.freeBox__hjoy3 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: calc(0px - 4px);
+  height: calc(100% + 4px);
+}
+.freeBox__hjoy3 > :global(.__wab_flex-container) > *,
+.freeBox__hjoy3 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__hjoy3 > :global(.__wab_flex-container) > picture > img,
+.freeBox__hjoy3
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 4px;
+}
+.img__j5OE5 {
+  object-fit: cover;
+  max-width: 100%;
+}
+.img__j5OE5 > picture > img {
+  object-fit: cover;
+}
+.text__rV3MI {
   position: relative;
   width: 100%;
   height: auto;
   max-width: 100%;
+  text-align: center;
   min-width: 0;
 }

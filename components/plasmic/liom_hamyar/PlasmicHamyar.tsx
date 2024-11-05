@@ -79,12 +79,12 @@ import Subscription from "../../Subscription"; // plasmic-import: RkqUeSl2AMb8/c
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { AntdTooltip } from "@plasmicpkgs/antd5/skinny/registerTooltip";
 import Heart from "../../Heart"; // plasmic-import: OuOhJXUpgiRr/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -162,6 +162,7 @@ export type PlasmicHamyar__OverridesType = {
   favicon?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   advice?: Flex__<typeof ApiRequest>;
+  embedHtml?: Flex__<typeof Embed>;
   countNotif?: Flex__<typeof ApiRequest>;
 };
 
@@ -6206,13 +6207,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   ) : null}
                 </div>
               </Stack__>
-              <Embed
-                className={classNames("__wab_instance", sty.embedHtml__uGsI4)}
-                code={
-                  "    <script>\r\n        String.prototype.EntoFa = function() {\r\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\r\n        }\r\n        function convertNumbersInPage() {\r\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\r\n            elements.forEach(element => {\r\n                element.childNodes.forEach(node => {\r\n                    if (node.nodeType === Node.TEXT_NODE) {\r\n                        node.nodeValue = node.nodeValue.EntoFa();\r\n                    }\r\n                });\r\n            });\r\n        }\r\n    setTimeout(convertNumbersInPage, 1000);\r\n    </script>"
-                }
-              />
-
               <SlideinModal
                 data-plasmic-name={"shopModalMobile"}
                 data-plasmic-override={overrides.shopModalMobile}
@@ -11590,7 +11584,9 @@ function PlasmicHamyar__RenderFunc(props: {
             </div>
           </Stack__>
           <Embed
-            className={classNames("__wab_instance", sty.embedHtml__mj9Yt)}
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
             code={
               "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
             }
@@ -11673,6 +11669,7 @@ const PlasmicDescendants = {
     "favicon",
     "pullToRefresh",
     "advice",
+    "embedHtml",
     "countNotif"
   ],
   nofiticon: ["nofiticon"],
@@ -11710,6 +11707,7 @@ const PlasmicDescendants = {
   favicon: ["favicon"],
   pullToRefresh: ["pullToRefresh"],
   advice: ["advice"],
+  embedHtml: ["embedHtml"],
   countNotif: ["countNotif"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -11752,6 +11750,7 @@ type NodeDefaultElementType = {
   favicon: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
   advice: typeof ApiRequest;
+  embedHtml: typeof Embed;
   countNotif: typeof ApiRequest;
 };
 
@@ -11875,6 +11874,7 @@ export const PlasmicHamyar = Object.assign(
     favicon: makeNodeComponent("favicon"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     advice: makeNodeComponent("advice"),
+    embedHtml: makeNodeComponent("embedHtml"),
     countNotif: makeNodeComponent("countNotif"),
 
     // Metadata about props expected for PlasmicHamyar

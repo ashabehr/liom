@@ -64,11 +64,11 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -112,7 +112,6 @@ export type PlasmicBioritm__OverridesType = {
   ul?: Flex__<"ul">;
   li?: Flex__<"li">;
   lottie?: Flex__<typeof LottieWrapper>;
-  embedHtml?: Flex__<typeof Embed>;
   slideinModal?: Flex__<typeof SlideinModal>;
   slideinModal2?: Flex__<typeof SlideinModal>;
   datePickers2?: Flex__<typeof DatePickers>;
@@ -3997,15 +3996,6 @@ function PlasmicBioritm__RenderFunc(props: {
               ) : null}
             </div>
           </div>
-          <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
-            code={
-              "    <script>\r\n        // \u0627\u0641\u0632\u0648\u062f\u0646 \u062a\u0627\u0628\u0639 \u0628\u0647 String.prototype\r\n        String.prototype.EntoFa = function() {\r\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\r\n        }\r\n        // \u062a\u0627\u0628\u0639 \u0628\u0631\u0627\u06cc \u062a\u0628\u062f\u06cc\u0644 \u0627\u0639\u062f\u0627\u062f \u062f\u0631 \u062a\u0645\u0627\u0645\u06cc \u0645\u062a\u0646\u200c\u0647\u0627\u06cc \u0635\u0641\u062d\u0647\r\n        function convertNumbersInPage() {\r\n                        console.log(\"hiiii\");\r\n\r\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\r\n            elements.forEach(element => {\r\n                element.childNodes.forEach(node => {\r\n                    if (node.nodeType === Node.TEXT_NODE) {\r\n                        node.nodeValue = node.nodeValue.EntoFa();\r\n                    }\r\n                });\r\n            });\r\n        }\r\n\r\n    setTimeout(convertNumbersInPage, 1000);\r\n    </script>"
-            }
-          />
-
           <SlideinModal
             data-plasmic-name={"slideinModal"}
             data-plasmic-override={overrides.slideinModal}
@@ -5288,7 +5278,6 @@ const PlasmicDescendants = {
     "ul",
     "li",
     "lottie",
-    "embedHtml",
     "slideinModal",
     "slideinModal2",
     "datePickers2",
@@ -5306,7 +5295,6 @@ const PlasmicDescendants = {
   ul: ["ul", "li"],
   li: ["li"],
   lottie: ["lottie"],
-  embedHtml: ["embedHtml"],
   slideinModal: ["slideinModal"],
   slideinModal2: ["slideinModal2", "datePickers2", "button5"],
   datePickers2: ["datePickers2"],
@@ -5329,7 +5317,6 @@ type NodeDefaultElementType = {
   ul: "ul";
   li: "li";
   lottie: typeof LottieWrapper;
-  embedHtml: typeof Embed;
   slideinModal: typeof SlideinModal;
   slideinModal2: typeof SlideinModal;
   datePickers2: typeof DatePickers;
@@ -5433,7 +5420,6 @@ export const PlasmicBioritm = Object.assign(
     ul: makeNodeComponent("ul"),
     li: makeNodeComponent("li"),
     lottie: makeNodeComponent("lottie"),
-    embedHtml: makeNodeComponent("embedHtml"),
     slideinModal: makeNodeComponent("slideinModal"),
     slideinModal2: makeNodeComponent("slideinModal2"),
     datePickers2: makeNodeComponent("datePickers2"),

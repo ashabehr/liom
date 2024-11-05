@@ -61,8 +61,8 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -87,9 +87,8 @@ export const PlasmicWeekByWeek__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicWeekByWeek__OverridesType = {
   root?: Flex__<"div">;
+  getInfo?: Flex__<typeof ApiRequest>;
   tabWeek?: Flex__<typeof TabWeek>;
-  img?: Flex__<typeof PlasmicImg__>;
-  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultWeekByWeekProps {}
@@ -137,19 +136,19 @@ function PlasmicWeekByWeek__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "apiRequest.data",
+        path: "getInfo.data",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "apiRequest.error",
+        path: "getInfo.error",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "apiRequest.loading",
+        path: "getInfo.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -158,7 +157,20 @@ function PlasmicWeekByWeek__RenderFunc(props: {
         path: "selectedWeek",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getInfo.data[0].result.weeksPregnant + 1;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 1;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "babySize",
@@ -266,272 +278,10 @@ function PlasmicWeekByWeek__RenderFunc(props: {
             sty.root
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__qDyNj)}>
-            <div className={classNames(projectcss.all, sty.freeBox___9BnK7)}>
-              <div className={classNames(projectcss.all, sty.freeBox__khEUf)}>
-                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                  (() => {
-                    try {
-                      return Array.from(
-                        { length: 40 },
-                        (_, index) => index + 1
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()
-                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                  const currentItem = __plasmic_item_0;
-                  const currentIndex = __plasmic_idx_0;
-                  return (
-                    <TabWeek
-                      data-plasmic-name={"tabWeek"}
-                      data-plasmic-override={overrides.tabWeek}
-                      className={classNames("__wab_instance", sty.tabWeek)}
-                      currentItem={currentItem}
-                      key={currentIndex}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["updateSelectedWeek"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["selectedWeek"]
-                                },
-                                operation: 0,
-                                value: currentItem
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateSelectedWeek"] != null &&
-                          typeof $steps["updateSelectedWeek"] === "object" &&
-                          typeof $steps["updateSelectedWeek"].then ===
-                            "function"
-                        ) {
-                          $steps["updateSelectedWeek"] = await $steps[
-                            "updateSelectedWeek"
-                          ];
-                        }
-                      }}
-                      selected={(() => {
-                        try {
-                          return currentItem == $state.selectedWeek;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
-                    />
-                  );
-                })}
-              </div>
-            </div>
-            <div className={classNames(projectcss.all, sty.freeBox__p84Rg)}>
-              <div className={classNames(projectcss.all, sty.freeBox__r6HVe)}>
-                <div className={classNames(projectcss.all, sty.freeBox__uySe8)}>
-                  <PlasmicImg__
-                    data-plasmic-name={"img"}
-                    data-plasmic-override={overrides.img}
-                    alt={""}
-                    className={classNames(sty.img)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    height={"170"}
-                    loading={"lazy"}
-                    src={(() => {
-                      try {
-                        return (() => {
-                          var week;
-                          if ($state.selectedWeek < 10)
-                            week = "0" + $state.selectedWeek;
-                          else week = "" + $state.selectedWeek;
-                          return (
-                            "https://liom.storage.c2.liara.space/config/pregnancy/week" +
-                            week +
-                            ".png"
-                          );
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    width={
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? "160"
-                        : "170"
-                    }
-                  />
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__qlqYc)}>
-                {(() => {
-                  try {
-                    return true;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__gtrCt)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___3Aqi
-                      )}
-                    >
-                      {"\u0648\u0632\u0646"}
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__o6Jcb
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (
-                              $state.babySize[$state.selectedWeek].w +
-                              ($state.selectedWeek >= 27
-                                ? " کیلوگرم "
-                                : " گرم ")
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                  </Stack__>
-                ) : null}
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__tSlBm)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__pmB
-                    )}
-                  >
-                    {"\u0627\u0646\u062f\u0627\u0632\u0647"}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__gPoKb
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return (
-                            $state.babySize[$state.selectedWeek - 1].h +
-                            " سانتی متر "
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__q9GLq)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__frIaN
-                    )}
-                  >
-                    {"\u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646"}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zr2Df
-                    )}
-                  >
-                    {"Enter some text"}
-                  </div>
-                </Stack__>
-              </div>
-            </div>
-          </div>
           <ApiRequest
-            data-plasmic-name={"apiRequest"}
-            data-plasmic-override={overrides.apiRequest}
-            children={null}
-            className={classNames("__wab_instance", sty.apiRequest)}
+            data-plasmic-name={"getInfo"}
+            data-plasmic-override={overrides.getInfo}
+            className={classNames("__wab_instance", sty.getInfo)}
             errorDisplay={
               <div
                 className={classNames(
@@ -555,15 +305,12 @@ function PlasmicWeekByWeek__RenderFunc(props: {
               </div>
             }
             method={"GET"}
-            onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
+            onError={generateStateOnChangeProp($state, ["getInfo", "error"])}
             onLoading={generateStateOnChangeProp($state, [
-              "apiRequest",
+              "getInfo",
               "loading"
             ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "apiRequest",
-              "data"
-            ])}
+            onSuccess={generateStateOnChangeProp($state, ["getInfo", "data"])}
             params={(() => {
               try {
                 return {
@@ -580,7 +327,379 @@ function PlasmicWeekByWeek__RenderFunc(props: {
               }
             })()}
             url={"https://n8n.staas.ir/webhook/info"}
-          />
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__qDyNj)}>
+              <div className={classNames(projectcss.all, sty.freeBox___9BnK7)}>
+                <div className={classNames(projectcss.all, sty.freeBox__khEUf)}>
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return Array.from(
+                          { length: 40 },
+                          (_, index) => index + 1
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <TabWeek
+                        data-plasmic-name={"tabWeek"}
+                        data-plasmic-override={overrides.tabWeek}
+                        className={classNames("__wab_instance", sty.tabWeek)}
+                        currentItem={currentItem}
+                        key={currentIndex}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateSelectedWeek"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["selectedWeek"]
+                                  },
+                                  operation: 0,
+                                  value: currentItem
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateSelectedWeek"] != null &&
+                            typeof $steps["updateSelectedWeek"] === "object" &&
+                            typeof $steps["updateSelectedWeek"].then ===
+                              "function"
+                          ) {
+                            $steps["updateSelectedWeek"] = await $steps[
+                              "updateSelectedWeek"
+                            ];
+                          }
+                        }}
+                        selected={(() => {
+                          try {
+                            return currentItem == $state.selectedWeek;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__p84Rg)}>
+                <div className={classNames(projectcss.all, sty.freeBox__r6HVe)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__uySe8)}
+                  >
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__irMrV)}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"auto"}
+                      height={"170"}
+                      loading={"lazy"}
+                      src={(() => {
+                        try {
+                          return (() => {
+                            var week;
+                            if ($state.selectedWeek < 10)
+                              week = "0" + $state.selectedWeek;
+                            else week = "" + $state.selectedWeek;
+                            return (
+                              "https://liom.storage.c2.liara.space/config/pregnancy/week" +
+                              week +
+                              ".png"
+                            );
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      width={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "160"
+                          : "170"
+                      }
+                    />
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__qlqYc)}>
+                  {(() => {
+                    try {
+                      return true;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })() ? (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__gtrCt)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___3Aqi
+                        )}
+                      >
+                        {"\u0648\u0632\u0646"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__o6Jcb
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                $state.babySize[$state.selectedWeek].w +
+                                ($state.selectedWeek >= 27
+                                  ? " کیلوگرم "
+                                  : " گرم ")
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </Stack__>
+                  ) : null}
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__tSlBm)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pmB
+                      )}
+                    >
+                      {"\u0627\u0646\u062f\u0627\u0632\u0647"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__gPoKb
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              $state.babySize[$state.selectedWeek - 1].h +
+                              " سانتی متر "
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__q9GLq)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__frIaN
+                      )}
+                    >
+                      {"\u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zr2Df
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (() => {
+                              if (
+                                $state.selectedWeek ==
+                                $state.getInfo.data[0].result.weeksPregnant + 1
+                              )
+                                return $state.getInfo.data[0].result
+                                  .daysPregnant;
+                              else return "--";
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                  </Stack__>
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__gt682)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__krpDp)}
+                >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__gmCe)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    loading={"lazy"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__vsqeh
+                    )}
+                  >
+                    {"\u0633\u0627\u06cc\u0632 \u062c\u0646\u06cc\u0646"}
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__xriI1)}
+                >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__fCWb9)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    loading={"lazy"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__dpZt6
+                    )}
+                  >
+                    {
+                      "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647\u061f"
+                    }
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__hjoy3)}
+                >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__j5OE5)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    loading={"lazy"}
+                    src={
+                      "https://site-assets.plasmic.app/cb731cf766e9363bb5d979639af237e5.svg"
+                    }
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__rV3MI
+                    )}
+                  >
+                    {"\u062e\u0627\u0637\u0631\u0627\u062a \u0645\u0646"}
+                  </div>
+                </Stack__>
+              </div>
+            </div>
+          </ApiRequest>
         </div>
       </div>
     </React.Fragment>
@@ -588,19 +707,17 @@ function PlasmicWeekByWeek__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "tabWeek", "img", "apiRequest"],
-  tabWeek: ["tabWeek"],
-  img: ["img"],
-  apiRequest: ["apiRequest"]
+  root: ["root", "getInfo", "tabWeek"],
+  getInfo: ["getInfo", "tabWeek"],
+  tabWeek: ["tabWeek"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  getInfo: typeof ApiRequest;
   tabWeek: typeof TabWeek;
-  img: typeof PlasmicImg__;
-  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -688,9 +805,8 @@ export const PlasmicWeekByWeek = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    getInfo: makeNodeComponent("getInfo"),
     tabWeek: makeNodeComponent("tabWeek"),
-    img: makeNodeComponent("img"),
-    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicWeekByWeek
     internalVariantProps: PlasmicWeekByWeek__VariantProps,

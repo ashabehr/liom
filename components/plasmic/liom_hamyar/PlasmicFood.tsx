@@ -79,6 +79,7 @@ import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -139,6 +140,7 @@ export type PlasmicFood__OverridesType = {
   previousWeek?: Flex__<typeof ApiRequest>;
   foodinfo?: Flex__<typeof ApiRequest>;
   modal3?: Flex__<typeof AntdModal>;
+  favicon?: Flex__<typeof Embed>;
 };
 
 export interface DefaultFoodProps {}
@@ -8339,6 +8341,16 @@ function PlasmicFood__RenderFunc(props: {
               ) : null}
             </div>
           ) : null}
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -8368,7 +8380,8 @@ const PlasmicDescendants = {
     "weeknow",
     "previousWeek",
     "foodinfo",
-    "modal3"
+    "modal3",
+    "favicon"
   ],
   foodbox: ["foodbox"],
   modal: ["modal", "input", "tick", "button4"],
@@ -8399,7 +8412,8 @@ const PlasmicDescendants = {
   weeknow: ["weeknow"],
   previousWeek: ["previousWeek"],
   foodinfo: ["foodinfo"],
-  modal3: ["modal3"]
+  modal3: ["modal3"],
+  favicon: ["favicon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -8427,6 +8441,7 @@ type NodeDefaultElementType = {
   previousWeek: typeof ApiRequest;
   foodinfo: typeof ApiRequest;
   modal3: typeof AntdModal;
+  favicon: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -8535,6 +8550,7 @@ export const PlasmicFood = Object.assign(
     previousWeek: makeNodeComponent("previousWeek"),
     foodinfo: makeNodeComponent("foodinfo"),
     modal3: makeNodeComponent("modal3"),
+    favicon: makeNodeComponent("favicon"),
 
     // Metadata about props expected for PlasmicFood
     internalVariantProps: PlasmicFood__VariantProps,
