@@ -1707,185 +1707,14 @@ function PlasmicBioritm__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-              <div
-                className={classNames(projectcss.all, sty.freeBox__dVa5C, {
-                  [sty.freeBoxferstTimepage__dVa5CSTpN]: hasVariant(
-                    $state,
-                    "ferstTimepage",
-                    "ferstTimepage"
-                  )
-                })}
-              >
-                {(
-                  hasVariant($state, "ferstTimepage", "ferstTimepage")
-                    ? true
-                    : (() => {
-                        try {
-                          return !$state.biorhythm.loading;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })()
-                ) ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__hQlBr,
-                      {
-                        [sty.textferstTimepage__hQlBrSTpN]: hasVariant(
-                          $state,
-                          "ferstTimepage",
-                          "ferstTimepage"
-                        )
-                      }
-                    )}
-                  >
-                    {hasVariant(globalVariants, "screen", "mobile") ? (
-                      <div
-                        className={projectcss.__wab_expr_html_text}
-                        dangerouslySetInnerHTML={{
-                          __html: (() => {
-                            try {
-                              return (() => {
-                                if (!isNaN($state.birthday.year)) {
-                                  return (
-                                    'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
-                                    $state.birthday2.year +
-                                    "/" +
-                                    $state.birthday2.month +
-                                    "/" +
-                                    $state.birthday2.day +
-                                    "</b> محاسبه شده است."
-                                  );
-                                } else {
-                                  return "";
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()
-                        }}
-                      />
-                    ) : (
-                      <div
-                        className={projectcss.__wab_expr_html_text}
-                        dangerouslySetInnerHTML={{
-                          __html: (() => {
-                            try {
-                              return (() => {
-                                if (!isNaN($state.birthday2.year)) {
-                                  return (
-                                    'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
-                                    $state.birthday2.year +
-                                    "/" +
-                                    $state.birthday2.month +
-                                    "/" +
-                                    $state.birthday2.day +
-                                    "</b> محاسبه شده است."
-                                  );
-                                } else {
-                                  return "";
-                                }
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "--";
-                              }
-                              throw e;
-                            }
-                          })()
-                        }}
-                      />
-                    )}
-                  </div>
-                ) : null}
-                {(
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? (() => {
-                        try {
-                          return $state.biorhythm.loading;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })()
-                    : (() => {
-                        try {
-                          return $state.biorhythm.loading;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })()
-                ) ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__tBxvZ,
-                      {
-                        [sty.textferstTimepage__tBxvZSTpN]: hasVariant(
-                          $state,
-                          "ferstTimepage",
-                          "ferstTimepage"
-                        )
-                      }
-                    )}
-                  >
-                    <div
-                      className={projectcss.__wab_expr_html_text}
-                      dangerouslySetInnerHTML={{
-                        __html: (() => {
-                          try {
-                            return "در حال دریافت اطلاعات از سرور ...";
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "--";
-                            }
-                            throw e;
-                          }
-                        })()
-                      }}
-                    />
-                  </div>
-                ) : null}
-              </div>
               <Stack__
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__dNZkX)}
               >
-                <div
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.freeBox__ptoE6,
@@ -1996,8 +1825,10 @@ function PlasmicBioritm__RenderFunc(props: {
                     })()}
                     type={"line"}
                   />
-                </div>
-                <div
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.freeBox__ym8Im,
@@ -2094,8 +1925,10 @@ function PlasmicBioritm__RenderFunc(props: {
                     })()}
                     type={"line"}
                   />
-                </div>
-                <div
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
                   className={classNames(
                     projectcss.all,
                     sty.freeBox__qEiJv,
@@ -2207,7 +2040,7 @@ function PlasmicBioritm__RenderFunc(props: {
                     })()}
                     type={"line"}
                   />
-                </div>
+                </Stack__>
               </Stack__>
             </Stack__>
           ) : null}
