@@ -1261,6 +1261,7 @@
     top: auto;
     font-size: 12px;
     font-weight: 500;
+    align-self: auto;
   }
 }
 .text__cchpF {
@@ -1566,6 +1567,7 @@
     top: auto;
     font-size: 12px;
     font-weight: 500;
+    align-self: auto;
   }
 }
 .text__yEFtf {

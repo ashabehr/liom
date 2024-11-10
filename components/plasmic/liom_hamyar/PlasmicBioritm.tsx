@@ -60,6 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -597,6 +602,8 @@ function PlasmicBioritm__RenderFunc(props: {
     $queries: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6BytLjmha8VC()
@@ -1558,6 +1565,28 @@ function PlasmicBioritm__RenderFunc(props: {
                         "invokeGlobalAction"
                       ];
                     }
+
+                    $steps["refreshData"] =
+                      $state.userInfo.user?.biorhythm?.emotional !== undefined
+                        ? (() => {
+                            const actionArgs = {
+                              queryInvalidation: ["plasmic_refresh_all"]
+                            };
+                            return (async ({ queryInvalidation }) => {
+                              if (!queryInvalidation) {
+                                return;
+                              }
+                              await plasmicInvalidate(queryInvalidation);
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["refreshData"] != null &&
+                      typeof $steps["refreshData"] === "object" &&
+                      typeof $steps["refreshData"].then === "function"
+                    ) {
+                      $steps["refreshData"] = await $steps["refreshData"];
+                    }
                   }}
                 >
                   <Icon101Icon
@@ -1728,11 +1757,11 @@ function PlasmicBioritm__RenderFunc(props: {
                                 if (!isNaN($state.birthday.year)) {
                                   return (
                                     'این بیوریتم بر اساس تاریخ تولد <b style="color: #8254C6;">' +
-                                    $state.birthday.year +
+                                    $state.birthday2.year +
                                     "/" +
-                                    $state.birthday.month +
+                                    $state.birthday2.month +
                                     "/" +
-                                    $state.birthday.day +
+                                    $state.birthday2.day +
                                     "</b> محاسبه شده است."
                                   );
                                 } else {
@@ -2129,7 +2158,7 @@ function PlasmicBioritm__RenderFunc(props: {
                         ? (() => {
                             try {
                               return Math.abs(
-                                $state.biorhythm.data.result.emotional
+                                $state.userInfo.user.biorhythm.emotional
                               );
                             } catch (e) {
                               if (
