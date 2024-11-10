@@ -2792,6 +2792,21 @@
       ],
       "customFunctions": [],
       "jsBundleThemes": []
+    },
+    {
+      "projectId": "k6BnBuAUepzRX8Qs2WvkKs",
+      "projectApiToken": "1IHtphNKS6GGn3MNsez8NOlUZOc7diWRFES7RpYSY0TaI1LjT7i4vaz9QTjgncxXRUsqlyHtKBMa8Fe6Q",
+      "projectName": "axios",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/axios/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [],
+      "customFunctions": []
     }
   ],
   "globalVariants": {

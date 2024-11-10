@@ -66,6 +66,7 @@ import Massage from "../../Massage"; // plasmic-import: Bqqk_Gx32qFA/component
 import Seen from "../../Seen"; // plasmic-import: JqwoohhEEPXm/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -104,6 +105,7 @@ export type PlasmicNewPage2__OverridesType = {
   seen?: Flex__<typeof Seen>;
   bottomInput?: Flex__<"div">;
   textArea?: Flex__<typeof AntdTextArea>;
+  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultNewPage2Props {}
@@ -568,7 +570,57 @@ function PlasmicNewPage2__RenderFunc(props: {
               })()}
               <Icon93Icon
                 className={classNames(projectcss.all, sty.svg__n0Gzt)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              const fileInput =
+                                document.getElementById("fileInput");
+                              fileInput.click();
+                              return fileInput.addEventListener(
+                                "change",
+                                event => {
+                                  const file = event.target.files[0];
+                                  if (file && file.type.startsWith("image/")) {
+                                    alert(`فایل انتخاب شده: ${file.name}`);
+                                  } else {
+                                    alert(
+                                      "لطفاً فقط فایل‌های تصویری انتخاب کنید!"
+                                    );
+                                    fileInput.value = "";
+                                  }
+                                }
+                              );
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
                 role={"img"}
+              />
+
+              <Embed
+                data-plasmic-name={"embedHtml"}
+                data-plasmic-override={overrides.embedHtml}
+                className={classNames("__wab_instance", sty.embedHtml)}
+                code={
+                  '<input type="file" id="fileInput" accept=".jpg, .jpeg, .png">'
+                }
               />
             </Stack__>
           </div>
@@ -589,7 +641,8 @@ const PlasmicDescendants = {
     "helloDoctorIBel",
     "seen",
     "bottomInput",
-    "textArea"
+    "textArea",
+    "embedHtml"
   ],
   chat: [
     "chat",
@@ -600,7 +653,8 @@ const PlasmicDescendants = {
     "helloDoctorIBel",
     "seen",
     "bottomInput",
-    "textArea"
+    "textArea",
+    "embedHtml"
   ],
   top: ["top", "image", "img"],
   image: ["image", "img"],
@@ -608,8 +662,9 @@ const PlasmicDescendants = {
   massage: ["massage", "helloDoctorIBel", "seen"],
   helloDoctorIBel: ["helloDoctorIBel"],
   seen: ["seen"],
-  bottomInput: ["bottomInput", "textArea"],
-  textArea: ["textArea"]
+  bottomInput: ["bottomInput", "textArea", "embedHtml"],
+  textArea: ["textArea"],
+  embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -625,6 +680,7 @@ type NodeDefaultElementType = {
   seen: typeof Seen;
   bottomInput: "div";
   textArea: typeof AntdTextArea;
+  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -721,6 +777,7 @@ export const PlasmicNewPage2 = Object.assign(
     seen: makeNodeComponent("seen"),
     bottomInput: makeNodeComponent("bottomInput"),
     textArea: makeNodeComponent("textArea"),
+    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicNewPage2
     internalVariantProps: PlasmicNewPage2__VariantProps,
