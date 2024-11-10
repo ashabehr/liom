@@ -1784,47 +1784,53 @@ function PlasmicBioritm__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                  <AntdProgress
-                    className={classNames(
-                      "__wab_instance",
-                      sty.progress__uGHfW
-                    )}
-                    percent={(() => {
-                      try {
-                        return Math.abs(
-                          $state.userInfo.user.biorhythm.intellectual
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return 0;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    strokeColor={(() => {
-                      try {
-                        return (() => {
-                          if ($state.userInfo.user.biorhythm.intellectual > 0) {
-                            return "#00C3712A";
-                          } else {
-                            return "#EB464A2a";
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__mChhV)}
+                  >
+                    <AntdProgress
+                      className={classNames(
+                        "__wab_instance",
+                        sty.progress__uGHfW
+                      )}
+                      percent={(() => {
+                        try {
+                          return Math.abs(
+                            $state.userInfo.user.biorhythm.intellectual
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return 0;
                           }
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                    type={"line"}
-                  />
+                      })()}
+                      strokeColor={(() => {
+                        try {
+                          return (() => {
+                            if (
+                              $state.userInfo.user.biorhythm.intellectual > 0
+                            ) {
+                              return "#00C3712A";
+                            } else {
+                              return "#EB464A2a";
+                            }
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      type={"line"}
+                    />
+                  </div>
                 </Stack__>
                 <Stack__
                   as={"div"}
@@ -1884,47 +1890,51 @@ function PlasmicBioritm__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                  <AntdProgress
-                    className={classNames(
-                      "__wab_instance",
-                      sty.progress__sdVpm
-                    )}
-                    percent={(() => {
-                      try {
-                        return Math.abs(
-                          $state.userInfo.user.biorhythm.physical
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return 0;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    strokeColor={(() => {
-                      try {
-                        return (() => {
-                          if ($state.userInfo.user.biorhythm.physical > 0) {
-                            return "#00C3712A";
-                          } else {
-                            return "#EB464A2A";
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__zwv9)}
+                  >
+                    <AntdProgress
+                      className={classNames(
+                        "__wab_instance",
+                        sty.progress__sdVpm
+                      )}
+                      percent={(() => {
+                        try {
+                          return Math.abs(
+                            $state.userInfo.user.biorhythm.physical
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return 0;
                           }
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
+                          throw e;
                         }
-                        throw e;
-                      }
-                    })()}
-                    type={"line"}
-                  />
+                      })()}
+                      strokeColor={(() => {
+                        try {
+                          return (() => {
+                            if ($state.userInfo.user.biorhythm.physical > 0) {
+                              return "#00C3712A";
+                            } else {
+                              return "#EB464A2A";
+                            }
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      type={"line"}
+                    />
+                  </div>
                 </Stack__>
                 <Stack__
                   as={"div"}
