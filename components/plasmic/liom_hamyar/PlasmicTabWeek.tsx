@@ -70,13 +70,19 @@ createPlasmicElementProxy;
 
 export type PlasmicTabWeek__VariantMembers = {
   selected: "selected";
+  dark: "dark";
+  darkSelected: "darkSelected";
 };
 export type PlasmicTabWeek__VariantsArgs = {
   selected?: SingleBooleanChoiceArg<"selected">;
+  dark?: SingleBooleanChoiceArg<"dark">;
+  darkSelected?: SingleBooleanChoiceArg<"darkSelected">;
 };
 type VariantPropType = keyof PlasmicTabWeek__VariantsArgs;
 export const PlasmicTabWeek__VariantProps = new Array<VariantPropType>(
-  "selected"
+  "selected",
+  "dark",
+  "darkSelected"
 );
 
 export type PlasmicTabWeek__ArgsType = {
@@ -97,6 +103,8 @@ export interface DefaultTabWeekProps {
   currentItem?: any;
   onClick?: (event: any) => void;
   selected?: SingleBooleanChoiceArg<"selected">;
+  dark?: SingleBooleanChoiceArg<"dark">;
+  darkSelected?: SingleBooleanChoiceArg<"darkSelected">;
   className?: string;
 }
 
@@ -147,6 +155,18 @@ function PlasmicTabWeek__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.selected
+      },
+      {
+        path: "dark",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.dark
+      },
+      {
+        path: "darkSelected",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.darkSelected
       }
     ],
     [$props, $ctx, $refs]
@@ -173,7 +193,15 @@ function PlasmicTabWeek__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
-        { [sty.rootselected]: hasVariant($state, "selected", "selected") }
+        {
+          [sty.rootdarkSelected]: hasVariant(
+            $state,
+            "darkSelected",
+            "darkSelected"
+          ),
+          [sty.rootdark]: hasVariant($state, "dark", "dark"),
+          [sty.rootselected]: hasVariant($state, "selected", "selected")
+        }
       )}
       onClick={args.onClick}
     >
@@ -183,6 +211,12 @@ function PlasmicTabWeek__RenderFunc(props: {
           projectcss.__wab_text,
           sty.text__cIwtp,
           {
+            [sty.textdarkSelected__cIwtPcPpzb]: hasVariant(
+              $state,
+              "darkSelected",
+              "darkSelected"
+            ),
+            [sty.textdark__cIwtpeZSc]: hasVariant($state, "dark", "dark"),
             [sty.textselected__cIwtPpVhC]: hasVariant(
               $state,
               "selected",
@@ -199,6 +233,12 @@ function PlasmicTabWeek__RenderFunc(props: {
           projectcss.__wab_text,
           sty.text__eo2BK,
           {
+            [sty.textdarkSelected__eo2BKcPpzb]: hasVariant(
+              $state,
+              "darkSelected",
+              "darkSelected"
+            ),
+            [sty.textdark__eo2BKeZSc]: hasVariant($state, "dark", "dark"),
             [sty.textselected__eo2BKpVhC]: hasVariant(
               $state,
               "selected",

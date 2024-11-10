@@ -2154,6 +2154,31 @@ function PlasmicHamyar__RenderFunc(props: {
                       "cyclebox",
                       "fertility"
                     ])}
+                    normalpms={(() => {
+                      try {
+                        return (() => {
+                          let future1 = new Date(
+                            $state.user.data.result.userStatus.pmsStart
+                          );
+                          let current_date1 = new Date();
+                          let delta1 = future1 - current_date1;
+                          let days_remaining1 = Math.floor(
+                            delta1 / (1000 * 60 * 60 * 24)
+                          );
+                          if ($state.cyclebox.cycle == "white")
+                            if (days_remaining1 < 3) return true;
+                          return false;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     onClickDescription={async event => {
                       const $steps = {};
 

@@ -56,6 +56,9 @@
     align-items: center;
   }
 }
+.rootnormalpms {
+  background: var(--token-G-IZ_XhVdlqp);
+}
 .freeBox__dhejs {
   display: flex;
   flex-direction: column;
@@ -185,6 +188,10 @@
   width: 100%;
   min-width: 0;
 }
+.freeBoxnormalpms___66Lnmu3BKb {
+  width: 100%;
+  min-width: 0;
+}
 .img {
   object-fit: cover;
   max-width: 100%;
@@ -211,6 +218,9 @@
   display: none !important;
 }
 .imgperiod {
+  display: none !important;
+}
+.imgnormalpms {
   display: none !important;
 }
 .freeBox__nCGi {
@@ -287,6 +297,26 @@
     min-width: 0;
   }
 }
+.freeBoxnormalpms__nCGIu3BKb {
+  width: 100%;
+  height: 180px;
+  max-width: 100%;
+  background: #ffffff26;
+  box-shadow: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 12px;
+  padding: 8px;
+  border: 5px solid #0000000d;
+}
+@media (max-width: 640px) {
+  .freeBoxnormalpms__nCGIu3BKb {
+    height: 100%;
+    min-height: 0;
+  }
+}
 .text__srBvc {
   position: relative;
   width: 100%;
@@ -322,6 +352,16 @@
     font-size: 10px;
   }
 }
+.textnormalpms__srBvcu3BKb {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  font-size: 22px;
+  color: var(--token-jgohepLVeKvh);
+  text-align: center;
+  min-width: 0;
+  display: none;
+}
 .text__r4Hpw {
   position: relative;
   width: 100%;
@@ -356,6 +396,54 @@
 }
 @media (max-width: 640px) {
   .textperiod__r4Hpw6AdLd {
+    font-size: 14px;
+  }
+}
+.textnormalpms__r4HpWu3BKb {
+  display: none;
+}
+.lottie:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.lottiepms:global(.__wab_instance) {
+  display: none;
+}
+.lottiefertility:global(.__wab_instance) {
+  display: none;
+}
+.lottieperiod:global(.__wab_instance) {
+  display: none;
+}
+@media (max-width: 640px) {
+  .lottienormalpms:global(.__wab_instance) {
+    width: 50px;
+  }
+}
+.text__l0DjV {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.textpms__l0DjVsscqc {
+  display: none;
+}
+.textfertility__l0DjVvlklK {
+  display: none;
+}
+.textperiod__l0DjV6AdLd {
+  display: none;
+}
+.textnormalpms__l0DjVu3BKb {
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+}
+@media (max-width: 640px) {
+  .textnormalpms__l0DjVu3BKb {
     font-size: 14px;
   }
 }

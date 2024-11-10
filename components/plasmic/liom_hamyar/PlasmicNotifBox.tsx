@@ -512,7 +512,10 @@ function PlasmicNotifBox__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__ifEqi
+                sty.text__ifEqi,
+                {
+                  [sty.textseen__ifEqIofXyw]: hasVariant($state, "seen", "seen")
+                }
               )}
             >
               <React.Fragment>

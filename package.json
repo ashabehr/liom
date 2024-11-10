@@ -25,6 +25,7 @@
     "@plasmicpkgs/plasmic-rich-components": "^1.0.197",
     "@plasmicpkgs/react-awesome-reveal": "^3.8.208",
     "@plasmicpkgs/react-chartjs-2": "^1.0.112",
+    "@plasmicpkgs/react-scroll-parallax": "^0.0.214",
     "@plasmicpkgs/react-slick": "^0.0.228",
     "@radix-ui/react-popover": "^1.0.7",
     "@radix-ui/react-select": "^2.1.1",

@@ -221,6 +221,14 @@ function PlasmicPregnancy__RenderFunc(props: {
           },
           {
             title:
+              "\u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0647\u0641\u062a\u0647 \u0628\u0647 \u0647\u0641\u062a\u0647",
+            icon: "https://site-assets.plasmic.app/bcfb85db4fac1cadd2c1c36dc5cb4419.svg",
+            weekStart: 1,
+            action: "#weekByWeek",
+            weekEnd: 12
+          },
+          {
+            title:
               "\u0645\u0634\u0627\u0647\u062f\u0647 \u0647\u0645\u0647 \u0627\u0628\u0632\u0627\u0631\u0647\u0627 >",
             icon: "",
             weekStart: 1,
@@ -3076,7 +3084,18 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   7
                                 )
                                   .toString()
-                                  .indexOf(".") >= 0
+                                  .indexOf(".") >= 0 &&
+                                (
+                                  (280 -
+                                    $state.getInfo.data[0].result
+                                      .daysPregnant) /
+                                  7
+                                )
+                                  .toString()
+                                  .split(".")[1]
+                                  .substring(0, 1) -
+                                  1 !=
+                                  0
                                   ? "و " +
                                     ((
                                       (280 -
@@ -3708,184 +3727,271 @@ function PlasmicPregnancy__RenderFunc(props: {
                       )
                     })}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__eX259)}
-                    >
-                      {(() => {
-                        try {
+                    {(() => {
+                      try {
+                        return (
+                          $state.getInfo.data[0].success &&
+                          !$state.getInfo.loading &&
+                          $state.getInfo.data != null
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
                           return true;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
                         }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__g8VH
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__xOWaI,
-                              {
-                                [sty.textdarkMod__xOWaIoQOo]: hasVariant(
-                                  $state,
-                                  "darkMod",
-                                  "darkMod"
-                                )
-                              }
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return (
-                                    " هفته " +
-                                    $state.textWeek[
-                                      $state.getInfo.data[0].result
-                                        .weeksPregnant + 1
-                                    ]
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "\u0647\u0641\u062a\u0647 --";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        </div>
-                      ) : null}
+                        throw e;
+                      }
+                    })() ? (
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__j66VY
+                          sty.freeBox__eX259
                         )}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__qrcJv
-                          )}
-                        >
-                          <React.Fragment>
+                        {(() => {
+                          try {
+                            return true;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__g8VH
+                            )}
+                          >
                             {(() => {
                               try {
                                 return (
-                                  $state.getInfo.data[0].result.daysPregnant -
-                                  1 +
-                                  " روز مانده تا زایمان"
+                                  $state.getInfo.data[0].result.weeksPregnant !=
+                                    null &&
+                                  $state.getInfo.data[0].result.daysPregnant !=
+                                    null &&
+                                  $state.textWeek != null &&
+                                  $state.textWeek.length > 0
                                 );
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "--";
+                                  return false;
                                 }
                                 throw e;
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__qzbQg
-                        )}
-                      >
+                            })() ? (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__xOWaI,
+                                  {
+                                    [sty.textdarkMod__xOWaIoQOo]: hasVariant(
+                                      $state,
+                                      "darkMod",
+                                      "darkMod"
+                                    )
+                                  }
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        " هفته " +
+                                        $state.textWeek[
+                                          $state.getInfo.data[0].result
+                                            .weeksPregnant + 1
+                                        ]
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u0647\u0641\u062a\u0647 --";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            ) : null}
+                          </div>
+                        ) : null}
                         <div
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__p5XJx,
-                            {
-                              [sty.textdarkMod__p5XJxOQOo]: hasVariant(
-                                $state,
-                                "darkMod",
-                                "darkMod"
-                              )
-                            }
+                            sty.freeBox__j66VY
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  "وزن : " +
+                          {(() => {
+                            try {
+                              return (
+                                $state.getInfo.data[0].result.daysPregnant !=
+                                null
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__qrcJv
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (
+                                      $state.getInfo.data[0].result
+                                        .daysPregnant -
+                                      1 +
+                                      " روز مانده تا زایمان"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "--";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__qzbQg
+                          )}
+                        >
+                          {(() => {
+                            try {
+                              return (
+                                $state.getInfo.data[0].result.weeksPregnant !=
+                                  null &&
+                                $state.babySize != null &&
+                                $state.babySize.length > 0
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__p5XJx,
+                                {
+                                  [sty.textdarkMod__p5XJxOQOo]: hasVariant(
+                                    $state,
+                                    "darkMod",
+                                    "darkMod"
+                                  )
+                                }
+                              )}
+                            >
+                              <React.Fragment>
+                                {"وزن : " +
                                   $state.babySize[
                                     $state.getInfo.data[0].result.weeksPregnant
                                   ].w +
                                   ($state.getInfo.data[0].result
                                     .weeksPregnant >= 27
                                     ? " کیلوگرم "
-                                    : " گرم ")
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0648\u0632\u0646 : --";
-                                }
-                                throw e;
+                                    : " گرم ")}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
+                          {(() => {
+                            try {
+                              return (
+                                $state.getInfo.data[0].result.weeksPregnant !=
+                                  null &&
+                                $state.babySize != null &&
+                                $state.babySize.length > 0
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__osmaP,
-                            {
-                              [sty.textdarkMod__osmaPoQOo]: hasVariant(
-                                $state,
-                                "darkMod",
-                                "darkMod"
-                              )
+                              throw e;
                             }
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  "قد : " +
-                                  $state.babySize[
-                                    $state.getInfo.data[0].result.weeksPregnant
-                                  ].h +
-                                  " سانتی متر "
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0642\u062f : --";
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__osmaP,
+                                {
+                                  [sty.textdarkMod__osmaPoQOo]: hasVariant(
+                                    $state,
+                                    "darkMod",
+                                    "darkMod"
+                                  )
                                 }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (
+                                      "قد : " +
+                                      $state.babySize[
+                                        $state.getInfo.data[0].result
+                                          .weeksPregnant
+                                      ].h +
+                                      " سانتی متر "
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u0642\u062f : --";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          ) : null}
                         </div>
                       </div>
-                    </div>
+                    ) : null}
                     <div
                       className={classNames(projectcss.all, sty.freeBox__d0BMm)}
                     >
@@ -3994,28 +4100,57 @@ function PlasmicPregnancy__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["runCode"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
+                          $steps["runCode"] =
+                            currentItem.action != "#weekByWeek"
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
                                       return window.FlutterChannel.postMessage(
                                         currentItem.action
                                       );
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                           if (
                             $steps["runCode"] != null &&
                             typeof $steps["runCode"] === "object" &&
                             typeof $steps["runCode"].then === "function"
                           ) {
                             $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["goToWeekByWeek"] =
+                            currentItem.action == "#weekByWeek"
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: `/week-by-week`
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["goToWeekByWeek"] != null &&
+                            typeof $steps["goToWeekByWeek"] === "object" &&
+                            typeof $steps["goToWeekByWeek"].then === "function"
+                          ) {
+                            $steps["goToWeekByWeek"] = await $steps[
+                              "goToWeekByWeek"
+                            ];
                           }
                         }}
                       >

@@ -688,6 +688,7 @@
   }
 }
 .freeBox__wxfFc {
+  display: flex;
   flex-direction: row;
   position: relative;
   align-items: stretch;
@@ -700,7 +701,6 @@
   flex-wrap: nowrap;
   align-content: stretch;
   flex-shrink: 0;
-  display: none;
   padding: 8px;
 }
 @media (max-width: 640px) {
