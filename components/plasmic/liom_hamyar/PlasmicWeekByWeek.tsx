@@ -919,25 +919,12 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                     >
                       <React.Fragment>
                         {(() => {
-                          try {
-                            return (() => {
-                              if (
-                                $state.selectedWeek ==
-                                $state.getInfo.data[0].result.weeksPregnant + 1
-                              )
-                                return $state.getInfo.data[0].result
-                                  .daysPregnant;
-                              else return "--";
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
+                          if (
+                            $state.selectedWeek ==
+                            $state.getInfo.data[0].result.weeksPregnant + 1
+                          )
+                            return $state.getInfo.data[0].result.daysPregnant;
+                          else return "--";
                         })()}
                       </React.Fragment>
                     </div>

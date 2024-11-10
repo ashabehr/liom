@@ -61,10 +61,13 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Massage from "../../Massage"; // plasmic-import: Bqqk_Gx32qFA/component
 import Seen from "../../Seen"; // plasmic-import: JqwoohhEEPXm/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -193,6 +196,10 @@ function PlasmicNewPage2__RenderFunc(props: {
     $refs
   });
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -277,126 +284,136 @@ function PlasmicNewPage2__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__tujJc)}
             >
-              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $state.variable;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
+              <Reveal
+                className={classNames("__wab_instance", sty.reveal__jSuX)}
+                direction={"up"}
+                duration={500}
+                effect={"fade"}
+                triggerOnce={true}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.variable;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (
-                  <Massage
-                    data-plasmic-name={"massage"}
-                    data-plasmic-override={overrides.massage}
-                    className={classNames("__wab_instance", sty.massage)}
-                    key={currentIndex}
-                    rectangle6={
-                      <React.Fragment>
-                        <div
-                          data-plasmic-name={"helloDoctorIBel"}
-                          data-plasmic-override={overrides.helloDoctorIBel}
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.helloDoctorIBel
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return currentItem.massege;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0633\u0644\u0627\u0645";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__gH4I
-                          )}
-                        >
-                          <Seen
-                            data-plasmic-name={"seen"}
-                            data-plasmic-override={overrides.seen}
-                            className={classNames("__wab_instance", sty.seen)}
-                            unnamedGroupOfVariants={(() => {
-                              try {
-                                return "_" + currentItem.send;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()}
-                          />
-
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <Massage
+                      data-plasmic-name={"massage"}
+                      data-plasmic-override={overrides.massage}
+                      className={classNames("__wab_instance", sty.massage)}
+                      key={currentIndex}
+                      rectangle6={
+                        <React.Fragment>
                           <div
+                            data-plasmic-name={"helloDoctorIBel"}
+                            data-plasmic-override={overrides.helloDoctorIBel}
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__eJf9X
+                              sty.helloDoctorIBel
                             )}
                           >
                             <React.Fragment>
                               {(() => {
                                 try {
-                                  return currentItem.time.split(" ")[1];
+                                  return currentItem.massege;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return "10:13";
+                                    return "\u0633\u0644\u0627\u0645";
                                   }
                                   throw e;
                                 }
                               })()}
                             </React.Fragment>
                           </div>
-                        </Stack__>
-                      </React.Fragment>
-                    }
-                    you={(() => {
-                      try {
-                        return currentItem.person != "me";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__gH4I
+                            )}
+                          >
+                            <Seen
+                              data-plasmic-name={"seen"}
+                              data-plasmic-override={overrides.seen}
+                              className={classNames("__wab_instance", sty.seen)}
+                              unnamedGroupOfVariants={(() => {
+                                try {
+                                  return "_" + currentItem.send;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__eJf9X
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentItem.time.split(" ")[1];
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "10:13";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                          </Stack__>
+                        </React.Fragment>
                       }
-                    })()}
-                  />
-                );
-              })}
+                      you={(() => {
+                        try {
+                          return currentItem.person != "me";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  );
+                })}
+              </Reveal>
             </Stack__>
             <Stack__
               as={"div"}
@@ -405,95 +422,115 @@ function PlasmicNewPage2__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.bottomInput)}
             >
-              {(() => {
-                try {
-                  return (
-                    $state.textArea.value.length > 0 &&
-                    $state.textArea.value != undefined
-                  );
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
+              <Reveal
+                cascade={true}
+                className={classNames("__wab_instance", sty.reveal___77Rhm)}
+                damping={0}
+                duration={500}
+                effect={"rotate"}
+                reverse={(() => {
+                  try {
+                    return $state.textArea.value.length == 0;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })() ? (
-                <Icon100Icon
-                  className={classNames(projectcss.all, sty.svg__cZhY)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateTextAreaValue2"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return $state.variable.push({
-                                  massege: $state.textArea.value,
-                                  person: "me",
-                                  time: $$.dayjs().format("YYYY-MM-DD HH:mm"),
-                                  send: 0
-                                });
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                })()}
+                triggerOnce={true}
+              >
+                {(() => {
+                  try {
+                    return $state.textArea.value?.length > 0;
+                  } catch (e) {
                     if (
-                      $steps["updateTextAreaValue2"] != null &&
-                      typeof $steps["updateTextAreaValue2"] === "object" &&
-                      typeof $steps["updateTextAreaValue2"].then === "function"
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      $steps["updateTextAreaValue2"] = await $steps[
-                        "updateTextAreaValue2"
-                      ];
+                      return true;
                     }
+                    throw e;
+                  }
+                })() ? (
+                  <Icon100Icon
+                    className={classNames(projectcss.all, sty.svg__cZhY)}
+                    onClick={async event => {
+                      const $steps = {};
 
-                    $steps["updateTextAreaValue"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["textArea", "value"]
-                            },
-                            operation: 0,
-                            value: ""
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
+                      $steps["updateTextAreaValue2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return $state.variable.push({
+                                    massege: $state.textArea.value,
+                                    person: "me",
+                                    time: $$.dayjs().format("YYYY-MM-DD HH:mm"),
+                                    send: 0
+                                  });
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateTextAreaValue2"] != null &&
+                        typeof $steps["updateTextAreaValue2"] === "object" &&
+                        typeof $steps["updateTextAreaValue2"].then ===
+                          "function"
+                      ) {
+                        $steps["updateTextAreaValue2"] = await $steps[
+                          "updateTextAreaValue2"
+                        ];
+                      }
 
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateTextAreaValue"] != null &&
-                      typeof $steps["updateTextAreaValue"] === "object" &&
-                      typeof $steps["updateTextAreaValue"].then === "function"
-                    ) {
-                      $steps["updateTextAreaValue"] = await $steps[
-                        "updateTextAreaValue"
-                      ];
-                    }
-                  }}
-                  role={"img"}
-                />
-              ) : null}
+                      $steps["updateTextAreaValue"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["textArea", "value"]
+                              },
+                              operation: 0,
+                              value: ""
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateTextAreaValue"] != null &&
+                        typeof $steps["updateTextAreaValue"] === "object" &&
+                        typeof $steps["updateTextAreaValue"].then === "function"
+                      ) {
+                        $steps["updateTextAreaValue"] = await $steps[
+                          "updateTextAreaValue"
+                        ];
+                      }
+                    }}
+                    role={"img"}
+                  />
+                ) : null}
+              </Reveal>
               {(() => {
                 const child$Props = {
                   autoSize: true,
