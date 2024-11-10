@@ -1494,27 +1494,69 @@ function PlasmicBioritm__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return localStorage.setItem(
-                                "bioritmhamyar",
-                                "true"
-                              );
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                    $steps["runCode"] =
+                      $state.userInfo.user?.biorhythm?.emotional !== undefined
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return localStorage.setItem(
+                                  "bioritmhamyar",
+                                  "true"
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                     if (
                       $steps["runCode"] != null &&
                       typeof $steps["runCode"] === "object" &&
                       typeof $steps["runCode"].then === "function"
                     ) {
                       $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["invokeGlobalAction"] =
+                      $state.userInfo.user?.biorhythm?.emotional == undefined
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "warning",
+                                (() => {
+                                  try {
+                                    return (
+                                      "تاریخ تولد " +
+                                      $state.userInfo.user.name +
+                                      " ثبت نشده. "
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions[
+                              "plasmic-antd5-config-provider.showNotification"
+                            ]?.apply(null, [...actionArgs.args]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
                     }
                   }}
                 >
