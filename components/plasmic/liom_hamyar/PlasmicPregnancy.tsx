@@ -4049,189 +4049,233 @@ function PlasmicPregnancy__RenderFunc(props: {
                     </div>
                   </div>
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__wxfFc, {
-                    [sty.freeBoxdarkMod__wxfFcoQOo]: hasVariant(
-                      $state,
-                      "darkMod",
-                      "darkMod"
-                    )
-                  })}
-                >
-                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                    (() => {
-                      try {
-                        return $state.toolsList.filter(
-                          item =>
-                            item.weekStart <=
-                              $state.getInfo.data[0].result.weeksPregnant &&
-                            item.weekEnd >=
-                              $state.getInfo.data[0].result.weeksPregnant
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()
-                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                    const currentItem = __plasmic_item_0;
-                    const currentIndex = __plasmic_idx_0;
+                {(() => {
+                  try {
                     return (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__rfrx1,
-                          {
-                            [sty.freeBoxdarkMod__rfrx1OQOo]: hasVariant(
-                              $state,
-                              "darkMod",
-                              "darkMod"
-                            )
-                          }
-                        )}
-                        key={currentIndex}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["runCode"] =
-                            currentItem.action != "#weekByWeek"
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return window.FlutterChannel.postMessage(
-                                        currentItem.action
-                                      );
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                      $state.toolsList.filter(
+                        item =>
+                          item.weekStart <=
+                            $state.getInfo.data[0].result.weeksPregnant + 1 &&
+                          item.weekEnd >=
+                            $state.getInfo.data[0].result.weeksPregnant + 1
+                      ).length > 1
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__wxfFc, {
+                      [sty.freeBoxdarkMod__wxfFcoQOo]: hasVariant(
+                        $state,
+                        "darkMod",
+                        "darkMod"
+                      )
+                    })}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.toolsList.filter(
+                            item =>
+                              item.weekStart <=
+                                $state.getInfo.data[0].result.weeksPregnant +
+                                  1 &&
+                              item.weekEnd >=
+                                $state.getInfo.data[0].result.weeksPregnant + 1
+                          );
+                        } catch (e) {
                           if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            $steps["runCode"] = await $steps["runCode"];
+                            return [];
                           }
-
-                          $steps["goToWeekByWeek"] =
-                            currentItem.action == "#weekByWeek"
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: `/week-by-week`
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["goToWeekByWeek"] != null &&
-                            typeof $steps["goToWeekByWeek"] === "object" &&
-                            typeof $steps["goToWeekByWeek"].then === "function"
-                          ) {
-                            $steps["goToWeekByWeek"] = await $steps[
-                              "goToWeekByWeek"
-                            ];
-                          }
-                        }}
-                      >
-                        {(() => {
-                          try {
-                            return currentItem.icon.length > 0;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <PlasmicImg__
-                            alt={""}
-                            className={classNames(sty.img__t3Ygq)}
-                            displayHeight={"auto"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={
-                              hasVariant(globalVariants, "screen", "mobile")
-                                ? "auto"
-                                : "100%"
-                            }
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"auto"}
-                            height={``}
-                            loading={"lazy"}
-                            src={(() => {
-                              try {
-                                return currentItem.icon;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                            width={``}
-                          />
-                        ) : null}
-                        <div
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___3K6Nw,
+                            sty.freeBox__rfrx1,
                             {
-                              [sty.textdarkMod___3K6NwoQOo]: hasVariant(
+                              [sty.freeBoxdarkMod__rfrx1OQOo]: hasVariant(
                                 $state,
                                 "darkMod",
                                 "darkMod"
                               )
                             }
                           )}
+                          key={currentIndex}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] =
+                              currentItem.action != "#weekByWeek"
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return window.FlutterChannel.postMessage(
+                                          currentItem.action
+                                        );
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+
+                            $steps["goToPage"] =
+                              currentItem.action == "#weekByWeek"
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: (() => {
+                                        try {
+                                          return (
+                                            "https://apps.liom.app/week-by-week/?token=" +
+                                            $ctx.query.token +
+                                            "&&theme=" +
+                                            $ctx.query.theme
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return `/week-by-week`;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["goToPage"] != null &&
+                              typeof $steps["goToPage"] === "object" &&
+                              typeof $steps["goToPage"].then === "function"
+                            ) {
+                              $steps["goToPage"] = await $steps["goToPage"];
+                            }
+                          }}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return currentItem.title;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0628\u0627\u06cc\u062f \u0648 \u0646\u0628\u0627\u06cc\u062f\u0647\u0627";
-                                }
-                                throw e;
+                          {(() => {
+                            try {
+                              return currentItem.icon.length > 0;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </Stack__>
-                    );
-                  })}
-                </div>
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__t3Ygq)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? "auto"
+                                  : "100%"
+                              }
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"auto"}
+                              height={``}
+                              loading={"lazy"}
+                              src={(() => {
+                                try {
+                                  return currentItem.icon;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              width={``}
+                            />
+                          ) : null}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___3K6Nw,
+                              {
+                                [sty.textdarkMod___3K6NwoQOo]: hasVariant(
+                                  $state,
+                                  "darkMod",
+                                  "darkMod"
+                                )
+                              }
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.title;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u0628\u0627\u06cc\u062f \u0648 \u0646\u0628\u0627\u06cc\u062f\u0647\u0627";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </Stack__>
+                      );
+                    })}
+                  </div>
+                ) : null}
                 <TodoList
                   data-plasmic-name={"todoList"}
                   data-plasmic-override={overrides.todoList}
