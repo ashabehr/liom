@@ -528,6 +528,32 @@ function PlasmicNewPage2__RenderFunc(props: {
                           "updateTextAreaValue"
                         ];
                       }
+
+                      $steps["updateTextAreaValue3"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return window.scrollTo(
+                                  0,
+                                  document.body.scrollHeight
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateTextAreaValue3"] != null &&
+                        typeof $steps["updateTextAreaValue3"] === "object" &&
+                        typeof $steps["updateTextAreaValue3"].then ===
+                          "function"
+                      ) {
+                        $steps["updateTextAreaValue3"] = await $steps[
+                          "updateTextAreaValue3"
+                        ];
+                      }
                     }}
                     role={"img"}
                   />
