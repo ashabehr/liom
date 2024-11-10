@@ -2218,7 +2218,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       ($state.getInfo.data[0].result
                                         .weeksPregnant +
                                         1) /
-                                      7
+                                      4
                                     ).toFixed()
                                   : "") +
                                 " بارداری هستی  "
@@ -3093,11 +3093,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 )
                                   .toString()
                                   .split(".")[1]
-                                  .substring(0, 1) -
-                                  1 !=
-                                  0
+                                  .substring(0, 1) != 0
                                   ? "و " +
-                                    ((
+                                    (
                                       (280 -
                                         $state.getInfo.data[0].result
                                           .daysPregnant) /
@@ -3105,8 +3103,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     )
                                       .toString()
                                       .split(".")[1]
-                                      .substring(0, 1) -
-                                      1) +
+                                      .substring(0, 1) +
                                     "روز"
                                   : "") +
                                 " از بارداریت رو سپری کردی و " +

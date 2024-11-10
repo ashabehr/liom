@@ -1106,7 +1106,8 @@
 }
 @media (max-width: 640px) {
   .freeBox__ptoE6 > :global(.__wab_flex-container) {
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
     min-width: 0;
     min-height: 0;
     margin-left: calc(0px - 0px);
@@ -1141,8 +1142,8 @@
 }
 @media (max-width: 640px) {
   .freeBox__xRbsJ {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     justify-content: center;
     align-items: center;
     background: #7444bc1a;
@@ -1194,7 +1195,7 @@
   .text__a35T {
     position: absolute;
     left: auto;
-    top: 5px;
+    top: 7px;
     font-size: 12px;
     font-weight: 500;
     align-self: center;
@@ -1220,7 +1221,7 @@
     align-self: center;
     position: absolute;
     left: 0px;
-    top: 5px;
+    top: 7px;
     width: auto;
     display: block;
   }
@@ -1250,6 +1251,7 @@
     position: relative;
     left: auto;
     top: auto;
+    align-self: auto;
     margin-left: calc(0px + 0px) !important;
     margin-top: calc(0px + 0px) !important;
     padding: 0px;
@@ -1314,7 +1316,8 @@
 }
 @media (max-width: 640px) {
   .freeBox__ym8Im > :global(.__wab_flex-container) {
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
     min-width: 0;
     min-height: 0;
     margin-left: calc(0px - 0px);
@@ -1349,8 +1352,8 @@
 }
 @media (max-width: 640px) {
   .freeBox__mjRxX {
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     justify-content: center;
     align-items: center;
     background: #00af651a;
@@ -1402,7 +1405,7 @@
   .text__dAzd0 {
     position: absolute;
     left: auto;
-    top: 5px;
+    top: 7px;
     font-size: 12px;
     font-weight: 500;
     align-self: center;
@@ -1428,7 +1431,7 @@
     align-self: center;
     position: absolute;
     left: 0px;
-    top: 5px;
+    top: 7px;
     width: auto;
     display: block;
   }
@@ -1459,6 +1462,7 @@
     left: auto;
     top: auto;
     width: 100%;
+    align-self: auto;
     margin-left: calc(0px + 0px) !important;
     margin-top: calc(0px + 0px) !important;
     min-width: 0;
@@ -1482,6 +1486,7 @@
 @media (max-width: 640px) {
   .progress__sdVpm:global(.__wab_instance) {
     height: 100%;
+    align-self: flex-end;
     min-height: 0;
   }
 }
@@ -1528,6 +1533,8 @@
 }
 @media (max-width: 640px) {
   .freeBox__qEiJv > :global(.__wab_flex-container) {
+    justify-content: center;
+    align-items: center;
     min-width: 0;
     min-height: 0;
     margin-left: calc(0px - 0px);
@@ -1562,8 +1569,8 @@
 }
 @media (max-width: 640px) {
   .freeBox___6IpU {
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     justify-content: center;
     align-items: center;
     background: #eb464a1a;
@@ -1614,7 +1621,7 @@
   .text__biPM {
     position: absolute;
     left: auto;
-    top: 5px;
+    top: 7px;
     font-size: 12px;
     font-weight: 500;
     align-self: center;
@@ -1640,7 +1647,7 @@
     align-self: center;
     position: absolute;
     left: 0px;
-    top: 5px;
+    top: 7px;
     width: auto;
     display: block;
   }
@@ -1671,6 +1678,7 @@
     top: auto;
     left: auto;
     width: 100%;
+    align-self: auto;
     margin-left: calc(0px + 0px) !important;
     margin-top: calc(0px + 0px) !important;
     min-width: 0;
