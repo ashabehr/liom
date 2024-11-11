@@ -1131,7 +1131,9 @@ function PlasmicFood__RenderFunc(props: {
                         try {
                           return (() => {
                             let avrg =
-                              ($state.variable2 * 50) / $state.variable;
+                              $state.variable !== 0
+                                ? ($state.variable2 * 50) / $state.variable
+                                : 0;
                             if (avrg <= 40) {
                               return "good";
                             } else if (avrg <= 60 && avrg > 40) {
@@ -2809,7 +2811,7 @@ function PlasmicFood__RenderFunc(props: {
                                                 }
 
                                                 $steps["invokeGlobalAction"] =
-                                                  currentItem.number != 0
+                                                  currentItem.number >= 0
                                                     ? (() => {
                                                         const actionArgs = {
                                                           args: [
@@ -4641,12 +4643,12 @@ function PlasmicFood__RenderFunc(props: {
                                     );
                                     if (targetEntry) {
                                       return (
-                                        "هفته پیش " +
+                                        " هفته پیش  " +
                                         targetEntry.number +
-                                        " خوردی."
+                                        "  تا خوردی. "
                                       );
                                     } else {
-                                      return "هفته پیش 0 خوردی.";
+                                      return "هفته پیش 0 تا خوردی.";
                                     }
                                   })();
                                 } catch (e) {
@@ -4701,6 +4703,43 @@ function PlasmicFood__RenderFunc(props: {
                               $steps["runCode"] = await $steps["runCode"];
                             }
 
+                            $steps["updateVariable2"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["variable2"]
+                                    },
+                                    operation: 0,
+                                    value: $state.variable2 + 1
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateVariable2"] != null &&
+                              typeof $steps["updateVariable2"] === "object" &&
+                              typeof $steps["updateVariable2"].then ===
+                                "function"
+                            ) {
+                              $steps["updateVariable2"] = await $steps[
+                                "updateVariable2"
+                              ];
+                            }
+
                             $steps["invokeGlobalAction"] = true
                               ? (() => {
                                   const actionArgs = {
@@ -4751,43 +4790,6 @@ function PlasmicFood__RenderFunc(props: {
                                 "invokeGlobalAction"
                               ];
                             }
-
-                            $steps["updateVariable2"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["variable2"]
-                                    },
-                                    operation: 0,
-                                    value: $state.variable2 + 1
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateVariable2"] != null &&
-                              typeof $steps["updateVariable2"] === "object" &&
-                              typeof $steps["updateVariable2"].then ===
-                                "function"
-                            ) {
-                              $steps["updateVariable2"] = await $steps[
-                                "updateVariable2"
-                              ];
-                            }
                           }}
                           role={"img"}
                         />
@@ -4815,39 +4817,89 @@ function PlasmicFood__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                        <Icon48Icon
-                          className={classNames(
-                            projectcss.all,
-                            sty.svg___1Yn2Y
-                          )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        if (currentItem.number != 0)
-                                          return (currentItem.number -= 1);
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
+                        {(() => {
+                          try {
+                            return currentItem.number > 0;
+                          } catch (e) {
                             if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              $steps["runCode"] = await $steps["runCode"];
+                              return true;
                             }
+                            throw e;
+                          }
+                        })() ? (
+                          <Icon48Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___1Yn2Y
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
 
-                            $steps["invokeGlobalAction"] =
-                              currentItem.number != 0
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          if (currentItem.number > 0)
+                                            return (currentItem.number -= 1);
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["updateVariable2"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["variable2"]
+                                      },
+                                      operation: 0,
+                                      value: $state.variable2 - 1
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateVariable2"] != null &&
+                                typeof $steps["updateVariable2"] === "object" &&
+                                typeof $steps["updateVariable2"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateVariable2"] = await $steps[
+                                  "updateVariable2"
+                                ];
+                              }
+
+                              $steps["invokeGlobalAction"] = true
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
@@ -4885,57 +4937,42 @@ function PlasmicFood__RenderFunc(props: {
                                     ]?.apply(null, [...actionArgs.args]);
                                   })()
                                 : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] = await $steps[
+                                  "invokeGlobalAction"
+                                ];
+                              }
+                            }}
+                            role={"img"}
+                          />
+                        ) : null}
+                        {(() => {
+                          try {
+                            return currentItem.number <= 0;
+                          } catch (e) {
                             if (
-                              $steps["invokeGlobalAction"] != null &&
-                              typeof $steps["invokeGlobalAction"] ===
-                                "object" &&
-                              typeof $steps["invokeGlobalAction"].then ===
-                                "function"
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              $steps["invokeGlobalAction"] = await $steps[
-                                "invokeGlobalAction"
-                              ];
+                              return true;
                             }
-
-                            $steps["updateVariable2"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["variable2"]
-                                    },
-                                    operation: 0,
-                                    value: $state.variable2 - 1
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateVariable2"] != null &&
-                              typeof $steps["updateVariable2"] === "object" &&
-                              typeof $steps["updateVariable2"].then ===
-                                "function"
-                            ) {
-                              $steps["updateVariable2"] = await $steps[
-                                "updateVariable2"
-                              ];
-                            }
-                          }}
-                          role={"img"}
-                        />
+                            throw e;
+                          }
+                        })() ? (
+                          <Icon48Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__dXbvp
+                            )}
+                            role={"img"}
+                          />
+                        ) : null}
                       </Stack__>
                     </div>
                   );
@@ -4999,9 +5036,17 @@ function PlasmicFood__RenderFunc(props: {
                   showEndIcon={true}
                   size={"compact"}
                 >
-                  {
-                    "\u0627\u0641\u0632\u0648\u062f \u062f\u0633\u062a\u0647 \u0628\u0646\u062f\u06cc \u062c\u062f\u06cc\u062f"
-                  }
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___9Uqg7
+                    )}
+                  >
+                    {
+                      "\u0627\u0641\u0632\u0648\u062f \u062f\u0633\u062a\u0647 \u0628\u0646\u062f\u06cc \u062c\u062f\u06cc\u062f"
+                    }
+                  </div>
                 </Button>
               </Stack__>
             </Stack__>
@@ -5084,7 +5129,7 @@ function PlasmicFood__RenderFunc(props: {
                   "input4",
                   "value"
                 ])}
-                type={"text"}
+                type={"number"}
                 value={generateStateValueProp($state, ["input4", "value"])}
               />
             </div>

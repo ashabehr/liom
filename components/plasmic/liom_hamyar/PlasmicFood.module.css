@@ -2028,6 +2028,20 @@
     opacity: 0.5;
   }
 }
+.svg__dXbvp {
+  object-fit: cover;
+  max-width: 100%;
+  color: var(--token-55cSeNPovQFh);
+  width: 20px;
+  height: 20px;
+  opacity: 0.2;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg__dXbvp {
+    opacity: 0.2;
+  }
+}
 .button2:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
@@ -2048,12 +2062,21 @@
   width: auto;
   height: 1em;
 }
+.text___9Uqg7 {
+  align-self: center;
+}
 .svg__cCbA0 {
   object-fit: cover;
   max-width: 100%;
-  width: 150%;
-  height: 150%;
+  width: 15px;
+  height: 15px;
   color: var(--token-55cSeNPovQFh);
+}
+@media (max-width: 640px) {
+  .svg__cCbA0 {
+    width: 12px;
+    height: 12px;
+  }
 }
 .slideinModal:global(.__wab_instance) {
   max-width: 100%;

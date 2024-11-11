@@ -204,7 +204,11 @@ function PlasmicFoodbox__RenderFunc(props: {
         })}
         percent={(() => {
           try {
-            return ($props.variable2 * 50) / $props.variable;
+            return (() => {
+              return $props.variable !== 0
+                ? ($props.variable2 * 50) / $props.variable
+                : 0;
+            })();
           } catch (e) {
             if (
               e instanceof TypeError ||
@@ -218,7 +222,10 @@ function PlasmicFoodbox__RenderFunc(props: {
         strokeColor={(() => {
           try {
             return (() => {
-              let avrg = ($props.variable2 * 50) / $props.variable;
+              let avrg =
+                $props.variable !== 0
+                  ? ($props.variable2 * 50) / $props.variable
+                  : 0;
               if (avrg <= 40) {
                 return "#00C371";
               } else if (avrg <= 60 && avrg > 40) {
