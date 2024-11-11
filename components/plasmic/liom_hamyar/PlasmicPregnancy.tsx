@@ -60,6 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
@@ -450,6 +455,52 @@ function PlasmicPregnancy__RenderFunc(props: {
           "سی و نهم",
           "چهلم"
         ]
+      },
+      {
+        path: "weeksPregnant",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            if ($state.getInfo?.data?.[0]?.result?.childbirthDate) {
+              let initialDate = new Date(
+                $state.getInfo.data[0].result.childbirthDate
+              );
+              let daysToSubtract = 280;
+              let resultDate = new Date(initialDate);
+              resultDate.setDate(resultDate.getDate() - daysToSubtract);
+              let today = new Date();
+              let differenceInTime = today - resultDate;
+              let differenceInDays = Math.floor(
+                differenceInTime / (1000 * 60 * 60 * 24)
+              );
+              return parseInt(((differenceInDays + 1) / 7).toFixed());
+            } else {
+              return 0;
+            }
+          })()
+      },
+      {
+        path: "daysPregnant",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            if ($state.getInfo?.data?.[0]?.result?.childbirthDate) {
+              let initialDate = new Date(
+                $state.getInfo.data[0].result.childbirthDate
+              );
+              let daysToSubtract = 280;
+              let resultDate = new Date(initialDate);
+              resultDate.setDate(resultDate.getDate() - daysToSubtract);
+              let today = new Date();
+              let differenceInTime = today - resultDate;
+              let differenceInDays = Math.floor(
+                differenceInTime / (1000 * 60 * 60 * 24)
+              );
+              return parseInt(280 - differenceInDays);
+            } else return 0;
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -460,6 +511,8 @@ function PlasmicPregnancy__RenderFunc(props: {
     $queries: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     theme: useTheme(),
@@ -522,7 +575,119 @@ function PlasmicPregnancy__RenderFunc(props: {
               "getInfo",
               "loading"
             ])}
-            onSuccess={generateStateOnChangeProp($state, ["getInfo", "data"])}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
+                null,
+                eventArgs
+              );
+              (async data => {
+                const $steps = {};
+
+                $steps["updateWeeksPregnant"] =
+                  $state.getInfo?.data?.[0]?.result?.childbirthDate != null
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["weeksPregnant"]
+                          },
+                          operation: 0,
+                          value: (() => {
+                            let initialDate = new Date(
+                              $state.getInfo.data[0].result.childbirthDate
+                            );
+                            let daysToSubtract = 280;
+                            let resultDate = new Date(initialDate);
+                            resultDate.setDate(
+                              resultDate.getDate() - daysToSubtract
+                            );
+                            let today = new Date();
+                            let differenceInTime = today - resultDate;
+                            let differenceInDays = Math.floor(
+                              differenceInTime / (1000 * 60 * 60 * 24)
+                            );
+                            return parseInt(
+                              ((differenceInDays + 1) / 7).toFixed()
+                            );
+                          })()
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateWeeksPregnant"] != null &&
+                  typeof $steps["updateWeeksPregnant"] === "object" &&
+                  typeof $steps["updateWeeksPregnant"].then === "function"
+                ) {
+                  $steps["updateWeeksPregnant"] = await $steps[
+                    "updateWeeksPregnant"
+                  ];
+                }
+
+                $steps["updateToolsList"] =
+                  $state.getInfo?.data?.[0]?.result?.childbirthDate != null
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["daysPregnant"]
+                          },
+                          operation: 0,
+                          value: (() => {
+                            let initialDate = new Date(
+                              $state.getInfo.data[0].result.childbirthDate
+                            );
+                            let daysToSubtract = 280;
+                            let resultDate = new Date(initialDate);
+                            resultDate.setDate(
+                              resultDate.getDate() - daysToSubtract
+                            );
+                            let today = new Date();
+                            let differenceInTime = today - resultDate;
+                            let differenceInDays = Math.floor(
+                              differenceInTime / (1000 * 60 * 60 * 24)
+                            );
+                            return parseInt(280 - differenceInDays);
+                          })()
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateToolsList"] != null &&
+                  typeof $steps["updateToolsList"] === "object" &&
+                  typeof $steps["updateToolsList"].then === "function"
+                ) {
+                  $steps["updateToolsList"] = await $steps["updateToolsList"];
+                }
+              }).apply(null, eventArgs);
+            }}
             params={{
               token: $ctx.query.token
             }}
@@ -546,8 +711,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 : (() => {
                     try {
                       return (
-                        !$state.getInfo.loading &&
-                        $state.getInfo.data[0].result.weeksPregnant != null
+                        !$state.getInfo.loading && $state.weeksPregnant != null
                       );
                     } catch (e) {
                       if (
@@ -2190,36 +2354,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                             try {
                               return (
                                 " تو در روز " +
-                                (280 -
-                                  $state.getInfo.data[0].result.daysPregnant +
-                                  1) +
-                                ($state.getInfo.data[0].result.weeksPregnant ==
-                                  0 &&
-                                (
-                                  ($state.getInfo.data[0].result.weeksPregnant +
-                                    1) /
-                                  7
-                                ).toFixed() == 0
+                                (280 - $state.daysPregnant + 1) +
+                                ($state.weeksPregnant == 0 &&
+                                (($state.weeksPregnant + 1) / 7).toFixed() == 0
                                   ? ""
                                   : " , ") +
-                                ($state.getInfo.data[0].result.weeksPregnant > 0
-                                  ? "هفته " +
-                                    ($state.getInfo.data[0].result
-                                      .weeksPregnant +
-                                      1)
+                                ($state.weeksPregnant > 0
+                                  ? "هفته " + ($state.weeksPregnant + 1)
                                   : "") +
-                                ((
-                                  ($state.getInfo.data[0].result.weeksPregnant +
-                                    1) /
-                                  7
-                                ).toFixed() > 0
+                                ((($state.weeksPregnant + 1) / 7).toFixed() > 0
                                   ? " و ماه " +
-                                    (
-                                      ($state.getInfo.data[0].result
-                                        .weeksPregnant +
-                                        1) /
-                                      4
-                                    ).toFixed()
+                                    (($state.weeksPregnant + 1) / 4).toFixed()
                                   : "") +
                                 " بارداری هستی  "
                               );
@@ -3043,10 +3188,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                         {(() => {
                           try {
                             return (
-                              $state.getInfo.data[0].result.weeksPregnant !=
-                                null &&
-                              $state.getInfo.data[0].result.daysPregnant !=
-                                null &&
+                              $state.weeksPregnant != null &&
+                              $state.daysPregnant != null &&
                               $state.randomText != null &&
                               $state.randomText.length > 0
                             );
@@ -3075,40 +3218,24 @@ function PlasmicPregnancy__RenderFunc(props: {
                             )}
                           >
                             <React.Fragment>
-                              {$state.getInfo.data[0].result.weeksPregnant +
+                              {$state.weeksPregnant +
                                 " هفته " +
-                                ((
-                                  (280 -
-                                    $state.getInfo.data[0].result
-                                      .daysPregnant) /
-                                  7
-                                )
+                                (((280 - $state.daysPregnant) / 7)
                                   .toString()
                                   .indexOf(".") >= 0 &&
-                                (
-                                  (280 -
-                                    $state.getInfo.data[0].result
-                                      .daysPregnant) /
-                                  7
-                                )
+                                ((280 - $state.daysPregnant) / 7)
                                   .toString()
                                   .split(".")[1]
                                   .substring(0, 1) != 0
                                   ? "و " +
-                                    (
-                                      (280 -
-                                        $state.getInfo.data[0].result
-                                          .daysPregnant) /
-                                      7
-                                    )
+                                    ((280 - $state.daysPregnant) / 7)
                                       .toString()
                                       .split(".")[1]
                                       .substring(0, 1) +
                                     "روز"
                                   : "") +
                                 " از بارداریت رو سپری کردی و " +
-                                ($state.getInfo.data[0].result.daysPregnant -
-                                  1) +
+                                ($state.daysPregnant - 1) +
                                 " روز دیگه " +
                                 $state.randomText[
                                   Math.floor(
@@ -3151,11 +3278,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               }
                             )}
                             percent={parseInt(
-                              (
-                                ($state.getInfo.data[0].result.daysPregnant *
-                                  100) /
-                                280
-                              ).toFixed()
+                              (($state.daysPregnant * 100) / 280).toFixed()
                             )}
                             strokeColor={"#FAAD14"}
                             strokeLinecap={
@@ -3769,10 +3892,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                             {(() => {
                               try {
                                 return (
-                                  $state.getInfo.data[0].result.weeksPregnant !=
-                                    null &&
-                                  $state.getInfo.data[0].result.daysPregnant !=
-                                    null &&
+                                  $state.weeksPregnant != null &&
+                                  $state.daysPregnant != null &&
                                   $state.textWeek != null &&
                                   $state.textWeek.length > 0
                                 );
@@ -3834,10 +3955,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         >
                           {(() => {
                             try {
-                              return (
-                                $state.getInfo.data[0].result.daysPregnant !=
-                                null
-                              );
+                              return $state.daysPregnant != null;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -3859,8 +3977,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 {(() => {
                                   try {
                                     return (
-                                      $state.getInfo.data[0].result
-                                        .daysPregnant -
+                                      $state.daysPregnant -
                                       1 +
                                       " روز مانده تا زایمان"
                                     );
@@ -3888,8 +4005,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           {(() => {
                             try {
                               return (
-                                $state.getInfo.data[0].result.weeksPregnant !=
-                                  null &&
+                                $state.weeksPregnant != null &&
                                 $state.babySize != null &&
                                 $state.babySize.length > 0
                               );
@@ -3919,11 +4035,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                             >
                               <React.Fragment>
                                 {"وزن : " +
-                                  $state.babySize[
-                                    $state.getInfo.data[0].result.weeksPregnant
-                                  ].w +
-                                  ($state.getInfo.data[0].result
-                                    .weeksPregnant >= 27
+                                  $state.babySize[$state.weeksPregnant].w +
+                                  ($state.weeksPregnant >= 27
                                     ? " کیلوگرم "
                                     : " گرم ")}
                               </React.Fragment>
@@ -3932,8 +4045,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           {(() => {
                             try {
                               return (
-                                $state.getInfo.data[0].result.weeksPregnant !=
-                                  null &&
+                                $state.weeksPregnant != null &&
                                 $state.babySize != null &&
                                 $state.babySize.length > 0
                               );
@@ -3966,10 +4078,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   try {
                                     return (
                                       "قد : " +
-                                      $state.babySize[
-                                        $state.getInfo.data[0].result
-                                          .weeksPregnant
-                                      ].h +
+                                      $state.babySize[$state.weeksPregnant].h +
                                       " سانتی متر "
                                     );
                                   } catch (e) {
@@ -4007,20 +4116,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                           try {
                             return (() => {
                               var week;
-                              if (
-                                $state.getInfo.data[0].result.weeksPregnant +
-                                  1 <
-                                10
-                              )
-                                week =
-                                  "0" +
-                                  ($state.getInfo.data[0].result.weeksPregnant +
-                                    1);
-                              else
-                                week =
-                                  "" +
-                                  ($state.getInfo.data[0].result.weeksPregnant +
-                                    1);
+                              if ($state.weeksPregnant + 1 < 10)
+                                week = "0" + ($state.weeksPregnant + 1);
+                              else week = "" + ($state.weeksPregnant + 1);
                               return (
                                 "https://liom.storage.c2.liara.space/config/pregnancy/week" +
                                 week +
@@ -4051,10 +4149,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                     return (
                       $state.toolsList.filter(
                         item =>
-                          item.weekStart <=
-                            $state.getInfo.data[0].result.weeksPregnant + 1 &&
-                          item.weekEnd >=
-                            $state.getInfo.data[0].result.weeksPregnant + 1
+                          item.weekStart <= $state.weeksPregnant + 1 &&
+                          item.weekEnd >= $state.weeksPregnant + 1
                       ).length > 1
                     );
                   } catch (e) {
@@ -4062,7 +4158,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return true;
+                      return false;
                     }
                     throw e;
                   }
@@ -4082,11 +4178,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                         try {
                           return $state.toolsList.filter(
                             item =>
-                              item.weekStart <=
-                                $state.getInfo.data[0].result.weeksPregnant +
-                                  1 &&
-                              item.weekEnd >=
-                                $state.getInfo.data[0].result.weeksPregnant + 1
+                              item.weekStart <= $state.weeksPregnant + 1 &&
+                              item.weekEnd >= $state.weeksPregnant + 1
                           );
                         } catch (e) {
                           if (
@@ -4316,9 +4409,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     try {
                       return (
                         " کارهایی که هفته " +
-                        $state.textWeek[
-                          $state.getInfo.data[0].result.weeksPregnant + 1
-                        ] +
+                        $state.textWeek[$state.weeksPregnant + 1] +
                         " باید انجام بدی:"
                       );
                     } catch (e) {
@@ -4359,29 +4450,44 @@ function PlasmicPregnancy__RenderFunc(props: {
                 "getAdvice",
                 "error"
               ])}
-              onLoading={generateStateOnChangeProp($state, [
-                "getAdvice",
-                "loading"
-              ])}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "getAdvice",
+                  "loading"
+                ]).apply(null, eventArgs);
+                (async loading => {
+                  const $steps = {};
+
+                  $steps["refreshData"] =
+                    $state.weeksPregnant == null
+                      ? (() => {
+                          const actionArgs = {
+                            queryInvalidation: ["plasmic_refresh_all"]
+                          };
+                          return (async ({ queryInvalidation }) => {
+                            if (!queryInvalidation) {
+                              return;
+                            }
+                            await plasmicInvalidate(queryInvalidation);
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["refreshData"] != null &&
+                    typeof $steps["refreshData"] === "object" &&
+                    typeof $steps["refreshData"].then === "function"
+                  ) {
+                    $steps["refreshData"] = await $steps["refreshData"];
+                  }
+                }).apply(null, eventArgs);
+              }}
               onSuccess={generateStateOnChangeProp($state, [
                 "getAdvice",
                 "data"
               ])}
-              params={(() => {
-                try {
-                  return {
-                    weekNumber: $state.getInfo.data[0].result.weeksPregnant
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return { weekNumber: 1 };
-                  }
-                  throw e;
-                }
-              })()}
+              params={{
+                weekNumber: $state.weeksPregnant
+              }}
               url={"https://n8n.staas.ir/webhook/getAdvice"}
             />
 
@@ -4393,32 +4499,43 @@ function PlasmicPregnancy__RenderFunc(props: {
               loadingDisplay={null}
               method={"GET"}
               onError={generateStateOnChangeProp($state, ["getTask", "error"])}
-              onLoading={generateStateOnChangeProp($state, [
-                "getTask",
-                "loading"
-              ])}
-              onSuccess={generateStateOnChangeProp($state, ["getTask", "data"])}
-              params={(() => {
-                try {
-                  return {
-                    weekNumber: $state.getInfo.data[0].result.weeksPregnant + 1,
-                    userId: $ctx.query.userId,
-                    appKey: "com.diacotdj.liom"
-                  };
-                } catch (e) {
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["getTask", "loading"]).apply(
+                  null,
+                  eventArgs
+                );
+                (async loading => {
+                  const $steps = {};
+
+                  $steps["refreshData"] =
+                    $state.weeksPregnant == null
+                      ? (() => {
+                          const actionArgs = {
+                            queryInvalidation: ["plasmic_refresh_all"]
+                          };
+                          return (async ({ queryInvalidation }) => {
+                            if (!queryInvalidation) {
+                              return;
+                            }
+                            await plasmicInvalidate(queryInvalidation);
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                   if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
+                    $steps["refreshData"] != null &&
+                    typeof $steps["refreshData"] === "object" &&
+                    typeof $steps["refreshData"].then === "function"
                   ) {
-                    return {
-                      weekNumber: 1,
-                      userId: "",
-                      appKey: "com.diacotdj.liom"
-                    };
+                    $steps["refreshData"] = await $steps["refreshData"];
                   }
-                  throw e;
-                }
-              })()}
+                }).apply(null, eventArgs);
+              }}
+              onSuccess={generateStateOnChangeProp($state, ["getTask", "data"])}
+              params={{
+                weekNumber: $state.weeksPregnant + 1,
+                userId: $ctx.query.userId,
+                appKey: "com.diacotdj.liom"
+              }}
               url={"https://n8n.staas.ir/webhook/task"}
             />
           </ApiRequest>

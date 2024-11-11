@@ -2328,7 +2328,6 @@
   }
 }
 .freeBox__beErA {
-  display: flex;
   flex-direction: column;
   position: relative;
   align-items: center;
@@ -2339,6 +2338,7 @@
   background: none;
   cursor: pointer;
   min-width: 0;
+  display: none;
   border-radius: 100px;
   padding: 8px;
 }

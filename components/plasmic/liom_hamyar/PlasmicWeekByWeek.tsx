@@ -431,6 +431,52 @@ function PlasmicWeekByWeek__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "curentWeek",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            if ($state.getInfo?.data?.[0]?.result?.childbirthDate) {
+              let initialDate = new Date(
+                $state.getInfo.data[0].result.childbirthDate
+              );
+              let daysToSubtract = 280;
+              let resultDate = new Date(initialDate);
+              resultDate.setDate(resultDate.getDate() - daysToSubtract);
+              let today = new Date();
+              let differenceInTime = today - resultDate;
+              let differenceInDays = Math.floor(
+                differenceInTime / (1000 * 60 * 60 * 24)
+              );
+              return parseInt(((differenceInDays + 1) / 7).toFixed());
+            } else {
+              return 0;
+            }
+          })()
+      },
+      {
+        path: "daysPregnant",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            if ($state.getInfo?.data?.[0]?.result?.childbirthDate) {
+              let initialDate = new Date(
+                $state.getInfo.data[0].result.childbirthDate
+              );
+              let daysToSubtract = 280;
+              let resultDate = new Date(initialDate);
+              resultDate.setDate(resultDate.getDate() - daysToSubtract);
+              let today = new Date();
+              let differenceInTime = today - resultDate;
+              let differenceInDays = Math.floor(
+                differenceInTime / (1000 * 60 * 60 * 24)
+              );
+              return parseInt(280 - differenceInDays);
+            } else return 0;
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -921,9 +967,9 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         {(() => {
                           if (
                             $state.selectedWeek ==
-                            $state.getInfo.data[0].result.weeksPregnant + 1
+                            ($state.curentWeek ?? 1) + 1
                           )
-                            return $state.getInfo.data[0].result.daysPregnant;
+                            return ($state.daysPregnant ?? 1) - 1 + " روز ";
                           else return "--";
                         })()}
                       </React.Fragment>
