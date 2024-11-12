@@ -11550,63 +11550,77 @@ function PlasmicHamyar__RenderFunc(props: {
                 {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
               </div>
             </div>
-            <div
-              aria-pressed={undefined}
-              className={classNames(projectcss.all, sty.freeBox__avzuw)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["runCode"] =
-                  localStorage.getItem("token") != "undefined" ||
-                  localStorage.getItem("token") != null
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return (window.location.href =
-                                "https://apps.liom.app/food/?r=" +
-                                $ctx.query.r +
-                                "&m=" +
-                                $ctx.query.m);
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+            {(() => {
+              try {
+                return $ctx.query.m == "71ef2e";
+              } catch (e) {
                 if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
                 ) {
-                  $steps["runCode"] = await $steps["runCode"];
+                  return true;
                 }
-              }}
-            >
-              <PlasmicIcon__
-                PlasmicIconType={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? Icon72Icon
-                    : Icon72Icon
-                }
-                className={classNames(projectcss.all, sty.svg__teWPd)}
-                role={"img"}
-              />
-
+                throw e;
+              }
+            })() ? (
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ssYYa
-                )}
+                aria-pressed={undefined}
+                className={classNames(projectcss.all, sty.freeBox__avzuw)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] =
+                    localStorage.getItem("token") != "undefined" ||
+                    localStorage.getItem("token") != null
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return (window.location.href =
+                                  "https://apps.liom.app/food/?r=" +
+                                  $ctx.query.r +
+                                  "&m=" +
+                                  $ctx.query.m);
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
               >
-                {
-                  "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
-                }
+                <PlasmicIcon__
+                  PlasmicIconType={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? Icon72Icon
+                      : Icon72Icon
+                  }
+                  className={classNames(projectcss.all, sty.svg__teWPd)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ssYYa
+                  )}
+                >
+                  {
+                    "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
+                  }
+                </div>
               </div>
-            </div>
+            ) : null}
           </Stack__>
           <Embed
             data-plasmic-name={"embedHtml"}
