@@ -756,13 +756,16 @@ function PlasmicWeekByWeek__RenderFunc(props: {
               </div>
               {(() => {
                 try {
-                  return $state.curentWeek + 1 != $state.selectedWeek;
+                  return (
+                    $state.curentWeek + 1 != $state.selectedWeek &&
+                    $state.getInfo?.data?.[0]?.success
+                  );
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return true;
+                    return false;
                   }
                   throw e;
                 }
@@ -1020,13 +1023,172 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                     >
                       {"\u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646"}
                     </div>
+                    {(() => {
+                      try {
+                        return $state.getInfo.data[0].success;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__zr2Df,
+                          {
+                            [sty.textdark__zr2DfXyRv7]: hasVariant(
+                              $state,
+                              "dark",
+                              "dark"
+                            )
+                          }
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            if (
+                              $state.selectedWeek ==
+                              ($state.curentWeek ?? 1) + 1
+                            )
+                              return ($state.daysPregnant ?? 1) - 1 + " روز ";
+                            else return "--";
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    ) : null}
+                    {(() => {
+                      try {
+                        return !$state.getInfo.data[0].success;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___66Tdp
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__fN9Y
+                          )}
+                        >
+                          {
+                            "\u062b\u0628\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                          }
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__qlGjN
+                          )}
+                        >
+                          {
+                            "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
+                          }
+                        </div>
+                      </div>
+                    ) : null}
+                  </Stack__>
+                </div>
+              </div>
+              {(() => {
+                try {
+                  return $state.getInfo?.data?.[0]?.success;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox__gt682)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__krpDp, {
+                      [sty.freeBoxdark__krpDpXyRv7]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    })}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.FlutterChannel.postMessage(
+                                    "#babySize"
+                                  );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                  >
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img___63OGe)}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "35px"
+                          : "45px"
+                      }
+                      loading={"lazy"}
+                      src={{
+                        src: "/plasmic/liom_hamyar/images/image30.svg",
+                        fullWidth: 32,
+                        fullHeight: 32,
+                        aspectRatio: 1
+                      }}
+                    />
+
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__zr2Df,
+                        sty.text__vsqeh,
                         {
-                          [sty.textdark__zr2DfXyRv7]: hasVariant(
+                          [sty.textdark__vsqehXyRv7]: hasVariant(
                             $state,
                             "dark",
                             "dark"
@@ -1034,254 +1196,166 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         }
                       )}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          if (
-                            $state.selectedWeek ==
-                            ($state.curentWeek ?? 1) + 1
+                      {"\u0633\u0627\u06cc\u0632 \u062c\u0646\u06cc\u0646"}
+                    </div>
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__xriI1, {
+                      [sty.freeBoxdark__xriI1XyRv7]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    })}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.FlutterChannel.postMessage(
+                                    "#dangerOrNot"
+                                  );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                  >
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img___8Vta)}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"none"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "35px"
+                          : "45px"
+                      }
+                      loading={"lazy"}
+                      src={{
+                        src: "/plasmic/liom_hamyar/images/image28.svg",
+                        fullWidth: 32,
+                        fullHeight: 32,
+                        aspectRatio: 1
+                      }}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__dpZt6,
+                        {
+                          [sty.textdark__dpZt6XyRv7]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
                           )
-                            return ($state.daysPregnant ?? 1) - 1 + " روز ";
-                          else return "--";
-                        })()}
-                      </React.Fragment>
+                        }
+                      )}
+                    >
+                      {
+                        "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647\u061f"
+                      }
+                    </div>
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__hjoy3, {
+                      [sty.freeBoxdark__hjoy3XyRv7]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    })}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.FlutterChannel.postMessage(
+                                    "#diary"
+                                  );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                  >
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__j5OE5)}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"auto"}
+                      height={``}
+                      loading={"lazy"}
+                      src={
+                        "https://site-assets.plasmic.app/cb731cf766e9363bb5d979639af237e5.svg"
+                      }
+                      width={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "35"
+                          : "45"
+                      }
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rV3MI,
+                        {
+                          [sty.textdark__rV3MIXyRv7]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                    >
+                      {"\u062e\u0627\u0637\u0631\u0627\u062a \u0645\u0646"}
                     </div>
                   </Stack__>
                 </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__gt682)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__krpDp, {
-                    [sty.freeBoxdark__krpDpXyRv7]: hasVariant(
-                      $state,
-                      "dark",
-                      "dark"
-                    )
-                  })}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return window.FlutterChannel.postMessage(
-                                  "#babySize"
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                >
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img___63OGe)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? "35px"
-                        : "45px"
-                    }
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image30.svg",
-                      fullWidth: 32,
-                      fullHeight: 32,
-                      aspectRatio: 1
-                    }}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__vsqeh,
-                      {
-                        [sty.textdark__vsqehXyRv7]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }
-                    )}
-                  >
-                    {"\u0633\u0627\u06cc\u0632 \u062c\u0646\u06cc\u0646"}
-                  </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__xriI1, {
-                    [sty.freeBoxdark__xriI1XyRv7]: hasVariant(
-                      $state,
-                      "dark",
-                      "dark"
-                    )
-                  })}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return window.FlutterChannel.postMessage(
-                                  "#dangerOrNot"
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                >
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img___8Vta)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"none"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? "35px"
-                        : "45px"
-                    }
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image28.svg",
-                      fullWidth: 32,
-                      fullHeight: 32,
-                      aspectRatio: 1
-                    }}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__dpZt6,
-                      {
-                        [sty.textdark__dpZt6XyRv7]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }
-                    )}
-                  >
-                    {
-                      "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647\u061f"
-                    }
-                  </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__hjoy3, {
-                    [sty.freeBoxdark__hjoy3XyRv7]: hasVariant(
-                      $state,
-                      "dark",
-                      "dark"
-                    )
-                  })}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return window.FlutterChannel.postMessage(
-                                  "#diary"
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                >
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__j5OE5)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    height={``}
-                    loading={"lazy"}
-                    src={
-                      "https://site-assets.plasmic.app/cb731cf766e9363bb5d979639af237e5.svg"
-                    }
-                    width={
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? "35"
-                        : "45"
-                    }
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rV3MI,
-                      {
-                        [sty.textdark__rV3MIXyRv7]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }
-                    )}
-                  >
-                    {"\u062e\u0627\u0637\u0631\u0627\u062a \u0645\u0646"}
-                  </div>
-                </Stack__>
-              </div>
+              ) : null}
               <div
                 className={classNames(projectcss.all, sty.freeBox__abCtx, {
                   [sty.freeBoxdark__abCtxXyRv7]: hasVariant(
@@ -1802,6 +1876,48 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                     );
                   })()}
                 </div>
+                {(() => {
+                  try {
+                    return !$state.getInfo.data[0].success;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__arqS1)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___5KNhh
+                      )}
+                    >
+                      {
+                        "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__hUuxZ
+                      )}
+                    >
+                      {
+                        "\u062a\u0648\u0635\u06cc\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d"
+                      }
+                    </div>
+                  </Stack__>
+                ) : null}
               </div>
             </div>
           </ApiRequest>

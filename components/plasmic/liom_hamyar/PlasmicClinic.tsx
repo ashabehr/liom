@@ -61,9 +61,9 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import Star from "../../Star"; // plasmic-import: i69c2Ujsm_H6/component
-import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -80,6 +80,8 @@ import BabyBlanketSvgIcon from "./icons/PlasmicIcon__BabyBlanketSvg"; // plasmic
 import Icon75Icon from "./icons/PlasmicIcon__Icon75"; // plasmic-import: CaIiVU2Vq7gB/icon
 import DietFoodSvgIcon from "./icons/PlasmicIcon__DietFoodSvg"; // plasmic-import: ozXswRIM6iv_/icon
 import MindSvgIcon from "./icons/PlasmicIcon__MindSvg"; // plasmic-import: g6DmzM6RGQ3O/icon
+import Icon102Icon from "./icons/PlasmicIcon__Icon102"; // plasmic-import: 9fS9dn8xohZT/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import Icon76Icon from "./icons/PlasmicIcon__Icon76"; // plasmic-import: ePwPtQfgTARC/icon
 import Icon2Icon from "../todo_mvc_app/icons/PlasmicIcon__Icon2"; // plasmic-import: EwJmqOfKx7up/icon
@@ -87,7 +89,6 @@ import Icon86Icon from "./icons/PlasmicIcon__Icon86"; // plasmic-import: WyXhO3y
 import Icon80Icon from "./icons/PlasmicIcon__Icon80"; // plasmic-import: ixGmg3HZ4zCd/icon
 import Icon85Icon from "./icons/PlasmicIcon__Icon85"; // plasmic-import: doh7qrCd7t0X/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 
 createPlasmicElementProxy;
 
@@ -119,6 +120,7 @@ export type PlasmicClinic__OverridesType = {
   card6?: Flex__<"div">;
   card5?: Flex__<"div">;
   card4?: Flex__<"div">;
+  button2?: Flex__<typeof Button>;
   input?: Flex__<typeof Input>;
   mensah?: Flex__<"div">;
   input2?: Flex__<typeof Input>;
@@ -214,6 +216,12 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "line"
       }
     ],
     [$props, $ctx, $refs]
@@ -435,7 +443,7 @@ function PlasmicClinic__RenderFunc(props: {
                     )}
                   >
                     {
-                      "\u0648\u06cc\u0632\u06cc\u062a\u200c\u0647\u0627\u06cc \u062a\u0648"
+                      "\u0648\u06cc\u0632\u06cc\u062a\u200c\u0647\u0627\u06cc \u0645\u0646"
                     }
                   </div>
                   <div
@@ -603,6 +611,83 @@ function PlasmicClinic__RenderFunc(props: {
                 </Stack__>
               </div>
             </Stack__>
+            <div
+              className={classNames(projectcss.all, sty.freeBox___8MoGl, {
+                [sty.freeBox_1_chatviow___8MoGlaYJmT]: hasVariant(
+                  $state,
+                  "_1",
+                  "chatviow"
+                ),
+                [sty.freeBox_1_docters___8MoGlpv2Kd]: hasVariant(
+                  $state,
+                  "_1",
+                  "docters"
+                )
+              })}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__qMam7
+                )}
+              >
+                {
+                  "\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0644\u06cc\u0648\u0645"
+                }
+              </div>
+              <Button
+                data-plasmic-name={"button2"}
+                data-plasmic-override={overrides.button2}
+                className={classNames("__wab_instance", sty.button2)}
+                color={generateStateValueProp($state, ["button2", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["update1"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          vgroup: "_1",
+                          operation: 0,
+                          value: "chatviow"
+                        };
+                        return (({ vgroup, value }) => {
+                          if (typeof value === "string") {
+                            value = [value];
+                          }
+
+                          $stateSet($state, vgroup, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["update1"] != null &&
+                    typeof $steps["update1"] === "object" &&
+                    typeof $steps["update1"].then === "function"
+                  ) {
+                    $steps["update1"] = await $steps["update1"];
+                  }
+                }}
+                onColorChange={(...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button2", "color"])(
+                    eventArgs[0]
+                  );
+                }}
+                showStartIcon={true}
+                size={"compact"}
+                startIcon={
+                  <Icon102Icon
+                    className={classNames(projectcss.all, sty.svg___8EYhu)}
+                    role={"img"}
+                  />
+                }
+              >
+                {
+                  "\u0648\u06cc\u0632\u06cc\u062a \u0647\u0627\u06cc \u0645\u0646"
+                }
+              </Button>
+            </div>
           </Stack__>
           <Stack__
             as={"div"}
@@ -2284,6 +2369,7 @@ const PlasmicDescendants = {
     "card6",
     "card5",
     "card4",
+    "button2",
     "input",
     "mensah",
     "input2",
@@ -2318,6 +2404,7 @@ const PlasmicDescendants = {
   card6: ["card6"],
   card5: ["card5"],
   card4: ["card4"],
+  button2: ["button2"],
   input: ["input"],
   mensah: ["mensah"],
   input2: ["input2"],
@@ -2385,6 +2472,7 @@ type NodeDefaultElementType = {
   card6: "div";
   card5: "div";
   card4: "div";
+  button2: typeof Button;
   input: typeof Input;
   mensah: "div";
   input2: typeof Input;
@@ -2505,6 +2593,7 @@ export const PlasmicClinic = Object.assign(
     card6: makeNodeComponent("card6"),
     card5: makeNodeComponent("card5"),
     card4: makeNodeComponent("card4"),
+    button2: makeNodeComponent("button2"),
     input: makeNodeComponent("input"),
     mensah: makeNodeComponent("mensah"),
     input2: makeNodeComponent("input2"),

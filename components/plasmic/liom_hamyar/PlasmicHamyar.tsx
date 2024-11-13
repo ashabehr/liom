@@ -11306,6 +11306,8 @@ function PlasmicHamyar__RenderFunc(props: {
                                 $state.user.data.result.man.birthDate
                               )
                             );
+                            $state.user.data.result["r"] = $state.r;
+                            $state.user.data.result["m"] = $state.m;
                             return localStorage.setItem(
                               "userinfo",
                               JSON.stringify($state.user.data.result)
@@ -11568,41 +11570,31 @@ function PlasmicHamyar__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["runCode"] =
+                $steps["goToBioritm"] =
                   localStorage.getItem("token") != "undefined" ||
                   localStorage.getItem("token") != null
                     ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              const previousUrl = document.referrer;
-                              if (
-                                previousUrl.startsWith(
-                                  "https://apps.liom.app/bioritm"
-                                )
-                              ) {
-                                return window.history.back();
-                              } else {
-                                return (window.location.href =
-                                  "https://apps.liom.app/bioritm/?r=" +
-                                  $ctx.query.r +
-                                  "&m=" +
-                                  $ctx.query.m);
-                              }
-                            })();
+                        const actionArgs = { destination: `/bioritm` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
                           }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                 if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
+                  $steps["goToBioritm"] != null &&
+                  typeof $steps["goToBioritm"] === "object" &&
+                  typeof $steps["goToBioritm"].then === "function"
                 ) {
-                  $steps["runCode"] = await $steps["runCode"];
+                  $steps["goToBioritm"] = await $steps["goToBioritm"];
                 }
               }}
             >
@@ -11645,32 +11637,31 @@ function PlasmicHamyar__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["runCode"] =
+                  $steps["goToFood"] =
                     localStorage.getItem("token") != "undefined" ||
                     localStorage.getItem("token") != null
                       ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return (window.location.href =
-                                  "https://apps.liom.app/food/?r=" +
-                                  $ctx.query.r +
-                                  "&m=" +
-                                  $ctx.query.m);
-                              })();
+                          const actionArgs = { destination: `/food` };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
                             }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                   if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
+                    $steps["goToFood"] != null &&
+                    typeof $steps["goToFood"] === "object" &&
+                    typeof $steps["goToFood"].then === "function"
                   ) {
-                    $steps["runCode"] = await $steps["runCode"];
+                    $steps["goToFood"] = await $steps["goToFood"];
                   }
                 }}
               >

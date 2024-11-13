@@ -5861,13 +5861,11 @@ function PlasmicBioritm__RenderFunc(props: {
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
-                        return (() => {
-                          return (window.location.href =
-                            "https://apps.liom.app/hamyar/?r=" +
-                            $ctx.query.r +
-                            "&m=" +
-                            $ctx.query.m);
-                        })();
+                        return (window.location.href =
+                          "https://apps.liom.app/hamyar/?r=" +
+                          $state.userInfo.r +
+                          "&m=" +
+                          $state.userInfo.m);
                       }
                     };
                     return (({ customFunction }) => {
@@ -5927,7 +5925,7 @@ function PlasmicBioritm__RenderFunc(props: {
           </div>
           {(() => {
             try {
-              return $ctx.query.m == "71ef2e";
+              return $state.userInfo.m == "71ef2e";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -5944,30 +5942,29 @@ function PlasmicBioritm__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["runCode"] = true
+                $steps["goToFood"] = true
                   ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return (() => {
-                            return (window.location.href =
-                              "https://apps.liom.app/food/?r=" +
-                              $ctx.query.r +
-                              "&m=" +
-                              $ctx.query.m);
-                          })();
+                      const actionArgs = { destination: `/food` };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
                         }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["runCode"] != null &&
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
+                  $steps["goToFood"] != null &&
+                  typeof $steps["goToFood"] === "object" &&
+                  typeof $steps["goToFood"].then === "function"
                 ) {
-                  $steps["runCode"] = await $steps["runCode"];
+                  $steps["goToFood"] = await $steps["goToFood"];
                 }
               }}
             >
