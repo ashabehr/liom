@@ -209,28 +209,6 @@ function PlasmicTabWeek__RenderFunc(props: {
         className={classNames(
           projectcss.all,
           projectcss.__wab_text,
-          sty.text__cIwtp,
-          {
-            [sty.textdarkSelected__cIwtPcPpzb]: hasVariant(
-              $state,
-              "darkSelected",
-              "darkSelected"
-            ),
-            [sty.textdark__cIwtpeZSc]: hasVariant($state, "dark", "dark"),
-            [sty.textselected__cIwtPpVhC]: hasVariant(
-              $state,
-              "selected",
-              "selected"
-            )
-          }
-        )}
-      >
-        {"\u0647\u0641\u062a\u0647"}
-      </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
           sty.text__eo2BK,
           {
             [sty.textdarkSelected__eo2BKcPpzb]: hasVariant(
@@ -262,6 +240,28 @@ function PlasmicTabWeek__RenderFunc(props: {
             }
           })()}
         </React.Fragment>
+      </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__cIwtp,
+          {
+            [sty.textdarkSelected__cIwtPcPpzb]: hasVariant(
+              $state,
+              "darkSelected",
+              "darkSelected"
+            ),
+            [sty.textdark__cIwtpeZSc]: hasVariant($state, "dark", "dark"),
+            [sty.textselected__cIwtPpVhC]: hasVariant(
+              $state,
+              "selected",
+              "selected"
+            )
+          }
+        )}
+      >
+        {"\u0647\u0641\u062a\u0647"}
       </div>
     </div>
   ) as React.ReactElement | null;

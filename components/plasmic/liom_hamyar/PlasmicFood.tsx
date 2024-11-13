@@ -4641,14 +4641,20 @@ function PlasmicFood__RenderFunc(props: {
                                     let targetEntry = lastNumbersArray.find(
                                       item => item.id === currentItem.id
                                     );
-                                    if (targetEntry) {
+                                    if (targetEntry && targetEntry != 0) {
                                       return (
                                         " هفته پیش  " +
                                         targetEntry.number +
                                         "  تا خوردی. "
                                       );
                                     } else {
-                                      return "هفته پیش 0 تا خوردی.";
+                                      return (
+                                        "هفته پیش " +
+                                        $state.harmfulFood.find(
+                                          item => item.id === currentItem.id
+                                        ).title +
+                                        " نخوردی."
+                                      );
                                     }
                                   })();
                                 } catch (e) {
