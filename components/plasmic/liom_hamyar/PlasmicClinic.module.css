@@ -1628,7 +1628,9 @@
   background: none;
   display: flex;
   flex-direction: column;
+  height: 100%;
   min-width: 0;
+  min-height: 0;
 }
 .doctorsDetails_1_docter > :global(.__wab_flex-container) {
   align-items: stretch;
@@ -1637,6 +1639,7 @@
   align-content: stretch;
   flex-direction: column;
   min-width: 0;
+  min-height: 0;
   margin-left: calc(0px - 0px);
   width: calc(100% + 0px);
   margin-top: calc(0px - 20px);
