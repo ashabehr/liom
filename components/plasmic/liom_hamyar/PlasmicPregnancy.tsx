@@ -230,7 +230,7 @@ function PlasmicPregnancy__RenderFunc(props: {
             icon: "https://site-assets.plasmic.app/bcfb85db4fac1cadd2c1c36dc5cb4419.svg",
             weekStart: 1,
             action: "#weekByWeek",
-            weekEnd: 12
+            weekEnd: 40
           },
           {
             title:
@@ -4213,75 +4213,26 @@ function PlasmicPregnancy__RenderFunc(props: {
                           onClick={async event => {
                             const $steps = {};
 
-                            $steps["runCode"] =
-                              currentItem.action != "#weekByWeek"
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return window.FlutterChannel.postMessage(
-                                          currentItem.action
-                                        );
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.FlutterChannel.postMessage(
+                                        currentItem.action
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                             if (
                               $steps["runCode"] != null &&
                               typeof $steps["runCode"] === "object" &&
                               typeof $steps["runCode"].then === "function"
                             ) {
                               $steps["runCode"] = await $steps["runCode"];
-                            }
-
-                            $steps["goToPage"] =
-                              currentItem.action == "#weekByWeek"
-                                ? (() => {
-                                    const actionArgs = {
-                                      destination: (() => {
-                                        try {
-                                          return (
-                                            "https://apps.liom.app/week-by-week/?token=" +
-                                            $ctx.query.token +
-                                            "&&theme=" +
-                                            $ctx.query.theme
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return `/week-by-week`;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    };
-                                    return (({ destination }) => {
-                                      if (
-                                        typeof destination === "string" &&
-                                        destination.startsWith("#")
-                                      ) {
-                                        document
-                                          .getElementById(destination.substr(1))
-                                          .scrollIntoView({
-                                            behavior: "smooth"
-                                          });
-                                      } else {
-                                        __nextRouter?.push(destination);
-                                      }
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                            if (
-                              $steps["goToPage"] != null &&
-                              typeof $steps["goToPage"] === "object" &&
-                              typeof $steps["goToPage"].then === "function"
-                            ) {
-                              $steps["goToPage"] = await $steps["goToPage"];
                             }
                           }}
                         >

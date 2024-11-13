@@ -611,7 +611,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicWeekByWeek.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/week-by-week.tsx"
+            "modulePath": "../src/pages/weekByWeek.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicWeekByWeek.module.css",
           "scheme": "blackbox",

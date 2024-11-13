@@ -754,6 +754,77 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   })}
                 </div>
               </div>
+              {(() => {
+                try {
+                  return $state.curentWeek + 1 != $state.selectedWeek;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__cqBd,
+                    {
+                      [sty.textdark__cqBdXyRv7]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    }
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateSelectedWeek"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["selectedWeek"]
+                            },
+                            operation: 0,
+                            value: $state.curentWeek + 1
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSelectedWeek"] != null &&
+                      typeof $steps["updateSelectedWeek"] === "object" &&
+                      typeof $steps["updateSelectedWeek"].then === "function"
+                    ) {
+                      $steps["updateSelectedWeek"] = await $steps[
+                        "updateSelectedWeek"
+                      ];
+                    }
+                  }}
+                >
+                  {
+                    "\u0628\u0631\u06af\u0634\u062a \u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc"
+                  }
+                </div>
+              ) : null}
               <div
                 className={classNames(projectcss.all, sty.freeBox__p84Rg, {
                   [sty.freeBoxdark__p84RgXyRv7]: hasVariant(

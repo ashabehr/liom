@@ -93,6 +93,23 @@
   margin-left: 8px;
   width: auto;
 }
+.text__cqBd {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-55cSeNPovQFh);
+  background: var(--token-RfhqiwT2YAVo);
+  font-size: 10px;
+  border-radius: 8px;
+  padding: 2px 6px;
+  border: 1px solid var(--token-oCPc5AIJwtEa);
+}
+.textdark__cqBdXyRv7 {
+  color: var(--token-BIuTS8zmWD0f);
+  background: var(--token-w7oYmzqeGvkw);
+  border-color: var(--token-64O07uLgKimi);
+}
 .freeBox__p84Rg {
   display: flex;
   flex-direction: column;
