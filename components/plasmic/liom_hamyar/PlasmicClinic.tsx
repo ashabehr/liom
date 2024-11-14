@@ -64,6 +64,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import Star from "../../Star"; // plasmic-import: i69c2Ujsm_H6/component
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -120,6 +121,12 @@ export type PlasmicClinic__OverridesType = {
   card6?: Flex__<"div">;
   card5?: Flex__<"div">;
   card4?: Flex__<"div">;
+  speciality2?: Flex__<"div">;
+  card9?: Flex__<"div">;
+  card10?: Flex__<"div">;
+  card11?: Flex__<"div">;
+  card12?: Flex__<"div">;
+  card13?: Flex__<"div">;
   button2?: Flex__<typeof Button>;
   input?: Flex__<typeof Input>;
   mensah?: Flex__<"div">;
@@ -141,6 +148,7 @@ export type PlasmicClinic__OverridesType = {
   workingTime?: Flex__<"div">;
   monSat0830Am?: Flex__<"div">;
   button?: Flex__<typeof Button>;
+  timer?: Flex__<typeof Timer>;
 };
 
 export interface DefaultClinicProps {}
@@ -222,6 +230,12 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "line"
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -611,6 +625,156 @@ function PlasmicClinic__RenderFunc(props: {
                 </Stack__>
               </div>
             </Stack__>
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"speciality2"}
+              data-plasmic-override={overrides.speciality2}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.speciality2, {
+                [sty.speciality2_1_chatviow]: hasVariant(
+                  $state,
+                  "_1",
+                  "chatviow"
+                ),
+                [sty.speciality2_1_docter]: hasVariant($state, "_1", "docter"),
+                [sty.speciality2_1_docters]: hasVariant($state, "_1", "docters")
+              })}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__tI0Jp
+                )}
+              >
+                {
+                  "\u0645\u062a\u062e\u0635\u0635\u06cc\u0646  \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc"
+                }
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ffSEd
+                )}
+              >
+                {
+                  "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc \u0648 \u0631\u0648\u0627\u0628\u0637 \u062c\u0646\u0633\u06cc"
+                }
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__bnM)}>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"card9"}
+                  data-plasmic-override={overrides.card9}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.card9)}
+                >
+                  <DermisSvgIcon
+                    className={classNames(projectcss.all, sty.svg__mcLpj)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___0P9Ko
+                    )}
+                  >
+                    {"\u067e\u0648\u0633\u062a \u0648 \u0645\u0648"}
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"card10"}
+                  data-plasmic-override={overrides.card10}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.card10)}
+                >
+                  <BabyBlanketSvgIcon
+                    className={classNames(projectcss.all, sty.svg___0U9ZA)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__utkyd
+                    )}
+                  >
+                    {"\u0628\u0627\u0631\u0648\u0631\u06cc"}
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"card11"}
+                  data-plasmic-override={overrides.card11}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.card11)}
+                >
+                  <Icon75Icon
+                    className={classNames(projectcss.all, sty.svg___7Fqob)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__nda7I
+                    )}
+                  >
+                    {"\u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc"}
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"card12"}
+                  data-plasmic-override={overrides.card12}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.card12)}
+                >
+                  <DietFoodSvgIcon
+                    className={classNames(projectcss.all, sty.svg__nDh1I)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__kEyjc
+                    )}
+                  >
+                    {"\u062a\u063a\u0630\u06cc\u0647"}
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"card13"}
+                  data-plasmic-override={overrides.card13}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.card13)}
+                >
+                  <MindSvgIcon
+                    className={classNames(projectcss.all, sty.svg__sF6Q)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__w2VW
+                    )}
+                  >
+                    {"\u0631\u0648\u0646\u0634\u0646\u0627\u0633\u06cc"}
+                  </div>
+                </Stack__>
+              </div>
+            </Stack__>
             <div
               className={classNames(projectcss.all, sty.freeBox___8MoGl, {
                 [sty.freeBox_1_chatviow___8MoGlaYJmT]: hasVariant(
@@ -636,57 +800,71 @@ function PlasmicClinic__RenderFunc(props: {
                   "\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0644\u06cc\u0648\u0645"
                 }
               </div>
-              <Button
-                data-plasmic-name={"button2"}
-                data-plasmic-override={overrides.button2}
-                className={classNames("__wab_instance", sty.button2)}
-                color={generateStateValueProp($state, ["button2", "color"])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["update1"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          vgroup: "_1",
-                          operation: 0,
-                          value: "chatviow"
-                        };
-                        return (({ vgroup, value }) => {
-                          if (typeof value === "string") {
-                            value = [value];
-                          }
-
-                          $stateSet($state, vgroup, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+              {(() => {
+                try {
+                  return $state.variable > 350;
+                } catch (e) {
                   if (
-                    $steps["update1"] != null &&
-                    typeof $steps["update1"] === "object" &&
-                    typeof $steps["update1"].then === "function"
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    $steps["update1"] = await $steps["update1"];
+                    return true;
                   }
-                }}
-                onColorChange={(...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button2", "color"])(
-                    eventArgs[0]
-                  );
-                }}
-                showStartIcon={true}
-                size={"compact"}
-                startIcon={
-                  <Icon102Icon
-                    className={classNames(projectcss.all, sty.svg___8EYhu)}
-                    role={"img"}
-                  />
+                  throw e;
                 }
-              >
-                {
-                  "\u0648\u06cc\u0632\u06cc\u062a \u0647\u0627\u06cc \u0645\u0646"
-                }
-              </Button>
+              })() ? (
+                <Button
+                  data-plasmic-name={"button2"}
+                  data-plasmic-override={overrides.button2}
+                  className={classNames("__wab_instance", sty.button2)}
+                  color={generateStateValueProp($state, ["button2", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["update1"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "_1",
+                            operation: 0,
+                            value: "chatviow"
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            $stateSet($state, vgroup, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["update1"] != null &&
+                      typeof $steps["update1"] === "object" &&
+                      typeof $steps["update1"].then === "function"
+                    ) {
+                      $steps["update1"] = await $steps["update1"];
+                    }
+                  }}
+                  onColorChange={(...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button2", "color"])(
+                      eventArgs[0]
+                    );
+                  }}
+                  showStartIcon={true}
+                  size={"compact"}
+                  startIcon={
+                    <Icon102Icon
+                      className={classNames(projectcss.all, sty.svg___8EYhu)}
+                      role={"img"}
+                    />
+                  }
+                >
+                  {
+                    "\u0648\u06cc\u0632\u06cc\u062a \u0647\u0627\u06cc \u0645\u0646"
+                  }
+                </Button>
+              ) : null}
             </div>
           </Stack__>
           <Stack__
@@ -2347,6 +2525,46 @@ function PlasmicClinic__RenderFunc(props: {
               </Button>
             </Stack__>
           ) : null}
+          <Timer
+            data-plasmic-name={"timer"}
+            data-plasmic-override={overrides.timer}
+            className={classNames("__wab_instance", sty.timer)}
+            intervalSeconds={1}
+            isRunning={true}
+            onTick={async () => {
+              const $steps = {};
+
+              $steps["updateVariable"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["variable"]
+                      },
+                      operation: 0,
+                      value: window.scrollY
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateVariable"] != null &&
+                typeof $steps["updateVariable"] === "object" &&
+                typeof $steps["updateVariable"].then === "function"
+              ) {
+                $steps["updateVariable"] = await $steps["updateVariable"];
+              }
+            }}
+            runWhileEditing={true}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -2369,6 +2587,12 @@ const PlasmicDescendants = {
     "card6",
     "card5",
     "card4",
+    "speciality2",
+    "card9",
+    "card10",
+    "card11",
+    "card12",
+    "card13",
     "button2",
     "input",
     "mensah",
@@ -2389,7 +2613,8 @@ const PlasmicDescendants = {
     "drBellamyNicholas",
     "workingTime",
     "monSat0830Am",
-    "button"
+    "button",
+    "timer"
   ],
   bg: ["bg", "rectangle2", "\u0627", "\u06272"],
   rectangle2: ["rectangle2", "\u0627", "\u06272"],
@@ -2404,6 +2629,12 @@ const PlasmicDescendants = {
   card6: ["card6"],
   card5: ["card5"],
   card4: ["card4"],
+  speciality2: ["speciality2", "card9", "card10", "card11", "card12", "card13"],
+  card9: ["card9"],
+  card10: ["card10"],
+  card11: ["card11"],
+  card12: ["card12"],
+  card13: ["card13"],
   button2: ["button2"],
   input: ["input"],
   mensah: ["mensah"],
@@ -2452,7 +2683,8 @@ const PlasmicDescendants = {
   drBellamyNicholas: ["drBellamyNicholas"],
   workingTime: ["workingTime", "monSat0830Am"],
   monSat0830Am: ["monSat0830Am"],
-  button: ["button"]
+  button: ["button"],
+  timer: ["timer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2472,6 +2704,12 @@ type NodeDefaultElementType = {
   card6: "div";
   card5: "div";
   card4: "div";
+  speciality2: "div";
+  card9: "div";
+  card10: "div";
+  card11: "div";
+  card12: "div";
+  card13: "div";
   button2: typeof Button;
   input: typeof Input;
   mensah: "div";
@@ -2493,6 +2731,7 @@ type NodeDefaultElementType = {
   workingTime: "div";
   monSat0830Am: "div";
   button: typeof Button;
+  timer: typeof Timer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2593,6 +2832,12 @@ export const PlasmicClinic = Object.assign(
     card6: makeNodeComponent("card6"),
     card5: makeNodeComponent("card5"),
     card4: makeNodeComponent("card4"),
+    speciality2: makeNodeComponent("speciality2"),
+    card9: makeNodeComponent("card9"),
+    card10: makeNodeComponent("card10"),
+    card11: makeNodeComponent("card11"),
+    card12: makeNodeComponent("card12"),
+    card13: makeNodeComponent("card13"),
     button2: makeNodeComponent("button2"),
     input: makeNodeComponent("input"),
     mensah: makeNodeComponent("mensah"),
@@ -2614,6 +2859,7 @@ export const PlasmicClinic = Object.assign(
     workingTime: makeNodeComponent("workingTime"),
     monSat0830Am: makeNodeComponent("monSat0830Am"),
     button: makeNodeComponent("button"),
+    timer: makeNodeComponent("timer"),
 
     // Metadata about props expected for PlasmicClinic
     internalVariantProps: PlasmicClinic__VariantProps,

@@ -886,6 +886,545 @@
     font-size: 14px;
   }
 }
+.speciality2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 8px;
+}
+.speciality2 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 0;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.speciality2 > :global(.__wab_flex-container) > *,
+.speciality2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.speciality2 > :global(.__wab_flex-container) > picture > img,
+.speciality2
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .speciality2 {
+    height: auto;
+    padding-bottom: 5px;
+    padding-right: 24px;
+    padding-left: 24px;
+    left: auto;
+    top: auto;
+  }
+}
+.speciality2_1_docters {
+  left: auto;
+  top: auto;
+}
+.speciality2_1_docter {
+  left: auto;
+  top: auto;
+}
+@media (max-width: 640px) {
+  .speciality2_1_docter {
+    left: auto;
+    top: auto;
+  }
+}
+.speciality2_1_chatviow {
+  left: auto;
+  top: auto;
+}
+@media (max-width: 640px) {
+  .speciality2_1_chatviow {
+    left: auto;
+    top: auto;
+  }
+}
+.text__tI0Jp {
+  display: block;
+  font-size: 24px;
+  letter-spacing: 0.3px;
+  line-height: 100%;
+  color: rgba(33, 42, 68, 1);
+  position: relative;
+  top: auto;
+  left: auto;
+  align-self: flex-start;
+  font-weight: 700;
+}
+@media (max-width: 640px) {
+  .text__tI0Jp {
+    font-size: 18px;
+    padding-bottom: 5px;
+  }
+}
+.text__ffSEd {
+  display: block;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  line-height: 100%;
+  color: var(--token-WxvvgatuPYoJ);
+  position: relative;
+  top: auto;
+  left: auto;
+  align-self: flex-start;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+@media (max-width: 640px) {
+  .text__ffSEd {
+    font-size: 18px;
+    padding-bottom: 5px;
+    left: auto;
+    top: auto;
+  }
+}
+.freeBox__bnM {
+  position: relative;
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: grid;
+  grid-row-gap: 20px;
+  grid-column-gap: 30px;
+  min-width: 0;
+  padding: 0px;
+}
+@media (max-width: 640px) {
+  .freeBox__bnM {
+    grid-column-gap: 20px;
+  }
+}
+.card9 {
+  background: var(--token-jgohepLVeKvh);
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  top: auto;
+  left: auto;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 12px;
+  padding: 12px;
+}
+.card9 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.card9 > :global(.__wab_flex-container) > *,
+.card9 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.card9 > :global(.__wab_flex-container) > picture > img,
+.card9 > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .card9 {
+    left: auto;
+    top: auto;
+    margin-bottom: 10px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+}
+@media (max-width: 640px) {
+  .card9 > :global(.__wab_flex-container) {
+    min-width: 0;
+    min-height: 0;
+  }
+}
+.svg__mcLpj {
+  object-fit: cover;
+  max-width: 100%;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg__mcLpj {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+}
+.text___0P9Ko {
+  display: block;
+  font-size: 16px;
+  text-align: center;
+  font-family: "Museo Sans Cyrl";
+  letter-spacing: 0.25px;
+  line-height: 100%;
+  color: rgba(33, 42, 68, 1);
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  font-weight: 500;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .text___0P9Ko {
+    font-size: 14px;
+  }
+}
+.card10 {
+  background: var(--token-jgohepLVeKvh);
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  top: auto;
+  left: auto;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 12px;
+  padding: 12px;
+}
+.card10 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.card10 > :global(.__wab_flex-container) > *,
+.card10 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.card10 > :global(.__wab_flex-container) > picture > img,
+.card10
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .card10 {
+    left: auto;
+    top: auto;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    margin: 0px 0px 10px;
+  }
+}
+@media (max-width: 640px) {
+  .card10 > :global(.__wab_flex-container) {
+    min-width: 0;
+    min-height: 0;
+  }
+}
+.svg___0U9ZA {
+  object-fit: cover;
+  max-width: 100%;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg___0U9ZA {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+}
+.text__utkyd {
+  display: block;
+  font-size: 16px;
+  text-align: center;
+  font-family: "Museo Sans Cyrl";
+  letter-spacing: 0.25px;
+  line-height: 100%;
+  color: rgba(33, 42, 68, 1);
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  font-weight: 500;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .text__utkyd {
+    font-size: 14px;
+  }
+}
+.card11 {
+  background: var(--token-jgohepLVeKvh);
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  top: auto;
+  left: auto;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 12px;
+  padding: 12px;
+}
+.card11 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.card11 > :global(.__wab_flex-container) > *,
+.card11 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.card11 > :global(.__wab_flex-container) > picture > img,
+.card11
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .card11 {
+    left: auto;
+    top: auto;
+    margin-bottom: 10px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+}
+@media (max-width: 640px) {
+  .card11 > :global(.__wab_flex-container) {
+    min-width: 0;
+    min-height: 0;
+  }
+}
+.svg___7Fqob {
+  object-fit: cover;
+  max-width: 100%;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg___7Fqob {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+}
+.text__nda7I {
+  display: block;
+  font-size: 16px;
+  text-align: center;
+  font-family: "Museo Sans Cyrl";
+  letter-spacing: 0.25px;
+  line-height: 100%;
+  color: rgba(33, 42, 68, 1);
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  font-weight: 500;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .text__nda7I {
+    font-size: 14px;
+  }
+}
+.card12 {
+  background: var(--token-jgohepLVeKvh);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  top: auto;
+  left: auto;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 12px;
+  padding: 12px;
+}
+.card12 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.card12 > :global(.__wab_flex-container) > *,
+.card12 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.card12 > :global(.__wab_flex-container) > picture > img,
+.card12
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .card12 {
+    left: auto;
+    top: auto;
+    margin-bottom: 10px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+}
+@media (max-width: 640px) {
+  .card12 > :global(.__wab_flex-container) {
+    min-width: 0;
+    min-height: 0;
+  }
+}
+.svg__nDh1I {
+  object-fit: cover;
+  max-width: 100%;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg__nDh1I {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+}
+.text__kEyjc {
+  display: block;
+  font-size: 16px;
+  text-align: center;
+  font-family: "Museo Sans Cyrl";
+  letter-spacing: 0.25px;
+  line-height: 100%;
+  color: rgba(33, 42, 68, 1);
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  font-weight: 500;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .text__kEyjc {
+    font-size: 14px;
+  }
+}
+.card13 {
+  background: var(--token-jgohepLVeKvh);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  border-radius: 12px;
+  padding: 12px;
+}
+.card13 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.card13 > :global(.__wab_flex-container) > *,
+.card13 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.card13 > :global(.__wab_flex-container) > picture > img,
+.card13
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .card13 {
+    margin-bottom: 10px;
+    position: relative;
+    left: auto;
+    top: auto;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+}
+@media (max-width: 640px) {
+  .card13 > :global(.__wab_flex-container) {
+    min-width: 0;
+    min-height: 0;
+  }
+}
+.svg__sF6Q {
+  object-fit: cover;
+  max-width: 100%;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg__sF6Q {
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+  }
+}
+.text__w2VW {
+  display: block;
+  font-size: 16px;
+  text-align: center;
+  font-family: "Museo Sans Cyrl";
+  letter-spacing: 0.25px;
+  line-height: 100%;
+  color: rgba(33, 42, 68, 1);
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  font-weight: 500;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .text__w2VW {
+    font-size: 14px;
+  }
+}
 .freeBox___8MoGl {
   display: flex;
   flex-direction: row;
@@ -2942,4 +3481,8 @@
   max-width: 100%;
   width: 150%;
   height: 150%;
+}
+.timer:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
 }
