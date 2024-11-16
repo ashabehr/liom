@@ -749,9 +749,17 @@ function PlasmicClinic__RenderFunc(props: {
                     showEndIcon={true}
                     size={"compact"}
                   >
-                    {
-                      "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
-                    }
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__wjvk8
+                      )}
+                    >
+                      {
+                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                      }
+                    </div>
                   </Button>
                 </Stack__>
                 <Stack__
@@ -791,9 +799,17 @@ function PlasmicClinic__RenderFunc(props: {
                     showEndIcon={true}
                     size={"compact"}
                   >
-                    {
-                      "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
-                    }
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__fjw2D
+                      )}
+                    >
+                      {
+                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                      }
+                    </div>
                   </Button>
                 </Stack__>
                 <Stack__
@@ -833,9 +849,17 @@ function PlasmicClinic__RenderFunc(props: {
                     showEndIcon={true}
                     size={"compact"}
                   >
-                    {
-                      "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
-                    }
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__aRtM0
+                      )}
+                    >
+                      {
+                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                      }
+                    </div>
                   </Button>
                 </Stack__>
               </Stack__>
@@ -919,9 +943,17 @@ function PlasmicClinic__RenderFunc(props: {
                     showEndIcon={true}
                     size={"compact"}
                   >
-                    {
-                      "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
-                    }
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__yCy31
+                      )}
+                    >
+                      {
+                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                      }
+                    </div>
                   </Button>
                 </Stack__>
                 <Stack__
@@ -939,7 +971,7 @@ function PlasmicClinic__RenderFunc(props: {
                     )}
                   >
                     {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "
+                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646  \u0631\u06cc\u0632\u0634 \u0645\u0648"
                     }
                   </div>
                   <Button
@@ -961,9 +993,17 @@ function PlasmicClinic__RenderFunc(props: {
                     showEndIcon={true}
                     size={"compact"}
                   >
-                    {
-                      "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
-                    }
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__g5Tcs
+                      )}
+                    >
+                      {
+                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                      }
+                    </div>
                   </Button>
                 </Stack__>
                 <Stack__
@@ -981,7 +1021,7 @@ function PlasmicClinic__RenderFunc(props: {
                     )}
                   >
                     {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u0628\u0631\u0627\u06cc \u0628\u0627\u0631\u0648\u0631\u06cc "
+                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u06a9\u0627\u0634\u062a \u0645\u0648"
                     }
                   </div>
                   <Button
@@ -1003,9 +1043,17 @@ function PlasmicClinic__RenderFunc(props: {
                     showEndIcon={true}
                     size={"compact"}
                   >
-                    {
-                      "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
-                    }
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__fwuPe
+                      )}
+                    >
+                      {
+                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                      }
+                    </div>
                   </Button>
                 </Stack__>
               </Stack__>
