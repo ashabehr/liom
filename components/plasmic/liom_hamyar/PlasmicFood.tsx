@@ -1194,7 +1194,7 @@ function PlasmicFood__RenderFunc(props: {
                           {(() => {
                             try {
                               return (
-                                ($state.variable / 7).toFixed() + " تا در روز"
+                                ($state.variable / 7).toFixed() + " دونه در روز"
                               );
                             } catch (e) {
                               if (

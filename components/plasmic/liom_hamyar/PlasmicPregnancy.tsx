@@ -474,7 +474,7 @@ function PlasmicPregnancy__RenderFunc(props: {
               let differenceInDays = Math.floor(
                 differenceInTime / (1000 * 60 * 60 * 24)
               );
-              return parseInt(((differenceInDays + 1) / 7).toFixed());
+              return parseInt((differenceInDays + 1) / 7);
             } else {
               return 0;
             }
@@ -3927,8 +3927,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       return (
                                         " هفته " +
                                         $state.textWeek[
-                                          $state.getInfo.data[0].result
-                                            .weeksPregnant + 1
+                                          $state.weeksPregnant + 1
                                         ]
                                       );
                                     } catch (e) {

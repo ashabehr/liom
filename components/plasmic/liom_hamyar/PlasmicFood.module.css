@@ -1992,7 +1992,7 @@
   width: 20px;
   height: 20px;
   color: var(--token-55cSeNPovQFh);
-  opacity: 0.8;
+  opacity: 0.6;
   flex-shrink: 0;
 }
 @media (max-width: 640px) {
@@ -2022,7 +2022,7 @@
   color: var(--token-55cSeNPovQFh);
   width: 20px;
   height: 20px;
-  opacity: 0.8;
+  opacity: 0.6;
   flex-shrink: 0;
 }
 @media (max-width: 640px) {
