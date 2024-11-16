@@ -1424,6 +1424,16 @@
           "id": "9fS9dn8xohZT",
           "name": "Icon102Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon102.tsx"
+        },
+        {
+          "id": "g3nZT1tzpYOT",
+          "name": "Icon103Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon103.tsx"
+        },
+        {
+          "id": "6Kx4mXYQvykk",
+          "name": "Icon104Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon104.tsx"
         }
       ],
       "images": [
@@ -1671,6 +1681,26 @@
           "id": "jfojOchXhWCr",
           "name": "image 32",
           "filePath": "../public/plasmic/liom_hamyar/images/image32.svg"
+        },
+        {
+          "id": "Bj6lNwianLeA",
+          "name": "photo_2024-11-14_14-15-07.jpg",
+          "filePath": "../public/plasmic/liom_hamyar/images/photo20241114141507Jpg.jpg"
+        },
+        {
+          "id": "V40BSJHDiD5F",
+          "name": "DALL·E_2024_11_14_11_35_33_A_close_up,_scientific_illustration_of.webp",
+          "filePath": "../public/plasmic/liom_hamyar/images/dallE20241114113533ACloseUpScientificIllustrationOfWebp.webp"
+        },
+        {
+          "id": "EmpPKnIemIOI",
+          "name": "image 33",
+          "filePath": "../public/plasmic/liom_hamyar/images/image33.png"
+        },
+        {
+          "id": "M2CX9GqYWZ63",
+          "name": "shutterstock_1240917451-min.jpg",
+          "filePath": "../public/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg.jpg"
         }
       ],
       "indirect": false,

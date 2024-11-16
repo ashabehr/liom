@@ -4796,6 +4796,74 @@ function PlasmicFood__RenderFunc(props: {
                                 "invokeGlobalAction"
                               ];
                             }
+
+                            $steps["invokeGlobalAction2"] = (() => {
+                              let sorted_data =
+                                $state.previousWeek.data.data.sort(
+                                  (a, b) =>
+                                    new Date(b.timestamp) -
+                                    new Date(a.timestamp)
+                                );
+                              let lastNumbersArray = [];
+                              let seenIds = new Set();
+                              for (let entry of sorted_data) {
+                                let id = entry.value.id;
+                                if (!seenIds.has(id)) {
+                                  lastNumbersArray.push({
+                                    id: id,
+                                    number: entry.value.number
+                                  });
+                                  seenIds.add(id);
+                                }
+                              }
+                              return (
+                                lastNumbersArray.find(
+                                  item => item.id === currentItem.id
+                                ).number == currentItem.number
+                              );
+                            })()
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "warning",
+                                      (() => {
+                                        try {
+                                          return (
+                                            "یه " +
+                                            $state.harmfulFood.find(
+                                              item => item.id === currentItem.id
+                                            ).title +
+                                            " دیگه بخوری، بیشتر از هفته قبل می‌شه!"
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "plasmic-antd5-config-provider.showNotification"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction2"] != null &&
+                              typeof $steps["invokeGlobalAction2"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction2"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction2"] = await $steps[
+                                "invokeGlobalAction2"
+                              ];
+                            }
                           }}
                           role={"img"}
                         />

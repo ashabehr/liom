@@ -991,42 +991,54 @@
     top: auto;
   }
 }
-.freeBox__bnM {
+.freeBox__x5M9Y {
+  display: flex;
+  flex-direction: row;
   position: relative;
-  max-width: 100%;
-  height: auto;
   width: 100%;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  display: grid;
-  grid-row-gap: 20px;
-  grid-column-gap: 30px;
+  height: auto;
+  max-width: 100%;
+  overflow: auto;
   min-width: 0;
   padding: 0px;
 }
-@media (max-width: 640px) {
-  .freeBox__bnM {
-    grid-column-gap: 20px;
-  }
+.freeBox__x5M9Y > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 15px);
+  width: calc(100% + 15px);
+}
+.freeBox__x5M9Y > :global(.__wab_flex-container) > *,
+.freeBox__x5M9Y > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__x5M9Y > :global(.__wab_flex-container) > picture > img,
+.freeBox__x5M9Y
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 15px;
 }
 .card9 {
-  background: var(--token-jgohepLVeKvh);
-  width: 100%;
-  height: auto;
+  background: url("/plasmic/liom_hamyar/images/photo20241114141507Jpg.jpg") top 50% left 50% / cover repeat,
+    var(--token-jgohepLVeKvh);
+  width: 300px;
+  height: 200px;
   display: flex;
   position: relative;
   top: auto;
   left: auto;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
   flex-direction: column;
-  min-width: 0;
+  flex-shrink: 0;
   border-radius: 12px;
   padding: 12px;
 }
 .card9 > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  min-width: 0;
   margin-top: calc(0px - 10px);
   height: calc(100% + 10px);
 }
@@ -1054,59 +1066,51 @@
     min-height: 0;
   }
 }
-.svg__mcLpj {
+.text___1KEvg {
+  position: relative;
+  width: 50%;
+  height: auto;
+  max-width: 100%;
+  text-align: justify;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+}
+.button3:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__kjZlw {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__iXdYp {
   object-fit: cover;
   max-width: 100%;
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
-}
-@media (max-width: 640px) {
-  .svg__mcLpj {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-  }
-}
-.text___0P9Ko {
-  display: block;
-  font-size: 16px;
-  text-align: center;
-  font-family: "Museo Sans Cyrl";
-  letter-spacing: 0.25px;
-  line-height: 100%;
-  color: rgba(33, 42, 68, 1);
-  position: relative;
-  top: auto;
-  left: auto;
-  width: 100%;
-  font-weight: 500;
-  min-width: 0;
-}
-@media (max-width: 640px) {
-  .text___0P9Ko {
-    font-size: 14px;
-  }
+  width: 20px;
+  height: 20%;
+  color: #ededec;
 }
 .card10 {
-  background: var(--token-jgohepLVeKvh);
-  width: 100%;
-  height: auto;
+  background: url("/plasmic/liom_hamyar/images/dallE20241114113533ACloseUpScientificIllustrationOfWebp.webp") top 50% left 50% / cover repeat,
+    var(--token-jgohepLVeKvh);
+  width: 300px;
+  height: 200px;
   display: flex;
   position: relative;
   top: auto;
   left: auto;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
   flex-direction: column;
-  min-width: 0;
+  flex-shrink: 0;
   border-radius: 12px;
   padding: 12px;
 }
 .card10 > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  min-width: 0;
   margin-top: calc(0px - 10px);
   height: calc(100% + 10px);
 }
@@ -1124,12 +1128,12 @@
   .card10 {
     left: auto;
     top: auto;
+    margin-bottom: 10px;
     position: relative;
     height: 100%;
     width: 100%;
     min-width: 0;
     min-height: 0;
-    margin: 0px 0px 10px;
   }
 }
 @media (max-width: 640px) {
@@ -1138,59 +1142,51 @@
     min-height: 0;
   }
 }
-.svg___0U9ZA {
+.text__waFqj {
+  position: relative;
+  width: 50%;
+  height: auto;
+  max-width: 100%;
+  text-align: justify;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+}
+.button4:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__lp9UK {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__cIv1Z {
   object-fit: cover;
   max-width: 100%;
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
-}
-@media (max-width: 640px) {
-  .svg___0U9ZA {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-  }
-}
-.text__utkyd {
-  display: block;
-  font-size: 16px;
-  text-align: center;
-  font-family: "Museo Sans Cyrl";
-  letter-spacing: 0.25px;
-  line-height: 100%;
-  color: rgba(33, 42, 68, 1);
-  position: relative;
-  top: auto;
-  left: auto;
-  width: 100%;
-  font-weight: 500;
-  min-width: 0;
-}
-@media (max-width: 640px) {
-  .text__utkyd {
-    font-size: 14px;
-  }
+  width: 20px;
+  height: 20%;
+  color: #ededec;
 }
 .card11 {
-  background: var(--token-jgohepLVeKvh);
-  width: 100%;
-  height: auto;
+  background: url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg.jpg") top 50% left 50% / cover repeat,
+    var(--token-jgohepLVeKvh);
+  width: 300px;
+  height: 200px;
   display: flex;
   position: relative;
   top: auto;
   left: auto;
   box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
   flex-direction: column;
-  min-width: 0;
+  flex-shrink: 0;
   border-radius: 12px;
   padding: 12px;
 }
 .card11 > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  min-width: 0;
   margin-top: calc(0px - 10px);
   height: calc(100% + 10px);
 }
@@ -1222,208 +1218,31 @@
     min-height: 0;
   }
 }
-.svg___7Fqob {
+.text__oh8Np {
+  position: relative;
+  width: 50%;
+  height: auto;
+  max-width: 100%;
+  text-align: justify;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+}
+.button5:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__ySgRl {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__cw7S8 {
   object-fit: cover;
   max-width: 100%;
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
-}
-@media (max-width: 640px) {
-  .svg___7Fqob {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-  }
-}
-.text__nda7I {
-  display: block;
-  font-size: 16px;
-  text-align: center;
-  font-family: "Museo Sans Cyrl";
-  letter-spacing: 0.25px;
-  line-height: 100%;
-  color: rgba(33, 42, 68, 1);
-  position: relative;
-  top: auto;
-  left: auto;
-  width: 100%;
-  font-weight: 500;
-  min-width: 0;
-}
-@media (max-width: 640px) {
-  .text__nda7I {
-    font-size: 14px;
-  }
-}
-.card12 {
-  background: var(--token-jgohepLVeKvh);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  position: relative;
-  top: auto;
-  left: auto;
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
-  flex-direction: column;
-  min-width: 0;
-  min-height: 0;
-  border-radius: 12px;
-  padding: 12px;
-}
-.card12 > :global(.__wab_flex-container) {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  min-height: 0;
-  margin-top: calc(0px - 10px);
-  height: calc(100% + 10px);
-}
-.card12 > :global(.__wab_flex-container) > *,
-.card12 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.card12 > :global(.__wab_flex-container) > picture > img,
-.card12
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 10px;
-}
-@media (max-width: 640px) {
-  .card12 {
-    left: auto;
-    top: auto;
-    margin-bottom: 10px;
-    position: relative;
-    height: 100%;
-    width: 100%;
-    min-width: 0;
-    min-height: 0;
-  }
-}
-@media (max-width: 640px) {
-  .card12 > :global(.__wab_flex-container) {
-    min-width: 0;
-    min-height: 0;
-  }
-}
-.svg__nDh1I {
-  object-fit: cover;
-  max-width: 100%;
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
-}
-@media (max-width: 640px) {
-  .svg__nDh1I {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-  }
-}
-.text__kEyjc {
-  display: block;
-  font-size: 16px;
-  text-align: center;
-  font-family: "Museo Sans Cyrl";
-  letter-spacing: 0.25px;
-  line-height: 100%;
-  color: rgba(33, 42, 68, 1);
-  position: relative;
-  top: auto;
-  left: auto;
-  width: 100%;
-  font-weight: 500;
-  min-width: 0;
-}
-@media (max-width: 640px) {
-  .text__kEyjc {
-    font-size: 14px;
-  }
-}
-.card13 {
-  background: var(--token-jgohepLVeKvh);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
-  flex-direction: column;
-  min-width: 0;
-  min-height: 0;
-  border-radius: 12px;
-  padding: 12px;
-}
-.card13 > :global(.__wab_flex-container) {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  min-height: 0;
-  margin-top: calc(0px - 10px);
-  height: calc(100% + 10px);
-}
-.card13 > :global(.__wab_flex-container) > *,
-.card13 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.card13 > :global(.__wab_flex-container) > picture > img,
-.card13
-  > :global(.__wab_flex-container)
-  > :global(.__wab_slot)
-  > picture
-  > img {
-  margin-top: 10px;
-}
-@media (max-width: 640px) {
-  .card13 {
-    margin-bottom: 10px;
-    position: relative;
-    left: auto;
-    top: auto;
-    height: 100%;
-    width: 100%;
-    min-width: 0;
-    min-height: 0;
-  }
-}
-@media (max-width: 640px) {
-  .card13 > :global(.__wab_flex-container) {
-    min-width: 0;
-    min-height: 0;
-  }
-}
-.svg__sF6Q {
-  object-fit: cover;
-  max-width: 100%;
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
-}
-@media (max-width: 640px) {
-  .svg__sF6Q {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-  }
-}
-.text__w2VW {
-  display: block;
-  font-size: 16px;
-  text-align: center;
-  font-family: "Museo Sans Cyrl";
-  letter-spacing: 0.25px;
-  line-height: 100%;
-  color: rgba(33, 42, 68, 1);
-  position: relative;
-  top: auto;
-  left: auto;
-  width: 100%;
-  font-weight: 500;
-  min-width: 0;
-}
-@media (max-width: 640px) {
-  .text__w2VW {
-    font-size: 14px;
-  }
+  width: 20px;
+  height: 20%;
+  color: #ededec;
 }
 .freeBox___8MoGl {
   display: flex;
