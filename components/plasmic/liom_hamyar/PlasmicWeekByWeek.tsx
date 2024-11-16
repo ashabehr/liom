@@ -634,16 +634,13 @@ function PlasmicWeekByWeek__RenderFunc(props: {
               <div className={classNames(projectcss.all, sty.freeBox__qDyNj)}>
                 {(() => {
                   try {
-                    return (
-                      $state.getInfo == null ||
-                      !$state.getInfo?.data?.[0]?.success
-                    );
+                    return $ctx.query.token == "";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
                       e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      return true;
+                      return false;
                     }
                     throw e;
                   }
@@ -838,7 +835,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   try {
                     return (
                       $state.curentWeek != $state.selectedWeek &&
-                      $state.getInfo?.data?.[0]?.success
+                      $ctx.query.token != ""
                     );
                   } catch (e) {
                     if (
@@ -1305,10 +1302,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         </AntdModal>
                         {(() => {
                           try {
-                            return (
-                              $state.getInfo.data == null ||
-                              !$state.getInfo.data[0].success
-                            );
+                            return $ctx.query.token == "";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1396,8 +1390,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                     const $steps = {};
 
                     $steps["updateModalOpen"] =
-                      $state.getInfo.data == null ||
-                      !$state.getInfo.data[0].success
+                      $ctx.query.token == ""
                         ? (() => {
                             const actionArgs = {
                               variable: {
@@ -2202,10 +2195,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   </div>
                   {(() => {
                     try {
-                      return (
-                        $state.getInfo.data == null ||
-                        !$state.getInfo.data[0].success
-                      );
+                      return $ctx.query.token == "";
                     } catch (e) {
                       if (
                         e instanceof TypeError ||

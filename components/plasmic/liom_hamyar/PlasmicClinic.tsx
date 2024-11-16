@@ -76,11 +76,10 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicClinic.module.css"; // plasmic-import: YAtLxskjvTM0/css
 
 import Icon74Icon from "./icons/PlasmicIcon__Icon74"; // plasmic-import: ARDSibiJTpV7/icon
-import DermisSvgIcon from "./icons/PlasmicIcon__DermisSvg"; // plasmic-import: u3bGCjW3RhfE/icon
-import BabyBlanketSvgIcon from "./icons/PlasmicIcon__BabyBlanketSvg"; // plasmic-import: vB7TGSAHixiu/icon
 import Icon75Icon from "./icons/PlasmicIcon__Icon75"; // plasmic-import: CaIiVU2Vq7gB/icon
-import DietFoodSvgIcon from "./icons/PlasmicIcon__DietFoodSvg"; // plasmic-import: ozXswRIM6iv_/icon
 import MindSvgIcon from "./icons/PlasmicIcon__MindSvg"; // plasmic-import: g6DmzM6RGQ3O/icon
+import DermisSvgIcon from "./icons/PlasmicIcon__DermisSvg"; // plasmic-import: u3bGCjW3RhfE/icon
+import DietFoodSvgIcon from "./icons/PlasmicIcon__DietFoodSvg"; // plasmic-import: ozXswRIM6iv_/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon104Icon from "./icons/PlasmicIcon__Icon104"; // plasmic-import: 6Kx4mXYQvykk/icon
 import Icon102Icon from "./icons/PlasmicIcon__Icon102"; // plasmic-import: 9fS9dn8xohZT/icon
@@ -117,11 +116,10 @@ export type PlasmicClinic__OverridesType = {
   findSuitableSpecia?: Flex__<"div">;
   rectangle3?: Flex__<"div">;
   speciality?: Flex__<"div">;
-  card8?: Flex__<"div">;
-  card7?: Flex__<"div">;
   card6?: Flex__<"div">;
-  card5?: Flex__<"div">;
   card4?: Flex__<"div">;
+  card8?: Flex__<"div">;
+  card5?: Flex__<"div">;
   speciality2?: Flex__<"div">;
   card9?: Flex__<"div">;
   button3?: Flex__<typeof Button>;
@@ -560,50 +558,6 @@ function PlasmicClinic__RenderFunc(props: {
               <div className={classNames(projectcss.all, sty.freeBox___1U1Cf)}>
                 <Stack__
                   as={"div"}
-                  data-plasmic-name={"card8"}
-                  data-plasmic-override={overrides.card8}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card8)}
-                >
-                  <DermisSvgIcon
-                    className={classNames(projectcss.all, sty.svg__xTznG)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__fiAos
-                    )}
-                  >
-                    {"\u067e\u0648\u0633\u062a \u0648 \u0645\u0648"}
-                  </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card7"}
-                  data-plasmic-override={overrides.card7}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card7)}
-                >
-                  <BabyBlanketSvgIcon
-                    className={classNames(projectcss.all, sty.svg__shKaO)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__vb924
-                    )}
-                  >
-                    {"\u0628\u0627\u0631\u0648\u0631\u06cc"}
-                  </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
                   data-plasmic-name={"card6"}
                   data-plasmic-override={overrides.card6}
                   hasGap={true}
@@ -621,29 +575,7 @@ function PlasmicClinic__RenderFunc(props: {
                       sty.text___0LZ3U
                     )}
                   >
-                    {"\u0631\u0627\u0628\u0637\u0647 \u062c\u0646\u0633\u06cc"}
-                  </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card5"}
-                  data-plasmic-override={overrides.card5}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card5)}
-                >
-                  <DietFoodSvgIcon
-                    className={classNames(projectcss.all, sty.svg__gyF8L)}
-                    role={"img"}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__toSoa
-                    )}
-                  >
-                    {"\u062a\u063a\u0630\u06cc\u0647"}
+                    {"\u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc"}
                   </div>
                 </Stack__>
                 <Stack__
@@ -666,6 +598,50 @@ function PlasmicClinic__RenderFunc(props: {
                     )}
                   >
                     {"\u0631\u0648\u0646\u0634\u0646\u0627\u0633\u06cc"}
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"card8"}
+                  data-plasmic-override={overrides.card8}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.card8)}
+                >
+                  <DermisSvgIcon
+                    className={classNames(projectcss.all, sty.svg__xTznG)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__fiAos
+                    )}
+                  >
+                    {"\u067e\u0648\u0633\u062a \u0648 \u0645\u0648"}
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"card5"}
+                  data-plasmic-override={overrides.card5}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.card5)}
+                >
+                  <DietFoodSvgIcon
+                    className={classNames(projectcss.all, sty.svg__gyF8L)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__toSoa
+                    )}
+                  >
+                    {"\u062a\u063a\u0630\u06cc\u0647"}
                   </div>
                 </Stack__>
               </div>
@@ -2865,11 +2841,10 @@ const PlasmicDescendants = {
     "findSuitableSpecia",
     "rectangle3",
     "speciality",
-    "card8",
-    "card7",
     "card6",
-    "card5",
     "card4",
+    "card8",
+    "card5",
     "speciality2",
     "card9",
     "button3",
@@ -2914,12 +2889,11 @@ const PlasmicDescendants = {
   rectangle: ["rectangle", "findSuitableSpecia", "rectangle3"],
   findSuitableSpecia: ["findSuitableSpecia"],
   rectangle3: ["rectangle3"],
-  speciality: ["speciality", "card8", "card7", "card6", "card5", "card4"],
-  card8: ["card8"],
-  card7: ["card7"],
+  speciality: ["speciality", "card6", "card4", "card8", "card5"],
   card6: ["card6"],
-  card5: ["card5"],
   card4: ["card4"],
+  card8: ["card8"],
+  card5: ["card5"],
   speciality2: [
     "speciality2",
     "card9",
@@ -3014,11 +2988,10 @@ type NodeDefaultElementType = {
   findSuitableSpecia: "div";
   rectangle3: "div";
   speciality: "div";
-  card8: "div";
-  card7: "div";
   card6: "div";
-  card5: "div";
   card4: "div";
+  card8: "div";
+  card5: "div";
   speciality2: "div";
   card9: "div";
   button3: typeof Button;
@@ -3150,11 +3123,10 @@ export const PlasmicClinic = Object.assign(
     findSuitableSpecia: makeNodeComponent("findSuitableSpecia"),
     rectangle3: makeNodeComponent("rectangle3"),
     speciality: makeNodeComponent("speciality"),
-    card8: makeNodeComponent("card8"),
-    card7: makeNodeComponent("card7"),
     card6: makeNodeComponent("card6"),
-    card5: makeNodeComponent("card5"),
     card4: makeNodeComponent("card4"),
+    card8: makeNodeComponent("card8"),
+    card5: makeNodeComponent("card5"),
     speciality2: makeNodeComponent("speciality2"),
     card9: makeNodeComponent("card9"),
     button3: makeNodeComponent("button3"),
