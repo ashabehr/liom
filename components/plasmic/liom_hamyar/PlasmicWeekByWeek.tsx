@@ -99,6 +99,7 @@ export const PlasmicWeekByWeek__ArgProps = new Array<ArgPropType>();
 export type PlasmicWeekByWeek__OverridesType = {
   root?: Flex__<"div">;
   embedHtml?: Flex__<typeof Embed>;
+  favIcone?: Flex__<typeof Embed>;
   getInfo?: Flex__<typeof ApiRequest>;
   tabWeek?: Flex__<typeof TabWeek>;
   modal?: Flex__<typeof AntdModal>;
@@ -575,6 +576,15 @@ function PlasmicWeekByWeek__RenderFunc(props: {
             className={classNames("__wab_instance", sty.embedHtml)}
             code={
               "    <script>\n        String.prototype.EntoFa = function() {\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\n        }\n        function convertNumbersInPage() {\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\n            elements.forEach(element => {\n                element.childNodes.forEach(node => {\n                    if (node.nodeType === Node.TEXT_NODE) {\n                        node.nodeValue = node.nodeValue.EntoFa();\n                    }\n                });\n            });\n        }\n    setTimeout(convertNumbersInPage, 1000);\n    </script>\n    "
+            }
+          />
+
+          <Embed
+            data-plasmic-name={"favIcone"}
+            data-plasmic-override={overrides.favIcone}
+            className={classNames("__wab_instance", sty.favIcone)}
+            code={
+              "<script>\n(function() {\n    var link = document.querySelector(\"link[rel='icon']\");\n    if (!link) {\n        link = document.createElement('link');\n        link.rel = 'icon';\n        document.head.appendChild(link);\n    }\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\n})();\n</script>\n\n"
             }
           />
 
@@ -1199,7 +1209,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                                           customFunction: async () => {
                                             return (() => {
                                               return window.open(
-                                                "https://liom.app/link",
+                                                "https://old.liom.app/link",
                                                 "_blank"
                                               );
                                             })();
@@ -1242,7 +1252,26 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             "modal",
                             "open"
                           ])}
-                          title={null}
+                          title={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__v2Kpk
+                              )}
+                            >
+                              <React.Fragment>
+                                <span
+                                  className={
+                                    "plasmic_default__all plasmic_default__span"
+                                  }
+                                  style={{ fontWeight: 700 }}
+                                >
+                                  {"\u062a\u0648\u062c\u0647!"}
+                                </span>
+                              </React.Fragment>
+                            </div>
+                          }
                           trigger={
                             <div
                               className={classNames(
@@ -1269,7 +1298,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                               )}
                             >
                               {
-                                "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u062f\u06cc\u06af\u0631  \u0645\u062a\u0648\u0646\u06cc\u062f \u0646\u0631\u0645 \u0627\u0641\u0632\u0627\u0631 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0644\u06cc\u0646\u06a9 \u0632\u06cc\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f ."
+                                "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0648 \u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc  \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0646\u0631\u0645 \u0627\u0641\u0632\u0627\u0631 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0628\u0647 \u0635\u0648\u0631\u062a \u0631\u0627\u06cc\u06a9\u0627\u0646 \u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631  \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f ."
                               }
                             </div>
                           </div>
@@ -2239,7 +2268,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         )}
                       >
                         {
-                          "\u062a\u0648\u0635\u06cc\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d\u062d"
+                          "\u0644\u06cc\u0648\u0645\u060c \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f."
                         }
                       </div>
                     </Stack__>
@@ -2781,6 +2810,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "embedHtml",
+    "favIcone",
     "getInfo",
     "tabWeek",
     "modal",
@@ -2790,6 +2820,7 @@ const PlasmicDescendants = {
     "lottie"
   ],
   embedHtml: ["embedHtml"],
+  favIcone: ["favIcone"],
   getInfo: [
     "getInfo",
     "tabWeek",
@@ -2811,6 +2842,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   embedHtml: typeof Embed;
+  favIcone: typeof Embed;
   getInfo: typeof ApiRequest;
   tabWeek: typeof TabWeek;
   modal: typeof AntdModal;
@@ -2906,6 +2938,7 @@ export const PlasmicWeekByWeek = Object.assign(
   {
     // Helper components rendering sub-elements
     embedHtml: makeNodeComponent("embedHtml"),
+    favIcone: makeNodeComponent("favIcone"),
     getInfo: makeNodeComponent("getInfo"),
     tabWeek: makeNodeComponent("tabWeek"),
     modal: makeNodeComponent("modal"),
