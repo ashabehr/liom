@@ -1021,7 +1021,7 @@
   margin-left: 15px;
 }
 .card9 {
-  background: url("/plasmic/liom_hamyar/images/photo20241114141507Jpg.jpg") top 50% left 50% / cover repeat,
+  background: url("/plasmic/liom_hamyar/images/newProjectPng2.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -1238,6 +1238,368 @@
   height: 1em;
 }
 .svg__cw7S8 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20%;
+  color: #ededec;
+}
+.speciality3 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 8px;
+}
+.speciality3 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 0;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.speciality3 > :global(.__wab_flex-container) > *,
+.speciality3 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.speciality3 > :global(.__wab_flex-container) > picture > img,
+.speciality3
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .speciality3 {
+    height: auto;
+    padding-bottom: 5px;
+    padding-right: 24px;
+    padding-left: 24px;
+    left: auto;
+    top: auto;
+  }
+}
+.speciality3_1_docters {
+  left: auto;
+  top: auto;
+}
+.speciality3_1_docter {
+  left: auto;
+  top: auto;
+}
+@media (max-width: 640px) {
+  .speciality3_1_docter {
+    left: auto;
+    top: auto;
+  }
+}
+.speciality3_1_chatviow {
+  left: auto;
+  top: auto;
+}
+@media (max-width: 640px) {
+  .speciality3_1_chatviow {
+    left: auto;
+    top: auto;
+  }
+}
+.text__nvocL {
+  display: block;
+  font-size: 24px;
+  letter-spacing: 0.3px;
+  line-height: 100%;
+  color: rgba(33, 42, 68, 1);
+  position: relative;
+  top: auto;
+  left: auto;
+  align-self: flex-start;
+  font-weight: 700;
+}
+@media (max-width: 640px) {
+  .text__nvocL {
+    font-size: 18px;
+    padding-bottom: 5px;
+  }
+}
+.text___3OtcA {
+  display: block;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  line-height: 100%;
+  color: var(--token-WxvvgatuPYoJ);
+  position: relative;
+  top: auto;
+  left: auto;
+  align-self: flex-start;
+  font-weight: 400;
+  padding-bottom: 10px;
+}
+@media (max-width: 640px) {
+  .text___3OtcA {
+    font-size: 18px;
+    padding-bottom: 5px;
+    left: auto;
+    top: auto;
+  }
+}
+.freeBox__q9IEz {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  overflow: auto;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__q9IEz > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 15px);
+  width: calc(100% + 15px);
+}
+.freeBox__q9IEz > :global(.__wab_flex-container) > *,
+.freeBox__q9IEz > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__q9IEz > :global(.__wab_flex-container) > picture > img,
+.freeBox__q9IEz
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 15px;
+}
+.card12 {
+  background: url("/plasmic/liom_hamyar/images/newProjectPng2.png") top 50% left 50% / cover repeat,
+    var(--token-jgohepLVeKvh);
+  width: 300px;
+  height: 200px;
+  display: flex;
+  position: relative;
+  top: auto;
+  left: auto;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 12px;
+  padding: 12px;
+}
+.card12 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.card12 > :global(.__wab_flex-container) > *,
+.card12 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.card12 > :global(.__wab_flex-container) > picture > img,
+.card12
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .card12 {
+    left: auto;
+    top: auto;
+    margin-bottom: 10px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+}
+@media (max-width: 640px) {
+  .card12 > :global(.__wab_flex-container) {
+    min-width: 0;
+    min-height: 0;
+  }
+}
+.text__fTemr {
+  position: relative;
+  width: 50%;
+  height: auto;
+  max-width: 100%;
+  text-align: justify;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+}
+.button6:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__rNfG {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__pdMyz {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20%;
+  color: #ededec;
+}
+.card13 {
+  background: url("/plasmic/liom_hamyar/images/newProjectPng.png") top 50% left 50% / cover repeat,
+    var(--token-jgohepLVeKvh);
+  width: 300px;
+  height: 200px;
+  display: flex;
+  position: relative;
+  top: auto;
+  left: auto;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 12px;
+  padding: 12px;
+}
+.card13 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.card13 > :global(.__wab_flex-container) > *,
+.card13 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.card13 > :global(.__wab_flex-container) > picture > img,
+.card13
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .card13 {
+    left: auto;
+    top: auto;
+    margin-bottom: 10px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+}
+@media (max-width: 640px) {
+  .card13 > :global(.__wab_flex-container) {
+    min-width: 0;
+    min-height: 0;
+  }
+}
+.text___0LsJr {
+  position: relative;
+  width: 40%;
+  height: auto;
+  max-width: 100%;
+  text-align: justify;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+}
+.button7:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__j3O1L {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg__uzmE {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20%;
+  color: #ededec;
+}
+.card14 {
+  background: url("/plasmic/liom_hamyar/images/shutterstock1240917451MinJpg2.jpg") top 50% left 50% / cover repeat,
+    var(--token-jgohepLVeKvh);
+  width: 300px;
+  height: 200px;
+  display: flex;
+  position: relative;
+  top: auto;
+  left: auto;
+  box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 12px;
+  padding: 12px;
+}
+.card14 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.card14 > :global(.__wab_flex-container) > *,
+.card14 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.card14 > :global(.__wab_flex-container) > picture > img,
+.card14
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .card14 {
+    left: auto;
+    top: auto;
+    margin-bottom: 10px;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+  }
+}
+@media (max-width: 640px) {
+  .card14 > :global(.__wab_flex-container) {
+    min-width: 0;
+    min-height: 0;
+  }
+}
+.text___879DL {
+  position: relative;
+  width: 50%;
+  height: auto;
+  max-width: 100%;
+  text-align: justify;
+  font-size: 20px;
+  color: #000000;
+  font-weight: 700;
+}
+.button8:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__xaxwg {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.svg___5VRpx {
   object-fit: cover;
   max-width: 100%;
   width: 20px;
