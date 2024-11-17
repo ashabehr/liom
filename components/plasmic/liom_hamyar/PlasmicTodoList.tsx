@@ -772,255 +772,6 @@ function PlasmicTodoList__RenderFunc(props: {
               className={classNames("__wab_instance", sty.lottie)}
             />
           ) : null}
-          {(() => {
-            try {
-              return !$props.loading && $props.tasks[0].id != null;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
-            ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $props.tasks.length > 0 ? $props.tasks : [];
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (() => {
-                  const child$Props = {
-                    checked: generateStateValueProp($state, [
-                      "checkbox",
-                      __plasmic_idx_0,
-                      "checked"
-                    ]),
-                    className: classNames("__wab_instance", sty.checkbox),
-                    defaultChecked: (() => {
-                      try {
-                        return $props.tasks[currentIndex].is_completed;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })(),
-                    indeterminate: false,
-                    key: currentIndex,
-                    onChange: async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "checkbox",
-                        __plasmic_idx_0,
-                        "checked"
-                      ]).apply(null, eventArgs);
-                      (async checked => {
-                        const $steps = {};
-
-                        $steps["invokeGlobalAction"] = checked
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/task",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        userId: $props.userId,
-                                        todoId: currentItem.id
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-
-                        $steps["invokeGlobalAction2"] = !checked
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "PUT",
-                                  "https://n8n.staas.ir/webhook/task",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        id: currentItem.id,
-                                        userId: $props.userId
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction2"] != null &&
-                          typeof $steps["invokeGlobalAction2"] === "object" &&
-                          typeof $steps["invokeGlobalAction2"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
-                        }
-                      }).apply(null, eventArgs);
-                    }
-                  };
-                  initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "checked",
-                        plasmicStateName: "checkbox[].checked"
-                      }
-                    ],
-                    [__plasmic_idx_0],
-                    undefined ?? {},
-                    child$Props
-                  );
-                  initializePlasmicStates(
-                    $state,
-                    [
-                      {
-                        name: "checkbox[].checked",
-                        initFunc: ({ $props, $state, $queries }) =>
-                          (() => {
-                            try {
-                              return $props.tasks[currentIndex].is_completed;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
-                              }
-                              throw e;
-                            }
-                          })()
-                      }
-                    ],
-                    [__plasmic_idx_0]
-                  );
-                  return (
-                    <AntdCheckbox
-                      data-plasmic-name={"checkbox"}
-                      data-plasmic-override={overrides.checkbox}
-                      {...child$Props}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__mE9Sn
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__wJuU4,
-                            {
-                              [sty.textdarkMod__wJuU4Kgh4P]: hasVariant(
-                                $state,
-                                "darkMod",
-                                "darkMod"
-                              )
-                            }
-                          )}
-                        >
-                          <React.Fragment>
-                            {$props.tasks[currentIndex].tile}
-                          </React.Fragment>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__mCiwA,
-                            {
-                              [sty.textdarkMod__mCiwAkgh4P]: hasVariant(
-                                $state,
-                                "darkMod",
-                                "darkMod"
-                              )
-                            }
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $props.tasks[currentIndex].text;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "ddddd";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </div>
-                    </AntdCheckbox>
-                  );
-                })();
-              })
-            : null}
           {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
             (() => {
               try {
@@ -1040,23 +791,34 @@ function PlasmicTodoList__RenderFunc(props: {
             const currentIndex = __plasmic_idx_0;
             return (() => {
               const child$Props = {
-                className: classNames("__wab_instance", sty.checkbox2),
-                isChecked:
-                  generateStateValueProp($state, [
-                    "checkbox2",
-                    __plasmic_idx_0,
-                    "isChecked"
-                  ]) ?? false,
+                checked: generateStateValueProp($state, [
+                  "checkbox",
+                  __plasmic_idx_0,
+                  "checked"
+                ]),
+                className: classNames("__wab_instance", sty.checkbox),
+                defaultChecked: (() => {
+                  try {
+                    return $props.tasks[currentIndex].is_completed;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })(),
+                indeterminate: false,
                 key: currentIndex,
                 onChange: async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, [
-                      "checkbox2",
-                      __plasmic_idx_0,
-                      "isChecked"
-                    ])(eventArgs[0]);
-                  }).apply(null, eventArgs);
-                  (async isChecked => {
+                  generateStateOnChangeProp($state, [
+                    "checkbox",
+                    __plasmic_idx_0,
+                    "checked"
+                  ]).apply(null, eventArgs);
+                  (async checked => {
                     const $steps = {};
 
                     $steps["invokeGlobalAction"] = checked
@@ -1110,7 +872,10 @@ function PlasmicTodoList__RenderFunc(props: {
                               undefined,
                               (() => {
                                 try {
-                                  return { id: currentItem.id };
+                                  return {
+                                    id: currentItem.id,
+                                    userId: $props.userId
+                                  };
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1142,12 +907,23 @@ function PlasmicTodoList__RenderFunc(props: {
                   }).apply(null, eventArgs);
                 }
               };
-
+              initializeCodeComponentStates(
+                $state,
+                [
+                  {
+                    name: "checked",
+                    plasmicStateName: "checkbox[].checked"
+                  }
+                ],
+                [__plasmic_idx_0],
+                undefined ?? {},
+                child$Props
+              );
               initializePlasmicStates(
                 $state,
                 [
                   {
-                    name: "checkbox2[].isChecked",
+                    name: "checkbox[].checked",
                     initFunc: ({ $props, $state, $queries }) =>
                       (() => {
                         try {
@@ -1157,7 +933,7 @@ function PlasmicTodoList__RenderFunc(props: {
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return [];
+                            return false;
                           }
                           throw e;
                         }
@@ -1167,42 +943,44 @@ function PlasmicTodoList__RenderFunc(props: {
                 [__plasmic_idx_0]
               );
               return (
-                <Checkbox
-                  data-plasmic-name={"checkbox2"}
-                  data-plasmic-override={overrides.checkbox2}
+                <AntdCheckbox
+                  data-plasmic-name={"checkbox"}
+                  data-plasmic-override={overrides.checkbox}
                   {...child$Props}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__wPm7B)}
+                    className={classNames(projectcss.all, sty.freeBox__mE9Sn)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__gopP3
+                        sty.text__wJuU4,
+                        {
+                          [sty.textdarkMod__wJuU4Kgh4P]: hasVariant(
+                            $state,
+                            "darkMod",
+                            "darkMod"
+                          )
+                        }
                       )}
                     >
                       <React.Fragment>
-                        {(() => {
-                          try {
-                            return $props.tasks[currentIndex].tile;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "showSignUpSuggestFollow";
-                            }
-                            throw e;
-                          }
-                        })()}
+                        {$props.tasks[currentIndex].tile}
                       </React.Fragment>
                     </div>
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__y5IhO
+                        sty.text__mCiwA,
+                        {
+                          [sty.textdarkMod__mCiwAkgh4P]: hasVariant(
+                            $state,
+                            "darkMod",
+                            "darkMod"
+                          )
+                        }
                       )}
                     >
                       <React.Fragment>
@@ -1222,10 +1000,232 @@ function PlasmicTodoList__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   </div>
-                </Checkbox>
+                </AntdCheckbox>
               );
             })();
           })}
+          {(() => {
+            try {
+              return !$props.loading && $props.tasks[0].id != null;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })()
+            ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $props.tasks.length > 0 ? $props.tasks : [];
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.checkbox2),
+                    isChecked:
+                      generateStateValueProp($state, [
+                        "checkbox2",
+                        __plasmic_idx_0,
+                        "isChecked"
+                      ]) ?? false,
+                    key: currentIndex,
+                    onChange: async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "checkbox2",
+                          __plasmic_idx_0,
+                          "isChecked"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+                      (async isChecked => {
+                        const $steps = {};
+
+                        $steps["invokeGlobalAction"] = checked
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/task",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        userId: $props.userId,
+                                        todoId: currentItem.id
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction2"] = !checked
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "PUT",
+                                  "https://n8n.staas.ir/webhook/task",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return { id: currentItem.id };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction2"] != null &&
+                          typeof $steps["invokeGlobalAction2"] === "object" &&
+                          typeof $steps["invokeGlobalAction2"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction2"] = await $steps[
+                            "invokeGlobalAction2"
+                          ];
+                        }
+                      }).apply(null, eventArgs);
+                    }
+                  };
+
+                  initializePlasmicStates(
+                    $state,
+                    [
+                      {
+                        name: "checkbox2[].isChecked",
+                        initFunc: ({ $props, $state, $queries }) =>
+                          (() => {
+                            try {
+                              return $props.tasks[currentIndex].is_completed;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                      }
+                    ],
+                    [__plasmic_idx_0]
+                  );
+                  return (
+                    <Checkbox
+                      data-plasmic-name={"checkbox2"}
+                      data-plasmic-override={overrides.checkbox2}
+                      {...child$Props}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__wPm7B
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__gopP3
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $props.tasks[currentIndex].tile;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "showSignUpSuggestFollow";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__y5IhO
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $props.tasks[currentIndex].text;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "ddddd";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </div>
+                    </Checkbox>
+                  );
+                })();
+              })
+            : null}
         </div>
       </div>
     </div>

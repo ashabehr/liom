@@ -2354,13 +2354,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                             try {
                               return (
                                 " تو در روز " +
-                                (280 - $state.daysPregnant + 1) +
+                                (280 - $state.daysPregnant) +
                                 ($state.weeksPregnant == 0 &&
-                                (($state.weeksPregnant + 1) / 7).toFixed() == 0
+                                ($state.weeksPregnant / 7).toFixed() == 0
                                   ? ""
                                   : " , ") +
                                 ($state.weeksPregnant > 0
-                                  ? "هفته " + ($state.weeksPregnant + 1)
+                                  ? "هفته " + $state.weeksPregnant
                                   : "") +
                                 ((($state.weeksPregnant + 1) / 7).toFixed() > 0
                                   ? " و ماه " +
@@ -3218,7 +3218,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                             )}
                           >
                             <React.Fragment>
-                              {$state.weeksPregnant +
+                              {$state.weeksPregnant -
+                                1 +
                                 " هفته " +
                                 (((280 - $state.daysPregnant) / 7)
                                   .toString()
@@ -3235,7 +3236,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     "روز"
                                   : "") +
                                 " از بارداریت رو سپری کردی و " +
-                                ($state.daysPregnant - 1) +
+                                $state.daysPregnant +
                                 " روز دیگه " +
                                 $state.randomText[
                                   Math.floor(
@@ -3926,9 +3927,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     try {
                                       return (
                                         " هفته " +
-                                        $state.textWeek[
-                                          $state.weeksPregnant + 1
-                                        ]
+                                        $state.textWeek[$state.weeksPregnant]
                                       );
                                     } catch (e) {
                                       if (
@@ -3976,8 +3975,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 {(() => {
                                   try {
                                     return (
-                                      $state.daysPregnant -
-                                      1 +
+                                      $state.daysPregnant +
                                       " روز مانده تا زایمان"
                                     );
                                   } catch (e) {
@@ -4116,8 +4114,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                             return (() => {
                               var week;
                               if ($state.weeksPregnant + 1 < 10)
-                                week = "0" + ($state.weeksPregnant + 1);
-                              else week = "" + ($state.weeksPregnant + 1);
+                                week = "0" + $state.weeksPregnant;
+                              else week = "" + $state.weeksPregnant;
                               return (
                                 "https://liom.storage.c2.liara.space/config/pregnancy/week" +
                                 week +

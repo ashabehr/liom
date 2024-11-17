@@ -540,6 +540,11 @@
   min-width: 0;
   padding: 8px;
 }
+@media (max-width: 640px) {
+  .freeBox__wSTr {
+    padding: 0px;
+  }
+}
 .freeBox__r8Aa9 {
   display: flex;
   flex-direction: column;

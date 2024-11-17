@@ -700,6 +700,7 @@
   overflow: auto;
   flex-wrap: nowrap;
   align-content: stretch;
+  margin-right: 32px;
   flex-shrink: 0;
   padding: 8px;
 }

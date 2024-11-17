@@ -221,19 +221,7 @@ function PlasmicFood__RenderFunc(props: {
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           hasVariant(globalVariants, "screen", "mobile")
-            ? (() => {
-                try {
-                  return localStorage.getItem("Firstّfood") == null;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return false;
-                  }
-                  throw e;
-                }
-              })()
+            ? true
             : (() => {
                 try {
                   return localStorage.getItem("Firstّfood") == null;
@@ -359,19 +347,21 @@ function PlasmicFood__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.withe;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+          hasVariant(globalVariants, "screen", "mobile")
+            ? ``
+            : (() => {
+                try {
+                  return $state.withe;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
       },
       {
         path: "harmfulFood",
@@ -905,7 +895,8 @@ function PlasmicFood__RenderFunc(props: {
         path: "modal3.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile") ? false : false
       },
       {
         path: "infofood",
@@ -1901,22 +1892,7 @@ function PlasmicFood__RenderFunc(props: {
                           name: "modal2.open",
                           initFunc: ({ $props, $state, $queries }) =>
                             hasVariant(globalVariants, "screen", "mobile")
-                              ? (() => {
-                                  try {
-                                    return (
-                                      localStorage.getItem("Firstّfood") == null
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return false;
-                                    }
-                                    throw e;
-                                  }
-                                })()
+                              ? true
                               : (() => {
                                   try {
                                     return (
@@ -2347,6 +2323,15 @@ function PlasmicFood__RenderFunc(props: {
                                           }
                                         }).apply(null, eventArgs);
                                       }}
+                                      placeholder={
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                          ? "\u0686\u0646\u062f \u0633\u0627\u0644\u062a\u0647 \u061f"
+                                          : undefined
+                                      }
                                       type={"number"}
                                       value={generateStateValueProp($state, [
                                         "input2",
@@ -2458,6 +2443,15 @@ function PlasmicFood__RenderFunc(props: {
                                           }
                                         }).apply(null, eventArgs);
                                       }}
+                                      placeholder={
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                          ? "kg"
+                                          : undefined
+                                      }
                                       type={"number"}
                                       value={generateStateValueProp($state, [
                                         "input3",
