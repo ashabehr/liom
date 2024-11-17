@@ -474,7 +474,9 @@ function PlasmicPregnancy__RenderFunc(props: {
               let differenceInDays = Math.floor(
                 differenceInTime / (1000 * 60 * 60 * 24)
               );
-              return parseInt((differenceInDays + 1) / 7);
+              return parseInt((differenceInDays + 1) / 7) == 0
+                ? 1
+                : parseInt((differenceInDays + 1) / 7);
             } else {
               return 0;
             }
@@ -498,8 +500,29 @@ function PlasmicPregnancy__RenderFunc(props: {
               let differenceInDays = Math.floor(
                 differenceInTime / (1000 * 60 * 60 * 24)
               );
-              return parseInt(280 - differenceInDays);
+              return parseInt(280 - differenceInDays) - 1;
             } else return 0;
+          })()
+      },
+      {
+        path: "monthPregnant",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return parseInt(
+                ($state.weeksPregnant / 4).toString().substring(0, 1)
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
           })()
       }
     ],
@@ -2363,8 +2386,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   ? "هفته " + $state.weeksPregnant
                                   : "") +
                                 ((($state.weeksPregnant + 1) / 7).toFixed() > 0
-                                  ? " و ماه " +
-                                    (($state.weeksPregnant + 1) / 4).toFixed()
+                                  ? " و ماه " + $state.monthPregnant
                                   : "") +
                                 " بارداری هستی  "
                               );
@@ -3221,19 +3243,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                               {$state.weeksPregnant -
                                 1 +
                                 " هفته " +
-                                (((280 - $state.daysPregnant) / 7)
-                                  .toString()
-                                  .indexOf(".") >= 0 &&
-                                ((280 - $state.daysPregnant) / 7)
-                                  .toString()
-                                  .split(".")[1]
-                                  .substring(0, 1) != 0
-                                  ? "و " +
-                                    ((280 - $state.daysPregnant) / 7)
-                                      .toString()
-                                      .split(".")[1]
-                                      .substring(0, 1) +
-                                    "روز"
+                                (280 -
+                                  $state.daysPregnant -
+                                  ($state.weeksPregnant - 1) * 7 !=
+                                0
+                                  ? 280 -
+                                    $state.daysPregnant -
+                                    ($state.weeksPregnant - 1) * 7 +
+                                    " روز "
                                   : "") +
                                 " از بارداریت رو سپری کردی و " +
                                 $state.daysPregnant +
@@ -4032,8 +4049,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                             >
                               <React.Fragment>
                                 {"وزن : " +
-                                  $state.babySize[$state.weeksPregnant].w +
-                                  ($state.weeksPregnant >= 27
+                                  $state.babySize[$state.weeksPregnant - 1].w +
+                                  ($state.weeksPregnant - 1 >= 27
                                     ? " کیلوگرم "
                                     : " گرم ")}
                               </React.Fragment>
@@ -4075,7 +4092,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   try {
                                     return (
                                       "قد : " +
-                                      $state.babySize[$state.weeksPregnant].h +
+                                      $state.babySize[$state.weeksPregnant - 1]
+                                        .h +
                                       " سانتی متر "
                                     );
                                   } catch (e) {
