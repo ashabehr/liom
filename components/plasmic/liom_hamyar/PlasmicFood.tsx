@@ -903,7 +903,7 @@ function PlasmicFood__RenderFunc(props: {
         path: "slide",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 1
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "button6.color",
@@ -3656,12 +3656,12 @@ function PlasmicFood__RenderFunc(props: {
                           "__wab_instance",
                           sty.reveal__bXjlq
                         )}
-                        effect={"slide"}
+                        effect={"fade"}
                         triggerOnce={true}
                       >
                         {(() => {
                           try {
-                            return $state.slide == 2;
+                            return $state.slide == 0;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -3687,410 +3687,8 @@ function PlasmicFood__RenderFunc(props: {
                                 projectcss.all,
                                 sty.freeBox__ln3C
                               )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text___8EAts
-                                )}
-                              >
-                                {
-                                  "\u0647\u0641\u062a\u0647\u200c\u06cc \u067e\u06cc\u0634 \u0686\u0646\u062f \u062a\u0627 \u063a\u0630\u0627\u06cc \u0646\u0627\u0633\u0627\u0644\u0645 \u062e\u0648\u0631\u062f\u06cc\u061f"
-                                }
-                              </div>
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__cw5S
-                                )}
-                              >
-                                {(_par =>
-                                  !_par
-                                    ? []
-                                    : Array.isArray(_par)
-                                    ? _par
-                                    : [_par])(
-                                  (() => {
-                                    try {
-                                      return $state.selectedfood;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                  const currentItem = __plasmic_item_0;
-                                  const currentIndex = __plasmic_idx_0;
-                                  return (
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__waBmh
-                                      )}
-                                      key={currentIndex}
-                                    >
-                                      <PlasmicImg__
-                                        alt={""}
-                                        className={classNames(sty.img__lQkqj)}
-                                        displayHeight={"auto"}
-                                        displayMaxHeight={"none"}
-                                        displayMaxWidth={"100%"}
-                                        displayMinHeight={"0"}
-                                        displayMinWidth={"0"}
-                                        displayWidth={"auto"}
-                                        height={``}
-                                        loading={"lazy"}
-                                        src={(() => {
-                                          try {
-                                            return $state.harmfulFood.find(
-                                              item => item.id === currentItem.id
-                                            ).icon;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()}
-                                        width={"40"}
-                                      />
+                            />
 
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__buLox
-                                        )}
-                                      >
-                                        <React.Fragment>
-                                          {(() => {
-                                            try {
-                                              return $state.harmfulFood.find(
-                                                item =>
-                                                  item.id === currentItem.id
-                                              ).title;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
-                                              }
-                                              throw e;
-                                            }
-                                          })()}
-                                        </React.Fragment>
-                                      </div>
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__mVHjj
-                                        )}
-                                      >
-                                        <React.Fragment>
-                                          {(() => {
-                                            try {
-                                              return $state.harmfulFood.find(
-                                                item =>
-                                                  item.id === currentItem.id
-                                              ).text;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return "";
-                                              }
-                                              throw e;
-                                            }
-                                          })()}
-                                        </React.Fragment>
-                                      </div>
-                                      <Stack__
-                                        as={"div"}
-                                        hasGap={true}
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__gSf6L
-                                        )}
-                                      >
-                                        <Stack__
-                                          as={"div"}
-                                          hasGap={true}
-                                          className={classNames(
-                                            projectcss.all,
-                                            sty.freeBox__l60Mh
-                                          )}
-                                        >
-                                          <Icon47Icon
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.svg___8NoPv
-                                            )}
-                                            onClick={async event => {
-                                              const $steps = {};
-
-                                              $steps["runCode"] = true
-                                                ? (() => {
-                                                    const actionArgs = {
-                                                      customFunction:
-                                                        async () => {
-                                                          return (currentItem.number += 1);
-                                                        }
-                                                    };
-                                                    return (({
-                                                      customFunction
-                                                    }) => {
-                                                      return customFunction();
-                                                    })?.apply(null, [
-                                                      actionArgs
-                                                    ]);
-                                                  })()
-                                                : undefined;
-                                              if (
-                                                $steps["runCode"] != null &&
-                                                typeof $steps["runCode"] ===
-                                                  "object" &&
-                                                typeof $steps["runCode"]
-                                                  .then === "function"
-                                              ) {
-                                                $steps["runCode"] =
-                                                  await $steps["runCode"];
-                                              }
-
-                                              $steps["invokeGlobalAction"] =
-                                                true
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        args: [
-                                                          "POST",
-                                                          "https://n8n.staas.ir/webhook/hamyar/food",
-                                                          undefined,
-                                                          (() => {
-                                                            try {
-                                                              return {
-                                                                userId:
-                                                                  $state
-                                                                    .userinfo
-                                                                    .man.id,
-                                                                dataType:
-                                                                  "food Tracker",
-                                                                value: {
-                                                                  id: currentItem.id,
-                                                                  number:
-                                                                    currentItem.number
-                                                                },
-                                                                timestamp:
-                                                                  $$.dayjs()
-                                                                    .subtract(
-                                                                      1,
-                                                                      "week"
-                                                                    )
-                                                                    .day(1)
-                                                                    .format(
-                                                                      "YYYY-MM-DD HH:mm:ss"
-                                                                    )
-                                                              };
-                                                            } catch (e) {
-                                                              if (
-                                                                e instanceof
-                                                                  TypeError ||
-                                                                e?.plasmicType ===
-                                                                  "PlasmicUndefinedDataError"
-                                                              ) {
-                                                                return undefined;
-                                                              }
-                                                              throw e;
-                                                            }
-                                                          })(),
-                                                          {}
-                                                        ]
-                                                      };
-                                                      return $globalActions[
-                                                        "Fragment.apiRequest"
-                                                      ]?.apply(null, [
-                                                        ...actionArgs.args
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                              if (
-                                                $steps["invokeGlobalAction"] !=
-                                                  null &&
-                                                typeof $steps[
-                                                  "invokeGlobalAction"
-                                                ] === "object" &&
-                                                typeof $steps[
-                                                  "invokeGlobalAction"
-                                                ].then === "function"
-                                              ) {
-                                                $steps["invokeGlobalAction"] =
-                                                  await $steps[
-                                                    "invokeGlobalAction"
-                                                  ];
-                                              }
-                                            }}
-                                            role={"img"}
-                                          />
-
-                                          <div
-                                            className={classNames(
-                                              projectcss.all,
-                                              projectcss.__wab_text,
-                                              sty.text__rfhzn
-                                            )}
-                                          >
-                                            <React.Fragment>
-                                              {(() => {
-                                                try {
-                                                  return currentItem.number;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return "2";
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            </React.Fragment>
-                                          </div>
-                                          <Icon48Icon
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.svg__nGyjy
-                                            )}
-                                            onClick={async event => {
-                                              const $steps = {};
-
-                                              $steps["runCode"] = true
-                                                ? (() => {
-                                                    const actionArgs = {
-                                                      customFunction:
-                                                        async () => {
-                                                          return (() => {
-                                                            if (
-                                                              currentItem.number !=
-                                                              0
-                                                            )
-                                                              return (currentItem.number -= 1);
-                                                          })();
-                                                        }
-                                                    };
-                                                    return (({
-                                                      customFunction
-                                                    }) => {
-                                                      return customFunction();
-                                                    })?.apply(null, [
-                                                      actionArgs
-                                                    ]);
-                                                  })()
-                                                : undefined;
-                                              if (
-                                                $steps["runCode"] != null &&
-                                                typeof $steps["runCode"] ===
-                                                  "object" &&
-                                                typeof $steps["runCode"]
-                                                  .then === "function"
-                                              ) {
-                                                $steps["runCode"] =
-                                                  await $steps["runCode"];
-                                              }
-
-                                              $steps["invokeGlobalAction"] =
-                                                currentItem.number >= 0
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        args: [
-                                                          "POST",
-                                                          "https://n8n.staas.ir/webhook/hamyar/food",
-                                                          undefined,
-                                                          (() => {
-                                                            try {
-                                                              return {
-                                                                userId:
-                                                                  $state
-                                                                    .userinfo
-                                                                    .man.id,
-                                                                dataType:
-                                                                  "food Tracker",
-                                                                value: {
-                                                                  id: currentItem.id,
-                                                                  number:
-                                                                    currentItem.number
-                                                                },
-                                                                timestamp:
-                                                                  $$.dayjs()
-                                                                    .subtract(
-                                                                      1,
-                                                                      "week"
-                                                                    )
-                                                                    .day(1)
-                                                                    .format(
-                                                                      "YYYY-MM-DD HH:mm:ss"
-                                                                    )
-                                                              };
-                                                            } catch (e) {
-                                                              if (
-                                                                e instanceof
-                                                                  TypeError ||
-                                                                e?.plasmicType ===
-                                                                  "PlasmicUndefinedDataError"
-                                                              ) {
-                                                                return undefined;
-                                                              }
-                                                              throw e;
-                                                            }
-                                                          })()
-                                                        ]
-                                                      };
-                                                      return $globalActions[
-                                                        "Fragment.apiRequest"
-                                                      ]?.apply(null, [
-                                                        ...actionArgs.args
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                              if (
-                                                $steps["invokeGlobalAction"] !=
-                                                  null &&
-                                                typeof $steps[
-                                                  "invokeGlobalAction"
-                                                ] === "object" &&
-                                                typeof $steps[
-                                                  "invokeGlobalAction"
-                                                ].then === "function"
-                                              ) {
-                                                $steps["invokeGlobalAction"] =
-                                                  await $steps[
-                                                    "invokeGlobalAction"
-                                                  ];
-                                              }
-                                            }}
-                                            role={"img"}
-                                          />
-                                        </Stack__>
-                                      </Stack__>
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            </Stack__>
                             <Button
                               data-plasmic-name={"button6"}
                               data-plasmic-override={overrides.button6}
@@ -4105,15 +3703,15 @@ function PlasmicFood__RenderFunc(props: {
                               onClick={async event => {
                                 const $steps = {};
 
-                                $steps["updateModal2Open"] = true
+                                $steps["updateSlide"] = true
                                   ? (() => {
                                       const actionArgs = {
                                         variable: {
                                           objRoot: $state,
-                                          variablePath: ["modal2", "open"]
+                                          variablePath: ["slide"]
                                         },
                                         operation: 0,
-                                        value: false
+                                        value: 1
                                       };
                                       return (({
                                         variable,
@@ -4133,71 +3731,13 @@ function PlasmicFood__RenderFunc(props: {
                                     })()
                                   : undefined;
                                 if (
-                                  $steps["updateModal2Open"] != null &&
-                                  typeof $steps["updateModal2Open"] ===
-                                    "object" &&
-                                  typeof $steps["updateModal2Open"].then ===
+                                  $steps["updateSlide"] != null &&
+                                  typeof $steps["updateSlide"] === "object" &&
+                                  typeof $steps["updateSlide"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateModal2Open"] = await $steps[
-                                    "updateModal2Open"
-                                  ];
-                                }
-
-                                $steps["runCode"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        customFunction: async () => {
-                                          return (() => {
-                                            $state.selectedfood.forEach(
-                                              item => (item.number = 0)
-                                            );
-                                            return localStorage.setItem(
-                                              "Firstّfood",
-                                              "true"
-                                            );
-                                          })();
-                                        }
-                                      };
-                                      return (({ customFunction }) => {
-                                        return customFunction();
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["runCode"] != null &&
-                                  typeof $steps["runCode"] === "object" &&
-                                  typeof $steps["runCode"].then === "function"
-                                ) {
-                                  $steps["runCode"] = await $steps["runCode"];
-                                }
-
-                                $steps["updateButton2Color2"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        queryInvalidation: [
-                                          "plasmic_refresh_all"
-                                        ]
-                                      };
-                                      return (async ({ queryInvalidation }) => {
-                                        if (!queryInvalidation) {
-                                          return;
-                                        }
-                                        await plasmicInvalidate(
-                                          queryInvalidation
-                                        );
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["updateButton2Color2"] != null &&
-                                  typeof $steps["updateButton2Color2"] ===
-                                    "object" &&
-                                  typeof $steps["updateButton2Color2"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateButton2Color2"] = await $steps[
-                                    "updateButton2Color2"
+                                  $steps["updateSlide"] = await $steps[
+                                    "updateSlide"
                                   ];
                                 }
                               }}
@@ -4210,7 +3750,7 @@ function PlasmicFood__RenderFunc(props: {
                             >
                               {hasVariant(globalVariants, "screen", "mobile")
                                 ? "\u062a\u0627\u06cc\u06cc\u062f"
-                                : "\u062a\u0627\u06cc\u06cc\u062f"}
+                                : "\u0627\u062f\u0627\u0645\u0647"}
                             </Button>
                           </Stack__>
                         ) : null}

@@ -4353,7 +4353,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                   try {
                     return (
                       $state.weeksPregnant != null &&
-                      $state.getTask?.data?.[0] != null
+                      $state.getTask?.data?.[0] != null &&
+                      $state.textWeek != null &&
+                      $state.textWeek?.length > 0
                     );
                   } catch (e) {
                     if (
@@ -4395,7 +4397,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     })()}
                     tasks={(() => {
                       try {
-                        return $state.getTask.data;
+                        return $state.getTask?.data;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||

@@ -61,7 +61,6 @@ import {
 
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { AntdCheckbox } from "@plasmicpkgs/antd5/skinny/registerCheckbox";
-import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 
 import {
   ThemeValue,
@@ -106,7 +105,6 @@ export type PlasmicTodoList__OverridesType = {
   root?: Flex__<"div">;
   lottie?: Flex__<typeof LottieWrapper>;
   checkbox?: Flex__<typeof AntdCheckbox>;
-  checkbox2?: Flex__<typeof Checkbox>;
 };
 
 export interface DefaultTodoListProps {
@@ -174,11 +172,6 @@ function PlasmicTodoList__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.darkMod
-      },
-      {
-        path: "checkbox2[].isChecked",
-        type: "private",
-        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -1047,250 +1040,6 @@ function PlasmicTodoList__RenderFunc(props: {
               );
             })();
           })}
-          {(
-            hasVariant(globalVariants, "theme", "dark")
-              ? true
-              : (() => {
-                  try {
-                    return !$props.loading && $props.tasks[0].id != null;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          )
-            ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                (() => {
-                  try {
-                    return $props.tasks.length > 0 ? $props.tasks : [];
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return [];
-                    }
-                    throw e;
-                  }
-                })()
-              ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                const currentItem = __plasmic_item_0;
-                const currentIndex = __plasmic_idx_0;
-                return (() => {
-                  const child$Props = {
-                    className: classNames("__wab_instance", sty.checkbox2, {
-                      [sty.checkbox2darkMod]: hasVariant(
-                        $state,
-                        "darkMod",
-                        "darkMod"
-                      ),
-                      [sty.checkbox2global_theme_dark]: hasVariant(
-                        globalVariants,
-                        "theme",
-                        "dark"
-                      )
-                    }),
-                    isChecked:
-                      generateStateValueProp($state, [
-                        "checkbox2",
-                        __plasmic_idx_0,
-                        "isChecked"
-                      ]) ?? false,
-                    key: currentIndex,
-                    onChange: async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "checkbox2",
-                          __plasmic_idx_0,
-                          "isChecked"
-                        ])(eventArgs[0]);
-                      }).apply(null, eventArgs);
-                      (async isChecked => {
-                        const $steps = {};
-
-                        $steps["invokeGlobalAction"] = checked
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/task",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        userId: $props.userId,
-                                        todoId: currentItem.id
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-
-                        $steps["invokeGlobalAction2"] = !checked
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "PUT",
-                                  "https://n8n.staas.ir/webhook/task",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return { id: currentItem.id };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction2"] != null &&
-                          typeof $steps["invokeGlobalAction2"] === "object" &&
-                          typeof $steps["invokeGlobalAction2"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction2"] = await $steps[
-                            "invokeGlobalAction2"
-                          ];
-                        }
-                      }).apply(null, eventArgs);
-                    }
-                  };
-
-                  initializePlasmicStates(
-                    $state,
-                    [
-                      {
-                        name: "checkbox2[].isChecked",
-                        initFunc: ({ $props, $state, $queries }) =>
-                          (() => {
-                            try {
-                              return $props.tasks[currentIndex].is_completed;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                      }
-                    ],
-                    [__plasmic_idx_0]
-                  );
-                  return (
-                    <Checkbox
-                      data-plasmic-name={"checkbox2"}
-                      data-plasmic-override={overrides.checkbox2}
-                      {...child$Props}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wPm7B
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__gopP3,
-                            {
-                              [sty.textdarkMod__gopP3Kgh4P]: hasVariant(
-                                $state,
-                                "darkMod",
-                                "darkMod"
-                              )
-                            }
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $props.tasks[currentIndex].tile;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "showSignUpSuggestFollow";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__y5IhO
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $props.tasks[currentIndex].text;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "ddddd";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </div>
-                    </Checkbox>
-                  );
-                })();
-              })
-            : null}
         </div>
       </div>
     </div>
@@ -1298,10 +1047,9 @@ function PlasmicTodoList__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "lottie", "checkbox", "checkbox2"],
+  root: ["root", "lottie", "checkbox"],
   lottie: ["lottie"],
-  checkbox: ["checkbox"],
-  checkbox2: ["checkbox2"]
+  checkbox: ["checkbox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1310,7 +1058,6 @@ type NodeDefaultElementType = {
   root: "div";
   lottie: typeof LottieWrapper;
   checkbox: typeof AntdCheckbox;
-  checkbox2: typeof Checkbox;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1375,7 +1122,6 @@ export const PlasmicTodoList = Object.assign(
     // Helper components rendering sub-elements
     lottie: makeNodeComponent("lottie"),
     checkbox: makeNodeComponent("checkbox"),
-    checkbox2: makeNodeComponent("checkbox2"),
 
     // Metadata about props expected for PlasmicTodoList
     internalVariantProps: PlasmicTodoList__VariantProps,
