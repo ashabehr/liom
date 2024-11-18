@@ -54,6 +54,16 @@
   max-width: 100%;
   object-fit: cover;
 }
+.text__eQ9Uy {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-41VRhDKfihhY);
+  min-width: 0;
+}
+.textdarkMod__eQ9UyOQOo {
+  color: #7777770d;
+}
 .freeBox__z49Xy {
   display: flex;
   flex-direction: column;

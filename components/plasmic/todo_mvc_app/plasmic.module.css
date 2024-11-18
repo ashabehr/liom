@@ -23,7 +23,7 @@
   --plasmic-token-border-gray-light: var(--token-oCPc5AIJwtEa);
   --token-d0xmvBfBUlz_: rgb(48, 48, 48);
   --plasmic-token-border-gray-light-dark: var(--token-d0xmvBfBUlz_);
-  --token-DFwge94Hey3F: rgb(83, 83, 83);
+  --token-DFwge94Hey3F: var(--token-aPMgnD4sVFAM);
   --plasmic-token-task-text: var(--token-DFwge94Hey3F);
   --token-gonRSCNFEy7u: rgb(234, 234, 234);
   --plasmic-token-task-text-dark: var(--token-gonRSCNFEy7u);

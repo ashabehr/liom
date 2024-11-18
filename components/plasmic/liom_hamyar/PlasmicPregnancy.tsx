@@ -716,6 +716,36 @@ function PlasmicPregnancy__RenderFunc(props: {
             }}
             url={"https://n8n.staas.ir/webhook/info"}
           >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__eQ9Uy,
+                {
+                  [sty.textdarkMod__eQ9UyOQOo]: hasVariant(
+                    $state,
+                    "darkMod",
+                    "darkMod"
+                  )
+                }
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.getInfo.data[0].result.childbirthDate;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
             {(
               hasVariant(globalVariants, "screen", "mobile")
                 ? (() => {
