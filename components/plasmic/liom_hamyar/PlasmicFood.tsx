@@ -224,10 +224,22 @@ function PlasmicFood__RenderFunc(props: {
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           hasVariant(globalVariants, "screen", "mobile")
-            ? true
-            : (() => {
+            ? (() => {
                 try {
                   return localStorage.getItem("ferstFoodTrack") == null;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return undefined;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1913,13 +1925,26 @@ function PlasmicFood__RenderFunc(props: {
                           name: "modal2.open",
                           initFunc: ({ $props, $state, $queries }) =>
                             hasVariant(globalVariants, "screen", "mobile")
-                              ? true
-                              : (() => {
+                              ? (() => {
                                   try {
                                     return (
                                       localStorage.getItem("ferstFoodTrack") ==
                                       null
                                     );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return false;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              : (() => {
+                                  try {
+                                    return undefined;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -3192,6 +3217,12 @@ function PlasmicFood__RenderFunc(props: {
                                 >
                                   {"\u0627\u062f\u0627\u0645\u0647"}
                                 </Button>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__kxerY
+                                  )}
+                                />
                               </Stack__>
                             ) : null}
                           </Reveal>
@@ -3760,6 +3791,12 @@ function PlasmicFood__RenderFunc(props: {
                                     ? "\u062a\u0627\u06cc\u06cc\u062f"
                                     : "\u062a\u0627\u06cc\u06cc\u062f"}
                                 </Button>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__fiDty
+                                  )}
+                                />
                               </Stack__>
                             ) : null}
                           </Reveal>
@@ -3856,7 +3893,7 @@ function PlasmicFood__RenderFunc(props: {
                                         "mobile"
                                       )
                                         ? "\u0642\u0631\u0627\u0631\u0647 \u0628\u0627\u0647\u0645 \u0686\u0646\u062f \u0642\u062f\u0645 \u0628\u0647 \u0633\u0645\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645. \ud83e\udd66\ud83d\udcaa\n\u0647\u062f\u0641\u0645\u0648\u0646 \u0627\u06cc\u0646\u0647 \u06a9\u0647 \u06a9\u0645\u06a9\u062a \u06a9\u0646\u06cc\u0645 \u0639\u0627\u062f\u062a \u0647\u0627\u06cc \u0628\u062f \u063a\u0630\u0627\u06cc\u06cc \u0631\u0648 \u06a9\u0646\u0627\u0631 \u0628\u0630\u0627\u0631\u06cc \u0648 \u0628\u0647 \u0645\u0631\u0648\u0631 \u0639\u0627\u062f\u062a\u200c\u0647\u0627\u06cc \u063a\u0630\u0627\u06cc\u06cc \u0628\u0647\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646\u06cc. \u0647\u0631 \u0642\u062f\u0645 \u06a9\u0648\u0686\u06cc\u06a9\u06cc \u06a9\u0647 \u0628\u0631\u0645\u06cc\u200c\u062f\u0627\u0631\u06cc\u060c \u0645\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631\u062a\u06cc\u0645 \u062a\u0627 \u062a\u062c\u0631\u0628\u0647\u200c\u06cc \u06cc\u06a9 \u062a\u063a\u06cc\u06cc\u0631 \u0645\u062b\u0628\u062a \u0648 \u0645\u0627\u0646\u062f\u06af\u0627\u0631 \u0631\u0648 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc. \ud83d\udeb6\u200d\u2642\ufe0f\ud83c\udf31\n\n\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u0647\u062a\u0631 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0631\u0627\u0647\u06cc\u062a \u06a9\u0646\u06cc\u0645\u060c \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u0645 \u0686\u0646\u062f \u0633\u0648\u0627\u0644 \u0633\u0627\u062f\u0647 \u0627\u0632\u062a \u0628\u067e\u0631\u0633\u06cc\u0645. \u0622\u0645\u0627\u062f\u0647\u200c\u0627\u06cc \u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645 \u0648 \u0627\u0648\u0644\u06cc\u0646 \u0642\u062f\u0645 \u0631\u0648 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645\u061f \ud83d\ude03"
-                                        : "    \u0642\u0631\u0627\u0631\u0647 \u0628\u0627\u0647\u0645 \u0686\u0646\u062f \u0642\u062f\u0645 \u0628\u0647 \u0633\u0645\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645. \ud83e\udd66\ud83d\udcaa\n\u0647\u062f\u0641\u0645\u0648\u0646 \u0627\u06cc\u0646\u0647 \u06a9\u0647 \u06a9\u0645\u06a9\u062a \u06a9\u0646\u06cc\u0645 \u0639\u0627\u062f\u062a \u0647\u0627\u06cc \u0628\u062f \u063a\u0630\u0627\u06cc\u06cc \u0631\u0648 \u06a9\u0646\u0627\u0631 \u0628\u0630\u0627\u0631\u06cc \u0648 \u0628\u0647 \u0645\u0631\u0648\u0631 \u0639\u0627\u062f\u062a\u200c\u0647\u0627\u06cc \u063a\u0630\u0627\u06cc\u06cc \u0628\u0647\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646\u06cc. \u0647\u0631 \u0642\u062f\u0645 \u06a9\u0648\u0686\u06cc\u06a9\u06cc \u06a9\u0647 \u0628\u0631\u0645\u06cc\u200c\u062f\u0627\u0631\u06cc\u060c \u0645\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631\u062a\u06cc\u0645 \u062a\u0627 \u062a\u062c\u0631\u0628\u0647\u200c\u06cc \u06cc\u06a9 \u062a\u063a\u06cc\u06cc\u0631 \u0645\u062b\u0628\u062a \u0648 \u0645\u0627\u0646\u062f\u06af\u0627\u0631 \u0631\u0648 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc. \ud83d\udeb6\u200d\u2642\ufe0f\ud83c\udf31\n\n\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u0647\u062a\u0631 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0631\u0627\u0647\u06cc\u062a \u06a9\u0646\u06cc\u0645\u060c \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u0645 \u0686\u0646\u062f \u0633\u0648\u0627\u0644 \u0633\u0627\u062f\u0647 \u0627\u0632\u062a \u0628\u067e\u0631\u0633\u06cc\u0645. \u0622\u0645\u0627\u062f\u0647\u200c\u0627\u06cc \u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645 \u0648 \u0627\u0648\u0644\u06cc\u0646 \u0642\u062f\u0645 \u0631\u0648 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645\u061f \ud83d\ude03"}
+                                        : "   \u0642\u0631\u0627\u0631\u0647 \u0628\u0627\u0647\u0645 \u0686\u0646\u062f \u0642\u062f\u0645 \u0628\u0647 \u0633\u0645\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645. \ud83e\udd66\ud83d\udcaa\n\u0647\u062f\u0641\u0645\u0648\u0646 \u0627\u06cc\u0646\u0647 \u06a9\u0647 \u06a9\u0645\u06a9\u062a \u06a9\u0646\u06cc\u0645 \u0639\u0627\u062f\u062a \u0647\u0627\u06cc \u0628\u062f \u063a\u0630\u0627\u06cc\u06cc \u0631\u0648 \u06a9\u0646\u0627\u0631 \u0628\u0630\u0627\u0631\u06cc \u0648 \u0628\u0647 \u0645\u0631\u0648\u0631 \u0639\u0627\u062f\u062a\u200c\u0647\u0627\u06cc \u063a\u0630\u0627\u06cc\u06cc \u0628\u0647\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646\u06cc. \u0647\u0631 \u0642\u062f\u0645 \u06a9\u0648\u0686\u06cc\u06a9\u06cc \u06a9\u0647 \u0628\u0631\u0645\u06cc\u200c\u062f\u0627\u0631\u06cc\u060c \u0645\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631\u062a\u06cc\u0645 \u062a\u0627 \u062a\u062c\u0631\u0628\u0647\u200c\u06cc \u06cc\u06a9 \u062a\u063a\u06cc\u06cc\u0631 \u0645\u062b\u0628\u062a \u0648 \u0645\u0627\u0646\u062f\u06af\u0627\u0631 \u0631\u0648 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc. \ud83d\udeb6\u200d\u2642\ufe0f\ud83c\udf31\n\n\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639\u060c \u0686\u0646\u062f \u0633\u0648\u0627\u0644 \u0633\u0627\u062f\u0647 \u062f\u0627\u0631\u06cc\u0645. \u0622\u0645\u0627\u062f\u0647\u200c\u0627\u06cc\u061f \ud83d\ude03"}
                                     </div>
                                   </div>
                                 </Stack__>
@@ -3932,6 +3969,12 @@ function PlasmicFood__RenderFunc(props: {
                                     ? "\u0627\u062f\u0627\u0645\u0647"
                                     : "\u0627\u062f\u0627\u0645\u0647"}
                                 </Button>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__clDm
+                                  )}
+                                />
                               </Stack__>
                             ) : null}
                           </Reveal>
