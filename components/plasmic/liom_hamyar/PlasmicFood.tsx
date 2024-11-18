@@ -71,6 +71,7 @@ import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import Tick from "../../Tick"; // plasmic-import: 9Gr6sjq9gB59/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import { AntdRangeSlider } from "@plasmicpkgs/antd5/skinny/registerSlider";
 import { rangeSliderHelpers as AntdRangeSlider_Helpers } from "@plasmicpkgs/antd5/skinny/registerSlider";
 import { AntdSliderMark } from "@plasmicpkgs/antd5/skinny/registerSlider";
@@ -132,6 +133,7 @@ export type PlasmicFood__OverridesType = {
   kabed?: Flex__<typeof AntdRadioGroup>;
   diabet?: Flex__<typeof AntdRadioGroup>;
   button3?: Flex__<typeof Button>;
+  button5?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   slideinModal?: Flex__<typeof SlideinModal>;
   input4?: Flex__<typeof Input>;
@@ -220,21 +222,7 @@ function PlasmicFood__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile")
-            ? true
-            : (() => {
-                try {
-                  return localStorage.getItem("Firstّfood") == null;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return false;
-                  }
-                  throw e;
-                }
-              })()
+          hasVariant(globalVariants, "screen", "mobile") ? true : true
       },
       {
         path: "rangeSlider.min",
@@ -903,6 +891,18 @@ function PlasmicFood__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "button5.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "slide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 1
       }
     ],
     [$props, $ctx, $refs]
@@ -1846,85 +1846,62 @@ function PlasmicFood__RenderFunc(props: {
                       </Stack__>
                     </div>
                   </AntdModal>
-                  {(() => {
-                    const child$Props = {
-                      className: classNames("__wab_instance", sty.modal2),
-                      closeIcon: null,
-                      defaultStylesClassName: classNames(
-                        projectcss.root_reset,
-                        projectcss.plasmic_default_styles,
-                        projectcss.plasmic_mixins,
-                        projectcss.plasmic_tokens,
-                        plasmic_antd_5_hostless_css.plasmic_tokens,
-                        plasmic_plasmic_rich_components_css.plasmic_tokens
-                      ),
-                      hideFooter: true,
-                      maskClosable: false,
-                      modalContentClassName: classNames({
-                        [sty["pcls_rUWMCd9XmqdI"]]: true
-                      }),
-                      modalScopeClassName: sty["modal2__modal"],
-                      onOpenChange: generateStateOnChangeProp($state, [
-                        "modal2",
-                        "open"
-                      ]),
-                      open: generateStateValueProp($state, ["modal2", "open"]),
-                      title: null,
-                      trigger: null,
-                      width: "100vw"
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "open",
-                          plasmicStateName: "modal2.open"
+                  <AntdModal
+                    data-plasmic-name={"modal2"}
+                    data-plasmic-override={overrides.modal2}
+                    className={classNames("__wab_instance", sty.modal2)}
+                    closeIcon={null}
+                    defaultStylesClassName={classNames(
+                      projectcss.root_reset,
+                      projectcss.plasmic_default_styles,
+                      projectcss.plasmic_mixins,
+                      projectcss.plasmic_tokens,
+                      plasmic_antd_5_hostless_css.plasmic_tokens,
+                      plasmic_plasmic_rich_components_css.plasmic_tokens
+                    )}
+                    hideFooter={true}
+                    maskClosable={false}
+                    modalContentClassName={classNames({
+                      [sty["pcls_rUWMCd9XmqdI"]]: true
+                    })}
+                    modalScopeClassName={sty["modal2__modal"]}
+                    onOpenChange={generateStateOnChangeProp($state, [
+                      "modal2",
+                      "open"
+                    ])}
+                    open={generateStateValueProp($state, ["modal2", "open"])}
+                    title={null}
+                    trigger={null}
+                    width={"100vw"}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__rqDhX)}
+                    >
+                      <Reveal
+                        className={classNames(
+                          "__wab_instance",
+                          sty.reveal___5WYk
+                        )}
+                        effect={
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? "slide"
+                            : "fade"
                         }
-                      ],
-                      [],
-                      undefined ?? {},
-                      child$Props
-                    );
-                    initializePlasmicStates(
-                      $state,
-                      [
-                        {
-                          name: "modal2.open",
-                          initFunc: ({ $props, $state, $queries }) =>
-                            hasVariant(globalVariants, "screen", "mobile")
-                              ? true
-                              : (() => {
-                                  try {
-                                    return (
-                                      localStorage.getItem("Firstّfood") == null
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return false;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                        }
-                      ],
-                      []
-                    );
-                    return (
-                      <AntdModal
-                        data-plasmic-name={"modal2"}
-                        data-plasmic-override={overrides.modal2}
-                        {...child$Props}
+                        triggerOnce={true}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__rqDhX
-                          )}
-                        >
+                        {(() => {
+                          try {
+                            return $state.slide == 1;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
                           <Stack__
                             as={"div"}
                             hasGap={true}
@@ -1938,245 +1915,7 @@ function PlasmicFood__RenderFunc(props: {
                               hasGap={true}
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__ru8Pd
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__vJwZw
-                                )}
-                              >
-                                {
-                                  "\u0642\u0631\u0627\u0631\u0647 \u0628\u0627\u0647\u0645 \u0686\u0646\u062f \u0642\u062f\u0645 \u0628\u0647 \u0633\u0645\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645. \ud83e\udd66\ud83d\udcaa\n\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u062a\u0648 \u067e\u0631 \u06a9\u0646 \u062a\u0627 \u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645 \u0648 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0645\u0633\u06cc\u0631\u0648 \u062f\u0646\u0628\u0627\u0644 \u06a9\u0646\u06cc\u0645. \u0647\u0631 \u0642\u062f\u0645 \u06a9\u0648\u0686\u06cc\u06a9\u06cc \u06a9\u0647 \u0628\u0631\u062f\u0627\u0631\u06cc\u060c \u0645\u0627 \u0647\u0645 \u0647\u0645\u0631\u0627\u0647\u062a \u0647\u0633\u062a\u06cc\u0645 \u062a\u0627 \u0632\u0646\u062f\u06af\u06cc \u0633\u0627\u0644\u0645\u200c\u062a\u0631\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc! \ud83d\udeb6\u200d\u2642\ufe0f\ud83c\udf31"
-                                }
-                              </div>
-                            </Stack__>
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__tisQ2
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__sSwYn
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__ckKt4
-                                  )}
-                                >
-                                  {"\u0642\u062f"}
-                                </div>
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__m2Np5
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__yDv5M
-                                    )}
-                                  >
-                                    {"cm"}
-                                  </div>
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__lsqS3
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return $state.heghit;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "160";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </div>
-                                </Stack__>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__f2I1L
-                                  )}
-                                >
-                                  {(() => {
-                                    const child$Props = {
-                                      className: classNames(
-                                        "__wab_instance",
-                                        sty.rangeSlider
-                                      ),
-                                      defaultValueMax: (() => {
-                                        try {
-                                          return $state.heghit;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return 161;
-                                          }
-                                          throw e;
-                                        }
-                                      })(),
-                                      draggableTrack: true,
-                                      handleClassName: classNames({
-                                        [sty["pcls_l4143iXcxZ2i"]]: true
-                                      }),
-                                      max: 210,
-                                      min: 120,
-                                      onChange: async (...eventArgs: any) => {
-                                        generateStateOnChangePropForCodeComponents(
-                                          $state,
-                                          "min",
-                                          ["rangeSlider", "min"],
-                                          AntdRangeSlider_Helpers
-                                        ).apply(null, eventArgs);
-                                        generateStateOnChangePropForCodeComponents(
-                                          $state,
-                                          "max",
-                                          ["rangeSlider", "max"],
-                                          AntdRangeSlider_Helpers
-                                        ).apply(null, eventArgs);
-                                        (async value => {
-                                          const $steps = {};
-
-                                          $steps["updateHeghit"] = true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  variable: {
-                                                    objRoot: $state,
-                                                    variablePath: ["heghit"]
-                                                  },
-                                                  operation: 0,
-                                                  value: $state.rangeSlider.max
-                                                };
-                                                return (({
-                                                  variable,
-                                                  value,
-                                                  startIndex,
-                                                  deleteCount
-                                                }) => {
-                                                  if (!variable) {
-                                                    return;
-                                                  }
-                                                  const {
-                                                    objRoot,
-                                                    variablePath
-                                                  } = variable;
-
-                                                  $stateSet(
-                                                    objRoot,
-                                                    variablePath,
-                                                    value
-                                                  );
-                                                  return value;
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                          if (
-                                            $steps["updateHeghit"] != null &&
-                                            typeof $steps["updateHeghit"] ===
-                                              "object" &&
-                                            typeof $steps["updateHeghit"]
-                                              .then === "function"
-                                          ) {
-                                            $steps["updateHeghit"] =
-                                              await $steps["updateHeghit"];
-                                          }
-                                        }).apply(null, eventArgs);
-                                      },
-                                      sliderScopeClassName:
-                                        sty["rangeSlider__slider"],
-                                      stylableMarks: (
-                                        <AntdSliderMark
-                                          data-plasmic-name={"sliderMark"}
-                                          data-plasmic-override={
-                                            overrides.sliderMark
-                                          }
-                                          children={null}
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.sliderMark
-                                          )}
-                                          mark={50}
-                                        />
-                                      ),
-
-                                      tooltipVisible: "unset",
-                                      trackClassName: classNames({
-                                        [sty["pcls_yBqZjcpa26b8"]]: true
-                                      }),
-                                      valueMax: generateStateValueProp($state, [
-                                        "rangeSlider",
-                                        "max"
-                                      ]),
-                                      valueMin: generateStateValueProp($state, [
-                                        "rangeSlider",
-                                        "min"
-                                      ])
-                                    };
-                                    initializeCodeComponentStates(
-                                      $state,
-                                      [
-                                        {
-                                          name: "min",
-                                          plasmicStateName: "rangeSlider.min"
-                                        },
-                                        {
-                                          name: "max",
-                                          plasmicStateName: "rangeSlider.max"
-                                        }
-                                      ],
-                                      [],
-                                      AntdRangeSlider_Helpers ?? {},
-                                      child$Props
-                                    );
-
-                                    return (
-                                      <AntdRangeSlider
-                                        data-plasmic-name={"rangeSlider"}
-                                        data-plasmic-override={
-                                          overrides.rangeSlider
-                                        }
-                                        {...child$Props}
-                                      />
-                                    );
-                                  })()}
-                                </div>
-                              </div>
-                            </Stack__>
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__xtOn
+                                sty.freeBox__bDQhD
                               )}
                             >
                               <Stack__
@@ -2184,161 +1923,19 @@ function PlasmicFood__RenderFunc(props: {
                                 hasGap={true}
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__nyLx
+                                  sty.freeBox__ru8Pd
                                 )}
                               >
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox__tTmpc
+                                    projectcss.__wab_text,
+                                    sty.text__vJwZw
                                   )}
                                 >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__x0BgO
-                                    )}
-                                  >
-                                    {"\u0633\u0646"}
-                                  </div>
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__fsZIb
-                                    )}
-                                  >
-                                    <Input
-                                      data-plasmic-name={"input2"}
-                                      data-plasmic-override={overrides.input2}
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.input2
-                                      )}
-                                      onChange={async (...eventArgs: any) => {
-                                        generateStateOnChangeProp($state, [
-                                          "input2",
-                                          "value"
-                                        ]).apply(null, eventArgs);
-                                        (async value => {
-                                          const $steps = {};
-
-                                          $steps["updateAge"] = true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  variable: {
-                                                    objRoot: $state,
-                                                    variablePath: ["age"]
-                                                  },
-                                                  operation: 0,
-                                                  value: parseInt(
-                                                    $state.input2.value
-                                                  )
-                                                };
-                                                return (({
-                                                  variable,
-                                                  value,
-                                                  startIndex,
-                                                  deleteCount
-                                                }) => {
-                                                  if (!variable) {
-                                                    return;
-                                                  }
-                                                  const {
-                                                    objRoot,
-                                                    variablePath
-                                                  } = variable;
-
-                                                  $stateSet(
-                                                    objRoot,
-                                                    variablePath,
-                                                    value
-                                                  );
-                                                  return value;
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                          if (
-                                            $steps["updateAge"] != null &&
-                                            typeof $steps["updateAge"] ===
-                                              "object" &&
-                                            typeof $steps["updateAge"].then ===
-                                              "function"
-                                          ) {
-                                            $steps["updateAge"] = await $steps[
-                                              "updateAge"
-                                            ];
-                                          }
-
-                                          $steps["updateButton2Color"] = true
-                                            ? (() => {
-                                                const actionArgs = {
-                                                  variable: {
-                                                    objRoot: $state,
-                                                    variablePath: [
-                                                      "button2",
-                                                      "color"
-                                                    ]
-                                                  },
-                                                  operation: 0
-                                                };
-                                                return (({
-                                                  variable,
-                                                  value,
-                                                  startIndex,
-                                                  deleteCount
-                                                }) => {
-                                                  if (!variable) {
-                                                    return;
-                                                  }
-                                                  const {
-                                                    objRoot,
-                                                    variablePath
-                                                  } = variable;
-
-                                                  $stateSet(
-                                                    objRoot,
-                                                    variablePath,
-                                                    value
-                                                  );
-                                                  return value;
-                                                })?.apply(null, [actionArgs]);
-                                              })()
-                                            : undefined;
-                                          if (
-                                            $steps["updateButton2Color"] !=
-                                              null &&
-                                            typeof $steps[
-                                              "updateButton2Color"
-                                            ] === "object" &&
-                                            typeof $steps["updateButton2Color"]
-                                              .then === "function"
-                                          ) {
-                                            $steps["updateButton2Color"] =
-                                              await $steps[
-                                                "updateButton2Color"
-                                              ];
-                                          }
-                                        }).apply(null, eventArgs);
-                                      }}
-                                      placeholder={
-                                        hasVariant(
-                                          globalVariants,
-                                          "screen",
-                                          "mobile"
-                                        )
-                                          ? "\u0686\u0646\u062f \u0633\u0627\u0644\u062a\u0647 \u061f"
-                                          : undefined
-                                      }
-                                      type={"number"}
-                                      value={generateStateValueProp($state, [
-                                        "input2",
-                                        "value"
-                                      ])}
-                                    />
-                                  </Stack__>
+                                  {
+                                    "\u0642\u0631\u0627\u0631\u0647 \u0628\u0627\u0647\u0645 \u0686\u0646\u062f \u0642\u062f\u0645 \u0628\u0647 \u0633\u0645\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645. \ud83e\udd66\ud83d\udcaa\n\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u062a\u0648 \u067e\u0631 \u06a9\u0646 \u062a\u0627 \u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645 \u0648 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0645\u0633\u06cc\u0631\u0648 \u062f\u0646\u0628\u0627\u0644 \u06a9\u0646\u06cc\u0645. \u0647\u0631 \u0642\u062f\u0645 \u06a9\u0648\u0686\u06cc\u06a9\u06cc \u06a9\u0647 \u0628\u0631\u062f\u0627\u0631\u06cc\u060c \u0645\u0627 \u0647\u0645 \u0647\u0645\u0631\u0627\u0647\u062a \u0647\u0633\u062a\u06cc\u0645 \u062a\u0627 \u0632\u0646\u062f\u06af\u06cc \u0633\u0627\u0644\u0645\u200c\u062a\u0631\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc! \ud83d\udeb6\u200d\u2642\ufe0f\ud83c\udf31"
+                                  }
                                 </div>
                               </Stack__>
                               <Stack__
@@ -2346,66 +1943,721 @@ function PlasmicFood__RenderFunc(props: {
                                 hasGap={true}
                                 className={classNames(
                                   projectcss.all,
-                                  sty.freeBox__xOxgN
+                                  sty.freeBox__tisQ2
                                 )}
                               >
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox__gkA45
+                                    sty.freeBox__sSwYn
                                   )}
                                 >
                                   <div
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.__wab_text,
-                                      sty.text__cPqPv
+                                      sty.text__ckKt4
                                     )}
                                   >
-                                    {"\u0648\u0632\u0646"}
+                                    {"\u0642\u062f"}
                                   </div>
                                   <Stack__
                                     as={"div"}
                                     hasGap={true}
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox__s9JR3
+                                      sty.freeBox__m2Np5
                                     )}
                                   >
                                     <div
                                       className={classNames(
                                         projectcss.all,
                                         projectcss.__wab_text,
-                                        sty.text__zob36
+                                        sty.text__yDv5M
                                       )}
                                     >
-                                      {"kg"}
+                                      {"cm"}
                                     </div>
-                                    <Input
-                                      data-plasmic-name={"input3"}
-                                      data-plasmic-override={overrides.input3}
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__lsqS3
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return $state.heghit;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "160";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  </Stack__>
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__f2I1L
+                                    )}
+                                  >
+                                    {(() => {
+                                      const child$Props = {
+                                        className: classNames(
+                                          "__wab_instance",
+                                          sty.rangeSlider
+                                        ),
+                                        defaultValueMax: (() => {
+                                          try {
+                                            return $state.heghit;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return 161;
+                                            }
+                                            throw e;
+                                          }
+                                        })(),
+                                        draggableTrack: true,
+                                        handleClassName: classNames({
+                                          [sty["pcls_l4143iXcxZ2i"]]: true
+                                        }),
+                                        max: 210,
+                                        min: 120,
+                                        onChange: async (...eventArgs: any) => {
+                                          generateStateOnChangePropForCodeComponents(
+                                            $state,
+                                            "min",
+                                            ["rangeSlider", "min"],
+                                            AntdRangeSlider_Helpers
+                                          ).apply(null, eventArgs);
+                                          generateStateOnChangePropForCodeComponents(
+                                            $state,
+                                            "max",
+                                            ["rangeSlider", "max"],
+                                            AntdRangeSlider_Helpers
+                                          ).apply(null, eventArgs);
+                                          (async value => {
+                                            const $steps = {};
+
+                                            $steps["updateHeghit"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    variable: {
+                                                      objRoot: $state,
+                                                      variablePath: ["heghit"]
+                                                    },
+                                                    operation: 0,
+                                                    value:
+                                                      $state.rangeSlider.max
+                                                  };
+                                                  return (({
+                                                    variable,
+                                                    value,
+                                                    startIndex,
+                                                    deleteCount
+                                                  }) => {
+                                                    if (!variable) {
+                                                      return;
+                                                    }
+                                                    const {
+                                                      objRoot,
+                                                      variablePath
+                                                    } = variable;
+
+                                                    $stateSet(
+                                                      objRoot,
+                                                      variablePath,
+                                                      value
+                                                    );
+                                                    return value;
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["updateHeghit"] != null &&
+                                              typeof $steps["updateHeghit"] ===
+                                                "object" &&
+                                              typeof $steps["updateHeghit"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["updateHeghit"] =
+                                                await $steps["updateHeghit"];
+                                            }
+                                          }).apply(null, eventArgs);
+                                        },
+                                        sliderScopeClassName:
+                                          sty["rangeSlider__slider"],
+                                        stylableMarks: (
+                                          <AntdSliderMark
+                                            data-plasmic-name={"sliderMark"}
+                                            data-plasmic-override={
+                                              overrides.sliderMark
+                                            }
+                                            children={null}
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.sliderMark
+                                            )}
+                                            mark={50}
+                                          />
+                                        ),
+
+                                        tooltipVisible: "unset",
+                                        trackClassName: classNames({
+                                          [sty["pcls_yBqZjcpa26b8"]]: true
+                                        }),
+                                        valueMax: generateStateValueProp(
+                                          $state,
+                                          ["rangeSlider", "max"]
+                                        ),
+                                        valueMin: generateStateValueProp(
+                                          $state,
+                                          ["rangeSlider", "min"]
+                                        )
+                                      };
+                                      initializeCodeComponentStates(
+                                        $state,
+                                        [
+                                          {
+                                            name: "min",
+                                            plasmicStateName: "rangeSlider.min"
+                                          },
+                                          {
+                                            name: "max",
+                                            plasmicStateName: "rangeSlider.max"
+                                          }
+                                        ],
+                                        [],
+                                        AntdRangeSlider_Helpers ?? {},
+                                        child$Props
+                                      );
+
+                                      return (
+                                        <AntdRangeSlider
+                                          data-plasmic-name={"rangeSlider"}
+                                          data-plasmic-override={
+                                            overrides.rangeSlider
+                                          }
+                                          {...child$Props}
+                                        />
+                                      );
+                                    })()}
+                                  </div>
+                                </div>
+                              </Stack__>
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__xtOn
+                                )}
+                              >
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__nyLx
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__tTmpc
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__x0BgO
+                                      )}
+                                    >
+                                      {"\u0633\u0646"}
+                                    </div>
+                                    <Stack__
+                                      as={"div"}
+                                      hasGap={true}
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__fsZIb
+                                      )}
+                                    >
+                                      <Icon47Icon
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.svg___4Bd7B
+                                        )}
+                                        onClick={async event => {
+                                          const $steps = {};
+
+                                          $steps["runCode"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  customFunction: async () => {
+                                                    return ($state.input2.value += 1);
+                                                  }
+                                                };
+                                                return (({
+                                                  customFunction
+                                                }) => {
+                                                  return customFunction();
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["runCode"] != null &&
+                                            typeof $steps["runCode"] ===
+                                              "object" &&
+                                            typeof $steps["runCode"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["runCode"] = await $steps[
+                                              "runCode"
+                                            ];
+                                          }
+                                        }}
+                                        role={"img"}
+                                      />
+
+                                      <Input
+                                        data-plasmic-name={"input2"}
+                                        data-plasmic-override={overrides.input2}
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.input2
+                                        )}
+                                        onChange={async (...eventArgs: any) => {
+                                          generateStateOnChangeProp($state, [
+                                            "input2",
+                                            "value"
+                                          ]).apply(null, eventArgs);
+                                          (async value => {
+                                            const $steps = {};
+
+                                            $steps["updateAge"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    variable: {
+                                                      objRoot: $state,
+                                                      variablePath: ["age"]
+                                                    },
+                                                    operation: 0,
+                                                    value: parseInt(
+                                                      $state.input2.value
+                                                    )
+                                                  };
+                                                  return (({
+                                                    variable,
+                                                    value,
+                                                    startIndex,
+                                                    deleteCount
+                                                  }) => {
+                                                    if (!variable) {
+                                                      return;
+                                                    }
+                                                    const {
+                                                      objRoot,
+                                                      variablePath
+                                                    } = variable;
+
+                                                    $stateSet(
+                                                      objRoot,
+                                                      variablePath,
+                                                      value
+                                                    );
+                                                    return value;
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["updateAge"] != null &&
+                                              typeof $steps["updateAge"] ===
+                                                "object" &&
+                                              typeof $steps["updateAge"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["updateAge"] =
+                                                await $steps["updateAge"];
+                                            }
+
+                                            $steps["updateButton2Color"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    variable: {
+                                                      objRoot: $state,
+                                                      variablePath: [
+                                                        "button2",
+                                                        "color"
+                                                      ]
+                                                    },
+                                                    operation: 0
+                                                  };
+                                                  return (({
+                                                    variable,
+                                                    value,
+                                                    startIndex,
+                                                    deleteCount
+                                                  }) => {
+                                                    if (!variable) {
+                                                      return;
+                                                    }
+                                                    const {
+                                                      objRoot,
+                                                      variablePath
+                                                    } = variable;
+
+                                                    $stateSet(
+                                                      objRoot,
+                                                      variablePath,
+                                                      value
+                                                    );
+                                                    return value;
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["updateButton2Color"] !=
+                                                null &&
+                                              typeof $steps[
+                                                "updateButton2Color"
+                                              ] === "object" &&
+                                              typeof $steps[
+                                                "updateButton2Color"
+                                              ].then === "function"
+                                            ) {
+                                              $steps["updateButton2Color"] =
+                                                await $steps[
+                                                  "updateButton2Color"
+                                                ];
+                                            }
+                                          }).apply(null, eventArgs);
+                                        }}
+                                        placeholder={
+                                          hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "mobile"
+                                          )
+                                            ? "\u0686\u0646\u062f \u0633\u0627\u0644\u062a\u0647 \u061f"
+                                            : undefined
+                                        }
+                                        type={"number"}
+                                        value={generateStateValueProp($state, [
+                                          "input2",
+                                          "value"
+                                        ])}
+                                      />
+
+                                      <Icon48Icon
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.svg__uhtTq
+                                        )}
+                                        onClick={async event => {
+                                          const $steps = {};
+
+                                          $steps["runCode"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  customFunction: async () => {
+                                                    return (() => {
+                                                      if (
+                                                        $state.input2.value != 0
+                                                      )
+                                                        return ($state.input2.value -= 1);
+                                                    })();
+                                                  }
+                                                };
+                                                return (({
+                                                  customFunction
+                                                }) => {
+                                                  return customFunction();
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["runCode"] != null &&
+                                            typeof $steps["runCode"] ===
+                                              "object" &&
+                                            typeof $steps["runCode"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["runCode"] = await $steps[
+                                              "runCode"
+                                            ];
+                                          }
+                                        }}
+                                        role={"img"}
+                                      />
+                                    </Stack__>
+                                  </div>
+                                </Stack__>
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__xOxgN
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__gkA45
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__cPqPv
+                                      )}
+                                    >
+                                      {"\u0648\u0632\u0646 ( kg )"}
+                                    </div>
+                                    <Stack__
+                                      as={"div"}
+                                      hasGap={true}
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__s9JR3
+                                      )}
+                                    >
+                                      <Icon47Icon
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.svg__z8Xma
+                                        )}
+                                        onClick={async event => {
+                                          const $steps = {};
+
+                                          $steps["runCode"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  customFunction: async () => {
+                                                    return ($state.input3.value += 1);
+                                                  }
+                                                };
+                                                return (({
+                                                  customFunction
+                                                }) => {
+                                                  return customFunction();
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["runCode"] != null &&
+                                            typeof $steps["runCode"] ===
+                                              "object" &&
+                                            typeof $steps["runCode"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["runCode"] = await $steps[
+                                              "runCode"
+                                            ];
+                                          }
+                                        }}
+                                        role={"img"}
+                                      />
+
+                                      <Input
+                                        data-plasmic-name={"input3"}
+                                        data-plasmic-override={overrides.input3}
+                                        className={classNames(
+                                          "__wab_instance",
+                                          sty.input3
+                                        )}
+                                        onChange={async (...eventArgs: any) => {
+                                          generateStateOnChangeProp($state, [
+                                            "input3",
+                                            "value"
+                                          ]).apply(null, eventArgs);
+                                          (async value => {
+                                            const $steps = {};
+
+                                            $steps["updateWeight"] = true
+                                              ? (() => {
+                                                  const actionArgs = {
+                                                    variable: {
+                                                      objRoot: $state,
+                                                      variablePath: ["weight"]
+                                                    },
+                                                    operation: 0,
+                                                    value: parseInt(
+                                                      $state.input3.value
+                                                    )
+                                                  };
+                                                  return (({
+                                                    variable,
+                                                    value,
+                                                    startIndex,
+                                                    deleteCount
+                                                  }) => {
+                                                    if (!variable) {
+                                                      return;
+                                                    }
+                                                    const {
+                                                      objRoot,
+                                                      variablePath
+                                                    } = variable;
+
+                                                    $stateSet(
+                                                      objRoot,
+                                                      variablePath,
+                                                      value
+                                                    );
+                                                    return value;
+                                                  })?.apply(null, [actionArgs]);
+                                                })()
+                                              : undefined;
+                                            if (
+                                              $steps["updateWeight"] != null &&
+                                              typeof $steps["updateWeight"] ===
+                                                "object" &&
+                                              typeof $steps["updateWeight"]
+                                                .then === "function"
+                                            ) {
+                                              $steps["updateWeight"] =
+                                                await $steps["updateWeight"];
+                                            }
+                                          }).apply(null, eventArgs);
+                                        }}
+                                        placeholder={
+                                          hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "mobile"
+                                          )
+                                            ? "kg"
+                                            : undefined
+                                        }
+                                        type={"number"}
+                                        value={generateStateValueProp($state, [
+                                          "input3",
+                                          "value"
+                                        ])}
+                                      />
+
+                                      <Icon48Icon
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.svg__v7TrT
+                                        )}
+                                        onClick={async event => {
+                                          const $steps = {};
+
+                                          $steps["runCode"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  customFunction: async () => {
+                                                    return (() => {
+                                                      if (
+                                                        $state.input3.value != 0
+                                                      )
+                                                        return ($state.input3.value -= 1);
+                                                    })();
+                                                  }
+                                                };
+                                                return (({
+                                                  customFunction
+                                                }) => {
+                                                  return customFunction();
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["runCode"] != null &&
+                                            typeof $steps["runCode"] ===
+                                              "object" &&
+                                            typeof $steps["runCode"].then ===
+                                              "function"
+                                          ) {
+                                            $steps["runCode"] = await $steps[
+                                              "runCode"
+                                            ];
+                                          }
+                                        }}
+                                        role={"img"}
+                                      />
+                                    </Stack__>
+                                  </div>
+                                </Stack__>
+                              </Stack__>
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__mDsvr
+                                )}
+                              >
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___5B5HI
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__cZvZu
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__yb8Jq
+                                      )}
+                                    >
+                                      {
+                                        "\u0645\u0634\u06a9\u0644 \u06a9\u0628\u062f \u062f\u0627\u0631\u06cc\u061f"
+                                      }
+                                    </div>
+                                    <AntdRadioGroup
+                                      data-plasmic-name={"kabed"}
+                                      data-plasmic-override={overrides.kabed}
                                       className={classNames(
                                         "__wab_instance",
-                                        sty.input3
+                                        sty.kabed
                                       )}
+                                      defaultValue={"0"}
                                       onChange={async (...eventArgs: any) => {
                                         generateStateOnChangeProp($state, [
-                                          "input3",
+                                          "kabed",
                                           "value"
                                         ]).apply(null, eventArgs);
                                         (async value => {
                                           const $steps = {};
 
-                                          $steps["updateWeight"] = true
+                                          $steps["updateLiverDisease"] = true
                                             ? (() => {
                                                 const actionArgs = {
                                                   variable: {
                                                     objRoot: $state,
-                                                    variablePath: ["weight"]
+                                                    variablePath: [
+                                                      "liverDisease"
+                                                    ]
                                                   },
                                                   operation: 0,
                                                   value: parseInt(
-                                                    $state.input3.value
+                                                    $state.kabed.value
                                                   )
                                                 };
                                                 return (({
@@ -2432,752 +2684,226 @@ function PlasmicFood__RenderFunc(props: {
                                               })()
                                             : undefined;
                                           if (
-                                            $steps["updateWeight"] != null &&
-                                            typeof $steps["updateWeight"] ===
-                                              "object" &&
-                                            typeof $steps["updateWeight"]
+                                            $steps["updateLiverDisease"] !=
+                                              null &&
+                                            typeof $steps[
+                                              "updateLiverDisease"
+                                            ] === "object" &&
+                                            typeof $steps["updateLiverDisease"]
                                               .then === "function"
                                           ) {
-                                            $steps["updateWeight"] =
-                                              await $steps["updateWeight"];
+                                            $steps["updateLiverDisease"] =
+                                              await $steps[
+                                                "updateLiverDisease"
+                                              ];
                                           }
                                         }).apply(null, eventArgs);
                                       }}
-                                      placeholder={
-                                        hasVariant(
-                                          globalVariants,
-                                          "screen",
-                                          "mobile"
-                                        )
-                                          ? "kg"
-                                          : undefined
-                                      }
-                                      type={"number"}
+                                      options={(() => {
+                                        const __composite = [
+                                          { value: null, label: null },
+                                          { value: null, label: null },
+                                          { label: null, value: null },
+                                          { label: null, value: null }
+                                        ];
+                                        __composite["0"]["value"] = "0";
+                                        __composite["0"]["label"] =
+                                          "\u0646\u0647";
+                                        __composite["1"]["value"] = "1";
+                                        __composite["1"]["label"] =
+                                          "\u06af\u0631\u06cc\u062f1";
+                                        __composite["2"]["label"] =
+                                          "\u06af\u0631\u06cc\u062f2";
+                                        __composite["2"]["value"] = "2";
+                                        __composite["3"]["label"] =
+                                          "\u06af\u0631\u06cc\u062f3";
+                                        __composite["3"]["value"] = "3";
+                                        return __composite;
+                                      })()}
                                       value={generateStateValueProp($state, [
-                                        "input3",
-                                        "value"
-                                      ])}
-                                    />
-                                  </Stack__>
-                                </div>
-                              </Stack__>
-                            </Stack__>
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__mDsvr
-                              )}
-                            >
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__qkf6K
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text___2Q3Mp
-                                  )}
-                                >
-                                  {
-                                    "\u0647\u0641\u062a\u0647\u200c\u06cc \u067e\u06cc\u0634 \u0686\u0646\u062f \u062a\u0627 \u063a\u0630\u0627\u06cc \u0646\u0627\u0633\u0627\u0644\u0645 \u062e\u0648\u0631\u062f\u06cc\u061f"
-                                  }
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox___65CV
-                                  )}
-                                >
-                                  {(_par =>
-                                    !_par
-                                      ? []
-                                      : Array.isArray(_par)
-                                      ? _par
-                                      : [_par])(
-                                    (() => {
-                                      try {
-                                        return $state.selectedfood;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return [];
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                    const currentItem = __plasmic_item_0;
-                                    const currentIndex = __plasmic_idx_0;
-                                    return (
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__agco
-                                        )}
-                                        key={currentIndex}
-                                      >
-                                        <PlasmicImg__
-                                          alt={""}
-                                          className={classNames(sty.img__bXhlo)}
-                                          displayHeight={"auto"}
-                                          displayMaxHeight={"none"}
-                                          displayMaxWidth={"100%"}
-                                          displayMinHeight={"0"}
-                                          displayMinWidth={"0"}
-                                          displayWidth={"auto"}
-                                          height={``}
-                                          loading={"lazy"}
-                                          src={(() => {
-                                            try {
-                                              return $state.harmfulFood.find(
-                                                item =>
-                                                  item.id === currentItem.id
-                                              ).icon;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
-                                              }
-                                              throw e;
-                                            }
-                                          })()}
-                                          width={"40"}
-                                        />
-
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text__fhExW
-                                          )}
-                                        >
-                                          <React.Fragment>
-                                            {(() => {
-                                              try {
-                                                return $state.harmfulFood.find(
-                                                  item =>
-                                                    item.id === currentItem.id
-                                                ).title;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
-                                              }
-                                            })()}
-                                          </React.Fragment>
-                                        </div>
-                                        <div
-                                          className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
-                                            sty.text__gobsJ
-                                          )}
-                                        >
-                                          <React.Fragment>
-                                            {(() => {
-                                              try {
-                                                return $state.harmfulFood.find(
-                                                  item =>
-                                                    item.id === currentItem.id
-                                                ).text;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
-                                              }
-                                            })()}
-                                          </React.Fragment>
-                                        </div>
-                                        <Stack__
-                                          as={"div"}
-                                          hasGap={true}
-                                          className={classNames(
-                                            projectcss.all,
-                                            sty.freeBox___9Gbo9
-                                          )}
-                                        >
-                                          <Stack__
-                                            as={"div"}
-                                            hasGap={true}
-                                            className={classNames(
-                                              projectcss.all,
-                                              sty.freeBox__bd2UI
-                                            )}
-                                          >
-                                            <Icon47Icon
-                                              className={classNames(
-                                                projectcss.all,
-                                                sty.svg__vwi8Q
-                                              )}
-                                              onClick={async event => {
-                                                const $steps = {};
-
-                                                $steps["runCode"] = true
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        customFunction:
-                                                          async () => {
-                                                            return (currentItem.number += 1);
-                                                          }
-                                                      };
-                                                      return (({
-                                                        customFunction
-                                                      }) => {
-                                                        return customFunction();
-                                                      })?.apply(null, [
-                                                        actionArgs
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                                if (
-                                                  $steps["runCode"] != null &&
-                                                  typeof $steps["runCode"] ===
-                                                    "object" &&
-                                                  typeof $steps["runCode"]
-                                                    .then === "function"
-                                                ) {
-                                                  $steps["runCode"] =
-                                                    await $steps["runCode"];
-                                                }
-
-                                                $steps["invokeGlobalAction"] =
-                                                  true
-                                                    ? (() => {
-                                                        const actionArgs = {
-                                                          args: [
-                                                            "POST",
-                                                            "https://n8n.staas.ir/webhook/hamyar/food",
-                                                            undefined,
-                                                            (() => {
-                                                              try {
-                                                                return {
-                                                                  userId:
-                                                                    $state
-                                                                      .userinfo
-                                                                      .man.id,
-                                                                  dataType:
-                                                                    "food Tracker",
-                                                                  value: {
-                                                                    id: currentItem.id,
-                                                                    number:
-                                                                      currentItem.number
-                                                                  },
-                                                                  timestamp:
-                                                                    $$.dayjs()
-                                                                      .subtract(
-                                                                        1,
-                                                                        "week"
-                                                                      )
-                                                                      .day(1)
-                                                                      .format(
-                                                                        "YYYY-MM-DD HH:mm:ss"
-                                                                      )
-                                                                };
-                                                              } catch (e) {
-                                                                if (
-                                                                  e instanceof
-                                                                    TypeError ||
-                                                                  e?.plasmicType ===
-                                                                    "PlasmicUndefinedDataError"
-                                                                ) {
-                                                                  return undefined;
-                                                                }
-                                                                throw e;
-                                                              }
-                                                            })(),
-                                                            {}
-                                                          ]
-                                                        };
-                                                        return $globalActions[
-                                                          "Fragment.apiRequest"
-                                                        ]?.apply(null, [
-                                                          ...actionArgs.args
-                                                        ]);
-                                                      })()
-                                                    : undefined;
-                                                if (
-                                                  $steps[
-                                                    "invokeGlobalAction"
-                                                  ] != null &&
-                                                  typeof $steps[
-                                                    "invokeGlobalAction"
-                                                  ] === "object" &&
-                                                  typeof $steps[
-                                                    "invokeGlobalAction"
-                                                  ].then === "function"
-                                                ) {
-                                                  $steps["invokeGlobalAction"] =
-                                                    await $steps[
-                                                      "invokeGlobalAction"
-                                                    ];
-                                                }
-                                              }}
-                                              role={"img"}
-                                            />
-
-                                            <div
-                                              className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
-                                                sty.text__xTf8
-                                              )}
-                                            >
-                                              <React.Fragment>
-                                                {(() => {
-                                                  try {
-                                                    return currentItem.number;
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return "2";
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}
-                                              </React.Fragment>
-                                            </div>
-                                            <Icon48Icon
-                                              className={classNames(
-                                                projectcss.all,
-                                                sty.svg__gfTgZ
-                                              )}
-                                              onClick={async event => {
-                                                const $steps = {};
-
-                                                $steps["runCode"] = true
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        customFunction:
-                                                          async () => {
-                                                            return (() => {
-                                                              if (
-                                                                currentItem.number !=
-                                                                0
-                                                              )
-                                                                return (currentItem.number -= 1);
-                                                            })();
-                                                          }
-                                                      };
-                                                      return (({
-                                                        customFunction
-                                                      }) => {
-                                                        return customFunction();
-                                                      })?.apply(null, [
-                                                        actionArgs
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                                if (
-                                                  $steps["runCode"] != null &&
-                                                  typeof $steps["runCode"] ===
-                                                    "object" &&
-                                                  typeof $steps["runCode"]
-                                                    .then === "function"
-                                                ) {
-                                                  $steps["runCode"] =
-                                                    await $steps["runCode"];
-                                                }
-
-                                                $steps["invokeGlobalAction"] =
-                                                  currentItem.number >= 0
-                                                    ? (() => {
-                                                        const actionArgs = {
-                                                          args: [
-                                                            "POST",
-                                                            "https://n8n.staas.ir/webhook/hamyar/food",
-                                                            undefined,
-                                                            (() => {
-                                                              try {
-                                                                return {
-                                                                  userId:
-                                                                    $state
-                                                                      .userinfo
-                                                                      .man.id,
-                                                                  dataType:
-                                                                    "food Tracker",
-                                                                  value: {
-                                                                    id: currentItem.id,
-                                                                    number:
-                                                                      currentItem.number
-                                                                  },
-                                                                  timestamp:
-                                                                    $$.dayjs()
-                                                                      .subtract(
-                                                                        1,
-                                                                        "week"
-                                                                      )
-                                                                      .day(1)
-                                                                      .format(
-                                                                        "YYYY-MM-DD HH:mm:ss"
-                                                                      )
-                                                                };
-                                                              } catch (e) {
-                                                                if (
-                                                                  e instanceof
-                                                                    TypeError ||
-                                                                  e?.plasmicType ===
-                                                                    "PlasmicUndefinedDataError"
-                                                                ) {
-                                                                  return undefined;
-                                                                }
-                                                                throw e;
-                                                              }
-                                                            })()
-                                                          ]
-                                                        };
-                                                        return $globalActions[
-                                                          "Fragment.apiRequest"
-                                                        ]?.apply(null, [
-                                                          ...actionArgs.args
-                                                        ]);
-                                                      })()
-                                                    : undefined;
-                                                if (
-                                                  $steps[
-                                                    "invokeGlobalAction"
-                                                  ] != null &&
-                                                  typeof $steps[
-                                                    "invokeGlobalAction"
-                                                  ] === "object" &&
-                                                  typeof $steps[
-                                                    "invokeGlobalAction"
-                                                  ].then === "function"
-                                                ) {
-                                                  $steps["invokeGlobalAction"] =
-                                                    await $steps[
-                                                      "invokeGlobalAction"
-                                                    ];
-                                                }
-                                              }}
-                                              role={"img"}
-                                            />
-                                          </Stack__>
-                                        </Stack__>
-                                      </div>
-                                    );
-                                  })}
-                                </div>
-                              </Stack__>
-                              <Stack__
-                                as={"div"}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox___5B5HI
-                                )}
-                              >
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__cZvZu
-                                  )}
-                                >
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text__yb8Jq
-                                    )}
-                                  >
-                                    {
-                                      "\u0645\u0634\u06a9\u0644 \u06a9\u0628\u062f \u062f\u0627\u0631\u06cc\u061f"
-                                    }
-                                  </div>
-                                  <AntdRadioGroup
-                                    data-plasmic-name={"kabed"}
-                                    data-plasmic-override={overrides.kabed}
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.kabed
-                                    )}
-                                    defaultValue={"0"}
-                                    onChange={async (...eventArgs: any) => {
-                                      generateStateOnChangeProp($state, [
                                         "kabed",
                                         "value"
-                                      ]).apply(null, eventArgs);
-                                      (async value => {
-                                        const $steps = {};
-
-                                        $steps["updateLiverDisease"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: ["liverDisease"]
-                                                },
-                                                operation: 0,
-                                                value: parseInt(
-                                                  $state.kabed.value
-                                                )
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["updateLiverDisease"] !=
-                                            null &&
-                                          typeof $steps[
-                                            "updateLiverDisease"
-                                          ] === "object" &&
-                                          typeof $steps["updateLiverDisease"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["updateLiverDisease"] =
-                                            await $steps["updateLiverDisease"];
-                                        }
-                                      }).apply(null, eventArgs);
-                                    }}
-                                    options={(() => {
-                                      const __composite = [
-                                        { value: null, label: null },
-                                        { value: null, label: null },
-                                        { label: null, value: null },
-                                        { label: null, value: null }
-                                      ];
-                                      __composite["0"]["value"] = "0";
-                                      __composite["0"]["label"] =
-                                        "\u0646\u0647";
-                                      __composite["1"]["value"] = "1";
-                                      __composite["1"]["label"] =
-                                        "\u06af\u0631\u06cc\u062f1";
-                                      __composite["2"]["label"] =
-                                        "\u06af\u0631\u06cc\u062f2";
-                                      __composite["2"]["value"] = "2";
-                                      __composite["3"]["label"] =
-                                        "\u06af\u0631\u06cc\u062f3";
-                                      __composite["3"]["value"] = "3";
-                                      return __composite;
-                                    })()}
-                                    value={generateStateValueProp($state, [
-                                      "kabed",
-                                      "value"
-                                    ])}
-                                  >
-                                    <AntdRadio
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.radio___3Kqqv
-                                      )}
-                                      value={"op1"}
+                                      ])}
                                     >
-                                      <div
+                                      <AntdRadio
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text___92X8P
+                                          "__wab_instance",
+                                          sty.radio___3Kqqv
                                         )}
+                                        value={"op1"}
                                       >
-                                        {"Option 1"}
-                                      </div>
-                                    </AntdRadio>
-                                    <AntdRadio
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.radio__f7XY
-                                      )}
-                                      value={"op2"}
-                                    >
-                                      <div
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text___92X8P
+                                          )}
+                                        >
+                                          {"Option 1"}
+                                        </div>
+                                      </AntdRadio>
+                                      <AntdRadio
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__d6Q4D
+                                          "__wab_instance",
+                                          sty.radio__f7XY
                                         )}
+                                        value={"op2"}
                                       >
-                                        {"Option 2"}
-                                      </div>
-                                    </AntdRadio>
-                                  </AntdRadioGroup>
-                                </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__nExyZ
-                                  )}
-                                >
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__d6Q4D
+                                          )}
+                                        >
+                                          {"Option 2"}
+                                        </div>
+                                      </AntdRadio>
+                                    </AntdRadioGroup>
+                                  </div>
                                   <div
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.__wab_text,
-                                      sty.text___1QNzs
+                                      sty.freeBox__nExyZ
                                     )}
                                   >
-                                    {
-                                      "\u062f\u06cc\u0627\u0628\u062a \u062f\u0627\u0631\u06cc\u061f"
-                                    }
-                                  </div>
-                                  <AntdRadioGroup
-                                    data-plasmic-name={"diabet"}
-                                    data-plasmic-override={overrides.diabet}
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.diabet
-                                    )}
-                                    defaultValue={"0"}
-                                    onChange={async (...eventArgs: any) => {
-                                      generateStateOnChangeProp($state, [
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text___1QNzs
+                                      )}
+                                    >
+                                      {
+                                        "\u062f\u06cc\u0627\u0628\u062a \u062f\u0627\u0631\u06cc\u061f"
+                                      }
+                                    </div>
+                                    <AntdRadioGroup
+                                      data-plasmic-name={"diabet"}
+                                      data-plasmic-override={overrides.diabet}
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.diabet
+                                      )}
+                                      defaultValue={"0"}
+                                      onChange={async (...eventArgs: any) => {
+                                        generateStateOnChangeProp($state, [
+                                          "diabet",
+                                          "value"
+                                        ]).apply(null, eventArgs);
+                                        (async value => {
+                                          const $steps = {};
+
+                                          $steps["updateDiabetes"] = true
+                                            ? (() => {
+                                                const actionArgs = {
+                                                  variable: {
+                                                    objRoot: $state,
+                                                    variablePath: ["diabetes"]
+                                                  },
+                                                  operation: 0,
+                                                  value: parseInt(
+                                                    $state.diabet.value
+                                                  )
+                                                };
+                                                return (({
+                                                  variable,
+                                                  value,
+                                                  startIndex,
+                                                  deleteCount
+                                                }) => {
+                                                  if (!variable) {
+                                                    return;
+                                                  }
+                                                  const {
+                                                    objRoot,
+                                                    variablePath
+                                                  } = variable;
+
+                                                  $stateSet(
+                                                    objRoot,
+                                                    variablePath,
+                                                    value
+                                                  );
+                                                  return value;
+                                                })?.apply(null, [actionArgs]);
+                                              })()
+                                            : undefined;
+                                          if (
+                                            $steps["updateDiabetes"] != null &&
+                                            typeof $steps["updateDiabetes"] ===
+                                              "object" &&
+                                            typeof $steps["updateDiabetes"]
+                                              .then === "function"
+                                          ) {
+                                            $steps["updateDiabetes"] =
+                                              await $steps["updateDiabetes"];
+                                          }
+                                        }).apply(null, eventArgs);
+                                      }}
+                                      options={(() => {
+                                        const __composite = [
+                                          { value: null, label: null },
+                                          { value: null, label: null },
+                                          { label: null, value: null },
+                                          { label: null, value: null }
+                                        ];
+                                        __composite["0"]["value"] = "0";
+                                        __composite["0"]["label"] =
+                                          "\u0646\u0647";
+                                        __composite["1"]["value"] = "1";
+                                        __composite["1"]["label"] =
+                                          "\u0646\u0648\u06391";
+                                        __composite["2"]["label"] =
+                                          "\u0646\u0648\u06392";
+                                        __composite["2"]["value"] = "2";
+                                        __composite["3"]["label"] =
+                                          "\u0646\u0648\u06393";
+                                        __composite["3"]["value"] = "3";
+                                        return __composite;
+                                      })()}
+                                      value={generateStateValueProp($state, [
                                         "diabet",
                                         "value"
-                                      ]).apply(null, eventArgs);
-                                      (async value => {
-                                        const $steps = {};
-
-                                        $steps["updateDiabetes"] = true
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: ["diabetes"]
-                                                },
-                                                operation: 0,
-                                                value: parseInt(
-                                                  $state.diabet.value
-                                                )
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                        if (
-                                          $steps["updateDiabetes"] != null &&
-                                          typeof $steps["updateDiabetes"] ===
-                                            "object" &&
-                                          typeof $steps["updateDiabetes"]
-                                            .then === "function"
-                                        ) {
-                                          $steps["updateDiabetes"] =
-                                            await $steps["updateDiabetes"];
-                                        }
-                                      }).apply(null, eventArgs);
-                                    }}
-                                    options={(() => {
-                                      const __composite = [
-                                        { value: null, label: null },
-                                        { value: null, label: null },
-                                        { label: null, value: null },
-                                        { label: null, value: null }
-                                      ];
-                                      __composite["0"]["value"] = "0";
-                                      __composite["0"]["label"] =
-                                        "\u0646\u0647";
-                                      __composite["1"]["value"] = "1";
-                                      __composite["1"]["label"] =
-                                        "\u0646\u0648\u06391";
-                                      __composite["2"]["label"] =
-                                        "\u0646\u0648\u06392";
-                                      __composite["2"]["value"] = "2";
-                                      __composite["3"]["label"] =
-                                        "\u0646\u0648\u06393";
-                                      __composite["3"]["value"] = "3";
-                                      return __composite;
-                                    })()}
-                                    value={generateStateValueProp($state, [
-                                      "diabet",
-                                      "value"
-                                    ])}
-                                  >
-                                    <AntdRadio
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.radio__ubPTw
-                                      )}
-                                      value={"op1"}
+                                      ])}
                                     >
-                                      <div
+                                      <AntdRadio
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__w77AJ
+                                          "__wab_instance",
+                                          sty.radio__ubPTw
                                         )}
+                                        value={"op1"}
                                       >
-                                        {"Option 1"}
-                                      </div>
-                                    </AntdRadio>
-                                    <AntdRadio
-                                      className={classNames(
-                                        "__wab_instance",
-                                        sty.radio__cpLo4
-                                      )}
-                                      value={"op2"}
-                                    >
-                                      <div
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__w77AJ
+                                          )}
+                                        >
+                                          {"Option 1"}
+                                        </div>
+                                      </AntdRadio>
+                                      <AntdRadio
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text___1PZ2K
+                                          "__wab_instance",
+                                          sty.radio__cpLo4
                                         )}
+                                        value={"op2"}
                                       >
-                                        {"Option 2"}
-                                      </div>
-                                    </AntdRadio>
-                                  </AntdRadioGroup>
-                                </div>
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text___1PZ2K
+                                          )}
+                                        >
+                                          {"Option 2"}
+                                        </div>
+                                      </AntdRadio>
+                                    </AntdRadioGroup>
+                                  </div>
+                                </Stack__>
                               </Stack__>
                             </Stack__>
                             <Button
@@ -3193,45 +2919,6 @@ function PlasmicFood__RenderFunc(props: {
                               ])}
                               onClick={async event => {
                                 const $steps = {};
-
-                                $steps["updateModal2Open"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["modal2", "open"]
-                                        },
-                                        operation: 0,
-                                        value: false
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["updateModal2Open"] != null &&
-                                  typeof $steps["updateModal2Open"] ===
-                                    "object" &&
-                                  typeof $steps["updateModal2Open"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateModal2Open"] = await $steps[
-                                    "updateModal2Open"
-                                  ];
-                                }
 
                                 $steps["invokeGlobalAction"] = true
                                   ? (() => {
@@ -3314,14 +3001,15 @@ function PlasmicFood__RenderFunc(props: {
                                   $steps["runCode"] = await $steps["runCode"];
                                 }
 
-                                $steps["updateButton2Color"] = true
+                                $steps["updateSlide"] = true
                                   ? (() => {
                                       const actionArgs = {
                                         variable: {
                                           objRoot: $state,
-                                          variablePath: ["button2", "color"]
+                                          variablePath: ["slide"]
                                         },
-                                        operation: 0
+                                        operation: 0,
+                                        value: 2
                                       };
                                       return (({
                                         variable,
@@ -3341,14 +3029,13 @@ function PlasmicFood__RenderFunc(props: {
                                     })()
                                   : undefined;
                                 if (
-                                  $steps["updateButton2Color"] != null &&
-                                  typeof $steps["updateButton2Color"] ===
-                                    "object" &&
-                                  typeof $steps["updateButton2Color"].then ===
+                                  $steps["updateSlide"] != null &&
+                                  typeof $steps["updateSlide"] === "object" &&
+                                  typeof $steps["updateSlide"].then ===
                                     "function"
                                 ) {
-                                  $steps["updateButton2Color"] = await $steps[
-                                    "updateButton2Color"
+                                  $steps["updateSlide"] = await $steps[
+                                    "updateSlide"
                                   ];
                                 }
 
@@ -3388,19 +3075,577 @@ function PlasmicFood__RenderFunc(props: {
                                 ])(eventArgs[0]);
                               }}
                             >
-                              {"\u062a\u0627\u06cc\u06cc\u062f"}
+                              {"\u0627\u062f\u0627\u0645\u0647"}
                             </Button>
-                            <div
+                          </Stack__>
+                        ) : null}
+                      </Reveal>
+                      <Reveal
+                        className={classNames(
+                          "__wab_instance",
+                          sty.reveal__dIZxC
+                        )}
+                        effect={"slide"}
+                        triggerOnce={true}
+                      >
+                        {(() => {
+                          try {
+                            return $state.slide == 2;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___18Hr
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
                               className={classNames(
                                 projectcss.all,
-                                sty.freeBox__z27
+                                sty.freeBox__kye2Q
                               )}
-                            />
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__oLe6C
+                                )}
+                              >
+                                {
+                                  "\u0647\u0641\u062a\u0647\u200c\u06cc \u067e\u06cc\u0634 \u0686\u0646\u062f \u062a\u0627 \u063a\u0630\u0627\u06cc \u0646\u0627\u0633\u0627\u0644\u0645 \u062e\u0648\u0631\u062f\u06cc\u061f"
+                                }
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__y2Y
+                                )}
+                              >
+                                {(_par =>
+                                  !_par
+                                    ? []
+                                    : Array.isArray(_par)
+                                    ? _par
+                                    : [_par])(
+                                  (() => {
+                                    try {
+                                      return $state.selectedfood;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                  const currentItem = __plasmic_item_0;
+                                  const currentIndex = __plasmic_idx_0;
+                                  return (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__kvIbj
+                                      )}
+                                      key={currentIndex}
+                                    >
+                                      <PlasmicImg__
+                                        alt={""}
+                                        className={classNames(sty.img__avVc)}
+                                        displayHeight={"auto"}
+                                        displayMaxHeight={"none"}
+                                        displayMaxWidth={"100%"}
+                                        displayMinHeight={"0"}
+                                        displayMinWidth={"0"}
+                                        displayWidth={"auto"}
+                                        height={``}
+                                        loading={"lazy"}
+                                        src={(() => {
+                                          try {
+                                            return $state.harmfulFood.find(
+                                              item => item.id === currentItem.id
+                                            ).icon;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                        width={"40"}
+                                      />
+
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text___5CgOv
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return $state.harmfulFood.find(
+                                                item =>
+                                                  item.id === currentItem.id
+                                              ).title;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text___3MjHl
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return $state.harmfulFood.find(
+                                                item =>
+                                                  item.id === currentItem.id
+                                              ).text;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
+                                      <Stack__
+                                        as={"div"}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__uY3Qn
+                                        )}
+                                      >
+                                        <Stack__
+                                          as={"div"}
+                                          hasGap={true}
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__kKsgO
+                                          )}
+                                        >
+                                          <Icon47Icon
+                                            className={classNames(
+                                              projectcss.all,
+                                              sty.svg___2F0Ic
+                                            )}
+                                            onClick={async event => {
+                                              const $steps = {};
+
+                                              $steps["runCode"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      customFunction:
+                                                        async () => {
+                                                          return (currentItem.number += 1);
+                                                        }
+                                                    };
+                                                    return (({
+                                                      customFunction
+                                                    }) => {
+                                                      return customFunction();
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["runCode"] != null &&
+                                                typeof $steps["runCode"] ===
+                                                  "object" &&
+                                                typeof $steps["runCode"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["runCode"] =
+                                                  await $steps["runCode"];
+                                              }
+
+                                              $steps["invokeGlobalAction"] =
+                                                true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        args: [
+                                                          "POST",
+                                                          "https://n8n.staas.ir/webhook/hamyar/food",
+                                                          undefined,
+                                                          (() => {
+                                                            try {
+                                                              return {
+                                                                userId:
+                                                                  $state
+                                                                    .userinfo
+                                                                    .man.id,
+                                                                dataType:
+                                                                  "food Tracker",
+                                                                value: {
+                                                                  id: currentItem.id,
+                                                                  number:
+                                                                    currentItem.number
+                                                                },
+                                                                timestamp:
+                                                                  $$.dayjs()
+                                                                    .subtract(
+                                                                      1,
+                                                                      "week"
+                                                                    )
+                                                                    .day(1)
+                                                                    .format(
+                                                                      "YYYY-MM-DD HH:mm:ss"
+                                                                    )
+                                                              };
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return undefined;
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })(),
+                                                          {}
+                                                        ]
+                                                      };
+                                                      return $globalActions[
+                                                        "Fragment.apiRequest"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["invokeGlobalAction"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ] === "object" &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ].then === "function"
+                                              ) {
+                                                $steps["invokeGlobalAction"] =
+                                                  await $steps[
+                                                    "invokeGlobalAction"
+                                                  ];
+                                              }
+                                            }}
+                                            role={"img"}
+                                          />
+
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__kgE1U
+                                            )}
+                                          >
+                                            <React.Fragment>
+                                              {(() => {
+                                                try {
+                                                  return currentItem.number;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return "2";
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                            </React.Fragment>
+                                          </div>
+                                          <Icon48Icon
+                                            className={classNames(
+                                              projectcss.all,
+                                              sty.svg__pNcZg
+                                            )}
+                                            onClick={async event => {
+                                              const $steps = {};
+
+                                              $steps["runCode"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      customFunction:
+                                                        async () => {
+                                                          return (() => {
+                                                            if (
+                                                              currentItem.number !=
+                                                              0
+                                                            )
+                                                              return (currentItem.number -= 1);
+                                                          })();
+                                                        }
+                                                    };
+                                                    return (({
+                                                      customFunction
+                                                    }) => {
+                                                      return customFunction();
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["runCode"] != null &&
+                                                typeof $steps["runCode"] ===
+                                                  "object" &&
+                                                typeof $steps["runCode"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["runCode"] =
+                                                  await $steps["runCode"];
+                                              }
+
+                                              $steps["invokeGlobalAction"] =
+                                                currentItem.number >= 0
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        args: [
+                                                          "POST",
+                                                          "https://n8n.staas.ir/webhook/hamyar/food",
+                                                          undefined,
+                                                          (() => {
+                                                            try {
+                                                              return {
+                                                                userId:
+                                                                  $state
+                                                                    .userinfo
+                                                                    .man.id,
+                                                                dataType:
+                                                                  "food Tracker",
+                                                                value: {
+                                                                  id: currentItem.id,
+                                                                  number:
+                                                                    currentItem.number
+                                                                },
+                                                                timestamp:
+                                                                  $$.dayjs()
+                                                                    .subtract(
+                                                                      1,
+                                                                      "week"
+                                                                    )
+                                                                    .day(1)
+                                                                    .format(
+                                                                      "YYYY-MM-DD HH:mm:ss"
+                                                                    )
+                                                              };
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return undefined;
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })()
+                                                        ]
+                                                      };
+                                                      return $globalActions[
+                                                        "Fragment.apiRequest"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["invokeGlobalAction"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ] === "object" &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ].then === "function"
+                                              ) {
+                                                $steps["invokeGlobalAction"] =
+                                                  await $steps[
+                                                    "invokeGlobalAction"
+                                                  ];
+                                              }
+                                            }}
+                                            role={"img"}
+                                          />
+                                        </Stack__>
+                                      </Stack__>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </Stack__>
+                            <Button
+                              data-plasmic-name={"button5"}
+                              data-plasmic-override={overrides.button5}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button5
+                              )}
+                              color={generateStateValueProp($state, [
+                                "button5",
+                                "color"
+                              ])}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateModal2Open"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["modal2", "open"]
+                                        },
+                                        operation: 0,
+                                        value: false
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateModal2Open"] != null &&
+                                  typeof $steps["updateModal2Open"] ===
+                                    "object" &&
+                                  typeof $steps["updateModal2Open"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateModal2Open"] = await $steps[
+                                    "updateModal2Open"
+                                  ];
+                                }
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            $state.selectedfood.forEach(
+                                              item => (item.number = 0)
+                                            );
+                                            return localStorage.setItem(
+                                              "Firstّfood",
+                                              "true"
+                                            );
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+
+                                $steps["updateButton2Color2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        queryInvalidation: [
+                                          "plasmic_refresh_all"
+                                        ]
+                                      };
+                                      return (async ({ queryInvalidation }) => {
+                                        if (!queryInvalidation) {
+                                          return;
+                                        }
+                                        await plasmicInvalidate(
+                                          queryInvalidation
+                                        );
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateButton2Color2"] != null &&
+                                  typeof $steps["updateButton2Color2"] ===
+                                    "object" &&
+                                  typeof $steps["updateButton2Color2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateButton2Color2"] = await $steps[
+                                    "updateButton2Color2"
+                                  ];
+                                }
+                              }}
+                              onColorChange={(...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button5",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }}
+                            >
+                              {hasVariant(globalVariants, "screen", "mobile")
+                                ? "\u062a\u0627\u06cc\u06cc\u062f"
+                                : "\u062a\u0627\u06cc\u06cc\u062f"}
+                            </Button>
                           </Stack__>
-                        </div>
-                      </AntdModal>
-                    );
-                  })()}
+                        ) : null}
+                      </Reveal>
+                    </div>
+                  </AntdModal>
                 </Stack__>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__aNCcH)}
@@ -8481,6 +8726,7 @@ const PlasmicDescendants = {
     "kabed",
     "diabet",
     "button3",
+    "button5",
     "button2",
     "slideinModal",
     "input4",
@@ -8504,7 +8750,8 @@ const PlasmicDescendants = {
     "input3",
     "kabed",
     "diabet",
-    "button3"
+    "button3",
+    "button5"
   ],
   rangeSlider: ["rangeSlider", "sliderMark"],
   sliderMark: ["sliderMark"],
@@ -8513,6 +8760,7 @@ const PlasmicDescendants = {
   kabed: ["kabed"],
   diabet: ["diabet"],
   button3: ["button3"],
+  button5: ["button5"],
   button2: ["button2"],
   slideinModal: ["slideinModal", "input4", "button"],
   input4: ["input4"],
@@ -8541,6 +8789,7 @@ type NodeDefaultElementType = {
   kabed: typeof AntdRadioGroup;
   diabet: typeof AntdRadioGroup;
   button3: typeof Button;
+  button5: typeof Button;
   button2: typeof Button;
   slideinModal: typeof SlideinModal;
   input4: typeof Input;
@@ -8650,6 +8899,7 @@ export const PlasmicFood = Object.assign(
     kabed: makeNodeComponent("kabed"),
     diabet: makeNodeComponent("diabet"),
     button3: makeNodeComponent("button3"),
+    button5: makeNodeComponent("button5"),
     button2: makeNodeComponent("button2"),
     slideinModal: makeNodeComponent("slideinModal"),
     input4: makeNodeComponent("input4"),
