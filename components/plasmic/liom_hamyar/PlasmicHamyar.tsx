@@ -11127,7 +11127,44 @@ function PlasmicHamyar__RenderFunc(props: {
             loadingDisplay={null}
             method={"GET"}
             onError={generateStateOnChangeProp($state, ["user", "error"])}
-            onLoading={generateStateOnChangeProp($state, ["user", "loading"])}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["user", "loading"]).apply(
+                null,
+                eventArgs
+              );
+              (async loading => {
+                const $steps = {};
+
+                $steps["goToExpired"] =
+                  $ctx.query.r == null ||
+                  $ctx.query.r == "" ||
+                  $ctx.query.m == null ||
+                  $ctx.query.m == ""
+                    ? (() => {
+                        const actionArgs = { destination: `/expired` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["goToExpired"] != null &&
+                  typeof $steps["goToExpired"] === "object" &&
+                  typeof $steps["goToExpired"].then === "function"
+                ) {
+                  $steps["goToExpired"] = await $steps["goToExpired"];
+                }
+              }).apply(null, eventArgs);
+            }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["user", "data"]).apply(
                 null,

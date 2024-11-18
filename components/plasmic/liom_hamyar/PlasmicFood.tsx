@@ -134,6 +134,7 @@ export type PlasmicFood__OverridesType = {
   diabet?: Flex__<typeof AntdRadioGroup>;
   button3?: Flex__<typeof Button>;
   button5?: Flex__<typeof Button>;
+  button6?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   slideinModal?: Flex__<typeof SlideinModal>;
   input4?: Flex__<typeof Input>;
@@ -903,6 +904,12 @@ function PlasmicFood__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 1
+      },
+      {
+        path: "button6.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -3633,6 +3640,570 @@ function PlasmicFood__RenderFunc(props: {
                               onColorChange={(...eventArgs) => {
                                 generateStateOnChangeProp($state, [
                                   "button5",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }}
+                            >
+                              {hasVariant(globalVariants, "screen", "mobile")
+                                ? "\u062a\u0627\u06cc\u06cc\u062f"
+                                : "\u062a\u0627\u06cc\u06cc\u062f"}
+                            </Button>
+                          </Stack__>
+                        ) : null}
+                      </Reveal>
+                      <Reveal
+                        className={classNames(
+                          "__wab_instance",
+                          sty.reveal__bXjlq
+                        )}
+                        effect={"slide"}
+                        triggerOnce={true}
+                      >
+                        {(() => {
+                          try {
+                            return $state.slide == 2;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__iJpm5
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ln3C
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___8EAts
+                                )}
+                              >
+                                {
+                                  "\u0647\u0641\u062a\u0647\u200c\u06cc \u067e\u06cc\u0634 \u0686\u0646\u062f \u062a\u0627 \u063a\u0630\u0627\u06cc \u0646\u0627\u0633\u0627\u0644\u0645 \u062e\u0648\u0631\u062f\u06cc\u061f"
+                                }
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__cw5S
+                                )}
+                              >
+                                {(_par =>
+                                  !_par
+                                    ? []
+                                    : Array.isArray(_par)
+                                    ? _par
+                                    : [_par])(
+                                  (() => {
+                                    try {
+                                      return $state.selectedfood;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                  const currentItem = __plasmic_item_0;
+                                  const currentIndex = __plasmic_idx_0;
+                                  return (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__waBmh
+                                      )}
+                                      key={currentIndex}
+                                    >
+                                      <PlasmicImg__
+                                        alt={""}
+                                        className={classNames(sty.img__lQkqj)}
+                                        displayHeight={"auto"}
+                                        displayMaxHeight={"none"}
+                                        displayMaxWidth={"100%"}
+                                        displayMinHeight={"0"}
+                                        displayMinWidth={"0"}
+                                        displayWidth={"auto"}
+                                        height={``}
+                                        loading={"lazy"}
+                                        src={(() => {
+                                          try {
+                                            return $state.harmfulFood.find(
+                                              item => item.id === currentItem.id
+                                            ).icon;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                        width={"40"}
+                                      />
+
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__buLox
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return $state.harmfulFood.find(
+                                                item =>
+                                                  item.id === currentItem.id
+                                              ).title;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
+                                      <div
+                                        className={classNames(
+                                          projectcss.all,
+                                          projectcss.__wab_text,
+                                          sty.text__mVHjj
+                                        )}
+                                      >
+                                        <React.Fragment>
+                                          {(() => {
+                                            try {
+                                              return $state.harmfulFood.find(
+                                                item =>
+                                                  item.id === currentItem.id
+                                              ).text;
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
+                                            }
+                                          })()}
+                                        </React.Fragment>
+                                      </div>
+                                      <Stack__
+                                        as={"div"}
+                                        hasGap={true}
+                                        className={classNames(
+                                          projectcss.all,
+                                          sty.freeBox__gSf6L
+                                        )}
+                                      >
+                                        <Stack__
+                                          as={"div"}
+                                          hasGap={true}
+                                          className={classNames(
+                                            projectcss.all,
+                                            sty.freeBox__l60Mh
+                                          )}
+                                        >
+                                          <Icon47Icon
+                                            className={classNames(
+                                              projectcss.all,
+                                              sty.svg___8NoPv
+                                            )}
+                                            onClick={async event => {
+                                              const $steps = {};
+
+                                              $steps["runCode"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      customFunction:
+                                                        async () => {
+                                                          return (currentItem.number += 1);
+                                                        }
+                                                    };
+                                                    return (({
+                                                      customFunction
+                                                    }) => {
+                                                      return customFunction();
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["runCode"] != null &&
+                                                typeof $steps["runCode"] ===
+                                                  "object" &&
+                                                typeof $steps["runCode"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["runCode"] =
+                                                  await $steps["runCode"];
+                                              }
+
+                                              $steps["invokeGlobalAction"] =
+                                                true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        args: [
+                                                          "POST",
+                                                          "https://n8n.staas.ir/webhook/hamyar/food",
+                                                          undefined,
+                                                          (() => {
+                                                            try {
+                                                              return {
+                                                                userId:
+                                                                  $state
+                                                                    .userinfo
+                                                                    .man.id,
+                                                                dataType:
+                                                                  "food Tracker",
+                                                                value: {
+                                                                  id: currentItem.id,
+                                                                  number:
+                                                                    currentItem.number
+                                                                },
+                                                                timestamp:
+                                                                  $$.dayjs()
+                                                                    .subtract(
+                                                                      1,
+                                                                      "week"
+                                                                    )
+                                                                    .day(1)
+                                                                    .format(
+                                                                      "YYYY-MM-DD HH:mm:ss"
+                                                                    )
+                                                              };
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return undefined;
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })(),
+                                                          {}
+                                                        ]
+                                                      };
+                                                      return $globalActions[
+                                                        "Fragment.apiRequest"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["invokeGlobalAction"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ] === "object" &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ].then === "function"
+                                              ) {
+                                                $steps["invokeGlobalAction"] =
+                                                  await $steps[
+                                                    "invokeGlobalAction"
+                                                  ];
+                                              }
+                                            }}
+                                            role={"img"}
+                                          />
+
+                                          <div
+                                            className={classNames(
+                                              projectcss.all,
+                                              projectcss.__wab_text,
+                                              sty.text__rfhzn
+                                            )}
+                                          >
+                                            <React.Fragment>
+                                              {(() => {
+                                                try {
+                                                  return currentItem.number;
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return "2";
+                                                  }
+                                                  throw e;
+                                                }
+                                              })()}
+                                            </React.Fragment>
+                                          </div>
+                                          <Icon48Icon
+                                            className={classNames(
+                                              projectcss.all,
+                                              sty.svg__nGyjy
+                                            )}
+                                            onClick={async event => {
+                                              const $steps = {};
+
+                                              $steps["runCode"] = true
+                                                ? (() => {
+                                                    const actionArgs = {
+                                                      customFunction:
+                                                        async () => {
+                                                          return (() => {
+                                                            if (
+                                                              currentItem.number !=
+                                                              0
+                                                            )
+                                                              return (currentItem.number -= 1);
+                                                          })();
+                                                        }
+                                                    };
+                                                    return (({
+                                                      customFunction
+                                                    }) => {
+                                                      return customFunction();
+                                                    })?.apply(null, [
+                                                      actionArgs
+                                                    ]);
+                                                  })()
+                                                : undefined;
+                                              if (
+                                                $steps["runCode"] != null &&
+                                                typeof $steps["runCode"] ===
+                                                  "object" &&
+                                                typeof $steps["runCode"]
+                                                  .then === "function"
+                                              ) {
+                                                $steps["runCode"] =
+                                                  await $steps["runCode"];
+                                              }
+
+                                              $steps["invokeGlobalAction"] =
+                                                currentItem.number >= 0
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        args: [
+                                                          "POST",
+                                                          "https://n8n.staas.ir/webhook/hamyar/food",
+                                                          undefined,
+                                                          (() => {
+                                                            try {
+                                                              return {
+                                                                userId:
+                                                                  $state
+                                                                    .userinfo
+                                                                    .man.id,
+                                                                dataType:
+                                                                  "food Tracker",
+                                                                value: {
+                                                                  id: currentItem.id,
+                                                                  number:
+                                                                    currentItem.number
+                                                                },
+                                                                timestamp:
+                                                                  $$.dayjs()
+                                                                    .subtract(
+                                                                      1,
+                                                                      "week"
+                                                                    )
+                                                                    .day(1)
+                                                                    .format(
+                                                                      "YYYY-MM-DD HH:mm:ss"
+                                                                    )
+                                                              };
+                                                            } catch (e) {
+                                                              if (
+                                                                e instanceof
+                                                                  TypeError ||
+                                                                e?.plasmicType ===
+                                                                  "PlasmicUndefinedDataError"
+                                                              ) {
+                                                                return undefined;
+                                                              }
+                                                              throw e;
+                                                            }
+                                                          })()
+                                                        ]
+                                                      };
+                                                      return $globalActions[
+                                                        "Fragment.apiRequest"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                              if (
+                                                $steps["invokeGlobalAction"] !=
+                                                  null &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ] === "object" &&
+                                                typeof $steps[
+                                                  "invokeGlobalAction"
+                                                ].then === "function"
+                                              ) {
+                                                $steps["invokeGlobalAction"] =
+                                                  await $steps[
+                                                    "invokeGlobalAction"
+                                                  ];
+                                              }
+                                            }}
+                                            role={"img"}
+                                          />
+                                        </Stack__>
+                                      </Stack__>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </Stack__>
+                            <Button
+                              data-plasmic-name={"button6"}
+                              data-plasmic-override={overrides.button6}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button6
+                              )}
+                              color={generateStateValueProp($state, [
+                                "button6",
+                                "color"
+                              ])}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateModal2Open"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["modal2", "open"]
+                                        },
+                                        operation: 0,
+                                        value: false
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateModal2Open"] != null &&
+                                  typeof $steps["updateModal2Open"] ===
+                                    "object" &&
+                                  typeof $steps["updateModal2Open"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateModal2Open"] = await $steps[
+                                    "updateModal2Open"
+                                  ];
+                                }
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            $state.selectedfood.forEach(
+                                              item => (item.number = 0)
+                                            );
+                                            return localStorage.setItem(
+                                              "Firstّfood",
+                                              "true"
+                                            );
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+
+                                $steps["updateButton2Color2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        queryInvalidation: [
+                                          "plasmic_refresh_all"
+                                        ]
+                                      };
+                                      return (async ({ queryInvalidation }) => {
+                                        if (!queryInvalidation) {
+                                          return;
+                                        }
+                                        await plasmicInvalidate(
+                                          queryInvalidation
+                                        );
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateButton2Color2"] != null &&
+                                  typeof $steps["updateButton2Color2"] ===
+                                    "object" &&
+                                  typeof $steps["updateButton2Color2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateButton2Color2"] = await $steps[
+                                    "updateButton2Color2"
+                                  ];
+                                }
+                              }}
+                              onColorChange={(...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button6",
                                   "color"
                                 ])(eventArgs[0]);
                               }}
@@ -8727,6 +9298,7 @@ const PlasmicDescendants = {
     "diabet",
     "button3",
     "button5",
+    "button6",
     "button2",
     "slideinModal",
     "input4",
@@ -8751,7 +9323,8 @@ const PlasmicDescendants = {
     "kabed",
     "diabet",
     "button3",
-    "button5"
+    "button5",
+    "button6"
   ],
   rangeSlider: ["rangeSlider", "sliderMark"],
   sliderMark: ["sliderMark"],
@@ -8761,6 +9334,7 @@ const PlasmicDescendants = {
   diabet: ["diabet"],
   button3: ["button3"],
   button5: ["button5"],
+  button6: ["button6"],
   button2: ["button2"],
   slideinModal: ["slideinModal", "input4", "button"],
   input4: ["input4"],
@@ -8790,6 +9364,7 @@ type NodeDefaultElementType = {
   diabet: typeof AntdRadioGroup;
   button3: typeof Button;
   button5: typeof Button;
+  button6: typeof Button;
   button2: typeof Button;
   slideinModal: typeof SlideinModal;
   input4: typeof Input;
@@ -8900,6 +9475,7 @@ export const PlasmicFood = Object.assign(
     diabet: makeNodeComponent("diabet"),
     button3: makeNodeComponent("button3"),
     button5: makeNodeComponent("button5"),
+    button6: makeNodeComponent("button6"),
     button2: makeNodeComponent("button2"),
     slideinModal: makeNodeComponent("slideinModal"),
     input4: makeNodeComponent("input4"),
