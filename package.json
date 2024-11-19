@@ -23,6 +23,7 @@
     "@plasmicpkgs/plasmic-cms": "^0.0.268",
     "@plasmicpkgs/plasmic-embed-css": "^0.1.191",
     "@plasmicpkgs/plasmic-rich-components": "^1.0.197",
+    "@plasmicpkgs/radix-ui": "^0.0.64",
     "@plasmicpkgs/react-awesome-reveal": "^3.8.208",
     "@plasmicpkgs/react-chartjs-2": "^1.0.112",
     "@plasmicpkgs/react-scroll-parallax": "^0.0.214",

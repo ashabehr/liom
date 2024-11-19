@@ -89,6 +89,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
+import plasmic_paziresh_24_design_system_css from "../paziresh_24_design_system/plasmic.module.css"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFood.module.css"; // plasmic-import: utcZajxc4g3k/css
 
@@ -239,7 +240,7 @@ function PlasmicFood__RenderFunc(props: {
               })()
             : (() => {
                 try {
-                  return undefined;
+                  return localStorage.getItem("ferstFoodTrack") == null;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -977,6 +978,7 @@ function PlasmicFood__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
+            plasmic_paziresh_24_design_system_css.plasmic_tokens,
             sty.root
           )}
         >
@@ -1015,7 +1017,7 @@ function PlasmicFood__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u06af\u0627\u0645\u200c\u0647\u0627\u06cc \u0633\u0627\u0644\u0645\u200c\u062a\u0631"
+                    "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
                   }
                 </div>
                 <div
@@ -1026,7 +1028,7 @@ function PlasmicFood__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u062a\u0648 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u062a\u0639\u062f\u0627\u062f \u063a\u0630\u0627\u0647\u0627\u06cc \u0645\u0636\u0631 \u0647\u0641\u062a\u0647 \u067e\u06cc\u0634\u062a \u0631\u0648 \u0628\u0628\u06cc\u0646\u06cc\u060c \u0628\u0647\u0634 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u06cc \u0648 \u0628\u0627 \u0642\u062f\u0645\u0627\u06cc \u06a9\u0648\u0686\u06cc\u06a9 \u0647\u0631 \u0647\u0641\u062a\u0647 \u0628\u0647\u062a\u0631 \u0628\u0634\u06cc!"
+                    "\u062a\u0648 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u062a\u0639\u062f\u0627\u062f \u063a\u0630\u0627\u0647\u0627\u06cc \u0645\u0636\u0631 \u0647\u0641\u062a\u0647 \u067e\u06cc\u0634\u062a \u0631\u0648 \u0628\u0628\u06cc\u0646\u06cc\u060c \u0628\u0647\u0634 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u06cc \u0648 \u0628\u0627 \u0642\u062f\u0645 \u0647\u0627\u06cc \u06a9\u0648\u0686\u06cc\u06a9 \u0647\u0631 \u0647\u0641\u062a\u0647  \u0628\u0647\u062a\u0631 \u0628\u0634\u06cc!"
                   }
                 </div>
               </Stack__>
@@ -1244,7 +1246,8 @@ function PlasmicFood__RenderFunc(props: {
                       projectcss.plasmic_mixins,
                       projectcss.plasmic_tokens,
                       plasmic_antd_5_hostless_css.plasmic_tokens,
-                      plasmic_plasmic_rich_components_css.plasmic_tokens
+                      plasmic_plasmic_rich_components_css.plasmic_tokens,
+                      plasmic_paziresh_24_design_system_css.plasmic_tokens
                     )}
                     hideFooter={true}
                     maskClosable={
@@ -1889,7 +1892,8 @@ function PlasmicFood__RenderFunc(props: {
                         projectcss.plasmic_mixins,
                         projectcss.plasmic_tokens,
                         plasmic_antd_5_hostless_css.plasmic_tokens,
-                        plasmic_plasmic_rich_components_css.plasmic_tokens
+                        plasmic_plasmic_rich_components_css.plasmic_tokens,
+                        plasmic_paziresh_24_design_system_css.plasmic_tokens
                       ),
                       hideFooter: true,
                       maskClosable: false,
@@ -1944,7 +1948,10 @@ function PlasmicFood__RenderFunc(props: {
                                 })()
                               : (() => {
                                   try {
-                                    return undefined;
+                                    return (
+                                      localStorage.getItem("ferstFoodTrack") ==
+                                      null
+                                    );
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -3775,6 +3782,37 @@ function PlasmicFood__RenderFunc(props: {
                                         "runCode"
                                       ];
                                     }
+
+                                    $steps["refreshData"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            queryInvalidation: [
+                                              "plasmic_refresh_all"
+                                            ]
+                                          };
+                                          return (async ({
+                                            queryInvalidation
+                                          }) => {
+                                            if (!queryInvalidation) {
+                                              return;
+                                            }
+                                            await plasmicInvalidate(
+                                              queryInvalidation
+                                            );
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["refreshData"] != null &&
+                                      typeof $steps["refreshData"] ===
+                                        "object" &&
+                                      typeof $steps["refreshData"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["refreshData"] = await $steps[
+                                        "refreshData"
+                                      ];
+                                    }
                                   }}
                                   onColorChange={(...eventArgs) => {
                                     generateStateOnChangeProp($state, [
@@ -3863,7 +3901,9 @@ function PlasmicFood__RenderFunc(props: {
                                     }}
                                   />
 
-                                  <div
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
                                     className={classNames(
                                       projectcss.all,
                                       sty.freeBox__nLsGi
@@ -3876,9 +3916,13 @@ function PlasmicFood__RenderFunc(props: {
                                         sty.text__lk8Wq
                                       )}
                                     >
-                                      {
-                                        "\u0628\u0647 \u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647 \u0644\u06cc\u0648\u0645  \u062e\u0648\u0634 \u0627\u0648\u0645\u062f\u06cc\u0646"
-                                      }
+                                      {hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "mobile"
+                                      )
+                                        ? "\u0628\u0647 \u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647  \u0644\u06cc\u0648\u0645  \u062e\u0648\u0634 \u0627\u0648\u0645\u062f\u06cc\u0646"
+                                        : "\u0628\u0647 \u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647 \u0644\u06cc\u0648\u0645  \u062e\u0648\u0634 \u0627\u0648\u0645\u062f\u06cc\u0646"}
                                     </div>
                                     <div
                                       className={classNames(
@@ -3892,10 +3936,10 @@ function PlasmicFood__RenderFunc(props: {
                                         "screen",
                                         "mobile"
                                       )
-                                        ? "\u0642\u0631\u0627\u0631\u0647 \u0628\u0627\u0647\u0645 \u0686\u0646\u062f \u0642\u062f\u0645 \u0628\u0647 \u0633\u0645\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645. \ud83e\udd66\ud83d\udcaa\n\u0647\u062f\u0641\u0645\u0648\u0646 \u0627\u06cc\u0646\u0647 \u06a9\u0647 \u06a9\u0645\u06a9\u062a \u06a9\u0646\u06cc\u0645 \u0639\u0627\u062f\u062a \u0647\u0627\u06cc \u0628\u062f \u063a\u0630\u0627\u06cc\u06cc \u0631\u0648 \u06a9\u0646\u0627\u0631 \u0628\u0630\u0627\u0631\u06cc \u0648 \u0628\u0647 \u0645\u0631\u0648\u0631 \u0639\u0627\u062f\u062a\u200c\u0647\u0627\u06cc \u063a\u0630\u0627\u06cc\u06cc \u0628\u0647\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646\u06cc. \u0647\u0631 \u0642\u062f\u0645 \u06a9\u0648\u0686\u06cc\u06a9\u06cc \u06a9\u0647 \u0628\u0631\u0645\u06cc\u200c\u062f\u0627\u0631\u06cc\u060c \u0645\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631\u062a\u06cc\u0645 \u062a\u0627 \u062a\u062c\u0631\u0628\u0647\u200c\u06cc \u06cc\u06a9 \u062a\u063a\u06cc\u06cc\u0631 \u0645\u062b\u0628\u062a \u0648 \u0645\u0627\u0646\u062f\u06af\u0627\u0631 \u0631\u0648 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc. \ud83d\udeb6\u200d\u2642\ufe0f\ud83c\udf31\n\n\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u0647\u062a\u0631 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0647\u0645\u0631\u0627\u0647\u06cc\u062a \u06a9\u0646\u06cc\u0645\u060c \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u0645 \u0686\u0646\u062f \u0633\u0648\u0627\u0644 \u0633\u0627\u062f\u0647 \u0627\u0632\u062a \u0628\u067e\u0631\u0633\u06cc\u0645. \u0622\u0645\u0627\u062f\u0647\u200c\u0627\u06cc \u0634\u0631\u0648\u0639 \u06a9\u0646\u06cc\u0645 \u0648 \u0627\u0648\u0644\u06cc\u0646 \u0642\u062f\u0645 \u0631\u0648 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645\u061f \ud83d\ude03"
-                                        : "   \u0642\u0631\u0627\u0631\u0647 \u0628\u0627\u0647\u0645 \u0686\u0646\u062f \u0642\u062f\u0645 \u0628\u0647 \u0633\u0645\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645. \ud83e\udd66\ud83d\udcaa\n\u0647\u062f\u0641\u0645\u0648\u0646 \u0627\u06cc\u0646\u0647 \u06a9\u0647 \u06a9\u0645\u06a9\u062a \u06a9\u0646\u06cc\u0645 \u0639\u0627\u062f\u062a \u0647\u0627\u06cc \u0628\u062f \u063a\u0630\u0627\u06cc\u06cc \u0631\u0648 \u06a9\u0646\u0627\u0631 \u0628\u0630\u0627\u0631\u06cc \u0648 \u0628\u0647 \u0645\u0631\u0648\u0631 \u0639\u0627\u062f\u062a\u200c\u0647\u0627\u06cc \u063a\u0630\u0627\u06cc\u06cc \u0628\u0647\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646\u06cc. \u0647\u0631 \u0642\u062f\u0645 \u06a9\u0648\u0686\u06cc\u06a9\u06cc \u06a9\u0647 \u0628\u0631\u0645\u06cc\u200c\u062f\u0627\u0631\u06cc\u060c \u0645\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631\u062a\u06cc\u0645 \u062a\u0627 \u062a\u062c\u0631\u0628\u0647\u200c\u06cc \u06cc\u06a9 \u062a\u063a\u06cc\u06cc\u0631 \u0645\u062b\u0628\u062a \u0648 \u0645\u0627\u0646\u062f\u06af\u0627\u0631 \u0631\u0648 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc. \ud83d\udeb6\u200d\u2642\ufe0f\ud83c\udf31\n\n\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639\u060c \u0686\u0646\u062f \u0633\u0648\u0627\u0644 \u0633\u0627\u062f\u0647 \u062f\u0627\u0631\u06cc\u0645. \u0622\u0645\u0627\u062f\u0647\u200c\u0627\u06cc\u061f \ud83d\ude03"}
+                                        ? "\u0642\u0631\u0627\u0631\u0647 \u0628\u0627\u0647\u0645 \u0686\u0646\u062f \u0642\u062f\u0645 \u0628\u0647 \u0633\u0645\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645. \ud83e\udd66\ud83d\udcaa\n\u0647\u062f\u0641\u0645\u0648\u0646 \u0627\u06cc\u0646\u0647 \u06a9\u0647 \u06a9\u0645\u06a9\u062a \u06a9\u0646\u06cc\u0645 \u0639\u0627\u062f\u062a \u0647\u0627\u06cc \u0628\u062f \u063a\u0630\u0627\u06cc\u06cc \u0631\u0648 \u06a9\u0646\u0627\u0631 \u0628\u0630\u0627\u0631\u06cc \u0648 \u0628\u0647 \u0645\u0631\u0648\u0631 \u0639\u0627\u062f\u062a\u200c\u0647\u0627\u06cc \u063a\u0630\u0627\u06cc\u06cc \u0628\u0647\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646\u06cc. \u0647\u0631 \u0642\u062f\u0645 \u06a9\u0648\u0686\u06cc\u06a9\u06cc \u06a9\u0647 \u0628\u0631\u0645\u06cc\u200c\u062f\u0627\u0631\u06cc\u060c \u0645\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631\u062a\u06cc\u0645 \u062a\u0627 \u062a\u062c\u0631\u0628\u0647\u200c\u06cc \u06cc\u06a9 \u062a\u063a\u06cc\u06cc\u0631 \u0645\u062b\u0628\u062a \u0648 \u0645\u0627\u0646\u062f\u06af\u0627\u0631 \u0631\u0648 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc. \ud83d\udeb6\u200d\u2642\ufe0f\ud83c\udf31\n\n\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639\u060c \u0686\u0646\u062f \u0633\u0648\u0627\u0644 \u0633\u0627\u062f\u0647 \u062f\u0627\u0631\u06cc\u0645. \u0622\u0645\u0627\u062f\u0647\u200c\u0627\u06cc \u0627\u0648\u0644\u06cc\u0646 \u0642\u062f\u0645 \u0631\u0648 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645\u061f \ud83d\ude03"
+                                        : "\u0642\u0631\u0627\u0631\u0647 \u0628\u0627\u0647\u0645 \u0686\u0646\u062f \u0642\u062f\u0645 \u0628\u0647 \u0633\u0645\u062a \u0633\u0627\u0644\u0645\u200c\u062a\u0631 \u0632\u0646\u062f\u06af\u06cc \u06a9\u0631\u062f\u0646 \u0628\u0631\u062f\u0627\u0631\u06cc\u0645. \ud83e\udd66\ud83d\udcaa\n\u0647\u062f\u0641\u0645\u0648\u0646 \u0627\u06cc\u0646\u0647 \u06a9\u0647 \u06a9\u0645\u06a9\u062a \u06a9\u0646\u06cc\u0645 \u0639\u0627\u062f\u062a \u0647\u0627\u06cc \u0628\u062f \u063a\u0630\u0627\u06cc\u06cc \u0631\u0648 \u06a9\u0646\u0627\u0631 \u0628\u0630\u0627\u0631\u06cc \u0648 \u0628\u0647 \u0645\u0631\u0648\u0631 \u0639\u0627\u062f\u062a\u200c\u0647\u0627\u06cc \u063a\u0630\u0627\u06cc\u06cc \u0628\u0647\u062a\u0631\u06cc \u0627\u06cc\u062c\u0627\u062f \u06a9\u0646\u06cc. \u0647\u0631 \u0642\u062f\u0645 \u06a9\u0648\u0686\u06cc\u06a9\u06cc \u06a9\u0647 \u0628\u0631\u0645\u06cc\u200c\u062f\u0627\u0631\u06cc\u060c \u0645\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631\u062a\u06cc\u0645 \u062a\u0627 \u062a\u062c\u0631\u0628\u0647\u200c\u06cc \u06cc\u06a9 \u062a\u063a\u06cc\u06cc\u0631 \u0645\u062b\u0628\u062a \u0648 \u0645\u0627\u0646\u062f\u06af\u0627\u0631 \u0631\u0648 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc. \ud83d\udeb6\u200d\u2642\ufe0f\ud83c\udf31\n\n\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639\u060c \u0686\u0646\u062f \u0633\u0648\u0627\u0644 \u0633\u0627\u062f\u0647 \u062f\u0627\u0631\u06cc\u0645. \u0622\u0645\u0627\u062f\u0647\u200c\u0627\u06cc\u061f \ud83d\ude03"}
                                     </div>
-                                  </div>
+                                  </Stack__>
                                 </Stack__>
                                 <Button
                                   data-plasmic-name={"button6"}
@@ -5408,7 +5452,7 @@ function PlasmicFood__RenderFunc(props: {
                                             $state.harmfulFood.find(
                                               item => item.id === currentItem.id
                                             ).title +
-                                            " دیگه بخوری، بیشتر از هفته قبل می‌شه!"
+                                            " دیگه بخوری\u060C بیشتر از هفته قبل می‌شه!"
                                           );
                                         } catch (e) {
                                           if (
@@ -5437,6 +5481,55 @@ function PlasmicFood__RenderFunc(props: {
                             ) {
                               $steps["invokeGlobalAction2"] = await $steps[
                                 "invokeGlobalAction2"
+                              ];
+                            }
+
+                            $steps["invokeGlobalAction3"] = (() => {
+                              let sorted_data =
+                                $state.previousWeek.data.data.sort(
+                                  (a, b) =>
+                                    new Date(b.timestamp) -
+                                    new Date(a.timestamp)
+                                );
+                              let lastNumbersArray = [];
+                              let seenIds = new Set();
+                              for (let entry of sorted_data) {
+                                let id = entry.value.id;
+                                if (!seenIds.has(id)) {
+                                  lastNumbersArray.push({
+                                    id: id,
+                                    number: entry.value.number
+                                  });
+                                  seenIds.add(id);
+                                }
+                              }
+                              return (
+                                lastNumbersArray.find(
+                                  item => item.id === currentItem.id
+                                ).number < currentItem.number
+                              );
+                            })()
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "\u062f\u0627\u0631\u06cc \u0627\u0632 \u0647\u0641\u062a\u0647 \u067e\u06cc\u0634 \u0628\u06cc\u0634\u062a\u0631 \u0645\u06cc\u200c\u062e\u0648\u0631\u06cc!"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "plasmic-antd5-config-provider.showNotification"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction3"] != null &&
+                              typeof $steps["invokeGlobalAction3"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction3"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction3"] = await $steps[
+                                "invokeGlobalAction3"
                               ];
                             }
                           }}
@@ -6238,7 +6331,8 @@ function PlasmicFood__RenderFunc(props: {
               projectcss.plasmic_mixins,
               projectcss.plasmic_tokens,
               plasmic_antd_5_hostless_css.plasmic_tokens,
-              plasmic_plasmic_rich_components_css.plasmic_tokens
+              plasmic_plasmic_rich_components_css.plasmic_tokens,
+              plasmic_paziresh_24_design_system_css.plasmic_tokens
             )}
             hideFooter={true}
             maskClosable={true}
