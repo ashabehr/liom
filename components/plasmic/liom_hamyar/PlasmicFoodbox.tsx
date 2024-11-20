@@ -67,7 +67,6 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
-import plasmic_paziresh_24_design_system_css from "../paziresh_24_design_system/plasmic.module.css"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFoodbox.module.css"; // plasmic-import: n8OlHqhI2V0n/css
 
@@ -186,7 +185,6 @@ function PlasmicFoodbox__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        plasmic_paziresh_24_design_system_css.plasmic_tokens,
         sty.root,
         "food",
         {
@@ -259,7 +257,7 @@ function PlasmicFoodbox__RenderFunc(props: {
         })}
       >
         {hasVariant($state, "avg", "bad")
-          ? "\u0627\u0632 \u0647\u0641\u062a\u0647 \u0642\u0628\u0644 \u0628\u06cc\u0634\u062a\u0631 \u0634\u062f\u0647."
+          ? "\u0627\u062e\u0637\u0627\u0631 \u0627\u0632 \u0647\u0641\u062a\u0647 \u0642\u0628\u0644 \u0628\u06cc\u0634\u062a\u0631 \u0634\u062f\u0647."
           : hasVariant($state, "avg", "good")
           ? "\u062a\u0627 \u0627\u0644\u0627\u0646 \u0639\u0627\u0644\u06cc \u067e\u06cc\u0634 \u0631\u0641\u062a\u06cc!"
           : "\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647\u060c \u062f\u0627\u0631\u0647 \u0632\u06cc\u0627\u062f \u0645\u06cc\u0634\u0647."}

@@ -697,6 +697,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSeen.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "0RnNSd2WoHS6",
+          "name": "SelfTest",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSelfTest.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/self-test.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSelfTest.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/self-test"
         }
       ],
       "icons": [

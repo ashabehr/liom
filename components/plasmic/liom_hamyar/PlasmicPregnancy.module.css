@@ -107,8 +107,8 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  align-items: flex-end;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-evenly;
   width: 70%;
   height: 100%;
   max-width: 100%;
@@ -376,13 +376,12 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  height: 100%;
+  height: auto;
   max-width: 100%;
   box-shadow: 0px 4px 16px 0px #12121214;
   margin-top: 8px;
   background: #ffffff;
   min-width: 0;
-  min-height: 0;
   border-radius: 8px;
   padding: 8px;
 }

@@ -4148,3 +4148,18 @@
   max-width: 100%;
   object-fit: cover;
 }
+@media (max-width: 640px) {
+  .text__fEvxq {
+    display: block;
+  }
+}
+@media (max-width: 640px) {
+  .text___1Jgs7 {
+    display: block;
+  }
+}
+@media (max-width: 640px) {
+  .text__htd14 {
+    display: block;
+  }
+}

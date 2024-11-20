@@ -98,7 +98,6 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
-import plasmic_paziresh_24_design_system_css from "../paziresh_24_design_system/plasmic.module.css"; // plasmic-import: 6HBcNwr8dz9LuS1Qe36xa5/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHamyar.module.css"; // plasmic-import: TOxGOz1ONYz_/css
 
@@ -1274,7 +1273,6 @@ function PlasmicHamyar__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
-            plasmic_paziresh_24_design_system_css.plasmic_tokens,
             sty.root,
             {
               [sty.rootglobal_theme_dark]: hasVariant(
@@ -4194,8 +4192,7 @@ function PlasmicHamyar__RenderFunc(props: {
                     projectcss.plasmic_mixins,
                     projectcss.plasmic_tokens,
                     plasmic_antd_5_hostless_css.plasmic_tokens,
-                    plasmic_plasmic_rich_components_css.plasmic_tokens,
-                    plasmic_paziresh_24_design_system_css.plasmic_tokens
+                    plasmic_plasmic_rich_components_css.plasmic_tokens
                   )}
                   hideFooter={true}
                   maskClosable={true}
@@ -4829,8 +4826,7 @@ function PlasmicHamyar__RenderFunc(props: {
                     projectcss.plasmic_mixins,
                     projectcss.plasmic_tokens,
                     plasmic_antd_5_hostless_css.plasmic_tokens,
-                    plasmic_plasmic_rich_components_css.plasmic_tokens,
-                    plasmic_paziresh_24_design_system_css.plasmic_tokens
+                    plasmic_plasmic_rich_components_css.plasmic_tokens
                   )}
                   hideFooter={true}
                   modalScopeClassName={sty["modal2__modal"]}
@@ -4906,8 +4902,7 @@ function PlasmicHamyar__RenderFunc(props: {
                     projectcss.plasmic_mixins,
                     projectcss.plasmic_tokens,
                     plasmic_antd_5_hostless_css.plasmic_tokens,
-                    plasmic_plasmic_rich_components_css.plasmic_tokens,
-                    plasmic_paziresh_24_design_system_css.plasmic_tokens
+                    plasmic_plasmic_rich_components_css.plasmic_tokens
                   )}
                   hideFooter={true}
                   modalScopeClassName={sty["modal3__modal"]}
@@ -7015,8 +7010,7 @@ function PlasmicHamyar__RenderFunc(props: {
                   projectcss.plasmic_mixins,
                   projectcss.plasmic_tokens,
                   plasmic_antd_5_hostless_css.plasmic_tokens,
-                  plasmic_plasmic_rich_components_css.plasmic_tokens,
-                  plasmic_paziresh_24_design_system_css.plasmic_tokens
+                  plasmic_plasmic_rich_components_css.plasmic_tokens
                 )}
                 hideFooter={true}
                 maskClosable={false}
@@ -11737,6 +11731,40 @@ function PlasmicHamyar__RenderFunc(props: {
             ])}
             url={"https://n8n.staas.ir/webhook/hamyar/notif"}
           />
+
+          {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__fEvxq
+              )}
+            >
+              {"\u0628\u0627"}
+            </div>
+          ) : null}
+          {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___1Jgs7
+              )}
+            >
+              {"\u0628\u0627"}
+            </div>
+          ) : null}
+          {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__htd14
+              )}
+            >
+              {"\u0628\u0627"}
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
