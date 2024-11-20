@@ -460,7 +460,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
               );
               return parseInt(((differenceInDays + 1) / 7).toFixed());
             } else {
-              return 0;
+              return 1;
             }
           })()
       },
@@ -491,6 +491,25 @@ function PlasmicWeekByWeek__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "isLoaded",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return false;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -590,7 +609,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
 
           {(() => {
             try {
-              return $state.getInfo.loading;
+              return $state.getInfo?.loading && $state.isLoaded;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1119,11 +1138,92 @@ function PlasmicWeekByWeek__RenderFunc(props: {
             loadingDisplay={null}
             method={"GET"}
             onError={generateStateOnChangeProp($state, ["getInfo", "error"])}
-            onLoading={generateStateOnChangeProp($state, [
-              "getInfo",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, ["getInfo", "data"])}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getInfo", "loading"]).apply(
+                null,
+                eventArgs
+              );
+              (async loading => {
+                const $steps = {};
+
+                $steps["updateIsLoaded"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["isLoaded"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateIsLoaded"] != null &&
+                  typeof $steps["updateIsLoaded"] === "object" &&
+                  typeof $steps["updateIsLoaded"].then === "function"
+                ) {
+                  $steps["updateIsLoaded"] = await $steps["updateIsLoaded"];
+                }
+              }).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
+                null,
+                eventArgs
+              );
+              (async data => {
+                const $steps = {};
+
+                $steps["updateIsLoaded"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["isLoaded"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateIsLoaded"] != null &&
+                  typeof $steps["updateIsLoaded"] === "object" &&
+                  typeof $steps["updateIsLoaded"].then === "function"
+                ) {
+                  $steps["updateIsLoaded"] = await $steps["updateIsLoaded"];
+                }
+              }).apply(null, eventArgs);
+            }}
             params={(() => {
               try {
                 return {
@@ -1143,7 +1243,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
           >
             {(() => {
               try {
-                return !$state.getInfo.loading;
+                return !$state.getInfo.loading && $state.isLoaded;
               } catch (e) {
                 if (
                   e instanceof TypeError ||
