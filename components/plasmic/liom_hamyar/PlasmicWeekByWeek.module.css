@@ -41,6 +41,24 @@
   max-width: 100%;
   object-fit: cover;
 }
+.freeBox__zfkAg {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  max-width: 100%;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+  padding: 8px;
+}
+.lottie:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 300px;
+}
 .getInfo:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -530,7 +548,6 @@
   min-width: 0;
 }
 .freeBox__gt682 {
-  display: flex;
   flex-direction: row;
   position: relative;
   align-items: center;
@@ -541,6 +558,7 @@
   margin-top: 0px;
   margin-bottom: 0px;
   min-width: 0;
+  display: none;
   padding: 8px 16px;
 }
 @media (max-width: 640px) {
@@ -988,21 +1006,4 @@
   color: var(--token-jgohepLVeKvh);
   text-align: right;
   min-width: 0;
-}
-.freeBox__zfkAg {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
-}
-.lottie:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-  width: 300px;
 }
