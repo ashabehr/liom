@@ -75,11 +75,12 @@ import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import { AntdRangeSlider } from "@plasmicpkgs/antd5/skinny/registerSlider";
 import { rangeSliderHelpers as AntdRangeSlider_Helpers } from "@plasmicpkgs/antd5/skinny/registerSlider";
 import { AntdSliderMark } from "@plasmicpkgs/antd5/skinny/registerSlider";
+import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import { AntdRadio } from "@plasmicpkgs/antd5/skinny/registerRadio";
-import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
@@ -99,6 +100,8 @@ import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasm
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon47Icon from "./icons/PlasmicIcon__Icon47"; // plasmic-import: 4mROOlMjOzhC/icon
 import Icon48Icon from "./icons/PlasmicIcon__Icon48"; // plasmic-import: gDaB_rFhdqND/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
+import Icon106Icon from "./icons/PlasmicIcon__Icon106"; // plasmic-import: mveCQhKuUyBi/icon
 import Icon67Icon from "./icons/PlasmicIcon__Icon67"; // plasmic-import: hIAuvrXigDnk/icon
 import Icon50Icon from "./icons/PlasmicIcon__Icon50"; // plasmic-import: OWul-aq2fF6T/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fcuIp/icon
@@ -128,7 +131,8 @@ export type PlasmicFood__OverridesType = {
   modal2?: Flex__<typeof AntdModal>;
   rangeSlider?: Flex__<typeof AntdRangeSlider>;
   sliderMark?: Flex__<typeof AntdSliderMark>;
-  input2?: Flex__<typeof Input>;
+  input5?: Flex__<typeof Input>;
+  numberInput?: Flex__<typeof AntdInputNumber>;
   input3?: Flex__<typeof Input>;
   kabed?: Flex__<typeof AntdRadioGroup>;
   diabet?: Flex__<typeof AntdRadioGroup>;
@@ -143,6 +147,7 @@ export type PlasmicFood__OverridesType = {
   previousWeek?: Flex__<typeof ApiRequest>;
   foodinfo?: Flex__<typeof ApiRequest>;
   modal3?: Flex__<typeof AntdModal>;
+  lottie?: Flex__<typeof LottieWrapper>;
   favicon?: Flex__<typeof Embed>;
 };
 
@@ -337,25 +342,6 @@ function PlasmicFood__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 80
-      },
-      {
-        path: "input2.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.age;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
       },
       {
         path: "input3.value",
@@ -933,6 +919,39 @@ function PlasmicFood__RenderFunc(props: {
       },
       {
         path: "button6.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "loadingbtn",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "input5.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile")
+            ? ``
+            : (() => {
+                try {
+                  return $state.age;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+      },
+      {
+        path: "numberInput.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -2320,7 +2339,14 @@ function PlasmicFood__RenderFunc(props: {
                                                     const actionArgs = {
                                                       customFunction:
                                                         async () => {
-                                                          return ($state.input2.value += 1);
+                                                          return (() => {
+                                                            $state.input5.value += 1;
+                                                            if (
+                                                              $state.input5
+                                                                .value == null
+                                                            )
+                                                              return ($state.input5.value = 1);
+                                                          })();
                                                         }
                                                     };
                                                     return (({
@@ -2347,20 +2373,20 @@ function PlasmicFood__RenderFunc(props: {
                                           />
 
                                           <Input
-                                            data-plasmic-name={"input2"}
+                                            data-plasmic-name={"input5"}
                                             data-plasmic-override={
-                                              overrides.input2
+                                              overrides.input5
                                             }
                                             className={classNames(
                                               "__wab_instance",
-                                              sty.input2
+                                              sty.input5
                                             )}
                                             onChange={async (
                                               ...eventArgs: any
                                             ) => {
                                               generateStateOnChangeProp(
                                                 $state,
-                                                ["input2", "value"]
+                                                ["input5", "value"]
                                               ).apply(null, eventArgs);
                                               (async value => {
                                                 const $steps = {};
@@ -2374,7 +2400,7 @@ function PlasmicFood__RenderFunc(props: {
                                                         },
                                                         operation: 0,
                                                         value: parseInt(
-                                                          $state.input2.value
+                                                          $state.input5.value
                                                         )
                                                       };
                                                       return (({
@@ -2412,61 +2438,6 @@ function PlasmicFood__RenderFunc(props: {
                                                   $steps["updateAge"] =
                                                     await $steps["updateAge"];
                                                 }
-
-                                                $steps["updateButton2Color"] =
-                                                  true
-                                                    ? (() => {
-                                                        const actionArgs = {
-                                                          variable: {
-                                                            objRoot: $state,
-                                                            variablePath: [
-                                                              "button2",
-                                                              "color"
-                                                            ]
-                                                          },
-                                                          operation: 0
-                                                        };
-                                                        return (({
-                                                          variable,
-                                                          value,
-                                                          startIndex,
-                                                          deleteCount
-                                                        }) => {
-                                                          if (!variable) {
-                                                            return;
-                                                          }
-                                                          const {
-                                                            objRoot,
-                                                            variablePath
-                                                          } = variable;
-
-                                                          $stateSet(
-                                                            objRoot,
-                                                            variablePath,
-                                                            value
-                                                          );
-                                                          return value;
-                                                        })?.apply(null, [
-                                                          actionArgs
-                                                        ]);
-                                                      })()
-                                                    : undefined;
-                                                if (
-                                                  $steps[
-                                                    "updateButton2Color"
-                                                  ] != null &&
-                                                  typeof $steps[
-                                                    "updateButton2Color"
-                                                  ] === "object" &&
-                                                  typeof $steps[
-                                                    "updateButton2Color"
-                                                  ].then === "function"
-                                                ) {
-                                                  $steps["updateButton2Color"] =
-                                                    await $steps[
-                                                      "updateButton2Color"
-                                                    ];
-                                                }
                                               }).apply(null, eventArgs);
                                             }}
                                             placeholder={
@@ -2475,13 +2446,44 @@ function PlasmicFood__RenderFunc(props: {
                                                 "screen",
                                                 "mobile"
                                               )
-                                                ? "\u0686\u0646\u062f \u0633\u0627\u0644\u062a\u0647 \u061f"
-                                                : undefined
+                                                ? "\u0633\u0646"
+                                                : "\u0633\u0646"
                                             }
+                                            type={
+                                              hasVariant(
+                                                globalVariants,
+                                                "screen",
+                                                "mobile"
+                                              )
+                                                ? "number"
+                                                : "number"
+                                            }
+                                            value={generateStateValueProp(
+                                              $state,
+                                              ["input5", "value"]
+                                            )}
+                                          />
+
+                                          <AntdInputNumber
+                                            data-plasmic-name={"numberInput"}
+                                            data-plasmic-override={
+                                              overrides.numberInput
+                                            }
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.numberInput
+                                            )}
+                                            max={200}
+                                            min={10}
+                                            onChange={generateStateOnChangeProp(
+                                              $state,
+                                              ["numberInput", "value"]
+                                            )}
+                                            step={1}
                                             type={"number"}
                                             value={generateStateValueProp(
                                               $state,
-                                              ["input2", "value"]
+                                              ["numberInput", "value"]
                                             )}
                                           />
 
@@ -2500,10 +2502,10 @@ function PlasmicFood__RenderFunc(props: {
                                                         async () => {
                                                           return (() => {
                                                             if (
-                                                              $state.input2
-                                                                .value != 0
+                                                              $state.input5
+                                                                .value > 0
                                                             )
-                                                              return ($state.input2.value -= 1);
+                                                              return ($state.input5.value -= 1);
                                                           })();
                                                         }
                                                     };
@@ -2683,9 +2685,17 @@ function PlasmicFood__RenderFunc(props: {
                                                 "mobile"
                                               )
                                                 ? "kg"
-                                                : undefined
+                                                : "kg"
                                             }
-                                            type={"number"}
+                                            type={
+                                              hasVariant(
+                                                globalVariants,
+                                                "screen",
+                                                "mobile"
+                                              )
+                                                ? "number"
+                                                : "number"
+                                            }
                                             value={generateStateValueProp(
                                               $state,
                                               ["input3", "value"]
@@ -3080,8 +3090,111 @@ function PlasmicFood__RenderFunc(props: {
                                     "button3",
                                     "color"
                                   ])}
+                                  endIcon={
+                                    <PlasmicIcon__
+                                      PlasmicIconType={
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                          ? Icon12Icon
+                                          : Icon11Icon
+                                      }
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__o4Uua
+                                      )}
+                                      role={"img"}
+                                    />
+                                  }
+                                  isDisabled={
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                      ? (() => {
+                                          try {
+                                            return (
+                                              $state.loadingbtn ||
+                                              $state.input3.value.length == 0
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      : (() => {
+                                          try {
+                                            return (
+                                              $state.loadingbtn ||
+                                              $state.input3.value.length == 0 ||
+                                              $state.input5.value.length == 0
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                  }
                                   onClick={async event => {
                                     const $steps = {};
+
+                                    $steps["updateLoadingbtn"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["loadingbtn"]
+                                            },
+                                            operation: 0,
+                                            value: true
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateLoadingbtn"] != null &&
+                                      typeof $steps["updateLoadingbtn"] ===
+                                        "object" &&
+                                      typeof $steps["updateLoadingbtn"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["updateLoadingbtn"] = await $steps[
+                                        "updateLoadingbtn"
+                                      ];
+                                    }
 
                                     $steps["invokeGlobalAction"] = true
                                       ? (() => {
@@ -3210,6 +3323,48 @@ function PlasmicFood__RenderFunc(props: {
                                         "updateSlide"
                                       ];
                                     }
+
+                                    $steps["updateLoadingbtn2"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["loadingbtn"]
+                                            },
+                                            operation: 0,
+                                            value: false
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["updateLoadingbtn2"] != null &&
+                                      typeof $steps["updateLoadingbtn2"] ===
+                                        "object" &&
+                                      typeof $steps["updateLoadingbtn2"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateLoadingbtn2"] =
+                                        await $steps["updateLoadingbtn2"];
+                                    }
                                   }}
                                   onColorChange={(...eventArgs) => {
                                     generateStateOnChangeProp($state, [
@@ -3217,6 +3372,41 @@ function PlasmicFood__RenderFunc(props: {
                                       "color"
                                     ])(eventArgs[0]);
                                   }}
+                                  showEndIcon={
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                      ? (() => {
+                                          try {
+                                            return $state.loadingbtn;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      : (() => {
+                                          try {
+                                            return $state.loadingbtn;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                  }
                                 >
                                   {"\u0627\u062f\u0627\u0645\u0647"}
                                 </Button>
@@ -3417,13 +3607,13 @@ function PlasmicFood__RenderFunc(props: {
                                                 hasGap={true}
                                                 className={classNames(
                                                   projectcss.all,
-                                                  sty.freeBox__kKsgO
+                                                  sty.freeBox__vjglJ
                                                 )}
                                               >
                                                 <Icon47Icon
                                                   className={classNames(
                                                     projectcss.all,
-                                                    sty.svg___2F0Ic
+                                                    sty.svg__ldUlU
                                                   )}
                                                   onClick={async event => {
                                                     const $steps = {};
@@ -3539,7 +3729,7 @@ function PlasmicFood__RenderFunc(props: {
                                                   className={classNames(
                                                     projectcss.all,
                                                     projectcss.__wab_text,
-                                                    sty.text__kgE1U
+                                                    sty.text__a2RtN
                                                   )}
                                                 >
                                                   <React.Fragment>
@@ -3553,61 +3743,78 @@ function PlasmicFood__RenderFunc(props: {
                                                           e?.plasmicType ===
                                                             "PlasmicUndefinedDataError"
                                                         ) {
-                                                          return "2";
+                                                          return "--";
                                                         }
                                                         throw e;
                                                       }
                                                     })()}
                                                   </React.Fragment>
                                                 </div>
-                                                <Icon48Icon
-                                                  className={classNames(
-                                                    projectcss.all,
-                                                    sty.svg__pNcZg
-                                                  )}
-                                                  onClick={async event => {
-                                                    const $steps = {};
-
-                                                    $steps["runCode"] = true
-                                                      ? (() => {
-                                                          const actionArgs = {
-                                                            customFunction:
-                                                              async () => {
-                                                                return (() => {
-                                                                  if (
-                                                                    currentItem.number !=
-                                                                    0
-                                                                  )
-                                                                    return (currentItem.number -= 1);
-                                                                })();
-                                                              }
-                                                          };
-                                                          return (({
-                                                            customFunction
-                                                          }) => {
-                                                            return customFunction();
-                                                          })?.apply(null, [
-                                                            actionArgs
-                                                          ]);
-                                                        })()
-                                                      : undefined;
+                                                {(() => {
+                                                  try {
+                                                    return (
+                                                      currentItem.number > 0
+                                                    );
+                                                  } catch (e) {
                                                     if (
-                                                      $steps["runCode"] !=
-                                                        null &&
-                                                      typeof $steps[
-                                                        "runCode"
-                                                      ] === "object" &&
-                                                      typeof $steps["runCode"]
-                                                        .then === "function"
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
                                                     ) {
-                                                      $steps["runCode"] =
-                                                        await $steps["runCode"];
+                                                      return true;
                                                     }
+                                                    throw e;
+                                                  }
+                                                })() ? (
+                                                  <Icon48Icon
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      sty.svg__yjp2V
+                                                    )}
+                                                    onClick={async event => {
+                                                      const $steps = {};
 
-                                                    $steps[
-                                                      "invokeGlobalAction"
-                                                    ] =
-                                                      currentItem.number >= 0
+                                                      $steps["runCode"] = true
+                                                        ? (() => {
+                                                            const actionArgs = {
+                                                              customFunction:
+                                                                async () => {
+                                                                  return (() => {
+                                                                    if (
+                                                                      currentItem.number >
+                                                                      0
+                                                                    )
+                                                                      return (currentItem.number -= 1);
+                                                                  })();
+                                                                }
+                                                            };
+                                                            return (({
+                                                              customFunction
+                                                            }) => {
+                                                              return customFunction();
+                                                            })?.apply(null, [
+                                                              actionArgs
+                                                            ]);
+                                                          })()
+                                                        : undefined;
+                                                      if (
+                                                        $steps["runCode"] !=
+                                                          null &&
+                                                        typeof $steps[
+                                                          "runCode"
+                                                        ] === "object" &&
+                                                        typeof $steps["runCode"]
+                                                          .then === "function"
+                                                      ) {
+                                                        $steps["runCode"] =
+                                                          await $steps[
+                                                            "runCode"
+                                                          ];
+                                                      }
+
+                                                      $steps[
+                                                        "invokeGlobalAction"
+                                                      ] = true
                                                         ? (() => {
                                                             const actionArgs = {
                                                               args: [
@@ -3663,26 +3870,51 @@ function PlasmicFood__RenderFunc(props: {
                                                             ]);
                                                           })()
                                                         : undefined;
+                                                      if (
+                                                        $steps[
+                                                          "invokeGlobalAction"
+                                                        ] != null &&
+                                                        typeof $steps[
+                                                          "invokeGlobalAction"
+                                                        ] === "object" &&
+                                                        typeof $steps[
+                                                          "invokeGlobalAction"
+                                                        ].then === "function"
+                                                      ) {
+                                                        $steps[
+                                                          "invokeGlobalAction"
+                                                        ] = await $steps[
+                                                          "invokeGlobalAction"
+                                                        ];
+                                                      }
+                                                    }}
+                                                    role={"img"}
+                                                  />
+                                                ) : null}
+                                                {(() => {
+                                                  try {
+                                                    return (
+                                                      currentItem.number <= 0
+                                                    );
+                                                  } catch (e) {
                                                     if (
-                                                      $steps[
-                                                        "invokeGlobalAction"
-                                                      ] != null &&
-                                                      typeof $steps[
-                                                        "invokeGlobalAction"
-                                                      ] === "object" &&
-                                                      typeof $steps[
-                                                        "invokeGlobalAction"
-                                                      ].then === "function"
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
                                                     ) {
-                                                      $steps[
-                                                        "invokeGlobalAction"
-                                                      ] = await $steps[
-                                                        "invokeGlobalAction"
-                                                      ];
+                                                      return true;
                                                     }
-                                                  }}
-                                                  role={"img"}
-                                                />
+                                                    throw e;
+                                                  }
+                                                })() ? (
+                                                  <Icon48Icon
+                                                    className={classNames(
+                                                      projectcss.all,
+                                                      sty.svg__r1IXd
+                                                    )}
+                                                    role={"img"}
+                                                  />
+                                                ) : null}
                                               </Stack__>
                                             </Stack__>
                                           </div>
@@ -4001,13 +4233,21 @@ function PlasmicFood__RenderFunc(props: {
                                     ])(eventArgs[0]);
                                   }}
                                 >
-                                  {hasVariant(
-                                    globalVariants,
-                                    "screen",
-                                    "mobile"
-                                  )
-                                    ? "\u0627\u062f\u0627\u0645\u0647"
-                                    : "\u0627\u062f\u0627\u0645\u0647"}
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__uIu0M
+                                    )}
+                                  >
+                                    {hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                      ? "\u0627\u062f\u0627\u0645\u0647"
+                                      : "\u0634\u0631\u0648\u0639"}
+                                  </div>
                                 </Button>
                                 <div
                                   className={classNames(
@@ -4023,7 +4263,9 @@ function PlasmicFood__RenderFunc(props: {
                     );
                   })()}
                 </Stack__>
-                <div
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__aNCcH)}
                   onClick={async event => {
                     const $steps = {};
@@ -4066,983 +4308,6 @@ function PlasmicFood__RenderFunc(props: {
                     }
                   }}
                 >
-                  <LottieWrapper
-                    animationData={{
-                      v: "4.8.0",
-                      meta: {
-                        g: "LottieFiles AE 1.1.0",
-                        a: "",
-                        k: "",
-                        d: "",
-                        tc: ""
-                      },
-                      fr: 30,
-                      ip: 0,
-                      op: 150,
-                      w: 500,
-                      h: 500,
-                      nm: "3 - Weigth scale",
-                      ddd: 0,
-                      assets: [],
-                      layers: [
-                        {
-                          ddd: 0,
-                          ind: 2,
-                          ty: 4,
-                          nm: "Mask",
-                          parent: 7,
-                          td: 1,
-                          sr: 1,
-                          ks: {
-                            o: { a: 0, k: 100, ix: 11 },
-                            r: { a: 0, k: 0, ix: 10 },
-                            p: { a: 0, k: [175.25, 88.795, 0], ix: 2 },
-                            a: { a: 0, k: [91.664, 54.352, 0], ix: 1 },
-                            s: { a: 0, k: [100, 100, 100], ix: 6 }
-                          },
-                          ao: 0,
-                          shapes: [
-                            {
-                              ty: "gr",
-                              it: [
-                                {
-                                  ind: 0,
-                                  ty: "sh",
-                                  ix: 1,
-                                  ks: {
-                                    a: 0,
-                                    k: {
-                                      i: [
-                                        [11.95, 8.064],
-                                        [0, 0],
-                                        [1.875, 0],
-                                        [0.87, 0.51],
-                                        [-1.53, 2.604],
-                                        [0, 0],
-                                        [16.716, 0.823],
-                                        [0, 0],
-                                        [3.02, 0],
-                                        [0, 3.021],
-                                        [0, 0],
-                                        [13.921, -7.493],
-                                        [0, 0],
-                                        [2.604, -1.533],
-                                        [0.94, 0],
-                                        [1.02, 1.733],
-                                        [0, 0],
-                                        [7.978, -12.016],
-                                        [0, 0],
-                                        [0, 0],
-                                        [0, 0]
-                                      ],
-                                      o: [
-                                        [0, 0],
-                                        [-1.02, 1.733],
-                                        [-0.942, 0],
-                                        [-2.604, -1.533],
-                                        [0, 0],
-                                        [-13.923, -7.492],
-                                        [0, 0],
-                                        [0, 3.021],
-                                        [-3.02, 0],
-                                        [0, 0],
-                                        [-16.715, 0.824],
-                                        [0, 0],
-                                        [1.53, 2.604],
-                                        [-0.87, 0.51],
-                                        [-1.875, 0],
-                                        [0, 0],
-                                        [-11.949, 8.064],
-                                        [0, 0],
-                                        [0, 0],
-                                        [0, 0],
-                                        [-7.977, -12.016]
-                                      ],
-                                      v: [
-                                        [61.182, -35.553],
-                                        [51.491, -19.065],
-                                        [46.77, -16.368],
-                                        [44.004, -17.121],
-                                        [42.06, -24.609],
-                                        [51.832, -41.235],
-                                        [5.469, -54.102],
-                                        [5.469, -35.221],
-                                        [-0.001, -29.752],
-                                        [-5.469, -35.221],
-                                        [-5.469, -54.102],
-                                        [-51.829, -41.235],
-                                        [-42.057, -24.609],
-                                        [-44.001, -17.121],
-                                        [-46.768, -16.368],
-                                        [-51.488, -19.065],
-                                        [-61.18, -35.554],
-                                        [-91.414, -5.158],
-                                        [-64.068, 54.102],
-                                        [64.069, 54.102],
-                                        [91.414, -5.158]
-                                      ],
-                                      c: true
-                                    },
-                                    ix: 2
-                                  },
-                                  nm: "Path 1",
-                                  mn: "ADBE Vector Shape - Group",
-                                  hd: false
-                                },
-                                {
-                                  ty: "fl",
-                                  c: {
-                                    a: 0,
-                                    k: [0.8154, 0.7439, 0.9961, 1],
-                                    ix: 4,
-                                    x: "var $bm_rt;\ntry {\n    $bm_rt = thisComp.layer('Controller').effect('Color')('ADBE Color Control-0001');\n} catch (e) {\n    $bm_rt = value;\n}"
-                                  },
-                                  o: { a: 0, k: 100, ix: 5 },
-                                  r: 1,
-                                  bm: 0,
-                                  nm: "Fill 1",
-                                  mn: "ADBE Vector Graphic - Fill",
-                                  hd: false
-                                },
-                                {
-                                  ty: "tr",
-                                  p: { a: 0, k: [91.664, 54.352], ix: 2 },
-                                  a: { a: 0, k: [0, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100], ix: 3 },
-                                  r: { a: 0, k: 0, ix: 6 },
-                                  o: { a: 0, k: 100, ix: 7 },
-                                  sk: { a: 0, k: 0, ix: 4 },
-                                  sa: { a: 0, k: 0, ix: 5 },
-                                  nm: "Transform"
-                                }
-                              ],
-                              nm: "Group 1",
-                              np: 2,
-                              cix: 2,
-                              bm: 0,
-                              ix: 1,
-                              mn: "ADBE Vector Group",
-                              hd: false
-                            }
-                          ],
-                          ip: 0,
-                          op: 150,
-                          st: 0,
-                          bm: 0
-                        },
-                        {
-                          ddd: 0,
-                          ind: 3,
-                          ty: 4,
-                          nm: "Arrow",
-                          parent: 7,
-                          tt: 1,
-                          sr: 1,
-                          ks: {
-                            o: { a: 0, k: 100, ix: 11 },
-                            r: {
-                              a: 1,
-                              k: [
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 0,
-                                  s: [-29]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 22,
-                                  s: [40]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 28.25,
-                                  s: [22]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 34.5,
-                                  s: [44]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 40.75,
-                                  s: [22]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 47,
-                                  s: [40]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 70,
-                                  s: [-29]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 75,
-                                  s: [-29]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 97,
-                                  s: [40]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 103.25,
-                                  s: [22]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 109.5,
-                                  s: [44]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 115.75,
-                                  s: [22]
-                                },
-                                {
-                                  i: { x: [0.5], y: [1] },
-                                  o: { x: [0.5], y: [0] },
-                                  t: 122,
-                                  s: [40]
-                                },
-                                { t: 145, s: [-29] }
-                              ],
-                              ix: 10
-                            },
-                            p: { a: 0, k: [175.25, 143.375, 0], ix: 2 },
-                            a: { a: 0, k: [20.25, 56.17, 0], ix: 1 },
-                            s: { a: 0, k: [100, 100, 100], ix: 6 }
-                          },
-                          ao: 0,
-                          shapes: [
-                            {
-                              ty: "gr",
-                              it: [
-                                {
-                                  ind: 0,
-                                  ty: "sh",
-                                  ix: 1,
-                                  ks: {
-                                    a: 0,
-                                    k: {
-                                      i: [
-                                        [0, -11.046],
-                                        [11.046, 0],
-                                        [0, 11.046],
-                                        [0, 0]
-                                      ],
-                                      o: [
-                                        [0, 11.046],
-                                        [-11.046, 0],
-                                        [0, -11.046],
-                                        [0, 0]
-                                      ],
-                                      v: [
-                                        [20, 17.658],
-                                        [0, 37.658],
-                                        [-20, 17.658],
-                                        [0, -37.658]
-                                      ],
-                                      c: true
-                                    },
-                                    ix: 2
-                                  },
-                                  nm: "Path 1",
-                                  mn: "ADBE Vector Shape - Group",
-                                  hd: false
-                                },
-                                {
-                                  ty: "fl",
-                                  c: {
-                                    a: 0,
-                                    k: [0.2392, 0.2824, 0.3255, 1],
-                                    ix: 4,
-                                    x: "var $bm_rt;\ntry {\n    $bm_rt = thisComp.layer('Controller').effect('Color 2')('ADBE Color Control-0001');\n} catch (e) {\n    $bm_rt = value;\n}"
-                                  },
-                                  o: { a: 0, k: 100, ix: 5 },
-                                  r: 1,
-                                  bm: 0,
-                                  nm: "Fill 1",
-                                  mn: "ADBE Vector Graphic - Fill",
-                                  hd: false
-                                },
-                                {
-                                  ty: "tr",
-                                  p: { a: 0, k: [20.25, 37.908], ix: 2 },
-                                  a: { a: 0, k: [0, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100], ix: 3 },
-                                  r: { a: 0, k: 0, ix: 6 },
-                                  o: { a: 0, k: 100, ix: 7 },
-                                  sk: { a: 0, k: 0, ix: 4 },
-                                  sa: { a: 0, k: 0, ix: 5 },
-                                  nm: "Transform"
-                                }
-                              ],
-                              nm: "Group 1",
-                              np: 2,
-                              cix: 2,
-                              bm: 0,
-                              ix: 1,
-                              mn: "ADBE Vector Group",
-                              hd: false
-                            }
-                          ],
-                          ip: 0,
-                          op: 150,
-                          st: 0,
-                          bm: 0
-                        },
-                        {
-                          ddd: 0,
-                          ind: 4,
-                          ty: 4,
-                          nm: "Scoreboard",
-                          parent: 7,
-                          sr: 1,
-                          ks: {
-                            o: { a: 0, k: 100, ix: 11 },
-                            r: { a: 0, k: 0, ix: 10 },
-                            p: { a: 0, k: [175.25, 88.795, 0], ix: 2 },
-                            a: { a: 0, k: [91.664, 54.352, 0], ix: 1 },
-                            s: { a: 0, k: [100, 100, 100], ix: 6 }
-                          },
-                          ao: 0,
-                          shapes: [
-                            {
-                              ty: "gr",
-                              it: [
-                                {
-                                  ind: 0,
-                                  ty: "sh",
-                                  ix: 1,
-                                  ks: {
-                                    a: 0,
-                                    k: {
-                                      i: [
-                                        [11.95, 8.064],
-                                        [0, 0],
-                                        [1.875, 0],
-                                        [0.87, 0.51],
-                                        [-1.53, 2.604],
-                                        [0, 0],
-                                        [16.716, 0.823],
-                                        [0, 0],
-                                        [3.02, 0],
-                                        [0, 3.021],
-                                        [0, 0],
-                                        [13.921, -7.493],
-                                        [0, 0],
-                                        [2.604, -1.533],
-                                        [0.94, 0],
-                                        [1.02, 1.733],
-                                        [0, 0],
-                                        [7.978, -12.016],
-                                        [0, 0],
-                                        [0, 0],
-                                        [0, 0]
-                                      ],
-                                      o: [
-                                        [0, 0],
-                                        [-1.02, 1.733],
-                                        [-0.942, 0],
-                                        [-2.604, -1.533],
-                                        [0, 0],
-                                        [-13.923, -7.492],
-                                        [0, 0],
-                                        [0, 3.021],
-                                        [-3.02, 0],
-                                        [0, 0],
-                                        [-16.715, 0.824],
-                                        [0, 0],
-                                        [1.53, 2.604],
-                                        [-0.87, 0.51],
-                                        [-1.875, 0],
-                                        [0, 0],
-                                        [-11.949, 8.064],
-                                        [0, 0],
-                                        [0, 0],
-                                        [0, 0],
-                                        [-7.977, -12.016]
-                                      ],
-                                      v: [
-                                        [61.182, -35.553],
-                                        [51.491, -19.065],
-                                        [46.77, -16.368],
-                                        [44.004, -17.121],
-                                        [42.06, -24.609],
-                                        [51.832, -41.235],
-                                        [5.469, -54.102],
-                                        [5.469, -35.221],
-                                        [-0.001, -29.752],
-                                        [-5.469, -35.221],
-                                        [-5.469, -54.102],
-                                        [-51.829, -41.235],
-                                        [-42.057, -24.609],
-                                        [-44.001, -17.121],
-                                        [-46.768, -16.368],
-                                        [-51.488, -19.065],
-                                        [-61.18, -35.554],
-                                        [-91.414, -5.158],
-                                        [-64.068, 54.102],
-                                        [64.069, 54.102],
-                                        [91.414, -5.158]
-                                      ],
-                                      c: true
-                                    },
-                                    ix: 2
-                                  },
-                                  nm: "Path 1",
-                                  mn: "ADBE Vector Shape - Group",
-                                  hd: false
-                                },
-                                {
-                                  ty: "fl",
-                                  c: {
-                                    a: 0,
-                                    k: [0.8154, 0.7439, 0.9961, 1],
-                                    ix: 4,
-                                    x: "var $bm_rt;\ntry {\n    $bm_rt = thisComp.layer('Controller')('Effects')('Color')('ADBE Color Control-0001');\n} catch (e) {\n    $bm_rt = value;\n}"
-                                  },
-                                  o: { a: 0, k: 100, ix: 5 },
-                                  r: 1,
-                                  bm: 0,
-                                  nm: "Fill 1",
-                                  mn: "ADBE Vector Graphic - Fill",
-                                  hd: false
-                                },
-                                {
-                                  ty: "tr",
-                                  p: { a: 0, k: [91.664, 54.352], ix: 2 },
-                                  a: { a: 0, k: [0, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100], ix: 3 },
-                                  r: { a: 0, k: 0, ix: 6 },
-                                  o: { a: 0, k: 100, ix: 7 },
-                                  sk: { a: 0, k: 0, ix: 4 },
-                                  sa: { a: 0, k: 0, ix: 5 },
-                                  nm: "Transform"
-                                }
-                              ],
-                              nm: "Group 1",
-                              np: 2,
-                              cix: 2,
-                              bm: 0,
-                              ix: 1,
-                              mn: "ADBE Vector Group",
-                              hd: false
-                            }
-                          ],
-                          ip: 0,
-                          op: 150,
-                          st: 0,
-                          bm: 0
-                        },
-                        {
-                          ddd: 0,
-                          ind: 5,
-                          ty: 4,
-                          nm: "Place 1",
-                          parent: 7,
-                          sr: 1,
-                          ks: {
-                            o: { a: 0, k: 100, ix: 11 },
-                            r: { a: 0, k: 0, ix: 10 },
-                            p: { a: 0, k: [97.388, 231.337, 0], ix: 2 },
-                            a: { a: 0, k: [56.235, 83.221, 0], ix: 1 },
-                            s: {
-                              a: 1,
-                              k: [
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 0,
-                                  s: [100, 100, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 10,
-                                  s: [92, 92, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 59,
-                                  s: [92, 92, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 70,
-                                  s: [100, 100, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 75,
-                                  s: [100, 100, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 85,
-                                  s: [92, 92, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 134,
-                                  s: [92, 92, 100]
-                                },
-                                { t: 145, s: [100, 100, 100] }
-                              ],
-                              ix: 6
-                            }
-                          },
-                          ao: 0,
-                          shapes: [
-                            {
-                              ty: "gr",
-                              it: [
-                                {
-                                  ind: 0,
-                                  ty: "sh",
-                                  ix: 1,
-                                  ks: {
-                                    a: 0,
-                                    k: {
-                                      i: [
-                                        [0, 0],
-                                        [3.014, 14.749],
-                                        [3.965, 0],
-                                        [0, 0],
-                                        [0, -4.698],
-                                        [0, 0],
-                                        [-4.698, 0],
-                                        [0, 0],
-                                        [0, 4.697],
-                                        [0, 0],
-                                        [4.698, 0]
-                                      ],
-                                      o: [
-                                        [-15.647, 0],
-                                        [-0.794, -3.885],
-                                        [0, 0],
-                                        [-4.698, 0],
-                                        [0, 0],
-                                        [0, 4.697],
-                                        [0, 0],
-                                        [4.698, 0],
-                                        [0, 0],
-                                        [0, -4.698],
-                                        [0, 0]
-                                      ],
-                                      v: [
-                                        [20.122, -50.618],
-                                        [-11.574, -76.446],
-                                        [-19.986, -82.971],
-                                        [-47.479, -82.971],
-                                        [-55.985, -74.465],
-                                        [-55.985, 74.465],
-                                        [-47.479, 82.971],
-                                        [47.479, 82.971],
-                                        [55.985, 74.465],
-                                        [55.985, -42.112],
-                                        [47.479, -50.618]
-                                      ],
-                                      c: true
-                                    },
-                                    ix: 2
-                                  },
-                                  nm: "Path 1",
-                                  mn: "ADBE Vector Shape - Group",
-                                  hd: false
-                                },
-                                {
-                                  ty: "fl",
-                                  c: {
-                                    a: 0,
-                                    k: [0.3059, 0.2275, 0.5098, 1],
-                                    ix: 4,
-                                    x: "var $bm_rt;\ntry {\n    $bm_rt = thisComp.layer('Controller').effect('Color 3')('ADBE Color Control-0001');\n} catch (e) {\n    $bm_rt = value;\n}"
-                                  },
-                                  o: { a: 0, k: 100, ix: 5 },
-                                  r: 1,
-                                  bm: 0,
-                                  nm: "Fill 1",
-                                  mn: "ADBE Vector Graphic - Fill",
-                                  hd: false
-                                },
-                                {
-                                  ty: "tr",
-                                  p: { a: 0, k: [56.235, 83.221], ix: 2 },
-                                  a: { a: 0, k: [0, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100], ix: 3 },
-                                  r: { a: 0, k: 0, ix: 6 },
-                                  o: { a: 0, k: 100, ix: 7 },
-                                  sk: { a: 0, k: 0, ix: 4 },
-                                  sa: { a: 0, k: 0, ix: 5 },
-                                  nm: "Transform"
-                                }
-                              ],
-                              nm: "Group 1",
-                              np: 2,
-                              cix: 2,
-                              bm: 0,
-                              ix: 1,
-                              mn: "ADBE Vector Group",
-                              hd: false
-                            }
-                          ],
-                          ip: 0,
-                          op: 150,
-                          st: 0,
-                          bm: 0
-                        },
-                        {
-                          ddd: 0,
-                          ind: 6,
-                          ty: 4,
-                          nm: "Place 2",
-                          parent: 7,
-                          sr: 1,
-                          ks: {
-                            o: { a: 0, k: 100, ix: 11 },
-                            r: { a: 0, k: 0, ix: 10 },
-                            p: { a: 0, k: [253.113, 231.337, 0], ix: 2 },
-                            a: { a: 0, k: [56.235, 83.221, 0], ix: 1 },
-                            s: {
-                              a: 1,
-                              k: [
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 10,
-                                  s: [100, 100, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 22,
-                                  s: [92, 92, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 47,
-                                  s: [92, 92, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 59,
-                                  s: [100, 100, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 85,
-                                  s: [100, 100, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 97,
-                                  s: [92, 92, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 122,
-                                  s: [92, 92, 100]
-                                },
-                                { t: 134, s: [100, 100, 100] }
-                              ],
-                              ix: 6
-                            }
-                          },
-                          ao: 0,
-                          shapes: [
-                            {
-                              ty: "gr",
-                              it: [
-                                {
-                                  ind: 0,
-                                  ty: "sh",
-                                  ix: 1,
-                                  ks: {
-                                    a: 0,
-                                    k: {
-                                      i: [
-                                        [0, 0],
-                                        [-3.014, 14.749],
-                                        [-3.965, 0],
-                                        [0, 0],
-                                        [0, -4.698],
-                                        [0, 0],
-                                        [4.698, 0],
-                                        [0, 0],
-                                        [0, 4.697],
-                                        [0, 0],
-                                        [-4.698, 0]
-                                      ],
-                                      o: [
-                                        [15.647, 0],
-                                        [0.794, -3.885],
-                                        [0, 0],
-                                        [4.698, 0],
-                                        [0, 0],
-                                        [0, 4.697],
-                                        [0, 0],
-                                        [-4.698, 0],
-                                        [0, 0],
-                                        [0, -4.698],
-                                        [0, 0]
-                                      ],
-                                      v: [
-                                        [-20.122, -50.618],
-                                        [11.574, -76.446],
-                                        [19.986, -82.971],
-                                        [47.479, -82.971],
-                                        [55.985, -74.465],
-                                        [55.985, 74.465],
-                                        [47.479, 82.971],
-                                        [-47.479, 82.971],
-                                        [-55.985, 74.465],
-                                        [-55.985, -42.112],
-                                        [-47.479, -50.618]
-                                      ],
-                                      c: true
-                                    },
-                                    ix: 2
-                                  },
-                                  nm: "Path 1",
-                                  mn: "ADBE Vector Shape - Group",
-                                  hd: false
-                                },
-                                {
-                                  ty: "fl",
-                                  c: {
-                                    a: 0,
-                                    k: [0.3059, 0.2275, 0.5098, 1],
-                                    ix: 4,
-                                    x: "var $bm_rt;\ntry {\n    $bm_rt = thisComp.layer('Controller')('Effects')('Color 3')('ADBE Color Control-0001');\n} catch (e) {\n    $bm_rt = value;\n}"
-                                  },
-                                  o: { a: 0, k: 100, ix: 5 },
-                                  r: 1,
-                                  bm: 0,
-                                  nm: "Fill 1",
-                                  mn: "ADBE Vector Graphic - Fill",
-                                  hd: false
-                                },
-                                {
-                                  ty: "tr",
-                                  p: { a: 0, k: [56.235, 83.221], ix: 2 },
-                                  a: { a: 0, k: [0, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100], ix: 3 },
-                                  r: { a: 0, k: 0, ix: 6 },
-                                  o: { a: 0, k: 100, ix: 7 },
-                                  sk: { a: 0, k: 0, ix: 4 },
-                                  sa: { a: 0, k: 0, ix: 5 },
-                                  nm: "Transform"
-                                }
-                              ],
-                              nm: "Group 1",
-                              np: 2,
-                              cix: 2,
-                              bm: 0,
-                              ix: 1,
-                              mn: "ADBE Vector Group",
-                              hd: false
-                            }
-                          ],
-                          ip: 0,
-                          op: 150,
-                          st: 0,
-                          bm: 0
-                        },
-                        {
-                          ddd: 0,
-                          ind: 7,
-                          ty: 4,
-                          nm: "Main",
-                          sr: 1,
-                          ks: {
-                            o: { a: 0, k: 100, ix: 11 },
-                            r: { a: 0, k: 0, ix: 10 },
-                            p: { a: 0, k: [250, 250, 0], ix: 2 },
-                            a: { a: 0, k: [175.25, 175.25, 0], ix: 1 },
-                            s: {
-                              a: 1,
-                              k: [
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 0,
-                                  s: [100, 100, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 22,
-                                  s: [92, 92, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 47,
-                                  s: [92, 92, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 70,
-                                  s: [100, 100, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 75,
-                                  s: [100, 100, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 97,
-                                  s: [92, 92, 100]
-                                },
-                                {
-                                  i: { x: [0.5, 0.5, 0.5], y: [1, 1, 1] },
-                                  o: { x: [0.5, 0.5, 0.5], y: [0, 0, 0] },
-                                  t: 122,
-                                  s: [92, 92, 100]
-                                },
-                                { t: 145, s: [100, 100, 100] }
-                              ],
-                              ix: 6
-                            }
-                          },
-                          ao: 0,
-                          shapes: [
-                            {
-                              ty: "gr",
-                              it: [
-                                {
-                                  ind: 0,
-                                  ty: "sh",
-                                  ix: 1,
-                                  ks: {
-                                    a: 0,
-                                    k: {
-                                      i: [
-                                        [11.771, 0],
-                                        [0, 0],
-                                        [38.711, 0],
-                                        [25.415, -25.317],
-                                        [0, 0],
-                                        [0, -11.771],
-                                        [0, 0],
-                                        [-11.772, 0],
-                                        [0, 0],
-                                        [0, 11.772],
-                                        [0, 0]
-                                      ],
-                                      o: [
-                                        [0, 0],
-                                        [-25.415, -25.317],
-                                        [-38.71, 0],
-                                        [0, 0],
-                                        [-11.772, 0],
-                                        [0, 0],
-                                        [0, 11.772],
-                                        [0, 0],
-                                        [11.771, 0],
-                                        [0, 0],
-                                        [0, -11.771]
-                                      ],
-                                      v: [
-                                        [153.598, -133.981],
-                                        [99.116, -133.981],
-                                        [0, -175],
-                                        [-99.115, -133.981],
-                                        [-153.597, -133.981],
-                                        [-175, -112.579],
-                                        [-175, 153.597],
-                                        [-153.597, 175],
-                                        [153.598, 175],
-                                        [175, 153.597],
-                                        [175, -112.579]
-                                      ],
-                                      c: true
-                                    },
-                                    ix: 2
-                                  },
-                                  nm: "Path 1",
-                                  mn: "ADBE Vector Shape - Group",
-                                  hd: false
-                                },
-                                {
-                                  ty: "fl",
-                                  c: {
-                                    a: 0,
-                                    k: [0.6107, 0.5071, 0.8729, 1],
-                                    ix: 4,
-                                    x: "var $bm_rt;\ntry {\n    $bm_rt = thisComp.layer('Controller').effect('Color 4')('ADBE Color Control-0001');\n} catch (e) {\n    $bm_rt = value;\n}"
-                                  },
-                                  o: { a: 0, k: 100, ix: 5 },
-                                  r: 1,
-                                  bm: 0,
-                                  nm: "Fill 1",
-                                  mn: "ADBE Vector Graphic - Fill",
-                                  hd: false
-                                },
-                                {
-                                  ty: "tr",
-                                  p: { a: 0, k: [175.25, 175.25], ix: 2 },
-                                  a: { a: 0, k: [0, 0], ix: 1 },
-                                  s: { a: 0, k: [100, 100], ix: 3 },
-                                  r: { a: 0, k: 0, ix: 6 },
-                                  o: { a: 0, k: 100, ix: 7 },
-                                  sk: { a: 0, k: 0, ix: 4 },
-                                  sa: { a: 0, k: 0, ix: 5 },
-                                  nm: "Transform"
-                                }
-                              ],
-                              nm: "Group 1",
-                              np: 2,
-                              cix: 2,
-                              bm: 0,
-                              ix: 1,
-                              mn: "ADBE Vector Group",
-                              hd: false
-                            }
-                          ],
-                          ip: 0,
-                          op: 150,
-                          st: 0,
-                          bm: 0
-                        }
-                      ],
-                      markers: []
-                    }}
-                    className={classNames("__wab_instance", sty.lottie__qtTda)}
-                  />
-
                   <div
                     className={classNames(
                       projectcss.all,
@@ -5050,11 +4315,39 @@ function PlasmicFood__RenderFunc(props: {
                       sty.text__eEx1I
                     )}
                   >
-                    {
-                      " \u0648\u0632\u0646\u062a\u0648 \u0628\u0631\u0648\u0632 \u06a9\u0646!"
-                    }
+                    {"\u0648\u0632\u0646    "}
                   </div>
-                </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__yQkEy,
+                      "negative"
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return (
+                            $state.foodinfo.data.data[0].value.weight + " kg "
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "\u0648\u0632\u0646    ";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <Icon106Icon
+                    className={classNames(projectcss.all, sty.svg__r8Hsa)}
+                    role={"img"}
+                  />
+                </Stack__>
               </div>
               <Stack__
                 as={"div"}
@@ -5198,32 +4491,48 @@ function PlasmicFood__RenderFunc(props: {
                             sty.freeBox__euqVx
                           )}
                         >
-                          <div
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__utlsh
+                              sty.freeBox__fFdIz
                             )}
                           >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return $state.harmfulFood.find(
-                                    item => item.id === currentItem.id
-                                  ).title;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "\u0641\u0633\u062a \u0641\u0648\u062f";
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__utlsh
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $state.harmfulFood.find(
+                                      item => item.id === currentItem.id
+                                    ).title;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u0641\u0633\u062a \u0641\u0648\u062f";
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
+                                })()}
+                              </React.Fragment>
+                            </div>
+                            <Icon67Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__hrx36
+                              )}
+                              role={"img"}
+                            />
+                          </Stack__>
                           <div
                             className={classNames(
                               projectcss.all,
@@ -5286,10 +4595,6 @@ function PlasmicFood__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </div>
-                        <Icon67Icon
-                          className={classNames(projectcss.all, sty.svg__hrx36)}
-                          role={"img"}
-                        />
                       </div>
                       <Stack__
                         as={"div"}
@@ -6600,6 +5905,8 @@ function PlasmicFood__RenderFunc(props: {
                 }
               })() ? (
                 <LottieWrapper
+                  data-plasmic-name={"lottie"}
+                  data-plasmic-override={overrides.lottie}
                   animationData={{
                     v: "5.6.10",
                     fr: 30,
@@ -9112,7 +8419,7 @@ function PlasmicFood__RenderFunc(props: {
                     markers: []
                   }}
                   autoplay={true}
-                  className={classNames("__wab_instance", sty.lottie__gJcV)}
+                  className={classNames("__wab_instance", sty.lottie)}
                   loop={true}
                   preview={false}
                 />
@@ -9146,7 +8453,8 @@ const PlasmicDescendants = {
     "modal2",
     "rangeSlider",
     "sliderMark",
-    "input2",
+    "input5",
+    "numberInput",
     "input3",
     "kabed",
     "diabet",
@@ -9161,6 +8469,7 @@ const PlasmicDescendants = {
     "previousWeek",
     "foodinfo",
     "modal3",
+    "lottie",
     "favicon"
   ],
   foodbox: ["foodbox"],
@@ -9172,7 +8481,8 @@ const PlasmicDescendants = {
     "modal2",
     "rangeSlider",
     "sliderMark",
-    "input2",
+    "input5",
+    "numberInput",
     "input3",
     "kabed",
     "diabet",
@@ -9182,7 +8492,8 @@ const PlasmicDescendants = {
   ],
   rangeSlider: ["rangeSlider", "sliderMark"],
   sliderMark: ["sliderMark"],
-  input2: ["input2"],
+  input5: ["input5"],
+  numberInput: ["numberInput"],
   input3: ["input3"],
   kabed: ["kabed"],
   diabet: ["diabet"],
@@ -9197,6 +8508,7 @@ const PlasmicDescendants = {
   previousWeek: ["previousWeek"],
   foodinfo: ["foodinfo"],
   modal3: ["modal3"],
+  lottie: ["lottie"],
   favicon: ["favicon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -9212,7 +8524,8 @@ type NodeDefaultElementType = {
   modal2: typeof AntdModal;
   rangeSlider: typeof AntdRangeSlider;
   sliderMark: typeof AntdSliderMark;
-  input2: typeof Input;
+  input5: typeof Input;
+  numberInput: typeof AntdInputNumber;
   input3: typeof Input;
   kabed: typeof AntdRadioGroup;
   diabet: typeof AntdRadioGroup;
@@ -9227,6 +8540,7 @@ type NodeDefaultElementType = {
   previousWeek: typeof ApiRequest;
   foodinfo: typeof ApiRequest;
   modal3: typeof AntdModal;
+  lottie: typeof LottieWrapper;
   favicon: typeof Embed;
 };
 
@@ -9323,7 +8637,8 @@ export const PlasmicFood = Object.assign(
     modal2: makeNodeComponent("modal2"),
     rangeSlider: makeNodeComponent("rangeSlider"),
     sliderMark: makeNodeComponent("sliderMark"),
-    input2: makeNodeComponent("input2"),
+    input5: makeNodeComponent("input5"),
+    numberInput: makeNodeComponent("numberInput"),
     input3: makeNodeComponent("input3"),
     kabed: makeNodeComponent("kabed"),
     diabet: makeNodeComponent("diabet"),
@@ -9338,6 +8653,7 @@ export const PlasmicFood = Object.assign(
     previousWeek: makeNodeComponent("previousWeek"),
     foodinfo: makeNodeComponent("foodinfo"),
     modal3: makeNodeComponent("modal3"),
+    lottie: makeNodeComponent("lottie"),
     favicon: makeNodeComponent("favicon"),
 
     // Metadata about props expected for PlasmicFood

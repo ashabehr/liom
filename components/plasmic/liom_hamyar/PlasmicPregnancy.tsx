@@ -3827,7 +3827,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                               }
                             )}
                             percent={parseInt(
-                              (($state.daysPregnant * 100) / 280).toFixed()
+                              (
+                                ((280 - $state.daysPregnant) * 100) /
+                                280
+                              ).toFixed()
                             )}
                             strokeColor={"#FAAD14"}
                             strokeLinecap={
