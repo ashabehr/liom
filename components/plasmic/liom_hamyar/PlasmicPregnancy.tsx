@@ -3123,7 +3123,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         )}
                       >
                         {
-                          "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632 : "
+                          "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632 \u0628\u0631\u0627\u06cc \u062a\u0648 : "
                         }
                       </div>
                       <div
@@ -3776,10 +3776,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   $state.daysPregnant -
                                   ($state.weeksPregnant - 1) * 7 !=
                                 0
-                                  ? 280 -
-                                    $state.daysPregnant -
-                                    ($state.weeksPregnant - 1) * 7 -
-                                    1 +
+                                  ? "و " +
+                                    (280 -
+                                      $state.daysPregnant -
+                                      ($state.weeksPregnant - 1) * 7 -
+                                      1) +
                                     " روز "
                                   : "") +
                                 " از بارداریت رو سپری کردی و " +
@@ -4474,7 +4475,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     try {
                                       return (
                                         " هفته " +
-                                        $state.textWeek[$state.weeksPregnant]
+                                        $state.textWeek[$state.weeksPregnant] +
+                                        " بارداری "
                                       );
                                     } catch (e) {
                                       if (
