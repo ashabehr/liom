@@ -2768,7 +2768,7 @@ function PlasmicFood__RenderFunc(props: {
                                                 "mobile"
                                               )
                                                 ? "kg"
-                                                : "\u0633\u0646"
+                                                : "kg"
                                             }
                                             step={1}
                                             type={"number"}
@@ -3215,11 +3215,15 @@ function PlasmicFood__RenderFunc(props: {
                                         })()
                                       : (() => {
                                           try {
-                                            return (
-                                              $state.loadingbtn ||
-                                              $state.input3.value.length == 0 ||
-                                              $state.input5.value.length == 0
-                                            );
+                                            return (() => {
+                                              return (
+                                                $state.loadingbtn ||
+                                                $state.numberInput.value ==
+                                                  null ||
+                                                $state.numberInput2.value ==
+                                                  null
+                                              );
+                                            })();
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||

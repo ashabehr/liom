@@ -1309,40 +1309,67 @@ function PlasmicPregnancy__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__b6F1Z)}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__whQxm,
-                          {
-                            [sty.textdarkMod__whQxmoQOo]: hasVariant(
-                              $state,
-                              "darkMod",
-                              "darkMod"
-                            )
+                      {(() => {
+                        try {
+                          return (
+                            !$state.getUserInfo.loading &&
+                            $state.getUserInfo.data[0].success
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
                           }
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (() => {
-                                "مامانِ رومینا";
-                                "مامان سارا";
-                                return "مامان عزیز";
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632";
-                              }
-                              throw e;
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__whQxm,
+                            {
+                              [sty.textdarkMod__whQxmoQOo]: hasVariant(
+                                $state,
+                                "darkMod",
+                                "darkMod"
+                              )
                             }
-                          })()}
-                        </React.Fragment>
-                      </div>
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  var random = Math.floor(Math.random() * 3);
+                                  switch (random) {
+                                    case 0:
+                                      return " مامانِ رومینا";
+                                    case 1:
+                                      return (
+                                        "مامان " +
+                                        $state.getUserInfo?.data?.[0].result
+                                          ?.user?.name
+                                      );
+                                    case 2:
+                                      return "مامان عزیز";
+                                  }
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      ) : null}
                       <div
                         className={classNames(
                           projectcss.all,
