@@ -134,6 +134,7 @@ export type PlasmicFood__OverridesType = {
   input5?: Flex__<typeof Input>;
   numberInput?: Flex__<typeof AntdInputNumber>;
   input3?: Flex__<typeof Input>;
+  numberInput2?: Flex__<typeof AntdInputNumber>;
   kabed?: Flex__<typeof AntdRadioGroup>;
   diabet?: Flex__<typeof AntdRadioGroup>;
   button3?: Flex__<typeof Button>;
@@ -954,7 +955,39 @@ function PlasmicFood__RenderFunc(props: {
         path: "numberInput.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.age;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "numberInput2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.withe;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -2151,8 +2184,8 @@ function PlasmicFood__RenderFunc(props: {
                                             handleClassName: classNames({
                                               [sty["pcls_l4143iXcxZ2i"]]: true
                                             }),
-                                            max: 210,
-                                            min: 120,
+                                            max: 250,
+                                            min: 100,
                                             onChange: async (
                                               ...eventArgs: any
                                             ) => {
@@ -2340,12 +2373,12 @@ function PlasmicFood__RenderFunc(props: {
                                                       customFunction:
                                                         async () => {
                                                           return (() => {
-                                                            $state.input5.value += 1;
+                                                            $state.numberInput.value += 1;
                                                             if (
-                                                              $state.input5
+                                                              $state.numberInput
                                                                 .value == null
                                                             )
-                                                              return ($state.input5.value = 1);
+                                                              return ($state.numberInput.value = 1);
                                                           })();
                                                         }
                                                     };
@@ -2469,16 +2502,25 @@ function PlasmicFood__RenderFunc(props: {
                                             data-plasmic-override={
                                               overrides.numberInput
                                             }
+                                            bordered={false}
                                             className={classNames(
                                               "__wab_instance",
                                               sty.numberInput
                                             )}
-                                            max={200}
+                                            max={190}
                                             min={10}
-                                            onChange={generateStateOnChangeProp(
-                                              $state,
-                                              ["numberInput", "value"]
-                                            )}
+                                            onChange={async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                ["numberInput", "value"]
+                                              ).apply(null, eventArgs);
+                                              (async value => {
+                                                const $steps = {};
+                                              }).apply(null, eventArgs);
+                                            }}
+                                            placeholder={"\u0633\u0646"}
                                             step={1}
                                             type={"number"}
                                             value={generateStateValueProp(
@@ -2502,10 +2544,10 @@ function PlasmicFood__RenderFunc(props: {
                                                         async () => {
                                                           return (() => {
                                                             if (
-                                                              $state.input5
+                                                              $state.numberInput
                                                                 .value > 0
                                                             )
-                                                              return ($state.input5.value -= 1);
+                                                              return ($state.numberInput.value -= 1);
                                                           })();
                                                         }
                                                     };
@@ -2578,7 +2620,7 @@ function PlasmicFood__RenderFunc(props: {
                                                     const actionArgs = {
                                                       customFunction:
                                                         async () => {
-                                                          return ($state.input3.value += 1);
+                                                          return ($state.numberInput2.value += 1);
                                                         }
                                                     };
                                                     return (({
@@ -2633,9 +2675,9 @@ function PlasmicFood__RenderFunc(props: {
                                                           ]
                                                         },
                                                         operation: 0,
-                                                        value: parseInt(
-                                                          $state.input3.value
-                                                        )
+                                                        value:
+                                                          $state.numberInput2
+                                                            .value
                                                       };
                                                       return (({
                                                         variable,
@@ -2702,6 +2744,40 @@ function PlasmicFood__RenderFunc(props: {
                                             )}
                                           />
 
+                                          <AntdInputNumber
+                                            data-plasmic-name={"numberInput2"}
+                                            data-plasmic-override={
+                                              overrides.numberInput2
+                                            }
+                                            bordered={false}
+                                            className={classNames(
+                                              "__wab_instance",
+                                              sty.numberInput2
+                                            )}
+                                            max={300}
+                                            maxLength={3}
+                                            min={20}
+                                            onChange={generateStateOnChangeProp(
+                                              $state,
+                                              ["numberInput2", "value"]
+                                            )}
+                                            placeholder={
+                                              hasVariant(
+                                                globalVariants,
+                                                "screen",
+                                                "mobile"
+                                              )
+                                                ? "kg"
+                                                : "\u0633\u0646"
+                                            }
+                                            step={1}
+                                            type={"number"}
+                                            value={generateStateValueProp(
+                                              $state,
+                                              ["numberInput2", "value"]
+                                            )}
+                                          />
+
                                           <Icon48Icon
                                             className={classNames(
                                               projectcss.all,
@@ -2717,10 +2793,11 @@ function PlasmicFood__RenderFunc(props: {
                                                         async () => {
                                                           return (() => {
                                                             if (
-                                                              $state.input3
+                                                              $state
+                                                                .numberInput2
                                                                 .value != 0
                                                             )
-                                                              return ($state.input3.value -= 1);
+                                                              return ($state.numberInput2.value -= 1);
                                                           })();
                                                         }
                                                     };
@@ -3116,10 +3193,15 @@ function PlasmicFood__RenderFunc(props: {
                                     )
                                       ? (() => {
                                           try {
-                                            return (
-                                              $state.loadingbtn ||
-                                              $state.input3.value.length == 0
-                                            );
+                                            return (() => {
+                                              return (
+                                                $state.loadingbtn ||
+                                                $state.numberInput.value ==
+                                                  null ||
+                                                $state.numberInput2.value ==
+                                                  null
+                                              );
+                                            })();
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
@@ -3211,8 +3293,11 @@ function PlasmicFood__RenderFunc(props: {
                                                     dataType: "info Tracker",
                                                     value: {
                                                       height: $state.heghit,
-                                                      weight: $state.weight,
-                                                      age: $state.age,
+                                                      weight:
+                                                        $state.numberInput2
+                                                          .value,
+                                                      age: $state.numberInput
+                                                        .value,
                                                       liver:
                                                         $state.liverDisease,
                                                       diabetes: $state.diabetes
@@ -4245,7 +4330,7 @@ function PlasmicFood__RenderFunc(props: {
                                       "screen",
                                       "mobile"
                                     )
-                                      ? "\u0627\u062f\u0627\u0645\u0647"
+                                      ? "\u0634\u0631\u0648\u0639"
                                       : "\u0634\u0631\u0648\u0639"}
                                   </div>
                                 </Button>
@@ -8456,6 +8541,7 @@ const PlasmicDescendants = {
     "input5",
     "numberInput",
     "input3",
+    "numberInput2",
     "kabed",
     "diabet",
     "button3",
@@ -8484,6 +8570,7 @@ const PlasmicDescendants = {
     "input5",
     "numberInput",
     "input3",
+    "numberInput2",
     "kabed",
     "diabet",
     "button3",
@@ -8495,6 +8582,7 @@ const PlasmicDescendants = {
   input5: ["input5"],
   numberInput: ["numberInput"],
   input3: ["input3"],
+  numberInput2: ["numberInput2"],
   kabed: ["kabed"],
   diabet: ["diabet"],
   button3: ["button3"],
@@ -8527,6 +8615,7 @@ type NodeDefaultElementType = {
   input5: typeof Input;
   numberInput: typeof AntdInputNumber;
   input3: typeof Input;
+  numberInput2: typeof AntdInputNumber;
   kabed: typeof AntdRadioGroup;
   diabet: typeof AntdRadioGroup;
   button3: typeof Button;
@@ -8640,6 +8729,7 @@ export const PlasmicFood = Object.assign(
     input5: makeNodeComponent("input5"),
     numberInput: makeNodeComponent("numberInput"),
     input3: makeNodeComponent("input3"),
+    numberInput2: makeNodeComponent("numberInput2"),
     kabed: makeNodeComponent("kabed"),
     diabet: makeNodeComponent("diabet"),
     button3: makeNodeComponent("button3"),
