@@ -1,7 +1,7 @@
-import React, { useState, useEffect,useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Picker from 'rmc-picker';
 import Jalaali from 'jalaali-js';
-import { CodeComponentMeta } from "@plasmicapp/host";
+import { CodeComponentMeta } from '@plasmicapp/host';
 import 'rmc-picker/assets/index.css';
 
 type DatePickersProps = {
@@ -10,6 +10,7 @@ type DatePickersProps = {
   SelectedMonth?: number;
   SelectedYear?: number;
   selectedValues?: { day: number; month: number; year: number };
+  customYears?: { value: number; label: string }[]; // پراپ جدید برای ورودی سال‌ها
   className?: string;
 };
 
@@ -20,6 +21,7 @@ export const DatePickers = (props: DatePickersProps) => {
     SelectedMonth = 10,
     SelectedYear = 1403,
     selectedValues = {},
+    customYears = [], // مقدار پیش‌فرض برای customYears
     className,
   } = props;
 
@@ -42,6 +44,7 @@ export const DatePickers = (props: DatePickersProps) => {
 
   const currentYear = Jalaali.toJalaali(new Date()).jy;
 
+  // آرایه ماه‌ها
   const months = [
     { value: 1, label: 'فروردین' },
     { value: 2, label: 'اردیبهشت' },
@@ -57,17 +60,21 @@ export const DatePickers = (props: DatePickersProps) => {
     { value: 12, label: 'اسفند' },
   ].map((month) => ({ ...month, label: toPersianDigits(month.label) }));
 
-  const years = Array.from({ length: currentYear - 1300 + 1 }, (_, i) => {
-    const year = 1300 + i;
-    return { value: year, label: toPersianDigits(year) };
-  });
+  // آرایه سال‌ها
+  const years =
+    customYears.length > 0
+      ? customYears
+      : Array.from({ length: currentYear - 1300 + 1 }, (_, i) => {
+          const year = 1300 + i;
+          return { value: year, label: toPersianDigits(year) };
+        });
 
   const onChangeRef = useRef(onChange);
 
   useEffect(() => {
     onChangeRef.current = onChange;
   }, [onChange]);
-  
+
   useEffect(() => {
     const values = { day: selectedDay, month: selectedMonth, year: selectedYear };
     if (onChangeRef.current) {
@@ -81,24 +88,33 @@ export const DatePickers = (props: DatePickersProps) => {
     setSelectedYear(SelectedYear);
   }, [SelectedDay, SelectedMonth, SelectedYear]);
 
-  const handleChangeDay = useCallback((value: string | number) => {
-    if (selectedDay !== Number(value)) {
-      setSelectedDay(Number(value));
-    }
-  }, [selectedDay]);
-  
-  const handleChangeMonth = useCallback((value: string | number) => {
-    if (selectedMonth !== Number(value)) {
-      setSelectedMonth(Number(value));
-    }
-  }, [selectedMonth]);
-  
-  const handleChangeYear = useCallback((value: string | number) => {
-    if (selectedYear !== Number(value)) {
-      setSelectedYear(Number(value));
-    }
-  }, [selectedYear]);
-  
+  const handleChangeDay = useCallback(
+    (value: string | number) => {
+      if (selectedDay !== Number(value)) {
+        setSelectedDay(Number(value));
+      }
+    },
+    [selectedDay]
+  );
+
+  const handleChangeMonth = useCallback(
+    (value: string | number) => {
+      if (selectedMonth !== Number(value)) {
+        setSelectedMonth(Number(value));
+      }
+    },
+    [selectedMonth]
+  );
+
+  const handleChangeYear = useCallback(
+    (value: string | number) => {
+      if (selectedYear !== Number(value)) {
+        setSelectedYear(Number(value));
+      }
+    },
+    [selectedYear]
+  );
+
   return (
     <div className={className}>
       <Picker selectedValue={selectedDay} onValueChange={handleChangeDay}>
@@ -158,13 +174,18 @@ export const DatePickersMeta: CodeComponentMeta<DatePickersProps> = {
       type: 'object',
       defaultValue: {},
     },
+    customYears: {
+      type: 'object',
+      defaultValue: [],
+      description: 'Custom years array to override the default generated years.',
+    },
   },
   states: {
     value: {
-      type: "writable",
-      variableType: "object",
-      valueProp: "selectedValues",
-      onChangeProp: "onChange",
+      type: 'writable',
+      variableType: 'object',
+      valueProp: 'selectedValues',
+      onChangeProp: 'onChange',
     },
   },
 };
