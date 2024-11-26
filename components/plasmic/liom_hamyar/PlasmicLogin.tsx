@@ -63,6 +63,8 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import LoginBox from "../../LoginBox"; // plasmic-import: eH_yQdxVywwP/component
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -88,6 +90,7 @@ export const PlasmicLogin__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicLogin__OverridesType = {
   root?: Flex__<"div">;
+  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultLoginProps {}
@@ -132,6 +135,10 @@ function PlasmicLogin__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -159,7 +166,39 @@ function PlasmicLogin__RenderFunc(props: {
             sty.root
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__mjVxO)}>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__mjVxO)}
+          >
+            <PlasmicImg__
+              data-plasmic-name={"img"}
+              data-plasmic-override={overrides.img}
+              alt={""}
+              className={classNames(sty.img)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "100px"
+                  : "150px"
+              }
+              loading={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "eager"
+                  : "lazy"
+              }
+              src={{
+                src: "/plasmic/liom_hamyar/images/image35.png",
+                fullWidth: 1029,
+                fullHeight: 1029,
+                aspectRatio: undefined
+              }}
+            />
+
             <div
               className={classNames(
                 projectcss.all,
@@ -225,7 +264,7 @@ function PlasmicLogin__RenderFunc(props: {
                 />
               </LoginBox>
             </Stack__>
-          </div>
+          </Stack__>
         </div>
       </div>
     </React.Fragment>
@@ -233,13 +272,15 @@ function PlasmicLogin__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "img"],
+  img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -327,6 +368,7 @@ export const PlasmicLogin = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,

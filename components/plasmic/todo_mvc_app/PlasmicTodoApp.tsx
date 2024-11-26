@@ -66,7 +66,6 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
-import ضصث from "../../\u0636\u0635\u062B"; // plasmic-import: jRRQtDe8tllq/component
 import Task from "../../Task"; // plasmic-import: TB3wx1w_IrFj/component
 import Footer from "../../Footer"; // plasmic-import: sxxS2rEPgX_V/component
 import Asd from "../../Asd"; // plasmic-import: 4dA70KmcJjpi/component
@@ -100,8 +99,6 @@ export type PlasmicTodoApp__OverridesType = {
   root?: Flex__<"div">;
   appTitle?: Flex__<"div">;
   appBody?: Flex__<"div">;
-  link?: Flex__<"a"> & Partial<LinkProps>;
-  ضصیش?: Flex__<typeof ضصث>;
   tasksContainer?: Flex__<"div">;
   task?: Flex__<typeof Task>;
   footer?: Flex__<typeof Footer>;
@@ -275,31 +272,6 @@ function PlasmicTodoApp__RenderFunc(props: {
                 )
               })}
             >
-              <PlasmicLink__
-                data-plasmic-name={"link"}
-                data-plasmic-override={overrides.link}
-                className={classNames(projectcss.all, projectcss.a, sty.link, {
-                  [sty.linkstate_empty]: hasVariant($state, "state", "empty")
-                })}
-                component={Link}
-                platform={"nextjs"}
-              >
-                <ضصث
-                  data-plasmic-name={"\u0636\u0635\u06cc\u0634"}
-                  data-plasmic-override={overrides.ضصیش}
-                  className={classNames("__wab_instance", sty.ضصیش, {
-                    [sty.ضصیشglobal_theme_dark]: hasVariant(
-                      globalVariants,
-                      "theme",
-                      "dark"
-                    ),
-                    [sty.ضصیشstate_empty]: hasVariant($state, "state", "empty")
-                  })}
-                  state={
-                    hasVariant($state, "state", "empty") ? "empty" : undefined
-                  }
-                />
-              </PlasmicLink__>
               {(hasVariant($state, "state", "empty") ? false : true) ? (
                 <div
                   data-plasmic-name={"tasksContainer"}
@@ -452,8 +424,6 @@ const PlasmicDescendants = {
     "root",
     "appTitle",
     "appBody",
-    "link",
-    "\u0636\u0635\u06cc\u0634",
     "tasksContainer",
     "task",
     "footer",
@@ -461,16 +431,7 @@ const PlasmicDescendants = {
     "asd"
   ],
   appTitle: ["appTitle"],
-  appBody: [
-    "appBody",
-    "link",
-    "\u0636\u0635\u06cc\u0634",
-    "tasksContainer",
-    "task",
-    "footer"
-  ],
-  link: ["link", "\u0636\u0635\u06cc\u0634"],
-  ضصیش: ["\u0636\u0635\u06cc\u0634"],
+  appBody: ["appBody", "tasksContainer", "task", "footer"],
   tasksContainer: ["tasksContainer", "task"],
   task: ["task"],
   footer: ["footer"],
@@ -484,8 +445,6 @@ type NodeDefaultElementType = {
   root: "div";
   appTitle: "div";
   appBody: "div";
-  link: "a";
-  ضصیش: typeof ضصث;
   tasksContainer: "div";
   task: typeof Task;
   footer: typeof Footer;
@@ -580,8 +539,6 @@ export const PlasmicTodoApp = Object.assign(
     // Helper components rendering sub-elements
     appTitle: makeNodeComponent("appTitle"),
     appBody: makeNodeComponent("appBody"),
-    link: makeNodeComponent("link"),
-    ضصیش: makeNodeComponent("\u0636\u0635\u06cc\u0634"),
     tasksContainer: makeNodeComponent("tasksContainer"),
     task: makeNodeComponent("task"),
     footer: makeNodeComponent("footer"),

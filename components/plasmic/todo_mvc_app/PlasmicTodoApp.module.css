@@ -72,14 +72,6 @@
   box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.5);
   background: var(--token-_wos1hXSjLbY);
 }
-.link {
-  position: relative;
-  align-self: stretch;
-  display: flex;
-}
-.linkstate_empty {
-  align-self: stretch;
-}
 .tasksContainer {
   display: flex;
   flex-direction: column;

@@ -1825,6 +1825,11 @@
           "id": "vm7zY_OLAJfj",
           "name": "image 34",
           "filePath": "../public/plasmic/liom_hamyar/images/image34.png"
+        },
+        {
+          "id": "CL32aRND8PxE",
+          "name": "image 35",
+          "filePath": "../public/plasmic/liom_hamyar/images/image35.png"
         }
       ],
       "indirect": false,
@@ -3363,7 +3368,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-link-preview"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {

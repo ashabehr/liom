@@ -77,7 +77,6 @@ import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/reg
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
@@ -543,7 +542,7 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "editModal.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "dateOfBirth",
@@ -1485,38 +1484,16 @@ function PlasmicPregnancy__RenderFunc(props: {
                             {(() => {
                               try {
                                 return (() => {
-                                  var random = Math.floor(Math.random() * 3);
-                                  if (
-                                    $state.getInfo?.data?.[0]?.result?.pregnancy
-                                      ?.childrenName?.length <= 1
-                                  ) {
-                                    if (
-                                      $state.getInfo?.data?.[0]?.result
-                                        ?.pregnancy?.childrenName?.length == 0
-                                    )
-                                      random = Math.floor(Math.random() * 2);
-                                    switch (random) {
-                                      case 0:
-                                        return "مامان عزیز";
-                                      case 1:
-                                        return (
-                                          "مامان " +
-                                          $state.getUserInfo?.data?.[0]?.result
-                                            ?.user?.name
-                                        );
-                                      case 2:
-                                        return " مامانِ رومینا";
-                                    }
-                                  } else if (
-                                    $state.getInfo?.data?.[0]?.result?.pregnancy
-                                      ?.childrenName?.length == 2
-                                  ) {
-                                    return "مامان دو قلوها";
-                                  } else if (
-                                    $state.getInfo?.data?.[0]?.result?.pregnancy
-                                      ?.childrenName?.length < 2
-                                  ) {
-                                    return "مامان چند قلوها";
+                                  var random = Math.floor(Math.random() * 2);
+                                  switch (random) {
+                                    case 0:
+                                      return "مامان عزیز";
+                                    case 1:
+                                      return (
+                                        "مامان " +
+                                        $state.getUserInfo?.data?.[0]?.result
+                                          ?.user?.name
+                                      );
                                   }
                                 })();
                               } catch (e) {
@@ -3229,7 +3206,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["runCode"] = true
+                          $steps["runCode"] = false
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
@@ -5463,22 +5440,20 @@ function PlasmicPregnancy__RenderFunc(props: {
               "open"
             ])}
             open={generateStateValueProp($state, ["editModal", "open"])}
-            title={"Modal title"}
-            trigger={
-              <AntdButton
-                className={classNames("__wab_instance", sty.button__aqRcy)}
+            title={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xJgt
+                )}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__fLS9
-                  )}
-                >
-                  {"Show modal"}
-                </div>
-              </AntdButton>
+                {
+                  "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                }
+              </div>
             }
+            trigger={null}
             width={"100vw"}
             wrapClassName={classNames({ [sty["pcls_WJuDUTSI83Cx"]]: true })}
           >
@@ -5812,6 +5787,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 data-plasmic-override={overrides.button}
                 className={classNames("__wab_instance", sty.button)}
                 color={generateStateValueProp($state, ["button", "color"])}
+                link={"https://www.google.com/"}
                 onClick={async event => {
                   const $steps = {};
 
@@ -5924,7 +5900,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   }
 
                   $steps["updateLastTime2"] =
-                    $state.typeInterDate == "dateOfBirth"
+                    $state.typeInterDate == "dateOfBirth" && false
                       ? (() => {
                           const actionArgs = {
                             variable: {
@@ -5981,7 +5957,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 if (gd <= v) break;
                                 gd -= v;
                               }
-                              [year, month, day] = [gy, gm, gd];
+                              const [year, month, day] = [gy, gm, gd];
 
                               date = new Date(year, month - 1, day);
                               date.setDate(date.getDate() - 280);
@@ -6051,7 +6027,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   }
 
                   $steps["updateDateOfBirth2"] =
-                    $state.typeInterDate == "lastTime"
+                    $state.typeInterDate == "lastTime" && false
                       ? (() => {
                           const actionArgs = {
                             variable: {

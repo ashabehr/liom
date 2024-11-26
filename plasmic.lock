@@ -39,12 +39,12 @@
         {
           "type": "renderModule",
           "assetId": "BgvgssdMaksd",
-          "checksum": "b92c4f6f91e9d5736b1f349bc1d9a50c"
+          "checksum": "31b31026c64b05ad1affe45c7db6c4c7"
         },
         {
           "type": "cssRules",
           "assetId": "BgvgssdMaksd",
-          "checksum": "b92c4f6f91e9d5736b1f349bc1d9a50c"
+          "checksum": "31b31026c64b05ad1affe45c7db6c4c7"
         },
         {
           "type": "renderModule",
@@ -514,12 +514,12 @@
         {
           "type": "renderModule",
           "assetId": "PDbEkiKHzqMX",
-          "checksum": "e04e9c183cab4597add5c855de798011"
+          "checksum": "7910ae672987754ccb93ffae6e2ee214"
         },
         {
           "type": "cssRules",
           "assetId": "PDbEkiKHzqMX",
-          "checksum": "e04e9c183cab4597add5c855de798011"
+          "checksum": "7910ae672987754ccb93ffae6e2ee214"
         },
         {
           "type": "icon",
@@ -1602,19 +1602,14 @@
           "checksum": "a2e6e3b41225d59dc418187a8b8ed85a"
         },
         {
-          "assetId": "suVPi77vb6vv9K5rYJwyxC",
-          "type": "projectCss",
-          "checksum": "9b2f8e749d0a68d0542a7925d76d7a1a"
-        },
-        {
           "type": "renderModule",
           "assetId": "7iKUb4gq_Pe5",
-          "checksum": "ad8e8c63c87a942957eb47c61a49e982"
+          "checksum": "0a6886b6868d8759f8c4c08a528b1fe9"
         },
         {
           "type": "cssRules",
           "assetId": "7iKUb4gq_Pe5",
-          "checksum": "ad8e8c63c87a942957eb47c61a49e982"
+          "checksum": "0a6886b6868d8759f8c4c08a528b1fe9"
         },
         {
           "type": "renderModule",
@@ -1655,6 +1650,16 @@
           "type": "icon",
           "assetId": "yNwSkfuj5hYK",
           "checksum": "d0941a81bdce8fe04f785ef35e165e67"
+        },
+        {
+          "assetId": "suVPi77vb6vv9K5rYJwyxC",
+          "type": "projectCss",
+          "checksum": "9b2f8e749d0a68d0542a7925d76d7a1a"
+        },
+        {
+          "type": "image",
+          "assetId": "CL32aRND8PxE",
+          "checksum": "54cef4cbe88242f199b830e58092e7d1"
         }
       ],
       "codegenVersion": "0.0.1"
