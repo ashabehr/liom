@@ -3766,7 +3766,7 @@ function PlasmicFood__RenderFunc(props: {
                                                                           1,
                                                                           "week"
                                                                         )
-                                                                        .day(1)
+                                                                        .day(2)
                                                                         .format(
                                                                           "YYYY-MM-DD HH:mm:ss"
                                                                         )
@@ -3932,7 +3932,7 @@ function PlasmicFood__RenderFunc(props: {
                                                                             "week"
                                                                           )
                                                                           .day(
-                                                                            1
+                                                                            2
                                                                           )
                                                                           .format(
                                                                             "YYYY-MM-DD HH:mm:ss"

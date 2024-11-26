@@ -1320,7 +1320,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return true;
+                            return false;
                           }
                           throw e;
                         }
@@ -1344,17 +1344,37 @@ function PlasmicPregnancy__RenderFunc(props: {
                               try {
                                 return (() => {
                                   var random = Math.floor(Math.random() * 3);
-                                  switch (random) {
-                                    case 0:
-                                      return " مامانِ رومینا";
-                                    case 1:
-                                      return (
-                                        "مامان " +
-                                        $state.getUserInfo?.data?.[0].result
-                                          ?.user?.name
-                                      );
-                                    case 2:
-                                      return "مامان عزیز";
+                                  if (
+                                    $state.getInfo?.data?.[0]?.result?.pregnancy
+                                      ?.childrenName?.length <= 1
+                                  ) {
+                                    if (
+                                      $state.getInfo?.data?.[0]?.result
+                                        ?.pregnancy?.childrenName?.length == 0
+                                    )
+                                      random = Math.floor(Math.random() * 2);
+                                    switch (random) {
+                                      case 0:
+                                        return "مامان عزیز";
+                                      case 1:
+                                        return (
+                                          "مامان " +
+                                          $state.getUserInfo?.data?.[0]?.result
+                                            ?.user?.name
+                                        );
+                                      case 2:
+                                        return " مامانِ رومینا";
+                                    }
+                                  } else if (
+                                    $state.getInfo?.data?.[0]?.result?.pregnancy
+                                      ?.childrenName?.length == 2
+                                  ) {
+                                    return "مامان دو قلوها";
+                                  } else if (
+                                    $state.getInfo?.data?.[0]?.result?.pregnancy
+                                      ?.childrenName?.length < 2
+                                  ) {
+                                    return "مامان چند قلوها";
                                   }
                                 })();
                               } catch (e) {
