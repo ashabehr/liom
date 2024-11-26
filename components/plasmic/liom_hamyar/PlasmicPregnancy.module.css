@@ -154,6 +154,7 @@
   flex-grow: 0;
   font-size: 16px;
   min-width: 0;
+  display: none;
 }
 @media (max-width: 640px) {
   .text__whQxm {
@@ -161,6 +162,25 @@
   }
 }
 .textdarkMod__whQxmoQOo {
+  color: var(--token-jgohepLVeKvh);
+}
+.text__oYhii {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  flex-shrink: 1;
+  flex-basis: auto;
+  flex-grow: 0;
+  font-size: 16px;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .text__oYhii {
+    font-size: 14px;
+  }
+}
+.textdarkMod__oYhiioQOo {
   color: var(--token-jgohepLVeKvh);
 }
 .text__oOri2 {

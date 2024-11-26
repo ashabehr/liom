@@ -1080,7 +1080,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                 const $steps = {};
 
                 $steps["updateWeeksPregnant"] =
-                  $state.getInfo?.data?.[0]?.result?.childbirthDate != null
+                  $state.getInfo?.data?.[0].dueDate != null &&
+                  $state.getInfo?.data?.[0].dueDate != ""
                     ? (() => {
                         const actionArgs = {
                           variable: {
@@ -1090,7 +1091,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           operation: 0,
                           value: (() => {
                             let initialDate = new Date(
-                              $state.getInfo.data[0].dueDate
+                              $state.getInfo?.data?.[0].dueDate
                             );
                             let daysToSubtract = 280;
                             let resultDate = new Date(initialDate);
@@ -1134,7 +1135,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }
 
                 $steps["updateDaysPregnant"] =
-                  $state.getInfo?.data?.[0]?.result?.childbirthDate != null
+                  $state.getInfo?.data?.[0].dueDate != null &&
+                  $state.getInfo?.data?.[0].dueDate != ""
                     ? (() => {
                         const actionArgs = {
                           variable: {
@@ -1276,6 +1278,36 @@ function PlasmicPregnancy__RenderFunc(props: {
                     <div
                       className={classNames(projectcss.all, sty.freeBox__b6F1Z)}
                     >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__whQxm,
+                          {
+                            [sty.textdarkMod__whQxmoQOo]: hasVariant(
+                              $state,
+                              "darkMod",
+                              "darkMod"
+                            )
+                          }
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.getInfo.data[0].userId;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
                       {(() => {
                         try {
                           return (
@@ -1296,9 +1328,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__whQxm,
+                            sty.text__oYhii,
                             {
-                              [sty.textdarkMod__whQxmoQOo]: hasVariant(
+                              [sty.textdarkMod__oYhiioQOo]: hasVariant(
                                 $state,
                                 "darkMod",
                                 "darkMod"
