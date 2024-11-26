@@ -713,19 +713,6 @@
           "path": "/self-test"
         },
         {
-          "id": "3KDrMTdBtg6j",
-          "name": "LinkPreview",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLinkPreview.tsx",
-          "importSpec": {
-            "modulePath": "LinkPreview.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicLinkPreview.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "eH_yQdxVywwP",
           "name": "LoginBox",
           "type": "managed",
@@ -737,6 +724,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicLoginBox.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "9yeKzhziT4oA",
+          "name": "Login",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLogin.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/login.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicLogin.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/login"
         }
       ],
       "icons": [
