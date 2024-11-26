@@ -738,6 +738,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/login"
+        },
+        {
+          "id": "hNNKSE58t6pp",
+          "name": "SettingPregnancy",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSettingPregnancy.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/setting-pregnancy.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSettingPregnancy.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/setting-pregnancy"
         }
       ],
       "icons": [

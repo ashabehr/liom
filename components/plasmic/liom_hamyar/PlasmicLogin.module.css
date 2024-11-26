@@ -8,7 +8,12 @@
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
-  background: #ffffff;
+  background: linear-gradient(
+    0deg,
+    var(--token-jgohepLVeKvh) 0%,
+    #d4cae9ea 57%,
+    #8254c6e6 100%
+  );
   min-width: 0;
   min-height: 0;
   grid-template-columns:
@@ -27,7 +32,8 @@
     background: linear-gradient(
       0deg,
       var(--token-jgohepLVeKvh) 0%,
-      #8254c6cc 100%
+      #e0d9efef 58%,
+      #8254c6e6 100%
     );
   }
 }

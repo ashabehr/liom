@@ -2,6 +2,9 @@
   display: flex;
   position: relative;
   flex-direction: row;
+  padding-top: 12px;
+  padding-right: 20px;
+  padding-left: 20px;
   background: #8254c6;
   cursor: pointer;
   transition-property: background;
@@ -9,7 +12,6 @@
   -webkit-transition-property: background;
   -webkit-transition-duration: 0.1s;
   border-radius: 6px;
-  padding: 12px 20px;
   border: 0px solid #270e0e;
 }
 .root > :global(.__wab_flex-container) {

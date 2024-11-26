@@ -4879,6 +4879,7 @@ function PlasmicBioritm__RenderFunc(props: {
                   }
                 })()}
                 className={classNames("__wab_instance", sty.datePickers2)}
+                customYears={[]}
                 onChange={generateStateOnChangeProp($state, [
                   "datePickers2",
                   "value"
@@ -5405,46 +5406,11 @@ function PlasmicBioritm__RenderFunc(props: {
             <DatePickers
               data-plasmic-name={"datePickers"}
               data-plasmic-override={overrides.datePickers}
-              SelectedDay={(() => {
-                try {
-                  return $state.birthday.day;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return 10;
-                  }
-                  throw e;
-                }
-              })()}
-              SelectedMonth={(() => {
-                try {
-                  return $state.birthday.month;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return 10;
-                  }
-                  throw e;
-                }
-              })()}
-              SelectedYear={(() => {
-                try {
-                  return $state.birthday.year;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return 1379;
-                  }
-                  throw e;
-                }
-              })()}
+              SelectedDay={10}
+              SelectedMonth={10}
+              SelectedYear={1379}
               className={classNames("__wab_instance", sty.datePickers)}
+              customYears={[]}
               onChange={generateStateOnChangeProp($state, [
                 "datePickers",
                 "value"
