@@ -1189,7 +1189,10 @@ function PlasmicPregnancy__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  userId: $state.getUserInfo?.data?.[0]?.result?.user?.id
+                  userId: $ctx.query.userId.slice(
+                    4,
+                    $ctx.query.userId.length - 4
+                  )
                 };
               } catch (e) {
                 if (
