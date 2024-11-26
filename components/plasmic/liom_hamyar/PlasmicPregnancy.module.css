@@ -831,3 +831,6 @@
   max-width: 100%;
   object-fit: cover;
 }
+.linkPreview:global(.__wab_instance):global(.__wab_instance) {
+  max-width: 100%;
+}

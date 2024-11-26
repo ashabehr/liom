@@ -71,6 +71,7 @@ import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
+import LinkPreview from "../../LinkPreview"; // plasmic-import: 3KDrMTdBtg6j/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
@@ -113,6 +114,7 @@ export type PlasmicPregnancy__OverridesType = {
   getUserInfo?: Flex__<typeof ApiRequest>;
   getAdvice?: Flex__<typeof ApiRequest>;
   getTask?: Flex__<typeof ApiRequest>;
+  linkPreview?: Flex__<typeof LinkPreview>;
 };
 
 export interface DefaultPregnancyProps {}
@@ -5188,7 +5190,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                 appKey: "com.diacotdj.liom"
               }}
               url={"https://n8n.staas.ir/webhook/task"}
-            />
+            >
+              <LinkPreview
+                data-plasmic-name={"linkPreview"}
+                data-plasmic-override={overrides.linkPreview}
+                className={classNames("__wab_instance", sty.linkPreview)}
+              />
+            </ApiRequest>
           </ApiRequest>
         </div>
       </div>
@@ -5206,7 +5214,8 @@ const PlasmicDescendants = {
     "todoList",
     "getUserInfo",
     "getAdvice",
-    "getTask"
+    "getTask",
+    "linkPreview"
   ],
   favIcone: ["favIcone"],
   getInfo: [
@@ -5216,14 +5225,16 @@ const PlasmicDescendants = {
     "todoList",
     "getUserInfo",
     "getAdvice",
-    "getTask"
+    "getTask",
+    "linkPreview"
   ],
   embedHtml: ["embedHtml"],
   progress: ["progress"],
   todoList: ["todoList"],
   getUserInfo: ["getUserInfo"],
   getAdvice: ["getAdvice"],
-  getTask: ["getTask"]
+  getTask: ["getTask", "linkPreview"],
+  linkPreview: ["linkPreview"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -5238,6 +5249,7 @@ type NodeDefaultElementType = {
   getUserInfo: typeof ApiRequest;
   getAdvice: typeof ApiRequest;
   getTask: typeof ApiRequest;
+  linkPreview: typeof LinkPreview;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5333,6 +5345,7 @@ export const PlasmicPregnancy = Object.assign(
     getUserInfo: makeNodeComponent("getUserInfo"),
     getAdvice: makeNodeComponent("getAdvice"),
     getTask: makeNodeComponent("getTask"),
+    linkPreview: makeNodeComponent("linkPreview"),
 
     // Metadata about props expected for PlasmicPregnancy
     internalVariantProps: PlasmicPregnancy__VariantProps,
