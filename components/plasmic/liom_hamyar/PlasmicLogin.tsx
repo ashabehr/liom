@@ -186,11 +186,6 @@ function PlasmicLogin__RenderFunc(props: {
                   ? "100px"
                   : "150px"
               }
-              loading={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "eager"
-                  : "lazy"
-              }
               src={{
                 src: "/plasmic/liom_hamyar/images/image35.png",
                 fullWidth: 1029,
