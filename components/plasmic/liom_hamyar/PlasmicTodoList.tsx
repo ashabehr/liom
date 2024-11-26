@@ -1006,7 +1006,7 @@ function PlasmicTodoList__RenderFunc(props: {
                           )}
                         >
                           <React.Fragment>
-                            {"توضیح: " + $props.tasks?.[currentIndex]?.text}
+                            {$props.tasks?.[currentIndex]?.text}
                           </React.Fragment>
                         </div>
                       </div>

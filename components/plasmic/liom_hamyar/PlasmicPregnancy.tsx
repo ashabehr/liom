@@ -525,7 +525,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return true;
+                return false;
               }
               throw e;
             }
@@ -3177,7 +3177,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         )}
                       >
                         {
-                          "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632 \u0628\u0631\u0627\u06cc \u062a\u0648 : "
+                          "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650  \u062a\u0648 : "
                         }
                       </div>
                       <div
@@ -4451,6 +4451,52 @@ function PlasmicPregnancy__RenderFunc(props: {
                         "darkMod"
                       )
                     })}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return (
+                                    "https://apps.liom.app/weekByWeek/?token=" +
+                                    $ctx.query.token
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
                   >
                     {(() => {
                       try {
@@ -4762,174 +4808,156 @@ function PlasmicPregnancy__RenderFunc(props: {
                     </div>
                   </div>
                 </div>
-                {(() => {
-                  try {
-                    return true;
-                    // $state.toolsList.filter(item => item.weekStart <= ($state.weeksPregnant+1) && item.weekEnd >= ($state.weeksPregnant+1)).length > 0
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__wxfFc, {
-                      [sty.freeBoxdarkMod__wxfFcoQOo]: hasVariant(
-                        $state,
-                        "darkMod",
-                        "darkMod"
-                      )
-                    })}
-                  >
-                    {(_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return $state.toolsList.filter(
-                            item =>
-                              item.weekStart <= $state.weeksPregnant + 1 &&
-                              item.weekEnd >= $state.weeksPregnant + 1
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__wxfFc, {
+                    [sty.freeBoxdarkMod__wxfFcoQOo]: hasVariant(
+                      $state,
+                      "darkMod",
+                      "darkMod"
+                    )
+                  })}
+                >
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return $state.toolsList.filter(
+                          item =>
+                            item.weekStart <= $state.weeksPregnant + 1 &&
+                            item.weekEnd >= $state.weeksPregnant + 1
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
                         }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__rfrx1,
+                          {
+                            [sty.freeBoxdarkMod__rfrx1OQOo]: hasVariant(
+                              $state,
+                              "darkMod",
+                              "darkMod"
+                            )
+                          }
+                        )}
+                        key={currentIndex}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["runCode"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return window.FlutterChannel.postMessage(
+                                      currentItem.action
+                                    );
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+                        }}
+                      >
+                        {(() => {
+                          try {
+                            return currentItem.icon.length > 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <PlasmicImg__
+                            alt={""}
+                            className={classNames(sty.img__t3Ygq)}
+                            displayHeight={"auto"}
+                            displayMaxHeight={"none"}
+                            displayMaxWidth={
+                              hasVariant(globalVariants, "screen", "mobile")
+                                ? "auto"
+                                : "100%"
+                            }
+                            displayMinHeight={"0"}
+                            displayMinWidth={"0"}
+                            displayWidth={"auto"}
+                            height={``}
+                            loading={"lazy"}
+                            src={(() => {
+                              try {
+                                return currentItem.icon;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                            width={``}
+                          />
+                        ) : null}
+                        <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__rfrx1,
+                            projectcss.__wab_text,
+                            sty.text___3K6Nw,
                             {
-                              [sty.freeBoxdarkMod__rfrx1OQOo]: hasVariant(
+                              [sty.textdarkMod___3K6NwoQOo]: hasVariant(
                                 $state,
                                 "darkMod",
                                 "darkMod"
                               )
                             }
                           )}
-                          key={currentIndex}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return window.FlutterChannel.postMessage(
-                                        currentItem.action
-                                      );
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-                          }}
                         >
-                          {(() => {
-                            try {
-                              return currentItem.icon.length > 0;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__t3Ygq)}
-                              displayHeight={"auto"}
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={
-                                hasVariant(globalVariants, "screen", "mobile")
-                                  ? "auto"
-                                  : "100%"
-                              }
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={"auto"}
-                              height={``}
-                              loading={"lazy"}
-                              src={(() => {
-                                try {
-                                  return currentItem.icon;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.title;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0628\u0627\u06cc\u062f \u0648 \u0646\u0628\u0627\u06cc\u062f\u0647\u0627";
                                 }
-                              })()}
-                              width={``}
-                            />
-                          ) : null}
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___3K6Nw,
-                              {
-                                [sty.textdarkMod___3K6NwoQOo]: hasVariant(
-                                  $state,
-                                  "darkMod",
-                                  "darkMod"
-                                )
+                                throw e;
                               }
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return currentItem.title;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "\u0628\u0627\u06cc\u062f \u0648 \u0646\u0628\u0627\u06cc\u062f\u0647\u0627";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        </Stack__>
-                      );
-                    })}
-                  </div>
-                ) : null}
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </Stack__>
+                    );
+                  })}
+                </div>
                 {(() => {
                   try {
                     return (
