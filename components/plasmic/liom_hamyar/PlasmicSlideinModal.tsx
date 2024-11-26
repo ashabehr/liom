@@ -186,25 +186,31 @@ function PlasmicSlideinModal__RenderFunc(props: {
       }}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__oeonh, {
-          [sty.freeBoxclick__oeonh6HzP8]: hasVariant($state, "click", "click")
+        className={classNames(projectcss.all, sty.freeBox__kd9A, {
+          [sty.freeBoxclick__kd9A6HzP8]: hasVariant($state, "click", "click")
         })}
       >
-        {renderPlasmicSlot({
-          defaultContents: (
-            <div
-              className={classNames(projectcss.all, sty.freeBox__nuZnL, {
-                [sty.freeBoxclick__nuZnL6HzP8]: hasVariant(
-                  $state,
-                  "click",
-                  "click"
-                )
-              })}
-            />
-          ),
+        <div
+          className={classNames(projectcss.all, sty.freeBox__oeonh, {
+            [sty.freeBoxclick__oeonh6HzP8]: hasVariant($state, "click", "click")
+          })}
+        >
+          {renderPlasmicSlot({
+            defaultContents: (
+              <div
+                className={classNames(projectcss.all, sty.freeBox__nuZnL, {
+                  [sty.freeBoxclick__nuZnL6HzP8]: hasVariant(
+                    $state,
+                    "click",
+                    "click"
+                  )
+                })}
+              />
+            ),
 
-          value: args.children
-        })}
+            value: args.children
+          })}
+        </div>
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__jFopY, {

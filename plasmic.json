@@ -711,6 +711,46 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/self-test"
+        },
+        {
+          "id": "7iKUb4gq_Pe5",
+          "name": "Login",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLogin.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/login.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicLogin.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/login"
+        },
+        {
+          "id": "3KDrMTdBtg6j",
+          "name": "LinkPreview",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLinkPreview.tsx",
+          "importSpec": {
+            "modulePath": "LinkPreview.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicLinkPreview.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "eH_yQdxVywwP",
+          "name": "LoginBox",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLoginBox.tsx",
+          "importSpec": {
+            "modulePath": "LoginBox.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicLoginBox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -1458,6 +1498,26 @@
           "id": "mveCQhKuUyBi",
           "name": "Icon106Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon106.tsx"
+        },
+        {
+          "id": "HFiB--0uZfh5",
+          "name": "Icon107Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon107.tsx"
+        },
+        {
+          "id": "P364T549veD9",
+          "name": "Icon108Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon108.tsx"
+        },
+        {
+          "id": "rDm5lm_Drjuw",
+          "name": "Icon109Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon109.tsx"
+        },
+        {
+          "id": "yNwSkfuj5hYK",
+          "name": "Icon110Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon110.tsx"
         }
       ],
       "images": [
@@ -3282,6 +3342,28 @@
       ],
       "customFunctions": [],
       "jsBundleThemes": []
+    },
+    {
+      "projectId": "3m3vFk1dnCzZnwT8k489Jy",
+      "projectApiToken": "d0NoBGd1tp6wrhDNeukwuqttKcgFIrGA0th3U2rkGpA9QcU5FQsTwupa1shTDJEWiPozbbcBSxeb8w3dAw",
+      "projectName": "plasmic-link-preview",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_link_preview/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "4P2nwuVQH3UA",
+          "name": "LinkPreview",
+          "displayName": "plasmic-link-preview",
+          "componentImportPath": "@plasmicpkgs/plasmic-link-preview"
+        }
+      ],
+      "customFunctions": []
     }
   ],
   "globalVariants": {

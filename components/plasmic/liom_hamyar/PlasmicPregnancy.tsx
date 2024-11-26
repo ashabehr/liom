@@ -71,6 +71,13 @@ import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
+import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
@@ -85,6 +92,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPregnancy.module.css"; // plasmic-import: PDbEkiKHzqMX/css
+
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 
 createPlasmicElementProxy;
 
@@ -113,6 +123,12 @@ export type PlasmicPregnancy__OverridesType = {
   getUserInfo?: Flex__<typeof ApiRequest>;
   getAdvice?: Flex__<typeof ApiRequest>;
   getTask?: Flex__<typeof ApiRequest>;
+  editModal?: Flex__<typeof AntdModal>;
+  dateOfBirth2?: Flex__<typeof AntdInput>;
+  lastTime2?: Flex__<typeof AntdInput>;
+  dateModal?: Flex__<typeof SlideinModal>;
+  datePickers?: Flex__<typeof DatePickers>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultPregnancyProps {}
@@ -510,6 +526,132 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "dateModal.click",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "datePickers.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "editModal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "dateOfBirth",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({ data: "" })
+      },
+      {
+        path: "lastTime",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({ data: "" })
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "dateOfBirth2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if ($state.dateOfBirth.data != "") {
+                  var gy = parseInt($state.dateOfBirth.year);
+                  var gm = parseInt($state.dateOfBirth.month);
+                  var gd = parseInt($state.dateOfBirth.day);
+                  let months = new Array(
+                    "فروردين",
+                    "ارديبهشت",
+                    "خرداد",
+                    "تير",
+                    "مرداد",
+                    "شهريور",
+                    "مهر",
+                    "آبان",
+                    "آذر",
+                    "دي",
+                    "بهمن",
+                    "اسفند"
+                  );
+                  return gd + " " + months[gm - 1] + " " + gy;
+                }
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "typeInterDate",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "lastTime2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if ($state.lastTime.data != "") {
+                  var gy = parseInt($state.lastTime.year);
+                  var gm = parseInt($state.lastTime.month);
+                  var gd = parseInt($state.lastTime.day);
+                  let months = new Array(
+                    "فروردين",
+                    "ارديبهشت",
+                    "خرداد",
+                    "تير",
+                    "مرداد",
+                    "شهريور",
+                    "مهر",
+                    "آبان",
+                    "آذر",
+                    "دي",
+                    "بهمن",
+                    "اسفند"
+                  );
+                  return gd + " " + months[gm - 1] + " " + gy;
+                }
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -3002,15 +3144,49 @@ function PlasmicPregnancy__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["runCode"] = true
+                        $steps["updateModalOpen"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["editModal", "open"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateModalOpen"] != null &&
+                          typeof $steps["updateModalOpen"] === "object" &&
+                          typeof $steps["updateModalOpen"].then === "function"
+                        ) {
+                          $steps["updateModalOpen"] = await $steps[
+                            "updateModalOpen"
+                          ];
+                        }
+
+                        $steps["runCode"] = false
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return (() => {
-                                    return window.FlutterChannel.postMessage(
-                                      "#healthSettingPage"
-                                    );
-                                  })();
+                                  return window.FlutterChannel.postMessage(
+                                    "#healthSettingPage"
+                                  );
                                 }
                               };
                               return (({ customFunction }) => {
@@ -4775,7 +4951,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           try {
                             return (() => {
                               var week;
-                              if ($state.weeksPregnant + 1 < 10)
+                              if ($state.weeksPregnant < 10)
                                 week = "0" + $state.weeksPregnant;
                               else week = "" + $state.weeksPregnant;
                               return (
@@ -5265,6 +5441,752 @@ function PlasmicPregnancy__RenderFunc(props: {
               url={"https://n8n.staas.ir/webhook/task"}
             />
           </ApiRequest>
+          <AntdModal
+            data-plasmic-name={"editModal"}
+            data-plasmic-override={overrides.editModal}
+            className={classNames("__wab_instance", sty.editModal)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            hideFooter={true}
+            modalContentClassName={classNames({
+              [sty["pcls_SGm5EsBOae9m"]]: true
+            })}
+            modalScopeClassName={sty["editModal__modal"]}
+            onOpenChange={generateStateOnChangeProp($state, [
+              "editModal",
+              "open"
+            ])}
+            open={generateStateValueProp($state, ["editModal", "open"])}
+            title={"Modal title"}
+            trigger={
+              <AntdButton
+                className={classNames("__wab_instance", sty.button__aqRcy)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__fLS9
+                  )}
+                >
+                  {"Show modal"}
+                </div>
+              </AntdButton>
+            }
+            width={"100vw"}
+            wrapClassName={classNames({ [sty["pcls_WJuDUTSI83Cx"]]: true })}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox___9Udbv)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__wqRo
+                )}
+              >
+                {
+                  "\u0628\u0627 \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u06cc\u06a9\u06cc \u0627\u0632 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0632\u06cc\u0631 \u0628\u0647 \u0645\u0627 \u062a\u0648\u06cc \u0645\u062d\u0633\u0627\u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0628\u0647\u062a \u0628\u06af\u06cc\u0645 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0627\u0644\u0627\u0646 \u0686\u0646\u062f \u0647\u0641\u062a\u0634\u0647 :)"
+                }
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__a3XJs
+                )}
+              >
+                {
+                  "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646"
+                }
+              </div>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__zOra)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateSlideinModalClick"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dateModal", "click"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSlideinModalClick"] != null &&
+                    typeof $steps["updateSlideinModalClick"] === "object" &&
+                    typeof $steps["updateSlideinModalClick"].then === "function"
+                  ) {
+                    $steps["updateSlideinModalClick"] = await $steps[
+                      "updateSlideinModalClick"
+                    ];
+                  }
+
+                  $steps["updateTypeInterDate"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["typeInterDate"]
+                          },
+                          operation: 0,
+                          value: "dateOfBirth"
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateTypeInterDate"] != null &&
+                    typeof $steps["updateTypeInterDate"] === "object" &&
+                    typeof $steps["updateTypeInterDate"].then === "function"
+                  ) {
+                    $steps["updateTypeInterDate"] = await $steps[
+                      "updateTypeInterDate"
+                    ];
+                  }
+                }}
+              >
+                {(() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.dateOfBirth2),
+                    onChange: generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "value",
+                      ["dateOfBirth2", "value"],
+                      AntdInput_Helpers
+                    ),
+                    placeholder:
+                      "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
+                    readOnly: true,
+                    value: generateStateValueProp($state, [
+                      "dateOfBirth2",
+                      "value"
+                    ])
+                  };
+                  initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "value",
+                        plasmicStateName: "dateOfBirth2.value"
+                      }
+                    ],
+                    [],
+                    AntdInput_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <AntdInput
+                      data-plasmic-name={"dateOfBirth2"}
+                      data-plasmic-override={overrides.dateOfBirth2}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__miGfb)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__hpfuZ
+                  )}
+                >
+                  {""}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___5L3Ew
+                  )}
+                >
+                  {"\u06cc\u0627\u200d"}
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__iQXp
+                  )}
+                >
+                  {""}
+                </div>
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__jXhLf
+                )}
+              >
+                {
+                  "\u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u06cc"
+                }
+              </div>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__zHdPs)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateSlideinModalClick"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dateModal", "click"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSlideinModalClick"] != null &&
+                    typeof $steps["updateSlideinModalClick"] === "object" &&
+                    typeof $steps["updateSlideinModalClick"].then === "function"
+                  ) {
+                    $steps["updateSlideinModalClick"] = await $steps[
+                      "updateSlideinModalClick"
+                    ];
+                  }
+
+                  $steps["updateTypeInterDate"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["typeInterDate"]
+                          },
+                          operation: 0,
+                          value: "lastTime"
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateTypeInterDate"] != null &&
+                    typeof $steps["updateTypeInterDate"] === "object" &&
+                    typeof $steps["updateTypeInterDate"].then === "function"
+                  ) {
+                    $steps["updateTypeInterDate"] = await $steps[
+                      "updateTypeInterDate"
+                    ];
+                  }
+                }}
+              >
+                {(() => {
+                  const child$Props = {
+                    className: classNames("__wab_instance", sty.lastTime2),
+                    onChange: generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "value",
+                      ["lastTime2", "value"],
+                      AntdInput_Helpers
+                    ),
+                    placeholder:
+                      "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
+                    readOnly: true,
+                    value: generateStateValueProp($state, [
+                      "lastTime2",
+                      "value"
+                    ])
+                  };
+                  initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "value",
+                        plasmicStateName: "lastTime2.value"
+                      }
+                    ],
+                    [],
+                    AntdInput_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <AntdInput
+                      data-plasmic-name={"lastTime2"}
+                      data-plasmic-override={overrides.lastTime2}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+              </div>
+            </div>
+            <SlideinModal
+              data-plasmic-name={"dateModal"}
+              data-plasmic-override={overrides.dateModal}
+              className={classNames("__wab_instance", sty.dateModal)}
+              click={generateStateValueProp($state, ["dateModal", "click"])}
+              onClickChange={generateStateOnChangeProp($state, [
+                "dateModal",
+                "click"
+              ])}
+            >
+              <DatePickers
+                data-plasmic-name={"datePickers"}
+                data-plasmic-override={overrides.datePickers}
+                SelectedDay={10}
+                SelectedMonth={10}
+                SelectedYear={1379}
+                className={classNames("__wab_instance", sty.datePickers)}
+                onChange={generateStateOnChangeProp($state, [
+                  "datePickers",
+                  "value"
+                ])}
+                selectedValues={generateStateValueProp($state, [
+                  "datePickers",
+                  "value"
+                ])}
+              />
+
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={generateStateValueProp($state, ["button", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDateModalClick"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dateModal", "click"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDateModalClick"] != null &&
+                    typeof $steps["updateDateModalClick"] === "object" &&
+                    typeof $steps["updateDateModalClick"].then === "function"
+                  ) {
+                    $steps["updateDateModalClick"] = await $steps[
+                      "updateDateModalClick"
+                    ];
+                  }
+
+                  $steps["updateDateOfBirth"] =
+                    $state.typeInterDate == "dateOfBirth"
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dateOfBirth"]
+                            },
+                            operation: 0,
+                            value: $state.datePickers.value
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["updateDateOfBirth"] != null &&
+                    typeof $steps["updateDateOfBirth"] === "object" &&
+                    typeof $steps["updateDateOfBirth"].then === "function"
+                  ) {
+                    $steps["updateDateOfBirth"] = await $steps[
+                      "updateDateOfBirth"
+                    ];
+                  }
+
+                  $steps["updateLastTime"] =
+                    $state.typeInterDate == "lastTime"
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["lastTime"]
+                            },
+                            operation: 0,
+                            value: $state.datePickers.value
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["updateLastTime"] != null &&
+                    typeof $steps["updateLastTime"] === "object" &&
+                    typeof $steps["updateLastTime"].then === "function"
+                  ) {
+                    $steps["updateLastTime"] = await $steps["updateLastTime"];
+                  }
+
+                  $steps["updateLastTime2"] =
+                    $state.typeInterDate == "dateOfBirth"
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["lastTime"]
+                            },
+                            operation: 0,
+                            value: (() => {
+                              var jy = $state.datePickers.value.year;
+                              var jm = $state.datePickers.value.month;
+                              var jd = $state.datePickers.value.day;
+                              var gy = jy <= 979 ? 621 : 1600;
+                              jy -= jy <= 979 ? 0 : 979;
+                              var days =
+                                365 * jy +
+                                parseInt(jy / 33) * 8 +
+                                parseInt(((jy % 33) + 3) / 4) +
+                                78 +
+                                jd +
+                                (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                              gy += 400 * parseInt(days / 146097);
+                              days %= 146097;
+                              if (days > 36524) {
+                                gy += 100 * parseInt(--days / 36524);
+                                days %= 36524;
+                                if (days >= 365) days++;
+                              }
+                              gy += 4 * parseInt(days / 1461);
+                              days %= 1461;
+                              gy += parseInt((days - 1) / 365);
+                              if (days > 365) days = (days - 1) % 365;
+                              var gd = days + 1;
+                              var sal_a = [
+                                0,
+                                31,
+                                (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                                  ? 29
+                                  : 28,
+                                31,
+                                30,
+                                31,
+                                30,
+                                31,
+                                31,
+                                30,
+                                31,
+                                30,
+                                31
+                              ];
+
+                              var gm;
+                              for (gm = 0; gm < 13; gm++) {
+                                var v = sal_a[gm];
+                                if (gd <= v) break;
+                                gd -= v;
+                              }
+                              [year, month, day] = [gy, gm, gd];
+
+                              date = new Date(year, month - 1, day);
+                              date.setDate(date.getDate() - 280);
+                              gyNew = date.getFullYear();
+                              gmNew = date.getMonth() + 1;
+                              gdNew = date.getDate();
+                              var g_d_m = [
+                                0, 31, 59, 90, 120, 151, 181, 212, 243, 273,
+                                304, 334
+                              ];
+
+                              var jyNew = gyNew <= 1600 ? 0 : 979;
+                              gyNew = gyNew - (gyNew <= 1600 ? 621 : 1600);
+                              var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
+                              var daysNew =
+                                365 * gyNew +
+                                parseInt((gy2 + 3) / 4) -
+                                parseInt((gy2 + 99) / 100) +
+                                parseInt((gy2 + 399) / 400) -
+                                80 +
+                                gdNew +
+                                g_d_m[gmNew - 1];
+                              jyNew += 33 * parseInt(daysNew / 12053);
+                              daysNew %= 12053;
+                              jyNew += 4 * parseInt(daysNew / 1461);
+                              daysNew %= 1461;
+                              jyNew += parseInt((daysNew - 1) / 365);
+                              if (daysNew > 365) daysNew = (daysNew - 1) % 365;
+                              var jmNew =
+                                daysNew < 186
+                                  ? 1 + parseInt(daysNew / 31)
+                                  : 7 + parseInt((daysNew - 186) / 30);
+                              var jdNew =
+                                1 +
+                                (daysNew < 186
+                                  ? daysNew % 31
+                                  : (daysNew - 186) % 30);
+                              return {
+                                day: jdNew,
+                                month: jmNew,
+                                year: jyNew
+                              };
+                            })()
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["updateLastTime2"] != null &&
+                    typeof $steps["updateLastTime2"] === "object" &&
+                    typeof $steps["updateLastTime2"].then === "function"
+                  ) {
+                    $steps["updateLastTime2"] = await $steps["updateLastTime2"];
+                  }
+
+                  $steps["updateDateOfBirth2"] =
+                    $state.typeInterDate == "lastTime"
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dateOfBirth"]
+                            },
+                            operation: 0,
+                            value: (() => {
+                              var jy = $state.datePickers.value.year;
+                              var jm = $state.datePickers.value.month;
+                              var jd = $state.datePickers.value.day;
+                              var gy = jy <= 979 ? 621 : 1600;
+                              jy -= jy <= 979 ? 0 : 979;
+                              var days =
+                                365 * jy +
+                                parseInt(jy / 33) * 8 +
+                                parseInt(((jy % 33) + 3) / 4) +
+                                78 +
+                                jd +
+                                (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                              gy += 400 * parseInt(days / 146097);
+                              days %= 146097;
+                              if (days > 36524) {
+                                gy += 100 * parseInt(--days / 36524);
+                                days %= 36524;
+                                if (days >= 365) days++;
+                              }
+                              gy += 4 * parseInt(days / 1461);
+                              days %= 1461;
+                              gy += parseInt((days - 1) / 365);
+                              if (days > 365) days = (days - 1) % 365;
+                              var gd = days + 1;
+                              var sal_a = [
+                                0,
+                                31,
+                                (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                                  ? 29
+                                  : 28,
+                                31,
+                                30,
+                                31,
+                                30,
+                                31,
+                                31,
+                                30,
+                                31,
+                                30,
+                                31
+                              ];
+
+                              var gm;
+                              for (gm = 0; gm < 13; gm++) {
+                                var v = sal_a[gm];
+                                if (gd <= v) break;
+                                gd -= v;
+                              }
+                              [year, month, day] = [gy, gm, gd];
+
+                              date = new Date(year, month - 1, day);
+                              date.setDate(date.getDate() + 280);
+                              gyNew = date.getFullYear();
+                              gmNew = date.getMonth() + 1;
+                              gdNew = date.getDate();
+                              var g_d_m = [
+                                0, 31, 59, 90, 120, 151, 181, 212, 243, 273,
+                                304, 334
+                              ];
+
+                              var jyNew = gyNew <= 1600 ? 0 : 979;
+                              gyNew = gyNew - (gyNew <= 1600 ? 621 : 1600);
+                              var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
+                              var daysNew =
+                                365 * gyNew +
+                                parseInt((gy2 + 3) / 4) -
+                                parseInt((gy2 + 99) / 100) +
+                                parseInt((gy2 + 399) / 400) -
+                                80 +
+                                gdNew +
+                                g_d_m[gmNew - 1];
+                              jyNew += 33 * parseInt(daysNew / 12053);
+                              daysNew %= 12053;
+                              jyNew += 4 * parseInt(daysNew / 1461);
+                              daysNew %= 1461;
+                              jyNew += parseInt((daysNew - 1) / 365);
+                              if (daysNew > 365) daysNew = (daysNew - 1) % 365;
+                              var jmNew =
+                                daysNew < 186
+                                  ? 1 + parseInt(daysNew / 31)
+                                  : 7 + parseInt((daysNew - 186) / 30);
+                              var jdNew =
+                                1 +
+                                (daysNew < 186
+                                  ? daysNew % 31
+                                  : (daysNew - 186) % 30);
+                              return {
+                                day: jdNew,
+                                month: jmNew,
+                                year: jyNew
+                              };
+                            })()
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["updateDateOfBirth2"] != null &&
+                    typeof $steps["updateDateOfBirth2"] === "object" &&
+                    typeof $steps["updateDateOfBirth2"].then === "function"
+                  ) {
+                    $steps["updateDateOfBirth2"] = await $steps[
+                      "updateDateOfBirth2"
+                    ];
+                  }
+                }}
+                onColorChange={(...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "color"])(
+                    eventArgs[0]
+                  );
+                }}
+              />
+            </SlideinModal>
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -5281,7 +6203,13 @@ const PlasmicDescendants = {
     "todoList",
     "getUserInfo",
     "getAdvice",
-    "getTask"
+    "getTask",
+    "editModal",
+    "dateOfBirth2",
+    "lastTime2",
+    "dateModal",
+    "datePickers",
+    "button"
   ],
   favIcone: ["favIcone"],
   getInfo: [
@@ -5298,7 +6226,20 @@ const PlasmicDescendants = {
   todoList: ["todoList"],
   getUserInfo: ["getUserInfo"],
   getAdvice: ["getAdvice"],
-  getTask: ["getTask"]
+  getTask: ["getTask"],
+  editModal: [
+    "editModal",
+    "dateOfBirth2",
+    "lastTime2",
+    "dateModal",
+    "datePickers",
+    "button"
+  ],
+  dateOfBirth2: ["dateOfBirth2"],
+  lastTime2: ["lastTime2"],
+  dateModal: ["dateModal", "datePickers", "button"],
+  datePickers: ["datePickers"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -5313,6 +6254,12 @@ type NodeDefaultElementType = {
   getUserInfo: typeof ApiRequest;
   getAdvice: typeof ApiRequest;
   getTask: typeof ApiRequest;
+  editModal: typeof AntdModal;
+  dateOfBirth2: typeof AntdInput;
+  lastTime2: typeof AntdInput;
+  dateModal: typeof SlideinModal;
+  datePickers: typeof DatePickers;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5408,6 +6355,12 @@ export const PlasmicPregnancy = Object.assign(
     getUserInfo: makeNodeComponent("getUserInfo"),
     getAdvice: makeNodeComponent("getAdvice"),
     getTask: makeNodeComponent("getTask"),
+    editModal: makeNodeComponent("editModal"),
+    dateOfBirth2: makeNodeComponent("dateOfBirth2"),
+    lastTime2: makeNodeComponent("lastTime2"),
+    dateModal: makeNodeComponent("dateModal"),
+    datePickers: makeNodeComponent("datePickers"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicPregnancy
     internalVariantProps: PlasmicPregnancy__VariantProps,
