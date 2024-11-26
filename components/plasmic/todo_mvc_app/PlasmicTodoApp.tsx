@@ -68,7 +68,6 @@ import {
 
 import Task from "../../Task"; // plasmic-import: TB3wx1w_IrFj/component
 import Footer from "../../Footer"; // plasmic-import: sxxS2rEPgX_V/component
-import Asd from "../../Asd"; // plasmic-import: 4dA70KmcJjpi/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
@@ -103,7 +102,6 @@ export type PlasmicTodoApp__OverridesType = {
   task?: Flex__<typeof Task>;
   footer?: Flex__<typeof Footer>;
   fakeStack?: Flex__<"div">;
-  asd?: Flex__<typeof Asd>;
 };
 
 export interface DefaultTodoAppProps {}
@@ -407,12 +405,6 @@ function PlasmicTodoApp__RenderFunc(props: {
             ) : null}
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__sawws)} />
-
-          <Asd
-            data-plasmic-name={"asd"}
-            data-plasmic-override={overrides.asd}
-            className={classNames("__wab_instance", sty.asd)}
-          />
         </div>
       </div>
     </React.Fragment>
@@ -427,16 +419,14 @@ const PlasmicDescendants = {
     "tasksContainer",
     "task",
     "footer",
-    "fakeStack",
-    "asd"
+    "fakeStack"
   ],
   appTitle: ["appTitle"],
   appBody: ["appBody", "tasksContainer", "task", "footer"],
   tasksContainer: ["tasksContainer", "task"],
   task: ["task"],
   footer: ["footer"],
-  fakeStack: ["fakeStack"],
-  asd: ["asd"]
+  fakeStack: ["fakeStack"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -449,7 +439,6 @@ type NodeDefaultElementType = {
   task: typeof Task;
   footer: typeof Footer;
   fakeStack: "div";
-  asd: typeof Asd;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -543,7 +532,6 @@ export const PlasmicTodoApp = Object.assign(
     task: makeNodeComponent("task"),
     footer: makeNodeComponent("footer"),
     fakeStack: makeNodeComponent("fakeStack"),
-    asd: makeNodeComponent("asd"),
 
     // Metadata about props expected for PlasmicTodoApp
     internalVariantProps: PlasmicTodoApp__VariantProps,

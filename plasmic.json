@@ -713,20 +713,6 @@
           "path": "/self-test"
         },
         {
-          "id": "7iKUb4gq_Pe5",
-          "name": "Login",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLogin.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/login.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicLogin.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/login"
-        },
-        {
           "id": "3KDrMTdBtg6j",
           "name": "LinkPreview",
           "type": "managed",
