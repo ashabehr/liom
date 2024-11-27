@@ -974,8 +974,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         eventArgs[0]
                       );
                     }}
-                  />
-
+                  >
+                    {"\u062a\u0627\u06cc\u06cc\u062f"}
+                  </Button>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__z4LTn)}
                     onClick={async event => {
@@ -1356,6 +1357,97 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
+                  $steps["invokeGlobalAction2"] = (() => {
+                    var jy = $state.dateOfBirth.year;
+                    var jm = $state.dateOfBirth.month;
+                    var jd = $state.dateOfBirth.day;
+                    var gy = jy <= 979 ? 621 : 1600;
+                    jy -= jy <= 979 ? 0 : 979;
+                    var days =
+                      365 * jy +
+                      parseInt(jy / 33) * 8 +
+                      parseInt(((jy % 33) + 3) / 4) +
+                      78 +
+                      jd +
+                      (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                    gy += 400 * parseInt(days / 146097);
+                    days %= 146097;
+                    if (days > 36524) {
+                      gy += 100 * parseInt(--days / 36524);
+                      days %= 36524;
+                      if (days >= 365) days++;
+                    }
+                    gy += 4 * parseInt(days / 1461);
+                    days %= 1461;
+                    gy += parseInt((days - 1) / 365);
+                    if (days > 365) days = (days - 1) % 365;
+                    var gd = days + 1;
+                    var sal_a = [
+                      0,
+                      31,
+                      (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0 ? 29 : 28,
+                      31,
+                      30,
+                      31,
+                      30,
+                      31,
+                      31,
+                      30,
+                      31,
+                      30,
+                      31
+                    ];
+
+                    var gm;
+                    for (gm = 0; gm < 13; gm++) {
+                      var v = sal_a[gm];
+                      if (gd <= v) break;
+                      gd -= v;
+                    }
+                    const d =
+                      gy +
+                      "-" +
+                      (gm <= 9 ? "0" : "") +
+                      gm +
+                      "-" +
+                      (gd <= 9 ? "0" : "") +
+                      gd +
+                      "T10:10:10";
+                    const specifiedDate = new Date(d);
+                    const today = new Date();
+                    if (today > specifiedDate) {
+                      return false;
+                    }
+                    const diffTime = Math.abs(today - specifiedDate);
+                    const diffDays = Math.ceil(
+                      diffTime / (1000 * 60 * 60 * 24)
+                    );
+                    return diffDays > 280 ? false : true;
+                  })()
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
+                            "top-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction2"] != null &&
+                    typeof $steps["invokeGlobalAction2"] === "object" &&
+                    typeof $steps["invokeGlobalAction2"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction2"] = await $steps[
+                      "invokeGlobalAction2"
+                    ];
+                  }
+
                   $steps["invokeGlobalAction"] = (() => {
                     var jy = $state.dateOfBirth.year;
                     var jm = $state.dateOfBirth.month;
@@ -1477,97 +1569,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   ) {
                     $steps["invokeGlobalAction"] = await $steps[
                       "invokeGlobalAction"
-                    ];
-                  }
-
-                  $steps["invokeGlobalAction2"] = (() => {
-                    var jy = $state.dateOfBirth.year;
-                    var jm = $state.dateOfBirth.month;
-                    var jd = $state.dateOfBirth.day;
-                    var gy = jy <= 979 ? 621 : 1600;
-                    jy -= jy <= 979 ? 0 : 979;
-                    var days =
-                      365 * jy +
-                      parseInt(jy / 33) * 8 +
-                      parseInt(((jy % 33) + 3) / 4) +
-                      78 +
-                      jd +
-                      (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                    gy += 400 * parseInt(days / 146097);
-                    days %= 146097;
-                    if (days > 36524) {
-                      gy += 100 * parseInt(--days / 36524);
-                      days %= 36524;
-                      if (days >= 365) days++;
-                    }
-                    gy += 4 * parseInt(days / 1461);
-                    days %= 1461;
-                    gy += parseInt((days - 1) / 365);
-                    if (days > 365) days = (days - 1) % 365;
-                    var gd = days + 1;
-                    var sal_a = [
-                      0,
-                      31,
-                      (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0 ? 29 : 28,
-                      31,
-                      30,
-                      31,
-                      30,
-                      31,
-                      31,
-                      30,
-                      31,
-                      30,
-                      31
-                    ];
-
-                    var gm;
-                    for (gm = 0; gm < 13; gm++) {
-                      var v = sal_a[gm];
-                      if (gd <= v) break;
-                      gd -= v;
-                    }
-                    const d =
-                      gy +
-                      "-" +
-                      (gm <= 9 ? "0" : "") +
-                      gm +
-                      "-" +
-                      (gd <= 9 ? "0" : "") +
-                      gd +
-                      "T10:10:10";
-                    const specifiedDate = new Date(d);
-                    const today = new Date();
-                    if (today > specifiedDate) {
-                      return false;
-                    }
-                    const diffTime = Math.abs(today - specifiedDate);
-                    const diffDays = Math.ceil(
-                      diffTime / (1000 * 60 * 60 * 24)
-                    );
-                    return diffDays > 280 ? false : true;
-                  })()
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            undefined,
-                            "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
-                            "top-center"
-                          ]
-                        };
-                        return $globalActions["Fragment.showToast"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["invokeGlobalAction2"] != null &&
-                    typeof $steps["invokeGlobalAction2"] === "object" &&
-                    typeof $steps["invokeGlobalAction2"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction2"] = await $steps[
-                      "invokeGlobalAction2"
                     ];
                   }
 
