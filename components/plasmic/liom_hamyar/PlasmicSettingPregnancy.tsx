@@ -452,7 +452,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     }
                   )}
                 >
-                  {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a "}
+                  {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a -"}
                 </div>
               </div>
             </div>
@@ -1356,6 +1356,25 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 })()}
                 onClick={async event => {
                   const $steps = {};
+
+                  $steps["invokeGlobalAction5"] = true
+                    ? (() => {
+                        const actionArgs = { args: [undefined, "click"] };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction5"] != null &&
+                    typeof $steps["invokeGlobalAction5"] === "object" &&
+                    typeof $steps["invokeGlobalAction5"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction5"] = await $steps[
+                      "invokeGlobalAction5"
+                    ];
+                  }
 
                   $steps["invokeGlobalAction2"] = (() => {
                     var jy = $state.dateOfBirth.year;
