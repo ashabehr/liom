@@ -1303,8 +1303,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                   );
                   const today = new Date();
                   return (
-                    $state.getInfo?.data?.[0]?.dueDate == null ||
-                    $state.getInfo?.data?.[0]?.dueDate == "" ||
+                    ($state.getInfo?.data?.[0]?.dueDate == null ||
+                      $state.getInfo?.data?.[0]?.dueDate == "") &&
                     today > specifiedDate
                   );
                 })()
