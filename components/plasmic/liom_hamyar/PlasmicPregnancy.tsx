@@ -1272,13 +1272,35 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 throw e;
                               }
                             })(),
-                            {
-                              headers: {
-                                "Content-Type": "application/json",
-                                Authorization:
-                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
+                            (() => {
+                              try {
+                                return {
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer " +
+                                      $ctx.query.token.slice(
+                                        6,
+                                        $ctx.query.token.length - 3
+                                      )
+                                  }
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
+                                    }
+                                  };
+                                }
+                                throw e;
                               }
-                            }
+                            })()
                           ]
                         };
                         return $globalActions["Fragment.apiRequest"]?.apply(
@@ -3225,13 +3247,37 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         throw e;
                                       }
                                     })(),
-                                    {
-                                      headers: {
-                                        "Content-Type": "application/json",
-                                        Authorization:
-                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
+                                    (() => {
+                                      try {
+                                        return {
+                                          headers: {
+                                            "Content-Type": "application/json",
+                                            Authorization:
+                                              "Bearer " +
+                                              $ctx.query.token.slice(
+                                                6,
+                                                $ctx.query.token.length - 3
+                                              )
+                                          }
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization:
+                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
+                                            }
+                                          };
+                                        }
+                                        throw e;
                                       }
-                                    }
+                                    })()
                                   ]
                                 };
                                 return $globalActions[
@@ -4801,13 +4847,36 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       throw e;
                                     }
                                   })(),
-                                  {
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization:
-                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJwcmVnbmFuY3kifQ.TwRgrBWqV_cN5Il7kiCkKMN3KPwebxjyR1rwmwzifUU"
+                                  (() => {
+                                    try {
+                                      return {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer " +
+                                            $ctx.query.token.slice(
+                                              6,
+                                              $ctx.query.token.length - 3
+                                            )
+                                        }
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return {
+                                          headers: {
+                                            "Content-Type": "application/json",
+                                            Authorization:
+                                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJwcmVnbmFuY3kifQ.TwRgrBWqV_cN5Il7kiCkKMN3KPwebxjyR1rwmwzifUU"
+                                          }
+                                        };
+                                      }
+                                      throw e;
                                     }
-                                  }
+                                  })()
                                 ]
                               };
                               return $globalActions[
