@@ -85,12 +85,12 @@
 .checkbox2global_theme_dark:global(.__wab_instance) {
   display: flex;
 }
-.freeBox__wPm7B {
+.freeBox__gT1Zi {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
-  align-items: flex-start;
-  justify-content: flex-end;
+  align-items: stretch;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -98,6 +98,17 @@
   min-width: 0;
   padding: 8px;
   margin: 0px;
+}
+.freeBox__wPm7B {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
 }
 .text__y5IhO {
   position: relative;

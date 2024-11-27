@@ -752,6 +752,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/setting-pregnancy"
+        },
+        {
+          "id": "mcNKMbL_6N75",
+          "name": "RadioGrop",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicRadioGrop.tsx",
+          "importSpec": {
+            "modulePath": "RadioGrop.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicRadioGrop.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -1519,6 +1532,11 @@
           "id": "yNwSkfuj5hYK",
           "name": "Icon110Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon110.tsx"
+        },
+        {
+          "id": "rjflJ2D4OoXB",
+          "name": "Icon111Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon111.tsx"
         }
       ],
       "images": [
@@ -1831,6 +1849,21 @@
           "id": "CL32aRND8PxE",
           "name": "image 35",
           "filePath": "../public/plasmic/liom_hamyar/images/image35.png"
+        },
+        {
+          "id": "ghVHvt0KxMZ-",
+          "name": "image 36",
+          "filePath": "../public/plasmic/liom_hamyar/images/image36.svg"
+        },
+        {
+          "id": "zxs04FV-lLJd",
+          "name": "image 37",
+          "filePath": "../public/plasmic/liom_hamyar/images/image37.svg"
+        },
+        {
+          "id": "Sb9DG4SMCY-C",
+          "name": "image 38",
+          "filePath": "../public/plasmic/liom_hamyar/images/image38.svg"
         }
       ],
       "indirect": false,

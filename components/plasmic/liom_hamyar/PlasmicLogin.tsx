@@ -61,7 +61,14 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import LoginBox from "../../LoginBox"; // plasmic-import: eH_yQdxVywwP/component
+import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
+import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -76,13 +83,24 @@ import Icon107Icon from "./icons/PlasmicIcon__Icon107"; // plasmic-import: HFiB-
 import Icon108Icon from "./icons/PlasmicIcon__Icon108"; // plasmic-import: P364T549veD9/icon
 import Icon109Icon from "./icons/PlasmicIcon__Icon109"; // plasmic-import: rDm5lm_Drjuw/icon
 import Icon110Icon from "./icons/PlasmicIcon__Icon110"; // plasmic-import: yNwSkfuj5hYK/icon
+import IconIcon from "../radix_ui/icons/PlasmicIcon__Icon"; // plasmic-import: MbDRsJU0e3bw/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
+import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ2D4OoXB/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 
 createPlasmicElementProxy;
 
-export type PlasmicLogin__VariantMembers = {};
-export type PlasmicLogin__VariantsArgs = {};
+export type PlasmicLogin__VariantMembers = {
+  loginPage: "mobile" | "email" | "mobileCode" | "name";
+};
+export type PlasmicLogin__VariantsArgs = {
+  loginPage?: SingleChoiceArg<"mobile" | "email" | "mobileCode" | "name">;
+};
 type VariantPropType = keyof PlasmicLogin__VariantsArgs;
-export const PlasmicLogin__VariantProps = new Array<VariantPropType>();
+export const PlasmicLogin__VariantProps = new Array<VariantPropType>(
+  "loginPage"
+);
 
 export type PlasmicLogin__ArgsType = {};
 type ArgPropType = keyof PlasmicLogin__ArgsType;
@@ -91,6 +109,19 @@ export const PlasmicLogin__ArgProps = new Array<ArgPropType>();
 export type PlasmicLogin__OverridesType = {
   root?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
+  textInput?: Flex__<typeof TextInput>;
+  button?: Flex__<typeof Button>;
+  textInput4?: Flex__<typeof TextInput>;
+  radioGrop?: Flex__<typeof RadioGrop>;
+  textInput6?: Flex__<typeof TextInput>;
+  checkbox?: Flex__<typeof Checkbox>;
+  button4?: Flex__<typeof Button>;
+  textInput3?: Flex__<typeof TextInput>;
+  embedHtml?: Flex__<typeof Embed>;
+  timer?: Flex__<typeof Timer>;
+  button3?: Flex__<typeof Button>;
+  textInput2?: Flex__<typeof TextInput>;
+  button2?: Flex__<typeof Button>;
 };
 
 export interface DefaultLoginProps {}
@@ -133,7 +164,126 @@ function PlasmicLogin__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
+
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "loginPage",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.loginPage
+      },
+      {
+        path: "textInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "loginPage", "mobileCode")
+            ? (() => {
+                try {
+                  return $state.number;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : ""
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "number",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "848787"
+      },
+      {
+        path: "cods",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "time",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 30
+      },
+      {
+        path: "textInput4.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput6.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "gender",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "checkbox.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6BytLjmha8VC()
@@ -163,103 +313,3201 @@ function PlasmicLogin__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.root
+            sty.root,
+            {
+              [sty.rootloginPage_email]: hasVariant(
+                $state,
+                "loginPage",
+                "email"
+              ),
+              [sty.rootloginPage_mobileCode]: hasVariant(
+                $state,
+                "loginPage",
+                "mobileCode"
+              ),
+              [sty.rootloginPage_mobile]: hasVariant(
+                $state,
+                "loginPage",
+                "mobile"
+              ),
+              [sty.rootloginPage_name]: hasVariant($state, "loginPage", "name")
+            }
           )}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__ncvgt)}
+          <Reveal
+            className={classNames("__wab_instance", sty.reveal__jmKkx, {
+              [sty.revealloginPage_email__jmKkxiYwOs]: hasVariant(
+                $state,
+                "loginPage",
+                "email"
+              ),
+              [sty.revealloginPage_mobileCode__jmKkXm2GXn]: hasVariant(
+                $state,
+                "loginPage",
+                "mobileCode"
+              ),
+              [sty.revealloginPage_mobile__jmKkx6MmOa]: hasVariant(
+                $state,
+                "loginPage",
+                "mobile"
+              ),
+              [sty.revealloginPage_name__jmKkXhUiKy]: hasVariant(
+                $state,
+                "loginPage",
+                "name"
+              )
+            })}
+            effect={"fade"}
+            triggerOnce={true}
           >
-            <PlasmicImg__
-              data-plasmic-name={"img"}
-              data-plasmic-override={overrides.img}
-              alt={""}
-              className={classNames(sty.img)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "100px"
-                  : "150px"
-              }
-              src={{
-                src: "/plasmic/liom_hamyar/images/image35.png",
-                fullWidth: 1029,
-                fullHeight: 1029,
-                aspectRatio: undefined
-              }}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___5FL9W
-              )}
-            >
-              {
-                "\u0644\u06cc\u0648\u0645  | \u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc"
-              }
-            </div>
             <Stack__
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__fajjl)}
+              className={classNames(projectcss.all, sty.freeBox__ncvgt, {
+                [sty.freeBoxloginPage_email__ncvgtIYwOs]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "email"
+                ),
+                [sty.freeBoxloginPage_mobileCode__ncvgtm2GXn]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobileCode"
+                ),
+                [sty.freeBoxloginPage_mobile__ncvgt6MmOa]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobile"
+                ),
+                [sty.freeBoxloginPage_name__ncvgthUiKy]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "name"
+                )
+              })}
             >
+              <PlasmicImg__
+                data-plasmic-name={"img"}
+                data-plasmic-override={overrides.img}
+                alt={""}
+                className={classNames(sty.img)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? "100px"
+                    : "150px"
+                }
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image35.png",
+                  fullWidth: 1029,
+                  fullHeight: 1029,
+                  aspectRatio: undefined
+                }}
+              />
+
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__uddEg
+                  sty.text___5FL9W
                 )}
               >
                 {
-                  "\u0628\u0631\u0627\u06cc \u0648\u0631\u0648\u062f \u06cc\u0627 \u062b\u0628\u062a \u0646\u0627\u0645 \u06cc\u06a9\u06cc \u0627\u0632 \u06af\u0632\u06cc\u0646\u0647 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646."
+                  "\u0644\u06cc\u0648\u0645  | \u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc"
                 }
               </div>
-              <LoginBox
-                className={classNames("__wab_instance", sty.loginBox__aUvGc)}
-              />
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__fajjl)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__uddEg,
+                    {
+                      [sty.textloginPage_email__uddEgIYwOs]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.textloginPage_mobileCode__uddEgm2GXn]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.textloginPage_mobile__uddEg6MmOa]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.textloginPage_name__uddEghUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    }
+                  )}
+                >
+                  {
+                    "\u0628\u0631\u0627\u06cc \u0648\u0631\u0648\u062f \u06cc\u0627 \u062b\u0628\u062a \u0646\u0627\u0645 \u06cc\u06a9\u06cc \u0627\u0632 \u06af\u0632\u06cc\u0646\u0647 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646."
+                  }
+                </div>
+                <LoginBox
+                  className={classNames("__wab_instance", sty.loginBox__aUvGc)}
+                  slot={
+                    "\u0648\u0631\u0648\u062f \u0628\u0627 \u062d\u0633\u0627\u0628 \u06af\u0648\u06af\u0644"
+                  }
+                />
 
-              <LoginBox
-                className={classNames("__wab_instance", sty.loginBox__tWiTd)}
-                slot={
-                  "\u0648\u0631\u0648\u062f \u0628\u0627 \u0645\u0648\u0628\u0627\u06cc\u0644"
-                }
-              >
-                <Icon108Icon
-                  className={classNames(projectcss.all, sty.svg___8EFS)}
-                  role={"img"}
-                />
-              </LoginBox>
-              <LoginBox
-                className={classNames("__wab_instance", sty.loginBox___67EL)}
-                slot={
-                  "\u0648\u0631\u0648\u062f \u0628\u0627 \u0627\u06cc\u0645\u06cc\u0644"
-                }
-              >
-                <Icon109Icon
-                  className={classNames(projectcss.all, sty.svg__wuBf)}
-                  role={"img"}
-                />
-              </LoginBox>
-              <LoginBox
-                className={classNames("__wab_instance", sty.loginBox__nlWB)}
-                slot={
-                  "\u0648\u0631\u0648\u062f \u0628\u0627 \u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
-                }
-              >
-                <Icon110Icon
-                  className={classNames(projectcss.all, sty.svg__dI22L)}
-                  role={"img"}
-                />
-              </LoginBox>
+                <LoginBox
+                  className={classNames("__wab_instance", sty.loginBox__tWiTd, {
+                    [sty.loginBoxloginPage_email__tWiTdIYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.loginBoxloginPage_mobileCode__tWiTdm2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.loginBoxloginPage_mobile__tWiTd6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.loginBoxloginPage_name__tWiTdhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateLoginPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "loginPage",
+                            operation: 0,
+                            value: "mobile"
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            $stateSet($state, vgroup, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoginPage"] != null &&
+                      typeof $steps["updateLoginPage"] === "object" &&
+                      typeof $steps["updateLoginPage"].then === "function"
+                    ) {
+                      $steps["updateLoginPage"] = await $steps[
+                        "updateLoginPage"
+                      ];
+                    }
+                  }}
+                  slot={
+                    "\u0648\u0631\u0648\u062f \u0628\u0627 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                  }
+                >
+                  <Icon108Icon
+                    className={classNames(projectcss.all, sty.svg___8EFS)}
+                    role={"img"}
+                  />
+                </LoginBox>
+                <LoginBox
+                  className={classNames("__wab_instance", sty.loginBox___67EL)}
+                  slot={
+                    "\u0648\u0631\u0648\u062f \u0628\u0627 \u0627\u06cc\u0645\u06cc\u0644"
+                  }
+                >
+                  <Icon109Icon
+                    className={classNames(projectcss.all, sty.svg__wuBf)}
+                    role={"img"}
+                  />
+                </LoginBox>
+                <LoginBox
+                  className={classNames("__wab_instance", sty.loginBox__nlWB)}
+                  slot={
+                    "\u0648\u0631\u0648\u062f \u0628\u0627 \u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
+                  }
+                >
+                  <Icon110Icon
+                    className={classNames(projectcss.all, sty.svg__dI22L)}
+                    role={"img"}
+                  />
+                </LoginBox>
+              </Stack__>
             </Stack__>
-          </Stack__>
+          </Reveal>
+          {(
+            hasVariant($state, "loginPage", "name")
+              ? true
+              : hasVariant($state, "loginPage", "mobileCode")
+              ? true
+              : hasVariant($state, "loginPage", "email")
+              ? true
+              : hasVariant($state, "loginPage", "mobile")
+              ? true
+              : false
+          ) ? (
+            <Reveal
+              className={classNames("__wab_instance", sty.reveal__hzsaP, {
+                [sty.revealloginPage_email__hzsaPiYwOs]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "email"
+                ),
+                [sty.revealloginPage_mobileCode__hzsaPm2GXn]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobileCode"
+                ),
+                [sty.revealloginPage_mobile__hzsaP6MmOa]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobile"
+                ),
+                [sty.revealloginPage_name__hzsaPhUiKy]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "name"
+                )
+              })}
+              effect={"fade"}
+              triggerOnce={true}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__vh5G1, {
+                  [sty.freeBoxloginPage_email__vh5G1IYwOs]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "email"
+                  ),
+                  [sty.freeBoxloginPage_mobileCode__vh5G1M2GXn]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobileCode"
+                  ),
+                  [sty.freeBoxloginPage_mobile__vh5G16MmOa]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobile"
+                  ),
+                  [sty.freeBoxloginPage_name__vh5G1HUiKy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
+                  )
+                })}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___9Kp8K, {
+                    [sty.freeBoxloginPage_email___9Kp8KiYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode___9Kp8Km2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile___9Kp8K6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name___9Kp8KhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__b2S9S, {
+                      [sty.svgloginPage_email__b2S9SiYwOs]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.svgloginPage_mobileCode__b2S9Sm2GXn]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.svgloginPage_mobile__b2S9S6MmOa]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.svgloginPage_name__b2S9ShUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    })}
+                    role={"img"}
+                  />
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__iex27, {
+                    [sty.freeBoxloginPage_email__iex27IYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__iex27M2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__iex276MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__iex27HUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ckWzj,
+                      {
+                        [sty.textloginPage_email__ckWzjiYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textloginPage_mobileCode__ckWzJm2GXn]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textloginPage_mobile__ckWzj6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textloginPage_name__ckWzJhUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "loginPage", "name")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "mobileCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "email")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "mobile")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : "Enter some text"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox___8Bjk,
+                      hasVariant($state, "loginPage", "name")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "negative"
+                        : undefined,
+                      {
+                        [sty.freeBoxloginPage_email___8BjkIYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.freeBoxloginPage_mobileCode___8BjkM2GXn]:
+                          hasVariant($state, "loginPage", "mobileCode"),
+                        [sty.freeBoxloginPage_mobile___8Bjk6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.freeBoxloginPage_name___8BjkHUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    <TextInput
+                      data-plasmic-name={"textInput"}
+                      data-plasmic-override={overrides.textInput}
+                      className={classNames("__wab_instance", sty.textInput, {
+                        [sty.textInputloginPage_email]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textInputloginPage_mobileCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textInputloginPage_mobile]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textInputloginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      })}
+                      endIcon={
+                        <React.Fragment>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__n30Fi
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__oan3F,
+                              hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "email")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? "negative"
+                                : undefined,
+                              {
+                                [sty.textloginPage_email__oan3FiYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.textloginPage_mobileCode__oan3Fm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.textloginPage_mobile__oan3F6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.textloginPage_name__oan3FhUiKy]:
+                                  hasVariant($state, "loginPage", "name")
+                              }
+                            )}
+                          >
+                            {hasVariant($state, "loginPage", "name")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobileCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "email")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobile")
+                              ? "+98 "
+                              : "Enter some text"}
+                          </div>
+                          <PlasmicIcon__
+                            PlasmicIconType={
+                              hasVariant($state, "loginPage", "name")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "email")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? Icon111Icon
+                                : "div"
+                            }
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__dqkSf,
+                              {
+                                [sty.svgloginPage_email__dqkSfiYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.svgloginPage_mobileCode__dqkSFm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.svgloginPage_mobile__dqkSf6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.svgloginPage_name__dqkSFhUiKy]: hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "name"
+                                )
+                              }
+                            )}
+                            role={"img"}
+                          />
+                        </React.Fragment>
+                      }
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "textInput",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+                        (async event => {
+                          const $steps = {};
+
+                          $steps["updateTextInputValue"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["textInput", "value"]
+                                  },
+                                  operation: 0
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTextInputValue"] != null &&
+                            typeof $steps["updateTextInputValue"] ===
+                              "object" &&
+                            typeof $steps["updateTextInputValue"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextInputValue"] = await $steps[
+                              "updateTextInputValue"
+                            ];
+                          }
+                        }).apply(null, eventArgs);
+                      }}
+                      placeholder={
+                        hasVariant($state, "loginPage", "name")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "09123456789"
+                          : "9123456789"
+                      }
+                      showEndIcon={true}
+                      type={
+                        hasVariant($state, "loginPage", "name") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "name")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobileCode") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "email") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "tel"
+                          : undefined
+                      }
+                      value={
+                        generateStateValueProp($state, [
+                          "textInput",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+                  </div>
+                </Stack__>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___2Rjei, {
+                    [sty.freeBoxloginPage_email___2RjeiIYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode___2Rjeim2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile___2Rjei6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name___2RjeihUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <Button
+                    data-plasmic-name={"button"}
+                    data-plasmic-override={overrides.button}
+                    className={classNames("__wab_instance", sty.button, {
+                      [sty.buttonloginPage_email]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.buttonloginPage_mobileCode]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.buttonloginPage_mobile]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.buttonloginPage_name]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    })}
+                    color={generateStateValueProp($state, ["button", "color"])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateNumber"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["number"]
+                              },
+                              operation: 0,
+                              value: $state.textInput.value
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateNumber"] != null &&
+                        typeof $steps["updateNumber"] === "object" &&
+                        typeof $steps["updateNumber"].then === "function"
+                      ) {
+                        $steps["updateNumber"] = await $steps["updateNumber"];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/auth/signup/send-code-v2",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      type: "mobile",
+                                      country: "98",
+                                      smsType: "sms",
+                                      data: $state.number
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateLoginPage"] =
+                        $steps.invokeGlobalAction?.data?.success == true
+                          ? (() => {
+                              const actionArgs = {
+                                vgroup: "loginPage",
+                                operation: 0,
+                                value: "mobileCode"
+                              };
+                              return (({ vgroup, value }) => {
+                                if (typeof value === "string") {
+                                  value = [value];
+                                }
+
+                                $stateSet($state, vgroup, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateLoginPage"] != null &&
+                        typeof $steps["updateLoginPage"] === "object" &&
+                        typeof $steps["updateLoginPage"].then === "function"
+                      ) {
+                        $steps["updateLoginPage"] = await $steps[
+                          "updateLoginPage"
+                        ];
+                      }
+                    }}
+                    onColorChange={(...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "color"])(
+                        eventArgs[0]
+                      );
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__kKx7,
+                        {
+                          [sty.textloginPage_email__kKx7IYwOs]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "email"
+                          ),
+                          [sty.textloginPage_mobileCode__kKx7M2GXn]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobileCode"
+                          ),
+                          [sty.textloginPage_mobile__kKx76MmOa]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          ),
+                          [sty.textloginPage_name__kKx7HUiKy]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "loginPage", "name")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : "Button"}
+                    </div>
+                  </Button>
+                </div>
+              </Stack__>
+            </Reveal>
+          ) : null}
+          {(
+            hasVariant($state, "loginPage", "name")
+              ? true
+              : hasVariant($state, "loginPage", "mobileCode")
+              ? true
+              : hasVariant($state, "loginPage", "email")
+              ? true
+              : hasVariant($state, "loginPage", "mobile")
+              ? true
+              : false
+          ) ? (
+            <Reveal
+              className={classNames("__wab_instance", sty.reveal__tW85V, {
+                [sty.revealloginPage_email__tW85VIYwOs]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "email"
+                ),
+                [sty.revealloginPage_mobileCode__tW85Vm2GXn]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobileCode"
+                ),
+                [sty.revealloginPage_mobile__tW85V6MmOa]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobile"
+                ),
+                [sty.revealloginPage_name__tW85VhUiKy]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "name"
+                )
+              })}
+              effect={"fade"}
+              triggerOnce={true}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__xbB9E, {
+                  [sty.freeBoxloginPage_email__xbB9EIYwOs]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "email"
+                  ),
+                  [sty.freeBoxloginPage_mobileCode__xbB9Em2GXn]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobileCode"
+                  ),
+                  [sty.freeBoxloginPage_mobile__xbB9E6MmOa]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobile"
+                  ),
+                  [sty.freeBoxloginPage_name__xbB9EhUiKy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
+                  )
+                })}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__o4Bz, {
+                    [sty.freeBoxloginPage_email__o4BzIYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__o4Bzm2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__o4Bz6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__o4BzhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__rnQ7D, {
+                      [sty.svgloginPage_email__rnQ7DIYwOs]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.svgloginPage_mobileCode__rnQ7Dm2GXn]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.svgloginPage_mobile__rnQ7D6MmOa]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.svgloginPage_name__rnQ7DhUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    })}
+                    role={"img"}
+                  />
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__iXeee, {
+                    [sty.freeBoxloginPage_email__iXeeeIYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__iXeeem2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__iXeee6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__iXeeehUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__gtQh4,
+                      {
+                        [sty.textloginPage_email__gtQh4IYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textloginPage_mobileCode__gtQh4M2GXn]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textloginPage_mobile__gtQh46MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textloginPage_name__gtQh4HUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "loginPage", "name")
+                      ? "\u0644\u0637\u0641\u0627 \u0627\u0633\u0645\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
+                      : hasVariant($state, "loginPage", "mobileCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "email")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "mobile")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : "Enter some text"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__iMMwE,
+                      hasVariant($state, "loginPage", "name")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "negative"
+                        : undefined,
+                      {
+                        [sty.freeBoxloginPage_email__iMMwEiYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.freeBoxloginPage_mobileCode__iMMwEm2GXn]:
+                          hasVariant($state, "loginPage", "mobileCode"),
+                        [sty.freeBoxloginPage_mobile__iMMwE6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.freeBoxloginPage_name__iMMwEhUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    <TextInput
+                      data-plasmic-name={"textInput4"}
+                      data-plasmic-override={overrides.textInput4}
+                      className={classNames("__wab_instance", sty.textInput4, {
+                        [sty.textInput4loginPage_email]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textInput4loginPage_mobileCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textInput4loginPage_mobile]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textInput4loginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      })}
+                      endIcon={
+                        <React.Fragment>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__xrKh,
+                              {
+                                [sty.freeBoxloginPage_name__xrKhhUiKy]:
+                                  hasVariant($state, "loginPage", "name")
+                              }
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__xfueF,
+                              hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "email")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? "negative"
+                                : undefined,
+                              {
+                                [sty.textloginPage_email__xfueFiYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.textloginPage_mobileCode__xfueFm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.textloginPage_mobile__xfueF6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.textloginPage_name__xfueFhUiKy]:
+                                  hasVariant($state, "loginPage", "name")
+                              }
+                            )}
+                          >
+                            {hasVariant($state, "loginPage", "name")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobileCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "email")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobile")
+                              ? "+98 "
+                              : "Enter some text"}
+                          </div>
+                          <PlasmicIcon__
+                            PlasmicIconType={
+                              hasVariant($state, "loginPage", "name")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "email")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? Icon111Icon
+                                : "div"
+                            }
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__advgG,
+                              {
+                                [sty.svgloginPage_email__advgGiYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.svgloginPage_mobileCode__advgGm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.svgloginPage_mobile__advgG6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.svgloginPage_name__advgGhUiKy]: hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "name"
+                                )
+                              }
+                            )}
+                            role={"img"}
+                          />
+                        </React.Fragment>
+                      }
+                      onChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "textInput4",
+                          "value"
+                        ])((e => e.target?.value).apply(null, eventArgs));
+                      }}
+                      placeholder={
+                        hasVariant($state, "loginPage", "name")
+                          ? "\u0645\u062b\u0644\u0627: \u0639\u0644\u06cc \u0645\u062d\u0645\u062f\u06cc"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "09123456789"
+                          : "09123456789"
+                      }
+                      showEndIcon={
+                        hasVariant($state, "loginPage", "name")
+                          ? undefined
+                          : true
+                      }
+                      type={
+                        hasVariant($state, "loginPage", "name") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "text"
+                          : hasVariant($state, "loginPage", "name")
+                          ? "text"
+                          : hasVariant($state, "loginPage", "mobileCode") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "email") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "tel"
+                          : undefined
+                      }
+                      value={
+                        generateStateValueProp($state, [
+                          "textInput4",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__chggi, {
+                    [sty.freeBoxloginPage_email__chggiiYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__chggIm2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__chggi6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__chggIhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__hAmz0,
+                      {
+                        [sty.textloginPage_email__hAmz0IYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textloginPage_mobileCode__hAmz0M2GXn]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textloginPage_mobile__hAmz06MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textloginPage_name__hAmz0HUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "loginPage", "name")
+                      ? "\u0644\u0637\u0641\u0627 \u062c\u0646\u0633\u06cc\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646"
+                      : hasVariant($state, "loginPage", "mobileCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "email")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "mobile")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : "Enter some text"}
+                  </div>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__ve2B1,
+                      hasVariant($state, "loginPage", "name")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "negative"
+                        : undefined,
+                      {
+                        [sty.freeBoxloginPage_email__ve2B1IYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.freeBoxloginPage_mobileCode__ve2B1M2GXn]:
+                          hasVariant($state, "loginPage", "mobileCode"),
+                        [sty.freeBoxloginPage_mobile__ve2B16MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.freeBoxloginPage_name__ve2B1HUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return [
+                            { value: "female", label: "زن" },
+                            { value: "male", label: "مرد ( همیار قاعدگی )" }
+                          ];
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <RadioGrop
+                          data-plasmic-name={"radioGrop"}
+                          data-plasmic-override={overrides.radioGrop}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.radioGrop,
+                            {
+                              [sty.radioGroploginPage_name]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "name"
+                              )
+                            }
+                          )}
+                          key={currentIndex}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateGender"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["gender"]
+                                    },
+                                    operation: 0,
+                                    value: currentItem.value
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateGender"] != null &&
+                              typeof $steps["updateGender"] === "object" &&
+                              typeof $steps["updateGender"].then === "function"
+                            ) {
+                              $steps["updateGender"] = await $steps[
+                                "updateGender"
+                              ];
+                            }
+                          }}
+                          selected={(() => {
+                            try {
+                              return currentItem.value == $state.gender;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__wjNxq
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.label;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </RadioGrop>
+                      );
+                    })}
+                  </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__ihXz3, {
+                    [sty.freeBoxloginPage_email__ihXz3IYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__ihXz3M2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__ihXz36MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__ihXz3HUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zRbjB,
+                      {
+                        [sty.textloginPage_email__zRbjBiYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textloginPage_mobileCode__zRbjBm2GXn]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textloginPage_mobile__zRbjB6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textloginPage_name__zRbjBhUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "loginPage", "name")
+                      ? "\u0627\u06af\u0647 \u06a9\u062f \u0645\u0639\u0631\u0641 \u062f\u0627\u0631\u06cc\u060c \u0627\u06cc\u0646\u062c\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646 (\u0627\u062e\u062a\u06cc\u0627\u0631\u06cc)"
+                      : hasVariant($state, "loginPage", "mobileCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "email")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "mobile")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : "Enter some text"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__aAaMw,
+                      hasVariant($state, "loginPage", "name")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "negative"
+                        : undefined,
+                      {
+                        [sty.freeBoxloginPage_email__aAaMwIYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.freeBoxloginPage_mobileCode__aAaMwm2GXn]:
+                          hasVariant($state, "loginPage", "mobileCode"),
+                        [sty.freeBoxloginPage_mobile__aAaMw6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.freeBoxloginPage_name__aAaMwhUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    <TextInput
+                      data-plasmic-name={"textInput6"}
+                      data-plasmic-override={overrides.textInput6}
+                      className={classNames("__wab_instance", sty.textInput6, {
+                        [sty.textInput6loginPage_email]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textInput6loginPage_mobileCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textInput6loginPage_mobile]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textInput6loginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      })}
+                      endIcon={
+                        <React.Fragment>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__u4Kam,
+                              {
+                                [sty.freeBoxloginPage_name__u4KamhUiKy]:
+                                  hasVariant($state, "loginPage", "name")
+                              }
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__kwWcw,
+                              hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "email")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? "negative"
+                                : undefined,
+                              {
+                                [sty.textloginPage_email__kwWcwIYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.textloginPage_mobileCode__kwWcwm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.textloginPage_mobile__kwWcw6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.textloginPage_name__kwWcwhUiKy]:
+                                  hasVariant($state, "loginPage", "name")
+                              }
+                            )}
+                          >
+                            {hasVariant($state, "loginPage", "name")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobileCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "email")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobile")
+                              ? "+98 "
+                              : "Enter some text"}
+                          </div>
+                          <PlasmicIcon__
+                            PlasmicIconType={
+                              hasVariant($state, "loginPage", "name")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "email")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? Icon111Icon
+                                : "div"
+                            }
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__lqzCk,
+                              {
+                                [sty.svgloginPage_email__lqzCkIYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.svgloginPage_mobileCode__lqzCkm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.svgloginPage_mobile__lqzCk6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.svgloginPage_name__lqzCkhUiKy]: hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "name"
+                                )
+                              }
+                            )}
+                            role={"img"}
+                          />
+                        </React.Fragment>
+                      }
+                      onChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "textInput6",
+                          "value"
+                        ])((e => e.target?.value).apply(null, eventArgs));
+                      }}
+                      placeholder={
+                        hasVariant($state, "loginPage", "name")
+                          ? "liom"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "09123456789"
+                          : "liom"
+                      }
+                      showEndIcon={
+                        hasVariant($state, "loginPage", "name")
+                          ? undefined
+                          : true
+                      }
+                      type={
+                        hasVariant($state, "loginPage", "name") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "name")
+                          ? "text"
+                          : hasVariant($state, "loginPage", "mobileCode") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "email") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "tel"
+                          : undefined
+                      }
+                      value={
+                        generateStateValueProp($state, [
+                          "textInput6",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+                  </div>
+                </Stack__>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__kpeHu, {
+                    [sty.freeBoxloginPage_email__kpeHuiYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__kpeHUm2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__kpeHu6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__kpeHUhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__jikjM, {
+                      [sty.freeBoxloginPage_name__jikjMhUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    })}
+                  >
+                    <Checkbox
+                      data-plasmic-name={"checkbox"}
+                      data-plasmic-override={overrides.checkbox}
+                      className={classNames("__wab_instance", sty.checkbox, {
+                        [sty.checkboxloginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      })}
+                      isChecked={
+                        generateStateValueProp($state, [
+                          "checkbox",
+                          "isChecked"
+                        ]) ?? false
+                      }
+                      onChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "checkbox",
+                          "isChecked"
+                        ])(eventArgs[0]);
+                      }}
+                    >
+                      {hasVariant($state, "loginPage", "name")
+                        ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a \u0631\u0627 \u0645\u06cc\u067e\u0630\u06cc\u0631\u0645!"
+                        : "Enter some text"}
+                    </Checkbox>
+                    <Button
+                      data-plasmic-name={"button4"}
+                      data-plasmic-override={overrides.button4}
+                      className={classNames("__wab_instance", sty.button4, {
+                        [sty.button4loginPage_email]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.button4loginPage_mobileCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.button4loginPage_mobile]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.button4loginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      })}
+                      color={generateStateValueProp($state, [
+                        "button4",
+                        "color"
+                      ])}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateLoginPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                vgroup: "loginPage",
+                                operation: 0,
+                                value: "mobileCode"
+                              };
+                              return (({ vgroup, value }) => {
+                                if (typeof value === "string") {
+                                  value = [value];
+                                }
+
+                                $stateSet($state, vgroup, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoginPage"] != null &&
+                          typeof $steps["updateLoginPage"] === "object" &&
+                          typeof $steps["updateLoginPage"].then === "function"
+                        ) {
+                          $steps["updateLoginPage"] = await $steps[
+                            "updateLoginPage"
+                          ];
+                        }
+                      }}
+                      onColorChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button4", "color"])(
+                          eventArgs[0]
+                        );
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__zaY8Q,
+                          {
+                            [sty.textloginPage_email__zaY8QIYwOs]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "email"
+                            ),
+                            [sty.textloginPage_mobileCode__zaY8Qm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode"),
+                            [sty.textloginPage_mobile__zaY8Q6MmOa]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "mobile"
+                            ),
+                            [sty.textloginPage_name__zaY8QhUiKy]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "name"
+                            )
+                          }
+                        )}
+                      >
+                        {hasVariant($state, "loginPage", "name")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : "Button"}
+                      </div>
+                    </Button>
+                  </div>
+                </div>
+              </Stack__>
+            </Reveal>
+          ) : null}
+          {(
+            hasVariant($state, "loginPage", "name")
+              ? true
+              : hasVariant($state, "loginPage", "mobileCode")
+              ? true
+              : hasVariant($state, "loginPage", "email")
+              ? true
+              : hasVariant($state, "loginPage", "mobile")
+              ? true
+              : false
+          ) ? (
+            <Reveal
+              className={classNames("__wab_instance", sty.reveal__gXj4A, {
+                [sty.revealloginPage_email__gXj4AIYwOs]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "email"
+                ),
+                [sty.revealloginPage_mobileCode__gXj4Am2GXn]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobileCode"
+                ),
+                [sty.revealloginPage_mobile__gXj4A6MmOa]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobile"
+                ),
+                [sty.revealloginPage_name__gXj4AhUiKy]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "name"
+                )
+              })}
+              effect={"fade"}
+              triggerOnce={true}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__ns0Tj, {
+                  [sty.freeBoxloginPage_email__ns0TjiYwOs]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "email"
+                  ),
+                  [sty.freeBoxloginPage_mobileCode__ns0TJm2GXn]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobileCode"
+                  ),
+                  [sty.freeBoxloginPage_mobile__ns0Tj6MmOa]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobile"
+                  ),
+                  [sty.freeBoxloginPage_name__ns0TJhUiKy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
+                  )
+                })}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__k2Qk, {
+                    [sty.freeBoxloginPage_email__k2QkIYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__k2QkM2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__k2Qk6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__k2QkHUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__aydpl, {
+                      [sty.svgloginPage_email__aydplIYwOs]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.svgloginPage_mobileCode__aydplm2GXn]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.svgloginPage_mobile__aydpl6MmOa]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.svgloginPage_name__aydplhUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    })}
+                    role={"img"}
+                  />
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__cmdIp, {
+                    [sty.freeBoxloginPage_email__cmdIpIYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__cmdIpm2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__cmdIp6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__cmdIphUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__pOmUn, {
+                      [sty.freeBoxloginPage_mobileCode__pOmUnm2GXn]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      )
+                    })}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___0LxR,
+                        {
+                          [sty.textloginPage_email___0LxRiYwOs]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "email"
+                          ),
+                          [sty.textloginPage_mobileCode___0LxRm2GXn]:
+                            hasVariant($state, "loginPage", "mobileCode"),
+                          [sty.textloginPage_mobile___0LxR6MmOa]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          ),
+                          [sty.textloginPage_name___0LxRhUiKy]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "loginPage", "name")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : "Enter some text"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__ua1Oz,
+                        {
+                          [sty.textloginPage_email__ua1OzIYwOs]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "email"
+                          ),
+                          [sty.textloginPage_mobileCode__ua1Ozm2GXn]:
+                            hasVariant($state, "loginPage", "mobileCode"),
+                          [sty.textloginPage_mobile__ua1Oz6MmOa]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          ),
+                          [sty.textloginPage_name__ua1OzhUiKy]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "loginPage", "name")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : "Enter some text"}
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox___7YOd7,
+                      hasVariant($state, "loginPage", "name")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "negative"
+                        : undefined,
+                      {
+                        [sty.freeBoxloginPage_email___7YOd7IYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.freeBoxloginPage_mobileCode___7YOd7M2GXn]:
+                          hasVariant($state, "loginPage", "mobileCode"),
+                        [sty.freeBoxloginPage_mobile___7YOd76MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.freeBoxloginPage_name___7YOd7HUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    <TextInput
+                      data-plasmic-name={"textInput3"}
+                      data-plasmic-override={overrides.textInput3}
+                      className={classNames("__wab_instance", sty.textInput3, {
+                        [sty.textInput3loginPage_email]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textInput3loginPage_mobileCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textInput3loginPage_mobile]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textInput3loginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      })}
+                      endIcon={
+                        <React.Fragment>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___0Mq8T
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__bZkn,
+                              hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "email")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? "negative"
+                                : undefined,
+                              {
+                                [sty.textloginPage_email__bZknIYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.textloginPage_mobileCode__bZknm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.textloginPage_mobile__bZkn6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.textloginPage_name__bZknhUiKy]: hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "name"
+                                )
+                              }
+                            )}
+                          >
+                            {hasVariant($state, "loginPage", "name")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobileCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "email")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobile")
+                              ? "+98 "
+                              : "Enter some text"}
+                          </div>
+                          <PlasmicIcon__
+                            PlasmicIconType={
+                              hasVariant($state, "loginPage", "name")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "email")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? Icon111Icon
+                                : "div"
+                            }
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__xjj9F,
+                              {
+                                [sty.svgloginPage_email__xjj9FiYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.svgloginPage_mobileCode__xjj9Fm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.svgloginPage_mobile__xjj9F6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.svgloginPage_name__xjj9FhUiKy]: hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "name"
+                                )
+                              }
+                            )}
+                            role={"img"}
+                          />
+                        </React.Fragment>
+                      }
+                      onChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "textInput3",
+                          "value"
+                        ])((e => e.target?.value).apply(null, eventArgs));
+                      }}
+                      placeholder={
+                        hasVariant($state, "loginPage", "name")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "09123456789"
+                          : "09123456789"
+                      }
+                      showEndIcon={true}
+                      type={
+                        hasVariant($state, "loginPage", "name") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "name")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobileCode") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "email") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "tel"
+                          : undefined
+                      }
+                      value={
+                        generateStateValueProp($state, [
+                          "textInput3",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+                  </div>
+                  <Embed
+                    data-plasmic-name={"embedHtml"}
+                    data-plasmic-override={overrides.embedHtml}
+                    className={classNames("__wab_instance", sty.embedHtml, {
+                      [sty.embedHtmlloginPage_mobileCode]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.embedHtmlloginPage_mobile]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.embedHtmlloginPage_name]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    })}
+                    code={
+                      hasVariant($state, "loginPage", "mobileCode") &&
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                        : hasVariant(globalVariants, "screen", "mobile")
+                        ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="moveToNext(this, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="moveToNext(this, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="moveToNext(this, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    function moveToNext(current, nextFieldId) {\r\n        if (current.value.length === 1) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                        : '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                    }
+                  />
+
+                  {(
+                    hasVariant($state, "loginPage", "mobileCode")
+                      ? (() => {
+                          try {
+                            return $state.time != 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  ) ? (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__dIhpA,
+                        {
+                          [sty.freeBoxloginPage_mobileCode__dIhpAm2GXn]:
+                            hasVariant($state, "loginPage", "mobileCode")
+                        }
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__zsVmp,
+                          {
+                            [sty.textloginPage_mobileCode__zsVmpm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode")
+                          }
+                        )}
+                      >
+                        {hasVariant($state, "loginPage", "mobileCode") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.time;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "0";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          "Enter some text"
+                        )}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__juCsk,
+                          {
+                            [sty.textloginPage_mobileCode__juCsKm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode")
+                          }
+                        )}
+                      >
+                        {hasVariant($state, "loginPage", "mobileCode")
+                          ? "\u062a\u0627 \u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f \u06a9\u062f \u0645\u0627\u0646\u062f\u0647 \u0627\u0633\u062a"
+                          : "Enter some text"}
+                      </div>
+                      <Timer
+                        data-plasmic-name={"timer"}
+                        data-plasmic-override={overrides.timer}
+                        className={classNames("__wab_instance", sty.timer, {
+                          [sty.timerloginPage_mobileCode]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobileCode"
+                          )
+                        })}
+                        intervalSeconds={
+                          hasVariant($state, "loginPage", "mobileCode")
+                            ? 1
+                            : undefined
+                        }
+                        isRunning={true}
+                        onTick={async () => {
+                          const $steps = {};
+
+                          $steps["updateTime"] =
+                            $state.time > 0
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["time"]
+                                    },
+                                    operation: 0,
+                                    value: $state.time - 1
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateTime"] != null &&
+                            typeof $steps["updateTime"] === "object" &&
+                            typeof $steps["updateTime"].then === "function"
+                          ) {
+                            $steps["updateTime"] = await $steps["updateTime"];
+                          }
+                        }}
+                        runWhileEditing={false}
+                      />
+                    </Stack__>
+                  ) : null}
+                  {(
+                    hasVariant($state, "loginPage", "mobileCode")
+                      ? (() => {
+                          try {
+                            return $state.time == 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  ) ? (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__xdA4U,
+                        {
+                          [sty.freeBoxloginPage_mobileCode__xdA4Um2GXn]:
+                            hasVariant($state, "loginPage", "mobileCode")
+                        }
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__nqFb,
+                          {
+                            [sty.textloginPage_mobileCode__nqFbm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode")
+                          }
+                        )}
+                      >
+                        {hasVariant($state, "loginPage", "mobileCode")
+                          ? "23"
+                          : "Enter some text"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__hNv,
+                          {
+                            [sty.textloginPage_mobileCode__hNvm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode")
+                          }
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateTime"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["time"]
+                                  },
+                                  operation: 0,
+                                  value: 30
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTime"] != null &&
+                            typeof $steps["updateTime"] === "object" &&
+                            typeof $steps["updateTime"].then === "function"
+                          ) {
+                            $steps["updateTime"] = await $steps["updateTime"];
+                          }
+                        }}
+                      >
+                        {hasVariant($state, "loginPage", "mobileCode")
+                          ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
+                          : "Enter some text"}
+                      </div>
+                    </Stack__>
+                  ) : null}
+                </Stack__>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__iXvYk, {
+                    [sty.freeBoxloginPage_email__iXvYkIYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__iXvYkm2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__iXvYk6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__iXvYkhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <Button
+                    data-plasmic-name={"button3"}
+                    data-plasmic-override={overrides.button3}
+                    className={classNames("__wab_instance", sty.button3, {
+                      [sty.button3loginPage_email]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.button3loginPage_mobileCode]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.button3loginPage_mobile]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.button3loginPage_name]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    })}
+                    color={generateStateValueProp($state, ["button3", "color"])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateCods"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["cods"]
+                              },
+                              operation: 0,
+                              value: parseInt(window.inputValues.join(""))
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateCods"] != null &&
+                        typeof $steps["updateCods"] === "object" &&
+                        typeof $steps["updateCods"].then === "function"
+                      ) {
+                        $steps["updateCods"] = await $steps["updateCods"];
+                      }
+
+                      $steps["updateLoginPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "loginPage",
+                              operation: 0,
+                              value: "name"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoginPage"] != null &&
+                        typeof $steps["updateLoginPage"] === "object" &&
+                        typeof $steps["updateLoginPage"].then === "function"
+                      ) {
+                        $steps["updateLoginPage"] = await $steps[
+                          "updateLoginPage"
+                        ];
+                      }
+                    }}
+                    onColorChange={(...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button3", "color"])(
+                        eventArgs[0]
+                      );
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__xsc0N,
+                        {
+                          [sty.textloginPage_email__xsc0NIYwOs]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "email"
+                          ),
+                          [sty.textloginPage_mobileCode__xsc0Nm2GXn]:
+                            hasVariant($state, "loginPage", "mobileCode"),
+                          [sty.textloginPage_mobile__xsc0N6MmOa]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          ),
+                          [sty.textloginPage_name__xsc0NhUiKy]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "loginPage", "name")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : "Button"}
+                    </div>
+                  </Button>
+                </div>
+              </Stack__>
+            </Reveal>
+          ) : null}
+          {(
+            hasVariant($state, "loginPage", "name")
+              ? true
+              : hasVariant($state, "loginPage", "mobileCode")
+              ? true
+              : hasVariant($state, "loginPage", "email")
+              ? true
+              : hasVariant($state, "loginPage", "mobile")
+              ? true
+              : false
+          ) ? (
+            <Reveal
+              className={classNames("__wab_instance", sty.reveal__iNn9, {
+                [sty.revealloginPage_email__iNn9IYwOs]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "email"
+                ),
+                [sty.revealloginPage_mobileCode__iNn9M2GXn]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobileCode"
+                ),
+                [sty.revealloginPage_mobile__iNn96MmOa]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobile"
+                ),
+                [sty.revealloginPage_name__iNn9HUiKy]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "name"
+                )
+              })}
+              effect={"fade"}
+              triggerOnce={true}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__xWvNp, {
+                  [sty.freeBoxloginPage_email__xWvNpiYwOs]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "email"
+                  ),
+                  [sty.freeBoxloginPage_mobileCode__xWvNPm2GXn]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobileCode"
+                  ),
+                  [sty.freeBoxloginPage_mobile__xWvNp6MmOa]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobile"
+                  ),
+                  [sty.freeBoxloginPage_name__xWvNPhUiKy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
+                  )
+                })}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__v8Tou, {
+                    [sty.freeBoxloginPage_email__v8TouIYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__v8Toum2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__v8Tou6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__v8TouhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__ia5Kc, {
+                      [sty.svgloginPage_email__ia5KcIYwOs]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.svgloginPage_mobileCode__ia5Kcm2GXn]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.svgloginPage_mobile__ia5Kc6MmOa]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.svgloginPage_name__ia5KchUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    })}
+                    role={"img"}
+                  />
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__ljycN, {
+                    [sty.freeBoxloginPage_email__ljycNiYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__ljycNm2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__ljycN6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__ljycNhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__cHEeF,
+                      {
+                        [sty.textloginPage_email__cHEeFiYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textloginPage_mobileCode__cHEeFm2GXn]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textloginPage_mobile__cHEeF6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textloginPage_name__cHEeFhUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "loginPage", "name")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "mobileCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "email")
+                      ? "\u0627\u06cc\u0645\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "mobile")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : "Enter some text"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__sOEh,
+                      hasVariant($state, "loginPage", "name")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "negative"
+                        : undefined,
+                      {
+                        [sty.freeBoxloginPage_email__sOEhiYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.freeBoxloginPage_mobileCode__sOEHm2GXn]:
+                          hasVariant($state, "loginPage", "mobileCode"),
+                        [sty.freeBoxloginPage_mobile__sOEh6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.freeBoxloginPage_name__sOEHhUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    <TextInput
+                      data-plasmic-name={"textInput2"}
+                      data-plasmic-override={overrides.textInput2}
+                      className={classNames("__wab_instance", sty.textInput2, {
+                        [sty.textInput2loginPage_email]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textInput2loginPage_mobileCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textInput2loginPage_mobile]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textInput2loginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      })}
+                      endIcon={
+                        <React.Fragment>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___5I2Tq,
+                              {
+                                [sty.freeBoxloginPage_email___5I2TqIYwOs]:
+                                  hasVariant($state, "loginPage", "email")
+                              }
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__bJLfG,
+                              hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "email")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? "negative"
+                                : undefined,
+                              {
+                                [sty.textloginPage_email__bJLfGiYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.textloginPage_mobileCode__bJLfGm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.textloginPage_mobile__bJLfG6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.textloginPage_name__bJLfGhUiKy]:
+                                  hasVariant($state, "loginPage", "name")
+                              }
+                            )}
+                          >
+                            {hasVariant($state, "loginPage", "name")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobileCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "email")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobile")
+                              ? "+98 "
+                              : "Enter some text"}
+                          </div>
+                          <PlasmicIcon__
+                            PlasmicIconType={
+                              hasVariant($state, "loginPage", "name")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "email")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? Icon111Icon
+                                : "div"
+                            }
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__rt0Yq,
+                              {
+                                [sty.svgloginPage_email__rt0YqIYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.svgloginPage_mobileCode__rt0Yqm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.svgloginPage_mobile__rt0Yq6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.svgloginPage_name__rt0YqhUiKy]: hasVariant(
+                                  $state,
+                                  "loginPage",
+                                  "name"
+                                )
+                              }
+                            )}
+                            role={"img"}
+                          />
+                        </React.Fragment>
+                      }
+                      onChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "textInput2",
+                          "value"
+                        ])((e => e.target?.value).apply(null, eventArgs));
+                      }}
+                      placeholder={
+                        hasVariant($state, "loginPage", "name")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "\u0627\u06cc\u0645\u06cc\u0644"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "09123456789"
+                          : "09123456789"
+                      }
+                      showEndIcon={
+                        hasVariant($state, "loginPage", "email")
+                          ? undefined
+                          : true
+                      }
+                      showStartIcon={
+                        hasVariant($state, "loginPage", "email")
+                          ? true
+                          : undefined
+                      }
+                      startIcon={
+                        <PlasmicIcon__
+                          PlasmicIconType={
+                            hasVariant($state, "loginPage", "email")
+                              ? Icon109Icon
+                              : SearchSvgIcon
+                          }
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg__j4B4H,
+                            {
+                              [sty.svgloginPage_email__j4B4HiYwOs]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "email"
+                              )
+                            }
+                          )}
+                          role={"img"}
+                        />
+                      }
+                      type={
+                        hasVariant($state, "loginPage", "name") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobileCode") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "email") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "email"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "email"
+                          : hasVariant($state, "loginPage", "mobile") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : undefined
+                      }
+                      value={
+                        generateStateValueProp($state, [
+                          "textInput2",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+                  </div>
+                </Stack__>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__wh17, {
+                    [sty.freeBoxloginPage_email__wh17IYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__wh17M2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__wh176MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__wh17HUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <Button
+                    data-plasmic-name={"button2"}
+                    data-plasmic-override={overrides.button2}
+                    className={classNames("__wab_instance", sty.button2, {
+                      [sty.button2loginPage_email]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.button2loginPage_mobileCode]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.button2loginPage_mobile]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.button2loginPage_name]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    })}
+                    color={generateStateValueProp($state, ["button2", "color"])}
+                    onColorChange={(...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__wvzB,
+                        {
+                          [sty.textloginPage_email__wvzBiYwOs]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "email"
+                          ),
+                          [sty.textloginPage_mobileCode__wvzBm2GXn]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobileCode"
+                          ),
+                          [sty.textloginPage_mobile__wvzB6MmOa]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          ),
+                          [sty.textloginPage_name__wvzBhUiKy]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "loginPage", "name")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : "Button"}
+                    </div>
+                  </Button>
+                </div>
+              </Stack__>
+            </Reveal>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -267,8 +3515,37 @@ function PlasmicLogin__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img"],
-  img: ["img"]
+  root: [
+    "root",
+    "img",
+    "textInput",
+    "button",
+    "textInput4",
+    "radioGrop",
+    "textInput6",
+    "checkbox",
+    "button4",
+    "textInput3",
+    "embedHtml",
+    "timer",
+    "button3",
+    "textInput2",
+    "button2"
+  ],
+  img: ["img"],
+  textInput: ["textInput"],
+  button: ["button"],
+  textInput4: ["textInput4"],
+  radioGrop: ["radioGrop"],
+  textInput6: ["textInput6"],
+  checkbox: ["checkbox"],
+  button4: ["button4"],
+  textInput3: ["textInput3"],
+  embedHtml: ["embedHtml"],
+  timer: ["timer"],
+  button3: ["button3"],
+  textInput2: ["textInput2"],
+  button2: ["button2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -276,6 +3553,19 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   img: typeof PlasmicImg__;
+  textInput: typeof TextInput;
+  button: typeof Button;
+  textInput4: typeof TextInput;
+  radioGrop: typeof RadioGrop;
+  textInput6: typeof TextInput;
+  checkbox: typeof Checkbox;
+  button4: typeof Button;
+  textInput3: typeof TextInput;
+  embedHtml: typeof Embed;
+  timer: typeof Timer;
+  button3: typeof Button;
+  textInput2: typeof TextInput;
+  button2: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -364,6 +3654,19 @@ export const PlasmicLogin = Object.assign(
   {
     // Helper components rendering sub-elements
     img: makeNodeComponent("img"),
+    textInput: makeNodeComponent("textInput"),
+    button: makeNodeComponent("button"),
+    textInput4: makeNodeComponent("textInput4"),
+    radioGrop: makeNodeComponent("radioGrop"),
+    textInput6: makeNodeComponent("textInput6"),
+    checkbox: makeNodeComponent("checkbox"),
+    button4: makeNodeComponent("button4"),
+    textInput3: makeNodeComponent("textInput3"),
+    embedHtml: makeNodeComponent("embedHtml"),
+    timer: makeNodeComponent("timer"),
+    button3: makeNodeComponent("button3"),
+    textInput2: makeNodeComponent("textInput2"),
+    button2: makeNodeComponent("button2"),
 
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,

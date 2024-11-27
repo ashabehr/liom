@@ -5,12 +5,12 @@
   height: auto;
   align-items: center;
   justify-content: flex-start;
-  background: #ffffff;
+  background: none;
   position: sticky;
   min-width: 0;
   border-radius: 6px;
-  padding: 7px 11px;
-  border: 1px solid #dbdbd7;
+  padding: 7px 8px;
+  border: 1px solid #c8c7c1;
 }
 .rootcolor_dark {
   background: #232320;
@@ -20,12 +20,18 @@
   border-color: #c8c7c1;
 }
 .root:focus-within {
-  box-shadow: 0px 0px 0px 3px #96c7f2;
+  box-shadow: none;
   border-radius: 6px;
+  border-width: 1px;
+  border-color: var(--token-55cSeNPovQFh);
 }
 .root___focusVisibleWithin {
-  box-shadow: 0px 0px 0px 3px #96c7f2;
+  box-shadow: none;
+  padding-left: 5px;
+  padding-right: 5px;
   border-radius: 6px;
+  border-width: 1px;
+  border-color: var(--token-55cSeNPovQFh);
 }
 .startIconContainer {
   position: relative;
@@ -34,11 +40,14 @@
   justify-content: flex-start;
   left: auto;
   top: auto;
-  margin-right: 8px;
   display: none;
+  margin: 0px;
 }
 .startIconContainershowStartIcon {
   display: flex;
+}
+.root .startIconContainer___focusVisibleWithin {
+  margin: 0px;
 }
 .slotTargetStartIconshowStartIcon {
   color: #90908c;
@@ -52,26 +61,9 @@
   width: auto;
   height: 1em;
 }
-.input {
-  width: 100%;
-  left: auto;
-  top: auto;
-  background: #ffffff00;
-  min-width: 0;
-  padding: 0px;
-  border-width: 0px;
-}
-.inputisDisabled {
-  cursor: not-allowed;
-}
-.inputcolor_dark {
-  color: #ffffff;
-}
-.root .input::placeholder {
-  color: #706f6c;
-}
-.rootcolor_dark .inputcolor_dark::placeholder {
-  color: #c8c7c1;
+.antdInput:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
 }
 .endIconContainer {
   position: relative;
@@ -80,11 +72,14 @@
   justify-content: flex-start;
   left: auto;
   top: auto;
-  margin-left: 8px;
   display: none;
+  margin: 0px;
 }
 .endIconContainershowEndIcon {
   display: flex;
+}
+.root .endIconContainer___focusVisibleWithin {
+  margin-left: 0px;
 }
 .slotTargetEndIconshowEndIcon {
   color: #90908c;

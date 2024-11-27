@@ -155,6 +155,8 @@ function PlasmicPregnancy__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -285,9 +287,13 @@ function PlasmicPregnancy__RenderFunc(props: {
             h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
             w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
           },
+          {
+            h: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            w: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
           { h: "1.9", w: "1" },
           { h: "2.3", w: "2" },
-          { h: "3.1", w: "2" },
+          { h: "3.1", w: "4" },
           { h: "4.1", w: "7" },
           { h: "5.4", w: "14" },
           { h: "7.4", w: "23" },
@@ -317,8 +323,7 @@ function PlasmicPregnancy__RenderFunc(props: {
           { h: "48.6", w: "2.9" },
           { h: "49.8", w: "3.1" },
           { h: "50.7", w: "3.3" },
-          { h: "51.2", w: "3.5" },
-          { h: "52.2", w: "3.8" }
+          { h: "51.2", w: "3.5" }
         ]
       },
       {
@@ -455,6 +460,54 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "sizeByFruit",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          "",
+          "\u062a\u062e\u0645\u06a9",
+          "\u0644\u0642\u0627\u062d",
+          "\u06a9\u0627\u0634\u062a",
+          "\u062f\u0627\u0646\u0647 \u06a9\u0646\u062c\u062f",
+          "\u0639\u062f\u0633",
+          "\u0628\u0644\u0648\u0628\u0631\u06cc",
+          "\u0644\u0648\u0628\u06cc\u0627",
+          "\u0627\u0646\u06af\u0648\u0631",
+          "\u067e\u0631\u062a\u0642\u0627\u0644 \u0645\u06cc\u0646\u06cc\u0627\u062a\u0648\u0631\u06cc",
+          "\u0627\u0646\u062c\u06cc\u0631",
+          "\u0644\u06cc\u0645\u0648 \u062a\u0631\u0634",
+          "\u063a\u0644\u0627\u0641 \u0646\u062e\u0648\u062f \u0641\u0631\u0646\u06af\u06cc",
+          "\u0644\u06cc\u0645\u0648 \u0634\u06cc\u0631\u06cc\u0646",
+          "\u0633\u06cc\u0628",
+          "\u0622\u0648\u0648\u06a9\u0627\u062f\u0648",
+          "\u0634\u0644\u063a\u0645",
+          "\u0641\u0644\u0641\u0644 \u062f\u0644\u0645\u0647",
+          "\u06af\u0648\u062c\u0647 ",
+          "\u0645\u0648\u0632",
+          "\u0647\u0648\u06cc\u062c",
+          "\u06a9\u062f\u0648 \u0633\u0628\u0632",
+          "\u0627\u0646\u0628\u0647",
+          "\u0628\u0644\u0627\u0644",
+          "\u0631\u0648\u062a\u0627\u0628\u0627\u06af\u0627",
+          "\u067e\u06cc\u0627\u0632\u0686\u0647",
+          "\u06af\u0644 \u06a9\u0644\u0645",
+          "\u0628\u0627\u062f\u0645\u062c\u0627\u0646",
+          "\u06a9\u062f\u0648 \u062d\u0644\u0648\u0627\u06cc\u06cc",
+          "\u06a9\u0644\u0645 \u0628\u0631\u06af \u0628\u0632\u0631\u06af",
+          "\u0646\u0627\u0631\u06af\u06cc\u0644",
+          "\u06a9\u0631\u0641\u0633",
+          "\u0622\u0646\u0627\u0646\u0627\u0633",
+          "\u062e\u0631\u0628\u0632\u0647",
+          "\u0645\u0644\u0648\u0646",
+          "\u06a9\u0627\u0647\u0648",
+          "\u0628\u0631\u06af \u0686\u063a\u0646\u062f\u0631 \u0633\u0648\u0626\u06cc\u0633\u06cc",
+          "\u062a\u0631\u0647 \u0641\u0631\u0646\u06af\u06cc",
+          "\u0647\u0646\u062f\u0648\u0627\u0646\u0647",
+          "\u06a9\u062f\u0648 \u062a\u0646\u0628\u0644",
+          "\u0646\u0648\u0632\u0627\u062f"
+        ]
       }
     ],
     [$props, $ctx, $refs]
@@ -1186,6 +1239,63 @@ function PlasmicPregnancy__RenderFunc(props: {
                     "updateDaysPregnant"
                   ];
                 }
+
+                $steps["invokeGlobalAction"] =
+                  $state.getInfo?.data?.[0].dueDate != null &&
+                  $state.getInfo?.data?.[0].dueDate != "" &&
+                  $ctx.query.userId.slice(4, $ctx.query.userId.length - 4) !=
+                    "314149"
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://api.liom.app/service/log",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  userId: $ctx.query.userId.slice(
+                                    4,
+                                    $ctx.query.userId.length - 4
+                                  ),
+                                  pageName: "mainPage",
+                                  action: "Onopen",
+                                  extraData: {}
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
+                            {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
+                              }
+                            }
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
@@ -1253,7 +1363,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   data-plasmic-override={overrides.embedHtml}
                   className={classNames("__wab_instance", sty.embedHtml)}
                   code={
-                    "    <script>\n        String.prototype.EntoFa = function() {\n            return this.replace(/\\d/g, d => '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'[d]);\n        }\n        function convertNumbersInPage() {\n            const elements = document.querySelectorAll('body *:not(script):not(style)');\n            elements.forEach(element => {\n                element.childNodes.forEach(node => {\n                    if (node.nodeType === Node.TEXT_NODE) {\n                        node.nodeValue = node.nodeValue.EntoFa();\n                    }\n                });\n            });\n        }\n    setTimeout(convertNumbersInPage, 1000);\n    </script>\n    "
+                    "<!-- Hotjar Tracking Code for https://apps.liom.app -->\n<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5222514,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>"
                   }
                 />
 
@@ -2948,16 +3058,16 @@ function PlasmicPregnancy__RenderFunc(props: {
                             try {
                               return (
                                 " تو در روز " +
-                                (280 - $state.daysPregnant) +
+                                (280 - $state.daysPregnant + "اُم") +
                                 ($state.weeksPregnant == 0 &&
                                 ($state.weeksPregnant / 7).toFixed() == 0
                                   ? ""
-                                  : " , ") +
+                                  : ", ") +
                                 ($state.weeksPregnant > 0
-                                  ? "هفته " + $state.weeksPregnant
+                                  ? "هفته " + $state.weeksPregnant + "اُم"
                                   : "") +
                                 ((($state.weeksPregnant + 1) / 7).toFixed() > 0
-                                  ? " و ماه " + $state.monthPregnant
+                                  ? " و ماه " + $state.monthPregnant + "اُم"
                                   : "") +
                                 " بارداری هستی  "
                               );
@@ -2985,9 +3095,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 destination: (() => {
                                   try {
                                     return (
-                                      "https://apps.liom.app/setting-pregnancy/?userId=" +
-                                      $state.getUserInfo?.data?.[0]?.result
-                                        ?.user?.id
+                                      "https://apps.liom.app/setting-pregnancy/??token=" +
+                                      $ctx.query.token +
+                                      "&userId=" +
+                                      $ctx.query.userId +
+                                      "&theme=" +
+                                      $ctx.query.theme
                                     );
                                   } catch (e) {
                                     if (
@@ -3021,6 +3134,64 @@ function PlasmicPregnancy__RenderFunc(props: {
                           typeof $steps["goToPage"].then === "function"
                         ) {
                           $steps["goToPage"] = await $steps["goToPage"];
+                        }
+
+                        $steps["invokeGlobalAction"] =
+                          $ctx.query.userId.slice(
+                            4,
+                            $ctx.query.userId.length - 4
+                          ) != "314149"
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/service/log",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          userId: $ctx.query.userId.slice(
+                                            4,
+                                            $ctx.query.userId.length - 4
+                                          ),
+                                          pageName: "settingPage",
+                                          action: "clickOpen",
+                                          extraData: {}
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })(),
+                                    {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization:
+                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
+                                      }
+                                    }
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
                         }
                       }}
                     >
@@ -3863,7 +4034,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 " هفته " +
                                 (280 -
                                   $state.daysPregnant -
-                                  ($state.weeksPregnant - 1) * 7 !=
+                                  ($state.weeksPregnant - 1) * 7 -
+                                  1 !=
                                 0
                                   ? "و " +
                                     (280 -
@@ -4496,7 +4668,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 try {
                                   return (
                                     "https://apps.liom.app/weekByWeek/?token=" +
-                                    $ctx.query.token
+                                    $ctx.query.token +
+                                    "&userId=" +
+                                    $ctx.query.userId +
+                                    "&theme=" +
+                                    $ctx.query.theme +
+                                    "&weekNum=" +
+                                    $state.weeksPregnant +
+                                    "&days=" +
+                                    $state.daysPregnant
                                   );
                                 } catch (e) {
                                   if (
@@ -4530,6 +4710,63 @@ function PlasmicPregnancy__RenderFunc(props: {
                         typeof $steps["goToPage"].then === "function"
                       ) {
                         $steps["goToPage"] = await $steps["goToPage"];
+                      }
+
+                      $steps["invokeGlobalAction"] =
+                        $ctx.query.userId.slice(
+                          4,
+                          $ctx.query.userId.length - 4
+                        ) != "314149"
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/service/log",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        userId: $ctx.query.userId.slice(
+                                          4,
+                                          $ctx.query.userId.length - 4
+                                        ),
+                                        pageName: "weenByWeekPage",
+                                        action: "clickOpen",
+                                        extraData: {}
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJwcmVnbmFuY3kifQ.TwRgrBWqV_cN5Il7kiCkKMN3KPwebxjyR1rwmwzifUU"
+                                    }
+                                  }
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
                       }
                     }}
                   >
@@ -4573,60 +4810,91 @@ function PlasmicPregnancy__RenderFunc(props: {
                               sty.freeBox__g8VH
                             )}
                           >
-                            {(() => {
-                              try {
-                                return (
-                                  $state.weeksPregnant != null &&
-                                  $state.daysPregnant != null &&
-                                  $state.textWeek != null &&
-                                  $state.textWeek.length > 0
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return false;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__xOWaI,
-                                  {
-                                    [sty.textdarkMod__xOWaIoQOo]: hasVariant(
-                                      $state,
-                                      "darkMod",
-                                      "darkMod"
-                                    )
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__coHup
+                              )}
+                            >
+                              {(() => {
+                                try {
+                                  return (
+                                    $state.weeksPregnant != null &&
+                                    $state.daysPregnant != null &&
+                                    $state.textWeek != null &&
+                                    $state.textWeek.length > 0
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
                                   }
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (
-                                        " هفته " +
-                                        $state.textWeek[$state.weeksPregnant] +
-                                        " بارداری "
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "\u0647\u0641\u062a\u0647 --";
-                                      }
-                                      throw e;
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__xOWaI,
+                                    {
+                                      [sty.textdarkMod__xOWaIoQOo]: hasVariant(
+                                        $state,
+                                        "darkMod",
+                                        "darkMod"
+                                      )
                                     }
-                                  })()}
-                                </React.Fragment>
-                              </div>
-                            ) : null}
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (
+                                          " هفته " +
+                                          $state.textWeek[
+                                            $state.weeksPregnant
+                                          ] +
+                                          " بارداری "
+                                        );
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u0647\u0641\u062a\u0647 --";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              ) : null}
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__uy5Yr)}
+                                displayHeight={"auto"}
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={
+                                  hasVariant(globalVariants, "screen", "mobile")
+                                    ? "15px"
+                                    : "20px"
+                                }
+                                loading={"lazy"}
+                                src={{
+                                  src: "/plasmic/liom_hamyar/images/image37.svg",
+                                  fullWidth: 24,
+                                  fullHeight: 24,
+                                  aspectRatio: 1
+                                }}
+                              />
+                            </div>
                           </div>
                         ) : null}
                         <div
@@ -4635,47 +4903,60 @@ function PlasmicPregnancy__RenderFunc(props: {
                             sty.freeBox__j66VY
                           )}
                         >
-                          {(() => {
-                            try {
-                              return $state.daysPregnant != null;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return false;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__qrcJv
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return (
-                                      $state.daysPregnant +
-                                      " روز مانده تا زایمان"
-                                    );
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "--";
-                                    }
-                                    throw e;
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__qrcJv
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    "جنین در این هفته اندازه یک " +
+                                    $state.sizeByFruit[$state.weeksPregnant] +
+                                    " است"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "--";
                                   }
-                                })()}
-                              </React.Fragment>
-                            </div>
-                          ) : null}
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__x5OqB
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    $state.daysPregnant + " روز مانده تا زایمان"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "--";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
                         </div>
                         <div
                           className={classNames(
@@ -5275,7 +5556,7 @@ function PlasmicPregnancy__RenderFunc(props: {
               }}
               onSuccess={generateStateOnChangeProp($state, ["getTask", "data"])}
               params={{
-                weekNumber: $state.weeksPregnant + 1,
+                weekNumber: $state.weeksPregnant,
                 userId: $ctx.query.userId,
                 appKey: "com.diacotdj.liom"
               }}

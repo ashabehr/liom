@@ -175,5 +175,5 @@
   > :global(.__wab_slot)
   > :global(.__wab_slot)
   > :global(.__wab_slot-string-wrapper) {
-  text-decoration-line: line-through;
+  text-decoration-line: none;
 }

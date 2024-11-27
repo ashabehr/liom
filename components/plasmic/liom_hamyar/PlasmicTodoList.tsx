@@ -61,6 +61,7 @@ import {
 
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
   ThemeValue,
@@ -868,7 +869,7 @@ function PlasmicTodoList__RenderFunc(props: {
                       (async isChecked => {
                         const $steps = {};
 
-                        $steps["invokeGlobalAction"] = checked
+                        $steps["invokeGlobalAction"] = isChecked
                           ? (() => {
                               const actionArgs = {
                                 args: [
@@ -910,7 +911,7 @@ function PlasmicTodoList__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["invokeGlobalAction2"] = !checked
+                        $steps["invokeGlobalAction2"] = !isChecked
                           ? (() => {
                               const actionArgs = {
                                 args: [
@@ -919,7 +920,10 @@ function PlasmicTodoList__RenderFunc(props: {
                                   undefined,
                                   (() => {
                                     try {
-                                      return { id: currentItem.id };
+                                      return {
+                                        userId: $props.userId,
+                                        id: currentItem.id
+                                      };
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -984,30 +988,37 @@ function PlasmicTodoList__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__wPm7B
+                          sty.freeBox__gT1Zi
                         )}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__y5IhO
+                            sty.freeBox__wPm7B
                           )}
                         >
-                          <React.Fragment>
-                            {$props.tasks?.[currentIndex]?.tile}
-                          </React.Fragment>
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__iTkxe
-                          )}
-                        >
-                          <React.Fragment>
-                            {$props.tasks?.[currentIndex]?.text}
-                          </React.Fragment>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__y5IhO
+                            )}
+                          >
+                            <React.Fragment>
+                              {$props.tasks?.[currentIndex]?.tile}
+                            </React.Fragment>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__iTkxe
+                            )}
+                          >
+                            <React.Fragment>
+                              {$props.tasks?.[currentIndex]?.text}
+                            </React.Fragment>
+                          </div>
                         </div>
                       </div>
                     </Checkbox>

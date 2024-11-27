@@ -61,11 +61,17 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
 import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+
+import {
+  ThemeValue,
+  useTheme
+} from "../todo_mvc_app/PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -79,11 +85,16 @@ import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ
 
 createPlasmicElementProxy;
 
-export type PlasmicSettingPregnancy__VariantMembers = {};
-export type PlasmicSettingPregnancy__VariantsArgs = {};
+export type PlasmicSettingPregnancy__VariantMembers = {
+  dark: "dark";
+};
+export type PlasmicSettingPregnancy__VariantsArgs = {
+  dark?: SingleBooleanChoiceArg<"dark">;
+};
 type VariantPropType = keyof PlasmicSettingPregnancy__VariantsArgs;
-export const PlasmicSettingPregnancy__VariantProps =
-  new Array<VariantPropType>();
+export const PlasmicSettingPregnancy__VariantProps = new Array<VariantPropType>(
+  "dark"
+);
 
 export type PlasmicSettingPregnancy__ArgsType = {};
 type ArgPropType = keyof PlasmicSettingPregnancy__ArgsType;
@@ -91,6 +102,7 @@ export const PlasmicSettingPregnancy__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSettingPregnancy__OverridesType = {
   root?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
   img?: Flex__<typeof PlasmicImg__>;
   dateModal?: Flex__<typeof SlideinModal>;
   datePickers?: Flex__<typeof DatePickers>;
@@ -277,6 +289,25 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "dark",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.query.theme == "dark";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.dark
       }
     ],
     [$props, $ctx, $refs]
@@ -286,6 +317,10 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    theme: useTheme()
   });
 
   return (
@@ -312,19 +347,52 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
             projectcss.plasmic_tokens,
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.root
+            sty.root,
+            {
+              [sty.rootdark]: hasVariant($state, "dark", "dark"),
+              [sty.rootglobal_theme_dark]: hasVariant(
+                globalVariants,
+                "theme",
+                "dark"
+              )
+            }
           )}
         >
           <div className={classNames(projectcss.all, sty.freeBox__ikTgu)}>
-            <div className={classNames(projectcss.all, sty.freeBox__ytDOx)}>
+            <Embed
+              data-plasmic-name={"embedHtml"}
+              data-plasmic-override={overrides.embedHtml}
+              className={classNames("__wab_instance", sty.embedHtml)}
+              code={
+                "<!-- Hotjar Tracking Code for https://apps.liom.app -->\n<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5222514,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>"
+              }
+            />
+
+            <div
+              className={classNames(projectcss.all, sty.freeBox__ytDOx, {
+                [sty.freeBoxdark__ytDOxbkz05]: hasVariant(
+                  $state,
+                  "dark",
+                  "dark"
+                )
+              })}
+            >
               <div
                 className={classNames(projectcss.all, sty.freeBox___3O4C8)}
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["goToPregnancy"] = true
+                  $steps["goToPage"] = true
                     ? (() => {
-                        const actionArgs = { destination: `/pregnancy` };
+                        const actionArgs = {
+                          destination:
+                            "https://apps.liom.app/pregnancy/?token=" +
+                            $ctx.query.token +
+                            "&userId=" +
+                            $ctx.query.userId +
+                            "&theme=" +
+                            $ctx.query.theme
+                        };
                         return (({ destination }) => {
                           if (
                             typeof destination === "string" &&
@@ -340,11 +408,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["goToPregnancy"] != null &&
-                    typeof $steps["goToPregnancy"] === "object" &&
-                    typeof $steps["goToPregnancy"].then === "function"
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
                   ) {
-                    $steps["goToPregnancy"] = await $steps["goToPregnancy"];
+                    $steps["goToPage"] = await $steps["goToPage"];
                   }
                 }}
               >
@@ -352,7 +420,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   data-plasmic-name={"img"}
                   data-plasmic-override={overrides.img}
                   alt={""}
-                  className={classNames(sty.img)}
+                  className={classNames(sty.img, {
+                    [sty.imgdark]: hasVariant($state, "dark", "dark")
+                  })}
                   displayHeight={"auto"}
                   displayMaxHeight={"none"}
                   displayMaxWidth={"100%"}
@@ -361,9 +431,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   displayWidth={"20px"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/liom_hamyar/images/image32.svg",
-                    fullWidth: 16,
-                    fullHeight: 16,
+                    src: "/plasmic/liom_hamyar/images/image38.svg",
+                    fullWidth: 24,
+                    fullHeight: 24,
                     aspectRatio: 1
                   }}
                 />
@@ -372,14 +442,29 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__pmZGg
+                    sty.text__pmZGg,
+                    {
+                      [sty.textdark__pmZGgbkz05]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    }
                   )}
                 >
                   {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a "}
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__xUcow)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__xUcow, {
+                [sty.freeBoxdark__xUcowbkz05]: hasVariant(
+                  $state,
+                  "dark",
+                  "dark"
+                )
+              })}
+            >
               <SlideinModal
                 data-plasmic-name={"dateModal"}
                 data-plasmic-override={overrides.dateModal}
@@ -1046,7 +1131,17 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
               >
                 {(() => {
                   const child$Props = {
-                    className: classNames("__wab_instance", sty.dateOfBirthBox),
+                    className: classNames(
+                      "__wab_instance",
+                      sty.dateOfBirthBox,
+                      {
+                        [sty.dateOfBirthBoxdark]: hasVariant(
+                          $state,
+                          "dark",
+                          "dark"
+                        )
+                      }
+                    ),
                     onChange: generateStateOnChangePropForCodeComponents(
                       $state,
                       "value",
@@ -1261,7 +1356,73 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["invokeGlobalAction"] = true
+                  $steps["invokeGlobalAction"] = (() => {
+                    var jy = $state.dateOfBirth.year;
+                    var jm = $state.dateOfBirth.month;
+                    var jd = $state.dateOfBirth.day;
+                    var gy = jy <= 979 ? 621 : 1600;
+                    jy -= jy <= 979 ? 0 : 979;
+                    var days =
+                      365 * jy +
+                      parseInt(jy / 33) * 8 +
+                      parseInt(((jy % 33) + 3) / 4) +
+                      78 +
+                      jd +
+                      (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                    gy += 400 * parseInt(days / 146097);
+                    days %= 146097;
+                    if (days > 36524) {
+                      gy += 100 * parseInt(--days / 36524);
+                      days %= 36524;
+                      if (days >= 365) days++;
+                    }
+                    gy += 4 * parseInt(days / 1461);
+                    days %= 1461;
+                    gy += parseInt((days - 1) / 365);
+                    if (days > 365) days = (days - 1) % 365;
+                    var gd = days + 1;
+                    var sal_a = [
+                      0,
+                      31,
+                      (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0 ? 29 : 28,
+                      31,
+                      30,
+                      31,
+                      30,
+                      31,
+                      31,
+                      30,
+                      31,
+                      30,
+                      31
+                    ];
+
+                    var gm;
+                    for (gm = 0; gm < 13; gm++) {
+                      var v = sal_a[gm];
+                      if (gd <= v) break;
+                      gd -= v;
+                    }
+                    const d =
+                      gy +
+                      "-" +
+                      (gm <= 9 ? "0" : "") +
+                      gm +
+                      "-" +
+                      (gd <= 9 ? "0" : "") +
+                      gd +
+                      "T10:10:10";
+                    const specifiedDate = new Date(d);
+                    const today = new Date();
+                    if (today > specifiedDate) {
+                      return false;
+                    }
+                    const diffTime = Math.abs(today - specifiedDate);
+                    const diffDays = Math.ceil(
+                      diffTime / (1000 * 60 * 60 * 24)
+                    );
+                    return diffDays > 280 ? false : true;
+                  })()
                     ? (() => {
                         const actionArgs = {
                           args: [
@@ -1279,7 +1440,10 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                     "-" +
                                     $state.duDate[2] +
                                     " 10:10:10",
-                                  userId: $ctx.query.userId
+                                  userId: $ctx.query.userId.slice(
+                                    4,
+                                    +$ctx.query.userId.length - 4
+                                  )
                                 };
                               } catch (e) {
                                 if (
@@ -1315,6 +1479,318 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       "invokeGlobalAction"
                     ];
                   }
+
+                  $steps["invokeGlobalAction2"] = (() => {
+                    var jy = $state.dateOfBirth.year;
+                    var jm = $state.dateOfBirth.month;
+                    var jd = $state.dateOfBirth.day;
+                    var gy = jy <= 979 ? 621 : 1600;
+                    jy -= jy <= 979 ? 0 : 979;
+                    var days =
+                      365 * jy +
+                      parseInt(jy / 33) * 8 +
+                      parseInt(((jy % 33) + 3) / 4) +
+                      78 +
+                      jd +
+                      (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                    gy += 400 * parseInt(days / 146097);
+                    days %= 146097;
+                    if (days > 36524) {
+                      gy += 100 * parseInt(--days / 36524);
+                      days %= 36524;
+                      if (days >= 365) days++;
+                    }
+                    gy += 4 * parseInt(days / 1461);
+                    days %= 1461;
+                    gy += parseInt((days - 1) / 365);
+                    if (days > 365) days = (days - 1) % 365;
+                    var gd = days + 1;
+                    var sal_a = [
+                      0,
+                      31,
+                      (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0 ? 29 : 28,
+                      31,
+                      30,
+                      31,
+                      30,
+                      31,
+                      31,
+                      30,
+                      31,
+                      30,
+                      31
+                    ];
+
+                    var gm;
+                    for (gm = 0; gm < 13; gm++) {
+                      var v = sal_a[gm];
+                      if (gd <= v) break;
+                      gd -= v;
+                    }
+                    const d =
+                      gy +
+                      "-" +
+                      (gm <= 9 ? "0" : "") +
+                      gm +
+                      "-" +
+                      (gd <= 9 ? "0" : "") +
+                      gd +
+                      "T10:10:10";
+                    const specifiedDate = new Date(d);
+                    const today = new Date();
+                    if (today > specifiedDate) {
+                      return false;
+                    }
+                    const diffTime = Math.abs(today - specifiedDate);
+                    const diffDays = Math.ceil(
+                      diffTime / (1000 * 60 * 60 * 24)
+                    );
+                    return diffDays > 280 ? false : true;
+                  })()
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
+                            "top-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction2"] != null &&
+                    typeof $steps["invokeGlobalAction2"] === "object" &&
+                    typeof $steps["invokeGlobalAction2"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction2"] = await $steps[
+                      "invokeGlobalAction2"
+                    ];
+                  }
+
+                  $steps["invokeGlobalAction3"] = (() => {
+                    var jy = $state.dateOfBirth.year;
+                    var jm = $state.dateOfBirth.month;
+                    var jd = $state.dateOfBirth.day;
+                    var gy = jy <= 979 ? 621 : 1600;
+                    jy -= jy <= 979 ? 0 : 979;
+                    var days =
+                      365 * jy +
+                      parseInt(jy / 33) * 8 +
+                      parseInt(((jy % 33) + 3) / 4) +
+                      78 +
+                      jd +
+                      (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                    gy += 400 * parseInt(days / 146097);
+                    days %= 146097;
+                    if (days > 36524) {
+                      gy += 100 * parseInt(--days / 36524);
+                      days %= 36524;
+                      if (days >= 365) days++;
+                    }
+                    gy += 4 * parseInt(days / 1461);
+                    days %= 1461;
+                    gy += parseInt((days - 1) / 365);
+                    if (days > 365) days = (days - 1) % 365;
+                    var gd = days + 1;
+                    var sal_a = [
+                      0,
+                      31,
+                      (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0 ? 29 : 28,
+                      31,
+                      30,
+                      31,
+                      30,
+                      31,
+                      31,
+                      30,
+                      31,
+                      30,
+                      31
+                    ];
+
+                    var gm;
+                    for (gm = 0; gm < 13; gm++) {
+                      var v = sal_a[gm];
+                      if (gd <= v) break;
+                      gd -= v;
+                    }
+                    const d =
+                      gy +
+                      "-" +
+                      (gm <= 9 ? "0" : "") +
+                      gm +
+                      "-" +
+                      (gd <= 9 ? "0" : "") +
+                      gd +
+                      "T10:10:10";
+                    const specifiedDate = new Date(d);
+                    const today = new Date();
+                    if (today > specifiedDate) {
+                      return true;
+                    }
+                    const diffTime = Math.abs(today - specifiedDate);
+                    const diffDays = Math.ceil(
+                      diffTime / (1000 * 60 * 60 * 24)
+                    );
+                    return diffDays <= 280 ? false : true;
+                  })()
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "error",
+                            "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                            "top-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction3"] != null &&
+                    typeof $steps["invokeGlobalAction3"] === "object" &&
+                    typeof $steps["invokeGlobalAction3"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction3"] = await $steps[
+                      "invokeGlobalAction3"
+                    ];
+                  }
+
+                  $steps["invokeGlobalAction4"] = (() => {
+                    if (
+                      $ctx.query.userId.slice(
+                        4,
+                        $ctx.query.userId.length - 4
+                      ) == "314149"
+                    ) {
+                      return false;
+                    }
+                    var jy = $state.dateOfBirth.year;
+                    var jm = $state.dateOfBirth.month;
+                    var jd = $state.dateOfBirth.day;
+                    var gy = jy <= 979 ? 621 : 1600;
+                    jy -= jy <= 979 ? 0 : 979;
+                    var days =
+                      365 * jy +
+                      parseInt(jy / 33) * 8 +
+                      parseInt(((jy % 33) + 3) / 4) +
+                      78 +
+                      jd +
+                      (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                    gy += 400 * parseInt(days / 146097);
+                    days %= 146097;
+                    if (days > 36524) {
+                      gy += 100 * parseInt(--days / 36524);
+                      days %= 36524;
+                      if (days >= 365) days++;
+                    }
+                    gy += 4 * parseInt(days / 1461);
+                    days %= 1461;
+                    gy += parseInt((days - 1) / 365);
+                    if (days > 365) days = (days - 1) % 365;
+                    var gd = days + 1;
+                    var sal_a = [
+                      0,
+                      31,
+                      (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0 ? 29 : 28,
+                      31,
+                      30,
+                      31,
+                      30,
+                      31,
+                      31,
+                      30,
+                      31,
+                      30,
+                      31
+                    ];
+
+                    var gm;
+                    for (gm = 0; gm < 13; gm++) {
+                      var v = sal_a[gm];
+                      if (gd <= v) break;
+                      gd -= v;
+                    }
+                    const d =
+                      gy +
+                      "-" +
+                      (gm <= 9 ? "0" : "") +
+                      gm +
+                      "-" +
+                      (gd <= 9 ? "0" : "") +
+                      gd +
+                      "T10:10:10";
+                    const specifiedDate = new Date(d);
+                    const today = new Date();
+                    if (today > specifiedDate) {
+                      return false;
+                    }
+                    const diffTime = Math.abs(today - specifiedDate);
+                    const diffDays = Math.ceil(
+                      diffTime / (1000 * 60 * 60 * 24)
+                    );
+                    return diffDays > 280 ? false : true;
+                  })()
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://api.liom.app/service/log",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  userId:
+                                    $ctx.query.userId?.length > 0
+                                      ? $ctx.query.userId.slice(
+                                          4,
+                                          $ctx.query.userId.length - 4
+                                        )
+                                      : "guest",
+                                  pageName: "settingPage",
+                                  action: "click-saveDate",
+                                  extraData: {}
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
+                            {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
+                              }
+                            }
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction4"] != null &&
+                    typeof $steps["invokeGlobalAction4"] === "object" &&
+                    typeof $steps["invokeGlobalAction4"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction4"] = await $steps[
+                      "invokeGlobalAction4"
+                    ];
+                  }
                 }}
                 onColorChange={(...eventArgs) => {
                   generateStateOnChangeProp($state, ["button2", "color"])(
@@ -1337,6 +1813,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "embedHtml",
     "img",
     "dateModal",
     "datePickers",
@@ -1345,6 +1822,7 @@ const PlasmicDescendants = {
     "lastTimeBox",
     "button2"
   ],
+  embedHtml: ["embedHtml"],
   img: ["img"],
   dateModal: ["dateModal", "datePickers", "button"],
   datePickers: ["datePickers"],
@@ -1358,6 +1836,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  embedHtml: typeof Embed;
   img: typeof PlasmicImg__;
   dateModal: typeof SlideinModal;
   datePickers: typeof DatePickers;
@@ -1452,6 +1931,7 @@ export const PlasmicSettingPregnancy = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    embedHtml: makeNodeComponent("embedHtml"),
     img: makeNodeComponent("img"),
     dateModal: makeNodeComponent("dateModal"),
     datePickers: makeNodeComponent("datePickers"),
