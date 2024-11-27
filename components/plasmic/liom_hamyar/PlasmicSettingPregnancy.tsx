@@ -1519,7 +1519,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         const actionArgs = {
                           args: [
                             "POST",
-                            "https://n8n.staas.ir/webhook/status",
+                            "https://n8n.staas.ir/webhook-test/status",
                             undefined,
                             (() => {
                               try {
