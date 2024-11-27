@@ -1258,8 +1258,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     4,
                                     $ctx.query.userId.length - 4
                                   ),
-                                  pageName: "mainPage",
-                                  action: "Onopen",
+                                  pageName: "mainPage_pregnancy",
+                                  action: "loadPage",
                                   extraData: {}
                                 };
                               } catch (e) {
@@ -1295,6 +1295,62 @@ function PlasmicPregnancy__RenderFunc(props: {
                   $steps["invokeGlobalAction"] = await $steps[
                     "invokeGlobalAction"
                   ];
+                }
+
+                $steps["goToPage"] = (() => {
+                  const specifiedDate = new Date(
+                    $state.getInfo?.data?.[0]?.dueDate
+                  );
+                  const today = new Date();
+                  return (
+                    $state.getInfo?.data?.[0]?.dueDate == null ||
+                    $state.getInfo?.data?.[0]?.dueDate == "" ||
+                    today > specifiedDate
+                  );
+                })()
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return (
+                              "https://apps.liom.app/setting-pregnancy/?token=" +
+                              $ctx.query.token +
+                              "&userId=" +
+                              $ctx.query.userId +
+                              "&theme=" +
+                              $ctx.query.theme
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
                 }
               }).apply(null, eventArgs);
             }}
@@ -3095,7 +3151,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 destination: (() => {
                                   try {
                                     return (
-                                      "https://apps.liom.app/setting-pregnancy/??token=" +
+                                      "https://apps.liom.app/setting-pregnancy/?token=" +
                                       $ctx.query.token +
                                       "&userId=" +
                                       $ctx.query.userId +
@@ -4913,11 +4969,26 @@ function PlasmicPregnancy__RenderFunc(props: {
                             <React.Fragment>
                               {(() => {
                                 try {
-                                  return (
-                                    "جنین در این هفته اندازه یک " +
-                                    $state.sizeByFruit[$state.weeksPregnant] +
-                                    " است"
-                                  );
+                                  return (() => {
+                                    var emoji;
+                                    var random = Math.floor(Math.random() * 4);
+                                    switch (random) {
+                                      case 0:
+                                        emoji = "\uD83D\uDE0D";
+                                      case 1:
+                                        emoji = "\uD83D\uDE00";
+                                      case 2:
+                                        emoji = "\uD83D\uDE18";
+                                      case 3:
+                                        emoji = "\u2763️";
+                                    }
+                                    return (
+                                      "جنین در این هفته اندازه یک " +
+                                      $state.sizeByFruit[$state.weeksPregnant] +
+                                      " است" +
+                                      emoji
+                                    );
+                                  })();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||

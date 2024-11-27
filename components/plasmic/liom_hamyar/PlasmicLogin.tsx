@@ -274,6 +274,101 @@ function PlasmicLogin__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput.antdInputValue",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.value;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "textInput4.antdInputValue",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.value;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "textInput6.antdInputValue",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.value;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "textInput3.antdInputValue",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.value;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "textInput2.antdInputValue",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.value;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -767,6 +862,12 @@ function PlasmicLogin__RenderFunc(props: {
                     <TextInput
                       data-plasmic-name={"textInput"}
                       data-plasmic-override={overrides.textInput}
+                      antdInputValue={
+                        generateStateValueProp($state, [
+                          "textInput",
+                          "antdInputValue"
+                        ]) ?? ""
+                      }
                       className={classNames("__wab_instance", sty.textInput, {
                         [sty.textInputloginPage_email]: hasVariant(
                           $state,
@@ -867,6 +968,12 @@ function PlasmicLogin__RenderFunc(props: {
                           />
                         </React.Fragment>
                       }
+                      onAntdInputValueChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "textInput",
+                          "antdInputValue"
+                        ])((e => e.target?.value).apply(null, eventArgs));
+                      }}
                       onChange={async (...eventArgs: any) => {
                         ((...eventArgs) => {
                           generateStateOnChangeProp($state, [
@@ -877,14 +984,15 @@ function PlasmicLogin__RenderFunc(props: {
                         (async event => {
                           const $steps = {};
 
-                          $steps["updateTextInputValue"] = true
+                          $steps["updateNumber"] = true
                             ? (() => {
                                 const actionArgs = {
                                   variable: {
                                     objRoot: $state,
-                                    variablePath: ["textInput", "value"]
+                                    variablePath: ["number"]
                                   },
-                                  operation: 0
+                                  operation: 0,
+                                  value: $state.textInput.antdInputValue
                                 };
                                 return (({
                                   variable,
@@ -903,14 +1011,12 @@ function PlasmicLogin__RenderFunc(props: {
                               })()
                             : undefined;
                           if (
-                            $steps["updateTextInputValue"] != null &&
-                            typeof $steps["updateTextInputValue"] ===
-                              "object" &&
-                            typeof $steps["updateTextInputValue"].then ===
-                              "function"
+                            $steps["updateNumber"] != null &&
+                            typeof $steps["updateNumber"] === "object" &&
+                            typeof $steps["updateNumber"].then === "function"
                           ) {
-                            $steps["updateTextInputValue"] = await $steps[
-                              "updateTextInputValue"
+                            $steps["updateNumber"] = await $steps[
+                              "updateNumber"
                             ];
                           }
                         }).apply(null, eventArgs);
@@ -1381,6 +1487,12 @@ function PlasmicLogin__RenderFunc(props: {
                     <TextInput
                       data-plasmic-name={"textInput4"}
                       data-plasmic-override={overrides.textInput4}
+                      antdInputValue={
+                        generateStateValueProp($state, [
+                          "textInput4",
+                          "antdInputValue"
+                        ]) ?? ""
+                      }
                       className={classNames("__wab_instance", sty.textInput4, {
                         [sty.textInput4loginPage_email]: hasVariant(
                           $state,
@@ -1485,6 +1597,12 @@ function PlasmicLogin__RenderFunc(props: {
                           />
                         </React.Fragment>
                       }
+                      onAntdInputValueChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "textInput4",
+                          "antdInputValue"
+                        ])((e => e.target?.value).apply(null, eventArgs));
+                      }}
                       onChange={(...eventArgs) => {
                         generateStateOnChangeProp($state, [
                           "textInput4",
@@ -1859,6 +1977,12 @@ function PlasmicLogin__RenderFunc(props: {
                     <TextInput
                       data-plasmic-name={"textInput6"}
                       data-plasmic-override={overrides.textInput6}
+                      antdInputValue={
+                        generateStateValueProp($state, [
+                          "textInput6",
+                          "antdInputValue"
+                        ]) ?? ""
+                      }
                       className={classNames("__wab_instance", sty.textInput6, {
                         [sty.textInput6loginPage_email]: hasVariant(
                           $state,
@@ -1963,6 +2087,12 @@ function PlasmicLogin__RenderFunc(props: {
                           />
                         </React.Fragment>
                       }
+                      onAntdInputValueChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "textInput6",
+                          "antdInputValue"
+                        ])((e => e.target?.value).apply(null, eventArgs));
+                      }}
                       onChange={(...eventArgs) => {
                         generateStateOnChangeProp($state, [
                           "textInput6",
@@ -2440,6 +2570,12 @@ function PlasmicLogin__RenderFunc(props: {
                     <TextInput
                       data-plasmic-name={"textInput3"}
                       data-plasmic-override={overrides.textInput3}
+                      antdInputValue={
+                        generateStateValueProp($state, [
+                          "textInput3",
+                          "antdInputValue"
+                        ]) ?? ""
+                      }
                       className={classNames("__wab_instance", sty.textInput3, {
                         [sty.textInput3loginPage_email]: hasVariant(
                           $state,
@@ -2543,6 +2679,12 @@ function PlasmicLogin__RenderFunc(props: {
                           />
                         </React.Fragment>
                       }
+                      onAntdInputValueChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "textInput3",
+                          "antdInputValue"
+                        ])((e => e.target?.value).apply(null, eventArgs));
+                      }}
                       onChange={(...eventArgs) => {
                         generateStateOnChangeProp($state, [
                           "textInput3",
@@ -3230,6 +3372,12 @@ function PlasmicLogin__RenderFunc(props: {
                     <TextInput
                       data-plasmic-name={"textInput2"}
                       data-plasmic-override={overrides.textInput2}
+                      antdInputValue={
+                        generateStateValueProp($state, [
+                          "textInput2",
+                          "antdInputValue"
+                        ]) ?? ""
+                      }
                       className={classNames("__wab_instance", sty.textInput2, {
                         [sty.textInput2loginPage_email]: hasVariant(
                           $state,
@@ -3334,6 +3482,12 @@ function PlasmicLogin__RenderFunc(props: {
                           />
                         </React.Fragment>
                       }
+                      onAntdInputValueChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "textInput2",
+                          "antdInputValue"
+                        ])((e => e.target?.value).apply(null, eventArgs));
+                      }}
                       onChange={(...eventArgs) => {
                         generateStateOnChangeProp($state, [
                           "textInput2",

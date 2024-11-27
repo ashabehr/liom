@@ -117,6 +117,8 @@ export type PlasmicTextInput__ArgsType = {
     | "email"
     | "tel";
   autoFocus?: boolean;
+  antdInputValue?: string;
+  onAntdInputValueChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicTextInput__ArgsType;
 export const PlasmicTextInput__ArgProps = new Array<ArgPropType>(
@@ -130,7 +132,9 @@ export const PlasmicTextInput__ArgProps = new Array<ArgPropType>(
   "aria-labelledby",
   "onChange",
   "type",
-  "autoFocus"
+  "autoFocus",
+  "antdInputValue",
+  "onAntdInputValueChange"
 );
 
 export type PlasmicTextInput__OverridesType = {
@@ -159,6 +163,8 @@ export interface DefaultTextInputProps extends pp.BaseTextInputProps {
     | "email"
     | "tel";
   autoFocus?: boolean;
+  antdInputValue?: string;
+  onAntdInputValueChange?: (val: string) => void;
   color?: SingleChoiceArg<"dark">;
 }
 
@@ -240,22 +246,11 @@ function PlasmicTextInput__RenderFunc(props: {
       },
       {
         path: "antdInput.value",
-        type: "private",
+        type: "writable",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $props.value;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })(),
+
+        valueProp: "antdInputValue",
+        onChangeProp: "onAntdInputValueChange",
 
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       }
