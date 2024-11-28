@@ -3442,7 +3442,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650  \u062a\u0648 : 3"
+                        "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650  \u062a\u0648 : 4"
                       }
                     </div>
                     <div
@@ -4081,7 +4081,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               (280 -
                                 $state.daysPregnant -
                                 ($state.weeksPregnant - 1) * 7 -
-                                1 !=
+                                1 <=
                               0
                                 ? "و " +
                                   (280 -
@@ -5425,7 +5425,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                   })()}
                   userId={(() => {
                     try {
-                      return $ctx.query.userId;
+                      return $ctx.query.userId.slice(
+                        4,
+                        $ctx.query.userId.length - 4
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
