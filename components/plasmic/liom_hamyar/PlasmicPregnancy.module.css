@@ -68,9 +68,27 @@
   object-fit: cover;
   width: 300px;
 }
-.getInfo:global(.__wab_instance) {
+.timer:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+}
+.getUserInfo:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__pjl9V {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text___2GR22 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
 }
 .freeBox__z49Xy {
   display: flex;
@@ -886,30 +904,4 @@
 }
 .todoList:global(.__wab_instance) {
   position: relative;
-}
-.getUserInfo:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.text__pjl9V {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.text___2GR22 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.getAdvice:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.getTask:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
 }
