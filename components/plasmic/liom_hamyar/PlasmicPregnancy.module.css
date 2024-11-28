@@ -369,6 +369,7 @@
   color: #35006f;
   font-weight: 700;
   font-size: 18px;
+  align-self: flex-end;
   min-width: 0;
 }
 @media (max-width: 640px) {
