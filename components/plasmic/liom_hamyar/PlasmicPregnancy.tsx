@@ -1132,32 +1132,15 @@ function PlasmicPregnancy__RenderFunc(props: {
               (async data => {
                 const $steps = {};
 
-                $steps["invokeGlobalAction2"] = true
-                  ? (() => {
-                      const actionArgs = { args: [undefined, "aaaa"] };
-                      return $globalActions["Fragment.showToast"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["invokeGlobalAction2"] != null &&
-                  typeof $steps["invokeGlobalAction2"] === "object" &&
-                  typeof $steps["invokeGlobalAction2"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction2"] = await $steps[
-                    "invokeGlobalAction2"
-                  ];
-                }
-
                 $steps["goToPage"] = (() => {
                   const specifiedDate = new Date(
                     $state.getInfo?.data?.[0]?.dueDate
                   );
                   const today = new Date();
                   return (
-                    $state.getInfo?.data?.[0]?.dueDate == null ||
-                    $state.getInfo?.data?.[0]?.dueDate == "" ||
+                    ($state.getInfo?.data?.[0]?.dueDate == null ||
+                      $state.getInfo?.data?.[0]?.dueDate == "") &&
+                    specifiedDate.toString().length > 20 &&
                     today > specifiedDate
                   );
                 })()
@@ -1315,10 +1298,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }
 
                 $steps["invokeGlobalAction"] =
-                  $state.getInfo?.data?.[0].dueDate != null &&
-                  $state.getInfo?.data?.[0].dueDate != "" &&
                   $ctx.query.userId.slice(4, $ctx.query.userId.length - 4) !=
-                    "314149"
+                  "314149"
                     ? (() => {
                         const actionArgs = {
                           args: [
@@ -3503,7 +3484,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         )}
                       >
                         {
-                          "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650  \u062a\u0648 : "
+                          "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650  \u062a\u0648 : 1"
                         }
                       </div>
                       <div
