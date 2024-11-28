@@ -1104,6 +1104,56 @@ function PlasmicPregnancy__RenderFunc(props: {
             onTick={async () => {
               const $steps = {};
 
+              $steps["goToPage"] =
+                $state.user == null ||
+                $state.user?.[0] == null ||
+                $state.user?.[0]?.dueDate == null ||
+                $state.user?.[0]?.dueDate == ""
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return (
+                              "https://apps.liom.app/setting-pregnancy/?token=" +
+                              $ctx.query.token +
+                              "&userId=" +
+                              $ctx.query.userId +
+                              "&theme=" +
+                              $ctx.query.theme
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+              if (
+                $steps["goToPage"] != null &&
+                typeof $steps["goToPage"] === "object" &&
+                typeof $steps["goToPage"].then === "function"
+              ) {
+                $steps["goToPage"] = await $steps["goToPage"];
+              }
+
               $steps["updateIsTimer"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1291,56 +1341,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                 $steps["invokeGlobalAction"] = await $steps[
                   "invokeGlobalAction"
                 ];
-              }
-
-              $steps["goToPage"] =
-                $state.user == null ||
-                $state.user?.[0] == null ||
-                $state.user?.[0]?.dueDate == null ||
-                $state.user?.[0]?.dueDate == ""
-                  ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return (
-                              "https://apps.liom.app/setting-pregnancy/?token=" +
-                              $ctx.query.token +
-                              "&userId=" +
-                              $ctx.query.userId +
-                              "&theme=" +
-                              $ctx.query.theme
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-              if (
-                $steps["goToPage"] != null &&
-                typeof $steps["goToPage"] === "object" &&
-                typeof $steps["goToPage"].then === "function"
-              ) {
-                $steps["goToPage"] = await $steps["goToPage"];
               }
 
               $steps["invokeGlobalAction2"] = true
@@ -3510,7 +3510,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650  \u062a\u0648 : 4"
+                        "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650  \u062a\u0648 : 5"
                       }
                     </div>
                     <div
