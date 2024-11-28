@@ -452,7 +452,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     }
                   )}
                 >
-                  {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a -"}
+                  {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a "}
                 </div>
               </div>
             </div>
@@ -1538,7 +1538,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         const actionArgs = {
                           args: [
                             "POST",
-                            "https://n8n.staas.ir/webhook-test/status",
+                            "https://n8n.staas.ir/webhook/status",
                             undefined,
                             (() => {
                               try {
