@@ -1132,6 +1132,80 @@ function PlasmicPregnancy__RenderFunc(props: {
               (async data => {
                 const $steps = {};
 
+                $steps["invokeGlobalAction2"] = true
+                  ? (() => {
+                      const actionArgs = { args: [undefined, "aaaa"] };
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction2"] != null &&
+                  typeof $steps["invokeGlobalAction2"] === "object" &&
+                  typeof $steps["invokeGlobalAction2"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction2"] = await $steps[
+                    "invokeGlobalAction2"
+                  ];
+                }
+
+                $steps["goToPage"] = (() => {
+                  const specifiedDate = new Date(
+                    $state.getInfo?.data?.[0]?.dueDate
+                  );
+                  const today = new Date();
+                  return (
+                    $state.getInfo?.data?.[0]?.dueDate == null ||
+                    $state.getInfo?.data?.[0]?.dueDate == "" ||
+                    today > specifiedDate
+                  );
+                })()
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return (
+                              "https://apps.liom.app/setting-pregnancy/?token=" +
+                              $ctx.query.token +
+                              "&userId=" +
+                              $ctx.query.userId +
+                              "&theme=" +
+                              $ctx.query.theme
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+
                 $steps["updateWeeksPregnant"] =
                   $state.getInfo?.data?.[0].dueDate != null &&
                   $state.getInfo?.data?.[0].dueDate != ""
@@ -1317,62 +1391,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                   $steps["invokeGlobalAction"] = await $steps[
                     "invokeGlobalAction"
                   ];
-                }
-
-                $steps["goToPage"] = (() => {
-                  const specifiedDate = new Date(
-                    $state.getInfo?.data?.[0]?.dueDate
-                  );
-                  const today = new Date();
-                  return (
-                    ($state.getInfo?.data?.[0]?.dueDate == null ||
-                      $state.getInfo?.data?.[0]?.dueDate == "") &&
-                    today > specifiedDate
-                  );
-                })()
-                  ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return (
-                              "https://apps.liom.app/setting-pregnancy/?token=" +
-                              $ctx.query.token +
-                              "&userId=" +
-                              $ctx.query.userId +
-                              "&theme=" +
-                              $ctx.query.theme
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
-                ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
                 }
               }).apply(null, eventArgs);
             }}
