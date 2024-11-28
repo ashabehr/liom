@@ -1342,6 +1342,74 @@ function PlasmicPregnancy__RenderFunc(props: {
               ) {
                 $steps["goToPage"] = await $steps["goToPage"];
               }
+
+              $steps["invokeGlobalAction2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        "POST",
+                        "https://api.liom.app/service/log",
+                        undefined,
+                        (() => {
+                          try {
+                            return {
+                              userId: $ctx.query.userId.slice(
+                                4,
+                                $ctx.query.userId.length - 4
+                              ),
+                              pageName: "mainPage_pregnancy",
+                              action: "loadPage",
+                              extraData: {}
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        (() => {
+                          try {
+                            return {
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer " +
+                                  $ctx.query.token.slice(
+                                    6,
+                                    $ctx.query.token.length - 3
+                                  )
+                              }
+                            };
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.apiRequest"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] = await $steps[
+                  "invokeGlobalAction2"
+                ];
+              }
             }}
             runWhileEditing={false}
           />
@@ -4791,36 +4859,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     throw e;
                                   }
                                 })(),
-                                (() => {
-                                  try {
-                                    return {
-                                      headers: {
-                                        "Content-Type": "application/json",
-                                        Authorization:
-                                          "Bearer " +
-                                          $ctx.query.token.slice(
-                                            6,
-                                            $ctx.query.token.length - 3
-                                          )
-                                      }
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return {
-                                        headers: {
-                                          "Content-Type": "application/json",
-                                          Authorization:
-                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJwcmVnbmFuY3kifQ.TwRgrBWqV_cN5Il7kiCkKMN3KPwebxjyR1rwmwzifUU"
-                                        }
-                                      };
-                                    }
-                                    throw e;
+                                {
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer " +
+                                      $ctx.query.token.slice(
+                                        6,
+                                        $ctx.query.token.length - 3
+                                      )
                                   }
-                                })()
+                                }
                               ]
                             };
                             return $globalActions["Fragment.apiRequest"]?.apply(
@@ -5425,10 +5474,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   })()}
                   userId={(() => {
                     try {
-                      return $ctx.query.userId.slice(
-                        4,
-                        $ctx.query.userId.length - 4
-                      );
+                      return $ctx.query.userId;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
