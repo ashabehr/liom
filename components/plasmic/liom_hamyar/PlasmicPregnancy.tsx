@@ -1138,10 +1138,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                   );
                   const today = new Date();
                   return (
-                    ($state.getInfo?.data?.[0]?.dueDate == null ||
-                      $state.getInfo?.data?.[0]?.dueDate == "") &&
-                    specifiedDate.toString().length > 20 &&
-                    today > specifiedDate
+                    $state.getInfo?.data?.[0]?.dueDate == null ||
+                    $state.getInfo?.data?.[0]?.dueDate == ""
                   );
                 })()
                   ? (() => {
@@ -3484,7 +3482,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         )}
                       >
                         {
-                          "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650  \u062a\u0648 : 1"
+                          "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650  \u062a\u0648 : 2"
                         }
                       </div>
                       <div
