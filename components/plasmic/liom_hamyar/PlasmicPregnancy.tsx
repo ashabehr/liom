@@ -5042,7 +5042,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   return (
                                     "جنین در این هفته اندازه یک " +
                                     $state.sizeByFruit[$state.weeksPregnant] +
-                                    "است " +
+                                    " است " +
                                     emoji
                                   );
                                 })();
