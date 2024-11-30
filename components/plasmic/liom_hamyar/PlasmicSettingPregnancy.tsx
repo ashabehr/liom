@@ -2034,23 +2034,29 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["invokeGlobalAction"] = true
+                  $steps["goTo404"] = true
                     ? (() => {
-                        const actionArgs = { args: [undefined, "asasasasa"] };
-                        return $globalActions["Fragment.showToast"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
+                        const actionArgs = { destination: `/404` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                   if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
+                    $steps["goTo404"] != null &&
+                    typeof $steps["goTo404"] === "object" &&
+                    typeof $steps["goTo404"].then === "function"
                   ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
+                    $steps["goTo404"] = await $steps["goTo404"];
                   }
                 }}
               >
