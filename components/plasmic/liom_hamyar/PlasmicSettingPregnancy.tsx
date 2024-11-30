@@ -548,7 +548,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           const actionArgs = {
                             args: [
                               "error",
-                              "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f"
+                              "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                              "bottom-center"
                             ]
                           };
                           return $globalActions["Fragment.showToast"]?.apply(
@@ -647,7 +648,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             args: [
                               undefined,
                               "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
-                              "top-center"
+                              "bottom-center"
                             ]
                           };
                           return $globalActions["Fragment.showToast"]?.apply(
@@ -968,6 +969,52 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       $steps["invokeGlobalAction4"] = await $steps[
                         "invokeGlobalAction4"
                       ];
+                    }
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return (
+                                  "https://apps.liom.app/pregnancy/?token=" +
+                                  $ctx.query.token +
+                                  "&userId=" +
+                                  $ctx.query.userId +
+                                  "&theme=" +
+                                  $ctx.query.theme
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
                     }
                   }}
                 >

@@ -1325,7 +1325,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               throw e;
                             }
                           })(),
-                          "top-center"
+                          "bottom-center"
                         ]
                       };
                       return $globalActions["Fragment.showToast"]?.apply(null, [
