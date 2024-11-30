@@ -1488,7 +1488,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 })()
               : (() => {
                   try {
-                    return !$state.loading || true;
+                    return !$state.loading;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
