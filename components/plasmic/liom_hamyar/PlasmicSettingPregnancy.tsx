@@ -439,8 +439,10 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                   duDate:
                                     $state.duDate[0] +
                                     "-" +
+                                    ($state.duDate[1] <= 9 ? "0" : "") +
                                     $state.duDate[1] +
                                     "-" +
+                                    ($state.duDate[2] <= 9 ? "0" : "") +
                                     $state.duDate[2] +
                                     " 10:10:10",
                                   userId: $ctx.query.userId.slice(
