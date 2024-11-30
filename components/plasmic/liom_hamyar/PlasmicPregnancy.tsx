@@ -1104,6 +1104,41 @@ function PlasmicPregnancy__RenderFunc(props: {
             onTick={async () => {
               const $steps = {};
 
+              $steps["invokeGlobalAction3"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        (() => {
+                          try {
+                            return $state.user?.[0]?.dueDate + "/";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction3"] != null &&
+                typeof $steps["invokeGlobalAction3"] === "object" &&
+                typeof $steps["invokeGlobalAction3"].then === "function"
+              ) {
+                $steps["invokeGlobalAction3"] = await $steps[
+                  "invokeGlobalAction3"
+                ];
+              }
+
               $steps["updateIsTimer"] = true
                 ? (() => {
                     const actionArgs = {
@@ -1230,6 +1265,41 @@ function PlasmicPregnancy__RenderFunc(props: {
                 typeof $steps["runCode2"].then === "function"
               ) {
                 $steps["runCode2"] = await $steps["runCode2"];
+              }
+
+              $steps["invokeGlobalAction4"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        (() => {
+                          try {
+                            return $state.user?.[0]?.dueDate + "/";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction4"] != null &&
+                typeof $steps["invokeGlobalAction4"] === "object" &&
+                typeof $steps["invokeGlobalAction4"].then === "function"
+              ) {
+                $steps["invokeGlobalAction4"] = await $steps[
+                  "invokeGlobalAction4"
+                ];
               }
 
               $steps["goToPage"] =
@@ -1408,6 +1478,41 @@ function PlasmicPregnancy__RenderFunc(props: {
               ) {
                 $steps["invokeGlobalAction2"] = await $steps[
                   "invokeGlobalAction2"
+                ];
+              }
+
+              $steps["invokeGlobalAction5"] = true
+                ? (() => {
+                    const actionArgs = {
+                      args: [
+                        undefined,
+                        (() => {
+                          try {
+                            return $state.user?.[0]?.dueDate + "/";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      ]
+                    };
+                    return $globalActions["Fragment.showToast"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction5"] != null &&
+                typeof $steps["invokeGlobalAction5"] === "object" &&
+                typeof $steps["invokeGlobalAction5"].then === "function"
+              ) {
+                $steps["invokeGlobalAction5"] = await $steps[
+                  "invokeGlobalAction5"
                 ];
               }
             }}
