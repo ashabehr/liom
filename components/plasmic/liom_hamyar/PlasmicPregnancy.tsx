@@ -1593,7 +1593,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 })()
               : (() => {
                   try {
-                    return !$state.loading || true;
+                    return !$state.loading;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -3571,9 +3571,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   "بهمن",
                                   "اسفند"
                                 );
-                                return (
-                                  jd + " " + months[jm - 1] + " " + jy + "1"
-                                );
+                                return jd + " " + months[jm - 1] + " " + jy;
                               })();
                             } catch (e) {
                               if (
