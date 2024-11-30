@@ -471,6 +471,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
 
                     $steps["invokeGlobalAction3"] = (() => {
                       if (
+                        $state.duDate == "" ||
                         $state.dateOfBirth == null ||
                         $state.dateOfBirth == ""
                       ) {
@@ -570,6 +571,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
 
                     $steps["invokeGlobalAction2"] = (() => {
                       if (
+                        $state.duDate == "" ||
                         $state.dateOfBirth == null ||
                         $state.dateOfBirth == ""
                       ) {
@@ -669,6 +671,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
 
                     $steps["invokeGlobalAction"] = (() => {
                       if (
+                        $state.duDate == "" ||
                         $state.dateOfBirth == null ||
                         $state.dateOfBirth == ""
                       ) {
@@ -817,6 +820,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
 
                     $steps["invokeGlobalAction4"] = (() => {
                       if (
+                        $state.duDate == "" ||
                         $state.dateOfBirth == null ||
                         $state.dateOfBirth == ""
                       ) {
@@ -971,7 +975,15 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["goToPage"] = true
+                    $steps["goToPage"] = (() => {
+                      if (
+                        $state.duDate == "" ||
+                        $state.dateOfBirth == null ||
+                        $state.dateOfBirth == ""
+                      ) {
+                        return false;
+                      }
+                    })()
                       ? (() => {
                           const actionArgs = {
                             destination: (() => {
