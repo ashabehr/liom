@@ -1845,6 +1845,156 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 }
               </Button>
             </div>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__rklKk)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["invokeGlobalAction"] = (() => {
+                  var jy = $state.dateOfBirth.year;
+                  var jm = $state.dateOfBirth.month;
+                  var jd = $state.dateOfBirth.day;
+                  var gy = jy <= 979 ? 621 : 1600;
+                  jy -= jy <= 979 ? 0 : 979;
+                  var days =
+                    365 * jy +
+                    parseInt(jy / 33) * 8 +
+                    parseInt(((jy % 33) + 3) / 4) +
+                    78 +
+                    jd +
+                    (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                  gy += 400 * parseInt(days / 146097);
+                  days %= 146097;
+                  if (days > 36524) {
+                    gy += 100 * parseInt(--days / 36524);
+                    days %= 36524;
+                    if (days >= 365) days++;
+                  }
+                  gy += 4 * parseInt(days / 1461);
+                  days %= 1461;
+                  gy += parseInt((days - 1) / 365);
+                  if (days > 365) days = (days - 1) % 365;
+                  var gd = days + 1;
+                  var sal_a = [
+                    0,
+                    31,
+                    (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0 ? 29 : 28,
+                    31,
+                    30,
+                    31,
+                    30,
+                    31,
+                    31,
+                    30,
+                    31,
+                    30,
+                    31
+                  ];
+
+                  var gm;
+                  for (gm = 0; gm < 13; gm++) {
+                    var v = sal_a[gm];
+                    if (gd <= v) break;
+                    gd -= v;
+                  }
+                  const d =
+                    gy +
+                    "-" +
+                    (gm <= 9 ? "0" : "") +
+                    gm +
+                    "-" +
+                    (gd <= 9 ? "0" : "") +
+                    gd +
+                    "T10:10:10";
+                  const specifiedDate = new Date(d);
+                  const today = new Date();
+                  if (today > specifiedDate) {
+                    return false;
+                  }
+                  const diffTime = Math.abs(today - specifiedDate);
+                  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                  return diffDays > 280 ? false : true;
+                })()
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/status",
+                          undefined,
+                          (() => {
+                            try {
+                              return {
+                                area: "pregnancy",
+                                duDate:
+                                  $state.duDate[0] +
+                                  "-" +
+                                  $state.duDate[1] +
+                                  "-" +
+                                  $state.duDate[2] +
+                                  " 10:10:10",
+                                userId: $ctx.query.userId.slice(
+                                  4,
+                                  +$ctx.query.userId.length - 4
+                                )
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          (() => {
+                            try {
+                              return {
+                                headers: {
+                                  "Content-Type": "application/json",
+                                  Authorization:
+                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                }
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+              }}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__zL1HH
+                )}
+              >
+                {"Enter some text"}
+              </div>
+            </div>
           </div>
         </div>
       </div>
