@@ -103,7 +103,6 @@ export const PlasmicSettingPregnancy__ArgProps = new Array<ArgPropType>();
 export type PlasmicSettingPregnancy__OverridesType = {
   root?: Flex__<"div">;
   embedHtml?: Flex__<typeof Embed>;
-  img?: Flex__<typeof PlasmicImg__>;
   dateModal?: Flex__<typeof SlideinModal>;
   datePickers?: Flex__<typeof DatePickers>;
   button?: Flex__<typeof Button>;
@@ -382,121 +381,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["invokeGlobalAction2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            undefined,
-                            (() => {
-                              try {
-                                return (
-                                  $state.duDate[0] +
-                                  "-" +
-                                  $state.duDate[1] +
-                                  "-" +
-                                  $state.duDate[2] +
-                                  " 10:10:10"
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          ]
-                        };
-                        return $globalActions["Fragment.showToast"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["invokeGlobalAction2"] != null &&
-                    typeof $steps["invokeGlobalAction2"] === "object" &&
-                    typeof $steps["invokeGlobalAction2"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction2"] = await $steps[
-                      "invokeGlobalAction2"
-                    ];
-                  }
-
-                  $steps["invokeGlobalAction"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            "POST",
-                            "https://n8n.staas.ir/webhook/status",
-                            undefined,
-                            (() => {
-                              try {
-                                return {
-                                  area: "pregnancy",
-                                  duDate:
-                                    $state.duDate[0] +
-                                    "-" +
-                                    ($state.duDate[1] <= 9 ? "0" : "") +
-                                    $state.duDate[1] +
-                                    "-" +
-                                    ($state.duDate[2] <= 9 ? "0" : "") +
-                                    $state.duDate[2] +
-                                    " 10:10:10",
-                                  userId: $ctx.query.userId.slice(
-                                    4,
-                                    +$ctx.query.userId.length - 4
-                                  )
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            (() => {
-                              try {
-                                return {
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                  }
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          ]
-                        };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
-                  }
-
                   $steps["goToPage"] = true
                     ? (() => {
                         const actionArgs = {
@@ -532,11 +416,13 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 }}
               >
                 <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
                   alt={""}
-                  className={classNames(sty.img, {
-                    [sty.imgdark]: hasVariant($state, "dark", "dark")
+                  className={classNames(sty.img__lwBhL, {
+                    [sty.imgdark__lwBhLbkz05]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
                   })}
                   displayHeight={"auto"}
                   displayMaxHeight={"none"}
@@ -568,6 +454,181 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   )}
                 >
                   {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a "}
+                </div>
+              </div>
+              <div
+                className={classNames(projectcss.all, sty.freeBox___4W6Wf, {
+                  [sty.freeBoxdark___4W6WFbkz05]: hasVariant(
+                    $state,
+                    "dark",
+                    "dark"
+                  )
+                })}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___2Sx)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["invokeGlobalAction2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              (() => {
+                                try {
+                                  return (
+                                    $state.duDate[0] +
+                                    "-" +
+                                    $state.duDate[1] +
+                                    "-" +
+                                    $state.duDate[2] +
+                                    " 10:10:10"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction2"] != null &&
+                      typeof $steps["invokeGlobalAction2"] === "object" &&
+                      typeof $steps["invokeGlobalAction2"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction2"] = await $steps[
+                        "invokeGlobalAction2"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://n8n.staas.ir/webhook/status",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    area: "pregnancy",
+                                    duDate:
+                                      $state.duDate[0] +
+                                      "-" +
+                                      ($state.duDate[1] <= 9 ? "0" : "") +
+                                      $state.duDate[1] +
+                                      "-" +
+                                      ($state.duDate[2] <= 9 ? "0" : "") +
+                                      $state.duDate[2] +
+                                      " 10:10:10",
+                                    userId: $ctx.query.userId.slice(
+                                      4,
+                                      +$ctx.query.userId.length - 4
+                                    )
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              (() => {
+                                try {
+                                  return {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                    }
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+                  }}
+                >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__pb4M7, {
+                      [sty.imgdark__pb4M7Bkz05]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    })}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"20px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image38.svg",
+                      fullWidth: 24,
+                      fullHeight: 24,
+                      aspectRatio: 1
+                    }}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__nCwRl,
+                      {
+                        [sty.textdark__nCwRlbkz05]: hasVariant(
+                          $state,
+                          "dark",
+                          "dark"
+                        )
+                      }
+                    )}
+                  >
+                    {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a "}
+                  </div>
                 </div>
               </div>
             </div>
@@ -1450,88 +1511,179 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 })()}
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__wPkpt
-                )}
-                onClick={async event => {
-                  const $steps = {};
+                className={classNames(projectcss.all, sty.freeBox__zfzWa, {
+                  [sty.freeBoxdark__zfzWAbkz05]: hasVariant(
+                    $state,
+                    "dark",
+                    "dark"
+                  )
+                })}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___1Y4ZU)}
+                  onClick={async event => {
+                    const $steps = {};
 
-                  $steps["invokeGlobalAction"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            "POST",
-                            "https://n8n.staas.ir/webhook/status",
-                            undefined,
-                            (() => {
-                              try {
-                                return {
-                                  area: "pregnancy",
-                                  duDate:
+                    $steps["invokeGlobalAction2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              (() => {
+                                try {
+                                  return (
                                     $state.duDate[0] +
                                     "-" +
                                     $state.duDate[1] +
                                     "-" +
                                     $state.duDate[2] +
-                                    " 10:10:10",
-                                  userId: $ctx.query.userId.slice(
-                                    4,
-                                    +$ctx.query.userId.length - 4
-                                  )
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            (() => {
-                              try {
-                                return {
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                    " 10:10:10"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
                                   }
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()
-                          ]
-                        };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
-                  }
-                }}
-              >
-                {
-                  "\u0630\u062e\u06cc\u0631\u0647 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a"
-                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction2"] != null &&
+                      typeof $steps["invokeGlobalAction2"] === "object" &&
+                      typeof $steps["invokeGlobalAction2"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction2"] = await $steps[
+                        "invokeGlobalAction2"
+                      ];
+                    }
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://n8n.staas.ir/webhook/status",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    area: "pregnancy",
+                                    duDate:
+                                      $state.duDate[0] +
+                                      "-" +
+                                      ($state.duDate[1] <= 9 ? "0" : "") +
+                                      $state.duDate[1] +
+                                      "-" +
+                                      ($state.duDate[2] <= 9 ? "0" : "") +
+                                      $state.duDate[2] +
+                                      " 10:10:10",
+                                    userId: $ctx.query.userId.slice(
+                                      4,
+                                      +$ctx.query.userId.length - 4
+                                    )
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
+                              (() => {
+                                try {
+                                  return {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                    }
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+                  }}
+                >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__evOk2, {
+                      [sty.imgdark__evOk2Bkz05]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    })}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"20px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image38.svg",
+                      fullWidth: 24,
+                      fullHeight: 24,
+                      aspectRatio: 1
+                    }}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__f4C6,
+                      {
+                        [sty.textdark__f4C6Bkz05]: hasVariant(
+                          $state,
+                          "dark",
+                          "dark"
+                        )
+                      }
+                    )}
+                  >
+                    {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a "}
+                  </div>
+                </div>
               </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox___1PSsm)}>
@@ -2036,7 +2188,6 @@ const PlasmicDescendants = {
   root: [
     "root",
     "embedHtml",
-    "img",
     "dateModal",
     "datePickers",
     "button",
@@ -2045,7 +2196,6 @@ const PlasmicDescendants = {
     "button2"
   ],
   embedHtml: ["embedHtml"],
-  img: ["img"],
   dateModal: ["dateModal", "datePickers", "button"],
   datePickers: ["datePickers"],
   button: ["button"],
@@ -2059,7 +2209,6 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   embedHtml: typeof Embed;
-  img: typeof PlasmicImg__;
   dateModal: typeof SlideinModal;
   datePickers: typeof DatePickers;
   button: typeof Button;
@@ -2154,7 +2303,6 @@ export const PlasmicSettingPregnancy = Object.assign(
   {
     // Helper components rendering sub-elements
     embedHtml: makeNodeComponent("embedHtml"),
-    img: makeNodeComponent("img"),
     dateModal: makeNodeComponent("dateModal"),
     datePickers: makeNodeComponent("datePickers"),
     button: makeNodeComponent("button"),

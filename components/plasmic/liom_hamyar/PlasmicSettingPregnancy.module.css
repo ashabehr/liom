@@ -81,13 +81,13 @@
   max-width: 100%;
   padding: 0px 8px;
 }
-.img {
+.img__lwBhL {
   object-fit: fill;
   max-width: 100%;
   width: 20px;
   flex-shrink: 0;
 }
-.img > picture > img {
+.img__lwBhL > picture > img {
   object-fit: fill;
 }
 .text__pmZGg {
@@ -102,6 +102,55 @@
   padding: 8px 8px 8px 16px;
 }
 .textdark__pmZGgbkz05 {
+  color: var(--token-BIuTS8zmWD0f);
+}
+.freeBox___4W6Wf {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  background: #ffffff;
+  padding: 8px 16px;
+}
+.freeBoxdark___4W6WFbkz05 {
+  background: var(--token-w7oYmzqeGvkw);
+}
+.freeBox___2Sx {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 0px 8px;
+}
+.img__pb4M7 {
+  object-fit: fill;
+  max-width: 100%;
+  width: 20px;
+  flex-shrink: 0;
+}
+.img__pb4M7 > picture > img {
+  object-fit: fill;
+}
+.text__nCwRl {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--token-BIuTS8zmWD0f);
+  padding: 8px 8px 8px 16px;
+}
+.textdark__nCwRlbkz05 {
   color: var(--token-BIuTS8zmWD0f);
 }
 .freeBox__xUcow {
@@ -303,14 +352,54 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__wPkpt {
+.freeBox__zfzWa {
+  display: flex;
+  flex-direction: row;
   position: relative;
-  width: 150px;
-  height: 50px;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
   max-width: 100%;
-  background: var(--token-Pxe4wDL2kJpb);
-  text-align: center;
+  background: #ffffff;
+  padding: 8px 16px;
+}
+.freeBoxdark__zfzWAbkz05 {
+  background: var(--token-w7oYmzqeGvkw);
+}
+.freeBox___1Y4ZU {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 0px 8px;
+}
+.img__evOk2 {
+  object-fit: fill;
+  max-width: 100%;
+  width: 20px;
   flex-shrink: 0;
+}
+.img__evOk2 > picture > img {
+  object-fit: fill;
+}
+.text__f4C6 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--token-BIuTS8zmWD0f);
+  padding: 8px 8px 8px 16px;
+}
+.textdark__f4C6Bkz05 {
+  color: var(--token-BIuTS8zmWD0f);
 }
 .freeBox___1PSsm {
   display: flex;
