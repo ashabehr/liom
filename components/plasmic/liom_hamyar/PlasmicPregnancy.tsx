@@ -1488,7 +1488,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 })()
               : (() => {
                   try {
-                    return !$state.loading;
+                    return !$state.loading || true;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -5028,17 +5028,21 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   switch (random) {
                                     case 0:
                                       emoji = "\uD83D\uDE0D";
+                                      break;
                                     case 1:
                                       emoji = "\uD83D\uDE00";
+                                      break;
                                     case 2:
                                       emoji = "\uD83D\uDE18";
+                                      break;
                                     case 3:
                                       emoji = "\u2763️";
+                                      break;
                                   }
                                   return (
                                     "جنین در این هفته اندازه یک " +
                                     $state.sizeByFruit[$state.weeksPregnant] +
-                                    " است" +
+                                    "است " +
                                     emoji
                                   );
                                 })();

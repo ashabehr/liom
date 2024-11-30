@@ -1547,7 +1547,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             try {
                               return (
                                 $state.babySize[$state.selectedWeek - 1].w +
-                                ($state.selectedWeek - 1 >= 26
+                                ($state.selectedWeek - 1 >= 27
                                   ? " کیلوگرم "
                                   : " گرم ")
                               );
