@@ -297,6 +297,19 @@
   max-width: 100%;
   object-fit: cover;
 }
+.freeBox__blzJm {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 8px;
+}
 .freeBox___1PSsm {
   display: flex;
   flex-direction: column;
@@ -343,6 +356,6 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: #888888;
+  background: #813a3a;
   min-width: 0;
 }
