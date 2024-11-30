@@ -1593,7 +1593,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 })()
               : (() => {
                   try {
-                    return !$state.loading;
+                    return !$state.loading || true;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -3615,7 +3615,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650  \u062a\u0648 : 5"
+                        "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632\u0650  \u062a\u0648 :"
                       }
                     </div>
                     <div
@@ -4250,13 +4250,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                           <React.Fragment>
                             {$state.weeksPregnant -
                               1 +
-                              " هفته " +
+                              " هفته" +
                               (280 -
                                 $state.daysPregnant -
                                 ($state.weeksPregnant - 1) * 7 -
-                                1 <=
+                                1 >=
                               0
-                                ? "و " +
+                                ? " و " +
                                   (280 -
                                     $state.daysPregnant -
                                     ($state.weeksPregnant - 1) * 7 -
@@ -5232,7 +5232,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     "وزن : " +
                                     $state.babySize[$state.weeksPregnant - 1]
                                       .w +
-                                    ($state.weeksPregnant - 1 >= 26
+                                    ($state.weeksPregnant - 1 >= 27
                                       ? " کیلوگرم "
                                       : " گرم ")
                                   );
