@@ -11729,40 +11729,6 @@ function PlasmicHamyar__RenderFunc(props: {
             ])}
             url={"https://n8n.staas.ir/webhook/hamyar/notif"}
           />
-
-          {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fEvxq
-              )}
-            >
-              {"\u0628\u0627"}
-            </div>
-          ) : null}
-          {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___1Jgs7
-              )}
-            >
-              {"\u0628\u0627"}
-            </div>
-          ) : null}
-          {(hasVariant(globalVariants, "screen", "mobile") ? true : false) ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__htd14
-              )}
-            >
-              {"\u0628\u0627"}
-            </div>
-          ) : null}
         </div>
       </div>
     </React.Fragment>
