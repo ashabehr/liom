@@ -86,7 +86,6 @@ import Heart from "../../Heart"; // plasmic-import: OuOhJXUpgiRr/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
-import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import {
   ThemeValue,
@@ -116,10 +115,16 @@ import __lib_copyToClipboard from "copy-to-clipboard";
 
 createPlasmicElementProxy;
 
-export type PlasmicHamyar__VariantMembers = {};
-export type PlasmicHamyar__VariantsArgs = {};
+export type PlasmicHamyar__VariantMembers = {
+  lackOfCourseInformation: "lackOfCourseInformation";
+};
+export type PlasmicHamyar__VariantsArgs = {
+  lackOfCourseInformation?: SingleBooleanChoiceArg<"lackOfCourseInformation">;
+};
 type VariantPropType = keyof PlasmicHamyar__VariantsArgs;
-export const PlasmicHamyar__VariantProps = new Array<VariantPropType>();
+export const PlasmicHamyar__VariantProps = new Array<VariantPropType>(
+  "lackOfCourseInformation"
+);
 
 export type PlasmicHamyar__ArgsType = {};
 type ArgPropType = keyof PlasmicHamyar__ArgsType;
@@ -1218,6 +1223,13 @@ function PlasmicHamyar__RenderFunc(props: {
         variableType: "dateString",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           "2024-10-24T07:00:28.998Z"
+      },
+      {
+        path: "lackOfCourseInformation",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          $props.lackOfCourseInformation
       }
     ],
     [$props, $ctx, $refs]
@@ -1279,6 +1291,11 @@ function PlasmicHamyar__RenderFunc(props: {
                 globalVariants,
                 "theme",
                 "dark"
+              ),
+              [sty.rootlackOfCourseInformation]: hasVariant(
+                $state,
+                "lackOfCourseInformation",
+                "lackOfCourseInformation"
               )
             }
           )}
@@ -1324,17 +1341,36 @@ function PlasmicHamyar__RenderFunc(props: {
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__tNnSf)}
+                className={classNames(projectcss.all, sty.freeBox__tNnSf, {
+                  [sty.freeBoxlackOfCourseInformation__tNnSf07Srs]: hasVariant(
+                    $state,
+                    "lackOfCourseInformation",
+                    "lackOfCourseInformation"
+                  )
+                })}
               >
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__d2GZw)}
+                  className={classNames(projectcss.all, sty.freeBox__d2GZw, {
+                    [sty.freeBoxlackOfCourseInformation__d2GZw07Srs]:
+                      hasVariant(
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                  })}
                 >
                   <Nofiticon
                     data-plasmic-name={"nofiticon"}
                     data-plasmic-override={overrides.nofiticon}
-                    className={classNames("__wab_instance", sty.nofiticon)}
+                    className={classNames("__wab_instance", sty.nofiticon, {
+                      [sty.nofiticonlackOfCourseInformation]: hasVariant(
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                    })}
                     number={generateStateValueProp($state, [
                       "nofiticon",
                       "number"
@@ -1425,7 +1461,14 @@ function PlasmicHamyar__RenderFunc(props: {
                   />
 
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__vjsSc)}
+                    className={classNames(projectcss.all, sty.freeBox__vjsSc, {
+                      [sty.freeBoxlackOfCourseInformation__vjsSc07Srs]:
+                        hasVariant(
+                          $state,
+                          "lackOfCourseInformation",
+                          "lackOfCourseInformation"
+                        )
+                    })}
                   >
                     <div
                       className={classNames(
@@ -2002,7 +2045,14 @@ function PlasmicHamyar__RenderFunc(props: {
                       })()
                 ) ? (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__ymeZw)}
+                    className={classNames(projectcss.all, sty.freeBox__ymeZw, {
+                      [sty.freeBoxlackOfCourseInformation__ymeZw07Srs]:
+                        hasVariant(
+                          $state,
+                          "lackOfCourseInformation",
+                          "lackOfCourseInformation"
+                        )
+                    })}
                   >
                     {(
                       hasVariant(globalVariants, "screen", "mobile")
@@ -2026,7 +2076,15 @@ function PlasmicHamyar__RenderFunc(props: {
                         hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox___9KPu1
+                          sty.freeBox___9KPu1,
+                          {
+                            [sty.freeBoxlackOfCourseInformation___9KPu107Srs]:
+                              hasVariant(
+                                $state,
+                                "lackOfCourseInformation",
+                                "lackOfCourseInformation"
+                              )
+                          }
                         )}
                       >
                         <div
@@ -2116,7 +2174,14 @@ function PlasmicHamyar__RenderFunc(props: {
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__nRwCr)}
+                  className={classNames(projectcss.all, sty.freeBox__nRwCr, {
+                    [sty.freeBoxlackOfCourseInformation__nRwCr07Srs]:
+                      hasVariant(
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                  })}
                 >
                   <Cyclebox
                     data-plasmic-name={"cyclebox"}
@@ -2716,7 +2781,14 @@ function PlasmicHamyar__RenderFunc(props: {
                   </Stack__>
                 </Stack__>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___1J2Yv)}
+                  className={classNames(projectcss.all, sty.freeBox___1J2Yv, {
+                    [sty.freeBoxlackOfCourseInformation___1J2Yv07Srs]:
+                      hasVariant(
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                  })}
                 >
                   <Stack__
                     as={"div"}
@@ -3223,25 +3295,41 @@ function PlasmicHamyar__RenderFunc(props: {
                     </Stack__>
                   </Stack__>
                 </div>
-                {(() => {
-                  try {
-                    return (
-                      !$state.user.data.result.todoNotTodoLists.todo.length == 0
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
+                {(
+                  hasVariant(
+                    $state,
+                    "lackOfCourseInformation",
+                    "lackOfCourseInformation"
+                  )
+                    ? true
+                    : (() => {
+                        try {
+                          return (
+                            !$state.user.data.result.todoNotTodoLists.todo
+                              .length == 0
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                ) ? (
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__mdVrf)}
+                    className={classNames(projectcss.all, sty.freeBox__mdVrf, {
+                      [sty.freeBoxlackOfCourseInformation__mdVrf07Srs]:
+                        hasVariant(
+                          $state,
+                          "lackOfCourseInformation",
+                          "lackOfCourseInformation"
+                        )
+                    })}
                   >
                     <div
                       className={classNames(
@@ -3668,26 +3756,41 @@ function PlasmicHamyar__RenderFunc(props: {
                     </Reveal>
                   </Stack__>
                 ) : null}
-                {(() => {
-                  try {
-                    return (
-                      !$state.user.data.result.todoNotTodoLists.notToDo
-                        .length == 0
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
+                {(
+                  hasVariant(
+                    $state,
+                    "lackOfCourseInformation",
+                    "lackOfCourseInformation"
+                  )
+                    ? true
+                    : (() => {
+                        try {
+                          return (
+                            !$state.user.data.result.todoNotTodoLists.notToDo
+                              .length == 0
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                ) ? (
                   <Stack__
                     as={"div"}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__zg2Fg)}
+                    className={classNames(projectcss.all, sty.freeBox__zg2Fg, {
+                      [sty.freeBoxlackOfCourseInformation__zg2Fg07Srs]:
+                        hasVariant(
+                          $state,
+                          "lackOfCourseInformation",
+                          "lackOfCourseInformation"
+                        )
+                    })}
                   >
                     <div
                       className={classNames(
@@ -4871,7 +4974,13 @@ function PlasmicHamyar__RenderFunc(props: {
                 <AntdModal
                   data-plasmic-name={"modal3"}
                   data-plasmic-override={overrides.modal3}
-                  className={classNames("__wab_instance", sty.modal3)}
+                  className={classNames("__wab_instance", sty.modal3, {
+                    [sty.modal3lackOfCourseInformation]: hasVariant(
+                      $state,
+                      "lackOfCourseInformation",
+                      "lackOfCourseInformation"
+                    )
+                  })}
                   defaultStylesClassName={classNames(
                     projectcss.root_reset,
                     projectcss.plasmic_default_styles,
@@ -4954,7 +5063,15 @@ function PlasmicHamyar__RenderFunc(props: {
                     </div>
                   </Stack__>
                 </AntdModal>
-                <div className={classNames(projectcss.all, sty.freeBox__sA0)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__sA0, {
+                    [sty.freeBoxlackOfCourseInformation__sA007Srs]: hasVariant(
+                      $state,
+                      "lackOfCourseInformation",
+                      "lackOfCourseInformation"
+                    )
+                  })}
+                >
                   {(
                     hasVariant(globalVariants, "screen", "mobile")
                       ? (() => {
@@ -4987,12 +5104,31 @@ function PlasmicHamyar__RenderFunc(props: {
                     <Stack__
                       as={"div"}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__ebGwv)}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__ebGwv,
+                        {
+                          [sty.freeBoxlackOfCourseInformation__ebGwv07Srs]:
+                            hasVariant(
+                              $state,
+                              "lackOfCourseInformation",
+                              "lackOfCourseInformation"
+                            )
+                        }
+                      )}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__uC58N
+                          sty.freeBox__uC58N,
+                          {
+                            [sty.freeBoxlackOfCourseInformation__uC58N07Srs]:
+                              hasVariant(
+                                $state,
+                                "lackOfCourseInformation",
+                                "lackOfCourseInformation"
+                              )
+                          }
                         )}
                       >
                         <div

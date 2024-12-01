@@ -41,6 +41,9 @@
     grid-column: 4;
   }
 }
+.rootlackOfCourseInformation > * {
+  grid-column: 4;
+}
 .freeBox__kJv6J {
   display: flex;
   flex-direction: column;
@@ -430,6 +433,13 @@
     display: flex;
   }
 }
+@media (max-width: 640px) {
+  .freeBoxlackOfCourseInformation__ymeZw07Srs {
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-left: calc(0px + 0px) !important;
+  }
+}
 .freeBox___9KPu1 {
   display: flex;
   flex-direction: row;
@@ -602,6 +612,9 @@
     margin-left: 16px;
     margin-top: 0px;
   }
+}
+.freeBoxlackOfCourseInformation__nRwCr07Srs {
+  display: none;
 }
 .cyclebox:global(.__wab_instance) {
   position: relative;
@@ -1263,8 +1276,12 @@
 }
 @media (max-width: 640px) {
   .freeBox___1J2Yv {
+    display: flex;
     padding: 0px 16px;
   }
+}
+.freeBoxlackOfCourseInformation___1J2Yv07Srs {
+  display: none;
 }
 .freeBox___4OOqT {
   display: flex;
@@ -1626,6 +1643,9 @@
     min-height: 0;
   }
 }
+.freeBoxlackOfCourseInformation__mdVrf07Srs {
+  display: none;
+}
 .text__bQyyx {
   position: relative;
   width: 100%;
@@ -1822,6 +1842,9 @@
   .freeBox__zg2Fg > :global(.__wab_flex-container) {
     min-height: 0;
   }
+}
+.freeBoxlackOfCourseInformation__zg2Fg07Srs {
+  display: none;
 }
 .text__sfnFu {
   position: relative;
