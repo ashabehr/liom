@@ -1298,7 +1298,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                     const actionArgs = {
                       customFunction: async () => {
                         return fetch(
-                          "https://n8n.staas.ir/webhook/task/?weekNumber=20&userId=" +
+                          "https://n8n.staas.ir/webhook/task/?weekNumber=" +
+                            ($state.weeksPregnant <= 9 ? "0" : "") +
+                            $state.weeksPregnant +
+                            "&userId=" +
                             $ctx.query.userId +
                             "&appKey=com.diacotdj.liom"
                         )
