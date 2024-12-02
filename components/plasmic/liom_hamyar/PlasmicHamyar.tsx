@@ -154,7 +154,6 @@ export type PlasmicHamyar__OverridesType = {
   subscription2?: Flex__<typeof Subscription>;
   button4?: Flex__<typeof Button>;
   modal?: Flex__<typeof AntdModal>;
-  img?: Flex__<typeof PlasmicImg__>;
   input2?: Flex__<typeof AntdInput>;
   button5?: Flex__<typeof Button>;
   button6?: Flex__<typeof Button>;
@@ -5064,6 +5063,100 @@ function PlasmicHamyar__RenderFunc(props: {
                   </Stack__>
                 </AntdModal>
                 <div
+                  className={classNames(projectcss.all, sty.freeBox__t5XxU, {
+                    [sty.freeBoxlackOfCourseInformation__t5XxU07Srs]:
+                      hasVariant(
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                  })}
+                >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img___8Hi2D, {
+                      [sty.imglackOfCourseInformation___8Hi2D07Srs]: hasVariant(
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                    })}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={
+                      hasVariant(
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                        ? "200px"
+                        : "auto"
+                    }
+                    loading={"lazy"}
+                    src={
+                      hasVariant(
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                        ? {
+                            src: "/plasmic/liom_hamyar/images/image3.gif",
+                            fullWidth: 426,
+                            fullHeight: 290,
+                            aspectRatio: undefined
+                          }
+                        : undefined
+                    }
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__kCvSp,
+                      {
+                        [sty.textlackOfCourseInformation__kCvSp07Srs]:
+                          hasVariant(
+                            $state,
+                            "lackOfCourseInformation",
+                            "lackOfCourseInformation"
+                          )
+                      }
+                    )}
+                  >
+                    {hasVariant(
+                      $state,
+                      "lackOfCourseInformation",
+                      "lackOfCourseInformation"
+                    ) ? (
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              "اطلاعات چرخه قاعدگی وارد نشده،\n به " +
+                              $state.name +
+                              " یادآوری کن ثبتش کنه. "
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    ) : (
+                      "Enter some text"
+                    )}
+                  </div>
+                </div>
+                <div
                   className={classNames(projectcss.all, sty.freeBox__sA0, {
                     [sty.freeBoxlackOfCourseInformation__sA007Srs]: hasVariant(
                       $state,
@@ -5146,7 +5239,15 @@ function PlasmicHamyar__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__zIo72
+                          sty.freeBox__zIo72,
+                          {
+                            [sty.freeBoxlackOfCourseInformation__zIo7207Srs]:
+                              hasVariant(
+                                $state,
+                                "lackOfCourseInformation",
+                                "lackOfCourseInformation"
+                              )
+                          }
                         )}
                       >
                         <Stack__
@@ -7164,10 +7265,8 @@ function PlasmicHamyar__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.freeBox__onx50)}
                     >
                       <PlasmicImg__
-                        data-plasmic-name={"img"}
-                        data-plasmic-override={overrides.img}
                         alt={""}
-                        className={classNames(sty.img)}
+                        className={classNames(sty.img__vFfed)}
                         displayHeight={"auto"}
                         displayMaxHeight={"none"}
                         displayMaxWidth={"100%"}
@@ -11233,7 +11332,13 @@ function PlasmicHamyar__RenderFunc(props: {
                     }
                   })()
             }
-            className={classNames("__wab_instance", sty.user)}
+            className={classNames("__wab_instance", sty.user, {
+              [sty.userlackOfCourseInformation]: hasVariant(
+                $state,
+                "lackOfCourseInformation",
+                "lackOfCourseInformation"
+              )
+            })}
             config={{ headers: { "Content-Type": "application/json" } }}
             errorDisplay={null}
             loadingDisplay={null}
@@ -11524,6 +11629,36 @@ function PlasmicHamyar__RenderFunc(props: {
                   typeof $steps["refreshData"].then === "function"
                 ) {
                   $steps["refreshData"] = await $steps["refreshData"];
+                }
+
+                $steps["updateLackOfCourseInformation"] =
+                  $state.user?.data?.result?.user?.name &&
+                  !$state.user?.data?.result?.userStatus?.periodStatus
+                    ? (() => {
+                        const actionArgs = {
+                          vgroup: "lackOfCourseInformation",
+                          operation: 4,
+                          value: "lackOfCourseInformation"
+                        };
+                        return (({ vgroup, value }) => {
+                          if (typeof value === "string") {
+                            value = [value];
+                          }
+
+                          $stateSet($state, vgroup, true);
+                          return true;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateLackOfCourseInformation"] != null &&
+                  typeof $steps["updateLackOfCourseInformation"] === "object" &&
+                  typeof $steps["updateLackOfCourseInformation"].then ===
+                    "function"
+                ) {
+                  $steps["updateLackOfCourseInformation"] = await $steps[
+                    "updateLackOfCourseInformation"
+                  ];
                 }
               }).apply(null, eventArgs);
             }}
@@ -11896,7 +12031,6 @@ const PlasmicDescendants = {
     "subscription2",
     "button4",
     "modal",
-    "img",
     "input2",
     "button5",
     "button6",
@@ -11933,8 +12067,7 @@ const PlasmicDescendants = {
   shopModalMobile: ["shopModalMobile", "subscription2", "button4"],
   subscription2: ["subscription2"],
   button4: ["button4"],
-  modal: ["modal", "img", "input2", "button5", "button6"],
-  img: ["img"],
+  modal: ["modal", "input2", "button5", "button6"],
   input2: ["input2"],
   button5: ["button5"],
   button6: ["button6"],
@@ -11977,7 +12110,6 @@ type NodeDefaultElementType = {
   subscription2: typeof Subscription;
   button4: typeof Button;
   modal: typeof AntdModal;
-  img: typeof PlasmicImg__;
   input2: typeof AntdInput;
   button5: typeof Button;
   button6: typeof Button;
@@ -12101,7 +12233,6 @@ export const PlasmicHamyar = Object.assign(
     subscription2: makeNodeComponent("subscription2"),
     button4: makeNodeComponent("button4"),
     modal: makeNodeComponent("modal"),
-    img: makeNodeComponent("img"),
     input2: makeNodeComponent("input2"),
     button5: makeNodeComponent("button5"),
     button6: makeNodeComponent("button6"),

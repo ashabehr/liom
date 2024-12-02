@@ -549,7 +549,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           const actionArgs = {
                             args: [
                               "error",
-                              "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                              `لطفا اطلاعات درست وارد کنید${undefined}`,
                               "bottom-center"
                             ]
                           };
@@ -1063,7 +1063,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
               <SlideinModal
                 data-plasmic-name={"dateModal"}
                 data-plasmic-override={overrides.dateModal}
-                className={classNames("__wab_instance", sty.dateModal)}
+                className={classNames("__wab_instance", sty.dateModal, {
+                  [sty.dateModaldark]: hasVariant($state, "dark", "dark")
+                })}
                 click={generateStateValueProp($state, ["dateModal", "click"])}
                 onClickChange={generateStateOnChangeProp($state, [
                   "dateModal",
@@ -1631,7 +1633,14 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__pd8Nv
+                  sty.text__pd8Nv,
+                  {
+                    [sty.textdark__pd8Nvbkz05]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  }
                 )}
               >
                 {
@@ -1642,7 +1651,14 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__jhTi
+                  sty.text__jhTi,
+                  {
+                    [sty.textdark__jhTibkz05]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  }
                 )}
               >
                 {
@@ -1727,6 +1743,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
               >
                 {(() => {
                   const child$Props = {
+                    bordered: true,
                     className: classNames(
                       "__wab_instance",
                       sty.dateOfBirthBox,
@@ -1774,7 +1791,15 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   );
                 })()}
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__t0Jql)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__t0Jql, {
+                  [sty.freeBoxdark__t0JqLbkz05]: hasVariant(
+                    $state,
+                    "dark",
+                    "dark"
+                  )
+                })}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
@@ -1807,7 +1832,14 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__hxpdj
+                  sty.text__hxpdj,
+                  {
+                    [sty.textdark__hxpdJbkz05]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  }
                 )}
               >
                 {

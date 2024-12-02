@@ -59,6 +59,11 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import {
+  ThemeValue,
+  useTheme
+} from "../todo_mvc_app/PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -163,6 +168,10 @@ function PlasmicSlideinModal__RenderFunc(props: {
     $refs
   });
 
+  const globalVariants = ensureGlobalVariants({
+    theme: useTheme()
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -179,7 +188,14 @@ function PlasmicSlideinModal__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
-        { [sty.rootclick]: hasVariant($state, "click", "click") }
+        {
+          [sty.rootclick]: hasVariant($state, "click", "click"),
+          [sty.rootglobal_theme_dark]: hasVariant(
+            globalVariants,
+            "theme",
+            "dark"
+          )
+        }
       )}
       onClick={async event => {
         const $steps = {};
@@ -187,12 +203,26 @@ function PlasmicSlideinModal__RenderFunc(props: {
     >
       <div
         className={classNames(projectcss.all, sty.freeBox__kd9A, {
-          [sty.freeBoxclick__kd9A6HzP8]: hasVariant($state, "click", "click")
+          [sty.freeBoxclick__kd9A6HzP8]: hasVariant($state, "click", "click"),
+          [sty.freeBoxglobal_theme_dark__kd9AfQxap]: hasVariant(
+            globalVariants,
+            "theme",
+            "dark"
+          )
         })}
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__oeonh, {
-            [sty.freeBoxclick__oeonh6HzP8]: hasVariant($state, "click", "click")
+            [sty.freeBoxclick__oeonh6HzP8]: hasVariant(
+              $state,
+              "click",
+              "click"
+            ),
+            [sty.freeBoxglobal_theme_dark__oeonhfQxap]: hasVariant(
+              globalVariants,
+              "theme",
+              "dark"
+            )
           })}
         >
           {renderPlasmicSlot({
