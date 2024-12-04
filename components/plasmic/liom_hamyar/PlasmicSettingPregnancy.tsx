@@ -1182,9 +1182,21 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   <DatePickers
                     data-plasmic-name={"datePickers"}
                     data-plasmic-override={overrides.datePickers}
-                    SelectedDay={10}
-                    SelectedMonth={10}
-                    SelectedYear={1379}
+                    SelectedDay={(() => {
+                      if ($state.typeInterDate == "lastTime")
+                        return $state.lastTime.day;
+                      else return $state.dateOfBirth.day;
+                    })()}
+                    SelectedMonth={(() => {
+                      if ($state.typeInterDate == "lastTime")
+                        return $state.lastTime.month;
+                      else return $state.dateOfBirth.month;
+                    })()}
+                    SelectedYear={(() => {
+                      if ($state.typeInterDate == "lastTime")
+                        return $state.lastTime.year;
+                      else return $state.dateOfBirth.year;
+                    })()}
                     className={classNames("__wab_instance", sty.datePickers)}
                     customYears={[
                       { value: 1403, label: "1403" },

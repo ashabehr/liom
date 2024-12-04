@@ -29,20 +29,6 @@
       "cssFilePath": "plasmic/todo_mvc_app/plasmic.module.css",
       "components": [
         {
-          "id": "BgvgssdMaksd",
-          "name": "TodoApp",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/todo_mvc_app/PlasmicTodoApp.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/index.tsx"
-          },
-          "cssFilePath": "plasmic/todo_mvc_app/PlasmicTodoApp.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/"
-        },
-        {
           "id": "NBtsgCHuOYPZ",
           "name": "Header",
           "type": "managed",
@@ -765,6 +751,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicRadioGrop.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "C7Qr-uThQ0uo",
+          "name": "HomePage",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHomePage.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/index.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHomePage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/"
         }
       ],
       "icons": [

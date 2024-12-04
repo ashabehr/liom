@@ -4133,19 +4133,26 @@ function PlasmicPregnancy__RenderFunc(props: {
                           )}
                         >
                           <React.Fragment>
-                            {$state.weeksPregnant -
-                              1 +
-                              " هفته" +
+                            {($state.weeksPregnant - 1 <= 0
+                              ? ""
+                              : $state.weeksPregnant - 1 + " هفته") +
+                              ($state.weeksPregnant - 1 > 0 &&
+                              280 -
+                                $state.daysPregnant -
+                                ($state.weeksPregnant - 1) * 7 -
+                                1 >=
+                                0
+                                ? " و "
+                                : "") +
                               (280 -
                                 $state.daysPregnant -
                                 ($state.weeksPregnant - 1) * 7 -
                                 1 >=
                               0
-                                ? " و " +
-                                  (280 -
-                                    $state.daysPregnant -
-                                    ($state.weeksPregnant - 1) * 7 -
-                                    1) +
+                                ? 280 -
+                                  $state.daysPregnant -
+                                  ($state.weeksPregnant - 1) * 7 -
+                                  1 +
                                   " روز "
                                 : "") +
                               " از بارداریت رو سپری کردی و " +
