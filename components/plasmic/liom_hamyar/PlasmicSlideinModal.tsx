@@ -59,11 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import {
-  ThemeValue,
-  useTheme
-} from "../todo_mvc_app/PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -75,25 +70,30 @@ createPlasmicElementProxy;
 
 export type PlasmicSlideinModal__VariantMembers = {
   click: "click";
+  dark2: "dark2";
 };
 export type PlasmicSlideinModal__VariantsArgs = {
   click?: SingleBooleanChoiceArg<"click">;
+  dark2?: SingleBooleanChoiceArg<"dark2">;
 };
 type VariantPropType = keyof PlasmicSlideinModal__VariantsArgs;
 export const PlasmicSlideinModal__VariantProps = new Array<VariantPropType>(
-  "click"
+  "click",
+  "dark2"
 );
 
 export type PlasmicSlideinModal__ArgsType = {
   onClickChange?: (val: any) => void;
   children?: React.ReactNode;
   onClick?: (event: any) => void;
+  dark?: boolean;
 };
 type ArgPropType = keyof PlasmicSlideinModal__ArgsType;
 export const PlasmicSlideinModal__ArgProps = new Array<ArgPropType>(
   "onClickChange",
   "children",
-  "onClick"
+  "onClick",
+  "dark"
 );
 
 export type PlasmicSlideinModal__OverridesType = {
@@ -104,7 +104,9 @@ export interface DefaultSlideinModalProps {
   onClickChange?: (val: any) => void;
   children?: React.ReactNode;
   onClick?: (event: any) => void;
+  dark?: boolean;
   click?: SingleBooleanChoiceArg<"click">;
+  dark2?: SingleBooleanChoiceArg<"dark2">;
   className?: string;
 }
 
@@ -128,7 +130,9 @@ function PlasmicSlideinModal__RenderFunc(props: {
   const args = React.useMemo(
     () =>
       Object.assign(
-        {},
+        {
+          dark: false
+        },
         Object.fromEntries(
           Object.entries(props.args).filter(([_, v]) => v !== undefined)
         )
@@ -157,6 +161,25 @@ function PlasmicSlideinModal__RenderFunc(props: {
 
         valueProp: "click",
         onChangeProp: "onClickChange"
+      },
+      {
+        path: "dark2",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.dark;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props.dark2
       }
     ],
     [$props, $ctx, $refs]
@@ -166,10 +189,6 @@ function PlasmicSlideinModal__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
-  });
-
-  const globalVariants = ensureGlobalVariants({
-    theme: useTheme()
   });
 
   return (
@@ -190,11 +209,7 @@ function PlasmicSlideinModal__RenderFunc(props: {
         sty.root,
         {
           [sty.rootclick]: hasVariant($state, "click", "click"),
-          [sty.rootglobal_theme_dark]: hasVariant(
-            globalVariants,
-            "theme",
-            "dark"
-          )
+          [sty.rootdark2]: hasVariant($state, "dark2", "dark2")
         }
       )}
       onClick={async event => {
@@ -204,11 +219,7 @@ function PlasmicSlideinModal__RenderFunc(props: {
       <div
         className={classNames(projectcss.all, sty.freeBox__kd9A, {
           [sty.freeBoxclick__kd9A6HzP8]: hasVariant($state, "click", "click"),
-          [sty.freeBoxglobal_theme_dark__kd9AfQxap]: hasVariant(
-            globalVariants,
-            "theme",
-            "dark"
-          )
+          [sty.freeBoxdark2__kd9AAfN4I]: hasVariant($state, "dark2", "dark2")
         })}
       >
         <div
@@ -218,11 +229,7 @@ function PlasmicSlideinModal__RenderFunc(props: {
               "click",
               "click"
             ),
-            [sty.freeBoxglobal_theme_dark__oeonhfQxap]: hasVariant(
-              globalVariants,
-              "theme",
-              "dark"
-            )
+            [sty.freeBoxdark2__oeonhAfN4I]: hasVariant($state, "dark2", "dark2")
           })}
         >
           {renderPlasmicSlot({

@@ -44,15 +44,9 @@
   padding: 15px;
   border-width: 0px;
 }
-.textboxglobal_theme_dark {
-  color: var(--token-gonRSCNFEy7u);
-}
 .headerContainer .textbox::placeholder {
   font-style: italic;
   color: var(--token-xZSjH46lB6C3);
-}
-.headerContainerglobal_theme_dark .textboxglobal_theme_dark::placeholder {
-  color: var(--token-EmQk5DERlmjM);
 }
 .headerContainerstate_allChecked .textboxstate_allChecked::placeholder {
   font-style: italic;

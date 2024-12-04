@@ -7,9 +7,6 @@
   width: 100%;
   border-bottom: 1px solid var(--token-oCPc5AIJwtEa);
 }
-.rootglobal_theme_dark {
-  border-bottom-color: var(--token-d0xmvBfBUlz_);
-}
 .freeBox___6JiPt {
   display: flex;
   flex-direction: row;
@@ -32,9 +29,6 @@
   align-self: auto;
   border-radius: 100px;
   border: 1px solid var(--token-R96bVFQ-7pJj);
-}
-.freeBoxglobal_theme_dark_state_checked__d2YMfQxapOQqlV {
-  border-color: var(--token-64O07uLgKimi);
 }
 .img {
   display: flex;
@@ -105,17 +99,8 @@
   background: rgba(255, 255, 255, 0);
   border-color: var(--token-aPMgnD4sVFAM);
 }
-.textboxstate_editing_global_theme_dark {
-  box-shadow: inset 0px 0px 4px 2px rgba(235, 245, 16, 0.46);
-  color: var(--token-gonRSCNFEy7u);
-}
 .rootstate_editing .textboxstate_editing::placeholder {
   color: var(--token-NvjhYtqAYhiP);
-}
-.rootstate_editing_global_theme_dark
-  .textboxstate_editing_global_theme_dark::placeholder {
-  color: var(--token-EmQk5DERlmjM);
-  font-style: italic;
 }
 .freeBox___8RsVo {
   display: flex;

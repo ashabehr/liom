@@ -87,10 +87,6 @@ import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 
-import {
-  ThemeValue,
-  useTheme
-} from "../todo_mvc_app/PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -1243,7 +1239,6 @@ function PlasmicHamyar__RenderFunc(props: {
   const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
-    theme: useTheme(),
     screen: useScreenVariants_6BytLjmha8VC()
   });
 
@@ -1286,11 +1281,6 @@ function PlasmicHamyar__RenderFunc(props: {
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root,
             {
-              [sty.rootglobal_theme_dark]: hasVariant(
-                globalVariants,
-                "theme",
-                "dark"
-              ),
               [sty.rootlackOfCourseInformation]: hasVariant(
                 $state,
                 "lackOfCourseInformation",

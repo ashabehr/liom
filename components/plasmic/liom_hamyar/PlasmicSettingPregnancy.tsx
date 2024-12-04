@@ -68,11 +68,6 @@ import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 
-import {
-  ThemeValue,
-  useTheme
-} from "../todo_mvc_app/PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -319,10 +314,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    theme: useTheme()
-  });
-
   return (
     <React.Fragment>
       <Head></Head>
@@ -348,14 +339,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root,
-            {
-              [sty.rootdark]: hasVariant($state, "dark", "dark"),
-              [sty.rootglobal_theme_dark]: hasVariant(
-                globalVariants,
-                "theme",
-                "dark"
-              )
-            }
+            { [sty.rootdark]: hasVariant($state, "dark", "dark") }
           )}
         >
           <div className={classNames(projectcss.all, sty.freeBox__ikTgu)}>
@@ -549,7 +533,103 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           const actionArgs = {
                             args: [
                               "error",
-                              `لطفا اطلاعات درست وارد کنید${undefined}`,
+                              (() => {
+                                try {
+                                  return (() => {
+                                    if ($state.duDate == "")
+                                      "لطفا اطلاعات درست وارد کنید";
+                                    if ($state.dateOfBirth == null)
+                                      "لطفا اطلاعات درست وارد کنید";
+                                    if ($state.dateOfBirth == "")
+                                      "لطفا اطلاعات درست وارد کنید";
+                                    var jy = $state.dateOfBirth.year;
+                                    var jm = $state.dateOfBirth.month;
+                                    var jd = $state.dateOfBirth.day;
+                                    var gy = jy <= 979 ? 621 : 1600;
+                                    jy -= jy <= 979 ? 0 : 979;
+                                    var days =
+                                      365 * jy +
+                                      parseInt(jy / 33) * 8 +
+                                      parseInt(((jy % 33) + 3) / 4) +
+                                      78 +
+                                      jd +
+                                      (jm < 7
+                                        ? (jm - 1) * 31
+                                        : (jm - 7) * 30 + 186);
+                                    gy += 400 * parseInt(days / 146097);
+                                    days %= 146097;
+                                    if (days > 36524) {
+                                      gy += 100 * parseInt(--days / 36524);
+                                      days %= 36524;
+                                      if (days >= 365) days++;
+                                    }
+                                    gy += 4 * parseInt(days / 1461);
+                                    days %= 1461;
+                                    gy += parseInt((days - 1) / 365);
+                                    if (days > 365) days = (days - 1) % 365;
+                                    var gd = days + 1;
+                                    var sal_a = [
+                                      0,
+                                      31,
+                                      (gy % 4 == 0 && gy % 100 != 0) ||
+                                      gy % 400 == 0
+                                        ? 29
+                                        : 28,
+                                      31,
+                                      30,
+                                      31,
+                                      30,
+                                      31,
+                                      31,
+                                      30,
+                                      31,
+                                      30,
+                                      31
+                                    ];
+
+                                    var gm;
+                                    for (gm = 0; gm < 13; gm++) {
+                                      var v = sal_a[gm];
+                                      if (gd <= v) break;
+                                      gd -= v;
+                                    }
+                                    const d =
+                                      gy +
+                                      "-" +
+                                      (gm <= 9 ? "0" : "") +
+                                      gm +
+                                      "-" +
+                                      (gd <= 9 ? "0" : "") +
+                                      gd +
+                                      "T10:10:10";
+                                    const specifiedDate = new Date(d);
+                                    const today = new Date();
+                                    if (today > specifiedDate) {
+                                      ("لطفا اطلاعات درست وارد کنید4");
+                                    }
+                                    const diffTime = Math.abs(
+                                      today - specifiedDate
+                                    );
+                                    const diffDays = Math.ceil(
+                                      diffTime / (1000 * 60 * 60 * 24)
+                                    );
+                                    return diffDays <= 280
+                                      ? "تاریخ زایمانی که وارد کردی برای قبل امروز است"
+                                      : $state.typeInterDate == "lastTime"
+                                      ? "تاریخ آخرین قاعدگی ای که وارد کردی برای بعد از امروز است"
+                                      : "تاریخ زایمانی که وارد کردی برای بیشتر از 9 ماه بعد است";
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })(),
                               "bottom-center"
                             ]
                           };
@@ -1067,32 +1147,59 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   [sty.dateModaldark]: hasVariant($state, "dark", "dark")
                 })}
                 click={generateStateValueProp($state, ["dateModal", "click"])}
+                dark={(() => {
+                  try {
+                    return $ctx.query.theme == "dark";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })()}
                 onClickChange={generateStateOnChangeProp($state, [
                   "dateModal",
                   "click"
                 ])}
               >
-                <DatePickers
-                  data-plasmic-name={"datePickers"}
-                  data-plasmic-override={overrides.datePickers}
-                  SelectedDay={10}
-                  SelectedMonth={10}
-                  SelectedYear={1379}
-                  className={classNames("__wab_instance", sty.datePickers)}
-                  customYears={[
-                    { value: 1403, label: "1403" },
-                    { value: 1404, label: "1404" }
-                  ]}
-                  onChange={generateStateOnChangeProp($state, [
-                    "datePickers",
-                    "value"
-                  ])}
-                  selectedValues={generateStateValueProp($state, [
-                    "datePickers",
-                    "value"
-                  ])}
-                />
-
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__epUv4,
+                    hasVariant($state, "dark", "dark") ? "picker-dark" : ``,
+                    {
+                      [sty.freeBoxdark__epUv4Bkz05]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    }
+                  )}
+                >
+                  <DatePickers
+                    data-plasmic-name={"datePickers"}
+                    data-plasmic-override={overrides.datePickers}
+                    SelectedDay={10}
+                    SelectedMonth={10}
+                    SelectedYear={1379}
+                    className={classNames("__wab_instance", sty.datePickers)}
+                    customYears={[
+                      { value: 1403, label: "1403" },
+                      { value: 1404, label: "1404" }
+                    ]}
+                    onChange={generateStateOnChangeProp($state, [
+                      "datePickers",
+                      "value"
+                    ])}
+                    selectedValues={generateStateValueProp($state, [
+                      "datePickers",
+                      "value"
+                    ])}
+                  />
+                </div>
                 <div className={classNames(projectcss.all, sty.freeBox__r4OB)}>
                   <Button
                     data-plasmic-name={"button"}
@@ -1666,7 +1773,18 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 }
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox___1FrZr)}
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox___1FrZr,
+                  hasVariant($state, "dark", "dark") ? "input-dark" : ``,
+                  {
+                    [sty.freeBoxdark___1FrZrbkz05]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  }
+                )}
                 onClick={async event => {
                   const $steps = {};
 
@@ -1847,7 +1965,18 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 }
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox__lChI)}
+                className={classNames(
+                  projectcss.all,
+                  sty.freeBox__lChI,
+                  hasVariant($state, "dark", "dark") ? "input-dark" : ``,
+                  {
+                    [sty.freeBoxdark__lChIbkz05]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  }
+                )}
                 onClick={async event => {
                   const $steps = {};
 
@@ -1924,7 +2053,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
               >
                 {(() => {
                   const child$Props = {
-                    className: classNames("__wab_instance", sty.lastTimeBox),
+                    className: classNames("__wab_instance", sty.lastTimeBox, {
+                      [sty.lastTimeBoxdark]: hasVariant($state, "dark", "dark")
+                    }),
                     onChange: generateStateOnChangePropForCodeComponents(
                       $state,
                       "value",

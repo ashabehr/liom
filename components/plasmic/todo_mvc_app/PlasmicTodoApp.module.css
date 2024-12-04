@@ -10,9 +10,6 @@
   min-width: 0;
   min-height: 0;
 }
-.rootglobal_theme_dark {
-  background: var(--token-5y4d7NaFjl0r);
-}
 .appTitle {
   position: relative;
   width: auto;
@@ -23,9 +20,6 @@
   flex-basis: auto;
   font-size: 100px;
   color: var(--token-gCi4wau0q9pg);
-}
-.appTitleglobal_theme_dark {
-  color: var(--token-x037-m55noce);
 }
 .freeBox__vRGlW {
   display: flex;
@@ -50,9 +44,6 @@
   width: 550px;
   height: auto;
 }
-.freeBoxglobal_theme_dark__wsiKfQxap {
-  box-shadow: 0px 25px 50px 0px rgba(255, 255, 255, 0.3);
-}
 .appBody {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -67,10 +58,6 @@
   position: relative;
   z-index: 1;
   background: var(--token-yL32ChWVky0P);
-}
-.appBodyglobal_theme_dark {
-  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.5);
-  background: var(--token-_wos1hXSjLbY);
 }
 .tasksContainer {
   display: flex;
@@ -114,10 +101,6 @@
   right: 10px;
   background: var(--token-yL32ChWVky0P);
 }
-.freeBoxglobal_theme_dark__xsSqFfQxap {
-  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.5);
-  background: var(--token-_wos1hXSjLbY);
-}
 .freeBox__eKeGd {
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
   display: block;
@@ -129,10 +112,6 @@
   height: 10px;
   z-index: -1px;
   background: var(--token-yL32ChWVky0P);
-}
-.freeBoxglobal_theme_dark__eKeGdfQxap {
-  box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.5);
-  background: var(--token-_wos1hXSjLbY);
 }
 .freeBox__sawws {
   display: flex;

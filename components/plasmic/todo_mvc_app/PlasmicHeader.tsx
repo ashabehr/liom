@@ -66,8 +66,6 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
-import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -154,8 +152,7 @@ function PlasmicHeader__RenderFunc(props: {
         path: "textbox.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "theme", "dark") ? "My Task" : undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -168,10 +165,6 @@ function PlasmicHeader__RenderFunc(props: {
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
   const plasmicInvalidate = usePlasmicInvalidate();
-
-  const globalVariants = ensureGlobalVariants({
-    theme: useTheme()
-  });
 
   return (
     <div
@@ -189,11 +182,6 @@ function PlasmicHeader__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.headerContainer,
         {
-          [sty.headerContainerglobal_theme_dark]: hasVariant(
-            globalVariants,
-            "theme",
-            "dark"
-          ),
           [sty.headerContainerstate_allChecked]: hasVariant(
             $state,
             "state",
@@ -216,11 +204,6 @@ function PlasmicHeader__RenderFunc(props: {
             data-plasmic-override={overrides.img}
             alt={""}
             className={classNames(sty.img, {
-              [sty.imgglobal_theme_dark]: hasVariant(
-                globalVariants,
-                "theme",
-                "dark"
-              ),
               [sty.imgstate_allChecked]: hasVariant(
                 $state,
                 "state",
@@ -235,9 +218,7 @@ function PlasmicHeader__RenderFunc(props: {
             displayMinWidth={"0"}
             displayWidth={"30px"}
             src={
-              hasVariant(globalVariants, "theme", "dark")
-                ? "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMiA2IiBoZWlnaHQ9IjYiIHdpZHRoPSIxMiIgc3R5bGU9ImZpbGw6IHJnYigyMTMsIDIwNiwgMjA2KTsiPgo8cGF0aCBmaWxsPSJibGFjayIgZD0iTTAuNjEyIDAuMTEyTDUuODQ0IDMuMjJMMTEuMDc2IDAuMTEyVjIuNUw1Ljg0NCA1LjUyNEwwLjYxMiAyLjQ4OFYwLjExMloiLz4KPC9zdmc+"
-                : "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMiA2IiBoZWlnaHQ9IjYiIHdpZHRoPSIxMiI+CjxwYXRoIGZpbGw9ImJsYWNrIiBkPSJNMC42MTIgMC4xMTJMNS44NDQgMy4yMkwxMS4wNzYgMC4xMTJWMi41TDUuODQ0IDUuNTI0TDAuNjEyIDIuNDg4VjAuMTEyWiIvPgo8L3N2Zz4K"
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMiA2IiBoZWlnaHQ9IjYiIHdpZHRoPSIxMiI+CjxwYXRoIGZpbGw9ImJsYWNrIiBkPSJNMC42MTIgMC4xMTJMNS44NDQgMy4yMkwxMS4wNzYgMC4xMTJWMi41TDUuODQ0IDUuNTI0TDAuNjEyIDIuNDg4VjAuMTEyWiIvPgo8L3N2Zz4K"
             }
           />
         ) : null}
@@ -246,11 +227,6 @@ function PlasmicHeader__RenderFunc(props: {
         data-plasmic-name={"textbox"}
         data-plasmic-override={overrides.textbox}
         className={classNames(projectcss.all, projectcss.input, sty.textbox, {
-          [sty.textboxglobal_theme_dark]: hasVariant(
-            globalVariants,
-            "theme",
-            "dark"
-          ),
           [sty.textboxstate_allChecked]: hasVariant(
             $state,
             "state",

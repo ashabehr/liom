@@ -66,8 +66,6 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
-import { ThemeValue, useTheme } from "./PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -187,10 +185,6 @@ function PlasmicTask__RenderFunc(props: {
   const dataSourcesCtx = usePlasmicDataSourceContext();
   const plasmicInvalidate = usePlasmicInvalidate();
 
-  const globalVariants = ensureGlobalVariants({
-    theme: useTheme()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -207,16 +201,8 @@ function PlasmicTask__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
         {
-          [sty.rootglobal_theme_dark]: hasVariant(
-            globalVariants,
-            "theme",
-            "dark"
-          ),
           [sty.rootstate_checked]: hasVariant($state, "state", "checked"),
-          [sty.rootstate_editing]: hasVariant($state, "state", "editing"),
-          [sty.rootstate_editing_global_theme_dark]:
-            hasVariant($state, "state", "editing") &&
-            hasVariant(globalVariants, "theme", "dark")
+          [sty.rootstate_editing]: hasVariant($state, "state", "editing")
         }
       )}
     >
@@ -226,18 +212,12 @@ function PlasmicTask__RenderFunc(props: {
             $state,
             "state",
             "editing"
-          ),
-          [sty.freeBoxstate_editing_global_theme_dark___6JiPtKi0NlFQxap]:
-            hasVariant($state, "state", "editing") &&
-            hasVariant(globalVariants, "theme", "dark")
+          )
         })}
       >
         {(hasVariant($state, "state", "editing") ? false : true) ? (
           <div
             className={classNames(projectcss.all, sty.freeBox__d2YM, {
-              [sty.freeBoxglobal_theme_dark_state_checked__d2YMfQxapOQqlV]:
-                hasVariant($state, "state", "checked") &&
-                hasVariant(globalVariants, "theme", "dark"),
               [sty.freeBoxstate_checked__d2YMoQqlV]: hasVariant(
                 $state,
                 "state",
@@ -301,9 +281,6 @@ function PlasmicTask__RenderFunc(props: {
                 data-plasmic-override={overrides.img}
                 alt={""}
                 className={classNames(sty.img, {
-                  [sty.imgglobal_theme_dark_state_checked]:
-                    hasVariant($state, "state", "checked") &&
-                    hasVariant(globalVariants, "theme", "dark"),
                   [sty.imgstate_checked]: hasVariant(
                     $state,
                     "state",
@@ -333,19 +310,11 @@ function PlasmicTask__RenderFunc(props: {
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__dQcg, {
-          [sty.freeBoxglobal_theme_dark__dQcgfQxap]: hasVariant(
-            globalVariants,
-            "theme",
-            "dark"
-          ),
           [sty.freeBoxstate_editing__dQcgKi0Nl]: hasVariant(
             $state,
             "state",
             "editing"
-          ),
-          [sty.freeBoxstate_editing_global_theme_dark__dQcgKi0NlFQxap]:
-            hasVariant($state, "state", "editing") &&
-            hasVariant(globalVariants, "theme", "dark")
+          )
         })}
       >
         {(hasVariant($state, "state", "editing") ? false : true) ? (
@@ -483,10 +452,7 @@ function PlasmicTask__RenderFunc(props: {
                   $state,
                   "state",
                   "editing"
-                ),
-                [sty.textboxstate_editing_global_theme_dark]:
-                  hasVariant($state, "state", "editing") &&
-                  hasVariant(globalVariants, "theme", "dark")
+                )
               }
             )}
             onBlur={async event => {

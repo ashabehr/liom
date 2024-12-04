@@ -33,14 +33,6 @@
     grid-column: 4;
   }
 }
-.rootglobal_theme_dark > * {
-  grid-column: 4;
-}
-@media (max-width: 640px) {
-  .rootglobal_theme_dark > * {
-    grid-column: 4;
-  }
-}
 .rootlackOfCourseInformation > * {
   grid-column: 4;
 }

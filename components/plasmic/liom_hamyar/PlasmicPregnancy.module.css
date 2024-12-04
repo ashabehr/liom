@@ -27,9 +27,6 @@
     grid-column: 4;
   }
 }
-.rootglobal_theme_dark > * {
-  grid-column: 4;
-}
 .rootdarkMod {
   background: #0f0f0f;
 }

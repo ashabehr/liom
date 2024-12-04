@@ -63,11 +63,6 @@ import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
-import {
-  ThemeValue,
-  useTheme
-} from "../todo_mvc_app/PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -184,10 +179,6 @@ function PlasmicTodoList__RenderFunc(props: {
     $refs
   });
 
-  const globalVariants = ensureGlobalVariants({
-    theme: useTheme()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -203,14 +194,7 @@ function PlasmicTodoList__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
-        {
-          [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod"),
-          [sty.rootglobal_theme_dark]: hasVariant(
-            globalVariants,
-            "theme",
-            "dark"
-          )
-        }
+        { [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod") }
       )}
     >
       <div
@@ -219,11 +203,6 @@ function PlasmicTodoList__RenderFunc(props: {
             $state,
             "darkMod",
             "darkMod"
-          ),
-          [sty.freeBoxglobal_theme_dark___13YdZfQxap]: hasVariant(
-            globalVariants,
-            "theme",
-            "dark"
           )
         })}
       >
@@ -233,11 +212,6 @@ function PlasmicTodoList__RenderFunc(props: {
               $state,
               "darkMod",
               "darkMod"
-            ),
-            [sty.freeBoxglobal_theme_dark__jThwyfQxap]: hasVariant(
-              globalVariants,
-              "theme",
-              "dark"
             )
           })}
         >
@@ -251,11 +225,6 @@ function PlasmicTodoList__RenderFunc(props: {
                   $state,
                   "darkMod",
                   "darkMod"
-                ),
-                [sty.textglobal_theme_dark__qy4JXfQxap]: hasVariant(
-                  globalVariants,
-                  "theme",
-                  "dark"
                 )
               }
             )}
@@ -794,32 +763,22 @@ function PlasmicTodoList__RenderFunc(props: {
                 ip: 0,
                 assets: []
               }}
-              className={classNames("__wab_instance", sty.lottie, {
-                [sty.lottieglobal_theme_dark]: hasVariant(
-                  globalVariants,
-                  "theme",
-                  "dark"
-                )
-              })}
+              className={classNames("__wab_instance", sty.lottie)}
             />
           ) : null}
-          {(
-            hasVariant(globalVariants, "theme", "dark")
-              ? true
-              : (() => {
-                  try {
-                    return !$props.loading && $props.tasks[0].id != null;
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })()
-          )
+          {(() => {
+            try {
+              return !$props.loading && $props.tasks[0].id != null;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })()
             ? (_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -844,11 +803,6 @@ function PlasmicTodoList__RenderFunc(props: {
                         $state,
                         "darkMod",
                         "darkMod"
-                      ),
-                      [sty.checkbox2global_theme_dark]: hasVariant(
-                        globalVariants,
-                        "theme",
-                        "dark"
                       )
                     }),
                     isChecked:

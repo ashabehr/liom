@@ -74,10 +74,6 @@ import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
-import {
-  ThemeValue,
-  useTheme
-} from "../todo_mvc_app/PlasmicGlobalVariant__Theme"; // plasmic-import: KJSwBjzDnHmQ/globalVariant
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -500,7 +496,6 @@ function PlasmicPregnancy__RenderFunc(props: {
   const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
-    theme: useTheme(),
     screen: useScreenVariants_6BytLjmha8VC()
   });
 
@@ -529,14 +524,7 @@ function PlasmicPregnancy__RenderFunc(props: {
             plasmic_antd_5_hostless_css.plasmic_tokens,
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root,
-            {
-              [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod"),
-              [sty.rootglobal_theme_dark]: hasVariant(
-                globalVariants,
-                "theme",
-                "dark"
-              )
-            }
+            { [sty.rootdarkMod]: hasVariant($state, "darkMod", "darkMod") }
           )}
         >
           <Embed

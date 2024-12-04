@@ -1537,6 +1537,21 @@
           "id": "rjflJ2D4OoXB",
           "name": "Icon111Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon111.tsx"
+        },
+        {
+          "id": "JaKfl3nKP706",
+          "name": "Icon112Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon112.tsx"
+        },
+        {
+          "id": "WOF_FjkMg-hk",
+          "name": "Icon113Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon113.tsx"
+        },
+        {
+          "id": "147GAViS2-AE",
+          "name": "LeftArrowBackSvgrepoComSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__LeftArrowBackSvgrepoComSvg.tsx"
         }
       ],
       "images": [
@@ -1864,6 +1879,11 @@
           "id": "Sb9DG4SMCY-C",
           "name": "image 38",
           "filePath": "../public/plasmic/liom_hamyar/images/image38.svg"
+        },
+        {
+          "id": "uas8oeU1ufMm",
+          "name": "image 39",
+          "filePath": "../public/plasmic/liom_hamyar/images/image39.svg"
         }
       ],
       "indirect": false,
@@ -3437,12 +3457,6 @@
   ],
   "globalVariants": {
     "variantGroups": [
-      {
-        "id": "KJSwBjzDnHmQ",
-        "name": "Theme",
-        "projectId": "suVPi77vb6vv9K5rYJwyxC",
-        "contextFilePath": "plasmic/todo_mvc_app/PlasmicGlobalVariant__Theme.tsx"
-      },
       {
         "id": "6BYTLjmha8vC",
         "name": "Screen",
