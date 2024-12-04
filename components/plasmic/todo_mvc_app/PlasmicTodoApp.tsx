@@ -353,7 +353,6 @@ function PlasmicTodoApp__RenderFunc(props: {
               </div>
             ) : null}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__sawws)} />
         </div>
       </div>
     </React.Fragment>
