@@ -68,6 +68,8 @@ import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -312,6 +314,10 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
   });
 
   return (
@@ -1131,47 +1137,641 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__xUcow, {
-                [sty.freeBoxdark__xUcowbkz05]: hasVariant(
-                  $state,
-                  "dark",
-                  "dark"
-                )
-              })}
-            >
-              <SlideinModal
-                data-plasmic-name={"dateModal"}
-                data-plasmic-override={overrides.dateModal}
-                className={classNames("__wab_instance", sty.dateModal, {
-                  [sty.dateModaldark]: hasVariant($state, "dark", "dark")
+            <div className={classNames(projectcss.all, sty.freeBox__rckdR)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__xUcow, {
+                  [sty.freeBoxdark__xUcowbkz05]: hasVariant(
+                    $state,
+                    "dark",
+                    "dark"
+                  )
                 })}
-                click={generateStateValueProp($state, ["dateModal", "click"])}
-                dark={(() => {
-                  try {
-                    return $ctx.query.theme == "dark";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })()}
-                onClickChange={generateStateOnChangeProp($state, [
-                  "dateModal",
-                  "click"
-                ])}
               >
+                <SlideinModal
+                  data-plasmic-name={"dateModal"}
+                  data-plasmic-override={overrides.dateModal}
+                  className={classNames("__wab_instance", sty.dateModal, {
+                    [sty.dateModaldark]: hasVariant($state, "dark", "dark")
+                  })}
+                  click={generateStateValueProp($state, ["dateModal", "click"])}
+                  dark={(() => {
+                    try {
+                      return $ctx.query.theme == "dark";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  onClickChange={generateStateOnChangeProp($state, [
+                    "dateModal",
+                    "click"
+                  ])}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__epUv4,
+                      hasVariant($state, "dark", "dark") ? "picker-dark" : ``,
+                      {
+                        [sty.freeBoxdark__epUv4Bkz05]: hasVariant(
+                          $state,
+                          "dark",
+                          "dark"
+                        )
+                      }
+                    )}
+                  >
+                    <DatePickers
+                      data-plasmic-name={"datePickers"}
+                      data-plasmic-override={overrides.datePickers}
+                      SelectedDay={(() => {
+                        if ($state.typeInterDate == "lastTime")
+                          return $state.lastTime.day;
+                        else return $state.dateOfBirth.day;
+                      })()}
+                      SelectedMonth={(() => {
+                        if ($state.typeInterDate == "lastTime")
+                          return $state.lastTime.month;
+                        else return $state.dateOfBirth.month;
+                      })()}
+                      SelectedYear={(() => {
+                        if ($state.typeInterDate == "lastTime")
+                          return $state.lastTime.year;
+                        else return $state.dateOfBirth.year;
+                      })()}
+                      className={classNames("__wab_instance", sty.datePickers)}
+                      customYears={[
+                        { value: 1403, label: "1403" },
+                        { value: 1404, label: "1404" }
+                      ]}
+                      onChange={generateStateOnChangeProp($state, [
+                        "datePickers",
+                        "value"
+                      ])}
+                      selectedValues={generateStateValueProp($state, [
+                        "datePickers",
+                        "value"
+                      ])}
+                    />
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__r4OB)}
+                  >
+                    <Button
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button)}
+                      color={generateStateValueProp($state, [
+                        "button",
+                        "color"
+                      ])}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateDateOfBirth"] =
+                          $state.typeInterDate == "dateOfBirth"
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["dateOfBirth"]
+                                  },
+                                  operation: 0,
+                                  value: $state.datePickers.value
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateDateOfBirth"] != null &&
+                          typeof $steps["updateDateOfBirth"] === "object" &&
+                          typeof $steps["updateDateOfBirth"].then === "function"
+                        ) {
+                          $steps["updateDateOfBirth"] = await $steps[
+                            "updateDateOfBirth"
+                          ];
+                        }
+
+                        $steps["updateLastTime2"] =
+                          $state.typeInterDate == "lastTime"
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["lastTime"]
+                                  },
+                                  operation: 0,
+                                  value: $state.datePickers.value
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateLastTime2"] != null &&
+                          typeof $steps["updateLastTime2"] === "object" &&
+                          typeof $steps["updateLastTime2"].then === "function"
+                        ) {
+                          $steps["updateLastTime2"] = await $steps[
+                            "updateLastTime2"
+                          ];
+                        }
+
+                        $steps["updateLastTime"] =
+                          $state.typeInterDate == "dateOfBirth"
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["lastTime"]
+                                  },
+                                  operation: 0,
+                                  value: (() => {
+                                    var jy = $state.datePickers.value.year;
+                                    var jm = $state.datePickers.value.month;
+                                    var jd = $state.datePickers.value.day;
+                                    var gy = jy <= 979 ? 621 : 1600;
+                                    jy -= jy <= 979 ? 0 : 979;
+                                    var days =
+                                      365 * jy +
+                                      parseInt(jy / 33) * 8 +
+                                      parseInt(((jy % 33) + 3) / 4) +
+                                      78 +
+                                      jd +
+                                      (jm < 7
+                                        ? (jm - 1) * 31
+                                        : (jm - 7) * 30 + 186);
+                                    gy += 400 * parseInt(days / 146097);
+                                    days %= 146097;
+                                    if (days > 36524) {
+                                      gy += 100 * parseInt(--days / 36524);
+                                      days %= 36524;
+                                      if (days >= 365) days++;
+                                    }
+                                    gy += 4 * parseInt(days / 1461);
+                                    days %= 1461;
+                                    gy += parseInt((days - 1) / 365);
+                                    if (days > 365) days = (days - 1) % 365;
+                                    var gd = days + 1;
+                                    var sal_a = [
+                                      0,
+                                      31,
+                                      (gy % 4 == 0 && gy % 100 != 0) ||
+                                      gy % 400 == 0
+                                        ? 29
+                                        : 28,
+                                      31,
+                                      30,
+                                      31,
+                                      30,
+                                      31,
+                                      31,
+                                      30,
+                                      31,
+                                      30,
+                                      31
+                                    ];
+
+                                    var gm;
+                                    for (gm = 0; gm < 13; gm++) {
+                                      var v = sal_a[gm];
+                                      if (gd <= v) break;
+                                      gd -= v;
+                                    }
+                                    const [year, month, day] = [gy, gm, gd];
+
+                                    var date = new Date(year, month - 1, day);
+                                    date.setDate(date.getDate() - 280);
+                                    var gyNew = date.getFullYear();
+                                    var gmNew = date.getMonth() + 1;
+                                    var gdNew = date.getDate();
+                                    var g_d_m = [
+                                      0, 31, 59, 90, 120, 151, 181, 212, 243,
+                                      273, 304, 334
+                                    ];
+
+                                    var jyNew = gyNew <= 1600 ? 0 : 979;
+                                    gyNew =
+                                      gyNew - (gyNew <= 1600 ? 621 : 1600);
+                                    var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
+                                    var daysNew =
+                                      365 * gyNew +
+                                      parseInt((gy2 + 3) / 4) -
+                                      parseInt((gy2 + 99) / 100) +
+                                      parseInt((gy2 + 399) / 400) -
+                                      80 +
+                                      gdNew +
+                                      g_d_m[gmNew - 1];
+                                    jyNew += 33 * parseInt(daysNew / 12053);
+                                    daysNew %= 12053;
+                                    jyNew += 4 * parseInt(daysNew / 1461);
+                                    daysNew %= 1461;
+                                    jyNew += parseInt((daysNew - 1) / 365);
+                                    if (daysNew > 365)
+                                      daysNew = (daysNew - 1) % 365;
+                                    var jmNew =
+                                      daysNew < 186
+                                        ? 1 + parseInt(daysNew / 31)
+                                        : 7 + parseInt((daysNew - 186) / 30);
+                                    var jdNew =
+                                      1 +
+                                      (daysNew < 186
+                                        ? daysNew % 31
+                                        : (daysNew - 186) % 30);
+                                    return {
+                                      day: jdNew,
+                                      month: jmNew,
+                                      year: jyNew
+                                    };
+                                  })()
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateLastTime"] != null &&
+                          typeof $steps["updateLastTime"] === "object" &&
+                          typeof $steps["updateLastTime"].then === "function"
+                        ) {
+                          $steps["updateLastTime"] = await $steps[
+                            "updateLastTime"
+                          ];
+                        }
+
+                        $steps["updateDateOfBirth2"] =
+                          $state.typeInterDate == "lastTime"
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["dateOfBirth"]
+                                  },
+                                  operation: 0,
+                                  value: (() => {
+                                    var jy = $state.datePickers.value.year;
+                                    var jm = $state.datePickers.value.month;
+                                    var jd = $state.datePickers.value.day;
+                                    var gy = jy <= 979 ? 621 : 1600;
+                                    jy -= jy <= 979 ? 0 : 979;
+                                    var days =
+                                      365 * jy +
+                                      parseInt(jy / 33) * 8 +
+                                      parseInt(((jy % 33) + 3) / 4) +
+                                      78 +
+                                      jd +
+                                      (jm < 7
+                                        ? (jm - 1) * 31
+                                        : (jm - 7) * 30 + 186);
+                                    gy += 400 * parseInt(days / 146097);
+                                    days %= 146097;
+                                    if (days > 36524) {
+                                      gy += 100 * parseInt(--days / 36524);
+                                      days %= 36524;
+                                      if (days >= 365) days++;
+                                    }
+                                    gy += 4 * parseInt(days / 1461);
+                                    days %= 1461;
+                                    gy += parseInt((days - 1) / 365);
+                                    if (days > 365) days = (days - 1) % 365;
+                                    var gd = days + 1;
+                                    var sal_a = [
+                                      0,
+                                      31,
+                                      (gy % 4 == 0 && gy % 100 != 0) ||
+                                      gy % 400 == 0
+                                        ? 29
+                                        : 28,
+                                      31,
+                                      30,
+                                      31,
+                                      30,
+                                      31,
+                                      31,
+                                      30,
+                                      31,
+                                      30,
+                                      31
+                                    ];
+
+                                    var gm;
+                                    for (gm = 0; gm < 13; gm++) {
+                                      var v = sal_a[gm];
+                                      if (gd <= v) break;
+                                      gd -= v;
+                                    }
+                                    const [year, month, day] = [gy, gm, gd];
+
+                                    var date = new Date(year, month - 1, day);
+                                    date.setDate(date.getDate() + 280);
+                                    var gyNew = date.getFullYear();
+                                    var gmNew = date.getMonth() + 1;
+                                    var gdNew = date.getDate();
+                                    var g_d_m = [
+                                      0, 31, 59, 90, 120, 151, 181, 212, 243,
+                                      273, 304, 334
+                                    ];
+
+                                    var jyNew = gyNew <= 1600 ? 0 : 979;
+                                    gyNew =
+                                      gyNew - (gyNew <= 1600 ? 621 : 1600);
+                                    var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
+                                    var daysNew =
+                                      365 * gyNew +
+                                      parseInt((gy2 + 3) / 4) -
+                                      parseInt((gy2 + 99) / 100) +
+                                      parseInt((gy2 + 399) / 400) -
+                                      80 +
+                                      gdNew +
+                                      g_d_m[gmNew - 1];
+                                    jyNew += 33 * parseInt(daysNew / 12053);
+                                    daysNew %= 12053;
+                                    jyNew += 4 * parseInt(daysNew / 1461);
+                                    daysNew %= 1461;
+                                    jyNew += parseInt((daysNew - 1) / 365);
+                                    if (daysNew > 365)
+                                      daysNew = (daysNew - 1) % 365;
+                                    var jmNew =
+                                      daysNew < 186
+                                        ? 1 + parseInt(daysNew / 31)
+                                        : 7 + parseInt((daysNew - 186) / 30);
+                                    var jdNew =
+                                      1 +
+                                      (daysNew < 186
+                                        ? daysNew % 31
+                                        : (daysNew - 186) % 30);
+                                    return {
+                                      day: jdNew,
+                                      month: jmNew,
+                                      year: jyNew
+                                    };
+                                  })()
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateDateOfBirth2"] != null &&
+                          typeof $steps["updateDateOfBirth2"] === "object" &&
+                          typeof $steps["updateDateOfBirth2"].then ===
+                            "function"
+                        ) {
+                          $steps["updateDateOfBirth2"] = await $steps[
+                            "updateDateOfBirth2"
+                          ];
+                        }
+
+                        $steps["updateSlideinModalClick"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dateModal", "click"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateSlideinModalClick"] != null &&
+                          typeof $steps["updateSlideinModalClick"] ===
+                            "object" &&
+                          typeof $steps["updateSlideinModalClick"].then ===
+                            "function"
+                        ) {
+                          $steps["updateSlideinModalClick"] = await $steps[
+                            "updateSlideinModalClick"
+                          ];
+                        }
+
+                        $steps["updateDuDate"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["duDate"]
+                                },
+                                operation: 0,
+                                value: (() => {
+                                  var jy = $state.dateOfBirth.year;
+                                  var jm = $state.dateOfBirth.month;
+                                  var jd = $state.dateOfBirth.day;
+                                  var gy = jy <= 979 ? 621 : 1600;
+                                  jy -= jy <= 979 ? 0 : 979;
+                                  var days =
+                                    365 * jy +
+                                    parseInt(jy / 33) * 8 +
+                                    parseInt(((jy % 33) + 3) / 4) +
+                                    78 +
+                                    jd +
+                                    (jm < 7
+                                      ? (jm - 1) * 31
+                                      : (jm - 7) * 30 + 186);
+                                  gy += 400 * parseInt(days / 146097);
+                                  days %= 146097;
+                                  if (days > 36524) {
+                                    gy += 100 * parseInt(--days / 36524);
+                                    days %= 36524;
+                                    if (days >= 365) days++;
+                                  }
+                                  gy += 4 * parseInt(days / 1461);
+                                  days %= 1461;
+                                  gy += parseInt((days - 1) / 365);
+                                  if (days > 365) days = (days - 1) % 365;
+                                  var gd = days + 1;
+                                  var sal_a = [
+                                    0,
+                                    31,
+                                    (gy % 4 == 0 && gy % 100 != 0) ||
+                                    gy % 400 == 0
+                                      ? 29
+                                      : 28,
+                                    31,
+                                    30,
+                                    31,
+                                    30,
+                                    31,
+                                    31,
+                                    30,
+                                    31,
+                                    30,
+                                    31
+                                  ];
+
+                                  var gm;
+                                  for (gm = 0; gm < 13; gm++) {
+                                    var v = sal_a[gm];
+                                    if (gd <= v) break;
+                                    gd -= v;
+                                  }
+                                  return [gy, gm, gd];
+                                })()
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateDuDate"] != null &&
+                          typeof $steps["updateDuDate"] === "object" &&
+                          typeof $steps["updateDuDate"].then === "function"
+                        ) {
+                          $steps["updateDuDate"] = await $steps["updateDuDate"];
+                        }
+                      }}
+                      onColorChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button", "color"])(
+                          eventArgs[0]
+                        );
+                      }}
+                    >
+                      {"\u062a\u0627\u06cc\u06cc\u062f"}
+                    </Button>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__z4LTn)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateSlideinModalClick"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dateModal", "click"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateSlideinModalClick"] != null &&
+                          typeof $steps["updateSlideinModalClick"] ===
+                            "object" &&
+                          typeof $steps["updateSlideinModalClick"].then ===
+                            "function"
+                        ) {
+                          $steps["updateSlideinModalClick"] = await $steps[
+                            "updateSlideinModalClick"
+                          ];
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xQvCh
+                        )}
+                      >
+                        {"\u0628\u0633\u062a\u0646"}
+                      </div>
+                    </div>
+                  </div>
+                </SlideinModal>
                 <div
                   className={classNames(
                     projectcss.all,
-                    sty.freeBox__epUv4,
-                    hasVariant($state, "dark", "dark") ? "picker-dark" : ``,
+                    projectcss.__wab_text,
+                    sty.text__pd8Nv,
                     {
-                      [sty.freeBoxdark__epUv4Bkz05]: hasVariant(
+                      [sty.textdark__pd8Nvbkz05]: hasVariant(
                         $state,
                         "dark",
                         "dark"
@@ -1179,930 +1779,354 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     }
                   )}
                 >
-                  <DatePickers
-                    data-plasmic-name={"datePickers"}
-                    data-plasmic-override={overrides.datePickers}
-                    SelectedDay={(() => {
-                      if ($state.typeInterDate == "lastTime")
-                        return $state.lastTime.day;
-                      else return $state.dateOfBirth.day;
-                    })()}
-                    SelectedMonth={(() => {
-                      if ($state.typeInterDate == "lastTime")
-                        return $state.lastTime.month;
-                      else return $state.dateOfBirth.month;
-                    })()}
-                    SelectedYear={(() => {
-                      if ($state.typeInterDate == "lastTime")
-                        return $state.lastTime.year;
-                      else return $state.dateOfBirth.year;
-                    })()}
-                    className={classNames("__wab_instance", sty.datePickers)}
-                    customYears={[
-                      { value: 1403, label: "1403" },
-                      { value: 1404, label: "1404" }
-                    ]}
-                    onChange={generateStateOnChangeProp($state, [
-                      "datePickers",
-                      "value"
-                    ])}
-                    selectedValues={generateStateValueProp($state, [
-                      "datePickers",
-                      "value"
-                    ])}
-                  />
+                  {
+                    "\u0628\u0627 \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u06cc\u06a9\u06cc \u0627\u0632 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0632\u06cc\u0631 \u0628\u0647 \u0645\u0627 \u062a\u0648\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0628\u0647\u062a \u0628\u06af\u06cc\u0645 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0627\u0644\u0627\u0646 \u0686\u0646\u062f \u0647\u0641\u062a\u0634\u0647 :)"
+                  }
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__r4OB)}>
-                  <Button
-                    data-plasmic-name={"button"}
-                    data-plasmic-override={overrides.button}
-                    className={classNames("__wab_instance", sty.button)}
-                    color={generateStateValueProp($state, ["button", "color"])}
-                    onClick={async event => {
-                      const $steps = {};
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__jhTi,
+                    {
+                      [sty.textdark__jhTibkz05]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    }
+                  )}
+                >
+                  {
+                    "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u061f"
+                  }
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox___1FrZr,
+                    hasVariant($state, "dark", "dark") ? "input-dark" : ``,
+                    {
+                      [sty.freeBoxdark___1FrZrbkz05]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    }
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
 
-                      $steps["updateDateOfBirth"] =
-                        $state.typeInterDate == "dateOfBirth"
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["dateOfBirth"]
-                                },
-                                operation: 0,
-                                value: $state.datePickers.value
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                    $steps["updateSlideinModalClick"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dateModal", "click"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["updateDateOfBirth"] != null &&
-                        typeof $steps["updateDateOfBirth"] === "object" &&
-                        typeof $steps["updateDateOfBirth"].then === "function"
-                      ) {
-                        $steps["updateDateOfBirth"] = await $steps[
-                          "updateDateOfBirth"
-                        ];
-                      }
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSlideinModalClick"] != null &&
+                      typeof $steps["updateSlideinModalClick"] === "object" &&
+                      typeof $steps["updateSlideinModalClick"].then ===
+                        "function"
+                    ) {
+                      $steps["updateSlideinModalClick"] = await $steps[
+                        "updateSlideinModalClick"
+                      ];
+                    }
 
-                      $steps["updateLastTime2"] =
-                        $state.typeInterDate == "lastTime"
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["lastTime"]
-                                },
-                                operation: 0,
-                                value: $state.datePickers.value
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                    $steps["updateTypeDate"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["typeInterDate"]
+                            },
+                            operation: 0,
+                            value: "dateOfBirth"
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["updateLastTime2"] != null &&
-                        typeof $steps["updateLastTime2"] === "object" &&
-                        typeof $steps["updateLastTime2"].then === "function"
-                      ) {
-                        $steps["updateLastTime2"] = await $steps[
-                          "updateLastTime2"
-                        ];
-                      }
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateTypeDate"] != null &&
+                      typeof $steps["updateTypeDate"] === "object" &&
+                      typeof $steps["updateTypeDate"].then === "function"
+                    ) {
+                      $steps["updateTypeDate"] = await $steps["updateTypeDate"];
+                    }
+                  }}
+                >
+                  {(() => {
+                    const child$Props = {
+                      bordered: true,
+                      className: classNames(
+                        "__wab_instance",
+                        sty.dateOfBirthBox,
+                        {
+                          [sty.dateOfBirthBoxdark]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      ),
+                      onChange: generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "value",
+                        ["dateOfBirthBox", "value"],
+                        AntdInput_Helpers
+                      ),
+                      placeholder:
+                        "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
+                      readOnly: true,
+                      value: generateStateValueProp($state, [
+                        "dateOfBirthBox",
+                        "value"
+                      ])
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "value",
+                          plasmicStateName: "dateOfBirthBox.value"
+                        }
+                      ],
+                      [],
+                      AntdInput_Helpers ?? {},
+                      child$Props
+                    );
 
-                      $steps["updateLastTime"] =
-                        $state.typeInterDate == "dateOfBirth"
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["lastTime"]
-                                },
-                                operation: 0,
-                                value: (() => {
-                                  var jy = $state.datePickers.value.year;
-                                  var jm = $state.datePickers.value.month;
-                                  var jd = $state.datePickers.value.day;
-                                  var gy = jy <= 979 ? 621 : 1600;
-                                  jy -= jy <= 979 ? 0 : 979;
-                                  var days =
-                                    365 * jy +
-                                    parseInt(jy / 33) * 8 +
-                                    parseInt(((jy % 33) + 3) / 4) +
-                                    78 +
-                                    jd +
-                                    (jm < 7
-                                      ? (jm - 1) * 31
-                                      : (jm - 7) * 30 + 186);
-                                  gy += 400 * parseInt(days / 146097);
-                                  days %= 146097;
-                                  if (days > 36524) {
-                                    gy += 100 * parseInt(--days / 36524);
-                                    days %= 36524;
-                                    if (days >= 365) days++;
-                                  }
-                                  gy += 4 * parseInt(days / 1461);
-                                  days %= 1461;
-                                  gy += parseInt((days - 1) / 365);
-                                  if (days > 365) days = (days - 1) % 365;
-                                  var gd = days + 1;
-                                  var sal_a = [
-                                    0,
-                                    31,
-                                    (gy % 4 == 0 && gy % 100 != 0) ||
-                                    gy % 400 == 0
-                                      ? 29
-                                      : 28,
-                                    31,
-                                    30,
-                                    31,
-                                    30,
-                                    31,
-                                    31,
-                                    30,
-                                    31,
-                                    30,
-                                    31
-                                  ];
-
-                                  var gm;
-                                  for (gm = 0; gm < 13; gm++) {
-                                    var v = sal_a[gm];
-                                    if (gd <= v) break;
-                                    gd -= v;
-                                  }
-                                  const [year, month, day] = [gy, gm, gd];
-
-                                  var date = new Date(year, month - 1, day);
-                                  date.setDate(date.getDate() - 280);
-                                  var gyNew = date.getFullYear();
-                                  var gmNew = date.getMonth() + 1;
-                                  var gdNew = date.getDate();
-                                  var g_d_m = [
-                                    0, 31, 59, 90, 120, 151, 181, 212, 243, 273,
-                                    304, 334
-                                  ];
-
-                                  var jyNew = gyNew <= 1600 ? 0 : 979;
-                                  gyNew = gyNew - (gyNew <= 1600 ? 621 : 1600);
-                                  var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
-                                  var daysNew =
-                                    365 * gyNew +
-                                    parseInt((gy2 + 3) / 4) -
-                                    parseInt((gy2 + 99) / 100) +
-                                    parseInt((gy2 + 399) / 400) -
-                                    80 +
-                                    gdNew +
-                                    g_d_m[gmNew - 1];
-                                  jyNew += 33 * parseInt(daysNew / 12053);
-                                  daysNew %= 12053;
-                                  jyNew += 4 * parseInt(daysNew / 1461);
-                                  daysNew %= 1461;
-                                  jyNew += parseInt((daysNew - 1) / 365);
-                                  if (daysNew > 365)
-                                    daysNew = (daysNew - 1) % 365;
-                                  var jmNew =
-                                    daysNew < 186
-                                      ? 1 + parseInt(daysNew / 31)
-                                      : 7 + parseInt((daysNew - 186) / 30);
-                                  var jdNew =
-                                    1 +
-                                    (daysNew < 186
-                                      ? daysNew % 31
-                                      : (daysNew - 186) % 30);
-                                  return {
-                                    day: jdNew,
-                                    month: jmNew,
-                                    year: jyNew
-                                  };
-                                })()
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["updateLastTime"] != null &&
-                        typeof $steps["updateLastTime"] === "object" &&
-                        typeof $steps["updateLastTime"].then === "function"
-                      ) {
-                        $steps["updateLastTime"] = await $steps[
-                          "updateLastTime"
-                        ];
-                      }
-
-                      $steps["updateDateOfBirth2"] =
-                        $state.typeInterDate == "lastTime"
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["dateOfBirth"]
-                                },
-                                operation: 0,
-                                value: (() => {
-                                  var jy = $state.datePickers.value.year;
-                                  var jm = $state.datePickers.value.month;
-                                  var jd = $state.datePickers.value.day;
-                                  var gy = jy <= 979 ? 621 : 1600;
-                                  jy -= jy <= 979 ? 0 : 979;
-                                  var days =
-                                    365 * jy +
-                                    parseInt(jy / 33) * 8 +
-                                    parseInt(((jy % 33) + 3) / 4) +
-                                    78 +
-                                    jd +
-                                    (jm < 7
-                                      ? (jm - 1) * 31
-                                      : (jm - 7) * 30 + 186);
-                                  gy += 400 * parseInt(days / 146097);
-                                  days %= 146097;
-                                  if (days > 36524) {
-                                    gy += 100 * parseInt(--days / 36524);
-                                    days %= 36524;
-                                    if (days >= 365) days++;
-                                  }
-                                  gy += 4 * parseInt(days / 1461);
-                                  days %= 1461;
-                                  gy += parseInt((days - 1) / 365);
-                                  if (days > 365) days = (days - 1) % 365;
-                                  var gd = days + 1;
-                                  var sal_a = [
-                                    0,
-                                    31,
-                                    (gy % 4 == 0 && gy % 100 != 0) ||
-                                    gy % 400 == 0
-                                      ? 29
-                                      : 28,
-                                    31,
-                                    30,
-                                    31,
-                                    30,
-                                    31,
-                                    31,
-                                    30,
-                                    31,
-                                    30,
-                                    31
-                                  ];
-
-                                  var gm;
-                                  for (gm = 0; gm < 13; gm++) {
-                                    var v = sal_a[gm];
-                                    if (gd <= v) break;
-                                    gd -= v;
-                                  }
-                                  const [year, month, day] = [gy, gm, gd];
-
-                                  var date = new Date(year, month - 1, day);
-                                  date.setDate(date.getDate() + 280);
-                                  var gyNew = date.getFullYear();
-                                  var gmNew = date.getMonth() + 1;
-                                  var gdNew = date.getDate();
-                                  var g_d_m = [
-                                    0, 31, 59, 90, 120, 151, 181, 212, 243, 273,
-                                    304, 334
-                                  ];
-
-                                  var jyNew = gyNew <= 1600 ? 0 : 979;
-                                  gyNew = gyNew - (gyNew <= 1600 ? 621 : 1600);
-                                  var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
-                                  var daysNew =
-                                    365 * gyNew +
-                                    parseInt((gy2 + 3) / 4) -
-                                    parseInt((gy2 + 99) / 100) +
-                                    parseInt((gy2 + 399) / 400) -
-                                    80 +
-                                    gdNew +
-                                    g_d_m[gmNew - 1];
-                                  jyNew += 33 * parseInt(daysNew / 12053);
-                                  daysNew %= 12053;
-                                  jyNew += 4 * parseInt(daysNew / 1461);
-                                  daysNew %= 1461;
-                                  jyNew += parseInt((daysNew - 1) / 365);
-                                  if (daysNew > 365)
-                                    daysNew = (daysNew - 1) % 365;
-                                  var jmNew =
-                                    daysNew < 186
-                                      ? 1 + parseInt(daysNew / 31)
-                                      : 7 + parseInt((daysNew - 186) / 30);
-                                  var jdNew =
-                                    1 +
-                                    (daysNew < 186
-                                      ? daysNew % 31
-                                      : (daysNew - 186) % 30);
-                                  return {
-                                    day: jdNew,
-                                    month: jmNew,
-                                    year: jyNew
-                                  };
-                                })()
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["updateDateOfBirth2"] != null &&
-                        typeof $steps["updateDateOfBirth2"] === "object" &&
-                        typeof $steps["updateDateOfBirth2"].then === "function"
-                      ) {
-                        $steps["updateDateOfBirth2"] = await $steps[
-                          "updateDateOfBirth2"
-                        ];
-                      }
-
-                      $steps["updateSlideinModalClick"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["dateModal", "click"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateSlideinModalClick"] != null &&
-                        typeof $steps["updateSlideinModalClick"] === "object" &&
-                        typeof $steps["updateSlideinModalClick"].then ===
-                          "function"
-                      ) {
-                        $steps["updateSlideinModalClick"] = await $steps[
-                          "updateSlideinModalClick"
-                        ];
-                      }
-
-                      $steps["updateDuDate"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["duDate"]
-                              },
-                              operation: 0,
-                              value: (() => {
-                                var jy = $state.dateOfBirth.year;
-                                var jm = $state.dateOfBirth.month;
-                                var jd = $state.dateOfBirth.day;
-                                var gy = jy <= 979 ? 621 : 1600;
-                                jy -= jy <= 979 ? 0 : 979;
-                                var days =
-                                  365 * jy +
-                                  parseInt(jy / 33) * 8 +
-                                  parseInt(((jy % 33) + 3) / 4) +
-                                  78 +
-                                  jd +
-                                  (jm < 7
-                                    ? (jm - 1) * 31
-                                    : (jm - 7) * 30 + 186);
-                                gy += 400 * parseInt(days / 146097);
-                                days %= 146097;
-                                if (days > 36524) {
-                                  gy += 100 * parseInt(--days / 36524);
-                                  days %= 36524;
-                                  if (days >= 365) days++;
-                                }
-                                gy += 4 * parseInt(days / 1461);
-                                days %= 1461;
-                                gy += parseInt((days - 1) / 365);
-                                if (days > 365) days = (days - 1) % 365;
-                                var gd = days + 1;
-                                var sal_a = [
-                                  0,
-                                  31,
-                                  (gy % 4 == 0 && gy % 100 != 0) ||
-                                  gy % 400 == 0
-                                    ? 29
-                                    : 28,
-                                  31,
-                                  30,
-                                  31,
-                                  30,
-                                  31,
-                                  31,
-                                  30,
-                                  31,
-                                  30,
-                                  31
-                                ];
-
-                                var gm;
-                                for (gm = 0; gm < 13; gm++) {
-                                  var v = sal_a[gm];
-                                  if (gd <= v) break;
-                                  gd -= v;
-                                }
-                                return [gy, gm, gd];
-                              })()
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateDuDate"] != null &&
-                        typeof $steps["updateDuDate"] === "object" &&
-                        typeof $steps["updateDuDate"].then === "function"
-                      ) {
-                        $steps["updateDuDate"] = await $steps["updateDuDate"];
-                      }
-                    }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button", "color"])(
-                        eventArgs[0]
-                      );
-                    }}
-                  >
-                    {"\u062a\u0627\u06cc\u06cc\u062f"}
-                  </Button>
+                    return (
+                      <AntdInput
+                        data-plasmic-name={"dateOfBirthBox"}
+                        data-plasmic-override={overrides.dateOfBirthBox}
+                        {...child$Props}
+                      />
+                    );
+                  })()}
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__t0Jql, {
+                    [sty.freeBoxdark__t0JqLbkz05]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
+                >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__z4LTn)}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateSlideinModalClick"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["dateModal", "click"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateSlideinModalClick"] != null &&
-                        typeof $steps["updateSlideinModalClick"] === "object" &&
-                        typeof $steps["updateSlideinModalClick"].then ===
-                          "function"
-                      ) {
-                        $steps["updateSlideinModalClick"] = await $steps[
-                          "updateSlideinModalClick"
-                        ];
-                      }
-                    }}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__tThr
+                    )}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__xQvCh
-                      )}
-                    >
-                      {"\u0628\u0633\u062a\u0646"}
-                    </div>
+                    {""}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__iKyjT
+                    )}
+                  >
+                    {"\u06cc\u0627"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__lp1Bw
+                    )}
+                  >
+                    {""}
                   </div>
                 </div>
-              </SlideinModal>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pd8Nv,
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__hxpdj,
+                    {
+                      [sty.textdark__hxpdJbkz05]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    }
+                  )}
+                >
                   {
-                    [sty.textdark__pd8Nvbkz05]: hasVariant(
-                      $state,
-                      "dark",
-                      "dark"
-                    )
+                    "\u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u06cc\u061f"
                   }
-                )}
-              >
-                {
-                  "\u0628\u0627 \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u06cc\u06a9\u06cc \u0627\u0632 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0632\u06cc\u0631 \u0628\u0647 \u0645\u0627 \u062a\u0648\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0628\u0647\u062a \u0628\u06af\u06cc\u0645 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0627\u0644\u0627\u0646 \u0686\u0646\u062f \u0647\u0641\u062a\u0634\u0647 :)"
-                }
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__jhTi,
-                  {
-                    [sty.textdark__jhTibkz05]: hasVariant(
-                      $state,
-                      "dark",
-                      "dark"
-                    )
-                  }
-                )}
-              >
-                {
-                  "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u061f"
-                }
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox___1FrZr,
-                  hasVariant($state, "dark", "dark") ? "input-dark" : ``,
-                  {
-                    [sty.freeBoxdark___1FrZrbkz05]: hasVariant(
-                      $state,
-                      "dark",
-                      "dark"
-                    )
-                  }
-                )}
-                onClick={async event => {
-                  const $steps = {};
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__lChI,
+                    hasVariant($state, "dark", "dark") ? "input-dark" : ``,
+                    {
+                      [sty.freeBoxdark__lChIbkz05]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    }
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
 
-                  $steps["updateSlideinModalClick"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["dateModal", "click"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
+                    $steps["updateSlideinModalClick"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dateModal", "click"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateSlideinModalClick"] != null &&
-                    typeof $steps["updateSlideinModalClick"] === "object" &&
-                    typeof $steps["updateSlideinModalClick"].then === "function"
-                  ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
-                  }
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSlideinModalClick"] != null &&
+                      typeof $steps["updateSlideinModalClick"] === "object" &&
+                      typeof $steps["updateSlideinModalClick"].then ===
+                        "function"
+                    ) {
+                      $steps["updateSlideinModalClick"] = await $steps[
+                        "updateSlideinModalClick"
+                      ];
+                    }
 
-                  $steps["updateTypeDate"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["typeInterDate"]
-                          },
-                          operation: 0,
-                          value: "dateOfBirth"
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
+                    $steps["updateTypeDate"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["typeInterDate"]
+                            },
+                            operation: 0,
+                            value: "lastTime"
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateTypeDate"] != null &&
-                    typeof $steps["updateTypeDate"] === "object" &&
-                    typeof $steps["updateTypeDate"].then === "function"
-                  ) {
-                    $steps["updateTypeDate"] = await $steps["updateTypeDate"];
-                  }
-                }}
-              >
-                {(() => {
-                  const child$Props = {
-                    bordered: true,
-                    className: classNames(
-                      "__wab_instance",
-                      sty.dateOfBirthBox,
-                      {
-                        [sty.dateOfBirthBoxdark]: hasVariant(
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateTypeDate"] != null &&
+                      typeof $steps["updateTypeDate"] === "object" &&
+                      typeof $steps["updateTypeDate"].then === "function"
+                    ) {
+                      $steps["updateTypeDate"] = await $steps["updateTypeDate"];
+                    }
+                  }}
+                >
+                  {(() => {
+                    const child$Props = {
+                      className: classNames("__wab_instance", sty.lastTimeBox, {
+                        [sty.lastTimeBoxdark]: hasVariant(
                           $state,
                           "dark",
                           "dark"
                         )
-                      }
-                    ),
-                    onChange: generateStateOnChangePropForCodeComponents(
+                      }),
+                      onChange: generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "value",
+                        ["lastTimeBox", "value"],
+                        AntdInput_Helpers
+                      ),
+                      placeholder:
+                        "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
+                      readOnly: true,
+                      value: generateStateValueProp($state, [
+                        "lastTimeBox",
+                        "value"
+                      ])
+                    };
+                    initializeCodeComponentStates(
                       $state,
-                      "value",
-                      ["dateOfBirthBox", "value"],
-                      AntdInput_Helpers
-                    ),
-                    placeholder:
-                      "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
-                    readOnly: true,
-                    value: generateStateValueProp($state, [
-                      "dateOfBirthBox",
-                      "value"
-                    ])
-                  };
-                  initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "value",
-                        plasmicStateName: "dateOfBirthBox.value"
-                      }
-                    ],
-                    [],
-                    AntdInput_Helpers ?? {},
-                    child$Props
-                  );
+                      [
+                        {
+                          name: "value",
+                          plasmicStateName: "lastTimeBox.value"
+                        }
+                      ],
+                      [],
+                      AntdInput_Helpers ?? {},
+                      child$Props
+                    );
 
-                  return (
-                    <AntdInput
-                      data-plasmic-name={"dateOfBirthBox"}
-                      data-plasmic-override={overrides.dateOfBirthBox}
-                      {...child$Props}
-                    />
-                  );
-                })()}
-              </div>
-              <div
-                className={classNames(projectcss.all, sty.freeBox__t0Jql, {
-                  [sty.freeBoxdark__t0JqLbkz05]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tThr
-                  )}
-                >
-                  {""}
+                    return (
+                      <AntdInput
+                        data-plasmic-name={"lastTimeBox"}
+                        data-plasmic-override={overrides.lastTimeBox}
+                        {...child$Props}
+                      />
+                    );
+                  })()}
                 </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__iKyjT
-                  )}
-                >
-                  {"\u06cc\u0627"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lp1Bw
-                  )}
-                >
-                  {""}
-                </div>
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__hxpdj,
-                  {
-                    [sty.textdark__hxpdJbkz05]: hasVariant(
-                      $state,
-                      "dark",
-                      "dark"
-                    )
-                  }
-                )}
-              >
-                {
-                  "\u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u06cc\u061f"
-                }
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__lChI,
-                  hasVariant($state, "dark", "dark") ? "input-dark" : ``,
-                  {
-                    [sty.freeBoxdark__lChIbkz05]: hasVariant(
-                      $state,
-                      "dark",
-                      "dark"
-                    )
-                  }
-                )}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateSlideinModalClick"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["dateModal", "click"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateSlideinModalClick"] != null &&
-                    typeof $steps["updateSlideinModalClick"] === "object" &&
-                    typeof $steps["updateSlideinModalClick"].then === "function"
-                  ) {
-                    $steps["updateSlideinModalClick"] = await $steps[
-                      "updateSlideinModalClick"
-                    ];
-                  }
-
-                  $steps["updateTypeDate"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["typeInterDate"]
-                          },
-                          operation: 0,
-                          value: "lastTime"
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateTypeDate"] != null &&
-                    typeof $steps["updateTypeDate"] === "object" &&
-                    typeof $steps["updateTypeDate"].then === "function"
-                  ) {
-                    $steps["updateTypeDate"] = await $steps["updateTypeDate"];
-                  }
-                }}
-              >
-                {(() => {
-                  const child$Props = {
-                    className: classNames("__wab_instance", sty.lastTimeBox, {
-                      [sty.lastTimeBoxdark]: hasVariant($state, "dark", "dark")
-                    }),
-                    onChange: generateStateOnChangePropForCodeComponents(
-                      $state,
-                      "value",
-                      ["lastTimeBox", "value"],
-                      AntdInput_Helpers
-                    ),
-                    placeholder:
-                      "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
-                    readOnly: true,
-                    value: generateStateValueProp($state, [
-                      "lastTimeBox",
-                      "value"
-                    ])
-                  };
-                  initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "value",
-                        plasmicStateName: "lastTimeBox.value"
-                      }
-                    ],
-                    [],
-                    AntdInput_Helpers ?? {},
-                    child$Props
-                  );
-
-                  return (
-                    <AntdInput
-                      data-plasmic-name={"lastTimeBox"}
-                      data-plasmic-override={overrides.lastTimeBox}
-                      {...child$Props}
-                    />
-                  );
-                })()}
               </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox___1PSsm)}>
