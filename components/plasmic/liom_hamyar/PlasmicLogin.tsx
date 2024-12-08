@@ -244,7 +244,7 @@ function PlasmicLogin__RenderFunc(props: {
         path: "number",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "848787"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "cods",
@@ -363,6 +363,18 @@ function PlasmicLogin__RenderFunc(props: {
       },
       {
         path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "type",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "email",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
@@ -1273,13 +1285,15 @@ function PlasmicLogin__RenderFunc(props: {
                         ? (() => {
                             const actionArgs = {
                               args: [
-                                "warning",
-                                "\u0644\u0637\u0641\u0627\u064b \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644 \u062e\u0648\u062f \u0631\u0627 \u0628\u0647\u200c\u0637\u0648\u0631 \u0635\u062d\u06cc\u062d \u0648\u0627\u0631\u062f \u0646\u0645\u0627\u06cc\u06cc\u062f."
+                                "error",
+                                "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u0635\u062d\u06cc\u062d \u0646\u06cc\u0633\u062a.",
+                                "bottom-center"
                               ]
                             };
-                            return $globalActions[
-                              "plasmic-antd5-config-provider.showNotification"
-                            ]?.apply(null, [...actionArgs.args]);
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
                           })()
                         : undefined;
                       if (
@@ -2632,13 +2646,13 @@ function PlasmicLogin__RenderFunc(props: {
                                   (() => {
                                     try {
                                       return {
-                                        type: "mobile",
+                                        type: $state.type,
                                         name: $state.antdInput2.value || "",
-                                        data: $state.number,
+                                        data: $state.number || $state.email,
                                         username: "",
                                         target: "calendar",
                                         sex: $state.gender || "",
-                                        token: $state.loginData.result || "",
+                                        token: $state.token || "",
                                         version: "",
                                         lang: "fa",
                                         country: "98",
@@ -2761,32 +2775,33 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["updateLoginData"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["loginData"]
-                                },
-                                operation: 0,
-                                value: $steps.invokeGlobalAction.data
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                        $steps["updateLoginData"] =
+                          $steps.invokeGlobalAction?.data?.success == true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loginData"]
+                                  },
+                                  operation: 0,
+                                  value: $steps.invokeGlobalAction.data
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
                         if (
                           $steps["updateLoginData"] != null &&
                           typeof $steps["updateLoginData"] === "object" &&
@@ -3960,32 +3975,33 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["updateToken"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["token"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data.result
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
+                      $steps["updateToken"] =
+                        $steps.invokeGlobalAction?.data?.success == true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["token"]
+                                },
+                                operation: 0,
+                                value: $steps.invokeGlobalAction.data.result
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
 
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                       if (
                         $steps["updateToken"] != null &&
                         typeof $steps["updateToken"] === "object" &&
@@ -3995,7 +4011,7 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["updateLoginPage"] =
-                        $steps.invokeGlobalAction?.data?.success &&
+                        $steps.invokeGlobalAction?.data?.success == true &&
                         $state.typeLogin == "signup"
                           ? (() => {
                               const actionArgs = {
@@ -4021,6 +4037,109 @@ function PlasmicLogin__RenderFunc(props: {
                         $steps["updateLoginPage"] = await $steps[
                           "updateLoginPage"
                         ];
+                      }
+
+                      $steps["updateLoginData"] =
+                        $steps.invokeGlobalAction?.data?.success == true &&
+                        $state.typeLogin == "login"
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loginData"]
+                                },
+                                operation: 0,
+                                value: $steps.invokeGlobalAction.data
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateLoginData"] != null &&
+                        typeof $steps["updateLoginData"] === "object" &&
+                        typeof $steps["updateLoginData"].then === "function"
+                      ) {
+                        $steps["updateLoginData"] = await $steps[
+                          "updateLoginData"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction2"] =
+                        $steps.invokeGlobalAction?.data?.success == false
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u06a9\u062f \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u0635\u062d\u06cc\u062d \u0646\u06cc\u0633\u062a.",
+                                  "bottom-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
+                        ];
+                      }
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return undefined;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
 
                       $steps["updateLoadedbtn2"] = true

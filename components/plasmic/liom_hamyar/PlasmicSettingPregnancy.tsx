@@ -99,7 +99,6 @@ export const PlasmicSettingPregnancy__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSettingPregnancy__OverridesType = {
   root?: Flex__<"div">;
-  embedHtml?: Flex__<typeof Embed>;
   img?: Flex__<typeof PlasmicImg__>;
   dateModal?: Flex__<typeof SlideinModal>;
   datePickers?: Flex__<typeof DatePickers>;
@@ -350,11 +349,16 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
         >
           <div className={classNames(projectcss.all, sty.freeBox__ikTgu)}>
             <Embed
-              data-plasmic-name={"embedHtml"}
-              data-plasmic-override={overrides.embedHtml}
-              className={classNames("__wab_instance", sty.embedHtml)}
+              className={classNames("__wab_instance", sty.embedHtml__yX7Lg)}
               code={
                 "<!-- Hotjar Tracking Code for setting-pregnancy -->\n<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5226515,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>"
+              }
+            />
+
+            <Embed
+              className={classNames("__wab_instance", sty.embedHtml__cayoB)}
+              code={
+                "<script>\n  // \u0627\u0641\u0632\u0648\u062f\u0646 \u062d\u0627\u0644\u062a \u0628\u0647 \u062a\u0627\u0631\u06cc\u062e\u0686\u0647 \u0645\u0631\u0648\u0631\u06af\u0631\n  history.pushState(null, null, window.location.href);\n\n  // \u0627\u0636\u0627\u0641\u0647 \u06a9\u0631\u062f\u0646 \u0644\u06cc\u0633\u0646\u0631 \u0628\u0631\u0627\u06cc \u062f\u06a9\u0645\u0647 \"\u0628\u0627\u0632\u06af\u0634\u062a\"\n  window.addEventListener('popstate', function(event) {\n      // \u0627\u062c\u0631\u0627\u06cc \u0641\u0627\u0646\u06a9\u0634\u0646 \u062f\u0644\u062e\u0648\u0627\u0647\n      alert('\u0634\u0645\u0627 \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0631\u0627 \u0632\u062f\u06cc\u062f!');\n      console.log('\u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u06a9\u0644\u06cc\u06a9 \u0634\u062f!');\n\n      // \u0628\u0627\u0632\u06af\u0631\u062f\u0627\u0646\u062f\u0646 \u0648\u0636\u0639\u06cc\u062a \u0628\u0647 \u062d\u0627\u0644\u062a \u0642\u0628\u0644\u06cc\n      history.pushState(null, null, window.location.href);\n  });\n</script>\n"
               }
             />
 
@@ -442,7 +446,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     }
                   )}
                 >
-                  {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a "}
+                  {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a 1"}
                 </div>
               </div>
               <div
@@ -2638,7 +2642,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "embedHtml",
     "img",
     "dateModal",
     "datePickers",
@@ -2647,7 +2650,6 @@ const PlasmicDescendants = {
     "lastTimeBox",
     "button3"
   ],
-  embedHtml: ["embedHtml"],
   img: ["img"],
   dateModal: ["dateModal", "datePickers", "button"],
   datePickers: ["datePickers"],
@@ -2661,7 +2663,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  embedHtml: typeof Embed;
   img: typeof PlasmicImg__;
   dateModal: typeof SlideinModal;
   datePickers: typeof DatePickers;
@@ -2756,7 +2757,6 @@ export const PlasmicSettingPregnancy = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    embedHtml: makeNodeComponent("embedHtml"),
     img: makeNodeComponent("img"),
     dateModal: makeNodeComponent("dateModal"),
     datePickers: makeNodeComponent("datePickers"),
