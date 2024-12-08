@@ -142,7 +142,7 @@
   min-height: 0;
   border-radius: 8px;
   padding: 8px;
-  margin: 8px;
+  margin: 8px 8px 8px 0px;
 }
 .freeBoxdarkMod__ntnBoQOo {
   background: var(--token-w7oYmzqeGvkw);
@@ -333,7 +333,7 @@
   max-width: 100%;
   min-width: 0;
   min-height: 0;
-  padding: 0px 4px 0px 8px;
+  padding: 0px 8px;
 }
 .freeBox___2Q9Dq {
   display: flex;
@@ -513,7 +513,7 @@
   right: auto;
   z-index: 1;
   min-width: 0;
-  padding: 0px 16px 8px;
+  padding: 0px 16px;
   margin: 0px;
 }
 .freeBox__hrMgY {
