@@ -2925,7 +2925,7 @@ function PlasmicLogin__RenderFunc(props: {
                                         $$.uuid.v4().slice(10, 13) +
                                         "&userId=" +
                                         $$.uuid.v4().slice(0, 4) +
-                                        $state.loginData.result.user_id +
+                                        $state.loginData.result.userId +
                                         $$.uuid.v4().slice(0, 4)
                                       );
                                     } catch (e) {
