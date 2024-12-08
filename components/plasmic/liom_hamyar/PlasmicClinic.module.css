@@ -1628,11 +1628,18 @@
   height: 20px;
   color: var(--token-SX03PBUzWAqr);
 }
-.svg__gK6Y {
+.svg__ru5XC {
   object-fit: cover;
   max-width: 100%;
-  width: 150%;
-  height: 150%;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
 }
 .freeBox__sm50 {
   flex-direction: column;
@@ -3637,11 +3644,18 @@
     font-weight: 700;
   }
 }
-.svg__eAfZ {
+.svg__npuxn {
   object-fit: cover;
   max-width: 100%;
-  width: 150%;
-  height: 150%;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
 }
 .timer:global(.__wab_instance) {
   max-width: 100%;

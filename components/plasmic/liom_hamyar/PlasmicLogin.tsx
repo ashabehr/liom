@@ -71,6 +71,7 @@ import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/compone
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -89,7 +90,9 @@ import IconIcon from "../radix_ui/icons/PlasmicIcon__Icon"; // plasmic-import: M
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ2D4OoXB/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+
+import { v4 as __lib_uuid__v4 } from "uuid";
 
 createPlasmicElementProxy;
 
@@ -115,8 +118,10 @@ export type PlasmicLogin__OverridesType = {
   antdInput?: Flex__<typeof Input>;
   button?: Flex__<typeof Button>;
   textInput4?: Flex__<typeof TextInput>;
+  antdInput2?: Flex__<typeof Input>;
   radioGrop?: Flex__<typeof RadioGrop>;
   textInput6?: Flex__<typeof TextInput>;
+  antdInput3?: Flex__<typeof Input>;
   checkbox?: Flex__<typeof Checkbox>;
   button4?: Flex__<typeof Button>;
   textInput3?: Flex__<typeof TextInput>;
@@ -130,7 +135,11 @@ export type PlasmicLogin__OverridesType = {
 
 export interface DefaultLoginProps {}
 
-const $$ = {};
+const $$ = {
+  uuid: {
+    v4: __lib_uuid__v4
+  }
+};
 
 function useNextRouter() {
   try {
@@ -339,6 +348,12 @@ function PlasmicLogin__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "loginData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -858,7 +873,7 @@ function PlasmicLogin__RenderFunc(props: {
                               const $steps = {};
                             }).apply(null, eventArgs);
                           },
-                          placeholder: "09123456789",
+                          placeholder: "9123456789",
                           size: "large",
                           value: generateStateValueProp($state, [
                             "antdInput",
@@ -1125,14 +1140,21 @@ function PlasmicLogin__RenderFunc(props: {
                       )
                     })}
                     color={generateStateValueProp($state, ["button", "color"])}
+                    endIcon={
+                      <Icon115Icon
+                        className={classNames(projectcss.all, sty.svg__r8Jo)}
+                        role={"img"}
+                      />
+                    }
                     isDisabled={
                       hasVariant($state, "loginPage", "mobile")
                         ? (() => {
                             try {
                               return (
-                                $state.antdInput.value.length != 10 ||
-                                $state.antdInput.value.length != 11 ||
-                                $state.loadedbtn
+                                !(
+                                  $state.antdInput.value.length === 10 ||
+                                  $state.antdInput.value.length === 11
+                                ) || $state.loadedbtn
                               );
                             } catch (e) {
                               if (
@@ -1146,8 +1168,57 @@ function PlasmicLogin__RenderFunc(props: {
                           })()
                         : undefined
                     }
+                    loading={(() => {
+                      try {
+                        return $state.loadedbtn;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     onClick={async event => {
                       const $steps = {};
+
+                      $steps["updateLoadedbtn"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadedbtn"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadedbtn"] != null &&
+                        typeof $steps["updateLoadedbtn"] === "object" &&
+                        typeof $steps["updateLoadedbtn"].then === "function"
+                      ) {
+                        $steps["updateLoadedbtn"] = await $steps[
+                          "updateLoadedbtn"
+                        ];
+                      }
 
                       $steps["updateNumber"] = true
                         ? (() => {
@@ -1183,7 +1254,36 @@ function PlasmicLogin__RenderFunc(props: {
                         $steps["updateNumber"] = await $steps["updateNumber"];
                       }
 
-                      $steps["invokeGlobalAction"] = true
+                      $steps["invokeGlobalAction2"] = (() => {
+                        const phoneRegex = /^0?\d{10}$/;
+                        return !phoneRegex.test($state.number);
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "warning",
+                                "\u0644\u0637\u0641\u0627\u064b \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644 \u062e\u0648\u062f \u0631\u0627 \u0628\u0647\u200c\u0637\u0648\u0631 \u0635\u062d\u06cc\u062d \u0648\u0627\u0631\u062f \u0646\u0645\u0627\u06cc\u06cc\u062f."
+                              ]
+                            };
+                            return $globalActions[
+                              "plasmic-antd5-config-provider.showNotification"
+                            ]?.apply(null, [...actionArgs.args]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = (() => {
+                        const phoneRegex = /^0?\d{10}$/;
+                        return phoneRegex.test($state.number);
+                      })()
                         ? (() => {
                             const actionArgs = {
                               args: [
@@ -1252,6 +1352,43 @@ function PlasmicLogin__RenderFunc(props: {
                       ) {
                         $steps["updateLoginPage"] = await $steps[
                           "updateLoginPage"
+                        ];
+                      }
+
+                      $steps["updateTextInputValue2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadedbtn"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateTextInputValue2"] != null &&
+                        typeof $steps["updateTextInputValue2"] === "object" &&
+                        typeof $steps["updateTextInputValue2"].then ===
+                          "function"
+                      ) {
+                        $steps["updateTextInputValue2"] = await $steps[
+                          "updateTextInputValue2"
                         ];
                       }
                     }}
@@ -1520,6 +1657,85 @@ function PlasmicLogin__RenderFunc(props: {
                     <TextInput
                       data-plasmic-name={"textInput4"}
                       data-plasmic-override={overrides.textInput4}
+                      antdInput2={(() => {
+                        const child$Props = {
+                          "aria-label": ``,
+                          bordered: false,
+                          className: classNames(
+                            "__wab_instance",
+                            sty.antdInput2,
+                            {
+                              [sty.antdInput2loginPage_name]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "name"
+                              )
+                            }
+                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["antdInput2", "value"],
+                              Input_Helpers
+                            ).apply(null, eventArgs);
+                            (async event => {
+                              const $steps = {};
+                            }).apply(null, eventArgs);
+                          },
+                          placeholder: (() => {
+                            try {
+                              return (() => {
+                                switch ($state.gender) {
+                                  case "":
+                                    return "علی محمدی";
+                                    break;
+                                  case "female":
+                                    return "سارا محمدی";
+                                    break;
+                                  case "male":
+                                    return "علی محمدی";
+                                    break;
+                                  default:
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })(),
+                          size: "large",
+                          value: generateStateValueProp($state, [
+                            "antdInput2",
+                            "value"
+                          ])
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "antdInput2.value"
+                            }
+                          ],
+                          [],
+                          Input_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <Input
+                            data-plasmic-name={"antdInput2"}
+                            data-plasmic-override={overrides.antdInput2}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
                       className={classNames("__wab_instance", sty.textInput4, {
                         [sty.textInput4loginPage_email]: hasVariant(
                           $state,
@@ -1639,7 +1855,7 @@ function PlasmicLogin__RenderFunc(props: {
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "mobile")
                           ? "09123456789"
-                          : "09123456789"
+                          : ``
                       }
                       showEndIcon={
                         hasVariant($state, "loginPage", "name")
@@ -1998,6 +2214,52 @@ function PlasmicLogin__RenderFunc(props: {
                     <TextInput
                       data-plasmic-name={"textInput6"}
                       data-plasmic-override={overrides.textInput6}
+                      antdInput2={(() => {
+                        const child$Props = {
+                          "aria-label": ``,
+                          bordered: false,
+                          className: classNames(
+                            "__wab_instance",
+                            sty.antdInput3
+                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["antdInput3", "value"],
+                              Input_Helpers
+                            ).apply(null, eventArgs);
+                            (async event => {
+                              const $steps = {};
+                            }).apply(null, eventArgs);
+                          },
+                          size: "large",
+                          value: generateStateValueProp($state, [
+                            "antdInput3",
+                            "value"
+                          ])
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "antdInput3.value"
+                            }
+                          ],
+                          [],
+                          Input_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <Input
+                            data-plasmic-name={"antdInput3"}
+                            data-plasmic-override={overrides.antdInput3}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
                       className={classNames("__wab_instance", sty.textInput6, {
                         [sty.textInput6loginPage_email]: hasVariant(
                           $state,
@@ -2246,12 +2508,181 @@ function PlasmicLogin__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/auth/signup/user",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        type: "mobile",
+                                        name: $state.antdInput2.value || "",
+                                        username: "",
+                                        target: "social",
+                                        sex: $state.gender || "",
+                                        token: $state.loginData.result || "",
+                                        version: "",
+                                        lang: "fa",
+                                        country: "IR",
+                                        device: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (
+                                            /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                              userAgent
+                                            )
+                                          ) {
+                                            return "Mobile";
+                                          } else if (
+                                            /Tablet|iPad/i.test(userAgent)
+                                          ) {
+                                            return "Tablet";
+                                          } else {
+                                            return "Desktop";
+                                          }
+                                        })(),
+                                        uniqueId: $$.uuid.v4(),
+                                        fcm: "string", // این مقدار باید مقدار واقعی FCM باشد
+                                        os: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          const platform =
+                                            window.navigator.userAgent;
+                                          if (/Windows/i.test(platform))
+                                            return "Windows";
+                                          if (/Mac/i.test(platform))
+                                            return "macOS";
+                                          if (/Linux/i.test(platform))
+                                            return "Linux";
+                                          if (/Android/i.test(userAgent))
+                                            return "Android";
+                                          if (
+                                            /iPhone|iPad|iPod/i.test(userAgent)
+                                          )
+                                            return "iOS";
+                                          return "Unknown OS";
+                                        })(),
+                                        osVersion: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (/Windows NT 10.0/.test(userAgent))
+                                            return "Windows 10";
+                                          if (/Windows NT 6.3/.test(userAgent))
+                                            return "Windows 8.1";
+                                          if (/Windows NT 6.2/.test(userAgent))
+                                            return "Windows 8";
+                                          if (/Windows NT 6.1/.test(userAgent))
+                                            return "Windows 7";
+                                          if (
+                                            /Mac OS X (\d+[\._]\d+)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `macOS ${RegExp.$1.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          if (
+                                            /Android (\d+(\.\d+)?)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `Android ${RegExp.$1}`;
+                                          if (
+                                            /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `iOS ${RegExp.$2.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          return "Unknown Version";
+                                        })(),
+                                        password: "",
+                                        postLang: "fa",
+                                        refCode: $state.antdInput3.value || "",
+                                        isCountryPending: false,
+                                        device_type: window.navigator.platform,
+                                        additionalData: {
+                                          ip: "132465",
+                                          name: "test1"
+                                        }
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["updateLoginData"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loginData"]
+                                },
+                                operation: 0,
+                                value: $steps.invokeGlobalAction.data
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoginData"] != null &&
+                          typeof $steps["updateLoginData"] === "object" &&
+                          typeof $steps["updateLoginData"].then === "function"
+                        ) {
+                          $steps["updateLoginData"] = await $steps[
+                            "updateLoginData"
+                          ];
+                        }
+
                         $steps["updateLoginPage"] = true
                           ? (() => {
                               const actionArgs = {
                                 vgroup: "loginPage",
                                 operation: 0,
-                                value: "mobileCode"
+                                value: []
                               };
                               return (({ vgroup, value }) => {
                                 if (typeof value === "string") {
@@ -2530,6 +2961,36 @@ function PlasmicLogin__RenderFunc(props: {
                           )
                         }
                       )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateLoginPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                vgroup: "loginPage",
+                                operation: 0,
+                                value: "mobile"
+                              };
+                              return (({ vgroup, value }) => {
+                                if (typeof value === "string") {
+                                  value = [value];
+                                }
+
+                                $stateSet($state, vgroup, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoginPage"] != null &&
+                          typeof $steps["updateLoginPage"] === "object" &&
+                          typeof $steps["updateLoginPage"].then === "function"
+                        ) {
+                          $steps["updateLoginPage"] = await $steps[
+                            "updateLoginPage"
+                          ];
+                        }
+                      }}
                     >
                       {hasVariant($state, "loginPage", "name")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -2849,7 +3310,12 @@ function PlasmicLogin__RenderFunc(props: {
                         sty.freeBox__dIhpA,
                         {
                           [sty.freeBoxloginPage_mobileCode__dIhpAm2GXn]:
-                            hasVariant($state, "loginPage", "mobileCode")
+                            hasVariant($state, "loginPage", "mobileCode"),
+                          [sty.freeBoxloginPage_mobile__dIhpA6MmOa]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          )
                         }
                       )}
                     >
@@ -3047,6 +3513,76 @@ function PlasmicLogin__RenderFunc(props: {
                           ) {
                             $steps["updateTime"] = await $steps["updateTime"];
                           }
+
+                          $steps["invokeGlobalAction"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/auth/signup/send-code-v2",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          type: "mobile",
+                                          country: "98",
+                                          smsType: "sms",
+                                          data: $state.number
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+
+                          $steps["invokeGlobalAction2"] =
+                            $steps.invokeGlobalAction?.data?.success == true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      undefined,
+                                      "\u06a9\u062f \u0645\u062c\u062f\u062f\u0627\u064b \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0627\u0631\u0633\u0627\u0644 \u0634\u062f.",
+                                      "top-left"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction2"] != null &&
+                            typeof $steps["invokeGlobalAction2"] === "object" &&
+                            typeof $steps["invokeGlobalAction2"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction2"] = await $steps[
+                              "invokeGlobalAction2"
+                            ];
+                          }
                         }}
                       >
                         {hasVariant($state, "loginPage", "mobileCode")
@@ -3106,8 +3642,90 @@ function PlasmicLogin__RenderFunc(props: {
                       )
                     })}
                     color={generateStateValueProp($state, ["button3", "color"])}
+                    endIcon={
+                      <Icon115Icon
+                        className={classNames(projectcss.all, sty.svg__opVjO, {
+                          [sty.svgloginPage_mobileCode__opVjOm2GXn]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobileCode"
+                          )
+                        })}
+                        role={"img"}
+                      />
+                    }
+                    isDisabled={
+                      hasVariant($state, "loginPage", "mobileCode")
+                        ? (() => {
+                            try {
+                              return $state.loadedbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        : undefined
+                    }
+                    loading={
+                      hasVariant($state, "loginPage", "mobileCode")
+                        ? (() => {
+                            try {
+                              return $state.loadedbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        : undefined
+                    }
                     onClick={async event => {
                       const $steps = {};
+
+                      $steps["updateLoadedbtn"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadedbtn"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadedbtn"] != null &&
+                        typeof $steps["updateLoadedbtn"] === "object" &&
+                        typeof $steps["updateLoadedbtn"].then === "function"
+                      ) {
+                        $steps["updateLoadedbtn"] = await $steps[
+                          "updateLoadedbtn"
+                        ];
+                      }
 
                       $steps["updateCods"] = true
                         ? (() => {
@@ -3143,6 +3761,84 @@ function PlasmicLogin__RenderFunc(props: {
                         $steps["updateCods"] = await $steps["updateCods"];
                       }
 
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/auth/signup/validate",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      code: $state.cods,
+                                      data: $state.number
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateLoginData"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loginData"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoginData"] != null &&
+                        typeof $steps["updateLoginData"] === "object" &&
+                        typeof $steps["updateLoginData"].then === "function"
+                      ) {
+                        $steps["updateLoginData"] = await $steps[
+                          "updateLoginData"
+                        ];
+                      }
+
                       $steps["updateLoginPage"] = true
                         ? (() => {
                             const actionArgs = {
@@ -3167,6 +3863,42 @@ function PlasmicLogin__RenderFunc(props: {
                       ) {
                         $steps["updateLoginPage"] = await $steps[
                           "updateLoginPage"
+                        ];
+                      }
+
+                      $steps["updateLoadedbtn2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadedbtn"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadedbtn2"] != null &&
+                        typeof $steps["updateLoadedbtn2"] === "object" &&
+                        typeof $steps["updateLoadedbtn2"].then === "function"
+                      ) {
+                        $steps["updateLoadedbtn2"] = await $steps[
+                          "updateLoadedbtn2"
                         ];
                       }
                     }}
@@ -3724,8 +4456,10 @@ const PlasmicDescendants = {
     "antdInput",
     "button",
     "textInput4",
+    "antdInput2",
     "radioGrop",
     "textInput6",
+    "antdInput3",
     "checkbox",
     "button4",
     "textInput3",
@@ -3740,9 +4474,11 @@ const PlasmicDescendants = {
   textInput: ["textInput", "antdInput"],
   antdInput: ["antdInput"],
   button: ["button"],
-  textInput4: ["textInput4"],
+  textInput4: ["textInput4", "antdInput2"],
+  antdInput2: ["antdInput2"],
   radioGrop: ["radioGrop"],
-  textInput6: ["textInput6"],
+  textInput6: ["textInput6", "antdInput3"],
+  antdInput3: ["antdInput3"],
   checkbox: ["checkbox"],
   button4: ["button4"],
   textInput3: ["textInput3", "antdInput4"],
@@ -3763,8 +4499,10 @@ type NodeDefaultElementType = {
   antdInput: typeof Input;
   button: typeof Button;
   textInput4: typeof TextInput;
+  antdInput2: typeof Input;
   radioGrop: typeof RadioGrop;
   textInput6: typeof TextInput;
+  antdInput3: typeof Input;
   checkbox: typeof Checkbox;
   button4: typeof Button;
   textInput3: typeof TextInput;
@@ -3866,8 +4604,10 @@ export const PlasmicLogin = Object.assign(
     antdInput: makeNodeComponent("antdInput"),
     button: makeNodeComponent("button"),
     textInput4: makeNodeComponent("textInput4"),
+    antdInput2: makeNodeComponent("antdInput2"),
     radioGrop: makeNodeComponent("radioGrop"),
     textInput6: makeNodeComponent("textInput6"),
+    antdInput3: makeNodeComponent("antdInput3"),
     checkbox: makeNodeComponent("checkbox"),
     button4: makeNodeComponent("button4"),
     textInput3: makeNodeComponent("textInput3"),

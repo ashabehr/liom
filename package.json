@@ -62,7 +62,8 @@
     "swr": "^2.2.5",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "ts-jalaali": "^0.0.2"
+    "ts-jalaali": "^0.0.2",
+    "uuid": "^11.0.3"
   },
   "devDependencies": {
     "@types/node": "^20",

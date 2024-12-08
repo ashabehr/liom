@@ -88,7 +88,7 @@ import Icon25Icon from "./icons/PlasmicIcon__Icon25"; // plasmic-import: XHEd0ia
 import Icon17Icon from "./icons/PlasmicIcon__Icon17"; // plasmic-import: 03X0usOEHK8l/icon
 import Icon16Icon from "./icons/PlasmicIcon__Icon16"; // plasmic-import: JYHABEI9HtQe/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon101Icon from "./icons/PlasmicIcon__Icon101"; // plasmic-import: eTM5SBq4dzJ9/icon
 import Icon6Icon from "./icons/PlasmicIcon__Icon6"; // plasmic-import: liLrwe8fcuIp/icon
 import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
