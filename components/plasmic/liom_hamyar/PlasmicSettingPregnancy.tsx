@@ -358,7 +358,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
             <Embed
               className={classNames("__wab_instance", sty.embedHtml__cayoB)}
               code={
-                "<script>\n  // \u0627\u0641\u0632\u0648\u062f\u0646 \u062d\u0627\u0644\u062a \u0628\u0647 \u062a\u0627\u0631\u06cc\u062e\u0686\u0647 \u0645\u0631\u0648\u0631\u06af\u0631\n  history.pushState(null, null, window.location.href);\n\n  // \u0627\u0636\u0627\u0641\u0647 \u06a9\u0631\u062f\u0646 \u0644\u06cc\u0633\u0646\u0631 \u0628\u0631\u0627\u06cc \u062f\u06a9\u0645\u0647 \"\u0628\u0627\u0632\u06af\u0634\u062a\"\n  window.addEventListener('popstate', function(event) {\n      // \u0627\u062c\u0631\u0627\u06cc \u0641\u0627\u0646\u06a9\u0634\u0646 \u062f\u0644\u062e\u0648\u0627\u0647\n      alert('\u0634\u0645\u0627 \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0631\u0627 \u0632\u062f\u06cc\u062f!');\n      console.log('\u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u06a9\u0644\u06cc\u06a9 \u0634\u062f!');\n\n      // \u0628\u0627\u0632\u06af\u0631\u062f\u0627\u0646\u062f\u0646 \u0648\u0636\u0639\u06cc\u062a \u0628\u0647 \u062d\u0627\u0644\u062a \u0642\u0628\u0644\u06cc\n      history.pushState(null, null, window.location.href);\n  });\n</script>\n"
+                "<script>\n  history.pushState(null, null, window.location.href);\n  window.addEventListener('popstate', function(event) {\n      console.log('\u0634\u0645\u0627 \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0631\u0627 \u0632\u062f\u06cc\u062f!');\n  });\n</script>\n"
               }
             />
 
@@ -446,7 +446,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     }
                   )}
                 >
-                  {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a 1"}
+                  {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a 2\n"}
                 </div>
               </div>
               <div
@@ -2102,7 +2102,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         AntdInput_Helpers
                       ),
                       placeholder:
-                        "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
+                        "\u0645\u062b\u0644\u0627 3 \u0627\u0633\u0641\u0646\u062f 1403",
                       readOnly: true,
                       value: generateStateValueProp($state, [
                         "lastTimeBox",

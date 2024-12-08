@@ -4107,7 +4107,7 @@ function PlasmicLogin__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return undefined;
+                                  return "https://apps.liom.app/pregnancy/";
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
