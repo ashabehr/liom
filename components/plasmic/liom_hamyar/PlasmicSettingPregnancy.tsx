@@ -358,7 +358,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
             <Embed
               className={classNames("__wab_instance", sty.embedHtml__cayoB)}
               code={
-                "<!-- <script>\n  history.pushState(null, null, window.location.href);\n  window.addEventListener('popstate', function(event) {\n      console.log('\u0634\u0645\u0627 \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0631\u0627 \u0632\u062f\u06cc\u062f!');\n  });\n</script> -->\n"
+                "<script>\nlet condition = true; \n\nhistory.pushState(null, null, window.location.href);\n\nwindow.addEventListener('popstate', function(event) {\n    if (condition) {\n        console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a! \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u06a9\u0627\u0631 \u0646\u0645\u06cc\u200c\u06a9\u0646\u062f.');\n        history.pushState(null, null, window.location.href);\n    } else {\n        console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a\u060c \u0628\u0647 \u0635\u0641\u062d\u0647 \u0642\u0628\u0644\u06cc \u0628\u0627\u0632\u0645\u06cc\u200c\u06af\u0631\u062f\u06cc\u0645.');\n    }\n});\n</script>\n"
               }
             />
 

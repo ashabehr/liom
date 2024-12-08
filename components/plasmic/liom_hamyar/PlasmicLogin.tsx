@@ -4098,7 +4098,8 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["updateToken"] =
-                        $steps.invokeGlobalAction?.data?.success == true
+                        $steps.invokeGlobalAction?.data?.success == true &&
+                        $state.typeLogin == "signup"
                           ? (() => {
                               const actionArgs = {
                                 variable: {
