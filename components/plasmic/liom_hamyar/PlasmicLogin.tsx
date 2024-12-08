@@ -621,6 +621,40 @@ function PlasmicLogin__RenderFunc(props: {
                         "updateLoginPage"
                       ];
                     }
+
+                    $steps["updateType"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["type"]
+                            },
+                            operation: 0,
+                            value: "mobile"
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateType"] != null &&
+                      typeof $steps["updateType"] === "object" &&
+                      typeof $steps["updateType"].then === "function"
+                    ) {
+                      $steps["updateType"] = await $steps["updateType"];
+                    }
                   }}
                   slot={
                     "\u0648\u0631\u0648\u062f \u0628\u0627 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -633,6 +667,43 @@ function PlasmicLogin__RenderFunc(props: {
                 </LoginBox>
                 <LoginBox
                   className={classNames("__wab_instance", sty.loginBox___67EL)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateType"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["type"]
+                            },
+                            operation: 0,
+                            value: "email"
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateType"] != null &&
+                      typeof $steps["updateType"] === "object" &&
+                      typeof $steps["updateType"].then === "function"
+                    ) {
+                      $steps["updateType"] = await $steps["updateType"];
+                    }
+                  }}
                   slot={
                     "\u0648\u0631\u0648\u062f \u0628\u0627 \u0627\u06cc\u0645\u06cc\u0644"
                   }
