@@ -2812,24 +2812,24 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["updateLoginPage"] = $steps.invokeGlobalAction
-                          ?.data?.success
-                          ? (() => {
-                              const actionArgs = {
-                                vgroup: "loginPage",
-                                operation: 0,
-                                value: []
-                              };
-                              return (({ vgroup, value }) => {
-                                if (typeof value === "string") {
-                                  value = [value];
-                                }
+                        $steps["updateLoginPage"] =
+                          $steps.invokeGlobalAction?.data?.success == true
+                            ? (() => {
+                                const actionArgs = {
+                                  vgroup: "loginPage",
+                                  operation: 0,
+                                  value: []
+                                };
+                                return (({ vgroup, value }) => {
+                                  if (typeof value === "string") {
+                                    value = [value];
+                                  }
 
-                                $stateSet($state, vgroup, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                                  $stateSet($state, vgroup, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
                         if (
                           $steps["updateLoginPage"] != null &&
                           typeof $steps["updateLoginPage"] === "object" &&
@@ -2838,6 +2838,57 @@ function PlasmicLogin__RenderFunc(props: {
                           $steps["updateLoginPage"] = await $steps[
                             "updateLoginPage"
                           ];
+                        }
+
+                        $steps["goToPage"] =
+                          $steps.invokeGlobalAction?.data?.success == true
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: (() => {
+                                    try {
+                                      return (
+                                        $ctx.query.redirect_url +
+                                        "?token=" +
+                                        $$.uuid.v4().slice(0, 6) +
+                                        $state.loginData.result.token +
+                                        $$.uuid.v4().slice(10, 13) +
+                                        "&userId=" +
+                                        $$.uuid.v4().slice(0, 4) +
+                                        $state.loginData.result.user_id +
+                                        $$.uuid.v4().slice(0, 4)
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
                         }
 
                         $steps["updateLoadedbtn2"] = false
@@ -4102,38 +4153,50 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["goToPage"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return "https://apps.liom.app/pregnancy/";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
+                      $steps["goToPage"] =
+                        $steps.invokeGlobalAction?.data?.success == true &&
+                        $state.typeLogin == "login"
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return (
+                                      $ctx.query.redirect_url +
+                                      "?token=" +
+                                      $$.uuid.v4().slice(0, 6) +
+                                      $state.loginData.result.token +
+                                      $$.uuid.v4().slice(10, 13) +
+                                      "&userId=" +
+                                      $$.uuid.v4().slice(0, 4) +
+                                      $state.loginData.result.user_id +
+                                      $$.uuid.v4().slice(0, 4)
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
                                 }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                       if (
                         $steps["goToPage"] != null &&
                         typeof $steps["goToPage"] === "object" &&
