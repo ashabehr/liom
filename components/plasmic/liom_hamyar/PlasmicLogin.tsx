@@ -4991,14 +4991,15 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["invokeGlobalAction2"] = (() => {
-                        const phoneRegex = /^0?\d{10}$/;
-                        return !phoneRegex.test($state.number);
+                        const emailRegex =
+                          /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                        return !emailRegex.test($state.email);
                       })()
                         ? (() => {
                             const actionArgs = {
                               args: [
                                 "error",
-                                "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u0635\u062d\u06cc\u062d \u0646\u06cc\u0633\u062a.",
+                                "\u0627\u06cc\u0645\u06cc\u0644 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u0635\u062d\u06cc\u062d \u0646\u06cc\u0633\u062a.",
                                 "bottom-center"
                               ]
                             };
@@ -5019,8 +5020,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["invokeGlobalAction"] = (() => {
-                        const phoneRegex = /^0?\d{10}$/;
-                        return phoneRegex.test($state.number);
+                        const emailRegex =
+                          /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                        return emailRegex.test($state.email);
                       })()
                         ? (() => {
                             const actionArgs = {
@@ -5031,10 +5033,10 @@ function PlasmicLogin__RenderFunc(props: {
                                 (() => {
                                   try {
                                     return {
-                                      type: "mobile",
+                                      type: "email",
                                       country: "98",
                                       smsType: "sms",
-                                      data: $state.number
+                                      data: $state.email
                                     };
                                   } catch (e) {
                                     if (
