@@ -5025,8 +5025,8 @@
   height: 1em;
 }
 .svgloginPage_email__j4B4HiYwOs {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 }
 .freeBox___5I2Tq {
   display: flex;
@@ -5106,7 +5106,7 @@
   width: 20px;
   height: 20px;
 }
-.antdInput__qLck8:global(.__wab_instance) {
+.antdInput5:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
@@ -5234,52 +5234,52 @@
     padding-bottom: 32px;
   }
 }
-.button2:global(.__wab_instance) {
+.button5:global(.__wab_instance) {
   max-width: 100%;
 }
-.button2loginPage_mobile:global(.__wab_instance) {
+.button5loginPage_mobile:global(.__wab_instance) {
   width: 60%;
 }
 @media (max-width: 640px) {
-  .button2loginPage_mobile:global(.__wab_instance) {
+  .button5loginPage_mobile:global(.__wab_instance) {
     width: 100%;
     min-width: 0;
   }
 }
-.button2loginPage_email:global(.__wab_instance) {
+.button5loginPage_email:global(.__wab_instance) {
   width: 60%;
 }
 @media (max-width: 640px) {
-  .button2loginPage_email:global(.__wab_instance) {
+  .button5loginPage_email:global(.__wab_instance) {
     width: 100%;
     min-width: 0;
   }
 }
-.button2loginPage_mobileCode:global(.__wab_instance) {
+.button5loginPage_mobileCode:global(.__wab_instance) {
   width: 60%;
 }
 @media (max-width: 640px) {
-  .button2loginPage_mobileCode:global(.__wab_instance) {
+  .button5loginPage_mobileCode:global(.__wab_instance) {
     width: 100%;
     min-width: 0;
   }
 }
-.button2loginPage_name:global(.__wab_instance) {
+.button5loginPage_name:global(.__wab_instance) {
   width: 60%;
 }
 @media (max-width: 640px) {
-  .button2loginPage_name:global(.__wab_instance) {
+  .button5loginPage_name:global(.__wab_instance) {
     width: 100%;
     min-width: 0;
   }
 }
-.svg__fHExv {
+.svg__swRq {
   position: relative;
   object-fit: cover;
   width: auto;
   height: 1em;
 }
-.textloginPage_mobile__wvzB6MmOa {
+.textloginPage_mobile__dqVzE6MmOa {
   width: 100%;
   position: sticky;
   left: 0px;
@@ -5289,7 +5289,7 @@
   bottom: 0px;
   min-width: 0;
 }
-.textloginPage_email__wvzBiYwOs {
+.textloginPage_email__dqVzEiYwOs {
   width: 100%;
   position: sticky;
   left: 0px;
@@ -5299,7 +5299,7 @@
   bottom: 0px;
   min-width: 0;
 }
-.textloginPage_mobileCode__wvzBm2GXn {
+.textloginPage_mobileCode__dqVzEm2GXn {
   width: 100%;
   position: sticky;
   left: 0px;
@@ -5309,7 +5309,7 @@
   bottom: 0px;
   min-width: 0;
 }
-.textloginPage_name__wvzBhUiKy {
+.textloginPage_name__dqVzEhUiKy {
   width: 100%;
   position: sticky;
   left: 0px;
@@ -5319,16 +5319,13 @@
   bottom: 0px;
   min-width: 0;
 }
-.svg__srZoH {
+.svg___4Mx1E {
   object-fit: cover;
   max-width: 100%;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   position: relative;
   left: auto;
   top: auto;
   z-index: 1;
-  color: var(--token-jgohepLVeKvh);
-  right: auto;
-  bottom: auto;
 }
