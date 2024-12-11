@@ -716,6 +716,11 @@ function PlasmicShopResult__RenderFunc(props: {
                   $state,
                   "failed",
                   "failed"
+                ),
+                [sty.freeBoxsuccessful___7YdSo3MxK]: hasVariant(
+                  $state,
+                  "successful",
+                  "successful"
                 )
               })}
             >

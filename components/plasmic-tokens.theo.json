@@ -2451,6 +2451,16 @@
       }
     },
     {
+      "name": "large",
+      "type": "fontsize",
+      "value": "1.125rem",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "oauBtmzr8uOQ"
+      }
+    },
+    {
       "name": "light purple",
       "type": "color",
       "value": "#8254C61A",

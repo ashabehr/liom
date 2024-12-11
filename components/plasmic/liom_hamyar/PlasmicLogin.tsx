@@ -71,6 +71,7 @@ import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/compone
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -91,16 +92,19 @@ import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: H
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ2D4OoXB/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 
 import { v4 as __lib_uuid__v4 } from "uuid";
 
 createPlasmicElementProxy;
 
 export type PlasmicLogin__VariantMembers = {
-  loginPage: "mobile" | "email" | "mobileCode" | "name";
+  loginPage: "mobile" | "email" | "mobileCode" | "name" | "emailCode";
 };
 export type PlasmicLogin__VariantsArgs = {
-  loginPage?: SingleChoiceArg<"mobile" | "email" | "mobileCode" | "name">;
+  loginPage?: SingleChoiceArg<
+    "mobile" | "email" | "mobileCode" | "name" | "emailCode"
+  >;
 };
 type VariantPropType = keyof PlasmicLogin__VariantsArgs;
 export const PlasmicLogin__VariantProps = new Array<VariantPropType>(
@@ -124,14 +128,19 @@ export type PlasmicLogin__OverridesType = {
   antdInput3?: Flex__<typeof Input>;
   checkbox?: Flex__<typeof Checkbox>;
   button4?: Flex__<typeof Button>;
+  mobileCode?: Flex__<typeof Reveal>;
   textInput3?: Flex__<typeof TextInput>;
   antdInput4?: Flex__<typeof Input>;
-  embedHtml?: Flex__<typeof Embed>;
-  timer?: Flex__<typeof Timer>;
   button3?: Flex__<typeof Button>;
+  emailCode?: Flex__<typeof Reveal>;
+  textInput5?: Flex__<typeof TextInput>;
+  antdInput6?: Flex__<typeof Input>;
+  button7?: Flex__<typeof Button>;
   textInput2?: Flex__<typeof TextInput>;
   antdInput5?: Flex__<typeof Input>;
   button5?: Flex__<typeof Button>;
+  rules?: Flex__<typeof AntdModal>;
+  top?: Flex__<"div">;
 };
 
 export interface DefaultLoginProps {}
@@ -213,7 +222,21 @@ function PlasmicLogin__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "loginPage", "mobileCode")
+          hasVariant($state, "loginPage", "emailCode")
+            ? (() => {
+                try {
+                  return $state.number;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : hasVariant($state, "loginPage", "mobileCode")
             ? (() => {
                 try {
                   return $state.number;
@@ -295,7 +318,22 @@ function PlasmicLogin__RenderFunc(props: {
         path: "antdInput2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "loginPage", "name")
+            ? (() => {
+                try {
+                  return "";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : undefined,
 
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       },
@@ -312,7 +350,21 @@ function PlasmicLogin__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "loginPage", "mobileCode")
+          hasVariant($state, "loginPage", "emailCode")
+            ? (() => {
+                try {
+                  return $state.number;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : hasVariant($state, "loginPage", "mobileCode")
             ? (() => {
                 try {
                   return $state.number;
@@ -379,6 +431,91 @@ function PlasmicLogin__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "textInput5.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "loginPage", "emailCode")
+            ? (() => {
+                try {
+                  return $state.number;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : hasVariant($state, "loginPage", "mobileCode")
+            ? (() => {
+                try {
+                  return $state.number;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : ""
+      },
+      {
+        path: "antdInput6.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "loginPage", "emailCode")
+            ? (() => {
+                try {
+                  return $state.email;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : hasVariant($state, "loginPage", "mobileCode")
+            ? (() => {
+                try {
+                  return $state.number;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
+      },
+      {
+        path: "button7.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "rules.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "loginPage", "name") ? false : undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -420,6 +557,11 @@ function PlasmicLogin__RenderFunc(props: {
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root,
             {
+              [sty.rootloginPage_emailCode]: hasVariant(
+                $state,
+                "loginPage",
+                "emailCode"
+              ),
               [sty.rootloginPage_email]: hasVariant(
                 $state,
                 "loginPage",
@@ -441,6 +583,11 @@ function PlasmicLogin__RenderFunc(props: {
         >
           <Reveal
             className={classNames("__wab_instance", sty.reveal__jmKkx, {
+              [sty.revealloginPage_emailCode__jmKkXwqwJl]: hasVariant(
+                $state,
+                "loginPage",
+                "emailCode"
+              ),
               [sty.revealloginPage_email__jmKkxiYwOs]: hasVariant(
                 $state,
                 "loginPage",
@@ -469,6 +616,11 @@ function PlasmicLogin__RenderFunc(props: {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__ncvgt, {
+                [sty.freeBoxloginPage_emailCode__ncvgtwqwJl]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "emailCode"
+                ),
                 [sty.freeBoxloginPage_email__ncvgtIYwOs]: hasVariant(
                   $state,
                   "loginPage",
@@ -536,6 +688,11 @@ function PlasmicLogin__RenderFunc(props: {
                     projectcss.__wab_text,
                     sty.text__uddEg,
                     {
+                      [sty.textloginPage_emailCode__uddEgwqwJl]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
                       [sty.textloginPage_email__uddEgIYwOs]: hasVariant(
                         $state,
                         "loginPage",
@@ -564,7 +721,68 @@ function PlasmicLogin__RenderFunc(props: {
                   }
                 </div>
                 <LoginBox
-                  className={classNames("__wab_instance", sty.loginBox__aUvGc)}
+                  className={classNames("__wab_instance", sty.loginBox__aUvGc, {
+                    [sty.loginBoxloginPage_emailCode__aUvGCwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
+                    [sty.loginBoxloginPage_mobileCode__aUvGCm2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.loginBoxloginPage_mobile__aUvGc6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    )
+                  })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return (
+                                  "https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=google&state=" +
+                                  $ctx.query.redirect_url
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
                   slot={
                     "\u0648\u0631\u0648\u062f \u0628\u0627 \u062d\u0633\u0627\u0628 \u06af\u0648\u06af\u0644"
                   }
@@ -572,6 +790,11 @@ function PlasmicLogin__RenderFunc(props: {
 
                 <LoginBox
                   className={classNames("__wab_instance", sty.loginBox__tWiTd, {
+                    [sty.loginBoxloginPage_emailCode__tWiTdwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.loginBoxloginPage_email__tWiTdIYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -704,6 +927,33 @@ function PlasmicLogin__RenderFunc(props: {
                     ) {
                       $steps["updateType"] = await $steps["updateType"];
                     }
+
+                    $steps["updateLoginPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "loginPage",
+                            operation: 0,
+                            value: "email"
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            $stateSet($state, vgroup, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoginPage"] != null &&
+                      typeof $steps["updateLoginPage"] === "object" &&
+                      typeof $steps["updateLoginPage"].then === "function"
+                    ) {
+                      $steps["updateLoginPage"] = await $steps[
+                        "updateLoginPage"
+                      ];
+                    }
                   }}
                   slot={
                     "\u0648\u0631\u0648\u062f \u0628\u0627 \u0627\u06cc\u0645\u06cc\u0644"
@@ -729,7 +979,9 @@ function PlasmicLogin__RenderFunc(props: {
             </Stack__>
           </Reveal>
           {(
-            hasVariant($state, "loginPage", "name")
+            hasVariant($state, "loginPage", "emailCode")
+              ? true
+              : hasVariant($state, "loginPage", "name")
               ? true
               : hasVariant($state, "loginPage", "mobileCode")
               ? true
@@ -741,6 +993,11 @@ function PlasmicLogin__RenderFunc(props: {
           ) ? (
             <Reveal
               className={classNames("__wab_instance", sty.reveal__hzsaP, {
+                [sty.revealloginPage_emailCode__hzsaPwqwJl]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "emailCode"
+                ),
                 [sty.revealloginPage_email__hzsaPiYwOs]: hasVariant(
                   $state,
                   "loginPage",
@@ -769,6 +1026,11 @@ function PlasmicLogin__RenderFunc(props: {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__vh5G1, {
+                  [sty.freeBoxloginPage_emailCode__vh5G1WqwJl]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "emailCode"
+                  ),
                   [sty.freeBoxloginPage_email__vh5G1IYwOs]: hasVariant(
                     $state,
                     "loginPage",
@@ -793,6 +1055,11 @@ function PlasmicLogin__RenderFunc(props: {
               >
                 <div
                   className={classNames(projectcss.all, sty.freeBox___9Kp8K, {
+                    [sty.freeBoxloginPage_emailCode___9Kp8KwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email___9Kp8KiYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -814,9 +1081,44 @@ function PlasmicLogin__RenderFunc(props: {
                       "name"
                     )
                   })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateLoginPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "loginPage",
+                            operation: 0,
+                            value: []
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            $stateSet($state, vgroup, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoginPage"] != null &&
+                      typeof $steps["updateLoginPage"] === "object" &&
+                      typeof $steps["updateLoginPage"].then === "function"
+                    ) {
+                      $steps["updateLoginPage"] = await $steps[
+                        "updateLoginPage"
+                      ];
+                    }
+                  }}
                 >
                   <IconIcon
                     className={classNames(projectcss.all, sty.svg__b2S9S, {
+                      [sty.svgloginPage_emailCode__b2S9SwqwJl]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
                       [sty.svgloginPage_email__b2S9SiYwOs]: hasVariant(
                         $state,
                         "loginPage",
@@ -845,6 +1147,11 @@ function PlasmicLogin__RenderFunc(props: {
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__iex27, {
+                    [sty.freeBoxloginPage_emailCode__iex27WqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__iex27IYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -873,6 +1180,11 @@ function PlasmicLogin__RenderFunc(props: {
                       projectcss.__wab_text,
                       sty.text__ckWzj,
                       {
+                        [sty.textloginPage_emailCode__ckWzJwqwJl]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.textloginPage_email__ckWzjiYwOs]: hasVariant(
                           $state,
                           "loginPage",
@@ -896,7 +1208,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "name")
+                    {hasVariant($state, "loginPage", "emailCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "name")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "mobileCode")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -910,7 +1224,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox___8Bjk,
-                      hasVariant($state, "loginPage", "name")
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "name")
                         ? "negative"
                         : hasVariant($state, "loginPage", "mobileCode")
                         ? "negative"
@@ -920,6 +1236,8 @@ function PlasmicLogin__RenderFunc(props: {
                         ? "negative"
                         : undefined,
                       {
+                        [sty.freeBoxloginPage_emailCode___8BjkWqwJl]:
+                          hasVariant($state, "loginPage", "emailCode"),
                         [sty.freeBoxloginPage_email___8BjkIYwOs]: hasVariant(
                           $state,
                           "loginPage",
@@ -1006,6 +1324,11 @@ function PlasmicLogin__RenderFunc(props: {
                         );
                       })()}
                       className={classNames("__wab_instance", sty.textInput, {
+                        [sty.textInputloginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.textInputloginPage_email]: hasVariant(
                           $state,
                           "loginPage",
@@ -1041,7 +1364,9 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__oan3F,
-                              hasVariant($state, "loginPage", "name")
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "name")
                                 ? "negative"
                                 : hasVariant($state, "loginPage", "mobileCode")
                                 ? "negative"
@@ -1051,6 +1376,8 @@ function PlasmicLogin__RenderFunc(props: {
                                 ? "negative"
                                 : undefined,
                               {
+                                [sty.textloginPage_emailCode__oan3FwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
                                 [sty.textloginPage_email__oan3FiYwOs]:
                                   hasVariant($state, "loginPage", "email"),
                                 [sty.textloginPage_mobileCode__oan3Fm2GXn]:
@@ -1062,7 +1389,9 @@ function PlasmicLogin__RenderFunc(props: {
                               }
                             )}
                           >
-                            {hasVariant($state, "loginPage", "name")
+                            {hasVariant($state, "loginPage", "emailCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "name")
                               ? "+98 "
                               : hasVariant($state, "loginPage", "mobileCode")
                               ? "+98 "
@@ -1074,7 +1403,9 @@ function PlasmicLogin__RenderFunc(props: {
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
-                              hasVariant($state, "loginPage", "name")
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "name")
                                 ? Icon111Icon
                                 : hasVariant($state, "loginPage", "mobileCode")
                                 ? Icon111Icon
@@ -1088,6 +1419,8 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               sty.svg__dqkSf,
                               {
+                                [sty.svgloginPage_emailCode__dqkSFwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
                                 [sty.svgloginPage_email__dqkSfiYwOs]:
                                   hasVariant($state, "loginPage", "email"),
                                 [sty.svgloginPage_mobileCode__dqkSFm2GXn]:
@@ -1153,7 +1486,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }).apply(null, eventArgs);
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "name")
+                        hasVariant($state, "loginPage", "emailCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "name")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "mobileCode")
                           ? "09123456789"
@@ -1165,8 +1500,13 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                       showEndIcon={true}
                       type={
-                        hasVariant($state, "loginPage", "name") &&
+                        hasVariant($state, "loginPage", "emailCode") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "emailCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "name") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "name")
                           ? "tel"
@@ -1196,6 +1536,11 @@ function PlasmicLogin__RenderFunc(props: {
                 </Stack__>
                 <div
                   className={classNames(projectcss.all, sty.freeBox___2Rjei, {
+                    [sty.freeBoxloginPage_emailCode___2RjeiwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email___2RjeiIYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -1222,6 +1567,11 @@ function PlasmicLogin__RenderFunc(props: {
                     data-plasmic-name={"button"}
                     data-plasmic-override={overrides.button}
                     className={classNames("__wab_instance", sty.button, {
+                      [sty.buttonloginPage_emailCode]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
                       [sty.buttonloginPage_email]: hasVariant(
                         $state,
                         "loginPage",
@@ -1546,6 +1896,11 @@ function PlasmicLogin__RenderFunc(props: {
                         projectcss.__wab_text,
                         sty.text__kKx7,
                         {
+                          [sty.textloginPage_emailCode__kKx7WqwJl]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
                           [sty.textloginPage_email__kKx7IYwOs]: hasVariant(
                             $state,
                             "loginPage",
@@ -1569,7 +1924,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       )}
                     >
-                      {hasVariant($state, "loginPage", "name")
+                      {hasVariant($state, "loginPage", "emailCode")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "name")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                         : hasVariant($state, "loginPage", "mobileCode")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
@@ -1585,7 +1942,9 @@ function PlasmicLogin__RenderFunc(props: {
             </Reveal>
           ) : null}
           {(
-            hasVariant($state, "loginPage", "name")
+            hasVariant($state, "loginPage", "emailCode")
+              ? true
+              : hasVariant($state, "loginPage", "name")
               ? true
               : hasVariant($state, "loginPage", "mobileCode")
               ? true
@@ -1597,6 +1956,11 @@ function PlasmicLogin__RenderFunc(props: {
           ) ? (
             <Reveal
               className={classNames("__wab_instance", sty.reveal__tW85V, {
+                [sty.revealloginPage_emailCode__tW85VwqwJl]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "emailCode"
+                ),
                 [sty.revealloginPage_email__tW85VIYwOs]: hasVariant(
                   $state,
                   "loginPage",
@@ -1625,6 +1989,11 @@ function PlasmicLogin__RenderFunc(props: {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__xbB9E, {
+                  [sty.freeBoxloginPage_emailCode__xbB9EwqwJl]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "emailCode"
+                  ),
                   [sty.freeBoxloginPage_email__xbB9EIYwOs]: hasVariant(
                     $state,
                     "loginPage",
@@ -1649,6 +2018,11 @@ function PlasmicLogin__RenderFunc(props: {
               >
                 <div
                   className={classNames(projectcss.all, sty.freeBox__o4Bz, {
+                    [sty.freeBoxloginPage_emailCode__o4BzwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__o4BzIYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -1673,6 +2047,11 @@ function PlasmicLogin__RenderFunc(props: {
                 >
                   <IconIcon
                     className={classNames(projectcss.all, sty.svg__rnQ7D, {
+                      [sty.svgloginPage_emailCode__rnQ7DwqwJl]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
                       [sty.svgloginPage_email__rnQ7DIYwOs]: hasVariant(
                         $state,
                         "loginPage",
@@ -1701,6 +2080,11 @@ function PlasmicLogin__RenderFunc(props: {
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__iXeee, {
+                    [sty.freeBoxloginPage_emailCode__iXeeewqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__iXeeeIYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -1729,6 +2113,11 @@ function PlasmicLogin__RenderFunc(props: {
                       projectcss.__wab_text,
                       sty.text__gtQh4,
                       {
+                        [sty.textloginPage_emailCode__gtQh4WqwJl]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.textloginPage_email__gtQh4IYwOs]: hasVariant(
                           $state,
                           "loginPage",
@@ -1752,7 +2141,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "name")
+                    {hasVariant($state, "loginPage", "emailCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "name")
                       ? "\u0644\u0637\u0641\u0627 \u0627\u0633\u0645\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
                       : hasVariant($state, "loginPage", "mobileCode")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -1766,7 +2157,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__iMMwE,
-                      hasVariant($state, "loginPage", "name")
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "name")
                         ? "negative"
                         : hasVariant($state, "loginPage", "mobileCode")
                         ? "negative"
@@ -1776,6 +2169,8 @@ function PlasmicLogin__RenderFunc(props: {
                         ? "negative"
                         : undefined,
                       {
+                        [sty.freeBoxloginPage_emailCode__iMMwEwqwJl]:
+                          hasVariant($state, "loginPage", "emailCode"),
                         [sty.freeBoxloginPage_email__iMMwEiYwOs]: hasVariant(
                           $state,
                           "loginPage",
@@ -1879,6 +2274,11 @@ function PlasmicLogin__RenderFunc(props: {
                         );
                       })()}
                       className={classNames("__wab_instance", sty.textInput4, {
+                        [sty.textInput4loginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.textInput4loginPage_email]: hasVariant(
                           $state,
                           "loginPage",
@@ -1918,7 +2318,9 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__xfueF,
-                              hasVariant($state, "loginPage", "name")
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "name")
                                 ? "negative"
                                 : hasVariant($state, "loginPage", "mobileCode")
                                 ? "negative"
@@ -1928,6 +2330,8 @@ function PlasmicLogin__RenderFunc(props: {
                                 ? "negative"
                                 : undefined,
                               {
+                                [sty.textloginPage_emailCode__xfueFwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
                                 [sty.textloginPage_email__xfueFiYwOs]:
                                   hasVariant($state, "loginPage", "email"),
                                 [sty.textloginPage_mobileCode__xfueFm2GXn]:
@@ -1939,7 +2343,9 @@ function PlasmicLogin__RenderFunc(props: {
                               }
                             )}
                           >
-                            {hasVariant($state, "loginPage", "name")
+                            {hasVariant($state, "loginPage", "emailCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "name")
                               ? "+98 "
                               : hasVariant($state, "loginPage", "mobileCode")
                               ? "+98 "
@@ -1951,7 +2357,9 @@ function PlasmicLogin__RenderFunc(props: {
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
-                              hasVariant($state, "loginPage", "name")
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "name")
                                 ? Icon111Icon
                                 : hasVariant($state, "loginPage", "mobileCode")
                                 ? Icon111Icon
@@ -1965,6 +2373,8 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               sty.svg__advgG,
                               {
+                                [sty.svgloginPage_emailCode__advgGwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
                                 [sty.svgloginPage_email__advgGiYwOs]:
                                   hasVariant($state, "loginPage", "email"),
                                 [sty.svgloginPage_mobileCode__advgGm2GXn]:
@@ -1989,7 +2399,9 @@ function PlasmicLogin__RenderFunc(props: {
                         ])((e => e.target?.value).apply(null, eventArgs));
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "name")
+                        hasVariant($state, "loginPage", "emailCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "name")
                           ? "\u0645\u062b\u0644\u0627: \u0639\u0644\u06cc \u0645\u062d\u0645\u062f\u06cc"
                           : hasVariant($state, "loginPage", "mobileCode")
                           ? "09123456789"
@@ -2005,8 +2417,13 @@ function PlasmicLogin__RenderFunc(props: {
                           : true
                       }
                       type={
-                        hasVariant($state, "loginPage", "name") &&
+                        hasVariant($state, "loginPage", "emailCode") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "emailCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "name") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "text"
                           : hasVariant($state, "loginPage", "name")
                           ? "text"
@@ -2038,6 +2455,11 @@ function PlasmicLogin__RenderFunc(props: {
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__chggi, {
+                    [sty.freeBoxloginPage_emailCode__chggIwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__chggiiYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -2066,6 +2488,11 @@ function PlasmicLogin__RenderFunc(props: {
                       projectcss.__wab_text,
                       sty.text__hAmz0,
                       {
+                        [sty.textloginPage_emailCode__hAmz0WqwJl]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.textloginPage_email__hAmz0IYwOs]: hasVariant(
                           $state,
                           "loginPage",
@@ -2089,7 +2516,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "name")
+                    {hasVariant($state, "loginPage", "emailCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "name")
                       ? "\u0644\u0637\u0641\u0627 \u062c\u0646\u0633\u06cc\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646"
                       : hasVariant($state, "loginPage", "mobileCode")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -2105,7 +2534,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__ve2B1,
-                      hasVariant($state, "loginPage", "name")
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "name")
                         ? "negative"
                         : hasVariant($state, "loginPage", "mobileCode")
                         ? "negative"
@@ -2115,6 +2546,8 @@ function PlasmicLogin__RenderFunc(props: {
                         ? "negative"
                         : undefined,
                       {
+                        [sty.freeBoxloginPage_emailCode__ve2B1WqwJl]:
+                          hasVariant($state, "loginPage", "emailCode"),
                         [sty.freeBoxloginPage_email__ve2B1IYwOs]: hasVariant(
                           $state,
                           "loginPage",
@@ -2258,6 +2691,11 @@ function PlasmicLogin__RenderFunc(props: {
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__ihXz3, {
+                    [sty.freeBoxloginPage_emailCode__ihXz3WqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__ihXz3IYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -2286,6 +2724,11 @@ function PlasmicLogin__RenderFunc(props: {
                       projectcss.__wab_text,
                       sty.text__zRbjB,
                       {
+                        [sty.textloginPage_emailCode__zRbjBwqwJl]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.textloginPage_email__zRbjBiYwOs]: hasVariant(
                           $state,
                           "loginPage",
@@ -2309,7 +2752,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "name")
+                    {hasVariant($state, "loginPage", "emailCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "name")
                       ? "\u0627\u06af\u0647 \u06a9\u062f \u0645\u0639\u0631\u0641 \u062f\u0627\u0631\u06cc\u060c \u0627\u06cc\u0646\u062c\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646 (\u0627\u062e\u062a\u06cc\u0627\u0631\u06cc)"
                       : hasVariant($state, "loginPage", "mobileCode")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -2323,7 +2768,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__aAaMw,
-                      hasVariant($state, "loginPage", "name")
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "name")
                         ? "negative"
                         : hasVariant($state, "loginPage", "mobileCode")
                         ? "negative"
@@ -2333,6 +2780,8 @@ function PlasmicLogin__RenderFunc(props: {
                         ? "negative"
                         : undefined,
                       {
+                        [sty.freeBoxloginPage_emailCode__aAaMwwqwJl]:
+                          hasVariant($state, "loginPage", "emailCode"),
                         [sty.freeBoxloginPage_email__aAaMwIYwOs]: hasVariant(
                           $state,
                           "loginPage",
@@ -2403,6 +2852,11 @@ function PlasmicLogin__RenderFunc(props: {
                         );
                       })()}
                       className={classNames("__wab_instance", sty.textInput6, {
+                        [sty.textInput6loginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.textInput6loginPage_email]: hasVariant(
                           $state,
                           "loginPage",
@@ -2442,7 +2896,9 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__kwWcw,
-                              hasVariant($state, "loginPage", "name")
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "name")
                                 ? "negative"
                                 : hasVariant($state, "loginPage", "mobileCode")
                                 ? "negative"
@@ -2452,6 +2908,8 @@ function PlasmicLogin__RenderFunc(props: {
                                 ? "negative"
                                 : undefined,
                               {
+                                [sty.textloginPage_emailCode__kwWcwwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
                                 [sty.textloginPage_email__kwWcwIYwOs]:
                                   hasVariant($state, "loginPage", "email"),
                                 [sty.textloginPage_mobileCode__kwWcwm2GXn]:
@@ -2463,7 +2921,9 @@ function PlasmicLogin__RenderFunc(props: {
                               }
                             )}
                           >
-                            {hasVariant($state, "loginPage", "name")
+                            {hasVariant($state, "loginPage", "emailCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "name")
                               ? "+98 "
                               : hasVariant($state, "loginPage", "mobileCode")
                               ? "+98 "
@@ -2475,7 +2935,9 @@ function PlasmicLogin__RenderFunc(props: {
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
-                              hasVariant($state, "loginPage", "name")
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "name")
                                 ? Icon111Icon
                                 : hasVariant($state, "loginPage", "mobileCode")
                                 ? Icon111Icon
@@ -2489,6 +2951,8 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               sty.svg__lqzCk,
                               {
+                                [sty.svgloginPage_emailCode__lqzCkwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
                                 [sty.svgloginPage_email__lqzCkIYwOs]:
                                   hasVariant($state, "loginPage", "email"),
                                 [sty.svgloginPage_mobileCode__lqzCkm2GXn]:
@@ -2513,7 +2977,9 @@ function PlasmicLogin__RenderFunc(props: {
                         ])((e => e.target?.value).apply(null, eventArgs));
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "name")
+                        hasVariant($state, "loginPage", "emailCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "name")
                           ? "liom"
                           : hasVariant($state, "loginPage", "mobileCode")
                           ? "09123456789"
@@ -2529,8 +2995,13 @@ function PlasmicLogin__RenderFunc(props: {
                           : true
                       }
                       type={
-                        hasVariant($state, "loginPage", "name") &&
+                        hasVariant($state, "loginPage", "emailCode") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "emailCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "name") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "name")
                           ? "text"
@@ -2560,6 +3031,11 @@ function PlasmicLogin__RenderFunc(props: {
                 </Stack__>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__kpeHu, {
+                    [sty.freeBoxloginPage_emailCode__kpeHUwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__kpeHuiYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -2622,6 +3098,11 @@ function PlasmicLogin__RenderFunc(props: {
                       data-plasmic-name={"button4"}
                       data-plasmic-override={overrides.button4}
                       className={classNames("__wab_instance", sty.button4, {
+                        [sty.button4loginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.button4loginPage_email]: hasVariant(
                           $state,
                           "loginPage",
@@ -2647,23 +3128,51 @@ function PlasmicLogin__RenderFunc(props: {
                         "button4",
                         "color"
                       ])}
-                      disabled={(() => {
-                        try {
-                          return (
-                            ($state.antdInput2.value.length < 4 &&
-                              $state.gender == "") ||
-                            $state.loadedbtn
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
+                      disabled={
+                        hasVariant($state, "loginPage", "name")
+                          ? undefined
+                          : (() => {
+                              try {
+                                return (
+                                  ($state.antdInput2.value.length < 4 &&
+                                    $state.gender == "") ||
+                                  $state.loadedbtn
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                      }
+                      isDisabled={
+                        hasVariant($state, "loginPage", "name")
+                          ? (() => {
+                              try {
+                                return (
+                                  !(
+                                    $state.antdInput2.value?.trim().length >
+                                      2 &&
+                                    $state.gender != "" &&
+                                    $state.checkbox.isChecked == true
+                                  ) || $state.loadedbtn
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()
+                          : undefined
+                      }
                       loading={(() => {
                         try {
                           return $state.loadedbtn;
@@ -3019,6 +3528,8 @@ function PlasmicLogin__RenderFunc(props: {
                           projectcss.__wab_text,
                           sty.text__zaY8Q,
                           {
+                            [sty.textloginPage_emailCode__zaY8QwqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
                             [sty.textloginPage_email__zaY8QIYwOs]: hasVariant(
                               $state,
                               "loginPage",
@@ -3039,7 +3550,9 @@ function PlasmicLogin__RenderFunc(props: {
                           }
                         )}
                       >
-                        {hasVariant($state, "loginPage", "name")
+                        {hasVariant($state, "loginPage", "emailCode")
+                          ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                          : hasVariant($state, "loginPage", "name")
                           ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                           : hasVariant($state, "loginPage", "mobileCode")
                           ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
@@ -3056,7 +3569,9 @@ function PlasmicLogin__RenderFunc(props: {
             </Reveal>
           ) : null}
           {(
-            hasVariant($state, "loginPage", "name")
+            hasVariant($state, "loginPage", "emailCode")
+              ? true
+              : hasVariant($state, "loginPage", "name")
               ? true
               : hasVariant($state, "loginPage", "mobileCode")
               ? true
@@ -3067,23 +3582,30 @@ function PlasmicLogin__RenderFunc(props: {
               : false
           ) ? (
             <Reveal
-              className={classNames("__wab_instance", sty.reveal__gXj4A, {
-                [sty.revealloginPage_email__gXj4AIYwOs]: hasVariant(
+              data-plasmic-name={"mobileCode"}
+              data-plasmic-override={overrides.mobileCode}
+              className={classNames("__wab_instance", sty.mobileCode, {
+                [sty.mobileCodeloginPage_emailCode]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "emailCode"
+                ),
+                [sty.mobileCodeloginPage_email]: hasVariant(
                   $state,
                   "loginPage",
                   "email"
                 ),
-                [sty.revealloginPage_mobileCode__gXj4Am2GXn]: hasVariant(
+                [sty.mobileCodeloginPage_mobileCode]: hasVariant(
                   $state,
                   "loginPage",
                   "mobileCode"
                 ),
-                [sty.revealloginPage_mobile__gXj4A6MmOa]: hasVariant(
+                [sty.mobileCodeloginPage_mobile]: hasVariant(
                   $state,
                   "loginPage",
                   "mobile"
                 ),
-                [sty.revealloginPage_name__gXj4AhUiKy]: hasVariant(
+                [sty.mobileCodeloginPage_name]: hasVariant(
                   $state,
                   "loginPage",
                   "name"
@@ -3096,6 +3618,11 @@ function PlasmicLogin__RenderFunc(props: {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__ns0Tj, {
+                  [sty.freeBoxloginPage_emailCode__ns0TJwqwJl]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "emailCode"
+                  ),
                   [sty.freeBoxloginPage_email__ns0TjiYwOs]: hasVariant(
                     $state,
                     "loginPage",
@@ -3120,6 +3647,11 @@ function PlasmicLogin__RenderFunc(props: {
               >
                 <div
                   className={classNames(projectcss.all, sty.freeBox__k2Qk, {
+                    [sty.freeBoxloginPage_emailCode__k2QkWqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__k2QkIYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -3141,9 +3673,44 @@ function PlasmicLogin__RenderFunc(props: {
                       "name"
                     )
                   })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateLoginPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "loginPage",
+                            operation: 0,
+                            value: "mobile"
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            $stateSet($state, vgroup, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoginPage"] != null &&
+                      typeof $steps["updateLoginPage"] === "object" &&
+                      typeof $steps["updateLoginPage"].then === "function"
+                    ) {
+                      $steps["updateLoginPage"] = await $steps[
+                        "updateLoginPage"
+                      ];
+                    }
+                  }}
                 >
                   <IconIcon
                     className={classNames(projectcss.all, sty.svg__aydpl, {
+                      [sty.svgloginPage_emailCode__aydplwqwJl]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
                       [sty.svgloginPage_email__aydplIYwOs]: hasVariant(
                         $state,
                         "loginPage",
@@ -3172,6 +3739,11 @@ function PlasmicLogin__RenderFunc(props: {
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__cmdIp, {
+                    [sty.freeBoxloginPage_emailCode__cmdIpwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__cmdIpIYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -3196,6 +3768,11 @@ function PlasmicLogin__RenderFunc(props: {
                 >
                   <div
                     className={classNames(projectcss.all, sty.freeBox__pOmUn, {
+                      [sty.freeBoxloginPage_emailCode__pOmUnwqwJl]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
                       [sty.freeBoxloginPage_mobileCode__pOmUnm2GXn]: hasVariant(
                         $state,
                         "loginPage",
@@ -3209,6 +3786,11 @@ function PlasmicLogin__RenderFunc(props: {
                         projectcss.__wab_text,
                         sty.text___0LxR,
                         {
+                          [sty.textloginPage_emailCode___0LxRwqwJl]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
                           [sty.textloginPage_email___0LxRiYwOs]: hasVariant(
                             $state,
                             "loginPage",
@@ -3229,7 +3811,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       )}
                     >
-                      {hasVariant($state, "loginPage", "name")
+                      {hasVariant($state, "loginPage", "emailCode")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "name")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                         : hasVariant($state, "loginPage", "mobileCode")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -3245,6 +3829,11 @@ function PlasmicLogin__RenderFunc(props: {
                         projectcss.__wab_text,
                         sty.text__ua1Oz,
                         {
+                          [sty.textloginPage_emailCode__ua1OzwqwJl]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
                           [sty.textloginPage_email__ua1OzIYwOs]: hasVariant(
                             $state,
                             "loginPage",
@@ -3295,7 +3884,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       }}
                     >
-                      {hasVariant($state, "loginPage", "name")
+                      {hasVariant($state, "loginPage", "emailCode")
+                        ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647"
+                        : hasVariant($state, "loginPage", "name")
                         ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                         : hasVariant($state, "loginPage", "mobileCode")
                         ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647"
@@ -3310,7 +3901,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox___7YOd7,
-                      hasVariant($state, "loginPage", "name")
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "name")
                         ? "negative"
                         : hasVariant($state, "loginPage", "mobileCode")
                         ? "negative"
@@ -3320,6 +3913,8 @@ function PlasmicLogin__RenderFunc(props: {
                         ? "negative"
                         : undefined,
                       {
+                        [sty.freeBoxloginPage_emailCode___7YOd7WqwJl]:
+                          hasVariant($state, "loginPage", "emailCode"),
                         [sty.freeBoxloginPage_email___7YOd7IYwOs]: hasVariant(
                           $state,
                           "loginPage",
@@ -3351,6 +3946,11 @@ function PlasmicLogin__RenderFunc(props: {
                             "__wab_instance",
                             sty.antdInput4,
                             {
+                              [sty.antdInput4loginPage_emailCode]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "emailCode"
+                              ),
                               [sty.antdInput4loginPage_mobileCode]: hasVariant(
                                 $state,
                                 "loginPage",
@@ -3358,11 +3958,9 @@ function PlasmicLogin__RenderFunc(props: {
                               )
                             }
                           ),
-                          disabled: hasVariant(
-                            $state,
-                            "loginPage",
-                            "mobileCode"
-                          )
+                          disabled: hasVariant($state, "loginPage", "emailCode")
+                            ? true
+                            : hasVariant($state, "loginPage", "mobileCode")
                             ? true
                             : undefined,
                           onChange: async (...eventArgs: any) => {
@@ -3377,7 +3975,9 @@ function PlasmicLogin__RenderFunc(props: {
                             }).apply(null, eventArgs);
                           },
                           size: "large",
-                          type: hasVariant($state, "loginPage", "mobileCode")
+                          type: hasVariant($state, "loginPage", "emailCode")
+                            ? "tel"
+                            : hasVariant($state, "loginPage", "mobileCode")
                             ? "tel"
                             : undefined,
                           value: generateStateValueProp($state, [
@@ -3407,6 +4007,11 @@ function PlasmicLogin__RenderFunc(props: {
                         );
                       })()}
                       className={classNames("__wab_instance", sty.textInput3, {
+                        [sty.textInput3loginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.textInput3loginPage_email]: hasVariant(
                           $state,
                           "loginPage",
@@ -3442,7 +4047,9 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__bZkn,
-                              hasVariant($state, "loginPage", "name")
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "name")
                                 ? "negative"
                                 : hasVariant($state, "loginPage", "mobileCode")
                                 ? "negative"
@@ -3452,6 +4059,8 @@ function PlasmicLogin__RenderFunc(props: {
                                 ? "negative"
                                 : undefined,
                               {
+                                [sty.textloginPage_emailCode__bZknwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
                                 [sty.textloginPage_email__bZknIYwOs]:
                                   hasVariant($state, "loginPage", "email"),
                                 [sty.textloginPage_mobileCode__bZknm2GXn]:
@@ -3466,7 +4075,9 @@ function PlasmicLogin__RenderFunc(props: {
                               }
                             )}
                           >
-                            {hasVariant($state, "loginPage", "name")
+                            {hasVariant($state, "loginPage", "emailCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "name")
                               ? "+98 "
                               : hasVariant($state, "loginPage", "mobileCode")
                               ? "+98 "
@@ -3478,7 +4089,9 @@ function PlasmicLogin__RenderFunc(props: {
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
-                              hasVariant($state, "loginPage", "name")
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "name")
                                 ? Icon111Icon
                                 : hasVariant($state, "loginPage", "mobileCode")
                                 ? Icon111Icon
@@ -3492,6 +4105,8 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               sty.svg__xjj9F,
                               {
+                                [sty.svgloginPage_emailCode__xjj9FwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
                                 [sty.svgloginPage_email__xjj9FiYwOs]:
                                   hasVariant($state, "loginPage", "email"),
                                 [sty.svgloginPage_mobileCode__xjj9Fm2GXn]:
@@ -3516,7 +4131,9 @@ function PlasmicLogin__RenderFunc(props: {
                         ])((e => e.target?.value).apply(null, eventArgs));
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "name")
+                        hasVariant($state, "loginPage", "emailCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "name")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "mobileCode")
                           ? "09123456789"
@@ -3528,8 +4145,13 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                       showEndIcon={true}
                       type={
-                        hasVariant($state, "loginPage", "name") &&
+                        hasVariant($state, "loginPage", "emailCode") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "emailCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "name") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "name")
                           ? "tel"
@@ -3557,39 +4179,59 @@ function PlasmicLogin__RenderFunc(props: {
                     />
                   </div>
                   <Embed
-                    data-plasmic-name={"embedHtml"}
-                    data-plasmic-override={overrides.embedHtml}
-                    className={classNames("__wab_instance", sty.embedHtml, {
-                      [sty.embedHtmlloginPage_mobileCode]: hasVariant(
-                        $state,
-                        "loginPage",
-                        "mobileCode"
-                      ),
-                      [sty.embedHtmlloginPage_mobile]: hasVariant(
-                        $state,
-                        "loginPage",
-                        "mobile"
-                      ),
-                      [sty.embedHtmlloginPage_name]: hasVariant(
-                        $state,
-                        "loginPage",
-                        "name"
-                      )
-                    })}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.embedHtml__nn8DP,
+                      {
+                        [sty.embedHtmlloginPage_emailCode__nn8DPwqwJl]:
+                          hasVariant($state, "loginPage", "emailCode"),
+                        [sty.embedHtmlloginPage_mobileCode__nn8DPm2GXn]:
+                          hasVariant($state, "loginPage", "mobileCode"),
+                        [sty.embedHtmlloginPage_mobile__nn8DP6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.embedHtmlloginPage_name__nn8DPhUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
                     code={
-                      hasVariant($state, "loginPage", "mobileCode") &&
+                      hasVariant($state, "loginPage", "emailCode") &&
                       hasVariant(globalVariants, "screen", "mobile")
                         ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
-                        : hasVariant($state, "loginPage", "mobileCode")
+                        : hasVariant($state, "loginPage", "emailCode")
+                        ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput2(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput2(this, 1, \'digit3\')" onkeydown="moveToPrev2(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput2(this, 2, \'digit4\')" onkeydown="moveToPrev2(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput2(this, 3)" onkeydown="moveToPrev2(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput2(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev2(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                        : hasVariant($state, "loginPage", "mobileCode") &&
+                          hasVariant(globalVariants, "screen", "mobile")
                         ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
                         : hasVariant(globalVariants, "screen", "mobile")
                         ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="moveToNext(this, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="moveToNext(this, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="moveToNext(this, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    function moveToNext(current, nextFieldId) {\r\n        if (current.value.length === 1) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
-                        : '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                        : '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput2(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput2(this, 1, \'digit3\')" onkeydown="moveToPrev2(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput2(this, 2, \'digit4\')" onkeydown="moveToPrev2(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput2(this, 3)" onkeydown="moveToPrev2(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput2(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev2(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
                     }
                   />
 
                   {(
-                    hasVariant($state, "loginPage", "mobileCode")
+                    hasVariant($state, "loginPage", "emailCode")
+                      ? (() => {
+                          try {
+                            return $state.time != 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : hasVariant($state, "loginPage", "mobileCode")
                       ? (() => {
                           try {
                             return $state.time != 0;
@@ -3612,6 +4254,8 @@ function PlasmicLogin__RenderFunc(props: {
                         projectcss.all,
                         sty.freeBox__dIhpA,
                         {
+                          [sty.freeBoxloginPage_emailCode__dIhpAwqwJl]:
+                            hasVariant($state, "loginPage", "emailCode"),
                           [sty.freeBoxloginPage_mobileCode__dIhpAm2GXn]:
                             hasVariant($state, "loginPage", "mobileCode"),
                           [sty.freeBoxloginPage_mobile__dIhpA6MmOa]: hasVariant(
@@ -3628,12 +4272,30 @@ function PlasmicLogin__RenderFunc(props: {
                           projectcss.__wab_text,
                           sty.text__zsVmp,
                           {
+                            [sty.textloginPage_emailCode__zsVmpwqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
                             [sty.textloginPage_mobileCode__zsVmpm2GXn]:
                               hasVariant($state, "loginPage", "mobileCode")
                           }
                         )}
                       >
-                        {hasVariant($state, "loginPage", "mobileCode") ? (
+                        {hasVariant($state, "loginPage", "emailCode") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.time;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "0";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : hasVariant($state, "loginPage", "mobileCode") ? (
                           <React.Fragment>
                             {(() => {
                               try {
@@ -3659,27 +4321,34 @@ function PlasmicLogin__RenderFunc(props: {
                           projectcss.__wab_text,
                           sty.text__juCsk,
                           {
+                            [sty.textloginPage_emailCode__juCsKwqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
                             [sty.textloginPage_mobileCode__juCsKm2GXn]:
                               hasVariant($state, "loginPage", "mobileCode")
                           }
                         )}
                       >
-                        {hasVariant($state, "loginPage", "mobileCode")
+                        {hasVariant($state, "loginPage", "emailCode")
+                          ? "\u062a\u0627 \u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f \u06a9\u062f \u0645\u0627\u0646\u062f\u0647 \u0627\u0633\u062a"
+                          : hasVariant($state, "loginPage", "mobileCode")
                           ? "\u062a\u0627 \u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f \u06a9\u062f \u0645\u0627\u0646\u062f\u0647 \u0627\u0633\u062a"
                           : "Enter some text"}
                       </div>
                       <Timer
-                        data-plasmic-name={"timer"}
-                        data-plasmic-override={overrides.timer}
-                        className={classNames("__wab_instance", sty.timer, {
-                          [sty.timerloginPage_mobileCode]: hasVariant(
-                            $state,
-                            "loginPage",
-                            "mobileCode"
-                          )
-                        })}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.timer__ruoI,
+                          {
+                            [sty.timerloginPage_emailCode__ruoIwqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
+                            [sty.timerloginPage_mobileCode__ruoIm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode")
+                          }
+                        )}
                         intervalSeconds={
-                          hasVariant($state, "loginPage", "mobileCode")
+                          hasVariant($state, "loginPage", "emailCode")
+                            ? 1
+                            : hasVariant($state, "loginPage", "mobileCode")
                             ? 1
                             : undefined
                         }
@@ -3727,7 +4396,21 @@ function PlasmicLogin__RenderFunc(props: {
                     </Stack__>
                   ) : null}
                   {(
-                    hasVariant($state, "loginPage", "mobileCode")
+                    hasVariant($state, "loginPage", "emailCode")
+                      ? (() => {
+                          try {
+                            return $state.time == 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : hasVariant($state, "loginPage", "mobileCode")
                       ? (() => {
                           try {
                             return $state.time == 0;
@@ -3750,6 +4433,8 @@ function PlasmicLogin__RenderFunc(props: {
                         projectcss.all,
                         sty.freeBox__xdA4U,
                         {
+                          [sty.freeBoxloginPage_emailCode__xdA4UwqwJl]:
+                            hasVariant($state, "loginPage", "emailCode"),
                           [sty.freeBoxloginPage_mobileCode__xdA4Um2GXn]:
                             hasVariant($state, "loginPage", "mobileCode")
                         }
@@ -3761,12 +4446,16 @@ function PlasmicLogin__RenderFunc(props: {
                           projectcss.__wab_text,
                           sty.text__nqFb,
                           {
+                            [sty.textloginPage_emailCode__nqFbwqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
                             [sty.textloginPage_mobileCode__nqFbm2GXn]:
                               hasVariant($state, "loginPage", "mobileCode")
                           }
                         )}
                       >
-                        {hasVariant($state, "loginPage", "mobileCode")
+                        {hasVariant($state, "loginPage", "emailCode")
+                          ? "23"
+                          : hasVariant($state, "loginPage", "mobileCode")
                           ? "23"
                           : "Enter some text"}
                       </div>
@@ -3776,6 +4465,11 @@ function PlasmicLogin__RenderFunc(props: {
                           projectcss.__wab_text,
                           sty.text__hNv,
                           {
+                            [sty.textloginPage_emailCode__hNvwqwJl]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "emailCode"
+                            ),
                             [sty.textloginPage_mobileCode__hNvm2GXn]:
                               hasVariant($state, "loginPage", "mobileCode")
                           }
@@ -3888,7 +4582,9 @@ function PlasmicLogin__RenderFunc(props: {
                           }
                         }}
                       >
-                        {hasVariant($state, "loginPage", "mobileCode")
+                        {hasVariant($state, "loginPage", "emailCode")
+                          ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
+                          : hasVariant($state, "loginPage", "mobileCode")
                           ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
                           : "Enter some text"}
                       </div>
@@ -3897,6 +4593,11 @@ function PlasmicLogin__RenderFunc(props: {
                 </Stack__>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__iXvYk, {
+                    [sty.freeBoxloginPage_emailCode__iXvYkwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__iXvYkIYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -3923,6 +4624,11 @@ function PlasmicLogin__RenderFunc(props: {
                     data-plasmic-name={"button3"}
                     data-plasmic-override={overrides.button3}
                     className={classNames("__wab_instance", sty.button3, {
+                      [sty.button3loginPage_emailCode]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
                       [sty.button3loginPage_email]: hasVariant(
                         $state,
                         "loginPage",
@@ -3948,6 +4654,11 @@ function PlasmicLogin__RenderFunc(props: {
                     endIcon={
                       <Icon115Icon
                         className={classNames(projectcss.all, sty.svg__opVjO, {
+                          [sty.svgloginPage_emailCode__opVjOwqwJl]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
                           [sty.svgloginPage_mobileCode__opVjOm2GXn]: hasVariant(
                             $state,
                             "loginPage",
@@ -3958,7 +4669,21 @@ function PlasmicLogin__RenderFunc(props: {
                       />
                     }
                     isDisabled={
-                      hasVariant($state, "loginPage", "mobileCode")
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? (() => {
+                            try {
+                              return $state.loadedbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        : hasVariant($state, "loginPage", "mobileCode")
                         ? (() => {
                             try {
                               return $state.loadedbtn;
@@ -3975,7 +4700,21 @@ function PlasmicLogin__RenderFunc(props: {
                         : undefined
                     }
                     loading={
-                      hasVariant($state, "loginPage", "mobileCode")
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? (() => {
+                            try {
+                              return $state.loadedbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        : hasVariant($state, "loginPage", "mobileCode")
                         ? (() => {
                             try {
                               return $state.loadedbtn;
@@ -4064,38 +4803,38 @@ function PlasmicLogin__RenderFunc(props: {
                         $steps["updateCods"] = await $steps["updateCods"];
                       }
 
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://api.liom.app/auth/signup/validate_v2",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      code: $state.cods,
-                                      data: $state.number
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
+                      $steps["invokeGlobalAction"] =
+                        $state.typeLogin == "signup"
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/auth/signup/validate",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        code: $state.cods,
+                                        data: $state.number
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                       if (
                         $steps["invokeGlobalAction"] != null &&
                         typeof $steps["invokeGlobalAction"] === "object" &&
@@ -4103,6 +4842,146 @@ function PlasmicLogin__RenderFunc(props: {
                       ) {
                         $steps["invokeGlobalAction"] = await $steps[
                           "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction3"] =
+                        $state.typeLogin == "login"
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/auth/login",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        code: $state.cods,
+                                        type: $state.type,
+                                        name: "",
+                                        data: $state.number || $state.email,
+                                        username: "",
+                                        target: "calendar",
+                                        sex: $state.gender || "",
+                                        token: $state.token || "",
+                                        version: "",
+                                        lang: "fa",
+                                        country: "98",
+                                        anotherLang: "fa",
+                                        device: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (
+                                            /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                              userAgent
+                                            )
+                                          ) {
+                                            return "Mobile";
+                                          } else if (
+                                            /Tablet|iPad/i.test(userAgent)
+                                          ) {
+                                            return "Tablet";
+                                          } else {
+                                            return "Desktop";
+                                          }
+                                        })(),
+                                        uniqueId: $$.uuid.v4(),
+                                        fcm: "  ",
+                                        os: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          const platform =
+                                            window.navigator.userAgent;
+                                          if (/Windows/i.test(platform))
+                                            return "Windows";
+                                          if (/Mac/i.test(platform))
+                                            return "macOS";
+                                          if (/Linux/i.test(platform))
+                                            return "Linux";
+                                          if (/Android/i.test(userAgent))
+                                            return "Android";
+                                          if (
+                                            /iPhone|iPad|iPod/i.test(userAgent)
+                                          )
+                                            return "iOS";
+                                          return "Unknown OS";
+                                        })(),
+                                        osVersion: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (/Windows NT 10.0/.test(userAgent))
+                                            return "Windows 10";
+                                          if (/Windows NT 6.3/.test(userAgent))
+                                            return "Windows 8.1";
+                                          if (/Windows NT 6.2/.test(userAgent))
+                                            return "Windows 8";
+                                          if (/Windows NT 6.1/.test(userAgent))
+                                            return "Windows 7";
+                                          if (
+                                            /Mac OS X (\d+[\._]\d+)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `macOS ${RegExp.$1.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          if (
+                                            /Android (\d+(\.\d+)?)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `Android ${RegExp.$1}`;
+                                          if (
+                                            /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `iOS ${RegExp.$2.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          return "Unknown Version";
+                                        })(),
+                                        password: "",
+                                        postLang: "fa",
+                                        refCode: $state.antdInput3.value || "",
+                                        isCountryPending: false,
+                                        device_type: window.navigator.platform,
+                                        additionalData: {
+                                          ip: "132465",
+                                          name: "test1"
+                                        },
+                                        city: null,
+                                        state: null,
+                                        birthYear: null,
+                                        religious: 0
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction3"] != null &&
+                        typeof $steps["invokeGlobalAction3"] === "object" &&
+                        typeof $steps["invokeGlobalAction3"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction3"] = await $steps[
+                          "invokeGlobalAction3"
                         ];
                       }
 
@@ -4172,7 +5051,7 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["updateLoginData"] =
-                        $steps.invokeGlobalAction?.data?.success == true &&
+                        $steps.invokeGlobalAction3?.data?.success == true &&
                         $state.typeLogin == "login"
                           ? (() => {
                               const actionArgs = {
@@ -4181,7 +5060,7 @@ function PlasmicLogin__RenderFunc(props: {
                                   variablePath: ["loginData"]
                                 },
                                 operation: 0,
-                                value: $steps.invokeGlobalAction.data
+                                value: $steps.invokeGlobalAction3.data
                               };
                               return (({
                                 variable,
@@ -4210,7 +5089,8 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["invokeGlobalAction2"] =
-                        $steps.invokeGlobalAction?.data?.success == false
+                        $steps.invokeGlobalAction?.data?.success == false ||
+                        $steps.invokeGlobalAction3?.data?.success == false
                           ? (() => {
                               const actionArgs = {
                                 args: [
@@ -4235,7 +5115,7 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["goToPage"] =
-                        $steps.invokeGlobalAction?.data?.success == true &&
+                        $steps.invokeGlobalAction3?.data?.success == true &&
                         $state.typeLogin == "login"
                           ? (() => {
                               const actionArgs = {
@@ -4334,6 +5214,11 @@ function PlasmicLogin__RenderFunc(props: {
                         projectcss.__wab_text,
                         sty.text__xsc0N,
                         {
+                          [sty.textloginPage_emailCode__xsc0NwqwJl]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
                           [sty.textloginPage_email__xsc0NIYwOs]: hasVariant(
                             $state,
                             "loginPage",
@@ -4354,7 +5239,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       )}
                     >
-                      {hasVariant($state, "loginPage", "name")
+                      {hasVariant($state, "loginPage", "emailCode")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "name")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                         : hasVariant($state, "loginPage", "mobileCode")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
@@ -4370,7 +5257,1746 @@ function PlasmicLogin__RenderFunc(props: {
             </Reveal>
           ) : null}
           {(
-            hasVariant($state, "loginPage", "name")
+            hasVariant($state, "loginPage", "emailCode")
+              ? true
+              : hasVariant($state, "loginPage", "name")
+              ? true
+              : hasVariant($state, "loginPage", "mobileCode")
+              ? true
+              : hasVariant($state, "loginPage", "email")
+              ? true
+              : hasVariant($state, "loginPage", "mobile")
+              ? true
+              : false
+          ) ? (
+            <Reveal
+              data-plasmic-name={"emailCode"}
+              data-plasmic-override={overrides.emailCode}
+              className={classNames("__wab_instance", sty.emailCode, {
+                [sty.emailCodeloginPage_emailCode]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "emailCode"
+                ),
+                [sty.emailCodeloginPage_email]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "email"
+                ),
+                [sty.emailCodeloginPage_mobileCode]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobileCode"
+                ),
+                [sty.emailCodeloginPage_mobile]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "mobile"
+                ),
+                [sty.emailCodeloginPage_name]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "name"
+                )
+              })}
+              effect={"fade"}
+              triggerOnce={true}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__aMseF, {
+                  [sty.freeBoxloginPage_emailCode__aMseFwqwJl]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "emailCode"
+                  ),
+                  [sty.freeBoxloginPage_email__aMseFiYwOs]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "email"
+                  ),
+                  [sty.freeBoxloginPage_mobileCode__aMseFm2GXn]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobileCode"
+                  ),
+                  [sty.freeBoxloginPage_mobile__aMseF6MmOa]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobile"
+                  ),
+                  [sty.freeBoxloginPage_name__aMseFhUiKy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
+                  )
+                })}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___6Y0Uu, {
+                    [sty.freeBoxloginPage_emailCode___6Y0UuwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
+                    [sty.freeBoxloginPage_email___6Y0UuIYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode___6Y0Uum2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile___6Y0Uu6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name___6Y0UuhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateLoginPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "loginPage",
+                            operation: 0,
+                            value: "email"
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            $stateSet($state, vgroup, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoginPage"] != null &&
+                      typeof $steps["updateLoginPage"] === "object" &&
+                      typeof $steps["updateLoginPage"].then === "function"
+                    ) {
+                      $steps["updateLoginPage"] = await $steps[
+                        "updateLoginPage"
+                      ];
+                    }
+                  }}
+                >
+                  <IconIcon
+                    className={classNames(projectcss.all, sty.svg__ynPqQ, {
+                      [sty.svgloginPage_emailCode__ynPqQwqwJl]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
+                      [sty.svgloginPage_email__ynPqQiYwOs]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.svgloginPage_mobileCode__ynPqQm2GXn]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.svgloginPage_mobile__ynPqQ6MmOa]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.svgloginPage_name__ynPqQhUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    })}
+                    role={"img"}
+                  />
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__eepWs, {
+                    [sty.freeBoxloginPage_emailCode__eepWSwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
+                    [sty.freeBoxloginPage_email__eepWsiYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__eepWSm2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__eepWs6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__eepWShUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__vyo85, {
+                      [sty.freeBoxloginPage_emailCode__vyo85WqwJl]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
+                      [sty.freeBoxloginPage_mobileCode__vyo85M2GXn]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      )
+                    })}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___25YoX,
+                        {
+                          [sty.textloginPage_emailCode___25YoXwqwJl]:
+                            hasVariant($state, "loginPage", "emailCode"),
+                          [sty.textloginPage_email___25YoXiYwOs]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "email"
+                          ),
+                          [sty.textloginPage_mobileCode___25YoXm2GXn]:
+                            hasVariant($state, "loginPage", "mobileCode"),
+                          [sty.textloginPage_mobile___25YoX6MmOa]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          ),
+                          [sty.textloginPage_name___25YoXhUiKy]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "loginPage", "emailCode")
+                        ? "\u0627\u06cc\u0645\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "name")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : "Enter some text"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___7R0Wq,
+                        {
+                          [sty.textloginPage_emailCode___7R0WQwqwJl]:
+                            hasVariant($state, "loginPage", "emailCode"),
+                          [sty.textloginPage_email___7R0WqiYwOs]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "email"
+                          ),
+                          [sty.textloginPage_mobileCode___7R0WQm2GXn]:
+                            hasVariant($state, "loginPage", "mobileCode"),
+                          [sty.textloginPage_mobile___7R0Wq6MmOa]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          ),
+                          [sty.textloginPage_name___7R0WQhUiKy]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          )
+                        }
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateLoginPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                vgroup: "loginPage",
+                                operation: 0,
+                                value: "email"
+                              };
+                              return (({ vgroup, value }) => {
+                                if (typeof value === "string") {
+                                  value = [value];
+                                }
+
+                                $stateSet($state, vgroup, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoginPage"] != null &&
+                          typeof $steps["updateLoginPage"] === "object" &&
+                          typeof $steps["updateLoginPage"].then === "function"
+                        ) {
+                          $steps["updateLoginPage"] = await $steps[
+                            "updateLoginPage"
+                          ];
+                        }
+                      }}
+                    >
+                      {hasVariant($state, "loginPage", "emailCode")
+                        ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0627\u06cc\u0645\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "name")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0634\u0645\u0627\u0631\u0647"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                        : "Enter some text"}
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__ddMJo,
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "name")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "negative"
+                        : undefined,
+                      {
+                        [sty.freeBoxloginPage_emailCode__ddMJowqwJl]:
+                          hasVariant($state, "loginPage", "emailCode"),
+                        [sty.freeBoxloginPage_email__ddMJoIYwOs]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.freeBoxloginPage_mobileCode__ddMJom2GXn]:
+                          hasVariant($state, "loginPage", "mobileCode"),
+                        [sty.freeBoxloginPage_mobile__ddMJo6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.freeBoxloginPage_name__ddMJohUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                  >
+                    <TextInput
+                      data-plasmic-name={"textInput5"}
+                      data-plasmic-override={overrides.textInput5}
+                      antdInput2={(() => {
+                        const child$Props = {
+                          "aria-label": ``,
+                          bordered: false,
+                          className: classNames(
+                            "__wab_instance",
+                            sty.antdInput6,
+                            {
+                              [sty.antdInput6loginPage_emailCode]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "emailCode"
+                              ),
+                              [sty.antdInput6loginPage_mobileCode]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "mobileCode"
+                              )
+                            }
+                          ),
+                          disabled: hasVariant($state, "loginPage", "emailCode")
+                            ? true
+                            : hasVariant($state, "loginPage", "mobileCode")
+                            ? true
+                            : undefined,
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["antdInput6", "value"],
+                              Input_Helpers
+                            ).apply(null, eventArgs);
+                            (async event => {
+                              const $steps = {};
+                            }).apply(null, eventArgs);
+                          },
+                          placeholder: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          )
+                            ? "liom@gmail.com"
+                            : undefined,
+                          size: "large",
+                          type: hasVariant($state, "loginPage", "emailCode")
+                            ? "email"
+                            : hasVariant($state, "loginPage", "mobileCode")
+                            ? "tel"
+                            : undefined,
+                          value: generateStateValueProp($state, [
+                            "antdInput6",
+                            "value"
+                          ])
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "antdInput6.value"
+                            }
+                          ],
+                          [],
+                          Input_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <Input
+                            data-plasmic-name={"antdInput6"}
+                            data-plasmic-override={overrides.antdInput6}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
+                      className={classNames("__wab_instance", sty.textInput5, {
+                        [sty.textInput5loginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
+                        [sty.textInput5loginPage_email]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "email"
+                        ),
+                        [sty.textInput5loginPage_mobileCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobileCode"
+                        ),
+                        [sty.textInput5loginPage_mobile]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.textInput5loginPage_name]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      })}
+                      endIcon={
+                        <React.Fragment>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___8Z1Qe,
+                              {
+                                [sty.freeBoxloginPage_emailCode___8Z1QEwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode")
+                              }
+                            )}
+                          />
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__lNsEe,
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "name")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "email")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? "negative"
+                                : undefined,
+                              {
+                                [sty.textloginPage_emailCode__lNsEEwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
+                                [sty.textloginPage_email__lNsEeiYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.textloginPage_mobileCode__lNsEEm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.textloginPage_mobile__lNsEe6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.textloginPage_name__lNsEEhUiKy]:
+                                  hasVariant($state, "loginPage", "name")
+                              }
+                            )}
+                          >
+                            {hasVariant($state, "loginPage", "emailCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "name")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobileCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "email")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "mobile")
+                              ? "+98 "
+                              : "Enter some text"}
+                          </div>
+                          <PlasmicIcon__
+                            PlasmicIconType={
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "name")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobileCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "email")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "mobile")
+                                ? Icon111Icon
+                                : "div"
+                            }
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___1J9Qb,
+                              {
+                                [sty.svgloginPage_emailCode___1J9QbwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
+                                [sty.svgloginPage_email___1J9QbIYwOs]:
+                                  hasVariant($state, "loginPage", "email"),
+                                [sty.svgloginPage_mobileCode___1J9Qbm2GXn]:
+                                  hasVariant($state, "loginPage", "mobileCode"),
+                                [sty.svgloginPage_mobile___1J9Qb6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile"),
+                                [sty.svgloginPage_name___1J9QbhUiKy]:
+                                  hasVariant($state, "loginPage", "name")
+                              }
+                            )}
+                            role={"img"}
+                          />
+                        </React.Fragment>
+                      }
+                      isDisabled={
+                        hasVariant($state, "loginPage", "emailCode")
+                          ? true
+                          : undefined
+                      }
+                      onChange={(...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "textInput5",
+                          "value"
+                        ])((e => e.target?.value).apply(null, eventArgs));
+                      }}
+                      placeholder={
+                        hasVariant($state, "loginPage", "emailCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "name")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "email")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "09123456789"
+                          : "09123456789"
+                      }
+                      showEndIcon={
+                        hasVariant($state, "loginPage", "emailCode")
+                          ? undefined
+                          : true
+                      }
+                      showStartIcon={
+                        hasVariant($state, "loginPage", "emailCode")
+                          ? true
+                          : undefined
+                      }
+                      startIcon={
+                        <PlasmicIcon__
+                          PlasmicIconType={
+                            hasVariant($state, "loginPage", "emailCode")
+                              ? Icon109Icon
+                              : SearchSvgIcon
+                          }
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg__en0Jf,
+                            {
+                              [sty.svgloginPage_emailCode__en0JfwqwJl]:
+                                hasVariant($state, "loginPage", "emailCode")
+                            }
+                          )}
+                          role={"img"}
+                        />
+                      }
+                      type={
+                        hasVariant($state, "loginPage", "emailCode") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "emailCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "name") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "name")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobileCode") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "email") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "mobile")
+                          ? "tel"
+                          : undefined
+                      }
+                      value={
+                        generateStateValueProp($state, [
+                          "textInput5",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__j8SB,
+                      {
+                        [sty.textloginPage_emailCode__j8SBwqwJl]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "loginPage", "emailCode")
+                      ? "\u0644\u0637\u0641\u0627 \u0639\u0644\u0627\u0648\u0647 \u0628\u0631 \u0644\u06cc\u0633\u062a \u0627\u06cc\u0645\u06cc\u0644 \u0647\u0627\u060c \u067e\u0648\u0634\u0647 \u0647\u0631\u0632\u0646\u0627\u0645\u0647 (spam) \u0631\u0627 \u0647\u0645 \u0686\u06a9 \u06a9\u0646\u06cc\u062f."
+                      : "Enter some text"}
+                  </div>
+                  <Embed
+                    className={classNames(
+                      "__wab_instance",
+                      sty.embedHtml__bV0Cs,
+                      {
+                        [sty.embedHtmlloginPage_emailCode__bV0CswqwJl]:
+                          hasVariant($state, "loginPage", "emailCode"),
+                        [sty.embedHtmlloginPage_mobileCode__bV0Csm2GXn]:
+                          hasVariant($state, "loginPage", "mobileCode"),
+                        [sty.embedHtmlloginPage_mobile__bV0Cs6MmOa]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "mobile"
+                        ),
+                        [sty.embedHtmlloginPage_name__bV0CshUiKy]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "name"
+                        )
+                      }
+                    )}
+                    code={
+                      hasVariant($state, "loginPage", "emailCode") &&
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                        : hasVariant($state, "loginPage", "emailCode")
+                        ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit5" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit6\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit6" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit7\')" onkeydown="moveToPrev(event, \'digit5\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit7" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit8\')" onkeydown="moveToPrev(event, \'digit6\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit8" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit7\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                        : hasVariant($state, "loginPage", "mobileCode") &&
+                          hasVariant(globalVariants, "screen", "mobile")
+                        ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 8px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                        : hasVariant(globalVariants, "screen", "mobile")
+                        ? '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit1" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="moveToNext(this, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit2" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="moveToNext(this, \'digit3\')" onkeydown="moveToPrev(event, \'digit1\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit3" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="moveToNext(this, \'digit4\')" onkeydown="moveToPrev(event, \'digit2\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit4" onfocus="this.style.borderColor=\'#800080\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           onkeydown="moveToPrev(event, \'digit3\')">\r\n</div>\r\n\r\n<script>\r\n    function moveToNext(current, nextFieldId) {\r\n        if (current.value.length === 1) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                        : '<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; box-sizing: border-box; direction: ltr;">\r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit5" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 0, \'digit6\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit6" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 1, \'digit7\')" onkeydown="moveToPrev(event, \'digit5\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit7" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 2, \'digit8\')" onkeydown="moveToPrev(event, \'digit6\')">\r\n           \r\n    <input type="text" maxlength="1" \r\n           style="width: 60px; height: 60px; font-size: 24px; text-align: center; border: 2px solid #ccc; border-radius: 5px; background-color: transparent; outline: none;" \r\n           id="digit8" onfocus="this.style.borderColor=\'#8254C6\'" onblur="this.style.borderColor=\'#ccc\'" \r\n           oninput="handleInput(this, 3)" onkeydown="moveToPrev(event, \'digit7\')">\r\n</div>\r\n\r\n<script>\r\n    // \u062a\u0639\u0631\u06cc\u0641 \u0645\u062a\u063a\u06cc\u0631 \u0622\u0631\u0627\u06cc\u0647\u200c\u0627\u06cc \u062f\u0631 window\r\n    window.inputValues = ["", "", "", ""];\r\n\r\n    function handleInput(current, index, nextFieldId) {\r\n        // \u0630\u062e\u06cc\u0631\u0647 \u0645\u0642\u062f\u0627\u0631 \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u062f\u0631 \u0622\u0631\u0627\u06cc\u0647\r\n        window.inputValues[index] = current.value;\r\n        \r\n        // \u062d\u0631\u06a9\u062a \u0628\u0647 \u0641\u06cc\u0644\u062f \u0628\u0639\u062f\u06cc \u062f\u0631 \u0635\u0648\u0631\u062a \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u0645\u0642\u062f\u0627\u0631\r\n        if (current.value.length === 1 && nextFieldId) {\r\n            document.getElementById(nextFieldId).focus();\r\n        }\r\n    }\r\n\r\n    function moveToPrev(event, prevFieldId) {\r\n        if (event.key === "Backspace" && !event.target.value) {\r\n            document.getElementById(prevFieldId).focus();\r\n        }\r\n    }\r\n</script>\r\n'
+                    }
+                  />
+
+                  {(
+                    hasVariant($state, "loginPage", "emailCode")
+                      ? (() => {
+                          try {
+                            return $state.time != 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : hasVariant($state, "loginPage", "mobileCode")
+                      ? (() => {
+                          try {
+                            return $state.time != 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  ) ? (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__jKhJ2,
+                        {
+                          [sty.freeBoxloginPage_emailCode__jKhJ2WqwJl]:
+                            hasVariant($state, "loginPage", "emailCode"),
+                          [sty.freeBoxloginPage_mobileCode__jKhJ2M2GXn]:
+                            hasVariant($state, "loginPage", "mobileCode"),
+                          [sty.freeBoxloginPage_mobile__jKhJ26MmOa]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          )
+                        }
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__yfiev,
+                          {
+                            [sty.textloginPage_emailCode__yfieVwqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
+                            [sty.textloginPage_mobileCode__yfieVm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode")
+                          }
+                        )}
+                      >
+                        {hasVariant($state, "loginPage", "emailCode") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.time;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "0";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : hasVariant($state, "loginPage", "mobileCode") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.time;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "0";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          "Enter some text"
+                        )}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__nXf,
+                          {
+                            [sty.textloginPage_emailCode__nXfWqwJl]: hasVariant(
+                              $state,
+                              "loginPage",
+                              "emailCode"
+                            ),
+                            [sty.textloginPage_mobileCode__nXfM2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode")
+                          }
+                        )}
+                      >
+                        {hasVariant($state, "loginPage", "emailCode")
+                          ? "\u062a\u0627 \u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f \u06a9\u062f \u0645\u0627\u0646\u062f\u0647 \u0627\u0633\u062a"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "\u062a\u0627 \u0627\u0631\u0633\u0627\u0644 \u0645\u062c\u062f\u062f \u06a9\u062f \u0645\u0627\u0646\u062f\u0647 \u0627\u0633\u062a"
+                          : "Enter some text"}
+                      </div>
+                      <Timer
+                        className={classNames(
+                          "__wab_instance",
+                          sty.timer__k1TTg,
+                          {
+                            [sty.timerloginPage_emailCode__k1TTGwqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
+                            [sty.timerloginPage_mobileCode__k1TTGm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode")
+                          }
+                        )}
+                        intervalSeconds={
+                          hasVariant($state, "loginPage", "emailCode")
+                            ? 1
+                            : hasVariant($state, "loginPage", "mobileCode")
+                            ? 1
+                            : undefined
+                        }
+                        isRunning={true}
+                        onTick={async () => {
+                          const $steps = {};
+
+                          $steps["updateTime"] =
+                            $state.time > 0
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["time"]
+                                    },
+                                    operation: 0,
+                                    value: $state.time - 1
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateTime"] != null &&
+                            typeof $steps["updateTime"] === "object" &&
+                            typeof $steps["updateTime"].then === "function"
+                          ) {
+                            $steps["updateTime"] = await $steps["updateTime"];
+                          }
+                        }}
+                        runWhileEditing={false}
+                      />
+                    </Stack__>
+                  ) : null}
+                  {(
+                    hasVariant($state, "loginPage", "emailCode")
+                      ? (() => {
+                          try {
+                            return $state.time == 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : hasVariant($state, "loginPage", "mobileCode")
+                      ? (() => {
+                          try {
+                            return $state.time == 0;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })()
+                      : true
+                  ) ? (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__v7T1L,
+                        {
+                          [sty.freeBoxloginPage_emailCode__v7T1LwqwJl]:
+                            hasVariant($state, "loginPage", "emailCode"),
+                          [sty.freeBoxloginPage_mobileCode__v7T1Lm2GXn]:
+                            hasVariant($state, "loginPage", "mobileCode")
+                        }
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xgTq,
+                          {
+                            [sty.textloginPage_emailCode__xgTqWqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
+                            [sty.textloginPage_mobileCode__xgTqM2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode")
+                          }
+                        )}
+                      >
+                        {hasVariant($state, "loginPage", "emailCode")
+                          ? "23"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "23"
+                          : "Enter some text"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__abwir,
+                          {
+                            [sty.textloginPage_emailCode__abwirwqwJl]:
+                              hasVariant($state, "loginPage", "emailCode"),
+                            [sty.textloginPage_mobileCode__abwirm2GXn]:
+                              hasVariant($state, "loginPage", "mobileCode")
+                          }
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateTime"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["time"]
+                                  },
+                                  operation: 0,
+                                  value: 30
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateTime"] != null &&
+                            typeof $steps["updateTime"] === "object" &&
+                            typeof $steps["updateTime"].then === "function"
+                          ) {
+                            $steps["updateTime"] = await $steps["updateTime"];
+                          }
+
+                          $steps["invokeGlobalAction"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/auth/signup/send-code-v2",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          type: $state.type,
+                                          country: "98",
+                                          smsType: "sms",
+                                          data: $state.email
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+
+                          $steps["invokeGlobalAction2"] =
+                            $steps.invokeGlobalAction?.data?.success == true
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      undefined,
+                                      "\u06a9\u062f \u0645\u062c\u062f\u062f\u0627\u064b \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0627\u0631\u0633\u0627\u0644 \u0634\u062f.",
+                                      "top-left"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction2"] != null &&
+                            typeof $steps["invokeGlobalAction2"] === "object" &&
+                            typeof $steps["invokeGlobalAction2"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction2"] = await $steps[
+                              "invokeGlobalAction2"
+                            ];
+                          }
+                        }}
+                      >
+                        {hasVariant($state, "loginPage", "emailCode")
+                          ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
+                          : hasVariant($state, "loginPage", "mobileCode")
+                          ? "\u062f\u0631\u06cc\u0627\u0641\u062a \u0645\u062c\u062f\u062f \u06a9\u062f"
+                          : "Enter some text"}
+                      </div>
+                    </Stack__>
+                  ) : null}
+                </Stack__>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__tCt3Y, {
+                    [sty.freeBoxloginPage_emailCode__tCt3YwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
+                    [sty.freeBoxloginPage_email__tCt3YiYwOs]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "email"
+                    ),
+                    [sty.freeBoxloginPage_mobileCode__tCt3Ym2GXn]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobileCode"
+                    ),
+                    [sty.freeBoxloginPage_mobile__tCt3Y6MmOa]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "mobile"
+                    ),
+                    [sty.freeBoxloginPage_name__tCt3YhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                >
+                  <Button
+                    data-plasmic-name={"button7"}
+                    data-plasmic-override={overrides.button7}
+                    className={classNames("__wab_instance", sty.button7, {
+                      [sty.button7loginPage_emailCode]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
+                      [sty.button7loginPage_email]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "email"
+                      ),
+                      [sty.button7loginPage_mobileCode]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobileCode"
+                      ),
+                      [sty.button7loginPage_mobile]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "mobile"
+                      ),
+                      [sty.button7loginPage_name]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    })}
+                    color={generateStateValueProp($state, ["button7", "color"])}
+                    endIcon={
+                      <Icon115Icon
+                        className={classNames(projectcss.all, sty.svg__nnd9U, {
+                          [sty.svgloginPage_emailCode__nnd9UwqwJl]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
+                          [sty.svgloginPage_mobileCode__nnd9Um2GXn]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobileCode"
+                          )
+                        })}
+                        role={"img"}
+                      />
+                    }
+                    isDisabled={
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? (() => {
+                            try {
+                              return $state.loadedbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? (() => {
+                            try {
+                              return $state.loadedbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        : undefined
+                    }
+                    loading={
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? (() => {
+                            try {
+                              return $state.loadedbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? (() => {
+                            try {
+                              return $state.loadedbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        : undefined
+                    }
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateLoadedbtn"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadedbtn"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadedbtn"] != null &&
+                        typeof $steps["updateLoadedbtn"] === "object" &&
+                        typeof $steps["updateLoadedbtn"].then === "function"
+                      ) {
+                        $steps["updateLoadedbtn"] = await $steps[
+                          "updateLoadedbtn"
+                        ];
+                      }
+
+                      $steps["updateCods"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["cods"]
+                              },
+                              operation: 0,
+                              value: parseInt(window.inputValues.join(""))
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateCods"] != null &&
+                        typeof $steps["updateCods"] === "object" &&
+                        typeof $steps["updateCods"].then === "function"
+                      ) {
+                        $steps["updateCods"] = await $steps["updateCods"];
+                      }
+
+                      $steps["invokeGlobalAction"] =
+                        $state.typeLogin == "signup"
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/auth/signup/validate",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        code: $state.cods,
+                                        data: $state.email
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction3"] =
+                        $state.typeLogin == "login"
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/auth/login",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        code: $state.cods,
+                                        type: $state.type,
+                                        name: "",
+                                        data: $state.number || $state.email,
+                                        username: "",
+                                        target: "calendar",
+                                        sex: $state.gender || "",
+                                        token: $state.token || "",
+                                        version: "",
+                                        lang: "fa",
+                                        country: "98",
+                                        anotherLang: "fa",
+                                        device: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (
+                                            /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                              userAgent
+                                            )
+                                          ) {
+                                            return "Mobile";
+                                          } else if (
+                                            /Tablet|iPad/i.test(userAgent)
+                                          ) {
+                                            return "Tablet";
+                                          } else {
+                                            return "Desktop";
+                                          }
+                                        })(),
+                                        uniqueId: $$.uuid.v4(),
+                                        fcm: "  ",
+                                        os: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          const platform =
+                                            window.navigator.userAgent;
+                                          if (/Windows/i.test(platform))
+                                            return "Windows";
+                                          if (/Mac/i.test(platform))
+                                            return "macOS";
+                                          if (/Linux/i.test(platform))
+                                            return "Linux";
+                                          if (/Android/i.test(userAgent))
+                                            return "Android";
+                                          if (
+                                            /iPhone|iPad|iPod/i.test(userAgent)
+                                          )
+                                            return "iOS";
+                                          return "Unknown OS";
+                                        })(),
+                                        osVersion: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (/Windows NT 10.0/.test(userAgent))
+                                            return "Windows 10";
+                                          if (/Windows NT 6.3/.test(userAgent))
+                                            return "Windows 8.1";
+                                          if (/Windows NT 6.2/.test(userAgent))
+                                            return "Windows 8";
+                                          if (/Windows NT 6.1/.test(userAgent))
+                                            return "Windows 7";
+                                          if (
+                                            /Mac OS X (\d+[\._]\d+)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `macOS ${RegExp.$1.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          if (
+                                            /Android (\d+(\.\d+)?)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `Android ${RegExp.$1}`;
+                                          if (
+                                            /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                              userAgent
+                                            )
+                                          )
+                                            return `iOS ${RegExp.$2.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          return "Unknown Version";
+                                        })(),
+                                        password: "",
+                                        postLang: "fa",
+                                        refCode: $state.antdInput3.value || "",
+                                        isCountryPending: false,
+                                        device_type: window.navigator.platform,
+                                        additionalData: {
+                                          ip: "132465",
+                                          name: "test1"
+                                        },
+                                        city: null,
+                                        state: null,
+                                        birthYear: null,
+                                        religious: 0
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction3"] != null &&
+                        typeof $steps["invokeGlobalAction3"] === "object" &&
+                        typeof $steps["invokeGlobalAction3"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction3"] = await $steps[
+                          "invokeGlobalAction3"
+                        ];
+                      }
+
+                      $steps["updateToken"] =
+                        $steps.invokeGlobalAction?.data?.success == true &&
+                        $state.typeLogin == "signup"
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["token"]
+                                },
+                                operation: 0,
+                                value: $steps.invokeGlobalAction.data.result
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateToken"] != null &&
+                        typeof $steps["updateToken"] === "object" &&
+                        typeof $steps["updateToken"].then === "function"
+                      ) {
+                        $steps["updateToken"] = await $steps["updateToken"];
+                      }
+
+                      $steps["updateLoginPage"] =
+                        $steps.invokeGlobalAction?.data?.success == true &&
+                        $state.typeLogin == "signup"
+                          ? (() => {
+                              const actionArgs = {
+                                vgroup: "loginPage",
+                                operation: 0,
+                                value: "name"
+                              };
+                              return (({ vgroup, value }) => {
+                                if (typeof value === "string") {
+                                  value = [value];
+                                }
+
+                                $stateSet($state, vgroup, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateLoginPage"] != null &&
+                        typeof $steps["updateLoginPage"] === "object" &&
+                        typeof $steps["updateLoginPage"].then === "function"
+                      ) {
+                        $steps["updateLoginPage"] = await $steps[
+                          "updateLoginPage"
+                        ];
+                      }
+
+                      $steps["updateLoginData"] =
+                        $steps.invokeGlobalAction3?.data?.success == true &&
+                        $state.typeLogin == "login"
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loginData"]
+                                },
+                                operation: 0,
+                                value: $steps.invokeGlobalAction3.data
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateLoginData"] != null &&
+                        typeof $steps["updateLoginData"] === "object" &&
+                        typeof $steps["updateLoginData"].then === "function"
+                      ) {
+                        $steps["updateLoginData"] = await $steps[
+                          "updateLoginData"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction2"] =
+                        $steps.invokeGlobalAction?.data?.success == false ||
+                        $steps.invokeGlobalAction3?.data?.success == false
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u06a9\u062f \u0648\u0627\u0631\u062f \u0634\u062f\u0647 \u0635\u062d\u06cc\u062d \u0646\u06cc\u0633\u062a.",
+                                  "bottom-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
+                        ];
+                      }
+
+                      $steps["goToPage"] =
+                        $steps.invokeGlobalAction3?.data?.success == true &&
+                        $state.typeLogin == "login"
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return (
+                                      $ctx.query.redirect_url +
+                                      "?token=" +
+                                      $$.uuid.v4().slice(0, 6) +
+                                      $state.loginData.result.token +
+                                      $$.uuid.v4().slice(10, 13) +
+                                      "&userId=" +
+                                      $$.uuid.v4().slice(0, 4) +
+                                      $state.loginData.result.userId +
+                                      $$.uuid.v4().slice(0, 4)
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+
+                      $steps["updateLoadedbtn2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadedbtn"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadedbtn2"] != null &&
+                        typeof $steps["updateLoadedbtn2"] === "object" &&
+                        typeof $steps["updateLoadedbtn2"].then === "function"
+                      ) {
+                        $steps["updateLoadedbtn2"] = await $steps[
+                          "updateLoadedbtn2"
+                        ];
+                      }
+                    }}
+                    onColorChange={(...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button7", "color"])(
+                        eventArgs[0]
+                      );
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__fDbQh,
+                        {
+                          [sty.textloginPage_emailCode__fDbQhwqwJl]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
+                          [sty.textloginPage_email__fDbQhIYwOs]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "email"
+                          ),
+                          [sty.textloginPage_mobileCode__fDbQhm2GXn]:
+                            hasVariant($state, "loginPage", "mobileCode"),
+                          [sty.textloginPage_mobile__fDbQh6MmOa]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          ),
+                          [sty.textloginPage_name__fDbQhhUiKy]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "name"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "loginPage", "emailCode")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "name")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "mobileCode")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "email")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "mobile")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : "Button"}
+                    </div>
+                  </Button>
+                </div>
+              </Stack__>
+            </Reveal>
+          ) : null}
+          {(
+            hasVariant($state, "loginPage", "emailCode")
+              ? true
+              : hasVariant($state, "loginPage", "name")
               ? true
               : hasVariant($state, "loginPage", "mobileCode")
               ? true
@@ -4382,6 +7008,11 @@ function PlasmicLogin__RenderFunc(props: {
           ) ? (
             <Reveal
               className={classNames("__wab_instance", sty.reveal__iNn9, {
+                [sty.revealloginPage_emailCode__iNn9WqwJl]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "emailCode"
+                ),
                 [sty.revealloginPage_email__iNn9IYwOs]: hasVariant(
                   $state,
                   "loginPage",
@@ -4410,6 +7041,11 @@ function PlasmicLogin__RenderFunc(props: {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__xWvNp, {
+                  [sty.freeBoxloginPage_emailCode__xWvNPwqwJl]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "emailCode"
+                  ),
                   [sty.freeBoxloginPage_email__xWvNpiYwOs]: hasVariant(
                     $state,
                     "loginPage",
@@ -4434,6 +7070,11 @@ function PlasmicLogin__RenderFunc(props: {
               >
                 <div
                   className={classNames(projectcss.all, sty.freeBox__v8Tou, {
+                    [sty.freeBoxloginPage_emailCode__v8TouwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__v8TouIYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -4455,9 +7096,44 @@ function PlasmicLogin__RenderFunc(props: {
                       "name"
                     )
                   })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateLoginPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "loginPage",
+                            operation: 0,
+                            value: []
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            $stateSet($state, vgroup, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoginPage"] != null &&
+                      typeof $steps["updateLoginPage"] === "object" &&
+                      typeof $steps["updateLoginPage"].then === "function"
+                    ) {
+                      $steps["updateLoginPage"] = await $steps[
+                        "updateLoginPage"
+                      ];
+                    }
+                  }}
                 >
                   <IconIcon
                     className={classNames(projectcss.all, sty.svg__ia5Kc, {
+                      [sty.svgloginPage_emailCode__ia5KcwqwJl]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
                       [sty.svgloginPage_email__ia5KcIYwOs]: hasVariant(
                         $state,
                         "loginPage",
@@ -4486,6 +7162,11 @@ function PlasmicLogin__RenderFunc(props: {
                   as={"div"}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.freeBox__ljycN, {
+                    [sty.freeBoxloginPage_emailCode__ljycNwqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__ljycNiYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -4514,6 +7195,11 @@ function PlasmicLogin__RenderFunc(props: {
                       projectcss.__wab_text,
                       sty.text__cHEeF,
                       {
+                        [sty.textloginPage_emailCode__cHEeFwqwJl]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.textloginPage_email__cHEeFiYwOs]: hasVariant(
                           $state,
                           "loginPage",
@@ -4537,7 +7223,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "loginPage", "name")
+                    {hasVariant($state, "loginPage", "emailCode")
+                      ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      : hasVariant($state, "loginPage", "name")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                       : hasVariant($state, "loginPage", "mobileCode")
                       ? "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
@@ -4551,7 +7239,9 @@ function PlasmicLogin__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       sty.freeBox__sOEh,
-                      hasVariant($state, "loginPage", "name")
+                      hasVariant($state, "loginPage", "emailCode")
+                        ? "negative"
+                        : hasVariant($state, "loginPage", "name")
                         ? "negative"
                         : hasVariant($state, "loginPage", "mobileCode")
                         ? "negative"
@@ -4561,6 +7251,11 @@ function PlasmicLogin__RenderFunc(props: {
                         ? "negative"
                         : undefined,
                       {
+                        [sty.freeBoxloginPage_emailCode__sOEHwqwJl]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.freeBoxloginPage_email__sOEhiYwOs]: hasVariant(
                           $state,
                           "loginPage",
@@ -4649,6 +7344,11 @@ function PlasmicLogin__RenderFunc(props: {
                         );
                       })()}
                       className={classNames("__wab_instance", sty.textInput2, {
+                        [sty.textInput2loginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.textInput2loginPage_email]: hasVariant(
                           $state,
                           "loginPage",
@@ -4688,7 +7388,9 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               projectcss.__wab_text,
                               sty.text__bJLfG,
-                              hasVariant($state, "loginPage", "name")
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? "negative"
+                                : hasVariant($state, "loginPage", "name")
                                 ? "negative"
                                 : hasVariant($state, "loginPage", "mobileCode")
                                 ? "negative"
@@ -4698,6 +7400,8 @@ function PlasmicLogin__RenderFunc(props: {
                                 ? "negative"
                                 : undefined,
                               {
+                                [sty.textloginPage_emailCode__bJLfGwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
                                 [sty.textloginPage_email__bJLfGiYwOs]:
                                   hasVariant($state, "loginPage", "email"),
                                 [sty.textloginPage_mobileCode__bJLfGm2GXn]:
@@ -4709,7 +7413,9 @@ function PlasmicLogin__RenderFunc(props: {
                               }
                             )}
                           >
-                            {hasVariant($state, "loginPage", "name")
+                            {hasVariant($state, "loginPage", "emailCode")
+                              ? "+98 "
+                              : hasVariant($state, "loginPage", "name")
                               ? "+98 "
                               : hasVariant($state, "loginPage", "mobileCode")
                               ? "+98 "
@@ -4721,7 +7427,9 @@ function PlasmicLogin__RenderFunc(props: {
                           </div>
                           <PlasmicIcon__
                             PlasmicIconType={
-                              hasVariant($state, "loginPage", "name")
+                              hasVariant($state, "loginPage", "emailCode")
+                                ? Icon111Icon
+                                : hasVariant($state, "loginPage", "name")
                                 ? Icon111Icon
                                 : hasVariant($state, "loginPage", "mobileCode")
                                 ? Icon111Icon
@@ -4735,6 +7443,8 @@ function PlasmicLogin__RenderFunc(props: {
                               projectcss.all,
                               sty.svg__rt0Yq,
                               {
+                                [sty.svgloginPage_emailCode__rt0YqwqwJl]:
+                                  hasVariant($state, "loginPage", "emailCode"),
                                 [sty.svgloginPage_email__rt0YqIYwOs]:
                                   hasVariant($state, "loginPage", "email"),
                                 [sty.svgloginPage_mobileCode__rt0Yqm2GXn]:
@@ -4759,7 +7469,9 @@ function PlasmicLogin__RenderFunc(props: {
                         ])((e => e.target?.value).apply(null, eventArgs));
                       }}
                       placeholder={
-                        hasVariant($state, "loginPage", "name")
+                        hasVariant($state, "loginPage", "emailCode")
+                          ? "09123456789"
+                          : hasVariant($state, "loginPage", "name")
                           ? "09123456789"
                           : hasVariant($state, "loginPage", "mobileCode")
                           ? "09123456789"
@@ -4801,8 +7513,11 @@ function PlasmicLogin__RenderFunc(props: {
                         />
                       }
                       type={
-                        hasVariant($state, "loginPage", "name") &&
+                        hasVariant($state, "loginPage", "emailCode") &&
                         hasVariant(globalVariants, "screen", "mobile")
+                          ? "tel"
+                          : hasVariant($state, "loginPage", "name") &&
+                            hasVariant(globalVariants, "screen", "mobile")
                           ? "tel"
                           : hasVariant($state, "loginPage", "mobileCode") &&
                             hasVariant(globalVariants, "screen", "mobile")
@@ -4828,6 +7543,11 @@ function PlasmicLogin__RenderFunc(props: {
                 </Stack__>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__wh17, {
+                    [sty.freeBoxloginPage_emailCode__wh17WqwJl]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "emailCode"
+                    ),
                     [sty.freeBoxloginPage_email__wh17IYwOs]: hasVariant(
                       $state,
                       "loginPage",
@@ -4854,6 +7574,11 @@ function PlasmicLogin__RenderFunc(props: {
                     data-plasmic-name={"button5"}
                     data-plasmic-override={overrides.button5}
                     className={classNames("__wab_instance", sty.button5, {
+                      [sty.button5loginPage_emailCode]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "emailCode"
+                      ),
                       [sty.button5loginPage_email]: hasVariant(
                         $state,
                         "loginPage",
@@ -5109,7 +7834,7 @@ function PlasmicLogin__RenderFunc(props: {
                               const actionArgs = {
                                 vgroup: "loginPage",
                                 operation: 0,
-                                value: "mobileCode"
+                                value: "emailCode"
                               };
                               return (({ vgroup, value }) => {
                                 if (typeof value === "string") {
@@ -5180,6 +7905,11 @@ function PlasmicLogin__RenderFunc(props: {
                         projectcss.__wab_text,
                         sty.text__dqVzE,
                         {
+                          [sty.textloginPage_emailCode__dqVzEwqwJl]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "emailCode"
+                          ),
                           [sty.textloginPage_email__dqVzEiYwOs]: hasVariant(
                             $state,
                             "loginPage",
@@ -5200,7 +7930,9 @@ function PlasmicLogin__RenderFunc(props: {
                         }
                       )}
                     >
-                      {hasVariant($state, "loginPage", "name")
+                      {hasVariant($state, "loginPage", "emailCode")
+                        ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
+                        : hasVariant($state, "loginPage", "name")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
                         : hasVariant($state, "loginPage", "mobileCode")
                         ? "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
@@ -5215,6 +7947,144 @@ function PlasmicLogin__RenderFunc(props: {
               </Stack__>
             </Reveal>
           ) : null}
+          <AntdModal
+            data-plasmic-name={"rules"}
+            data-plasmic-override={overrides.rules}
+            className={classNames("__wab_instance", sty.rules, {
+              [sty.rulesloginPage_name]: hasVariant($state, "loginPage", "name")
+            })}
+            closeIcon={
+              <SearchSvgIcon
+                className={classNames(projectcss.all, sty.svg__uPqGf, {
+                  [sty.svgloginPage_name__uPqGfhUiKy]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
+                  )
+                })}
+                role={"img"}
+              />
+            }
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            hideFooter={
+              hasVariant($state, "loginPage", "name") ? true : undefined
+            }
+            maskClosable={
+              hasVariant($state, "loginPage", "name") ? false : undefined
+            }
+            modalContentClassName={classNames({
+              [sty["pcls__PIcEQBAC1VH"]]: hasVariant(
+                $state,
+                "loginPage",
+                "name"
+              )
+            })}
+            modalScopeClassName={sty["rules__modal"]}
+            onOpenChange={generateStateOnChangeProp($state, ["rules", "open"])}
+            open={generateStateValueProp($state, ["rules", "open"])}
+            title={null}
+            trigger={null}
+            width={
+              hasVariant($state, "loginPage", "name") ? "100vw" : undefined
+            }
+          >
+            <div
+              className={classNames(projectcss.all, sty.freeBox__jsaqc, {
+                [sty.freeBoxloginPage_name__jsaqChUiKy]: hasVariant(
+                  $state,
+                  "loginPage",
+                  "name"
+                )
+              })}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__qilRr,
+                  {
+                    [sty.textloginPage_name__qilRrhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  }
+                )}
+              >
+                {hasVariant($state, "loginPage", "name") ? (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return " محدودیت سنی\nلیوم محدودیت سنی ندارد\n\n- انتشار محتوایی که به طور مستقیم یا غیرمستقیم توهین به اسلام تلقی بشود ممنوع است.\n -  انتشار پستهای فانتزی مثبت هیجده ممنوع است.\n- انتشار محتوای سیاسی که همراه با توهین و نفرت پراکنی باشد ممنوع است.\n\n - پست مثبت هیجده درصورتی مجاز به انتشار می باشد که به اموزش بپردازد و  یا نیاز ب کمک داشته باشد که در هر دو صورت باید حتما  تگ مثبت هیجده توسط صاحب پست فعال شود . ( توجه شود که در هیچ صورتی پست های مثبت هیجده به بخش داغترین ورود نخواهند پیدا کرد)\n\n-  فعال نکردن تگ مثبت هیجده تخلف است و در صورتیکه چندین بار تکرار شود و رعایت نکنید،  پست شما در ابتدا مستقیما حذف میشود و در ادامه منجر به بلاک اکانت شما خواهد شد . \n\n - اگر نمیخواهید محتواهای مثبت هیجده را مشاهده کنید از بخش تنظیمات آن را برای خود فعال کنید .\n\nانجام موارد زیر ممنوع می باشد \n• تبلیغ انواع مواد مخدر ممنوع است.\n• محتوایی که جزئیات آموزشی در مورد نحوه انجام یک فعالیت خطرناک(خودکشی،قاچاق،ترور،خودآزاری) را توضیح یا ارائه می دهد.\n• بازی‌های خطرناک که در آن از فرد کارهایی که ناهنجار است و عرف نیست طلب میشود که ممکن است منجر به آسیب بدنی یا آسیب مالی شوند.\n• ترویج خودکشی و خودآزاری در لیوم ممنوع است.\n• محتوایی که دستورالعمل‌هایی برای خودکشی یا نحوه خودآزاری ارائه می‌دهد.\n• بازی های خودکشی یا آسیب رساندن به خود،چالش ها، پیمان ها یا کلاهبرداری ها.\n• محتوایی که حاوی زبان صریح جنسی برای ارضای جنسی است.\n \n\n• محتوایی که آزار و اذیت هماهنگ را تشویق می کند.\n• محتوایی که قربانیان تراژدی های خشونت آمیز را تحقیر می کند.\n• محتوایی که آسیب یا ارعاب عمدی را به تصویر می‌کشد، مانند تعقیب سایبری.\n• محتوایی که آرزوی مرگ، بیماری جدی یا آسیب جدی دیگر را برای فردی دارد.\n• محتوایی که تهدید به افشای داده‌های شخصی یا اطلاعات شناسایی شخصی می‌کند.\n• محتوایی که خشونت، طرد، جداسازی، یا تبعیض علیه فرد یا گروه خاصی  را ترویج یا توجیه می‌کند.\n• محتوای سیاسی که باعث ایجاد تنش بین دو گروه شود.\n• استفاده از خدمات لیوم  برای اهداف غیرقانونی و یا پیشبرد اهداف غیرقانونی.\n\n\n - توجه شود که تمامی قوانین برای بخش بحث آزاد نیز صادق می باشند . \n\n\n\nدر هنگام مواجه با هر یک از موارد بالا .میتوانید با گزارش دادن محتوا یا شخص  ما را مطلع سازید تا  با آن محتوا/شخص برخورد کنیم\n\nتوهین و نظر  شخصی : \n• محتوایی که به فرد دیگری توهین می کند یا فردی را بر اساس ویژگی هایی مانند عقل، ظاهر، ویژگی های شخصیتی یا بهداشت تحقیر می کند در لیوم ممنوع است .\nتوجه شود که “نظر شخصی “ با توهین متفاوت است . اگر نظر خود را طوری بیان کنید که محوریت بحث خارج نشود .موردی ندارد. \n مثلا : \n*هر کس که کیدراما دوست نداره بی سلیقه س ( موردی ندارد و نظر شخصی فرد تلقی میشود و اگر اذیتتان میکند فرد را پنهان کنید)  \n*هر کس که کیدراما دوست نداره یک مغز زنگ زده داره و بی سلیقه اس و...  دهنش.( توهین است و تخلف صورت گرفته است)\n\n\nبرخی از پر تکرار ترین کلماتی که باعث میشوند نظر شخصی  شما با توهین اشتباه گرفته شود در زیر اورده شده است:  الفاظ رکیک،  بیشعور،  نفهم،  نادان،  مغز زنگ زده،  ارزشی،  عرزشی،  انتی عرزشی،  امل،  الفاظی که براساس دین فرد مورد نظر به اون نسبت داده میشود،  عقب مونده،  نسبت دادن صفات به قومیتی خاص و...\n\nپشتیبانی\nتیم پشتیبانی پاسخگو ابهامات و مشکلات گزارش شده  در اسرع وقت می باشند .\n\nنقض قوانین\nنقض قوانین :\nشما میتونید در صورت مشاهده نقض قوانین از طریق دکمه ریپورت که در هر بخش از اپلیکیشن برای پست ها ٬ کامنت ها٬ پروفایل کاربران طراحی شده است ما را از آن مطلع کنید تا به بصورت زیر رفتار کنیم .\n\nدر صورت نقض هر یک از قوانین ٬ محتوا شما تا ۵ بار اول حذف خواهد شد. سپس حساب شما به طور موقت مسدود می شود و در آخرین مرحله حساب شما به طور کامل مسدود میشود \n\nمحتوای تولید شده\nمسئولیت تمامی محتوای تولید شده بر عهده شخصی است که مطلب را منتشر کرده است و لیوم هیچ مسئولیتی در این خصوص ندارد";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                ) : (
+                  "Modal content"
+                )}
+              </div>
+            </div>
+            {(hasVariant($state, "loginPage", "name") ? true : false) ? (
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"top"}
+                data-plasmic-override={overrides.top}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.top, {
+                  [sty.toploginPage_name]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "name"
+                  )
+                })}
+              >
+                <Icon22Icon
+                  className={classNames(projectcss.all, sty.svg__zkt2Y, {
+                    [sty.svgloginPage_name__zkt2YhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    )
+                  })}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__oz73D,
+                    {
+                      [sty.textloginPage_name__oz73DhUiKy]: hasVariant(
+                        $state,
+                        "loginPage",
+                        "name"
+                      )
+                    }
+                  )}
+                >
+                  {hasVariant($state, "loginPage", "name")
+                    ? "\u0642\u0648\u0627\u0646\u06cc\u0646 \u0648 \u0645\u0642\u0631\u0631\u0627\u062a"
+                    : "Dr. Bellamy Nich\u2026"}
+                </div>
+              </Stack__>
+            ) : null}
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -5235,14 +8105,19 @@ const PlasmicDescendants = {
     "antdInput3",
     "checkbox",
     "button4",
+    "mobileCode",
     "textInput3",
     "antdInput4",
-    "embedHtml",
-    "timer",
     "button3",
+    "emailCode",
+    "textInput5",
+    "antdInput6",
+    "button7",
     "textInput2",
     "antdInput5",
-    "button5"
+    "button5",
+    "rules",
+    "top"
   ],
   img: ["img"],
   textInput: ["textInput", "antdInput"],
@@ -5255,14 +8130,19 @@ const PlasmicDescendants = {
   antdInput3: ["antdInput3"],
   checkbox: ["checkbox"],
   button4: ["button4"],
+  mobileCode: ["mobileCode", "textInput3", "antdInput4", "button3"],
   textInput3: ["textInput3", "antdInput4"],
   antdInput4: ["antdInput4"],
-  embedHtml: ["embedHtml"],
-  timer: ["timer"],
   button3: ["button3"],
+  emailCode: ["emailCode", "textInput5", "antdInput6", "button7"],
+  textInput5: ["textInput5", "antdInput6"],
+  antdInput6: ["antdInput6"],
+  button7: ["button7"],
   textInput2: ["textInput2", "antdInput5"],
   antdInput5: ["antdInput5"],
-  button5: ["button5"]
+  button5: ["button5"],
+  rules: ["rules", "top"],
+  top: ["top"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -5280,14 +8160,19 @@ type NodeDefaultElementType = {
   antdInput3: typeof Input;
   checkbox: typeof Checkbox;
   button4: typeof Button;
+  mobileCode: typeof Reveal;
   textInput3: typeof TextInput;
   antdInput4: typeof Input;
-  embedHtml: typeof Embed;
-  timer: typeof Timer;
   button3: typeof Button;
+  emailCode: typeof Reveal;
+  textInput5: typeof TextInput;
+  antdInput6: typeof Input;
+  button7: typeof Button;
   textInput2: typeof TextInput;
   antdInput5: typeof Input;
   button5: typeof Button;
+  rules: typeof AntdModal;
+  top: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5386,14 +8271,19 @@ export const PlasmicLogin = Object.assign(
     antdInput3: makeNodeComponent("antdInput3"),
     checkbox: makeNodeComponent("checkbox"),
     button4: makeNodeComponent("button4"),
+    mobileCode: makeNodeComponent("mobileCode"),
     textInput3: makeNodeComponent("textInput3"),
     antdInput4: makeNodeComponent("antdInput4"),
-    embedHtml: makeNodeComponent("embedHtml"),
-    timer: makeNodeComponent("timer"),
     button3: makeNodeComponent("button3"),
+    emailCode: makeNodeComponent("emailCode"),
+    textInput5: makeNodeComponent("textInput5"),
+    antdInput6: makeNodeComponent("antdInput6"),
+    button7: makeNodeComponent("button7"),
     textInput2: makeNodeComponent("textInput2"),
     antdInput5: makeNodeComponent("antdInput5"),
     button5: makeNodeComponent("button5"),
+    rules: makeNodeComponent("rules"),
+    top: makeNodeComponent("top"),
 
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,
