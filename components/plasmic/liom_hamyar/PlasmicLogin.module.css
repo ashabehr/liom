@@ -3954,8 +3954,7 @@
   }
 }
 .button2loginPage_userNameLogin:global(.__wab_instance) {
-  width: 100%;
-  min-width: 0;
+  width: 60%;
 }
 @media (max-width: 640px) {
   .button2loginPage_userNameLogin:global(.__wab_instance) {

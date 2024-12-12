@@ -1177,6 +1177,11 @@ function PlasmicLogin__RenderFunc(props: {
                 </LoginBox>
                 <LoginBox
                   className={classNames("__wab_instance", sty.loginBox__nlWB, {
+                    [sty.loginBoxloginPage_name__nlWBhUiKy]: hasVariant(
+                      $state,
+                      "loginPage",
+                      "name"
+                    ),
                     [sty.loginBoxloginPage_userNameLogin__nlWBh7MIy]:
                       hasVariant($state, "loginPage", "userNameLogin"),
                     [sty.loginBoxloginPage_userNameSingup__nlWBnuYv7]:
@@ -1184,6 +1189,40 @@ function PlasmicLogin__RenderFunc(props: {
                   })}
                   onClick={async event => {
                     const $steps = {};
+
+                    $steps["updateType"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["type"]
+                            },
+                            operation: 0,
+                            value: "userName"
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateType"] != null &&
+                      typeof $steps["updateType"] === "object" &&
+                      typeof $steps["updateType"].then === "function"
+                    ) {
+                      $steps["updateType"] = await $steps["updateType"];
+                    }
 
                     $steps["updateLoginPage"] = true
                       ? (() => {
@@ -2260,6 +2299,44 @@ function PlasmicLogin__RenderFunc(props: {
                       ) {
                         $steps["updateTypeLogin"] = await $steps[
                           "updateTypeLogin"
+                        ];
+                      }
+
+                      $steps["updateTypeLogin2"] =
+                        $state.gender == "male" &&
+                        ($state.type == "userName" || $state.type == "email")
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["typeLogin"]
+                                },
+                                operation: 0,
+                                value: "signup"
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateTypeLogin2"] != null &&
+                        typeof $steps["updateTypeLogin2"] === "object" &&
+                        typeof $steps["updateTypeLogin2"].then === "function"
+                      ) {
+                        $steps["updateTypeLogin2"] = await $steps[
+                          "updateTypeLogin2"
                         ];
                       }
 
@@ -5912,6 +5989,42 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
 
+                      $steps["updateLoginData"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loginData"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoginData"] != null &&
+                        typeof $steps["updateLoginData"] === "object" &&
+                        typeof $steps["updateLoginData"].then === "function"
+                      ) {
+                        $steps["updateLoginData"] = await $steps[
+                          "updateLoginData"
+                        ];
+                      }
+
                       $steps["updateLoginPage"] =
                         $steps.invokeGlobalAction?.data?.success == true
                           ? (() => {
@@ -6053,6 +6166,36 @@ function PlasmicLogin__RenderFunc(props: {
                         hasVariant($state, "loginPage", "userNameSingup")
                     }
                   )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateLoginPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            vgroup: "loginPage",
+                            operation: 0,
+                            value: "userNameLogin"
+                          };
+                          return (({ vgroup, value }) => {
+                            if (typeof value === "string") {
+                              value = [value];
+                            }
+
+                            $stateSet($state, vgroup, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoginPage"] != null &&
+                      typeof $steps["updateLoginPage"] === "object" &&
+                      typeof $steps["updateLoginPage"].then === "function"
+                    ) {
+                      $steps["updateLoginPage"] = await $steps[
+                        "updateLoginPage"
+                      ];
+                    }
+                  }}
                 >
                   {hasVariant($state, "loginPage", "userNameSingup")
                     ? "\u062f\u0631 \u0644\u06cc\u0648\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u062f\u0627\u0631\u0645 \u0645\u06cc\u062e\u0648\u0627\u0645 \u0628\u0647 \u0622\u0646 \u0648\u0631\u0648\u062f \u06a9\u0646\u0645 >"
@@ -7598,134 +7741,149 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["invokeGlobalAction"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://api.liom.app/auth/signup/user",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        type: $state.type,
-                                        name: $state.antdInput2.value || "",
-                                        data: $state.number || $state.email,
-                                        username: "",
-                                        target: "calendar",
-                                        sex: $state.gender || "",
-                                        token: $state.token || "",
-                                        version: "",
-                                        lang: "fa",
-                                        country: "98",
-                                        anotherLang: "fa",
-                                        device: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          if (
-                                            /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                              userAgent
+                        $steps["invokeGlobalAction"] =
+                          $state.type != "userName" &&
+                          (($state.gender == "male" && $state.number != "") ||
+                            $state.gender == "female")
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/auth/signup/user",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          type: $state.type,
+                                          name: $state.antdInput2.value || "",
+                                          data: $state.number || $state.email,
+                                          username: "",
+                                          target: "calendar",
+                                          sex: $state.gender || "",
+                                          token: $state.token || "",
+                                          version: "",
+                                          lang: "fa",
+                                          country: "98",
+                                          anotherLang: "fa",
+                                          device: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            ) {
+                                              return "Mobile";
+                                            } else if (
+                                              /Tablet|iPad/i.test(userAgent)
+                                            ) {
+                                              return "Tablet";
+                                            } else {
+                                              return "Desktop";
+                                            }
+                                          })(),
+                                          uniqueId: $$.uuid.v4(),
+                                          fcm: "  ",
+                                          os: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            const platform =
+                                              window.navigator.userAgent;
+                                            if (/Windows/i.test(platform))
+                                              return "Windows";
+                                            if (/Mac/i.test(platform))
+                                              return "macOS";
+                                            if (/Linux/i.test(platform))
+                                              return "Linux";
+                                            if (/Android/i.test(userAgent))
+                                              return "Android";
+                                            if (
+                                              /iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
                                             )
-                                          ) {
-                                            return "Mobile";
-                                          } else if (
-                                            /Tablet|iPad/i.test(userAgent)
-                                          ) {
-                                            return "Tablet";
-                                          } else {
-                                            return "Desktop";
-                                          }
-                                        })(),
-                                        uniqueId: $$.uuid.v4(),
-                                        fcm: "  ",
-                                        os: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          const platform =
-                                            window.navigator.userAgent;
-                                          if (/Windows/i.test(platform))
-                                            return "Windows";
-                                          if (/Mac/i.test(platform))
-                                            return "macOS";
-                                          if (/Linux/i.test(platform))
-                                            return "Linux";
-                                          if (/Android/i.test(userAgent))
-                                            return "Android";
-                                          if (
-                                            /iPhone|iPad|iPod/i.test(userAgent)
-                                          )
-                                            return "iOS";
-                                          return "Unknown OS";
-                                        })(),
-                                        osVersion: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          if (/Windows NT 10.0/.test(userAgent))
-                                            return "Windows 10";
-                                          if (/Windows NT 6.3/.test(userAgent))
-                                            return "Windows 8.1";
-                                          if (/Windows NT 6.2/.test(userAgent))
-                                            return "Windows 8";
-                                          if (/Windows NT 6.1/.test(userAgent))
-                                            return "Windows 7";
-                                          if (
-                                            /Mac OS X (\d+[\._]\d+)/.test(
-                                              userAgent
+                                              return "iOS";
+                                            return "Unknown OS";
+                                          })(),
+                                          osVersion: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Windows NT 10.0/.test(userAgent)
                                             )
-                                          )
-                                            return `macOS ${RegExp.$1.replace(
-                                              "_",
-                                              "."
-                                            )}`;
-                                          if (
-                                            /Android (\d+(\.\d+)?)/.test(
-                                              userAgent
+                                              return "Windows 10";
+                                            if (
+                                              /Windows NT 6.3/.test(userAgent)
                                             )
-                                          )
-                                            return `Android ${RegExp.$1}`;
-                                          if (
-                                            /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                              userAgent
+                                              return "Windows 8.1";
+                                            if (
+                                              /Windows NT 6.2/.test(userAgent)
                                             )
-                                          )
-                                            return `iOS ${RegExp.$2.replace(
-                                              "_",
-                                              "."
-                                            )}`;
-                                          return "Unknown Version";
-                                        })(),
-                                        password: "",
-                                        postLang: "fa",
-                                        refCode: $state.antdInput3.value || "",
-                                        isCountryPending: false,
-                                        device_type: window.navigator.platform,
-                                        additionalData: {
-                                          ip: "132465",
-                                          name: "test1"
-                                        },
-                                        city: null,
-                                        state: null,
-                                        birthYear: null,
-                                        religious: 0
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
+                                              return "Windows 8";
+                                            if (
+                                              /Windows NT 6.1/.test(userAgent)
+                                            )
+                                              return "Windows 7";
+                                            if (
+                                              /Mac OS X (\d+[\._]\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `macOS ${RegExp.$1.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            if (
+                                              /Android (\d+(\.\d+)?)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `Android ${RegExp.$1}`;
+                                            if (
+                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `iOS ${RegExp.$2.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            return "Unknown Version";
+                                          })(),
+                                          password: "",
+                                          postLang: "fa",
+                                          refCode:
+                                            $state.antdInput3.value || "",
+                                          isCountryPending: false,
+                                          device_type:
+                                            window.navigator.platform,
+                                          additionalData: {
+                                            ip: "132465",
+                                            name: "test1"
+                                          },
+                                          city: null,
+                                          state: null,
+                                          birthYear: null,
+                                          religious: 0
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
                         if (
                           $steps["invokeGlobalAction"] != null &&
                           typeof $steps["invokeGlobalAction"] === "object" &&
@@ -7737,8 +7895,163 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
+                        $steps["invokeGlobalAction2"] =
+                          $state.type == "userName" &&
+                          (($state.gender == "male" && $state.number != "") ||
+                            $state.gender == "female")
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/auth/signup",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          type: $state.type,
+                                          name: $state.antdInput2.value || "",
+                                          data: $state.number,
+                                          username: $state.username,
+                                          target: "calendar",
+                                          sex: $state.gender || "",
+                                          token: $state.token || "",
+                                          version: "",
+                                          lang: "fa",
+                                          country: "98",
+                                          anotherLang: "fa",
+                                          device: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            ) {
+                                              return "Mobile";
+                                            } else if (
+                                              /Tablet|iPad/i.test(userAgent)
+                                            ) {
+                                              return "Tablet";
+                                            } else {
+                                              return "Desktop";
+                                            }
+                                          })(),
+                                          uniqueId: $$.uuid.v4(),
+                                          fcm: "  ",
+                                          os: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            const platform =
+                                              window.navigator.userAgent;
+                                            if (/Windows/i.test(platform))
+                                              return "Windows";
+                                            if (/Mac/i.test(platform))
+                                              return "macOS";
+                                            if (/Linux/i.test(platform))
+                                              return "Linux";
+                                            if (/Android/i.test(userAgent))
+                                              return "Android";
+                                            if (
+                                              /iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return "iOS";
+                                            return "Unknown OS";
+                                          })(),
+                                          osVersion: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Windows NT 10.0/.test(userAgent)
+                                            )
+                                              return "Windows 10";
+                                            if (
+                                              /Windows NT 6.3/.test(userAgent)
+                                            )
+                                              return "Windows 8.1";
+                                            if (
+                                              /Windows NT 6.2/.test(userAgent)
+                                            )
+                                              return "Windows 8";
+                                            if (
+                                              /Windows NT 6.1/.test(userAgent)
+                                            )
+                                              return "Windows 7";
+                                            if (
+                                              /Mac OS X (\d+[\._]\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `macOS ${RegExp.$1.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            if (
+                                              /Android (\d+(\.\d+)?)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `Android ${RegExp.$1}`;
+                                            if (
+                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `iOS ${RegExp.$2.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            return "Unknown Version";
+                                          })(),
+                                          password: $state.password,
+                                          postLang: "fa",
+                                          refCode:
+                                            $state.antdInput3.value || "",
+                                          isCountryPending: false,
+                                          device_type:
+                                            window.navigator.platform,
+                                          additionalData: {
+                                            ip: "132465",
+                                            name: "test1"
+                                          },
+                                          city: null,
+                                          state: null,
+                                          birthYear: null,
+                                          religious: 0
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction2"] != null &&
+                          typeof $steps["invokeGlobalAction2"] === "object" &&
+                          typeof $steps["invokeGlobalAction2"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction2"] = await $steps[
+                            "invokeGlobalAction2"
+                          ];
+                        }
+
                         $steps["updateLoginData"] =
-                          $steps.invokeGlobalAction?.data?.success == true
+                          $steps.invokeGlobalAction?.data?.success == true ||
+                          $steps.invokeGlobalAction2?.data?.success == true
                             ? (() => {
                                 const actionArgs = {
                                   variable: {
@@ -7746,7 +8059,9 @@ function PlasmicLogin__RenderFunc(props: {
                                     variablePath: ["loginData"]
                                   },
                                   operation: 0,
-                                  value: $steps.invokeGlobalAction.data
+                                  value:
+                                    $steps.invokeGlobalAction.data ||
+                                    $steps.invokeGlobalAction2.data
                                 };
                                 return (({
                                   variable,
@@ -7774,72 +8089,12 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["updateLoginPage"] =
-                          $steps.invokeGlobalAction?.data?.success == true
-                            ? (() => {
-                                const actionArgs = {
-                                  vgroup: "loginPage",
-                                  operation: 0,
-                                  value: []
-                                };
-                                return (({ vgroup, value }) => {
-                                  if (typeof value === "string") {
-                                    value = [value];
-                                  }
-
-                                  $stateSet($state, vgroup, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateLoginPage"] != null &&
-                          typeof $steps["updateLoginPage"] === "object" &&
-                          typeof $steps["updateLoginPage"].then === "function"
-                        ) {
-                          $steps["updateLoginPage"] = await $steps[
-                            "updateLoginPage"
-                          ];
-                        }
-
-                        $steps["updateLoadedbtn2"] = false
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["loadedbtn"]
-                                },
-                                operation: 0,
-                                value: false
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateLoadedbtn2"] != null &&
-                          typeof $steps["updateLoadedbtn2"] === "object" &&
-                          typeof $steps["updateLoadedbtn2"].then === "function"
-                        ) {
-                          $steps["updateLoadedbtn2"] = await $steps[
-                            "updateLoadedbtn2"
-                          ];
-                        }
-
                         $steps["goToPage"] =
-                          $steps.invokeGlobalAction?.data?.success == true
+                          ($steps.invokeGlobalAction?.data?.success == true ||
+                            $steps.invokeGlobalAction2?.data?.success ==
+                              true) &&
+                          (($state.gender == "male" && $state.number != "") ||
+                            $state.gender == "female")
                             ? (() => {
                                 const actionArgs = {
                                   destination: (() => {
@@ -7887,6 +8142,70 @@ function PlasmicLogin__RenderFunc(props: {
                           typeof $steps["goToPage"].then === "function"
                         ) {
                           $steps["goToPage"] = await $steps["goToPage"];
+                        }
+
+                        $steps["updateLoginPage2"] =
+                          $state.gender == "male" && $state.number == ""
+                            ? (() => {
+                                const actionArgs = {
+                                  vgroup: "loginPage",
+                                  operation: 0,
+                                  value: "mobile"
+                                };
+                                return (({ vgroup, value }) => {
+                                  if (typeof value === "string") {
+                                    value = [value];
+                                  }
+
+                                  $stateSet($state, vgroup, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateLoginPage2"] != null &&
+                          typeof $steps["updateLoginPage2"] === "object" &&
+                          typeof $steps["updateLoginPage2"].then === "function"
+                        ) {
+                          $steps["updateLoginPage2"] = await $steps[
+                            "updateLoginPage2"
+                          ];
+                        }
+
+                        $steps["updateLoadedbtn2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadedbtn"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadedbtn2"] != null &&
+                          typeof $steps["updateLoadedbtn2"] === "object" &&
+                          typeof $steps["updateLoadedbtn2"].then === "function"
+                        ) {
+                          $steps["updateLoadedbtn2"] = await $steps[
+                            "updateLoadedbtn2"
+                          ];
                         }
                       }}
                       onColorChange={(...eventArgs) => {
@@ -9563,7 +9882,10 @@ function PlasmicLogin__RenderFunc(props: {
 
                       $steps["updateLoginPage"] =
                         $steps.invokeGlobalAction?.data?.success == true &&
-                        $state.typeLogin == "signup"
+                        ($state.typeLogin == "signup" ||
+                          ($state.gender == "male" &&
+                            ($state.type == "email" ||
+                              $state.type == "userName")))
                           ? (() => {
                               const actionArgs = {
                                 vgroup: "loginPage",
