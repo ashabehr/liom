@@ -986,10 +986,7 @@ function PlasmicLogin__RenderFunc(props: {
                           const actionArgs = {
                             destination: (() => {
                               try {
-                                return (
-                                  "https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=google&state=https://apps.liom.app/login/?redirect_url=" +
-                                  $ctx.query.redirect_url
-                                );
+                                return `https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=google&state=https://apps.liom.app/login/?redirect_url=${$ctx.query.redirect_url}`;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -13553,6 +13550,45 @@ function PlasmicLogin__RenderFunc(props: {
               ]).apply(null, eventArgs);
               (async loading => {
                 const $steps = {};
+
+                $steps["goToPage2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage2"] != null &&
+                  typeof $steps["goToPage2"] === "object" &&
+                  typeof $steps["goToPage2"].then === "function"
+                ) {
+                  $steps["goToPage2"] = await $steps["goToPage2"];
+                }
 
                 $steps["updateLoginPage"] =
                   $ctx.query.token != "" &&
