@@ -21,6 +21,7 @@
 }
 .root:focus-within {
   box-shadow: none;
+  outline: none;
   border-radius: 6px;
   border-width: 1px;
   border-color: var(--token-55cSeNPovQFh);
@@ -29,6 +30,7 @@
   box-shadow: none;
   padding-left: 5px;
   padding-right: 5px;
+  outline: none;
   border-radius: 6px;
   border-width: 1px;
   border-color: var(--token-55cSeNPovQFh);
@@ -47,6 +49,7 @@
   display: flex;
 }
 .root .startIconContainer___focusVisibleWithin {
+  outline: none;
   margin: 0px;
 }
 .slotTargetStartIconshowStartIcon {
@@ -80,6 +83,7 @@
 }
 .root .endIconContainer___focusVisibleWithin {
   margin-left: 0px;
+  outline: none;
 }
 .slotTargetEndIconshowEndIcon {
   color: #90908c;

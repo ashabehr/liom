@@ -72,6 +72,7 @@ import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -168,6 +169,7 @@ export type PlasmicLogin__OverridesType = {
   button5?: Flex__<typeof Button>;
   rules?: Flex__<typeof AntdModal>;
   top?: Flex__<"div">;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultLoginProps {}
@@ -325,7 +327,20 @@ function PlasmicLogin__RenderFunc(props: {
         path: "gender",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.query.sex;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "checkbox.isChecked",
@@ -682,6 +697,24 @@ function PlasmicLogin__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -870,7 +903,7 @@ function PlasmicLogin__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u0644\u06cc\u0648\u0645  | \u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                  "\u0644\u06cc\u0648\u0645  | \u062a\u0642\u0648\u06cc\u0645 \u067e\u0631\u06cc\u0648\u062f\u06cc"
                 }
               </div>
               <Stack__
@@ -955,7 +988,7 @@ function PlasmicLogin__RenderFunc(props: {
                               try {
                                 return (
                                   "https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=google&state=" +
-                                  $ctx.query.redirect_url
+                                  window.location.href
                                 );
                               } catch (e) {
                                 if (
@@ -2221,7 +2254,10 @@ function PlasmicLogin__RenderFunc(props: {
 
                       $steps["invokeGlobalAction"] = (() => {
                         const phoneRegex = /^0?\d{10}$/;
-                        return phoneRegex.test($state.number);
+                        return (
+                          phoneRegex.test($state.number) &&
+                          $state.type == "mobile"
+                        );
                       })()
                         ? (() => {
                             const actionArgs = {
@@ -2266,7 +2302,76 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["updateTypeLogin"] = true
+                      $steps["invokeGlobalAction3"] = (() => {
+                        const phoneRegex = /^0?\d{10}$/;
+                        return (
+                          phoneRegex.test($state.number) &&
+                          $state.type != "mobile"
+                        );
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/rest/user/setMobileSendCode",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      data: $state.number,
+                                      smsType: "sms"
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                (() => {
+                                  try {
+                                    return {
+                                      headers: {
+                                        Authorization:
+                                          "Bearer " + $state.loginData.token ||
+                                          ""
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction3"] != null &&
+                        typeof $steps["invokeGlobalAction3"] === "object" &&
+                        typeof $steps["invokeGlobalAction3"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction3"] = await $steps[
+                          "invokeGlobalAction3"
+                        ];
+                      }
+
+                      $steps["updateTypeLogin"] = $steps.invokeGlobalAction
+                        ?.data?.result?.type
                         ? (() => {
                             const actionArgs = {
                               variable: {
@@ -2312,7 +2417,7 @@ function PlasmicLogin__RenderFunc(props: {
                                   variablePath: ["typeLogin"]
                                 },
                                 operation: 0,
-                                value: "signup"
+                                value: "login"
                               };
                               return (({
                                 variable,
@@ -2341,7 +2446,8 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["updateLoginPage"] =
-                        $steps.invokeGlobalAction?.data?.success == true
+                        $steps.invokeGlobalAction?.data?.success == true ||
+                        $steps.invokeGlobalAction3?.data?.success == true
                           ? (() => {
                               const actionArgs = {
                                 vgroup: "loginPage",
@@ -7741,149 +7847,135 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["invokeGlobalAction"] =
-                          $state.type != "userName" &&
-                          (($state.gender == "male" && $state.number != "") ||
-                            $state.gender == "female")
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://api.liom.app/auth/signup/user",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          type: $state.type,
-                                          name: $state.antdInput2.value || "",
-                                          data: $state.number || $state.email,
-                                          username: "",
-                                          target: "calendar",
-                                          sex: $state.gender || "",
-                                          token: $state.token || "",
-                                          version: "",
-                                          lang: "fa",
-                                          country: "98",
-                                          anotherLang: "fa",
-                                          device: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            if (
-                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                                userAgent
-                                              )
-                                            ) {
-                                              return "Mobile";
-                                            } else if (
-                                              /Tablet|iPad/i.test(userAgent)
-                                            ) {
-                                              return "Tablet";
-                                            } else {
-                                              return "Desktop";
-                                            }
-                                          })(),
-                                          uniqueId: $$.uuid.v4(),
-                                          fcm: "  ",
-                                          os: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            const platform =
-                                              window.navigator.userAgent;
-                                            if (/Windows/i.test(platform))
-                                              return "Windows";
-                                            if (/Mac/i.test(platform))
-                                              return "macOS";
-                                            if (/Linux/i.test(platform))
-                                              return "Linux";
-                                            if (/Android/i.test(userAgent))
-                                              return "Android";
-                                            if (
-                                              /iPhone|iPad|iPod/i.test(
-                                                userAgent
-                                              )
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/auth/signup/user",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        type: $state.type,
+                                        name: $state.antdInput2.value || "",
+                                        data:
+                                          $state.number || $state.email || "",
+                                        username: $state.username || "",
+                                        target: "calendar",
+                                        sex: $state.gender || "",
+                                        token: $state.token || "",
+                                        version: "",
+                                        lang: "fa",
+                                        country: "98",
+                                        anotherLang: "fa",
+                                        device: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (
+                                            /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                              userAgent
                                             )
-                                              return "iOS";
-                                            return "Unknown OS";
-                                          })(),
-                                          osVersion: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            if (
-                                              /Windows NT 10.0/.test(userAgent)
+                                          ) {
+                                            return "Mobile";
+                                          } else if (
+                                            /Tablet|iPad/i.test(userAgent)
+                                          ) {
+                                            return "Tablet";
+                                          } else {
+                                            return "Desktop";
+                                          }
+                                        })(),
+                                        uniqueId: $$.uuid.v4(),
+                                        fcm: "  ",
+                                        os: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          const platform =
+                                            window.navigator.userAgent;
+                                          if (/Windows/i.test(platform))
+                                            return "Windows";
+                                          if (/Mac/i.test(platform))
+                                            return "macOS";
+                                          if (/Linux/i.test(platform))
+                                            return "Linux";
+                                          if (/Android/i.test(userAgent))
+                                            return "Android";
+                                          if (
+                                            /iPhone|iPad|iPod/i.test(userAgent)
+                                          )
+                                            return "iOS";
+                                          return "Unknown OS";
+                                        })(),
+                                        osVersion: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (/Windows NT 10.0/.test(userAgent))
+                                            return "Windows 10";
+                                          if (/Windows NT 6.3/.test(userAgent))
+                                            return "Windows 8.1";
+                                          if (/Windows NT 6.2/.test(userAgent))
+                                            return "Windows 8";
+                                          if (/Windows NT 6.1/.test(userAgent))
+                                            return "Windows 7";
+                                          if (
+                                            /Mac OS X (\d+[\._]\d+)/.test(
+                                              userAgent
                                             )
-                                              return "Windows 10";
-                                            if (
-                                              /Windows NT 6.3/.test(userAgent)
+                                          )
+                                            return `macOS ${RegExp.$1.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          if (
+                                            /Android (\d+(\.\d+)?)/.test(
+                                              userAgent
                                             )
-                                              return "Windows 8.1";
-                                            if (
-                                              /Windows NT 6.2/.test(userAgent)
+                                          )
+                                            return `Android ${RegExp.$1}`;
+                                          if (
+                                            /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                              userAgent
                                             )
-                                              return "Windows 8";
-                                            if (
-                                              /Windows NT 6.1/.test(userAgent)
-                                            )
-                                              return "Windows 7";
-                                            if (
-                                              /Mac OS X (\d+[\._]\d+)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `macOS ${RegExp.$1.replace(
-                                                "_",
-                                                "."
-                                              )}`;
-                                            if (
-                                              /Android (\d+(\.\d+)?)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `Android ${RegExp.$1}`;
-                                            if (
-                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `iOS ${RegExp.$2.replace(
-                                                "_",
-                                                "."
-                                              )}`;
-                                            return "Unknown Version";
-                                          })(),
-                                          password: "",
-                                          postLang: "fa",
-                                          refCode:
-                                            $state.antdInput3.value || "",
-                                          isCountryPending: false,
-                                          device_type:
-                                            window.navigator.platform,
-                                          additionalData: {
-                                            ip: "132465",
-                                            name: "test1"
-                                          },
-                                          city: null,
-                                          state: null,
-                                          birthYear: null,
-                                          religious: 0
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
+                                          )
+                                            return `iOS ${RegExp.$2.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          return "Unknown Version";
+                                        })(),
+                                        password: $state.password || "",
+                                        postLang: "fa",
+                                        refCode: $state.antdInput3.value || "",
+                                        isCountryPending: false,
+                                        device_type: window.navigator.platform,
+                                        additionalData: {
+                                          ip: "132465",
+                                          name: "test1"
+                                        },
+                                        city: null,
+                                        state: null,
+                                        birthYear: null,
+                                        religious: 0
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
                                       }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                         if (
                           $steps["invokeGlobalAction"] != null &&
                           typeof $steps["invokeGlobalAction"] === "object" &&
@@ -7895,149 +7987,134 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["invokeGlobalAction2"] =
-                          $state.type == "userName" &&
-                          (($state.gender == "male" && $state.number != "") ||
-                            $state.gender == "female")
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://api.liom.app/auth/signup",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          type: $state.type,
-                                          name: $state.antdInput2.value || "",
-                                          data: $state.number,
-                                          username: $state.username,
-                                          target: "calendar",
-                                          sex: $state.gender || "",
-                                          token: $state.token || "",
-                                          version: "",
-                                          lang: "fa",
-                                          country: "98",
-                                          anotherLang: "fa",
-                                          device: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            if (
-                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                                userAgent
-                                              )
-                                            ) {
-                                              return "Mobile";
-                                            } else if (
-                                              /Tablet|iPad/i.test(userAgent)
-                                            ) {
-                                              return "Tablet";
-                                            } else {
-                                              return "Desktop";
-                                            }
-                                          })(),
-                                          uniqueId: $$.uuid.v4(),
-                                          fcm: "  ",
-                                          os: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            const platform =
-                                              window.navigator.userAgent;
-                                            if (/Windows/i.test(platform))
-                                              return "Windows";
-                                            if (/Mac/i.test(platform))
-                                              return "macOS";
-                                            if (/Linux/i.test(platform))
-                                              return "Linux";
-                                            if (/Android/i.test(userAgent))
-                                              return "Android";
-                                            if (
-                                              /iPhone|iPad|iPod/i.test(
-                                                userAgent
-                                              )
+                        $steps["invokeGlobalAction2"] = false
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/auth/signup",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        type: $state.type,
+                                        name: $state.antdInput2.value || "",
+                                        data: $state.number,
+                                        username: $state.username,
+                                        target: "calendar",
+                                        sex: $state.gender || "",
+                                        token: $state.token || "",
+                                        version: "",
+                                        lang: "fa",
+                                        country: "98",
+                                        anotherLang: "fa",
+                                        device: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (
+                                            /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                              userAgent
                                             )
-                                              return "iOS";
-                                            return "Unknown OS";
-                                          })(),
-                                          osVersion: (() => {
-                                            const userAgent =
-                                              window.navigator.userAgent;
-                                            if (
-                                              /Windows NT 10.0/.test(userAgent)
+                                          ) {
+                                            return "Mobile";
+                                          } else if (
+                                            /Tablet|iPad/i.test(userAgent)
+                                          ) {
+                                            return "Tablet";
+                                          } else {
+                                            return "Desktop";
+                                          }
+                                        })(),
+                                        uniqueId: $$.uuid.v4(),
+                                        fcm: "  ",
+                                        os: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          const platform =
+                                            window.navigator.userAgent;
+                                          if (/Windows/i.test(platform))
+                                            return "Windows";
+                                          if (/Mac/i.test(platform))
+                                            return "macOS";
+                                          if (/Linux/i.test(platform))
+                                            return "Linux";
+                                          if (/Android/i.test(userAgent))
+                                            return "Android";
+                                          if (
+                                            /iPhone|iPad|iPod/i.test(userAgent)
+                                          )
+                                            return "iOS";
+                                          return "Unknown OS";
+                                        })(),
+                                        osVersion: (() => {
+                                          const userAgent =
+                                            window.navigator.userAgent;
+                                          if (/Windows NT 10.0/.test(userAgent))
+                                            return "Windows 10";
+                                          if (/Windows NT 6.3/.test(userAgent))
+                                            return "Windows 8.1";
+                                          if (/Windows NT 6.2/.test(userAgent))
+                                            return "Windows 8";
+                                          if (/Windows NT 6.1/.test(userAgent))
+                                            return "Windows 7";
+                                          if (
+                                            /Mac OS X (\d+[\._]\d+)/.test(
+                                              userAgent
                                             )
-                                              return "Windows 10";
-                                            if (
-                                              /Windows NT 6.3/.test(userAgent)
+                                          )
+                                            return `macOS ${RegExp.$1.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          if (
+                                            /Android (\d+(\.\d+)?)/.test(
+                                              userAgent
                                             )
-                                              return "Windows 8.1";
-                                            if (
-                                              /Windows NT 6.2/.test(userAgent)
+                                          )
+                                            return `Android ${RegExp.$1}`;
+                                          if (
+                                            /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                              userAgent
                                             )
-                                              return "Windows 8";
-                                            if (
-                                              /Windows NT 6.1/.test(userAgent)
-                                            )
-                                              return "Windows 7";
-                                            if (
-                                              /Mac OS X (\d+[\._]\d+)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `macOS ${RegExp.$1.replace(
-                                                "_",
-                                                "."
-                                              )}`;
-                                            if (
-                                              /Android (\d+(\.\d+)?)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `Android ${RegExp.$1}`;
-                                            if (
-                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                                userAgent
-                                              )
-                                            )
-                                              return `iOS ${RegExp.$2.replace(
-                                                "_",
-                                                "."
-                                              )}`;
-                                            return "Unknown Version";
-                                          })(),
-                                          password: $state.password,
-                                          postLang: "fa",
-                                          refCode:
-                                            $state.antdInput3.value || "",
-                                          isCountryPending: false,
-                                          device_type:
-                                            window.navigator.platform,
-                                          additionalData: {
-                                            ip: "132465",
-                                            name: "test1"
-                                          },
-                                          city: null,
-                                          state: null,
-                                          birthYear: null,
-                                          religious: 0
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
+                                          )
+                                            return `iOS ${RegExp.$2.replace(
+                                              "_",
+                                              "."
+                                            )}`;
+                                          return "Unknown Version";
+                                        })(),
+                                        password: $state.password,
+                                        postLang: "fa",
+                                        refCode: $state.antdInput3.value || "",
+                                        isCountryPending: false,
+                                        device_type: window.navigator.platform,
+                                        additionalData: {
+                                          ip: "132465",
+                                          name: "test1"
+                                        },
+                                        city: null,
+                                        state: null,
+                                        birthYear: null,
+                                        religious: 0
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
                                       }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                         if (
                           $steps["invokeGlobalAction2"] != null &&
                           typeof $steps["invokeGlobalAction2"] === "object" &&
@@ -8093,8 +8170,7 @@ function PlasmicLogin__RenderFunc(props: {
                           ($steps.invokeGlobalAction?.data?.success == true ||
                             $steps.invokeGlobalAction2?.data?.success ==
                               true) &&
-                          (($state.gender == "male" && $state.number != "") ||
-                            $state.gender == "female")
+                          ($state.type == "mobile" || $state.gender == "female")
                             ? (() => {
                                 const actionArgs = {
                                   destination: (() => {
@@ -9663,7 +9739,7 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["invokeGlobalAction"] =
-                        $state.typeLogin == "signup"
+                        $state.typeLogin == "signup" && $state.type == "mobile"
                           ? (() => {
                               const actionArgs = {
                                 args: [
@@ -9705,7 +9781,7 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["invokeGlobalAction3"] =
-                        $state.typeLogin == "login"
+                        $state.typeLogin == "login" && $state.type == "mobile"
                           ? (() => {
                               const actionArgs = {
                                 args: [
@@ -9844,9 +9920,56 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
 
+                      $steps["invokeGlobalAction4"] =
+                        $state.type != "mobile"
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/rest/user/setMobileValidate",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        data: $state.number,
+                                        name: $state.antdInput2.value || "",
+                                        email: $state.email || "",
+                                        gender: $state.gender,
+                                        type: "mobile",
+                                        code: $state.cods
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction4"] != null &&
+                        typeof $steps["invokeGlobalAction4"] === "object" &&
+                        typeof $steps["invokeGlobalAction4"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction4"] = await $steps[
+                          "invokeGlobalAction4"
+                        ];
+                      }
+
                       $steps["updateToken"] =
                         $steps.invokeGlobalAction?.data?.success == true &&
-                        $state.typeLogin == "signup"
+                        $state.typeLogin == "signup" &&
+                        $state.type == "mobile"
                           ? (() => {
                               const actionArgs = {
                                 variable: {
@@ -9882,10 +10005,7 @@ function PlasmicLogin__RenderFunc(props: {
 
                       $steps["updateLoginPage"] =
                         $steps.invokeGlobalAction?.data?.success == true &&
-                        ($state.typeLogin == "signup" ||
-                          ($state.gender == "male" &&
-                            ($state.type == "email" ||
-                              $state.type == "userName")))
+                        $state.typeLogin == "signup"
                           ? (() => {
                               const actionArgs = {
                                 vgroup: "loginPage",
@@ -9913,7 +10033,8 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["updateLoginData"] =
-                        $steps.invokeGlobalAction3?.data?.success == true &&
+                        ($steps.invokeGlobalAction4?.data?.success == true ||
+                          $steps.invokeGlobalAction3?.data?.success == true) &&
                         $state.typeLogin == "login"
                           ? (() => {
                               const actionArgs = {
@@ -9952,7 +10073,8 @@ function PlasmicLogin__RenderFunc(props: {
 
                       $steps["invokeGlobalAction2"] =
                         $steps.invokeGlobalAction?.data?.success == false ||
-                        $steps.invokeGlobalAction3?.data?.success == false
+                        $steps.invokeGlobalAction3?.data?.success == false ||
+                        $steps.invokeGlobalAction4?.data?.success == false
                           ? (() => {
                               const actionArgs = {
                                 args: [
@@ -9977,7 +10099,8 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["goToPage"] =
-                        $steps.invokeGlobalAction3?.data?.success == true &&
+                        ($steps.invokeGlobalAction4?.data?.success == true ||
+                          $steps.invokeGlobalAction3?.data?.success == true) &&
                         $state.typeLogin == "login"
                           ? (() => {
                               const actionArgs = {
@@ -12831,6 +12954,29 @@ function PlasmicLogin__RenderFunc(props: {
                               throw e;
                             }
                           })()
+                        : hasVariant($state, "loginPage", "email")
+                        ? (() => {
+                            try {
+                              return (
+                                $state.loadedbtn ||
+                                (() => {
+                                  const emailRegex =
+                                    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                                  return !emailRegex.test(
+                                    $state.antdInput5.value
+                                  );
+                                })()
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
                         : hasVariant($state, "loginPage", "mobile")
                         ? (() => {
                             try {
@@ -12852,19 +12998,35 @@ function PlasmicLogin__RenderFunc(props: {
                           })()
                         : undefined
                     }
-                    loading={(() => {
-                      try {
-                        return $state.loadedbtn;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()}
+                    loading={
+                      hasVariant($state, "loginPage", "email")
+                        ? (() => {
+                            try {
+                              return $state.loadedbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                        : (() => {
+                            try {
+                              return $state.loadedbtn;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()
+                    }
                     onClick={async event => {
                       const $steps = {};
 
@@ -13316,6 +13478,148 @@ function PlasmicLogin__RenderFunc(props: {
               </Stack__>
             ) : null}
           </AntdModal>
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            className={classNames("__wab_instance", sty.apiRequest, {
+              [sty.apiRequestloginPage_name]: hasVariant(
+                $state,
+                "loginPage",
+                "name"
+              )
+            })}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"GET"}
+            onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+              (async loading => {
+                const $steps = {};
+
+                $steps["updateLoginPage"] =
+                  $ctx.query.token != "" &&
+                  $ctx.query.token != null &&
+                  $ctx.query.isLogin == "false"
+                    ? (() => {
+                        const actionArgs = {
+                          vgroup: "loginPage",
+                          operation: 0,
+                          value: "name"
+                        };
+                        return (({ vgroup, value }) => {
+                          if (typeof value === "string") {
+                            value = [value];
+                          }
+
+                          $stateSet($state, vgroup, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateLoginPage"] != null &&
+                  typeof $steps["updateLoginPage"] === "object" &&
+                  typeof $steps["updateLoginPage"].then === "function"
+                ) {
+                  $steps["updateLoginPage"] = await $steps["updateLoginPage"];
+                }
+
+                $steps["goToPage"] =
+                  $ctx.query.isLogin == "true"
+                    ? (() => {
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return (
+                                $ctx.query.redirect_url +
+                                "?token=" +
+                                $$.uuid.v4().slice(0, 6) +
+                                $ctx.query.token +
+                                $$.uuid.v4().slice(10, 13) +
+                                "&userId=" +
+                                $$.uuid.v4().slice(0, 4) +
+                                $ctx.query.userId +
+                                $$.uuid.v4().slice(0, 4)
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+
+                $steps["updateType"] =
+                  $ctx.query.isLogin == "false"
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["type"]
+                          },
+                          operation: 0,
+                          value: "google"
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateType"] != null &&
+                  typeof $steps["updateType"] === "object" &&
+                  typeof $steps["updateType"].then === "function"
+                ) {
+                  $steps["updateType"] = await $steps["updateType"];
+                }
+              }).apply(null, eventArgs);
+            }}
+            onSuccess={generateStateOnChangeProp($state, [
+              "apiRequest",
+              "data"
+            ])}
+            url={"/"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -13360,7 +13664,8 @@ const PlasmicDescendants = {
     "antdInput5",
     "button5",
     "rules",
-    "top"
+    "top",
+    "apiRequest"
   ],
   img: ["img"],
   textInput: ["textInput", "antdInput"],
@@ -13397,7 +13702,8 @@ const PlasmicDescendants = {
   antdInput5: ["antdInput5"],
   button5: ["button5"],
   rules: ["rules", "top"],
-  top: ["top"]
+  top: ["top"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -13440,6 +13746,7 @@ type NodeDefaultElementType = {
   button5: typeof Button;
   rules: typeof AntdModal;
   top: "div";
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -13563,6 +13870,7 @@ export const PlasmicLogin = Object.assign(
     button5: makeNodeComponent("button5"),
     rules: makeNodeComponent("rules"),
     top: makeNodeComponent("top"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,
