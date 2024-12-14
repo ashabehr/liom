@@ -987,8 +987,8 @@ function PlasmicLogin__RenderFunc(props: {
                             destination: (() => {
                               try {
                                 return (
-                                  "https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=google&state=" +
-                                  window.location.href
+                                  "https://user.paziresh24.com/realms/paziresh24/protocol/openid-connect/auth?client_id=liom&response_type=code&redirect_uri=https://api.liom.app/authenticate/callback?appKey=eyiaiwkisehi20edihoMhEFLJEf@jopk56!seoS245epj445&scope=openid&kc_idp_hint=google&state=https://apps.liom.app/login/?redirect_url=" +
+                                  $ctx.query.redirect_url
                                 );
                               } catch (e) {
                                 if (
