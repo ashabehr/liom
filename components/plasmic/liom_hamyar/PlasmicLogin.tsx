@@ -2337,8 +2337,8 @@ function PlasmicLogin__RenderFunc(props: {
                                     return {
                                       headers: {
                                         Authorization:
-                                          "Bearer " + $state.loginData.token ||
-                                          ""
+                                          "Bearer " +
+                                          ($state.loginData.result.token || "")
                                       }
                                     };
                                   } catch (e) {
@@ -6095,42 +6095,6 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["updateLoginData"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loginData"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoginData"] != null &&
-                        typeof $steps["updateLoginData"] === "object" &&
-                        typeof $steps["updateLoginData"].then === "function"
-                      ) {
-                        $steps["updateLoginData"] = await $steps[
-                          "updateLoginData"
-                        ];
-                      }
-
                       $steps["updateLoginPage"] =
                         $steps.invokeGlobalAction?.data?.success == true
                           ? (() => {
@@ -7847,135 +7811,148 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["invokeGlobalAction"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://api.liom.app/auth/signup/user",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        type: $state.type,
-                                        name: $state.antdInput2.value || "",
-                                        data:
-                                          $state.number || $state.email || "",
-                                        username: $state.username || "",
-                                        target: "calendar",
-                                        sex: $state.gender || "",
-                                        token: $state.token || "",
-                                        version: "",
-                                        lang: "fa",
-                                        country: "98",
-                                        anotherLang: "fa",
-                                        device: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          if (
-                                            /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                              userAgent
+                        $steps["invokeGlobalAction"] =
+                          $state.type == "mobile" || $state.type == "email"
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/auth/signup/user",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          type: $state.type,
+                                          name: $state.antdInput2.value || "",
+                                          data:
+                                            $state.number || $state.email || "",
+                                          username: $state.username || "",
+                                          target: "calendar",
+                                          sex: $state.gender || "",
+                                          token: $state.token || "",
+                                          version: "",
+                                          lang: "fa",
+                                          country: "98",
+                                          anotherLang: "fa",
+                                          device: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            ) {
+                                              return "Mobile";
+                                            } else if (
+                                              /Tablet|iPad/i.test(userAgent)
+                                            ) {
+                                              return "Tablet";
+                                            } else {
+                                              return "Desktop";
+                                            }
+                                          })(),
+                                          uniqueId: $$.uuid.v4(),
+                                          fcm: "  ",
+                                          os: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            const platform =
+                                              window.navigator.userAgent;
+                                            if (/Windows/i.test(platform))
+                                              return "Windows";
+                                            if (/Mac/i.test(platform))
+                                              return "macOS";
+                                            if (/Linux/i.test(platform))
+                                              return "Linux";
+                                            if (/Android/i.test(userAgent))
+                                              return "Android";
+                                            if (
+                                              /iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
                                             )
-                                          ) {
-                                            return "Mobile";
-                                          } else if (
-                                            /Tablet|iPad/i.test(userAgent)
-                                          ) {
-                                            return "Tablet";
-                                          } else {
-                                            return "Desktop";
-                                          }
-                                        })(),
-                                        uniqueId: $$.uuid.v4(),
-                                        fcm: "  ",
-                                        os: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          const platform =
-                                            window.navigator.userAgent;
-                                          if (/Windows/i.test(platform))
-                                            return "Windows";
-                                          if (/Mac/i.test(platform))
-                                            return "macOS";
-                                          if (/Linux/i.test(platform))
-                                            return "Linux";
-                                          if (/Android/i.test(userAgent))
-                                            return "Android";
-                                          if (
-                                            /iPhone|iPad|iPod/i.test(userAgent)
-                                          )
-                                            return "iOS";
-                                          return "Unknown OS";
-                                        })(),
-                                        osVersion: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          if (/Windows NT 10.0/.test(userAgent))
-                                            return "Windows 10";
-                                          if (/Windows NT 6.3/.test(userAgent))
-                                            return "Windows 8.1";
-                                          if (/Windows NT 6.2/.test(userAgent))
-                                            return "Windows 8";
-                                          if (/Windows NT 6.1/.test(userAgent))
-                                            return "Windows 7";
-                                          if (
-                                            /Mac OS X (\d+[\._]\d+)/.test(
-                                              userAgent
+                                              return "iOS";
+                                            return "Unknown OS";
+                                          })(),
+                                          osVersion: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Windows NT 10.0/.test(userAgent)
                                             )
-                                          )
-                                            return `macOS ${RegExp.$1.replace(
-                                              "_",
-                                              "."
-                                            )}`;
-                                          if (
-                                            /Android (\d+(\.\d+)?)/.test(
-                                              userAgent
+                                              return "Windows 10";
+                                            if (
+                                              /Windows NT 6.3/.test(userAgent)
                                             )
-                                          )
-                                            return `Android ${RegExp.$1}`;
-                                          if (
-                                            /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                              userAgent
+                                              return "Windows 8.1";
+                                            if (
+                                              /Windows NT 6.2/.test(userAgent)
                                             )
-                                          )
-                                            return `iOS ${RegExp.$2.replace(
-                                              "_",
-                                              "."
-                                            )}`;
-                                          return "Unknown Version";
-                                        })(),
-                                        password: $state.password || "",
-                                        postLang: "fa",
-                                        refCode: $state.antdInput3.value || "",
-                                        isCountryPending: false,
-                                        device_type: window.navigator.platform,
-                                        additionalData: {
-                                          ip: "132465",
-                                          name: "test1"
-                                        },
-                                        city: null,
-                                        state: null,
-                                        birthYear: null,
-                                        religious: 0
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
+                                              return "Windows 8";
+                                            if (
+                                              /Windows NT 6.1/.test(userAgent)
+                                            )
+                                              return "Windows 7";
+                                            if (
+                                              /Mac OS X (\d+[\._]\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `macOS ${RegExp.$1.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            if (
+                                              /Android (\d+(\.\d+)?)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `Android ${RegExp.$1}`;
+                                            if (
+                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `iOS ${RegExp.$2.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            return "Unknown Version";
+                                          })(),
+                                          password: $state.password || "",
+                                          postLang: "fa",
+                                          refCode:
+                                            $state.antdInput3.value || "",
+                                          isCountryPending: false,
+                                          device_type:
+                                            window.navigator.platform,
+                                          additionalData: {
+                                            ip: "132465",
+                                            name: "test1"
+                                          },
+                                          city: null,
+                                          state: null,
+                                          birthYear: null,
+                                          religious: 0
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
                         if (
                           $steps["invokeGlobalAction"] != null &&
                           typeof $steps["invokeGlobalAction"] === "object" &&
@@ -7987,134 +7964,147 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["invokeGlobalAction2"] = false
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://api.liom.app/auth/signup",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        type: $state.type,
-                                        name: $state.antdInput2.value || "",
-                                        data: $state.number,
-                                        username: $state.username,
-                                        target: "calendar",
-                                        sex: $state.gender || "",
-                                        token: $state.token || "",
-                                        version: "",
-                                        lang: "fa",
-                                        country: "98",
-                                        anotherLang: "fa",
-                                        device: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          if (
-                                            /Mobi|Android|iPhone|iPad|iPod/i.test(
-                                              userAgent
+                        $steps["invokeGlobalAction2"] =
+                          $state.type == "userName"
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://api.liom.app/auth/signup",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          type: $state.type,
+                                          name: $state.antdInput2.value || "",
+                                          data: $state.number,
+                                          username: $state.username,
+                                          target: "calendar",
+                                          sex: $state.gender || "",
+                                          token: $state.token || "",
+                                          version: "",
+                                          lang: "fa",
+                                          country: "98",
+                                          anotherLang: "fa",
+                                          device: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Mobi|Android|iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
+                                            ) {
+                                              return "Mobile";
+                                            } else if (
+                                              /Tablet|iPad/i.test(userAgent)
+                                            ) {
+                                              return "Tablet";
+                                            } else {
+                                              return "Desktop";
+                                            }
+                                          })(),
+                                          uniqueId: $$.uuid.v4(),
+                                          fcm: "  ",
+                                          os: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            const platform =
+                                              window.navigator.userAgent;
+                                            if (/Windows/i.test(platform))
+                                              return "Windows";
+                                            if (/Mac/i.test(platform))
+                                              return "macOS";
+                                            if (/Linux/i.test(platform))
+                                              return "Linux";
+                                            if (/Android/i.test(userAgent))
+                                              return "Android";
+                                            if (
+                                              /iPhone|iPad|iPod/i.test(
+                                                userAgent
+                                              )
                                             )
-                                          ) {
-                                            return "Mobile";
-                                          } else if (
-                                            /Tablet|iPad/i.test(userAgent)
-                                          ) {
-                                            return "Tablet";
-                                          } else {
-                                            return "Desktop";
-                                          }
-                                        })(),
-                                        uniqueId: $$.uuid.v4(),
-                                        fcm: "  ",
-                                        os: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          const platform =
-                                            window.navigator.userAgent;
-                                          if (/Windows/i.test(platform))
-                                            return "Windows";
-                                          if (/Mac/i.test(platform))
-                                            return "macOS";
-                                          if (/Linux/i.test(platform))
-                                            return "Linux";
-                                          if (/Android/i.test(userAgent))
-                                            return "Android";
-                                          if (
-                                            /iPhone|iPad|iPod/i.test(userAgent)
-                                          )
-                                            return "iOS";
-                                          return "Unknown OS";
-                                        })(),
-                                        osVersion: (() => {
-                                          const userAgent =
-                                            window.navigator.userAgent;
-                                          if (/Windows NT 10.0/.test(userAgent))
-                                            return "Windows 10";
-                                          if (/Windows NT 6.3/.test(userAgent))
-                                            return "Windows 8.1";
-                                          if (/Windows NT 6.2/.test(userAgent))
-                                            return "Windows 8";
-                                          if (/Windows NT 6.1/.test(userAgent))
-                                            return "Windows 7";
-                                          if (
-                                            /Mac OS X (\d+[\._]\d+)/.test(
-                                              userAgent
+                                              return "iOS";
+                                            return "Unknown OS";
+                                          })(),
+                                          osVersion: (() => {
+                                            const userAgent =
+                                              window.navigator.userAgent;
+                                            if (
+                                              /Windows NT 10.0/.test(userAgent)
                                             )
-                                          )
-                                            return `macOS ${RegExp.$1.replace(
-                                              "_",
-                                              "."
-                                            )}`;
-                                          if (
-                                            /Android (\d+(\.\d+)?)/.test(
-                                              userAgent
+                                              return "Windows 10";
+                                            if (
+                                              /Windows NT 6.3/.test(userAgent)
                                             )
-                                          )
-                                            return `Android ${RegExp.$1}`;
-                                          if (
-                                            /CPU (iPhone )?OS (\d+_\d+)/.test(
-                                              userAgent
+                                              return "Windows 8.1";
+                                            if (
+                                              /Windows NT 6.2/.test(userAgent)
                                             )
-                                          )
-                                            return `iOS ${RegExp.$2.replace(
-                                              "_",
-                                              "."
-                                            )}`;
-                                          return "Unknown Version";
-                                        })(),
-                                        password: $state.password,
-                                        postLang: "fa",
-                                        refCode: $state.antdInput3.value || "",
-                                        isCountryPending: false,
-                                        device_type: window.navigator.platform,
-                                        additionalData: {
-                                          ip: "132465",
-                                          name: "test1"
-                                        },
-                                        city: null,
-                                        state: null,
-                                        birthYear: null,
-                                        religious: 0
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
+                                              return "Windows 8";
+                                            if (
+                                              /Windows NT 6.1/.test(userAgent)
+                                            )
+                                              return "Windows 7";
+                                            if (
+                                              /Mac OS X (\d+[\._]\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `macOS ${RegExp.$1.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            if (
+                                              /Android (\d+(\.\d+)?)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `Android ${RegExp.$1}`;
+                                            if (
+                                              /CPU (iPhone )?OS (\d+_\d+)/.test(
+                                                userAgent
+                                              )
+                                            )
+                                              return `iOS ${RegExp.$2.replace(
+                                                "_",
+                                                "."
+                                              )}`;
+                                            return "Unknown Version";
+                                          })(),
+                                          password: $state.password,
+                                          postLang: "fa",
+                                          refCode:
+                                            $state.antdInput3.value || "",
+                                          isCountryPending: false,
+                                          device_type:
+                                            window.navigator.platform,
+                                          additionalData: {
+                                            ip: "132465",
+                                            name: "test1"
+                                          },
+                                          city: null,
+                                          state: null,
+                                          birthYear: null,
+                                          religious: 0
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
                         if (
                           $steps["invokeGlobalAction2"] != null &&
                           typeof $steps["invokeGlobalAction2"] === "object" &&
@@ -8281,6 +8271,49 @@ function PlasmicLogin__RenderFunc(props: {
                         ) {
                           $steps["updateLoadedbtn2"] = await $steps[
                             "updateLoadedbtn2"
+                          ];
+                        }
+
+                        $steps["updateLoginData2"] =
+                          $state.type == "google"
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loginData"]
+                                  },
+                                  operation: 0,
+                                  value: {
+                                    success: true,
+                                    result: {
+                                      token: $ctx.query.token,
+                                      userId: $ctx.query.userId
+                                    }
+                                  }
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateLoginData2"] != null &&
+                          typeof $steps["updateLoginData2"] === "object" &&
+                          typeof $steps["updateLoginData2"].then === "function"
+                        ) {
+                          $steps["updateLoginData2"] = await $steps[
+                            "updateLoginData2"
                           ];
                         }
                       }}
@@ -9937,6 +9970,27 @@ function PlasmicLogin__RenderFunc(props: {
                                         gender: $state.gender,
                                         type: "mobile",
                                         code: $state.cods
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return {
+                                        headers: {
+                                          Authorization:
+                                            "Bearer " +
+                                            ($state.loginData.result.token ||
+                                              "")
+                                        }
                                       };
                                     } catch (e) {
                                       if (
