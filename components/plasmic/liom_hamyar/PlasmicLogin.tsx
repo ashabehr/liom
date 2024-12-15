@@ -13801,6 +13801,11 @@ function PlasmicLogin__RenderFunc(props: {
             data-plasmic-name={"rules"}
             data-plasmic-override={overrides.rules}
             className={classNames("__wab_instance", sty.rules, {
+              [sty.rulesloginPage_mobileCode]: hasVariant(
+                $state,
+                "loginPage",
+                "mobileCode"
+              ),
               [sty.rulesloginPage_name]: hasVariant($state, "loginPage", "name")
             })}
             closeIcon={
@@ -14123,11 +14128,11 @@ function PlasmicLogin__RenderFunc(props: {
                               $ctx.query.redirect_url +
                               "?token=" +
                               $$.uuid.v4().slice(0, 6) +
-                              $state.loginData.result.token +
+                              ($state.loginData.result.token || "") +
                               $$.uuid.v4().slice(10, 13) +
                               "&userId=" +
                               $$.uuid.v4().slice(0, 4) +
-                              $state.loginData.result.userId +
+                              ($state.loginData.result.userId || "") +
                               $$.uuid.v4().slice(0, 4)
                             );
                           } catch (e) {
