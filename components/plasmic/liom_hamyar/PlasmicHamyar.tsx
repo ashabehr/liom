@@ -1326,7 +1326,15 @@ function PlasmicHamyar__RenderFunc(props: {
                   }
                 })()
           ) ? (
-            <div className={classNames(projectcss.all, sty.freeBox__kJv6J)}>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__kJv6J, {
+                [sty.freeBoxlackOfCourseInformation__kJv6J07Srs]: hasVariant(
+                  $state,
+                  "lackOfCourseInformation",
+                  "lackOfCourseInformation"
+                )
+              })}
+            >
               <Stack__
                 as={"div"}
                 hasGap={true}
@@ -11536,7 +11544,9 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
 
                 $steps["updateDeleteDate"] = (
-                  $state.user.data?.success ? $state.user.data.success : false
+                  $state.user.data?.result?.userStatus?.periodStatus
+                    ? true
+                    : false
                 )
                   ? (() => {
                       const actionArgs = {

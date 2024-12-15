@@ -9688,6 +9688,9 @@
 .checkbox:global(.__wab_instance) {
   max-width: 100%;
 }
+.checkboxloginPage_name:global(.__wab_instance) {
+  margin-bottom: 16px;
+}
 .button4:global(.__wab_instance) {
   max-width: 100%;
 }
