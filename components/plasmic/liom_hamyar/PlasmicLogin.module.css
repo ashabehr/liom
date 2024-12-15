@@ -301,6 +301,7 @@
 }
 .loginBox__aUvGc:global(.__wab_instance) {
   position: relative;
+  display: none;
 }
 .svg__r6Czq {
   object-fit: cover;
@@ -320,6 +321,7 @@
 }
 .loginBox___67EL:global(.__wab_instance) {
   position: relative;
+  display: none;
 }
 .svg__wuBf {
   object-fit: cover;
@@ -337,6 +339,14 @@
   width: 20px;
   height: 20px;
   color: var(--token-aPMgnD4sVFAM);
+}
+.text__xpOyZ {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  min-width: 0;
 }
 .reveal__hzsaP:global(.__wab_instance) {
   max-width: 100%;
