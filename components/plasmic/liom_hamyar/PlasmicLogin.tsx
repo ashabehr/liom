@@ -14373,7 +14373,13 @@ function PlasmicLogin__RenderFunc(props: {
             >
               <PlasmicImg__
                 alt={""}
-                className={classNames(sty.img__yi8ED)}
+                className={classNames(sty.img__yi8ED, {
+                  [sty.imgloginPage_mobile__yi8ED6MmOa]: hasVariant(
+                    $state,
+                    "loginPage",
+                    "mobile"
+                  )
+                })}
                 displayHeight={"150px"}
                 displayMaxHeight={"none"}
                 displayMaxWidth={"100%"}
