@@ -157,7 +157,11 @@ function PlasmicWeekByWeek__RenderFunc(props: {
         path: "selectedWeek",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $ctx.query.weekNum
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            if ($ctx.query.weekNum != null) return $ctx.query.weekNum;
+            else return "1";
+          })()
       },
       {
         path: "babySize",
@@ -431,6 +435,28 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
                 return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "weekNum",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if ($ctx.query.weekNum != null) return $ctx.query.weekNum;
+                else return "1";
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
               }
               throw e;
             }
@@ -1359,7 +1385,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
             {(() => {
               try {
                 return (
-                  $ctx.query.weekNum != $state.selectedWeek &&
+                  $state.weekNum != $state.selectedWeek &&
                   $ctx.query.token != ""
                 );
               } catch (e) {

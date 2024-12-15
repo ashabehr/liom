@@ -346,7 +346,8 @@ function PlasmicLogin__RenderFunc(props: {
         path: "checkbox.isChecked",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "loginPage", "name") ? "isChecked" : undefined
       },
       {
         path: "antdInput.value",
