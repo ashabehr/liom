@@ -1767,80 +1767,66 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         </div>
                       </div>
                     </AntdModal>
-                    {(() => {
-                      try {
-                        return $ctx.query.token == "";
-                      } catch (e) {
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___66Tdp
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateModalOpen"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["modal", "open"]
+                                },
+                                operation: 4
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                         if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
+                          $steps["updateModalOpen"] != null &&
+                          typeof $steps["updateModalOpen"] === "object" &&
+                          typeof $steps["updateModalOpen"].then === "function"
                         ) {
-                          return false;
+                          $steps["updateModalOpen"] = await $steps[
+                            "updateModalOpen"
+                          ];
                         }
-                        throw e;
-                      }
-                    })() ? (
+                      }}
+                    >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox___66Tdp
+                          projectcss.__wab_text,
+                          sty.text__fN9Y
                         )}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["updateModalOpen"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["modal", "open"]
-                                  },
-                                  operation: 4
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  const oldValue = $stateGet(
-                                    objRoot,
-                                    variablePath
-                                  );
-                                  $stateSet(objRoot, variablePath, !oldValue);
-                                  return !oldValue;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                          if (
-                            $steps["updateModalOpen"] != null &&
-                            typeof $steps["updateModalOpen"] === "object" &&
-                            typeof $steps["updateModalOpen"].then === "function"
-                          ) {
-                            $steps["updateModalOpen"] = await $steps[
-                              "updateModalOpen"
-                            ];
-                          }
-                        }}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__fN9Y
-                          )}
-                        >
-                          {
-                            "\u062b\u0628\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
-                          }
-                        </div>
+                        {
+                          "\u062b\u0628\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                        }
                       </div>
-                    ) : null}
+                    </div>
                   </Stack__>
                 </div>
               </div>
@@ -2924,76 +2910,62 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   );
                 })()}
               </div>
-              {(() => {
-                try {
-                  return $ctx.query.token == "";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return false;
-                  }
-                  throw e;
-                }
-              })() ? (
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__arqS1)}
-                  onClick={async event => {
-                    const $steps = {};
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__arqS1)}
+                onClick={async event => {
+                  const $steps = {};
 
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return window.open(
-                                  "https://old.liom.app/link",
-                                  "_blank"
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return window.open(
+                                "https://old.liom.app/link",
+                                "_blank"
+                              );
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___5KNhh
+                  )}
                 >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___5KNhh
-                    )}
-                  >
-                    {
-                      "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
-                    }
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__hUuxZ
-                    )}
-                  >
-                    {
-                      "\u0644\u06cc\u0648\u0645\u060c \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f."
-                    }
-                  </div>
-                </Stack__>
-              ) : null}
+                  {
+                    "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
+                  }
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__hUuxZ
+                  )}
+                >
+                  {
+                    "\u0644\u06cc\u0648\u0645\u060c \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f."
+                  }
+                </div>
+              </Stack__>
             </div>
           </div>
         </div>
