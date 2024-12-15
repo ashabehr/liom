@@ -1724,14 +1724,14 @@
           "checksum": "2f1e26712d6501bdd6a96d729e1f78ab"
         },
         {
-          "assetId": "suVPi77vb6vv9K5rYJwyxC",
-          "type": "projectCss",
-          "checksum": "0afe32462bc8dc410bd4c2d3f347c0c7"
-        },
-        {
           "type": "image",
           "assetId": "mStJegCMZr7n",
           "checksum": "39feac7d7d557a4dbed00878f8d399d7"
+        },
+        {
+          "assetId": "suVPi77vb6vv9K5rYJwyxC",
+          "type": "projectCss",
+          "checksum": "0afe32462bc8dc410bd4c2d3f347c0c7"
         }
       ],
       "codegenVersion": "0.0.1"
