@@ -437,7 +437,7 @@ function PlasmicLogin__RenderFunc(props: {
         path: "loadedbtn",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "loginData",
@@ -1842,7 +1842,11 @@ function PlasmicLogin__RenderFunc(props: {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__n30Fi
+                              sty.freeBox__n30Fi,
+                              {
+                                [sty.freeBoxloginPage_mobile__n30Fi6MmOa]:
+                                  hasVariant($state, "loginPage", "mobile")
+                              }
                             )}
                           />
 
