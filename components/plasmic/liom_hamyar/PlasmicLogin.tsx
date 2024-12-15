@@ -7974,7 +7974,7 @@ function PlasmicLogin__RenderFunc(props: {
                                         return {
                                           type: $state.type,
                                           name: $state.antdInput2.value || "",
-                                          data: $state.number,
+                                          data: $state.number || "",
                                           username: $state.username,
                                           target: "calendar",
                                           sex: $state.gender || "",
@@ -8114,8 +8114,8 @@ function PlasmicLogin__RenderFunc(props: {
                         }
 
                         $steps["updateLoginData"] =
-                          $steps.invokeGlobalAction?.data?.success == true ||
-                          $steps.invokeGlobalAction2?.data?.success == true
+                          $steps.invokeGlobalAction?.data?.success === true ||
+                          $steps.invokeGlobalAction2?.data?.success === true
                             ? (() => {
                                 const actionArgs = {
                                   variable: {
@@ -8124,8 +8124,8 @@ function PlasmicLogin__RenderFunc(props: {
                                   },
                                   operation: 0,
                                   value:
-                                    $steps.invokeGlobalAction.data ||
-                                    $steps.invokeGlobalAction2.data
+                                    $steps.invokeGlobalAction?.data ||
+                                    $steps.invokeGlobalAction2?.data
                                 };
                                 return (({
                                   variable,
@@ -10084,9 +10084,9 @@ function PlasmicLogin__RenderFunc(props: {
                       }
 
                       $steps["updateLoginData"] =
-                        ($steps.invokeGlobalAction4?.data?.success == true ||
-                          $steps.invokeGlobalAction3?.data?.success == true) &&
-                        $state.typeLogin == "login"
+                        ($steps.invokeGlobalAction4?.data?.success === true ||
+                          $steps.invokeGlobalAction3?.data?.success === true) &&
+                        $state.typeLogin === "login"
                           ? (() => {
                               const actionArgs = {
                                 variable: {
@@ -10094,7 +10094,9 @@ function PlasmicLogin__RenderFunc(props: {
                                   variablePath: ["loginData"]
                                 },
                                 operation: 0,
-                                value: $steps.invokeGlobalAction3.data
+                                value:
+                                  $steps.invokeGlobalAction3.data ||
+                                  $steps.invokeGlobalAction4.data
                               };
                               return (({
                                 variable,
@@ -13550,45 +13552,6 @@ function PlasmicLogin__RenderFunc(props: {
               ]).apply(null, eventArgs);
               (async loading => {
                 const $steps = {};
-
-                $steps["goToPage2"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return undefined;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToPage2"] != null &&
-                  typeof $steps["goToPage2"] === "object" &&
-                  typeof $steps["goToPage2"].then === "function"
-                ) {
-                  $steps["goToPage2"] = await $steps["goToPage2"];
-                }
 
                 $steps["updateLoginPage"] =
                   $ctx.query.token != "" &&
