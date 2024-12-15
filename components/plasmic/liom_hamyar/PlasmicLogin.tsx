@@ -96,6 +96,7 @@ import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld
 import Icon116Icon from "./icons/PlasmicIcon__Icon116"; // plasmic-import: VyeEoKQrulIJ/icon
 import Icon117Icon from "./icons/PlasmicIcon__Icon117"; // plasmic-import: LYjQaTZDlGsf/icon
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
+import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 
 import { v4 as __lib_uuid__v4 } from "uuid";
 
@@ -133,7 +134,6 @@ export const PlasmicLogin__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicLogin__OverridesType = {
   root?: Flex__<"div">;
-  img?: Flex__<typeof PlasmicImg__>;
   textInput?: Flex__<typeof TextInput>;
   antdInput?: Flex__<typeof Input>;
   button?: Flex__<typeof Button>;
@@ -437,7 +437,7 @@ function PlasmicLogin__RenderFunc(props: {
         path: "loadedbtn",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "loginData",
@@ -874,10 +874,8 @@ function PlasmicLogin__RenderFunc(props: {
               })}
             >
               <PlasmicImg__
-                data-plasmic-name={"img"}
-                data-plasmic-override={overrides.img}
                 alt={""}
-                className={classNames(sty.img)}
+                className={classNames(sty.img__p4CZv)}
                 displayHeight={"auto"}
                 displayMaxHeight={"none"}
                 displayMaxWidth={"100%"}
@@ -14124,17 +14122,22 @@ function PlasmicLogin__RenderFunc(props: {
                       const actionArgs = {
                         destination: (() => {
                           try {
-                            return (
-                              $ctx.query.redirect_url +
-                              "?token=" +
-                              $$.uuid.v4().slice(0, 6) +
-                              ($state.loginData.result.token || "") +
-                              $$.uuid.v4().slice(10, 13) +
-                              "&userId=" +
-                              $$.uuid.v4().slice(0, 4) +
-                              ($state.loginData.result.userId || "") +
-                              $$.uuid.v4().slice(0, 4)
-                            );
+                            return (() => {
+                              var urlParams = new URLSearchParams(
+                                window.location.search
+                              );
+                              return (
+                                urlParams.get("redirect_url") +
+                                "?token=" +
+                                $$.uuid.v4().slice(0, 6) +
+                                ($state.loginData.result.token || "") +
+                                $$.uuid.v4().slice(10, 13) +
+                                "&userId=" +
+                                $$.uuid.v4().slice(0, 4) +
+                                ($state.loginData.result.userId || "") +
+                                $$.uuid.v4().slice(0, 4)
+                              );
+                            })();
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -14167,6 +14170,40 @@ function PlasmicLogin__RenderFunc(props: {
                 ) {
                   $steps["goToPage2"] = await $steps["goToPage2"];
                 }
+
+                $steps["updateLoadedbtn"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["loadedbtn"]
+                        },
+                        operation: 0,
+                        value: false
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateLoadedbtn"] != null &&
+                  typeof $steps["updateLoadedbtn"] === "object" &&
+                  typeof $steps["updateLoadedbtn"].then === "function"
+                ) {
+                  $steps["updateLoadedbtn"] = await $steps["updateLoadedbtn"];
+                }
               }).apply(null, eventArgs);
             }}
             onSuccess={generateStateOnChangeProp($state, [
@@ -14175,6 +14212,81 @@ function PlasmicLogin__RenderFunc(props: {
             ])}
             url={"/"}
           />
+
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__xxqb)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
+            src={{
+              src: "/plasmic/liom_hamyar/images/image40.png",
+              fullWidth: 128,
+              fullHeight: 128,
+              aspectRatio: undefined
+            }}
+          />
+
+          {(() => {
+            try {
+              return $state.loadedbtn;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__e82Kc)}>
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__yi8ED)}
+                displayHeight={"150px"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"150px"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image40.png",
+                  fullWidth: 128,
+                  fullHeight: 128,
+                  aspectRatio: undefined
+                }}
+              />
+
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__pXz5R)}
+              >
+                <Icon11Icon
+                  className={classNames(projectcss.all, sty.svg___7KiOc)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___6DzC8
+                  )}
+                >
+                  {
+                    "\u0644\u0637\u0641\u0627 \u0635\u0628\u0631 \u06a9\u0646\u06cc\u062f..."
+                  }
+                </div>
+              </Stack__>
+            </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -14184,7 +14296,6 @@ function PlasmicLogin__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "img",
     "textInput",
     "antdInput",
     "button",
@@ -14222,7 +14333,6 @@ const PlasmicDescendants = {
     "top",
     "apiRequest"
   ],
-  img: ["img"],
   textInput: ["textInput", "antdInput"],
   antdInput: ["antdInput"],
   button: ["button"],
@@ -14265,7 +14375,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  img: typeof PlasmicImg__;
   textInput: typeof TextInput;
   antdInput: typeof Input;
   button: typeof Button;
@@ -14389,7 +14498,6 @@ export const PlasmicLogin = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    img: makeNodeComponent("img"),
     textInput: makeNodeComponent("textInput"),
     antdInput: makeNodeComponent("antdInput"),
     button: makeNodeComponent("button"),
