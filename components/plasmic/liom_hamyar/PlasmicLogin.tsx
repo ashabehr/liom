@@ -3980,6 +3980,7 @@ function PlasmicLogin__RenderFunc(props: {
                                     return {
                                       password: $state.password,
                                       username: $state.username,
+                                      gateway: $ctx.query.gateway || "",
                                       data: "",
                                       target: "calendar",
                                       version: "",
@@ -4126,6 +4127,30 @@ function PlasmicLogin__RenderFunc(props: {
                         $steps["updateLoginData"] = await $steps[
                           "updateLoginData"
                         ];
+                      }
+
+                      $steps["runCode"] =
+                        $steps.invokeGlobalAction?.data?.success == true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return localStorage.setItem(
+                                    "loginInfo",
+                                    JSON.stringify($state.loginData)
+                                  );
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
                       }
 
                       $steps["invokeGlobalAction3"] =
@@ -7961,6 +7986,7 @@ function PlasmicLogin__RenderFunc(props: {
                                         return {
                                           type: $state.type,
                                           name: $state.antdInput2.value || "",
+                                          gateway: $ctx.query.gateway || "",
                                           data:
                                             $state.number || $state.email || "",
                                           username: $state.username || "",
@@ -8114,6 +8140,7 @@ function PlasmicLogin__RenderFunc(props: {
                                         return {
                                           type: $state.type,
                                           name: $state.antdInput2.value || "",
+                                          gateway: $ctx.query.gateway || "",
                                           data: $state.number || "",
                                           username: $state.username,
                                           target: "calendar",
@@ -8265,6 +8292,7 @@ function PlasmicLogin__RenderFunc(props: {
                                       try {
                                         return {
                                           name: $state.antdInput2.value || "",
+                                          gateway: $ctx.query.gateway || "",
                                           country: "98",
                                           isCountryPending: false,
                                           lang: "fa",
@@ -8517,15 +8545,14 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["updateLoadedbtn2"] = true
+                        $steps["updateTextInputValue"] = true
                           ? (() => {
                               const actionArgs = {
                                 variable: {
                                   objRoot: $state,
-                                  variablePath: ["loadedbtn"]
+                                  variablePath: ["textInput", "value"]
                                 },
-                                operation: 0,
-                                value: false
+                                operation: 0
                               };
                               return (({
                                 variable,
@@ -8544,12 +8571,13 @@ function PlasmicLogin__RenderFunc(props: {
                             })()
                           : undefined;
                         if (
-                          $steps["updateLoadedbtn2"] != null &&
-                          typeof $steps["updateLoadedbtn2"] === "object" &&
-                          typeof $steps["updateLoadedbtn2"].then === "function"
+                          $steps["updateTextInputValue"] != null &&
+                          typeof $steps["updateTextInputValue"] === "object" &&
+                          typeof $steps["updateTextInputValue"].then ===
+                            "function"
                         ) {
-                          $steps["updateLoadedbtn2"] = await $steps[
-                            "updateLoadedbtn2"
+                          $steps["updateTextInputValue"] = await $steps[
+                            "updateTextInputValue"
                           ];
                         }
 
@@ -8593,6 +8621,71 @@ function PlasmicLogin__RenderFunc(props: {
                         ) {
                           $steps["updateLoginData2"] = await $steps[
                             "updateLoginData2"
+                          ];
+                        }
+
+                        $steps["updateTextInputValue2"] =
+                          $steps.invokeGlobalAction?.data?.success === true ||
+                          $steps.invokeGlobalAction2?.data?.success === true ||
+                          $steps.invokeGlobalAction3?.data?.success === true
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return localStorage.setItem(
+                                      "loginInfo",
+                                      JSON.stringify($state.loginData)
+                                    );
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateTextInputValue2"] != null &&
+                          typeof $steps["updateTextInputValue2"] === "object" &&
+                          typeof $steps["updateTextInputValue2"].then ===
+                            "function"
+                        ) {
+                          $steps["updateTextInputValue2"] = await $steps[
+                            "updateTextInputValue2"
+                          ];
+                        }
+
+                        $steps["updateLoadedbtn2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadedbtn"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadedbtn2"] != null &&
+                          typeof $steps["updateLoadedbtn2"] === "object" &&
+                          typeof $steps["updateLoadedbtn2"].then === "function"
+                        ) {
+                          $steps["updateLoadedbtn2"] = await $steps[
+                            "updateLoadedbtn2"
                           ];
                         }
                       }}
@@ -10062,6 +10155,7 @@ function PlasmicLogin__RenderFunc(props: {
                                     try {
                                       return {
                                         code: $state.cods,
+                                        gateway: $ctx.query.gateway || "",
                                         data: $state.number
                                       };
                                     } catch (e) {
@@ -10104,6 +10198,7 @@ function PlasmicLogin__RenderFunc(props: {
                                     try {
                                       return {
                                         code: $state.cods,
+                                        gateway: $ctx.query.gateway || "",
                                         type: $state.type,
                                         name: "",
                                         data: $state.number || $state.email,
@@ -10244,6 +10339,7 @@ function PlasmicLogin__RenderFunc(props: {
                                     try {
                                       return {
                                         data: $state.number,
+                                        gateway: $ctx.query.gateway || "",
                                         name: $state.antdInput2.value || "",
                                         email: $state.email || "",
                                         gender: $state.gender,
@@ -10404,6 +10500,32 @@ function PlasmicLogin__RenderFunc(props: {
                         $steps["updateLoginData"] = await $steps[
                           "updateLoginData"
                         ];
+                      }
+
+                      $steps["runCode"] =
+                        ($steps.invokeGlobalAction4?.data?.success === true ||
+                          $steps.invokeGlobalAction3?.data?.success === true) &&
+                        $state.typeLogin === "login"
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return localStorage.setItem(
+                                    "loginInfo",
+                                    JSON.stringify($state.loginData)
+                                  );
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
                       }
 
                       $steps["invokeGlobalAction2"] =
@@ -13817,10 +13939,20 @@ function PlasmicLogin__RenderFunc(props: {
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
             className={classNames("__wab_instance", sty.apiRequest, {
+              [sty.apiRequestloginPage_mobileCode]: hasVariant(
+                $state,
+                "loginPage",
+                "mobileCode"
+              ),
               [sty.apiRequestloginPage_name]: hasVariant(
                 $state,
                 "loginPage",
                 "name"
+              ),
+              [sty.apiRequestloginPage_userNameLogin]: hasVariant(
+                $state,
+                "loginPage",
+                "userNameLogin"
               )
             })}
             errorDisplay={null}
@@ -13946,6 +14078,89 @@ function PlasmicLogin__RenderFunc(props: {
                   typeof $steps["updateType"].then === "function"
                 ) {
                   $steps["updateType"] = await $steps["updateType"];
+                }
+
+                $steps["updateLoginData"] = localStorage.getItem("loginInfo")
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["loginData"]
+                        },
+                        operation: 0,
+                        value: JSON.parse(localStorage.getItem("loginInfo"))
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateLoginData"] != null &&
+                  typeof $steps["updateLoginData"] === "object" &&
+                  typeof $steps["updateLoginData"].then === "function"
+                ) {
+                  $steps["updateLoginData"] = await $steps["updateLoginData"];
+                }
+
+                $steps["goToPage2"] = localStorage.getItem("loginInfo")
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return (
+                              $ctx.query.redirect_url +
+                              "?token=" +
+                              $$.uuid.v4().slice(0, 6) +
+                              $state.loginData.result.token +
+                              $$.uuid.v4().slice(10, 13) +
+                              "&userId=" +
+                              $$.uuid.v4().slice(0, 4) +
+                              $state.loginData.result.userId +
+                              $$.uuid.v4().slice(0, 4)
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage2"] != null &&
+                  typeof $steps["goToPage2"] === "object" &&
+                  typeof $steps["goToPage2"].then === "function"
+                ) {
+                  $steps["goToPage2"] = await $steps["goToPage2"];
                 }
               }).apply(null, eventArgs);
             }}
