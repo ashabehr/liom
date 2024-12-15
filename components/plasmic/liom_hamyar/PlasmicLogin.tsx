@@ -2591,6 +2591,40 @@ function PlasmicLogin__RenderFunc(props: {
                           "updateTextInputValue2"
                         ];
                       }
+
+                      $steps["updateTime"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["time"]
+                              },
+                              operation: 0,
+                              value: 30
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateTime"] != null &&
+                        typeof $steps["updateTime"] === "object" &&
+                        typeof $steps["updateTime"].then === "function"
+                      ) {
+                        $steps["updateTime"] = await $steps["updateTime"];
+                      }
                     }}
                     onColorChange={(...eventArgs) => {
                       generateStateOnChangeProp($state, ["button", "color"])(
@@ -9835,39 +9869,40 @@ function PlasmicLogin__RenderFunc(props: {
                             $steps["updateTime"] = await $steps["updateTime"];
                           }
 
-                          $steps["invokeGlobalAction"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://api.liom.app/auth/signup/send-code-v2",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          type: "mobile",
-                                          country: "98",
-                                          smsType: "sms",
-                                          data: $state.number
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
+                          $steps["invokeGlobalAction"] =
+                            $state.type == "mobile"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/auth/signup/send-code-v2",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            type: "mobile",
+                                            country: "98",
+                                            smsType: "sms",
+                                            data: $state.number
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
                                         }
-                                        throw e;
-                                      }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
                           if (
                             $steps["invokeGlobalAction"] != null &&
                             typeof $steps["invokeGlobalAction"] === "object" &&
@@ -9879,8 +9914,73 @@ function PlasmicLogin__RenderFunc(props: {
                             ];
                           }
 
+                          $steps["invokeGlobalAction3"] =
+                            $state.type != "mobile"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/rest/user/setMobileSendCode",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            data: $state.number,
+                                            smsType: "sms"
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return {
+                                            headers: {
+                                              Authorization:
+                                                "Bearer " +
+                                                ($state.loginData.result
+                                                  .token || "")
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction3"] != null &&
+                            typeof $steps["invokeGlobalAction3"] === "object" &&
+                            typeof $steps["invokeGlobalAction3"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction3"] = await $steps[
+                              "invokeGlobalAction3"
+                            ];
+                          }
+
                           $steps["invokeGlobalAction2"] =
-                            $steps.invokeGlobalAction?.data?.success == true
+                            $steps.invokeGlobalAction?.data?.success == true ||
+                            $steps.invokeGlobalAction3?.data?.success == true
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -14211,24 +14311,6 @@ function PlasmicLogin__RenderFunc(props: {
               "data"
             ])}
             url={"/"}
-          />
-
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img__xxqb)}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"auto"}
-            loading={"lazy"}
-            src={{
-              src: "/plasmic/liom_hamyar/images/image40.png",
-              fullWidth: 128,
-              fullHeight: 128,
-              aspectRatio: undefined
-            }}
           />
 
           {(() => {

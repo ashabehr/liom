@@ -15528,13 +15528,6 @@
   max-width: 100%;
   object-fit: cover;
 }
-.img__xxqb {
-  object-fit: cover;
-  max-width: 100%;
-}
-.img__xxqb > picture > img {
-  object-fit: cover;
-}
 .freeBox__e82Kc {
   display: flex;
   flex-direction: column;
