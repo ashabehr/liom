@@ -721,7 +721,7 @@ function PlasmicLogin__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -8886,7 +8886,8 @@ function PlasmicLogin__RenderFunc(props: {
                         $steps["updateTextInputValue2"] =
                           $steps.invokeGlobalAction?.data?.success === true ||
                           $steps.invokeGlobalAction2?.data?.success === true ||
-                          $steps.invokeGlobalAction3?.data?.success === true
+                          $steps.invokeGlobalAction3?.data?.success === true ||
+                          $state.type == "google"
                             ? (() => {
                                 const actionArgs = {
                                   customFunction: async () => {
@@ -14472,18 +14473,31 @@ function PlasmicLogin__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return window.open(
-                              $ctx.query.redirect_url +
-                                "?token=" +
-                                $$.uuid.v4().slice(0, 6) +
-                                $ctx.query.token +
-                                $$.uuid.v4().slice(10, 13) +
-                                "&userId=" +
-                                $$.uuid.v4().slice(0, 4) +
-                                $ctx.query.userId +
-                                $$.uuid.v4().slice(0, 4),
-                              "_self"
-                            );
+                            return (() => {
+                              var loginuserinfo = {
+                                success: true,
+                                result: {
+                                  token: $ctx.query.token,
+                                  userId: $ctx.query.userId
+                                }
+                              };
+                              localStorage.setItem(
+                                "loginInfo",
+                                JSON.stringify(loginuserinfo)
+                              );
+                              return window.open(
+                                $ctx.query.redirect_url +
+                                  "?token=" +
+                                  $$.uuid.v4().slice(0, 6) +
+                                  $ctx.query.token +
+                                  $$.uuid.v4().slice(10, 13) +
+                                  "&userId=" +
+                                  $$.uuid.v4().slice(0, 4) +
+                                  $ctx.query.userId +
+                                  $$.uuid.v4().slice(0, 4),
+                                "_self"
+                              );
+                            })();
                           }
                         };
                         return (({ customFunction }) => {
