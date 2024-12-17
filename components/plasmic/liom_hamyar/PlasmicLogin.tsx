@@ -721,7 +721,7 @@ function PlasmicLogin__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -7480,7 +7480,11 @@ function PlasmicLogin__RenderFunc(props: {
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__wjNxq
+                              sty.text__wjNxq,
+                              {
+                                [sty.textloginPage_name__wjNxQhUiKy]:
+                                  hasVariant($state, "loginPage", "name")
+                              }
                             )}
                           >
                             <React.Fragment>
@@ -8905,6 +8909,41 @@ function PlasmicLogin__RenderFunc(props: {
                         ) {
                           $steps["updateTextInputValue2"] = await $steps[
                             "updateTextInputValue2"
+                          ];
+                        }
+
+                        $steps["updateTextInputValue3"] =
+                          $state.type == "google" && $state.gender == "female"
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return window.open(
+                                      $ctx.query.redirect_url +
+                                        "?token=" +
+                                        $$.uuid.v4().slice(0, 6) +
+                                        $ctx.query.token +
+                                        $$.uuid.v4().slice(10, 13) +
+                                        "&userId=" +
+                                        $$.uuid.v4().slice(0, 4) +
+                                        $ctx.query.userId +
+                                        $$.uuid.v4().slice(0, 4),
+                                      "_self"
+                                    );
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["updateTextInputValue3"] != null &&
+                          typeof $steps["updateTextInputValue3"] === "object" &&
+                          typeof $steps["updateTextInputValue3"].then ===
+                            "function"
+                        ) {
+                          $steps["updateTextInputValue3"] = await $steps[
+                            "updateTextInputValue3"
                           ];
                         }
 
@@ -14402,7 +14441,8 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["updateLoginPage"] =
                   $ctx.query.token != "" &&
                   $ctx.query.token != null &&
-                  $ctx.query.isLogin == "false"
+                  $ctx.query.isLogin == "false" &&
+                  $ctx.query.sex == "male"
                     ? (() => {
                         const actionArgs = {
                           vgroup: "loginPage",
@@ -14428,7 +14468,7 @@ function PlasmicLogin__RenderFunc(props: {
                 }
 
                 $steps["runCode"] =
-                  $ctx.query.isLogin == "true"
+                  $ctx.query.isLogin == "true" || $ctx.query.sex == "female"
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -14559,32 +14599,6 @@ function PlasmicLogin__RenderFunc(props: {
                   typeof $steps["goToPage2"].then === "function"
                 ) {
                   $steps["goToPage2"] = await $steps["goToPage2"];
-                }
-
-                $steps["updateLoginPage2"] =
-                  $ctx.query.isLogin == "false"
-                    ? (() => {
-                        const actionArgs = {
-                          vgroup: "loginPage",
-                          operation: 0,
-                          value: "name"
-                        };
-                        return (({ vgroup, value }) => {
-                          if (typeof value === "string") {
-                            value = [value];
-                          }
-
-                          $stateSet($state, vgroup, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["updateLoginPage2"] != null &&
-                  typeof $steps["updateLoginPage2"] === "object" &&
-                  typeof $steps["updateLoginPage2"].then === "function"
-                ) {
-                  $steps["updateLoginPage2"] = await $steps["updateLoginPage2"];
                 }
 
                 $steps["updateLoading"] = true
