@@ -14360,14 +14360,13 @@ function PlasmicLogin__RenderFunc(props: {
                   $steps["updateLoginPage"] = await $steps["updateLoginPage"];
                 }
 
-                $steps["goToPage"] =
+                $steps["runCode"] =
                   $ctx.query.isLogin == "true"
                     ? (() => {
                         const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return (
-                                $ctx.query.redirect_url +
+                          customFunction: async () => {
+                            return window.open(
+                              $ctx.query.redirect_url +
                                 "?token=" +
                                 $$.uuid.v4().slice(0, 6) +
                                 $ctx.query.token +
@@ -14375,39 +14374,22 @@ function PlasmicLogin__RenderFunc(props: {
                                 "&userId=" +
                                 $$.uuid.v4().slice(0, 4) +
                                 $ctx.query.userId +
-                                $$.uuid.v4().slice(0, 4)
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
+                                $$.uuid.v4().slice(0, 4),
+                              "_self"
+                            );
                           }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                 if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
 
                 $steps["updateType"] =
@@ -14482,46 +14464,25 @@ function PlasmicLogin__RenderFunc(props: {
                 $steps["goToPage2"] = localStorage.getItem("loginInfo")
                   ? (() => {
                       const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return (() => {
-                              var urlParams = new URLSearchParams(
-                                window.location.search
-                              );
-                              return (
-                                urlParams.get("redirect_url") +
-                                "?token=" +
-                                $$.uuid.v4().slice(0, 6) +
-                                ($state.loginData.result.token || "") +
-                                $$.uuid.v4().slice(10, 13) +
-                                "&userId=" +
-                                $$.uuid.v4().slice(0, 4) +
-                                ($state.loginData.result.userId || "") +
-                                $$.uuid.v4().slice(0, 4)
-                              );
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
+                        customFunction: async () => {
+                          return (() => {
+                            var redirectUrl =
+                              $ctx.query.redirect_url +
+                              "?token=" +
+                              $$.uuid.v4().slice(0, 6) +
+                              ($state.loginData.result.token || "") +
+                              $$.uuid.v4().slice(10, 13) +
+                              "&userId=" +
+                              $$.uuid.v4().slice(0, 4) +
+                              ($state.loginData.result.userId || "") +
+                              $$.uuid.v4().slice(0, 4);
+                            console.log(redirectUrl);
+                            return window.open(redirectUrl, "_self");
+                          })();
                         }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
