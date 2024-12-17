@@ -796,6 +796,68 @@ function PlasmicLogin__RenderFunc(props: {
               )
             }
           )}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["goToPage"] = true
+              ? (() => {
+                  const actionArgs = {
+                    destination: (() => {
+                      try {
+                        return (() => {
+                          if (window.location.href.includes("?token")) {
+                            const urlParams = new URLSearchParams(
+                              window.location.search
+                            );
+                            const redirectUrl = urlParams.get("redirect_url");
+                            if (redirectUrl) {
+                              let newUrl = window.location.href;
+                              if (newUrl.includes("?")) {
+                                newUrl +=
+                                  "&redirect_url=" +
+                                  encodeURIComponent(redirectUrl);
+                              } else {
+                                newUrl +=
+                                  "?redirect_url=" +
+                                  encodeURIComponent(redirectUrl);
+                              }
+                              return (window.location.href = newUrl);
+                            }
+                          }
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()
+                  };
+                  return (({ destination }) => {
+                    if (
+                      typeof destination === "string" &&
+                      destination.startsWith("#")
+                    ) {
+                      document
+                        .getElementById(destination.substr(1))
+                        .scrollIntoView({ behavior: "smooth" });
+                    } else {
+                      __nextRouter?.push(destination);
+                    }
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["goToPage"] != null &&
+              typeof $steps["goToPage"] === "object" &&
+              typeof $steps["goToPage"].then === "function"
+            ) {
+              $steps["goToPage"] = await $steps["goToPage"];
+            }
+          }}
         >
           <Reveal
             className={classNames("__wab_instance", sty.reveal__jmKkx, {
@@ -14492,6 +14554,32 @@ function PlasmicLogin__RenderFunc(props: {
                   typeof $steps["goToPage2"].then === "function"
                 ) {
                   $steps["goToPage2"] = await $steps["goToPage2"];
+                }
+
+                $steps["updateLoginPage2"] =
+                  $ctx.query.isLogin == "false"
+                    ? (() => {
+                        const actionArgs = {
+                          vgroup: "loginPage",
+                          operation: 0,
+                          value: "name"
+                        };
+                        return (({ vgroup, value }) => {
+                          if (typeof value === "string") {
+                            value = [value];
+                          }
+
+                          $stateSet($state, vgroup, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateLoginPage2"] != null &&
+                  typeof $steps["updateLoginPage2"] === "object" &&
+                  typeof $steps["updateLoginPage2"].then === "function"
+                ) {
+                  $steps["updateLoginPage2"] = await $steps["updateLoginPage2"];
                 }
 
                 $steps["updateLoading"] = true
