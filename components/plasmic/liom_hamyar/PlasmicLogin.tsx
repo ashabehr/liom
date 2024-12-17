@@ -721,7 +721,7 @@ function PlasmicLogin__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1748,6 +1748,11 @@ function PlasmicLogin__RenderFunc(props: {
                                 $state,
                                 "loginPage",
                                 "mobile"
+                              ),
+                              [sty.antdInputloginPage_name]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "name"
                               ),
                               [sty.antdInputloginPage_userNameLogin]:
                                 hasVariant(
@@ -3103,6 +3108,9 @@ function PlasmicLogin__RenderFunc(props: {
                                 )
                             }
                           ),
+                          id: hasVariant($state, "loginPage", "userNameLogin")
+                            ? "inputMobile4"
+                            : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -3496,6 +3504,9 @@ function PlasmicLogin__RenderFunc(props: {
                                 )
                             }
                           ),
+                          id: hasVariant($state, "loginPage", "userNameLogin")
+                            ? "inputMobile5"
+                            : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -4852,6 +4863,9 @@ function PlasmicLogin__RenderFunc(props: {
                                 )
                             }
                           ),
+                          id: hasVariant($state, "loginPage", "userNameSingup")
+                            ? "inputMobile6"
+                            : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -5245,6 +5259,9 @@ function PlasmicLogin__RenderFunc(props: {
                                 )
                             }
                           ),
+                          id: hasVariant($state, "loginPage", "userNameSingup")
+                            ? "inputMobile7"
+                            : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -5674,6 +5691,9 @@ function PlasmicLogin__RenderFunc(props: {
                                 )
                             }
                           ),
+                          id: hasVariant($state, "loginPage", "userNameSingup")
+                            ? "inputMobile8"
+                            : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -6843,6 +6863,9 @@ function PlasmicLogin__RenderFunc(props: {
                               )
                             }
                           ),
+                          id: hasVariant($state, "loginPage", "name")
+                            ? "inputMobile2"
+                            : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -7575,6 +7598,9 @@ function PlasmicLogin__RenderFunc(props: {
                                 hasVariant($state, "loginPage", "userNameLogin")
                             }
                           ),
+                          id: hasVariant($state, "loginPage", "name")
+                            ? "inputMobile3"
+                            : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
