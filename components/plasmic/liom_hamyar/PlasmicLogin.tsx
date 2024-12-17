@@ -14666,7 +14666,7 @@ function PlasmicLogin__RenderFunc(props: {
                 })()
               : (() => {
                   try {
-                    return $state.loadedbtn;
+                    return $state.loading;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
