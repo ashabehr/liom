@@ -1433,18 +1433,36 @@ function PlasmicPregnancy__RenderFunc(props: {
               </div>
             }
             method={"GET"}
-            onError={generateStateOnChangeProp($state, [
-              "getUserInfo",
-              "error"
-            ])}
-            onLoading={generateStateOnChangeProp($state, [
-              "getUserInfo",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "getUserInfo",
-              "data"
-            ])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getUserInfo", "error"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "getUserInfo",
+                "loading"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getUserInfo", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             params={(() => {
               try {
                 return {

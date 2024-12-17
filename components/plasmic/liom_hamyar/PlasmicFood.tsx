@@ -1309,10 +1309,16 @@ function PlasmicFood__RenderFunc(props: {
                       [sty["pcls_k3w1JVzrApEC"]]: true
                     })}
                     modalScopeClassName={sty["modal__modal"]}
-                    onOpenChange={generateStateOnChangeProp($state, [
-                      "modal",
-                      "open"
-                    ])}
+                    onOpenChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "modal",
+                        "open"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    }}
                     open={generateStateValueProp($state, ["modal", "open"])}
                     title={null}
                     trigger={null}
@@ -1349,6 +1355,11 @@ function PlasmicFood__RenderFunc(props: {
                               "input",
                               "value"
                             ]).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async value => {
                               const $steps = {};
 
@@ -1607,10 +1618,22 @@ function PlasmicFood__RenderFunc(props: {
                                       onClick: async event => {
                                         const $steps = {};
                                       },
-                                      onClickChange: generateStateOnChangeProp(
-                                        $state,
-                                        ["tick", __plasmic_idx_0, "click"]
-                                      )
+                                      onClickChange: async (
+                                        ...eventArgs: any
+                                      ) => {
+                                        generateStateOnChangeProp($state, [
+                                          "tick",
+                                          __plasmic_idx_0,
+                                          "click"
+                                        ]).apply(null, eventArgs);
+
+                                        if (
+                                          eventArgs.length > 1 &&
+                                          eventArgs[1]
+                                        ) {
+                                          return;
+                                        }
+                                      }
                                     };
 
                                     initializePlasmicStates(
@@ -1911,11 +1934,17 @@ function PlasmicFood__RenderFunc(props: {
                                 ];
                               }
                             }}
-                            onColorChange={(...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button4",
-                                "color"
-                              ])(eventArgs[0]);
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button4",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
                             }}
                           >
                             <div
@@ -1950,10 +1979,16 @@ function PlasmicFood__RenderFunc(props: {
                         [sty["pcls_rUWMCd9XmqdI"]]: true
                       }),
                       modalScopeClassName: sty["modal2__modal"],
-                      onOpenChange: generateStateOnChangeProp($state, [
-                        "modal2",
-                        "open"
-                      ]),
+                      onOpenChange: async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "modal2",
+                          "open"
+                        ]).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
+                      },
                       open: generateStateValueProp($state, ["modal2", "open"]),
                       title: null,
                       trigger: null,
@@ -2202,6 +2237,14 @@ function PlasmicFood__RenderFunc(props: {
                                                 ["rangeSlider", "max"],
                                                 AntdRangeSlider_Helpers
                                               ).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1]
+                                              ) {
+                                                return;
+                                              }
+
                                               (async value => {
                                                 const $steps = {};
 
@@ -2422,6 +2465,14 @@ function PlasmicFood__RenderFunc(props: {
                                                 $state,
                                                 ["input5", "value"]
                                               ).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1]
+                                              ) {
+                                                return;
+                                              }
+
                                               (async value => {
                                                 const $steps = {};
 
@@ -2517,6 +2568,14 @@ function PlasmicFood__RenderFunc(props: {
                                                 $state,
                                                 ["numberInput", "value"]
                                               ).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1]
+                                              ) {
+                                                return;
+                                              }
+
                                               (async value => {
                                                 const $steps = {};
                                               }).apply(null, eventArgs);
@@ -2663,6 +2722,14 @@ function PlasmicFood__RenderFunc(props: {
                                                 $state,
                                                 ["input3", "value"]
                                               ).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1]
+                                              ) {
+                                                return;
+                                              }
+
                                               (async value => {
                                                 const $steps = {};
 
@@ -2758,10 +2825,21 @@ function PlasmicFood__RenderFunc(props: {
                                             max={300}
                                             maxLength={3}
                                             min={20}
-                                            onChange={generateStateOnChangeProp(
-                                              $state,
-                                              ["numberInput2", "value"]
-                                            )}
+                                            onChange={async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                ["numberInput2", "value"]
+                                              ).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1]
+                                              ) {
+                                                return;
+                                              }
+                                            }}
                                             placeholder={
                                               hasVariant(
                                                 globalVariants,
@@ -2878,6 +2956,14 @@ function PlasmicFood__RenderFunc(props: {
                                               "kabed",
                                               "value"
                                             ]).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1]
+                                            ) {
+                                              return;
+                                            }
+
                                             (async value => {
                                               const $steps = {};
 
@@ -3034,6 +3120,14 @@ function PlasmicFood__RenderFunc(props: {
                                               "diabet",
                                               "value"
                                             ]).apply(null, eventArgs);
+
+                                            if (
+                                              eventArgs.length > 1 &&
+                                              eventArgs[1]
+                                            ) {
+                                              return;
+                                            }
+
                                             (async value => {
                                               const $steps = {};
 
@@ -3456,11 +3550,17 @@ function PlasmicFood__RenderFunc(props: {
                                         await $steps["updateLoadingbtn2"];
                                     }
                                   }}
-                                  onColorChange={(...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
-                                      "button3",
-                                      "color"
-                                    ])(eventArgs[0]);
+                                  onColorChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button3",
+                                        "color"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (eventArgs.length > 1 && eventArgs[1]) {
+                                      return;
+                                    }
                                   }}
                                   showEndIcon={
                                     hasVariant(
@@ -4132,11 +4232,17 @@ function PlasmicFood__RenderFunc(props: {
                                       ];
                                     }
                                   }}
-                                  onColorChange={(...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
-                                      "button5",
-                                      "color"
-                                    ])(eventArgs[0]);
+                                  onColorChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button5",
+                                        "color"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (eventArgs.length > 1 && eventArgs[1]) {
+                                      return;
+                                    }
                                   }}
                                 >
                                   {hasVariant(
@@ -4316,11 +4422,17 @@ function PlasmicFood__RenderFunc(props: {
                                       ];
                                     }
                                   }}
-                                  onColorChange={(...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
-                                      "button6",
-                                      "color"
-                                    ])(eventArgs[0]);
+                                  onColorChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button6",
+                                        "color"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (eventArgs.length > 1 && eventArgs[1]) {
+                                      return;
+                                    }
                                   }}
                                 >
                                   <div
@@ -5160,10 +5272,16 @@ function PlasmicFood__RenderFunc(props: {
                       ];
                     }
                   }}
-                  onColorChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "color"])(
-                      eventArgs[0]
-                    );
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
                   }}
                   shape={"rounded"}
                   showEndIcon={true}
@@ -5189,10 +5307,16 @@ function PlasmicFood__RenderFunc(props: {
             data-plasmic-override={overrides.slideinModal}
             className={classNames("__wab_instance", sty.slideinModal)}
             click={generateStateValueProp($state, ["slideinModal", "click"])}
-            onClickChange={generateStateOnChangeProp($state, [
-              "slideinModal",
-              "click"
-            ])}
+            onClickChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "slideinModal",
+                "click"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
           >
             <Stack__
               as={"div"}
@@ -5258,10 +5382,16 @@ function PlasmicFood__RenderFunc(props: {
                 data-plasmic-name={"input4"}
                 data-plasmic-override={overrides.input4}
                 className={classNames("__wab_instance", sty.input4)}
-                onChange={generateStateOnChangeProp($state, [
-                  "input4",
-                  "value"
-                ])}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["input4", "value"]).apply(
+                    null,
+                    eventArgs
+                  );
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
+                }}
                 type={"number"}
                 value={generateStateValueProp($state, ["input4", "value"])}
               />
@@ -5395,10 +5525,16 @@ function PlasmicFood__RenderFunc(props: {
                   ];
                 }
               }}
-              onColorChange={(...eventArgs) => {
-                generateStateOnChangeProp($state, ["button", "color"])(
-                  eventArgs[0]
-                );
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (eventArgs.length > 1 && eventArgs[1]) {
+                  return;
+                }
               }}
             >
               <div
@@ -5424,6 +5560,11 @@ function PlasmicFood__RenderFunc(props: {
                 null,
                 eventArgs
               );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+
               (async error => {
                 const $steps = {};
 
@@ -5449,11 +5590,26 @@ function PlasmicFood__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
-            onLoading={generateStateOnChangeProp($state, [
-              "weeknow",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, ["weeknow", "data"])}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["weeknow", "loading"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["weeknow", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             params={(() => {
               try {
                 return {
@@ -5494,6 +5650,11 @@ function PlasmicFood__RenderFunc(props: {
                 "previousWeek",
                 "error"
               ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+
               (async error => {
                 const $steps = {};
 
@@ -5519,14 +5680,26 @@ function PlasmicFood__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
-            onLoading={generateStateOnChangeProp($state, [
-              "previousWeek",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "previousWeek",
-              "data"
-            ])}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "previousWeek",
+                "loading"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["previousWeek", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             params={(() => {
               try {
                 return {
@@ -5574,6 +5747,11 @@ function PlasmicFood__RenderFunc(props: {
                 null,
                 eventArgs
               );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+
               (async error => {
                 const $steps = {};
 
@@ -5599,15 +5777,26 @@ function PlasmicFood__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
-            onLoading={generateStateOnChangeProp($state, [
-              "foodinfo",
-              "loading"
-            ])}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["foodinfo", "loading"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["foodinfo", "data"]).apply(
                 null,
                 eventArgs
               );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+
               (async data => {
                 const $steps = {};
 
@@ -5727,7 +5916,16 @@ function PlasmicFood__RenderFunc(props: {
             hideFooter={true}
             maskClosable={true}
             modalScopeClassName={sty["modal3__modal"]}
-            onOpenChange={generateStateOnChangeProp($state, ["modal3", "open"])}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["modal3", "open"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             open={generateStateValueProp($state, ["modal3", "open"])}
             title={
               <div

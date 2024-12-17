@@ -1422,10 +1422,16 @@ function PlasmicHamyar__RenderFunc(props: {
                         $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
-                    onNumberChange={generateStateOnChangeProp($state, [
-                      "nofiticon",
-                      "number"
-                    ])}
+                    onNumberChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "nofiticon",
+                        "number"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    }}
                     unnamedVariant={
                       hasVariant(globalVariants, "screen", "mobile")
                         ? (() => {
@@ -1545,6 +1551,11 @@ function PlasmicHamyar__RenderFunc(props: {
                               "isChecked"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
+
+                          if (eventArgs.length > 1 && eventArgs[1]) {
+                            return;
+                          }
+
                           (async isChecked => {
                             const $steps = {};
 
@@ -1928,11 +1939,18 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "__wab_instance",
                                 sty.countdown2
                               ),
-                              onRemainingSecondsChange:
+                              onRemainingSecondsChange: async (
+                                ...eventArgs: any
+                              ) => {
                                 generateStateOnChangeProp($state, [
                                   "countdown2",
                                   "remainingSeconds"
-                                ]),
+                                ]).apply(null, eventArgs);
+
+                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                  return;
+                                }
+                              },
                               remainingSeconds: generateStateValueProp($state, [
                                 "countdown2",
                                 "remainingSeconds"
@@ -2256,26 +2274,56 @@ function PlasmicHamyar__RenderFunc(props: {
                         ];
                       }
                     }}
-                    onCycleChange={generateStateOnChangeProp($state, [
-                      "cyclebox",
-                      "cycle"
-                    ])}
-                    onFertilityChange={generateStateOnChangeProp($state, [
-                      "cyclebox",
-                      "fertility"
-                    ])}
-                    onPeriodChange={generateStateOnChangeProp($state, [
-                      "cyclebox",
-                      "period"
-                    ])}
-                    onPmsChange={generateStateOnChangeProp($state, [
-                      "cyclebox",
-                      "pms"
-                    ])}
-                    onTextsycleChange={generateStateOnChangeProp($state, [
-                      "cyclebox",
-                      "textsycle"
-                    ])}
+                    onCycleChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "cyclebox",
+                        "cycle"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    }}
+                    onFertilityChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "cyclebox",
+                        "fertility"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    }}
+                    onPeriodChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "cyclebox",
+                        "period"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    }}
+                    onPmsChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "cyclebox",
+                        "pms"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    }}
+                    onTextsycleChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "cyclebox",
+                        "textsycle"
+                      ]).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+                    }}
                     period={generateStateValueProp($state, [
                       "cyclebox",
                       "period"
@@ -2897,6 +2945,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                   "isChecked"
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+
                               (async isChecked => {
                                 const $steps = {};
 
@@ -3492,16 +3545,28 @@ function PlasmicHamyar__RenderFunc(props: {
                                   ];
                                 }
                               },
-                              onIconChange: generateStateOnChangeProp($state, [
-                                "useful2",
-                                __plasmic_idx_0,
-                                "icon"
-                              ]),
-                              onTextChange: generateStateOnChangeProp($state, [
-                                "useful2",
-                                __plasmic_idx_0,
-                                "text"
-                              ]),
+                              onIconChange: async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "useful2",
+                                  __plasmic_idx_0,
+                                  "icon"
+                                ]).apply(null, eventArgs);
+
+                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                  return;
+                                }
+                              },
+                              onTextChange: async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "useful2",
+                                  __plasmic_idx_0,
+                                  "text"
+                                ]).apply(null, eventArgs);
+
+                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                  return;
+                                }
+                              },
                               text: generateStateValueProp($state, [
                                 "useful2",
                                 __plasmic_idx_0,
@@ -3672,16 +3737,28 @@ function PlasmicHamyar__RenderFunc(props: {
                                   ];
                                 }
                               },
-                              onIconChange: generateStateOnChangeProp($state, [
-                                "useful",
-                                __plasmic_idx_0,
-                                "icon"
-                              ]),
-                              onTextChange: generateStateOnChangeProp($state, [
-                                "useful",
-                                __plasmic_idx_0,
-                                "text"
-                              ]),
+                              onIconChange: async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "useful",
+                                  __plasmic_idx_0,
+                                  "icon"
+                                ]).apply(null, eventArgs);
+
+                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                  return;
+                                }
+                              },
+                              onTextChange: async (...eventArgs: any) => {
+                                generateStateOnChangeProp($state, [
+                                  "useful",
+                                  __plasmic_idx_0,
+                                  "text"
+                                ]).apply(null, eventArgs);
+
+                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                  return;
+                                }
+                              },
                               text: generateStateValueProp($state, [
                                 "useful",
                                 __plasmic_idx_0,
@@ -3943,21 +4020,39 @@ function PlasmicHamyar__RenderFunc(props: {
                                 ];
                               }
                             },
-                            onIconChange: generateStateOnChangeProp($state, [
-                              "harmful2",
-                              __plasmic_idx_0,
-                              "icon"
-                            ]),
-                            onTextChange: generateStateOnChangeProp($state, [
-                              "harmful2",
-                              __plasmic_idx_0,
-                              "text"
-                            ]),
-                            onTitleChange: generateStateOnChangeProp($state, [
-                              "harmful2",
-                              __plasmic_idx_0,
-                              "title"
-                            ]),
+                            onIconChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "harmful2",
+                                __plasmic_idx_0,
+                                "icon"
+                              ]).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+                            },
+                            onTextChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "harmful2",
+                                __plasmic_idx_0,
+                                "text"
+                              ]).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+                            },
+                            onTitleChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "harmful2",
+                                __plasmic_idx_0,
+                                "title"
+                              ]).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+                            },
                             text: generateStateValueProp($state, [
                               "harmful2",
                               __plasmic_idx_0,
@@ -4150,21 +4245,39 @@ function PlasmicHamyar__RenderFunc(props: {
                                 ];
                               }
                             },
-                            onIconChange: generateStateOnChangeProp($state, [
-                              "harmful",
-                              __plasmic_idx_0,
-                              "icon"
-                            ]),
-                            onTextChange: generateStateOnChangeProp($state, [
-                              "harmful",
-                              __plasmic_idx_0,
-                              "text"
-                            ]),
-                            onTitleChange: generateStateOnChangeProp($state, [
-                              "harmful",
-                              __plasmic_idx_0,
-                              "title"
-                            ]),
+                            onIconChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "harmful",
+                                __plasmic_idx_0,
+                                "icon"
+                              ]).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+                            },
+                            onTextChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "harmful",
+                                __plasmic_idx_0,
+                                "text"
+                              ]).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+                            },
+                            onTitleChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "harmful",
+                                __plasmic_idx_0,
+                                "title"
+                              ]).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+                            },
                             text: generateStateValueProp($state, [
                               "harmful",
                               __plasmic_idx_0,
@@ -4276,10 +4389,16 @@ function PlasmicHamyar__RenderFunc(props: {
                     [sty["pcls_xaKEkVFm-OWS"]]: true
                   })}
                   modalScopeClassName={sty["shopModalWeb__modal"]}
-                  onOpenChange={generateStateOnChangeProp($state, [
-                    "shopModalWeb",
-                    "open"
-                  ])}
+                  onOpenChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "shopModalWeb",
+                      "open"
+                    ]).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
+                  }}
                   open={generateStateValueProp($state, [
                     "shopModalWeb",
                     "open"
@@ -4375,31 +4494,61 @@ function PlasmicHamyar__RenderFunc(props: {
                               $steps["runCode"] = await $steps["runCode"];
                             }
                           },
-                          onClickitemChange: generateStateOnChangeProp($state, [
-                            "subscription",
-                            __plasmic_idx_0,
-                            "clickitem"
-                          ]),
-                          onDiscountChange: generateStateOnChangeProp($state, [
-                            "subscription",
-                            __plasmic_idx_0,
-                            "discount"
-                          ]),
-                          onFullpriceChange: generateStateOnChangeProp($state, [
-                            "subscription",
-                            __plasmic_idx_0,
-                            "fullprice"
-                          ]),
-                          onPriceChange: generateStateOnChangeProp($state, [
-                            "subscription",
-                            __plasmic_idx_0,
-                            "price"
-                          ]),
-                          onTitleChange: generateStateOnChangeProp($state, [
-                            "subscription",
-                            __plasmic_idx_0,
-                            "title"
-                          ]),
+                          onClickitemChange: async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "subscription",
+                              __plasmic_idx_0,
+                              "clickitem"
+                            ]).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+                          },
+                          onDiscountChange: async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "subscription",
+                              __plasmic_idx_0,
+                              "discount"
+                            ]).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+                          },
+                          onFullpriceChange: async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "subscription",
+                              __plasmic_idx_0,
+                              "fullprice"
+                            ]).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+                          },
+                          onPriceChange: async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "subscription",
+                              __plasmic_idx_0,
+                              "price"
+                            ]).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+                          },
+                          onTitleChange: async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "subscription",
+                              __plasmic_idx_0,
+                              "title"
+                            ]).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+                          },
                           price: generateStateValueProp($state, [
                             "subscription",
                             __plasmic_idx_0,
@@ -4843,10 +4992,16 @@ function PlasmicHamyar__RenderFunc(props: {
                         ];
                       }
                     }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button3", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button3", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                     showEndIcon={(() => {
                       try {
@@ -4906,10 +5061,16 @@ function PlasmicHamyar__RenderFunc(props: {
                   )}
                   hideFooter={true}
                   modalScopeClassName={sty["modal2__modal"]}
-                  onOpenChange={generateStateOnChangeProp($state, [
-                    "modal2",
-                    "open"
-                  ])}
+                  onOpenChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, ["modal2", "open"]).apply(
+                      null,
+                      eventArgs
+                    );
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
+                  }}
                   open={generateStateValueProp($state, ["modal2", "open"])}
                   title={
                     <div
@@ -4988,10 +5149,16 @@ function PlasmicHamyar__RenderFunc(props: {
                   )}
                   hideFooter={true}
                   modalScopeClassName={sty["modal3__modal"]}
-                  onOpenChange={generateStateOnChangeProp($state, [
-                    "modal3",
-                    "open"
-                  ])}
+                  onOpenChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, ["modal3", "open"]).apply(
+                      null,
+                      eventArgs
+                    );
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
+                  }}
                   open={generateStateValueProp($state, ["modal3", "open"])}
                   title={
                     <div
@@ -5713,6 +5880,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                         ["input", "value"],
                                         AntdInput_Helpers
                                       ).apply(null, eventArgs);
+
+                                      if (
+                                        eventArgs.length > 1 &&
+                                        eventArgs[1]
+                                      ) {
+                                        return;
+                                      }
+
                                       (async event => {
                                         const $steps = {};
                                       }).apply(null, eventArgs);
@@ -5974,11 +6149,17 @@ function PlasmicHamyar__RenderFunc(props: {
                                     ];
                                   }
                                 }}
-                                onColorChange={(...eventArgs) => {
-                                  generateStateOnChangeProp($state, [
-                                    "button",
-                                    "color"
-                                  ])(eventArgs[0]);
+                                onColorChange={async (...eventArgs: any) => {
+                                  ((...eventArgs) => {
+                                    generateStateOnChangeProp($state, [
+                                      "button",
+                                      "color"
+                                    ])(eventArgs[0]);
+                                  }).apply(null, eventArgs);
+
+                                  if (eventArgs.length > 1 && eventArgs[1]) {
+                                    return;
+                                  }
                                 }}
                               >
                                 {"\u062a\u0627\u06cc\u06cc\u062f"}
@@ -6307,11 +6488,17 @@ function PlasmicHamyar__RenderFunc(props: {
                                 ];
                               }
                             }}
-                            onColorChange={(...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button2",
-                                "color"
-                              ])(eventArgs[0]);
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button2",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
                             }}
                             showEndIcon={(() => {
                               try {
@@ -6567,10 +6754,16 @@ function PlasmicHamyar__RenderFunc(props: {
                     ];
                   }
                 }}
-                onClickChange={generateStateOnChangeProp($state, [
-                  "shopModalMobile",
-                  "click"
-                ])}
+                onClickChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "shopModalMobile",
+                    "click"
+                  ]).apply(null, eventArgs);
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
+                }}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__oxDt3)}>
                   {(
@@ -6663,28 +6856,61 @@ function PlasmicHamyar__RenderFunc(props: {
                                 $steps["runCode"] = await $steps["runCode"];
                               }
                             },
-                            onClickitemChange: generateStateOnChangeProp(
-                              $state,
-                              ["subscription2", __plasmic_idx_0, "clickitem"]
-                            ),
-                            onDiscountChange: generateStateOnChangeProp(
-                              $state,
-                              ["subscription2", __plasmic_idx_0, "discount"]
-                            ),
-                            onFullpriceChange: generateStateOnChangeProp(
-                              $state,
-                              ["subscription2", __plasmic_idx_0, "fullprice"]
-                            ),
-                            onPriceChange: generateStateOnChangeProp($state, [
-                              "subscription2",
-                              __plasmic_idx_0,
-                              "price"
-                            ]),
-                            onTitleChange: generateStateOnChangeProp($state, [
-                              "subscription2",
-                              __plasmic_idx_0,
-                              "title"
-                            ]),
+                            onClickitemChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "subscription2",
+                                __plasmic_idx_0,
+                                "clickitem"
+                              ]).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+                            },
+                            onDiscountChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "subscription2",
+                                __plasmic_idx_0,
+                                "discount"
+                              ]).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+                            },
+                            onFullpriceChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "subscription2",
+                                __plasmic_idx_0,
+                                "fullprice"
+                              ]).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+                            },
+                            onPriceChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "subscription2",
+                                __plasmic_idx_0,
+                                "price"
+                              ]).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+                            },
+                            onTitleChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "subscription2",
+                                __plasmic_idx_0,
+                                "title"
+                              ]).apply(null, eventArgs);
+
+                              if (eventArgs.length > 1 && eventArgs[1]) {
+                                return;
+                              }
+                            },
                             price: generateStateValueProp($state, [
                               "subscription2",
                               __plasmic_idx_0,
@@ -7085,10 +7311,16 @@ function PlasmicHamyar__RenderFunc(props: {
                         ];
                       }
                     }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button4", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button4", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                     showEndIcon={(() => {
                       try {
@@ -7234,10 +7466,16 @@ function PlasmicHamyar__RenderFunc(props: {
                   [sty["pcls_wZUnArB0s_DI"]]: true
                 })}
                 modalScopeClassName={sty["modal__modal"]}
-                onOpenChange={generateStateOnChangeProp($state, [
-                  "modal",
-                  "open"
-                ])}
+                onOpenChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["modal", "open"]).apply(
+                    null,
+                    eventArgs
+                  );
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
+                }}
                 open={generateStateValueProp($state, ["modal", "open"])}
                 title={null}
                 trigger={null}
@@ -7797,6 +8035,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                           ["input2", "value"],
                                           AntdInput_Helpers
                                         ).apply(null, eventArgs);
+
+                                        if (
+                                          eventArgs.length > 1 &&
+                                          eventArgs[1]
+                                        ) {
+                                          return;
+                                        }
+
                                         (async event => {
                                           const $steps = {};
                                         }).apply(null, eventArgs);
@@ -8063,11 +8309,17 @@ function PlasmicHamyar__RenderFunc(props: {
                                         await $steps["updateDiscountCode"];
                                     }
                                   }}
-                                  onColorChange={(...eventArgs) => {
-                                    generateStateOnChangeProp($state, [
-                                      "button5",
-                                      "color"
-                                    ])(eventArgs[0]);
+                                  onColorChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "button5",
+                                        "color"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (eventArgs.length > 1 && eventArgs[1]) {
+                                      return;
+                                    }
                                   }}
                                 >
                                   {"\u062a\u0627\u06cc\u06cc\u062f"}
@@ -8385,11 +8637,17 @@ function PlasmicHamyar__RenderFunc(props: {
                                   ];
                                 }
                               }}
-                              onColorChange={(...eventArgs) => {
-                                generateStateOnChangeProp($state, [
-                                  "button6",
-                                  "color"
-                                ])(eventArgs[0]);
+                              onColorChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button6",
+                                    "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                  return;
+                                }
                               }}
                               showEndIcon={(() => {
                                 try {
@@ -8611,16 +8869,36 @@ function PlasmicHamyar__RenderFunc(props: {
                 errorDisplay={null}
                 loadingDisplay={null}
                 method={"GET"}
-                onError={generateStateOnChangeProp($state, ["todo", "error"])}
-                onLoading={generateStateOnChangeProp($state, [
-                  "todo",
-                  "loading"
-                ])}
+                onError={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["todo", "error"]).apply(
+                    null,
+                    eventArgs
+                  );
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
+                }}
+                onLoading={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["todo", "loading"]).apply(
+                    null,
+                    eventArgs
+                  );
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
+                }}
                 onSuccess={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, ["todo", "data"]).apply(
                     null,
                     eventArgs
                   );
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
+
                   (async data => {
                     const $steps = {};
 
@@ -11341,13 +11619,36 @@ function PlasmicHamyar__RenderFunc(props: {
             errorDisplay={null}
             loadingDisplay={null}
             method={"GET"}
-            onError={generateStateOnChangeProp($state, ["user", "error"])}
-            onLoading={generateStateOnChangeProp($state, ["user", "loading"])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["user", "error"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["user", "loading"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["user", "data"]).apply(
                 null,
                 eventArgs
               );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+
               (async data => {
                 const $steps = {};
 
@@ -11723,13 +12024,36 @@ function PlasmicHamyar__RenderFunc(props: {
             errorDisplay={null}
             loadingDisplay={null}
             method={"POST"}
-            onError={generateStateOnChangeProp($state, ["shop", "error"])}
-            onLoading={generateStateOnChangeProp($state, ["shop", "loading"])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["shop", "error"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["shop", "loading"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["shop", "data"]).apply(
                 null,
                 eventArgs
               );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+
               (async data => {
                 const $steps = {};
               }).apply(null, eventArgs);
@@ -11785,9 +12109,36 @@ function PlasmicHamyar__RenderFunc(props: {
             errorDisplay={null}
             loadingDisplay={null}
             method={"GET"}
-            onError={generateStateOnChangeProp($state, ["advice", "error"])}
-            onLoading={generateStateOnChangeProp($state, ["advice", "loading"])}
-            onSuccess={generateStateOnChangeProp($state, ["advice", "data"])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["advice", "error"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["advice", "loading"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["advice", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             params={(() => {
               try {
                 return {
@@ -11989,15 +12340,36 @@ function PlasmicHamyar__RenderFunc(props: {
             errorDisplay={null}
             loadingDisplay={null}
             method={"POST"}
-            onError={generateStateOnChangeProp($state, ["countNotif", "error"])}
-            onLoading={generateStateOnChangeProp($state, [
-              "countNotif",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "countNotif",
-              "data"
-            ])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["countNotif", "error"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "countNotif",
+                "loading"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["countNotif", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             url={"https://n8n.staas.ir/webhook/hamyar/notif"}
           />
         </div>

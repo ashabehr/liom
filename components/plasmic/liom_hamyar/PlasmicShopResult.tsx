@@ -690,10 +690,16 @@ function PlasmicShopResult__RenderFunc(props: {
                   $steps["goToPage"] = await $steps["goToPage"];
                 }
               }}
-              onColorChange={(...eventArgs) => {
-                generateStateOnChangeProp($state, ["button", "color"])(
-                  eventArgs[0]
-                );
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (eventArgs.length > 1 && eventArgs[1]) {
+                  return;
+                }
               }}
             >
               <div
@@ -1048,10 +1054,16 @@ function PlasmicShopResult__RenderFunc(props: {
                       $steps["goToPage"] = await $steps["goToPage"];
                     }
                   }}
-                  onColorChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "color"])(
-                      eventArgs[0]
-                    );
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
                   }}
                   showEndIcon={
                     hasVariant($state, "failed", "failed") &&
@@ -1326,10 +1338,16 @@ function PlasmicShopResult__RenderFunc(props: {
                       $steps["goToPage"] = await $steps["goToPage"];
                     }
                   }}
-                  onColorChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button3", "color"])(
-                      eventArgs[0]
-                    );
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button3", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
                   }}
                 >
                   <div
@@ -1397,18 +1415,36 @@ function PlasmicShopResult__RenderFunc(props: {
             errorDisplay={null}
             loadingDisplay={null}
             method={hasVariant($state, "failed", "failed") ? "GET" : "GET"}
-            onError={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
-              "error"
-            ])}
-            onLoading={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
-              "loading"
-            ])}
-            onSuccess={generateStateOnChangeProp($state, [
-              "fragmentApiRequest",
-              "data"
-            ])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "fragmentApiRequest",
+                "error"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "fragmentApiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "fragmentApiRequest",
+                "data"
+              ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             params={
               hasVariant($state, "failed", "failed")
                 ? (() => {

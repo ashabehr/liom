@@ -1190,10 +1190,16 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       throw e;
                     }
                   })()}
-                  onClickChange={generateStateOnChangeProp($state, [
-                    "dateModal",
-                    "click"
-                  ])}
+                  onClickChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "dateModal",
+                      "click"
+                    ]).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -1232,10 +1238,16 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         { value: 1403, label: "1403" },
                         { value: 1404, label: "1404" }
                       ]}
-                      onChange={generateStateOnChangeProp($state, [
-                        "datePickers",
-                        "value"
-                      ])}
+                      onChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "datePickers",
+                          "value"
+                        ]).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
+                      }}
                       selectedValues={generateStateValueProp($state, [
                         "datePickers",
                         "value"
@@ -1724,10 +1736,17 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           $steps["updateDuDate"] = await $steps["updateDuDate"];
                         }
                       }}
-                      onColorChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button", "color"])(
-                          eventArgs[0]
-                        );
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
                       }}
                     >
                       {"\u062a\u0627\u06cc\u06cc\u062f"}
@@ -1926,12 +1945,18 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           )
                         }
                       ),
-                      onChange: generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "value",
-                        ["dateOfBirthBox", "value"],
-                        AntdInput_Helpers
-                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["dateOfBirthBox", "value"],
+                          AntdInput_Helpers
+                        ).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
+                      },
                       placeholder:
                         "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
                       readOnly: true,
@@ -2114,12 +2139,18 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           "dark"
                         )
                       }),
-                      onChange: generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "value",
-                        ["lastTimeBox", "value"],
-                        AntdInput_Helpers
-                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["lastTimeBox", "value"],
+                          AntdInput_Helpers
+                        ).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
+                      },
                       placeholder:
                         "\u0645\u062b\u0644\u0627 3 \u0627\u0633\u0641\u0646\u062f 1403",
                       readOnly: true,
@@ -2638,10 +2669,16 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         ];
                       }
                     }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button3", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button3", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                   >
                     {

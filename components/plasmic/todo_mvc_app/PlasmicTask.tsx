@@ -525,10 +525,12 @@ function PlasmicTask__RenderFunc(props: {
                 $steps["updateState"] = await $steps["updateState"];
               }
             }}
-            onChange={e => {
-              generateStateOnChangeProp($state, ["textbox", "value"])(
-                e.target.value
-              );
+            onChange={async (...eventArgs: any) => {
+              (e => {
+                generateStateOnChangeProp($state, ["textbox", "value"])(
+                  e.target.value
+                );
+              }).apply(null, eventArgs);
             }}
             placeholder={"Enter task description"}
             ref={ref => {

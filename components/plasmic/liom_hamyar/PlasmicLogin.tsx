@@ -721,7 +721,7 @@ function PlasmicLogin__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -1727,7 +1727,9 @@ function PlasmicLogin__RenderFunc(props: {
                       antdInput2={(() => {
                         const child$Props = {
                           "aria-label": ``,
-                          bordered: false,
+                          bordered: hasVariant($state, "loginPage", "mobile")
+                            ? false
+                            : false,
                           className: classNames(
                             "__wab_instance",
                             sty.antdInput,
@@ -1761,6 +1763,9 @@ function PlasmicLogin__RenderFunc(props: {
                                 )
                             }
                           ),
+                          id: hasVariant($state, "loginPage", "mobile")
+                            ? "inputMobile1"
+                            : undefined,
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
                               $state,
@@ -1768,6 +1773,11 @@ function PlasmicLogin__RenderFunc(props: {
                               ["antdInput", "value"],
                               Input_Helpers
                             ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -1991,6 +2001,11 @@ function PlasmicLogin__RenderFunc(props: {
                             "value"
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
+
                         (async event => {
                           const $steps = {};
 
@@ -2641,10 +2656,16 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
                     }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                   >
                     <div
@@ -3089,6 +3110,11 @@ function PlasmicLogin__RenderFunc(props: {
                               ["antdInput7", "value"],
                               Input_Helpers
                             ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -3185,6 +3211,11 @@ function PlasmicLogin__RenderFunc(props: {
                             "value"
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
+
                         (async event => {
                           const $steps = {};
                         }).apply(null, eventArgs);
@@ -3472,6 +3503,11 @@ function PlasmicLogin__RenderFunc(props: {
                               ["antdInput8", "value"],
                               Input_Helpers
                             ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -3568,6 +3604,11 @@ function PlasmicLogin__RenderFunc(props: {
                             "value"
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
+
                         (async event => {
                           const $steps = {};
 
@@ -4313,10 +4354,16 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
                     }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button2", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button2", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                   >
                     <div
@@ -4812,6 +4859,11 @@ function PlasmicLogin__RenderFunc(props: {
                               ["antdInput9", "value"],
                               Input_Helpers
                             ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -4908,6 +4960,11 @@ function PlasmicLogin__RenderFunc(props: {
                             "value"
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
+
                         (async event => {
                           const $steps = {};
                         }).apply(null, eventArgs);
@@ -5195,6 +5252,11 @@ function PlasmicLogin__RenderFunc(props: {
                               ["antdInput10", "value"],
                               Input_Helpers
                             ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -5291,6 +5353,11 @@ function PlasmicLogin__RenderFunc(props: {
                             "value"
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
+
                         (async event => {
                           const $steps = {};
 
@@ -5614,6 +5681,11 @@ function PlasmicLogin__RenderFunc(props: {
                               ["antdInput11", "value"],
                               Input_Helpers
                             ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -5710,6 +5782,11 @@ function PlasmicLogin__RenderFunc(props: {
                             "value"
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
+
                         (async event => {
                           const $steps = {};
 
@@ -6315,10 +6392,16 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
                     }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button6", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button6", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                   >
                     <div
@@ -6767,6 +6850,11 @@ function PlasmicLogin__RenderFunc(props: {
                               ["antdInput2", "value"],
                               Input_Helpers
                             ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -6997,11 +7085,17 @@ function PlasmicLogin__RenderFunc(props: {
                           />
                         </React.Fragment>
                       }
-                      onChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "textInput4",
-                          "value"
-                        ])((e => e.target?.value).apply(null, eventArgs));
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "textInput4",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
                       }}
                       placeholder={
                         hasVariant($state, "loginPage", "userNameSingup")
@@ -7470,7 +7564,16 @@ function PlasmicLogin__RenderFunc(props: {
                           bordered: false,
                           className: classNames(
                             "__wab_instance",
-                            sty.antdInput3
+                            sty.antdInput3,
+                            {
+                              [sty.antdInput3loginPage_name]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "name"
+                              ),
+                              [sty.antdInput3loginPage_userNameLogin]:
+                                hasVariant($state, "loginPage", "userNameLogin")
+                            }
                           ),
                           onChange: async (...eventArgs: any) => {
                             generateStateOnChangePropForCodeComponents(
@@ -7479,6 +7582,11 @@ function PlasmicLogin__RenderFunc(props: {
                               ["antdInput3", "value"],
                               Input_Helpers
                             ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -7683,11 +7791,17 @@ function PlasmicLogin__RenderFunc(props: {
                           />
                         </React.Fragment>
                       }
-                      onChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "textInput6",
-                          "value"
-                        ])((e => e.target?.value).apply(null, eventArgs));
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "textInput6",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
                       }}
                       placeholder={
                         hasVariant($state, "loginPage", "userNameSingup")
@@ -7814,11 +7928,17 @@ function PlasmicLogin__RenderFunc(props: {
                           "isChecked"
                         ]) ?? false
                       }
-                      onChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "checkbox",
-                          "isChecked"
-                        ])(eventArgs[0]);
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "checkbox",
+                            "isChecked"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
                       }}
                     >
                       <div
@@ -8736,10 +8856,17 @@ function PlasmicLogin__RenderFunc(props: {
                           ];
                         }
                       }}
-                      onColorChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button4", "color"])(
-                          eventArgs[0]
-                        );
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button4",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
                       }}
                     >
                       <div
@@ -9252,6 +9379,11 @@ function PlasmicLogin__RenderFunc(props: {
                                 $state,
                                 "loginPage",
                                 "mobileCode"
+                              ),
+                              [sty.antdInput4loginPage_name]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "name"
                               )
                             }
                           ),
@@ -9267,6 +9399,11 @@ function PlasmicLogin__RenderFunc(props: {
                               ["antdInput4", "value"],
                               Input_Helpers
                             ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -9475,11 +9612,17 @@ function PlasmicLogin__RenderFunc(props: {
                           />
                         </React.Fragment>
                       }
-                      onChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "textInput3",
-                          "value"
-                        ])((e => e.target?.value).apply(null, eventArgs));
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "textInput3",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
                       }}
                       placeholder={
                         hasVariant($state, "loginPage", "userNameSingup")
@@ -10757,10 +10900,16 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
                     }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button3", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button3", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                   >
                     <div
@@ -11266,6 +11415,11 @@ function PlasmicLogin__RenderFunc(props: {
                                 $state,
                                 "loginPage",
                                 "mobileCode"
+                              ),
+                              [sty.antdInput6loginPage_mobile]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "mobile"
                               )
                             }
                           ),
@@ -11281,6 +11435,11 @@ function PlasmicLogin__RenderFunc(props: {
                               ["antdInput6", "value"],
                               Input_Helpers
                             ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -11499,11 +11658,17 @@ function PlasmicLogin__RenderFunc(props: {
                           ? true
                           : undefined
                       }
-                      onChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "textInput5",
-                          "value"
-                        ])((e => e.target?.value).apply(null, eventArgs));
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "textInput5",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
                       }}
                       placeholder={
                         hasVariant($state, "loginPage", "userNameSingup")
@@ -12658,10 +12823,16 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
                     }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button7", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button7", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                   >
                     <div
@@ -13072,6 +13243,11 @@ function PlasmicLogin__RenderFunc(props: {
                             "__wab_instance",
                             sty.antdInput5,
                             {
+                              [sty.antdInput5loginPage_emailCode]: hasVariant(
+                                $state,
+                                "loginPage",
+                                "emailCode"
+                              ),
                               [sty.antdInput5loginPage_email]: hasVariant(
                                 $state,
                                 "loginPage",
@@ -13103,6 +13279,11 @@ function PlasmicLogin__RenderFunc(props: {
                               ["antdInput5", "value"],
                               Input_Helpers
                             ).apply(null, eventArgs);
+
+                            if (eventArgs.length > 1 && eventArgs[1]) {
+                              return;
+                            }
+
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -13313,11 +13494,17 @@ function PlasmicLogin__RenderFunc(props: {
                           />
                         </React.Fragment>
                       }
-                      onChange={(...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "textInput2",
-                          "value"
-                        ])((e => e.target?.value).apply(null, eventArgs));
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "textInput2",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
                       }}
                       placeholder={
                         hasVariant($state, "loginPage", "userNameSingup")
@@ -13848,10 +14035,16 @@ function PlasmicLogin__RenderFunc(props: {
                         ];
                       }
                     }}
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button5", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button5", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                   >
                     <div
@@ -13955,7 +14148,16 @@ function PlasmicLogin__RenderFunc(props: {
               )
             })}
             modalScopeClassName={sty["rules__modal"]}
-            onOpenChange={generateStateOnChangeProp($state, ["rules", "open"])}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["rules", "open"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             open={generateStateValueProp($state, ["rules", "open"])}
             title={null}
             trigger={null}
@@ -14081,12 +14283,26 @@ function PlasmicLogin__RenderFunc(props: {
             errorDisplay={null}
             loadingDisplay={null}
             method={"GET"}
-            onError={generateStateOnChangeProp($state, ["apiRequest", "error"])}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "apiRequest",
                 "loading"
               ]).apply(null, eventArgs);
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+
               (async loading => {
                 const $steps = {};
 
@@ -14326,10 +14542,16 @@ function PlasmicLogin__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
-            onSuccess={generateStateOnChangeProp($state, [
-              "apiRequest",
-              "data"
-            ])}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (eventArgs.length > 1 && eventArgs[1]) {
+                return;
+              }
+            }}
             url={"/"}
           />
 

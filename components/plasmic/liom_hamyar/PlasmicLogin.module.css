@@ -3116,6 +3116,8 @@
 }
 .antdInput7loginPage_userNameLogin:global(.__wab_instance) {
   text-align: right;
+  width: 100%;
+  min-width: 0;
 }
 .antdInput7loginPage_userNameSingup:global(.__wab_instance) {
   text-align: right;
@@ -3731,6 +3733,8 @@
 }
 .antdInput8loginPage_userNameLogin:global(.__wab_instance) {
   text-align: right;
+  width: 100%;
+  min-width: 0;
 }
 .antdInput8loginPage_userNameSingup:global(.__wab_instance) {
   text-align: right;
@@ -5270,6 +5274,8 @@
 }
 .antdInput9loginPage_userNameSingup:global(.__wab_instance) {
   text-align: right;
+  width: 100%;
+  min-width: 0;
 }
 .freeBox__kmk0E {
   display: flex;
@@ -5885,6 +5891,8 @@
 }
 .antdInput10loginPage_userNameSingup:global(.__wab_instance) {
   text-align: right;
+  width: 100%;
+  min-width: 0;
 }
 .freeBox__dInFc {
   display: flex;
@@ -6500,6 +6508,8 @@
 }
 .antdInput11loginPage_userNameSingup:global(.__wab_instance) {
   text-align: right;
+  width: 100%;
+  min-width: 0;
 }
 .freeBox__b966O {
   display: flex;
@@ -8135,6 +8145,10 @@
   max-width: 100%;
   object-fit: cover;
 }
+.antdInput2loginPage_name:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
+}
 .freeBox__chggi {
   display: flex;
   flex-direction: row;
@@ -9454,6 +9468,10 @@
 .antdInput3:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+}
+.antdInput3loginPage_name:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
 }
 .freeBox__kpeHu {
   display: flex;
@@ -11202,6 +11220,10 @@
 .antdInput4:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+}
+.antdInput4loginPage_mobileCode:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
 }
 .embedHtml__nn8DP:global(.__wab_instance) {
   max-width: 100%;
@@ -13182,6 +13204,10 @@
   max-width: 100%;
   object-fit: cover;
 }
+.antdInput6loginPage_emailCode:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
+}
 .text__j8SB {
   position: relative;
   width: 100%;
@@ -15049,6 +15075,10 @@
 .antdInput5:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+}
+.antdInput5loginPage_email:global(.__wab_instance) {
+  width: 100%;
+  min-width: 0;
 }
 .freeBox__wh17 {
   display: flex;

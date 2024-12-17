@@ -820,6 +820,11 @@ function PlasmicTodoList__RenderFunc(props: {
                           "isChecked"
                         ])(eventArgs[0]);
                       }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+
                       (async isChecked => {
                         const $steps = {};
 

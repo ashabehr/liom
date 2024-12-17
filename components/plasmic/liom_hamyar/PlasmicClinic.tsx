@@ -717,10 +717,16 @@ function PlasmicClinic__RenderFunc(props: {
                         role={"img"}
                       />
                     }
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button3", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button3", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                     showEndIcon={true}
                     size={"compact"}
@@ -767,10 +773,16 @@ function PlasmicClinic__RenderFunc(props: {
                         role={"img"}
                       />
                     }
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button4", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button4", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                     showEndIcon={true}
                     size={"compact"}
@@ -817,10 +829,16 @@ function PlasmicClinic__RenderFunc(props: {
                         role={"img"}
                       />
                     }
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button5", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button5", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                     showEndIcon={true}
                     size={"compact"}
@@ -911,10 +929,16 @@ function PlasmicClinic__RenderFunc(props: {
                         role={"img"}
                       />
                     }
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button6", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button6", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                     showEndIcon={true}
                     size={"compact"}
@@ -961,10 +985,16 @@ function PlasmicClinic__RenderFunc(props: {
                         role={"img"}
                       />
                     }
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button7", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button7", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                     showEndIcon={true}
                     size={"compact"}
@@ -1011,10 +1041,16 @@ function PlasmicClinic__RenderFunc(props: {
                         role={"img"}
                       />
                     }
-                    onColorChange={(...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button8", "color"])(
-                        eventArgs[0]
-                      );
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button8", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
                     }}
                     showEndIcon={true}
                     size={"compact"}
@@ -1105,10 +1141,16 @@ function PlasmicClinic__RenderFunc(props: {
                       $steps["update1"] = await $steps["update1"];
                     }
                   }}
-                  onColorChange={(...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button2", "color"])(
-                      eventArgs[0]
-                    );
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
                   }}
                   showStartIcon={true}
                   size={"compact"}
@@ -1250,7 +1292,16 @@ function PlasmicClinic__RenderFunc(props: {
                   [sty.input_1_chatviow]: hasVariant($state, "_1", "chatviow"),
                   [sty.input_1_docters]: hasVariant($state, "_1", "docters")
                 })}
-                onChange={generateStateOnChangeProp($state, ["input", "value"])}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["input", "value"]).apply(
+                    null,
+                    eventArgs
+                  );
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
+                }}
                 placeholder={
                   "\u062c\u0633\u062a\u062c\u0648 \u062f\u0631  \u067e\u0632\u0634\u06a9\u0627\u0646"
                 }
@@ -1726,10 +1777,16 @@ function PlasmicClinic__RenderFunc(props: {
                     ),
                     [sty.input2_1_docters]: hasVariant($state, "_1", "docters")
                   })}
-                  onChange={generateStateOnChangeProp($state, [
-                    "input2",
-                    "value"
-                  ])}
+                  onChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "input2",
+                      "value"
+                    ]).apply(null, eventArgs);
+
+                    if (eventArgs.length > 1 && eventArgs[1]) {
+                      return;
+                    }
+                  }}
                   placeholder={
                     "\u062c\u0633\u062a\u062c\u0648 \u062f\u0631  \u067e\u0632\u0634\u06a9\u0627\u0646"
                   }
@@ -2744,10 +2801,16 @@ function PlasmicClinic__RenderFunc(props: {
                   [sty.button_1_docter]: hasVariant($state, "_1", "docter")
                 })}
                 color={generateStateValueProp($state, ["button", "color"])}
-                onColorChange={(...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button", "color"])(
-                    eventArgs[0]
-                  );
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (eventArgs.length > 1 && eventArgs[1]) {
+                    return;
+                  }
                 }}
               >
                 <div

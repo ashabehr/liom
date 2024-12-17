@@ -1737,10 +1737,16 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         </Stack__>
                       }
                       modalScopeClassName={sty["modal__modal"]}
-                      onOpenChange={generateStateOnChangeProp($state, [
-                        "modal",
-                        "open"
-                      ])}
+                      onOpenChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "modal",
+                          "open"
+                        ]).apply(null, eventArgs);
+
+                        if (eventArgs.length > 1 && eventArgs[1]) {
+                          return;
+                        }
+                      }}
                       open={generateStateValueProp($state, ["modal", "open"])}
                       title={
                         <div
@@ -2248,6 +2254,11 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         ["collapseBaby", "open"],
                         AntdSingleCollapse_Helpers
                       ).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+
                       (async activeIds => {
                         const $steps = {};
 
@@ -2516,6 +2527,11 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         ["collapseMother", "open"],
                         AntdSingleCollapse_Helpers
                       ).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+
                       (async activeIds => {
                         const $steps = {};
 
@@ -2784,6 +2800,11 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         ["collapseHealth", "open"],
                         AntdSingleCollapse_Helpers
                       ).apply(null, eventArgs);
+
+                      if (eventArgs.length > 1 && eventArgs[1]) {
+                        return;
+                      }
+
                       (async activeIds => {
                         const $steps = {};
 
