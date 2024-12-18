@@ -263,7 +263,17 @@ function PlasmicCyclebox__RenderFunc(props: {
           [sty.rootfertility]: hasVariant($state, "fertility", "fertility"),
           [sty.rootnormalpms]: hasVariant($state, "normalpms", "normalpms"),
           [sty.rootperiod]: hasVariant($state, "period", "period"),
-          [sty.rootpms]: hasVariant($state, "pms", "pms")
+          [sty.rootperiod_fertility]:
+            hasVariant($state, "fertility", "fertility") &&
+            hasVariant($state, "period", "period"),
+          [sty.rootperiod_pms_fertility]:
+            hasVariant($state, "pms", "pms") &&
+            hasVariant($state, "fertility", "fertility") &&
+            hasVariant($state, "period", "period"),
+          [sty.rootpms]: hasVariant($state, "pms", "pms"),
+          [sty.rootpms_fertility]:
+            hasVariant($state, "pms", "pms") &&
+            hasVariant($state, "fertility", "fertility")
         }
       )}
     >

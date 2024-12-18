@@ -26,6 +26,7 @@
   background: var(--token-55cSeNPovQFh);
   justify-content: center;
   align-items: center;
+  padding: 8px;
 }
 @media (max-width: 640px) {
   .rootpms {
@@ -48,6 +49,7 @@
   background: var(--token-4RAe7M2gInqR);
   justify-content: center;
   align-items: center;
+  padding: 8px;
 }
 @media (max-width: 640px) {
   .rootperiod {
@@ -59,6 +61,10 @@
 .rootnormalpms {
   background: var(--token-G-IZ_XhVdlqp);
   box-shadow: 0px 4px 16px 0px #12121214;
+  padding: 8px;
+}
+.rootperiod_fertility {
+  padding: 8px;
 }
 .freeBox__dhejs {
   display: flex;
@@ -170,7 +176,7 @@
   align-self: auto;
   opacity: 1;
   padding: 8px;
-  margin: 20px;
+  margin: 8px;
 }
 @media (max-width: 640px) {
   .freeBox___66Lnm {
@@ -423,7 +429,7 @@
   display: none;
 }
 .lottienormalpms:global(.__wab_instance) {
-  width: auto;
+  width: 100px;
   height: auto;
 }
 @media (max-width: 640px) {

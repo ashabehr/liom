@@ -666,6 +666,23 @@
 @media (max-width: 640px) {
   .freeBox__psqU > :global(.__wab_flex-container) {
     min-height: 0;
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+    margin-top: calc(0px - 8px);
+    height: calc(100% + 8px);
+  }
+}
+@media (max-width: 640px) {
+  .freeBox__psqU > :global(.__wab_flex-container) > *,
+  .freeBox__psqU > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox__psqU > :global(.__wab_flex-container) > picture > img,
+  .freeBox__psqU
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 0px;
+    margin-top: 8px;
   }
 }
 .text__in0Fg {
@@ -715,7 +732,7 @@
 }
 @media (max-width: 640px) {
   .text__ej0Pi {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 .freeBox__ztbQr {

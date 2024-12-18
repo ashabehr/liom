@@ -42,7 +42,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 150px;
   margin-top: 16px;
   min-width: 0;
   padding: 0px;
@@ -69,7 +69,7 @@
   .freeBox__l2VNg {
     width: 100%;
     justify-self: flex-start;
-    margin-bottom: 80px;
+    margin-bottom: 100px;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
     padding: 0px 16px;
