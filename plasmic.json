@@ -765,6 +765,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/"
+        },
+        {
+          "id": "XsM8QG4wUKlk",
+          "name": "LineClomp",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLineClomp.tsx",
+          "importSpec": {
+            "modulePath": "LineClomp.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicLineClomp.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

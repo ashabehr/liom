@@ -685,6 +685,9 @@
     margin-top: 8px;
   }
 }
+.lineClomp:global(.__wab_instance) {
+  max-width: 100%;
+}
 .text__in0Fg {
   position: relative;
   width: 100%;
@@ -701,8 +704,8 @@
   letter-spacing: normal;
   white-space: pre-wrap;
   user-select: text;
-  text-decoration-line: none;
-  text-overflow: clip;
+  text-decoration-line: none !important;
+  text-overflow: clip !important;
   min-width: 0;
 }
 @media (max-width: 640px) {

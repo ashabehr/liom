@@ -70,6 +70,7 @@ import Nofiticon from "../../Nofiticon"; // plasmic-import: J7iX9VyuSoJi/compone
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
+import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Useful from "../../Useful"; // plasmic-import: 2qiQ4nSmOYBA/component
@@ -132,6 +133,7 @@ export type PlasmicHamyar__OverridesType = {
   switchbest?: Flex__<typeof Switchbest>;
   countdown2?: Flex__<typeof Countdown>;
   cyclebox?: Flex__<typeof Cyclebox>;
+  lineClomp?: Flex__<typeof LineClomp>;
   checkbox?: Flex__<typeof Checkbox>;
   reveal?: Flex__<typeof Reveal>;
   useful2?: Flex__<typeof Useful>;
@@ -2340,29 +2342,46 @@ function PlasmicHamyar__RenderFunc(props: {
                       hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__psqU)}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__in0Fg
-                        )}
+                      <LineClomp
+                        data-plasmic-name={"lineClomp"}
+                        data-plasmic-override={overrides.lineClomp}
+                        className={classNames("__wab_instance", sty.lineClomp)}
+                        numberOfLine={2}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return "وضعیت " + $state.name + " : ";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "-";
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__in0Fg
+                          )}
+                          style={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? {
+                                  overflow: "hidden",
+                                  "-webkit-line-clamp": "2",
+                                  "-webkit-box-orient": "vertical",
+                                  display: "-webkit-box"
+                                }
+                              : undefined
+                          }
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return "وضعیت " + $state.name + " : ";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "-";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </LineClomp>
                       <div
                         className={classNames(
                           projectcss.all,
@@ -12386,6 +12405,7 @@ const PlasmicDescendants = {
     "switchbest",
     "countdown2",
     "cyclebox",
+    "lineClomp",
     "checkbox",
     "reveal",
     "useful2",
@@ -12422,7 +12442,8 @@ const PlasmicDescendants = {
   nofiticon: ["nofiticon"],
   switchbest: ["switchbest"],
   countdown2: ["countdown2"],
-  cyclebox: ["cyclebox"],
+  cyclebox: ["cyclebox", "lineClomp"],
+  lineClomp: ["lineClomp"],
   checkbox: ["checkbox"],
   reveal: ["reveal", "useful2", "useful"],
   useful2: ["useful2"],
@@ -12465,6 +12486,7 @@ type NodeDefaultElementType = {
   switchbest: typeof Switchbest;
   countdown2: typeof Countdown;
   cyclebox: typeof Cyclebox;
+  lineClomp: typeof LineClomp;
   checkbox: typeof Checkbox;
   reveal: typeof Reveal;
   useful2: typeof Useful;
@@ -12588,6 +12610,7 @@ export const PlasmicHamyar = Object.assign(
     switchbest: makeNodeComponent("switchbest"),
     countdown2: makeNodeComponent("countdown2"),
     cyclebox: makeNodeComponent("cyclebox"),
+    lineClomp: makeNodeComponent("lineClomp"),
     checkbox: makeNodeComponent("checkbox"),
     reveal: makeNodeComponent("reveal"),
     useful2: makeNodeComponent("useful2"),
