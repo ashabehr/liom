@@ -419,7 +419,13 @@ function PlasmicCyclebox__RenderFunc(props: {
               "period",
               "period"
             ),
-            [sty.freeBoxpms__nCGIsscqc]: hasVariant($state, "pms", "pms")
+            [sty.freeBoxperiod_normalpms__nCGi6AdLdU3BKb]:
+              hasVariant($state, "period", "period") &&
+              hasVariant($state, "normalpms", "normalpms"),
+            [sty.freeBoxpms__nCGIsscqc]: hasVariant($state, "pms", "pms"),
+            [sty.freeBoxpms_fertility__nCGIsscqcVlklK]:
+              hasVariant($state, "pms", "pms") &&
+              hasVariant($state, "fertility", "fertility")
           })}
         >
           <div
@@ -443,7 +449,10 @@ function PlasmicCyclebox__RenderFunc(props: {
                   "period",
                   "period"
                 ),
-                [sty.textpms__srBvcsscqc]: hasVariant($state, "pms", "pms")
+                [sty.textpms__srBvcsscqc]: hasVariant($state, "pms", "pms"),
+                [sty.textpms_fertility__srBvcsscqcVlklK]:
+                  hasVariant($state, "pms", "pms") &&
+                  hasVariant($state, "fertility", "fertility")
               }
             )}
           >
@@ -470,7 +479,16 @@ function PlasmicCyclebox__RenderFunc(props: {
                   "period",
                   "period"
                 ),
-                [sty.textpms__r4HpWsscqc]: hasVariant($state, "pms", "pms")
+                [sty.textperiod_fertility__r4Hpw6AdLdVlklK]:
+                  hasVariant($state, "fertility", "fertility") &&
+                  hasVariant($state, "period", "period"),
+                [sty.textperiod_normalpms__r4Hpw6AdLdU3BKb]:
+                  hasVariant($state, "period", "period") &&
+                  hasVariant($state, "normalpms", "normalpms"),
+                [sty.textpms__r4HpWsscqc]: hasVariant($state, "pms", "pms"),
+                [sty.textpms_fertility__r4HpWsscqcVlklK]:
+                  hasVariant($state, "pms", "pms") &&
+                  hasVariant($state, "fertility", "fertility")
               }
             )}
           >
