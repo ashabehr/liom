@@ -655,7 +655,11 @@ function PlasmicBioritm__RenderFunc(props: {
           }
         )}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__l2VNg)}>
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__l2VNg)}
+        >
           <div className={classNames(projectcss.all, sty.freeBox__mpk5X)}>
             <div
               className={classNames(projectcss.all, sty.freeBox__kQaHu, {
@@ -5248,7 +5252,7 @@ function PlasmicBioritm__RenderFunc(props: {
               </Stack__>
             </div>
           </SlideinModal>
-        </div>
+        </Stack__>
         <ApiRequest
           data-plasmic-name={"biorhythm"}
           data-plasmic-override={overrides.biorhythm}
