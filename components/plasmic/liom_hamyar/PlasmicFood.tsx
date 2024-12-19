@@ -1314,10 +1314,6 @@ function PlasmicFood__RenderFunc(props: {
                         "modal",
                         "open"
                       ]).apply(null, eventArgs);
-
-                      if (eventArgs.length > 1 && eventArgs[1]) {
-                        return;
-                      }
                     }}
                     open={generateStateValueProp($state, ["modal", "open"])}
                     title={null}
@@ -1355,10 +1351,6 @@ function PlasmicFood__RenderFunc(props: {
                               "input",
                               "value"
                             ]).apply(null, eventArgs);
-
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
 
                             (async value => {
                               const $steps = {};
@@ -1629,7 +1621,8 @@ function PlasmicFood__RenderFunc(props: {
 
                                         if (
                                           eventArgs.length > 1 &&
-                                          eventArgs[1]
+                                          eventArgs[1] &&
+                                          eventArgs[1]._plasmic_state_init_
                                         ) {
                                           return;
                                         }
@@ -1942,7 +1935,11 @@ function PlasmicFood__RenderFunc(props: {
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             }}
@@ -1984,10 +1981,6 @@ function PlasmicFood__RenderFunc(props: {
                           "modal2",
                           "open"
                         ]).apply(null, eventArgs);
-
-                        if (eventArgs.length > 1 && eventArgs[1]) {
-                          return;
-                        }
                       },
                       open: generateStateValueProp($state, ["modal2", "open"]),
                       title: null,
@@ -2238,13 +2231,6 @@ function PlasmicFood__RenderFunc(props: {
                                                 AntdRangeSlider_Helpers
                                               ).apply(null, eventArgs);
 
-                                              if (
-                                                eventArgs.length > 1 &&
-                                                eventArgs[1]
-                                              ) {
-                                                return;
-                                              }
-
                                               (async value => {
                                                 const $steps = {};
 
@@ -2466,13 +2452,6 @@ function PlasmicFood__RenderFunc(props: {
                                                 ["input5", "value"]
                                               ).apply(null, eventArgs);
 
-                                              if (
-                                                eventArgs.length > 1 &&
-                                                eventArgs[1]
-                                              ) {
-                                                return;
-                                              }
-
                                               (async value => {
                                                 const $steps = {};
 
@@ -2568,13 +2547,6 @@ function PlasmicFood__RenderFunc(props: {
                                                 $state,
                                                 ["numberInput", "value"]
                                               ).apply(null, eventArgs);
-
-                                              if (
-                                                eventArgs.length > 1 &&
-                                                eventArgs[1]
-                                              ) {
-                                                return;
-                                              }
 
                                               (async value => {
                                                 const $steps = {};
@@ -2723,13 +2695,6 @@ function PlasmicFood__RenderFunc(props: {
                                                 ["input3", "value"]
                                               ).apply(null, eventArgs);
 
-                                              if (
-                                                eventArgs.length > 1 &&
-                                                eventArgs[1]
-                                              ) {
-                                                return;
-                                              }
-
                                               (async value => {
                                                 const $steps = {};
 
@@ -2832,13 +2797,6 @@ function PlasmicFood__RenderFunc(props: {
                                                 $state,
                                                 ["numberInput2", "value"]
                                               ).apply(null, eventArgs);
-
-                                              if (
-                                                eventArgs.length > 1 &&
-                                                eventArgs[1]
-                                              ) {
-                                                return;
-                                              }
                                             }}
                                             placeholder={
                                               hasVariant(
@@ -2956,13 +2914,6 @@ function PlasmicFood__RenderFunc(props: {
                                               "kabed",
                                               "value"
                                             ]).apply(null, eventArgs);
-
-                                            if (
-                                              eventArgs.length > 1 &&
-                                              eventArgs[1]
-                                            ) {
-                                              return;
-                                            }
 
                                             (async value => {
                                               const $steps = {};
@@ -3120,13 +3071,6 @@ function PlasmicFood__RenderFunc(props: {
                                               "diabet",
                                               "value"
                                             ]).apply(null, eventArgs);
-
-                                            if (
-                                              eventArgs.length > 1 &&
-                                              eventArgs[1]
-                                            ) {
-                                              return;
-                                            }
 
                                             (async value => {
                                               const $steps = {};
@@ -3558,7 +3502,11 @@ function PlasmicFood__RenderFunc(props: {
                                       ])(eventArgs[0]);
                                     }).apply(null, eventArgs);
 
-                                    if (eventArgs.length > 1 && eventArgs[1]) {
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
                                       return;
                                     }
                                   }}
@@ -4240,7 +4188,11 @@ function PlasmicFood__RenderFunc(props: {
                                       ])(eventArgs[0]);
                                     }).apply(null, eventArgs);
 
-                                    if (eventArgs.length > 1 && eventArgs[1]) {
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
                                       return;
                                     }
                                   }}
@@ -4430,7 +4382,11 @@ function PlasmicFood__RenderFunc(props: {
                                       ])(eventArgs[0]);
                                     }).apply(null, eventArgs);
 
-                                    if (eventArgs.length > 1 && eventArgs[1]) {
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
                                       return;
                                     }
                                   }}
@@ -5279,7 +5235,11 @@ function PlasmicFood__RenderFunc(props: {
                       );
                     }).apply(null, eventArgs);
 
-                    if (eventArgs.length > 1 && eventArgs[1]) {
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
                       return;
                     }
                   }}
@@ -5313,7 +5273,11 @@ function PlasmicFood__RenderFunc(props: {
                 "click"
               ]).apply(null, eventArgs);
 
-              if (eventArgs.length > 1 && eventArgs[1]) {
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
                 return;
               }
             }}
@@ -5387,10 +5351,6 @@ function PlasmicFood__RenderFunc(props: {
                     null,
                     eventArgs
                   );
-
-                  if (eventArgs.length > 1 && eventArgs[1]) {
-                    return;
-                  }
                 }}
                 type={"number"}
                 value={generateStateValueProp($state, ["input4", "value"])}
@@ -5532,7 +5492,11 @@ function PlasmicFood__RenderFunc(props: {
                   );
                 }).apply(null, eventArgs);
 
-                if (eventArgs.length > 1 && eventArgs[1]) {
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
                   return;
                 }
               }}
@@ -5560,10 +5524,6 @@ function PlasmicFood__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
 
               (async error => {
                 const $steps = {};
@@ -5595,20 +5555,12 @@ function PlasmicFood__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["weeknow", "data"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             params={(() => {
               try {
@@ -5651,10 +5603,6 @@ function PlasmicFood__RenderFunc(props: {
                 "error"
               ]).apply(null, eventArgs);
 
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
-
               (async error => {
                 const $steps = {};
 
@@ -5685,20 +5633,12 @@ function PlasmicFood__RenderFunc(props: {
                 "previousWeek",
                 "loading"
               ]).apply(null, eventArgs);
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["previousWeek", "data"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             params={(() => {
               try {
@@ -5748,10 +5688,6 @@ function PlasmicFood__RenderFunc(props: {
                 eventArgs
               );
 
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
-
               (async error => {
                 const $steps = {};
 
@@ -5782,20 +5718,12 @@ function PlasmicFood__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["foodinfo", "data"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
 
               (async data => {
                 const $steps = {};
@@ -5921,10 +5849,6 @@ function PlasmicFood__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             open={generateStateValueProp($state, ["modal3", "open"])}
             title={

@@ -84,15 +84,15 @@ export const PlasmicLoginBox__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicLoginBox__ArgsType = {
+  onClick?: (event: any) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
-  onClick?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicLoginBox__ArgsType;
 export const PlasmicLoginBox__ArgProps = new Array<ArgPropType>(
+  "onClick",
   "children",
-  "slot",
-  "onClick"
+  "slot"
 );
 
 export type PlasmicLoginBox__OverridesType = {
@@ -103,9 +103,9 @@ export type PlasmicLoginBox__OverridesType = {
 };
 
 export interface DefaultLoginBoxProps {
+  onClick?: (event: any) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
-  onClick?: (event: any) => void;
   loading?: SingleBooleanChoiceArg<"loading">;
   className?: string;
 }

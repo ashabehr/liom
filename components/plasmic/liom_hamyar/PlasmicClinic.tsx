@@ -724,7 +724,11 @@ function PlasmicClinic__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -780,7 +784,11 @@ function PlasmicClinic__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -836,7 +844,11 @@ function PlasmicClinic__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -936,7 +948,11 @@ function PlasmicClinic__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -992,7 +1008,11 @@ function PlasmicClinic__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -1048,7 +1068,11 @@ function PlasmicClinic__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -1148,7 +1172,11 @@ function PlasmicClinic__RenderFunc(props: {
                       );
                     }).apply(null, eventArgs);
 
-                    if (eventArgs.length > 1 && eventArgs[1]) {
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
                       return;
                     }
                   }}
@@ -1297,10 +1325,6 @@ function PlasmicClinic__RenderFunc(props: {
                     null,
                     eventArgs
                   );
-
-                  if (eventArgs.length > 1 && eventArgs[1]) {
-                    return;
-                  }
                 }}
                 placeholder={
                   "\u062c\u0633\u062a\u062c\u0648 \u062f\u0631  \u067e\u0632\u0634\u06a9\u0627\u0646"
@@ -1782,10 +1806,6 @@ function PlasmicClinic__RenderFunc(props: {
                       "input2",
                       "value"
                     ]).apply(null, eventArgs);
-
-                    if (eventArgs.length > 1 && eventArgs[1]) {
-                      return;
-                    }
                   }}
                   placeholder={
                     "\u062c\u0633\u062a\u062c\u0648 \u062f\u0631  \u067e\u0632\u0634\u06a9\u0627\u0646"
@@ -2808,7 +2828,11 @@ function PlasmicClinic__RenderFunc(props: {
                     );
                   }).apply(null, eventArgs);
 
-                  if (eventArgs.length > 1 && eventArgs[1]) {
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
                     return;
                   }
                 }}

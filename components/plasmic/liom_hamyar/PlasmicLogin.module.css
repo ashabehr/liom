@@ -308,6 +308,9 @@
   width: 20px;
   height: 20px;
 }
+.text__bNetl {
+  cursor: pointer;
+}
 .loginBox__tWiTd:global(.__wab_instance) {
   position: relative;
 }
@@ -317,6 +320,9 @@
   width: 20px;
   height: 20px;
   color: var(--token-aPMgnD4sVFAM);
+}
+.text__gzjCi {
+  cursor: pointer;
 }
 .loginBox___67EL:global(.__wab_instance) {
   position: relative;
@@ -339,13 +345,16 @@
   height: 20px;
   color: var(--token-aPMgnD4sVFAM);
 }
+.text__utfk6 {
+  cursor: pointer;
+}
 .text__xpOyZ {
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   text-align: center;
-  min-width: 0;
+  cursor: pointer;
 }
 .reveal__hzsaP:global(.__wab_instance) {
   max-width: 100%;

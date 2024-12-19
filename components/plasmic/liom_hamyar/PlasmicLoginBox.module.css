@@ -13,6 +13,7 @@
   transition-property: all;
   transition-duration: 0.5s;
   transition-timing-function: ease-in-out;
+  cursor: pointer;
   min-width: 0;
   -webkit-transition-property: all;
   -webkit-transition-timing-function: ease-in-out;

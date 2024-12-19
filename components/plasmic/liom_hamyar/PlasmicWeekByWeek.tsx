@@ -1742,10 +1742,6 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           "modal",
                           "open"
                         ]).apply(null, eventArgs);
-
-                        if (eventArgs.length > 1 && eventArgs[1]) {
-                          return;
-                        }
                       }}
                       open={generateStateValueProp($state, ["modal", "open"])}
                       title={
@@ -2255,10 +2251,6 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         AntdSingleCollapse_Helpers
                       ).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
-                        return;
-                      }
-
                       (async activeIds => {
                         const $steps = {};
 
@@ -2528,10 +2520,6 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         AntdSingleCollapse_Helpers
                       ).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
-                        return;
-                      }
-
                       (async activeIds => {
                         const $steps = {};
 
@@ -2800,10 +2788,6 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         ["collapseHealth", "open"],
                         AntdSingleCollapse_Helpers
                       ).apply(null, eventArgs);
-
-                      if (eventArgs.length > 1 && eventArgs[1]) {
-                        return;
-                      }
 
                       (async activeIds => {
                         const $steps = {};

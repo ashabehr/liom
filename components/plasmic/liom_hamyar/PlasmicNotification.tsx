@@ -3099,7 +3099,11 @@ function PlasmicNotification__RenderFunc(props: {
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             }
@@ -3362,7 +3366,11 @@ function PlasmicNotification__RenderFunc(props: {
                         "date"
                       ]).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     },
@@ -3373,7 +3381,11 @@ function PlasmicNotification__RenderFunc(props: {
                         "delet"
                       ]).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     },
@@ -3384,7 +3396,11 @@ function PlasmicNotification__RenderFunc(props: {
                         "seen"
                       ]).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     },
@@ -3395,7 +3411,11 @@ function PlasmicNotification__RenderFunc(props: {
                         "text"
                       ]).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     },
@@ -3406,7 +3426,11 @@ function PlasmicNotification__RenderFunc(props: {
                         "title"
                       ]).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     },
@@ -3724,30 +3748,18 @@ function PlasmicNotification__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "apiRequest",
                 "loading"
               ]).apply(null, eventArgs);
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             params={
               hasVariant($state, "notification", "notification") &&

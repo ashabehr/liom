@@ -1196,7 +1196,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       "click"
                     ]).apply(null, eventArgs);
 
-                    if (eventArgs.length > 1 && eventArgs[1]) {
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
                       return;
                     }
                   }}
@@ -1243,10 +1247,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           "datePickers",
                           "value"
                         ]).apply(null, eventArgs);
-
-                        if (eventArgs.length > 1 && eventArgs[1]) {
-                          return;
-                        }
                       }}
                       selectedValues={generateStateValueProp($state, [
                         "datePickers",
@@ -1744,7 +1744,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
                       }}
@@ -1952,10 +1956,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           ["dateOfBirthBox", "value"],
                           AntdInput_Helpers
                         ).apply(null, eventArgs);
-
-                        if (eventArgs.length > 1 && eventArgs[1]) {
-                          return;
-                        }
                       },
                       placeholder:
                         "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
@@ -2146,10 +2146,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           ["lastTimeBox", "value"],
                           AntdInput_Helpers
                         ).apply(null, eventArgs);
-
-                        if (eventArgs.length > 1 && eventArgs[1]) {
-                          return;
-                        }
                       },
                       placeholder:
                         "\u0645\u062b\u0644\u0627 3 \u0627\u0633\u0641\u0646\u062f 1403",
@@ -2676,7 +2672,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}

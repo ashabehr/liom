@@ -1430,7 +1430,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         "number"
                       ]).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -1554,7 +1558,11 @@ function PlasmicHamyar__RenderFunc(props: {
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
 
-                          if (eventArgs.length > 1 && eventArgs[1]) {
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
                             return;
                           }
 
@@ -1949,7 +1957,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                   "remainingSeconds"
                                 ]).apply(null, eventArgs);
 
-                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
                                   return;
                                 }
                               },
@@ -2282,7 +2294,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         "cycle"
                       ]).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -2292,7 +2308,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         "fertility"
                       ]).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -2302,7 +2322,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         "period"
                       ]).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -2312,7 +2336,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         "pms"
                       ]).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -2322,7 +2350,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         "textsycle"
                       ]).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -2969,7 +3001,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
 
@@ -3575,7 +3611,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                   "icon"
                                 ]).apply(null, eventArgs);
 
-                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
                                   return;
                                 }
                               },
@@ -3586,7 +3626,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                   "text"
                                 ]).apply(null, eventArgs);
 
-                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
                                   return;
                                 }
                               },
@@ -3767,7 +3811,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                   "icon"
                                 ]).apply(null, eventArgs);
 
-                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
                                   return;
                                 }
                               },
@@ -3778,7 +3826,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                   "text"
                                 ]).apply(null, eventArgs);
 
-                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
                                   return;
                                 }
                               },
@@ -4050,7 +4102,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "icon"
                               ]).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             },
@@ -4061,7 +4117,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "text"
                               ]).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             },
@@ -4072,7 +4132,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "title"
                               ]).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             },
@@ -4275,7 +4339,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "icon"
                               ]).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             },
@@ -4286,7 +4354,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "text"
                               ]).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             },
@@ -4297,7 +4369,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "title"
                               ]).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             },
@@ -4417,10 +4493,6 @@ function PlasmicHamyar__RenderFunc(props: {
                       "shopModalWeb",
                       "open"
                     ]).apply(null, eventArgs);
-
-                    if (eventArgs.length > 1 && eventArgs[1]) {
-                      return;
-                    }
                   }}
                   open={generateStateValueProp($state, [
                     "shopModalWeb",
@@ -4524,7 +4596,11 @@ function PlasmicHamyar__RenderFunc(props: {
                               "clickitem"
                             ]).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
                               return;
                             }
                           },
@@ -4535,7 +4611,11 @@ function PlasmicHamyar__RenderFunc(props: {
                               "discount"
                             ]).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
                               return;
                             }
                           },
@@ -4546,7 +4626,11 @@ function PlasmicHamyar__RenderFunc(props: {
                               "fullprice"
                             ]).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
                               return;
                             }
                           },
@@ -4557,7 +4641,11 @@ function PlasmicHamyar__RenderFunc(props: {
                               "price"
                             ]).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
                               return;
                             }
                           },
@@ -4568,7 +4656,11 @@ function PlasmicHamyar__RenderFunc(props: {
                               "title"
                             ]).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
                               return;
                             }
                           },
@@ -5022,7 +5114,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -5089,10 +5185,6 @@ function PlasmicHamyar__RenderFunc(props: {
                       null,
                       eventArgs
                     );
-
-                    if (eventArgs.length > 1 && eventArgs[1]) {
-                      return;
-                    }
                   }}
                   open={generateStateValueProp($state, ["modal2", "open"])}
                   title={
@@ -5177,10 +5269,6 @@ function PlasmicHamyar__RenderFunc(props: {
                       null,
                       eventArgs
                     );
-
-                    if (eventArgs.length > 1 && eventArgs[1]) {
-                      return;
-                    }
                   }}
                   open={generateStateValueProp($state, ["modal3", "open"])}
                   title={
@@ -5901,13 +5989,6 @@ function PlasmicHamyar__RenderFunc(props: {
                                         AntdInput_Helpers
                                       ).apply(null, eventArgs);
 
-                                      if (
-                                        eventArgs.length > 1 &&
-                                        eventArgs[1]
-                                      ) {
-                                        return;
-                                      }
-
                                       (async event => {
                                         const $steps = {};
                                       }).apply(null, eventArgs);
@@ -6177,7 +6258,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                     ])(eventArgs[0]);
                                   }).apply(null, eventArgs);
 
-                                  if (eventArgs.length > 1 && eventArgs[1]) {
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
                                     return;
                                   }
                                 }}
@@ -6516,7 +6601,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 ])(eventArgs[0]);
                               }).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             }}
@@ -6780,7 +6869,11 @@ function PlasmicHamyar__RenderFunc(props: {
                     "click"
                   ]).apply(null, eventArgs);
 
-                  if (eventArgs.length > 1 && eventArgs[1]) {
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
                     return;
                   }
                 }}
@@ -6883,7 +6976,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "clickitem"
                               ]).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             },
@@ -6894,7 +6991,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "discount"
                               ]).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             },
@@ -6905,7 +7006,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "fullprice"
                               ]).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             },
@@ -6916,7 +7021,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "price"
                               ]).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             },
@@ -6927,7 +7036,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "title"
                               ]).apply(null, eventArgs);
 
-                              if (eventArgs.length > 1 && eventArgs[1]) {
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
                                 return;
                               }
                             },
@@ -7338,7 +7451,11 @@ function PlasmicHamyar__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -7491,10 +7608,6 @@ function PlasmicHamyar__RenderFunc(props: {
                     null,
                     eventArgs
                   );
-
-                  if (eventArgs.length > 1 && eventArgs[1]) {
-                    return;
-                  }
                 }}
                 open={generateStateValueProp($state, ["modal", "open"])}
                 title={null}
@@ -8056,13 +8169,6 @@ function PlasmicHamyar__RenderFunc(props: {
                                           AntdInput_Helpers
                                         ).apply(null, eventArgs);
 
-                                        if (
-                                          eventArgs.length > 1 &&
-                                          eventArgs[1]
-                                        ) {
-                                          return;
-                                        }
-
                                         (async event => {
                                           const $steps = {};
                                         }).apply(null, eventArgs);
@@ -8337,7 +8443,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                       ])(eventArgs[0]);
                                     }).apply(null, eventArgs);
 
-                                    if (eventArgs.length > 1 && eventArgs[1]) {
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
                                       return;
                                     }
                                   }}
@@ -8665,7 +8775,11 @@ function PlasmicHamyar__RenderFunc(props: {
                                   ])(eventArgs[0]);
                                 }).apply(null, eventArgs);
 
-                                if (eventArgs.length > 1 && eventArgs[1]) {
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
                                   return;
                                 }
                               }}
@@ -8894,30 +9008,18 @@ function PlasmicHamyar__RenderFunc(props: {
                     null,
                     eventArgs
                   );
-
-                  if (eventArgs.length > 1 && eventArgs[1]) {
-                    return;
-                  }
                 }}
                 onLoading={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, ["todo", "loading"]).apply(
                     null,
                     eventArgs
                   );
-
-                  if (eventArgs.length > 1 && eventArgs[1]) {
-                    return;
-                  }
                 }}
                 onSuccess={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, ["todo", "data"]).apply(
                     null,
                     eventArgs
                   );
-
-                  if (eventArgs.length > 1 && eventArgs[1]) {
-                    return;
-                  }
 
                   (async data => {
                     const $steps = {};
@@ -11644,30 +11746,18 @@ function PlasmicHamyar__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["user", "loading"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["user", "data"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
 
               (async data => {
                 const $steps = {};
@@ -12049,30 +12139,18 @@ function PlasmicHamyar__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["shop", "loading"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["shop", "data"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
 
               (async data => {
                 const $steps = {};
@@ -12134,30 +12212,18 @@ function PlasmicHamyar__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["advice", "loading"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["advice", "data"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             params={(() => {
               try {
@@ -12365,30 +12431,18 @@ function PlasmicHamyar__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
                 "countNotif",
                 "loading"
               ]).apply(null, eventArgs);
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onSuccess={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["countNotif", "data"]).apply(
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             url={"https://n8n.staas.ir/webhook/hamyar/notif"}
           />

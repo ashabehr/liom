@@ -1088,7 +1088,17 @@ function PlasmicLogin__RenderFunc(props: {
                     }
                   }}
                   slot={
-                    "\u0648\u0631\u0648\u062f \u0628\u0627 \u062d\u0633\u0627\u0628 \u06af\u0648\u06af\u0644"
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__bNetl
+                      )}
+                    >
+                      {
+                        "\u0648\u0631\u0648\u062f \u0628\u0627 \u062d\u0633\u0627\u0628 \u06af\u0648\u06af\u0644"
+                      }
+                    </div>
                   }
                 />
 
@@ -1189,7 +1199,24 @@ function PlasmicLogin__RenderFunc(props: {
                     }
                   }}
                   slot={
-                    "\u0648\u0631\u0648\u062f \u0628\u0627 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__gzjCi,
+                        {
+                          [sty.textloginPage_mobile__gzjCi6MmOa]: hasVariant(
+                            $state,
+                            "loginPage",
+                            "mobile"
+                          )
+                        }
+                      )}
+                    >
+                      {
+                        "\u0648\u0631\u0648\u062f \u0628\u0627 \u0645\u0648\u0628\u0627\u06cc\u0644"
+                      }
+                    </div>
                   }
                 >
                   <Icon108Icon
@@ -1354,7 +1381,17 @@ function PlasmicLogin__RenderFunc(props: {
                     }
                   }}
                   slot={
-                    "\u0648\u0631\u0648\u062f \u0628\u0627 \u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__utfk6
+                      )}
+                    >
+                      {
+                        "\u0648\u0631\u0648\u062f \u0628\u0627 \u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"
+                      }
+                    </div>
                   }
                 >
                   <Icon110Icon
@@ -1841,10 +1878,6 @@ function PlasmicLogin__RenderFunc(props: {
                               Input_Helpers
                             ).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
-
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -2069,7 +2102,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
 
@@ -2730,7 +2767,11 @@ function PlasmicLogin__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -3181,10 +3222,6 @@ function PlasmicLogin__RenderFunc(props: {
                               Input_Helpers
                             ).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
-
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -3282,7 +3319,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
 
@@ -3577,10 +3618,6 @@ function PlasmicLogin__RenderFunc(props: {
                               Input_Helpers
                             ).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
-
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -3678,7 +3715,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
 
@@ -4434,7 +4475,11 @@ function PlasmicLogin__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -4936,10 +4981,6 @@ function PlasmicLogin__RenderFunc(props: {
                               Input_Helpers
                             ).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
-
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -5037,7 +5078,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
 
@@ -5332,10 +5377,6 @@ function PlasmicLogin__RenderFunc(props: {
                               Input_Helpers
                             ).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
-
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -5433,7 +5474,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
 
@@ -5764,10 +5809,6 @@ function PlasmicLogin__RenderFunc(props: {
                               Input_Helpers
                             ).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
-
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -5865,7 +5906,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
 
@@ -6481,7 +6526,11 @@ function PlasmicLogin__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -6936,10 +6985,6 @@ function PlasmicLogin__RenderFunc(props: {
                               Input_Helpers
                             ).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
-
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -7178,7 +7223,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
                       }}
@@ -7675,10 +7724,6 @@ function PlasmicLogin__RenderFunc(props: {
                               Input_Helpers
                             ).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
-
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -7891,7 +7936,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
                       }}
@@ -8028,7 +8077,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
                       }}
@@ -8992,7 +9045,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
                       }}
@@ -9528,10 +9585,6 @@ function PlasmicLogin__RenderFunc(props: {
                               Input_Helpers
                             ).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
-
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -9748,7 +9801,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
                       }}
@@ -11040,7 +11097,11 @@ function PlasmicLogin__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -11569,10 +11630,6 @@ function PlasmicLogin__RenderFunc(props: {
                               Input_Helpers
                             ).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
-
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -11799,7 +11856,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
                       }}
@@ -12963,7 +13024,11 @@ function PlasmicLogin__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -13413,10 +13478,6 @@ function PlasmicLogin__RenderFunc(props: {
                               Input_Helpers
                             ).apply(null, eventArgs);
 
-                            if (eventArgs.length > 1 && eventArgs[1]) {
-                              return;
-                            }
-
                             (async event => {
                               const $steps = {};
                             }).apply(null, eventArgs);
@@ -13635,7 +13696,11 @@ function PlasmicLogin__RenderFunc(props: {
                           ])((e => e.target?.value).apply(null, eventArgs));
                         }).apply(null, eventArgs);
 
-                        if (eventArgs.length > 1 && eventArgs[1]) {
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
                           return;
                         }
                       }}
@@ -14175,7 +14240,11 @@ function PlasmicLogin__RenderFunc(props: {
                         );
                       }).apply(null, eventArgs);
 
-                      if (eventArgs.length > 1 && eventArgs[1]) {
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
                         return;
                       }
                     }}
@@ -14286,10 +14355,6 @@ function PlasmicLogin__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             open={generateStateValueProp($state, ["rules", "open"])}
             title={null}
@@ -14421,10 +14486,6 @@ function PlasmicLogin__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
@@ -14432,18 +14493,48 @@ function PlasmicLogin__RenderFunc(props: {
                 "loading"
               ]).apply(null, eventArgs);
 
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
-
               (async loading => {
                 const $steps = {};
+
+                $steps["updateType"] =
+                  $ctx.query.isLogin == "false"
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["type"]
+                          },
+                          operation: 0,
+                          value: "google"
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateType"] != null &&
+                  typeof $steps["updateType"] === "object" &&
+                  typeof $steps["updateType"].then === "function"
+                ) {
+                  $steps["updateType"] = await $steps["updateType"];
+                }
 
                 $steps["updateLoginPage"] =
                   $ctx.query.token != "" &&
                   $ctx.query.token != null &&
-                  $ctx.query.isLogin == "false" &&
-                  $ctx.query.sex == "male"
+                  $ctx.query.isLogin == "false"
                     ? (() => {
                         const actionArgs = {
                           vgroup: "loginPage",
@@ -14511,41 +14602,6 @@ function PlasmicLogin__RenderFunc(props: {
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
-                }
-
-                $steps["updateType"] =
-                  $ctx.query.isLogin == "false"
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["type"]
-                          },
-                          operation: 0,
-                          value: "google"
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["updateType"] != null &&
-                  typeof $steps["updateType"] === "object" &&
-                  typeof $steps["updateType"].then === "function"
-                ) {
-                  $steps["updateType"] = await $steps["updateType"];
                 }
 
                 $steps["updateLoginData"] = localStorage.getItem("loginInfo")
@@ -14655,10 +14711,6 @@ function PlasmicLogin__RenderFunc(props: {
                 null,
                 eventArgs
               );
-
-              if (eventArgs.length > 1 && eventArgs[1]) {
-                return;
-              }
             }}
             url={"/"}
           />

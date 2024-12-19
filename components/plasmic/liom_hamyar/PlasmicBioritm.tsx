@@ -1382,7 +1382,11 @@ function PlasmicBioritm__RenderFunc(props: {
                       );
                     }).apply(null, eventArgs);
 
-                    if (eventArgs.length > 1 && eventArgs[1]) {
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
                       return;
                     }
                   }}
@@ -1485,7 +1489,11 @@ function PlasmicBioritm__RenderFunc(props: {
                       );
                     }).apply(null, eventArgs);
 
-                    if (eventArgs.length > 1 && eventArgs[1]) {
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
                       return;
                     }
                   }}
@@ -4787,7 +4795,11 @@ function PlasmicBioritm__RenderFunc(props: {
                 "click"
               ]).apply(null, eventArgs);
 
-              if (eventArgs.length > 1 && eventArgs[1]) {
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
                 return;
               }
             }}
@@ -4839,7 +4851,11 @@ function PlasmicBioritm__RenderFunc(props: {
                 "click"
               ]).apply(null, eventArgs);
 
-              if (eventArgs.length > 1 && eventArgs[1]) {
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
                 return;
               }
             }}
@@ -4913,10 +4929,6 @@ function PlasmicBioritm__RenderFunc(props: {
                     "datePickers2",
                     "value"
                   ]).apply(null, eventArgs);
-
-                  if (eventArgs.length > 1 && eventArgs[1]) {
-                    return;
-                  }
                 }}
                 selectedValues={generateStateValueProp($state, [
                   "datePickers2",
@@ -5234,7 +5246,11 @@ function PlasmicBioritm__RenderFunc(props: {
                       );
                     }).apply(null, eventArgs);
 
-                    if (eventArgs.length > 1 && eventArgs[1]) {
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
                       return;
                     }
                   }}
@@ -5307,30 +5323,18 @@ function PlasmicBioritm__RenderFunc(props: {
               null,
               eventArgs
             );
-
-            if (eventArgs.length > 1 && eventArgs[1]) {
-              return;
-            }
           }}
           onLoading={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["biorhythm", "loading"]).apply(
               null,
               eventArgs
             );
-
-            if (eventArgs.length > 1 && eventArgs[1]) {
-              return;
-            }
           }}
           onSuccess={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["biorhythm", "data"]).apply(
               null,
               eventArgs
             );
-
-            if (eventArgs.length > 1 && eventArgs[1]) {
-              return;
-            }
 
             (async data => {
               const $steps = {};
@@ -5444,7 +5448,11 @@ function PlasmicBioritm__RenderFunc(props: {
               eventArgs
             );
 
-            if (eventArgs.length > 1 && eventArgs[1]) {
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
               return;
             }
           }}
@@ -5482,10 +5490,6 @@ function PlasmicBioritm__RenderFunc(props: {
                   "datePickers",
                   "value"
                 ]).apply(null, eventArgs);
-
-                if (eventArgs.length > 1 && eventArgs[1]) {
-                  return;
-                }
               }}
               selectedValues={generateStateValueProp($state, [
                 "datePickers",
@@ -5800,7 +5804,11 @@ function PlasmicBioritm__RenderFunc(props: {
                     );
                   }).apply(null, eventArgs);
 
-                  if (eventArgs.length > 1 && eventArgs[1]) {
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
                     return;
                   }
                 }}
@@ -5873,7 +5881,11 @@ function PlasmicBioritm__RenderFunc(props: {
                     );
                   }).apply(null, eventArgs);
 
-                  if (eventArgs.length > 1 && eventArgs[1]) {
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
                     return;
                   }
                 }}
