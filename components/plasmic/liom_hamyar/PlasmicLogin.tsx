@@ -346,8 +346,7 @@ function PlasmicLogin__RenderFunc(props: {
         path: "checkbox.isChecked",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "loginPage", "name") ? "isChecked" : undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "antdInput.value",
@@ -8057,6 +8056,11 @@ function PlasmicLogin__RenderFunc(props: {
                       data-plasmic-name={"checkbox"}
                       data-plasmic-override={overrides.checkbox}
                       className={classNames("__wab_instance", sty.checkbox, {
+                        [sty.checkboxloginPage_emailCode]: hasVariant(
+                          $state,
+                          "loginPage",
+                          "emailCode"
+                        ),
                         [sty.checkboxloginPage_name]: hasVariant(
                           $state,
                           "loginPage",
