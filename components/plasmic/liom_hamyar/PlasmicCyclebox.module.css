@@ -63,6 +63,9 @@
   box-shadow: 0px 4px 16px 0px #12121214;
   padding: 8px;
 }
+.rootpregnancy {
+  background: var(--token-jgohepLVeKvh);
+}
 .rootperiod_fertility {
   padding: 8px;
 }
@@ -199,6 +202,9 @@
   width: 100%;
   min-width: 0;
 }
+.freeBoxpregnancy___66LnmKiZil {
+  padding: 0px;
+}
 .img {
   object-fit: cover;
   max-width: 100%;
@@ -229,6 +235,23 @@
 }
 .imgnormalpms {
   display: none !important;
+}
+.imgpregnancy {
+  display: none !important;
+}
+.img__n86H3 {
+  object-fit: cover;
+  max-width: 100%;
+  width: 150px;
+  height: 150px;
+  object-position: center center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 5px solid #0000001a;
+}
+.img__n86H3 > picture > img {
+  object-fit: cover;
+  object-position: center center;
 }
 .freeBox__nCGi {
   flex-direction: column;

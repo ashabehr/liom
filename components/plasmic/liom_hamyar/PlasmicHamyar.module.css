@@ -738,6 +738,19 @@
     font-size: 16px;
   }
 }
+.img__zIIw {
+  object-fit: cover;
+  max-width: 100%;
+  width: 150px;
+  height: 150px;
+  object-position: center center;
+  border-radius: 8px;
+  border: 5px solid #0000001a;
+}
+.img__zIIw > picture > img {
+  object-fit: cover;
+  object-position: center center;
+}
 .freeBox__ztbQr {
   display: flex;
   flex-direction: column;

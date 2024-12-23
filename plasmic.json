@@ -1922,6 +1922,11 @@
           "id": "mStJegCMZr7n",
           "name": "image 40",
           "filePath": "../public/plasmic/liom_hamyar/images/image40.png"
+        },
+        {
+          "id": "vZxMFQNHM-MO",
+          "name": "week03.png",
+          "filePath": "../public/plasmic/liom_hamyar/images/week03Png.png"
         }
       ],
       "indirect": false,

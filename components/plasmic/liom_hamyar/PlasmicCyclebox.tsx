@@ -77,24 +77,26 @@ export type PlasmicCyclebox__VariantMembers = {
   fertility: "fertility";
   period: "period";
   normalpms: "normalpms";
+  pregnancy: "pregnancy";
 };
 export type PlasmicCyclebox__VariantsArgs = {
   pms?: SingleBooleanChoiceArg<"pms">;
   fertility?: SingleBooleanChoiceArg<"fertility">;
   period?: SingleBooleanChoiceArg<"period">;
   normalpms?: SingleBooleanChoiceArg<"normalpms">;
+  pregnancy?: SingleBooleanChoiceArg<"pregnancy">;
 };
 type VariantPropType = keyof PlasmicCyclebox__VariantsArgs;
 export const PlasmicCyclebox__VariantProps = new Array<VariantPropType>(
   "pms",
   "fertility",
   "period",
-  "normalpms"
+  "normalpms",
+  "pregnancy"
 );
 
 export type PlasmicCyclebox__ArgsType = {
   userData?: any;
-  children?: React.ReactNode;
   onPmsChange?: (val: any) => void;
   onFertilityChange?: (val: any) => void;
   onPeriodChange?: (val: any) => void;
@@ -103,11 +105,12 @@ export type PlasmicCyclebox__ArgsType = {
   onClickDescription?: (event: any) => void;
   textsycle?: string;
   onTextsycleChange?: (val: string) => void;
+  children?: React.ReactNode;
+  slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicCyclebox__ArgsType;
 export const PlasmicCyclebox__ArgProps = new Array<ArgPropType>(
   "userData",
-  "children",
   "onPmsChange",
   "onFertilityChange",
   "onPeriodChange",
@@ -115,7 +118,9 @@ export const PlasmicCyclebox__ArgProps = new Array<ArgPropType>(
   "onCycleChange",
   "onClickDescription",
   "textsycle",
-  "onTextsycleChange"
+  "onTextsycleChange",
+  "children",
+  "slot"
 );
 
 export type PlasmicCyclebox__OverridesType = {
@@ -126,7 +131,6 @@ export type PlasmicCyclebox__OverridesType = {
 
 export interface DefaultCycleboxProps {
   userData?: any;
-  children?: React.ReactNode;
   onPmsChange?: (val: any) => void;
   onFertilityChange?: (val: any) => void;
   onPeriodChange?: (val: any) => void;
@@ -135,10 +139,13 @@ export interface DefaultCycleboxProps {
   onClickDescription?: (event: any) => void;
   textsycle?: string;
   onTextsycleChange?: (val: string) => void;
+  children?: React.ReactNode;
+  slot?: React.ReactNode;
   pms?: SingleBooleanChoiceArg<"pms">;
   fertility?: SingleBooleanChoiceArg<"fertility">;
   period?: SingleBooleanChoiceArg<"period">;
   normalpms?: SingleBooleanChoiceArg<"normalpms">;
+  pregnancy?: SingleBooleanChoiceArg<"pregnancy">;
   className?: string;
 }
 
@@ -229,6 +236,12 @@ function PlasmicCyclebox__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.normalpms
+      },
+      {
+        path: "pregnancy",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.pregnancy
       }
     ],
     [$props, $ctx, $refs]
@@ -273,7 +286,8 @@ function PlasmicCyclebox__RenderFunc(props: {
           [sty.rootpms]: hasVariant($state, "pms", "pms"),
           [sty.rootpms_fertility]:
             hasVariant($state, "pms", "pms") &&
-            hasVariant($state, "fertility", "fertility")
+            hasVariant($state, "fertility", "fertility"),
+          [sty.rootpregnancy]: hasVariant($state, "pregnancy", "pregnancy")
         }
       )}
     >
@@ -380,7 +394,12 @@ function PlasmicCyclebox__RenderFunc(props: {
             "period",
             "period"
           ),
-          [sty.freeBoxpms___66Lnmsscqc]: hasVariant($state, "pms", "pms")
+          [sty.freeBoxpms___66Lnmsscqc]: hasVariant($state, "pms", "pms"),
+          [sty.freeBoxpregnancy___66LnmKiZil]: hasVariant(
+            $state,
+            "pregnancy",
+            "pregnancy"
+          )
         })}
       >
         <PlasmicImg__
@@ -391,7 +410,8 @@ function PlasmicCyclebox__RenderFunc(props: {
             [sty.imgfertility]: hasVariant($state, "fertility", "fertility"),
             [sty.imgnormalpms]: hasVariant($state, "normalpms", "normalpms"),
             [sty.imgperiod]: hasVariant($state, "period", "period"),
-            [sty.imgpms]: hasVariant($state, "pms", "pms")
+            [sty.imgpms]: hasVariant($state, "pms", "pms"),
+            [sty.imgpregnancy]: hasVariant($state, "pregnancy", "pregnancy")
           })}
           displayHeight={
             hasVariant(globalVariants, "screen", "mobile") ? "85px" : "150px"
@@ -412,6 +432,31 @@ function PlasmicCyclebox__RenderFunc(props: {
           }}
         />
 
+        {(hasVariant($state, "pregnancy", "pregnancy") ? true : false)
+          ? renderPlasmicSlot({
+              defaultContents: (
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__n86H3)}
+                  displayHeight={"150px"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"150px"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/liom_hamyar/images/week03Png.png",
+                    fullWidth: 270,
+                    fullHeight: 270,
+                    aspectRatio: undefined
+                  }}
+                />
+              ),
+
+              value: args.slot
+            })
+          : null}
         <div
           className={classNames(projectcss.all, sty.freeBox__nCGi, {
             [sty.freeBoxfertility__nCGIvlklK]: hasVariant(
