@@ -14675,7 +14675,7 @@ function PlasmicLogin__RenderFunc(props: {
                   $steps["goToPage2"] = await $steps["goToPage2"];
                 }
 
-                $steps["updateLoading"] = true
+                $steps["updateLoading"] = !localStorage.getItem("loginInfo")
                   ? (() => {
                       const actionArgs = {
                         variable: {
