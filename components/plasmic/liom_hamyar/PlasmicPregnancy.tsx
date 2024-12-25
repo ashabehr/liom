@@ -4886,7 +4886,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     "&weekNum=" +
                                     $state.weeksPregnant +
                                     "&days=" +
-                                    $state.daysPregnant
+                                    $state.daysPregnant +
+                                    "&inApp=false"
                                   );
                                 } catch (e) {
                                   if (
@@ -5001,7 +5002,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     "&weekNum=" +
                                     $state.weeksPregnant +
                                     "&days=" +
-                                    $state.daysPregnant;
+                                    $state.daysPregnant +
+                                    "&inApp=true";
                                   return window.FlutterChannel.postMessage(
                                     "#inAppWebView**@@**ابزار هفته به هفته**@@**" +
                                       link

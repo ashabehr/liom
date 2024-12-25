@@ -1234,7 +1234,11 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "pregnancy",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          days: 190,
+          week: 13,
+          months: 3
+        })
       },
       {
         path: "pregnancyData",
@@ -2776,10 +2780,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           {(() => {
                             try {
                               return (() => {
-                                switch (
-                                  $state.user.data.result.userStatus
-                                    .periodStatus
-                                ) {
+                                switch ($state.cyclebox.cycle) {
                                   case "white":
                                     return "عادی";
                                   case "fertility":
@@ -2788,6 +2789,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                     return "pms";
                                   case "blood":
                                     return "پریود";
+                                  case "Pregnancy":
+                                    return (
+                                      " هفته " +
+                                      $state.pregnancyData[
+                                        $state.pregnancy.week
+                                      ].week +
+                                      " بارداری "
+                                    );
                                   default:
                                     return "-";
                                 }
