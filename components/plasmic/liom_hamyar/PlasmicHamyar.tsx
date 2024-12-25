@@ -71,6 +71,7 @@ import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/compo
 import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
+import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Useful from "../../Useful"; // plasmic-import: 2qiQ4nSmOYBA/component
@@ -134,6 +135,7 @@ export type PlasmicHamyar__OverridesType = {
   countdown2?: Flex__<typeof Countdown>;
   cyclebox?: Flex__<typeof Cyclebox>;
   lineClomp?: Flex__<typeof LineClomp>;
+  progress?: Flex__<typeof AntdProgress>;
   checkbox?: Flex__<typeof Checkbox>;
   reveal?: Flex__<typeof Reveal>;
   useful2?: Flex__<typeof Useful>;
@@ -1227,6 +1229,209 @@ function PlasmicHamyar__RenderFunc(props: {
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           $props.lackOfCourseInformation
+      },
+      {
+        path: "pregnancy",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "variable3",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "pregnancyData",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          {
+            week: "\u0627\u0648\u0644",
+            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            week: "\u062f\u0648\u0645",
+            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            week: "\u0633\u0648\u0645",
+            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            week: "\u0686\u0647\u0627\u0631\u0645",
+            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            week: "\u067e\u0646\u062c\u0645",
+            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            week: "\u0634\u0634\u0645",
+            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          {
+            week: "\u0647\u0641\u062a\u0645",
+            height: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1",
+            weight: "\u06a9\u0645\u062a\u0631 \u0627\u0632 \u06f1"
+          },
+          { week: "\u0647\u0634\u062a\u0645", height: "1.9", weight: "1" },
+          { week: "\u0646\u0647\u0645", height: "2.3", weight: "2" },
+          { week: "\u062f\u0647\u0645", height: "3.1", weight: "4" },
+          {
+            week: "\u06cc\u0627\u0632\u062f\u0647\u0645",
+            height: "4.1",
+            weight: "7"
+          },
+          {
+            week: "\u062f\u0648\u0627\u0632\u062f\u0647\u0645",
+            height: "5.4",
+            weight: "14"
+          },
+          {
+            week: "\u0633\u06cc\u0632\u062f\u0647\u0645",
+            height: "7.4",
+            weight: "23"
+          },
+          {
+            week: "\u0686\u0647\u0627\u0631\u062f\u0647\u0645",
+            height: "8.7",
+            weight: "43"
+          },
+          {
+            week: "\u067e\u0627\u0646\u0632\u062f\u0647\u0645",
+            height: "10.1",
+            weight: "70"
+          },
+          {
+            week: "\u0634\u0627\u0646\u0632\u062f\u0647\u0645",
+            height: "11.6",
+            weight: "100"
+          },
+          {
+            week: "\u0647\u0641\u062f\u0647\u0645",
+            height: "13",
+            weight: "140"
+          },
+          {
+            week: "\u0647\u062c\u062f\u0647\u0645",
+            height: "14.2",
+            weight: "190"
+          },
+          {
+            week: "\u0646\u0648\u0632\u062f\u0647\u0645",
+            height: "15.3",
+            weight: "240"
+          },
+          {
+            week: "\u0628\u06cc\u0633\u062a\u0645",
+            height: "25.6",
+            weight: "300"
+          },
+          {
+            week: "\u0628\u06cc\u0633\u062a \u0648 \u06cc\u06a9\u0645",
+            height: "26.7",
+            weight: "360"
+          },
+          {
+            week: "\u0628\u06cc\u0633\u062a \u0648 \u062f\u0648\u0645",
+            height: "27.8",
+            weight: "430"
+          },
+          {
+            week: "\u0628\u06cc\u0633\u062a \u0648 \u0633\u0648\u0645",
+            height: "28.9",
+            weight: "500"
+          },
+          {
+            week: "\u0628\u06cc\u0633\u062a \u0648 \u0686\u0647\u0627\u0631\u0645",
+            height: "30",
+            weight: "600"
+          },
+          {
+            week: "\u0628\u06cc\u0633\u062a \u0648 \u067e\u0646\u062c\u0645",
+            height: "34.6",
+            weight: "660"
+          },
+          {
+            week: "\u0628\u06cc\u0633\u062a \u0648 \u0634\u0634\u0645",
+            height: "35.6",
+            weight: "760"
+          },
+          {
+            week: "\u0628\u06cc\u0633\u062a \u0648 \u0647\u0641\u062a\u0645",
+            height: "36.6",
+            weight: "875"
+          },
+          {
+            week: "\u0628\u06cc\u0633\u062a \u0648 \u0647\u0634\u062a\u0645",
+            height: "37.6",
+            weight: "1"
+          },
+          {
+            week: "\u0628\u06cc\u0633\u062a \u0648 \u0646\u0647\u0645",
+            height: "38.6",
+            weight: "1.2"
+          },
+          {
+            week: "\u0633\u06cc\u200c\u0627\u0645",
+            height: "39.9",
+            weight: "1.3"
+          },
+          {
+            week: "\u0633\u06cc \u0648 \u06cc\u06a9\u0645",
+            height: "41.1",
+            weight: "1.5"
+          },
+          {
+            week: "\u0633\u06cc \u0648 \u062f\u0648\u0645",
+            height: "42.4",
+            weight: "1.7"
+          },
+          {
+            week: "\u0633\u06cc \u0648 \u0633\u0648\u0645",
+            height: "43.7",
+            weight: "1.9"
+          },
+          {
+            week: "\u0633\u06cc \u0648 \u0686\u0647\u0627\u0631\u0645",
+            height: "45",
+            weight: "2.1"
+          },
+          {
+            week: "\u0633\u06cc \u0648 \u067e\u0646\u062c\u0645",
+            height: "46.2",
+            weight: "2.4"
+          },
+          {
+            week: "\u0633\u06cc \u0648 \u0634\u0634\u0645",
+            height: "47.4",
+            weight: "2.6"
+          },
+          {
+            week: "\u0633\u06cc \u0648 \u0647\u0641\u062a\u0645",
+            height: "48.6",
+            weight: "2.9"
+          },
+          {
+            week: "\u0633\u06cc \u0648 \u0647\u0634\u062a\u0645",
+            height: "49.8",
+            weight: "3.1"
+          },
+          {
+            week: "\u0633\u06cc \u0648 \u0646\u0647\u0645",
+            height: "50.7",
+            weight: "3.3"
+          },
+          { week: "\u0686\u0647\u0644\u0645", height: "51.2", weight: "3.5" }
+        ]
       }
     ],
     [$props, $ctx, $refs]
@@ -2363,6 +2568,195 @@ function PlasmicHamyar__RenderFunc(props: {
                       "period"
                     ])}
                     pms={generateStateValueProp($state, ["cyclebox", "pms"])}
+                    pregnancy={(() => {
+                      try {
+                        return (() => {
+                          if ($state.cyclebox.cycle == "Pregnancy") {
+                            return true;
+                          } else {
+                            return false;
+                          }
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    slot={
+                      <React.Fragment>
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__oSlS)}
+                          displayHeight={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? "100px"
+                              : "150px"
+                          }
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? "100px"
+                              : "150px"
+                          }
+                          loading={"lazy"}
+                          src={(() => {
+                            try {
+                              return (() => {
+                                var week;
+                                if ($state.pregnancy.week < 10)
+                                  week = "0" + $state.pregnancy.week;
+                                else week = "" + $state.pregnancy.week;
+                                return (
+                                  "https://liom.storage.c2.liara.space/config/pregnancy/week" +
+                                  week +
+                                  ".png"
+                                );
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return {
+                                  src: "/plasmic/liom_hamyar/images/week03Png.png",
+                                  fullWidth: 270,
+                                  fullHeight: 270,
+                                  aspectRatio: undefined
+                                };
+                              }
+                              throw e;
+                            }
+                          })()}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__iCxX0,
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? "progress_man_peragnencyM"
+                              : "progress_man_peragnency"
+                          )}
+                        >
+                          <AntdProgress
+                            data-plasmic-name={"progress"}
+                            data-plasmic-override={overrides.progress}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.progress
+                            )}
+                            percent={(() => {
+                              try {
+                                return parseInt(
+                                  (
+                                    ((280 - $state.pregnancy.days) * 100) /
+                                    280
+                                  ).toFixed()
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return 50;
+                                }
+                                throw e;
+                              }
+                            })()}
+                            showInfo={false}
+                            size={"default"}
+                            status={"normal"}
+                            strokeColor={true ? "#7444BC" : undefined}
+                            strokeLinecap={"round"}
+                            strokeWidth={6}
+                            trailColor={
+                              true ? "var(--antd-colorIcon)" : undefined
+                            }
+                            type={"circle"}
+                          />
+                        </div>
+                      </React.Fragment>
+                    }
+                    slot2={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rgLkr
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          "\u0648\u0632\u0646 : 14 g"
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (
+                                  "وزن : " +
+                                  $state.pregnancyData[
+                                    $state.pregnancy.week - 1
+                                  ].weight +
+                                  ($state.pregnancy.week - 1 >= 27
+                                    ? " کیلوگرم "
+                                    : " گرم ")
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0648\u0632\u0646 : 14 \u06af\u0631\u0645";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
+                      </div>
+                    }
+                    slot3={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__b09G5
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          "\u0642\u062f: 16 cm"
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (
+                                  "قد : " +
+                                  $state.pregnancyData[
+                                    $state.pregnancy.week - 1
+                                  ].height +
+                                  " سانتی متر "
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "\u0642\u062f 16 \u0633\u0627\u0646\u062a\u06cc \u0645\u062a\u0631";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
+                      </div>
+                    }
                     textsycle={generateStateValueProp($state, [
                       "cyclebox",
                       "textsycle"
@@ -2388,13 +2782,45 @@ function PlasmicHamyar__RenderFunc(props: {
                           )}
                           style={
                             hasVariant(globalVariants, "screen", "mobile")
-                              ? {
-                                  overflow: "hidden",
-                                  "-webkit-line-clamp": "2",
-                                  "-webkit-box-orient": "vertical",
-                                  display: "-webkit-box"
-                                }
-                              : undefined
+                              ? (() => {
+                                  try {
+                                    return (() => {
+                                      if ($state.cyclebox.cycle == "Pregnancy")
+                                        return { color: "black" };
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return {
+                                        overflow: "hidden",
+                                        "-webkit-line-clamp": "2",
+                                        "-webkit-box-orient": "vertical",
+                                        display: "-webkit-box"
+                                      };
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              : (() => {
+                                  try {
+                                    return (() => {
+                                      if ($state.cyclebox.cycle == "Pregnancy")
+                                        return { color: "black" };
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
                           }
                         >
                           <React.Fragment>
@@ -2420,15 +2846,28 @@ function PlasmicHamyar__RenderFunc(props: {
                           projectcss.__wab_text,
                           sty.text__ej0Pi
                         )}
+                        style={(() => {
+                          try {
+                            return (() => {
+                              if ($state.cyclebox.cycle == "Pregnancy")
+                                return { color: "#7444BC" };
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
                       >
                         <React.Fragment>
                           {(() => {
                             try {
                               return (() => {
-                                switch (
-                                  $state.user.data.result.userStatus
-                                    .periodStatus
-                                ) {
+                                switch ($state.cyclebox.cycle) {
                                   case "white":
                                     return "عادی";
                                   case "fertility":
@@ -2437,6 +2876,14 @@ function PlasmicHamyar__RenderFunc(props: {
                                     return "pms";
                                   case "blood":
                                     return "پریود";
+                                  case "Pregnancy":
+                                    return (
+                                      " هفته " +
+                                      $state.pregnancyData[
+                                        $state.pregnancy.week - 1
+                                      ].week +
+                                      " بارداری "
+                                    );
                                   default:
                                     return "-";
                                 }
@@ -12071,6 +12518,77 @@ function PlasmicHamyar__RenderFunc(props: {
                     "updateLackOfCourseInformation"
                   ];
                 }
+
+                $steps["runCode2"] =
+                  $state.user?.data?.result?.userStatus?.periodStatus ==
+                  "Pregnancy"
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return fetch(
+                                "https://n8n.staas.ir/webhook/status/?userId=d20438d9-ae9f-4a59-95ce-e896d5a71934",
+                                {
+                                  method: "GET",
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                  }
+                                }
+                              )
+                                .then(response => response.json())
+                                .then(data => {
+                                  const dueDate = data?.[0]?.dueDate;
+                                  if (dueDate) {
+                                    let initialDate = new Date(dueDate);
+                                    let daysToSubtract = 280;
+                                    let resultDate = new Date(initialDate);
+                                    resultDate.setDate(
+                                      resultDate.getDate() - daysToSubtract
+                                    );
+                                    let today = new Date();
+                                    let differenceInTime = today - resultDate;
+                                    let differenceInDays = Math.floor(
+                                      differenceInTime / (1000 * 60 * 60 * 24)
+                                    );
+                                    let daysRemaining =
+                                      parseInt(280 - differenceInDays) - 1;
+                                    let weeksPregnant =
+                                      parseInt((differenceInDays + 1) / 7) === 0
+                                        ? 1
+                                        : parseInt((differenceInDays + 1) / 7) +
+                                          1;
+                                    let monthsPregnant = parseInt(
+                                      (weeksPregnant / 4)
+                                        .toString()
+                                        .substring(0, 1)
+                                    );
+                                    $state.pregnancy = {
+                                      days: daysRemaining,
+                                      week: weeksPregnant,
+                                      months: monthsPregnant
+                                    };
+                                  } else {
+                                    console.log("تاریخ زایمان در دسترس نیست.");
+                                  }
+                                })
+                                .catch(error => console.error("Error:", error));
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
@@ -12244,110 +12762,44 @@ function PlasmicHamyar__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/hamyar/advice"}
           />
 
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__maG1)}
-          >
-            <div
-              className={classNames(projectcss.all, sty.freeBox___5YvYk)}
-              onClick={async event => {
-                const $steps = {};
-              }}
+          <div className={classNames(projectcss.all, sty.freeBox__s6DdH)}>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__maG1)}
             >
-              <Icon7Icon
-                className={classNames(projectcss.all, sty.svg__nzzVb)}
-                role={"img"}
-              />
-
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___0Tc1Z
-                )}
+                className={classNames(projectcss.all, sty.freeBox___5YvYk)}
+                onClick={async event => {
+                  const $steps = {};
+                }}
               >
-                {"\u0647\u0645\u06cc\u0627\u0631"}
-              </div>
-            </div>
-            <div
-              aria-pressed={undefined}
-              className={classNames(projectcss.all, sty.freeBox__bHpZ)}
-              onClick={async event => {
-                const $steps = {};
+                <Icon7Icon
+                  className={classNames(projectcss.all, sty.svg__nzzVb)}
+                  role={"img"}
+                />
 
-                $steps["goToBioritm"] =
-                  localStorage.getItem("token") != "undefined" ||
-                  localStorage.getItem("token") != null
-                    ? (() => {
-                        const actionArgs = { destination: `/bioritm` };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["goToBioritm"] != null &&
-                  typeof $steps["goToBioritm"] === "object" &&
-                  typeof $steps["goToBioritm"].then === "function"
-                ) {
-                  $steps["goToBioritm"] = await $steps["goToBioritm"];
-                }
-              }}
-            >
-              <PlasmicIcon__
-                PlasmicIconType={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? Icon23Icon
-                    : Icon23Icon
-                }
-                className={classNames(projectcss.all, sty.svg__guU78)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___4Ln4F
-                )}
-              >
-                {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___0Tc1Z
+                  )}
+                >
+                  {"\u0647\u0645\u06cc\u0627\u0631"}
+                </div>
               </div>
-            </div>
-            {(() => {
-              try {
-                return $ctx.query.m == "71ef2e";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
               <div
                 aria-pressed={undefined}
-                className={classNames(projectcss.all, sty.freeBox__avzuw)}
+                className={classNames(projectcss.all, sty.freeBox__bHpZ)}
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["goToFood"] =
+                  $steps["goToBioritm"] =
                     localStorage.getItem("token") != "undefined" ||
                     localStorage.getItem("token") != null
                       ? (() => {
-                          const actionArgs = { destination: `/food` };
+                          const actionArgs = { destination: `/bioritm` };
                           return (({ destination }) => {
                             if (
                               typeof destination === "string" &&
@@ -12363,21 +12815,21 @@ function PlasmicHamyar__RenderFunc(props: {
                         })()
                       : undefined;
                   if (
-                    $steps["goToFood"] != null &&
-                    typeof $steps["goToFood"] === "object" &&
-                    typeof $steps["goToFood"].then === "function"
+                    $steps["goToBioritm"] != null &&
+                    typeof $steps["goToBioritm"] === "object" &&
+                    typeof $steps["goToBioritm"].then === "function"
                   ) {
-                    $steps["goToFood"] = await $steps["goToFood"];
+                    $steps["goToBioritm"] = await $steps["goToBioritm"];
                   }
                 }}
               >
                 <PlasmicIcon__
                   PlasmicIconType={
                     hasVariant(globalVariants, "screen", "mobile")
-                      ? Icon72Icon
-                      : Icon72Icon
+                      ? Icon23Icon
+                      : Icon23Icon
                   }
-                  className={classNames(projectcss.all, sty.svg__teWPd)}
+                  className={classNames(projectcss.all, sty.svg__guU78)}
                   role={"img"}
                 />
 
@@ -12385,16 +12837,84 @@ function PlasmicHamyar__RenderFunc(props: {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__ssYYa
+                    sty.text___4Ln4F
                   )}
                 >
-                  {
-                    "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
-                  }
+                  {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
                 </div>
               </div>
-            ) : null}
-          </Stack__>
+              {(() => {
+                try {
+                  return $ctx.query.m == "71ef2e";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  aria-pressed={undefined}
+                  className={classNames(projectcss.all, sty.freeBox__avzuw)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToFood"] =
+                      localStorage.getItem("token") != "undefined" ||
+                      localStorage.getItem("token") != null
+                        ? (() => {
+                            const actionArgs = { destination: `/food` };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["goToFood"] != null &&
+                      typeof $steps["goToFood"] === "object" &&
+                      typeof $steps["goToFood"].then === "function"
+                    ) {
+                      $steps["goToFood"] = await $steps["goToFood"];
+                    }
+                  }}
+                >
+                  <PlasmicIcon__
+                    PlasmicIconType={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? Icon72Icon
+                        : Icon72Icon
+                    }
+                    className={classNames(projectcss.all, sty.svg__teWPd)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ssYYa
+                    )}
+                  >
+                    {
+                      "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
+                    }
+                  </div>
+                </div>
+              ) : null}
+            </Stack__>
+          </div>
           <Embed
             data-plasmic-name={"embedHtml"}
             data-plasmic-override={overrides.embedHtml}
@@ -12460,6 +12980,7 @@ const PlasmicDescendants = {
     "countdown2",
     "cyclebox",
     "lineClomp",
+    "progress",
     "checkbox",
     "reveal",
     "useful2",
@@ -12496,8 +13017,9 @@ const PlasmicDescendants = {
   nofiticon: ["nofiticon"],
   switchbest: ["switchbest"],
   countdown2: ["countdown2"],
-  cyclebox: ["cyclebox", "lineClomp"],
+  cyclebox: ["cyclebox", "lineClomp", "progress"],
   lineClomp: ["lineClomp"],
+  progress: ["progress"],
   checkbox: ["checkbox"],
   reveal: ["reveal", "useful2", "useful"],
   useful2: ["useful2"],
@@ -12541,6 +13063,7 @@ type NodeDefaultElementType = {
   countdown2: typeof Countdown;
   cyclebox: typeof Cyclebox;
   lineClomp: typeof LineClomp;
+  progress: typeof AntdProgress;
   checkbox: typeof Checkbox;
   reveal: typeof Reveal;
   useful2: typeof Useful;
@@ -12665,6 +13188,7 @@ export const PlasmicHamyar = Object.assign(
     countdown2: makeNodeComponent("countdown2"),
     cyclebox: makeNodeComponent("cyclebox"),
     lineClomp: makeNodeComponent("lineClomp"),
+    progress: makeNodeComponent("progress"),
     checkbox: makeNodeComponent("checkbox"),
     reveal: makeNodeComponent("reveal"),
     useful2: makeNodeComponent("useful2"),

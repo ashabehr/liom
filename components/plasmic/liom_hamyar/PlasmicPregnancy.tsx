@@ -1403,7 +1403,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 ];
               }
             }}
-            runWhileEditing={false}
+            runWhileEditing={true}
           />
 
           <ApiRequest
@@ -3207,7 +3207,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["goToPage"] = true
+                      $steps["goToPage"] = (() => {
+                        if ($ctx.query?.inApp == true) return false;
+                        else return true;
+                      })()
                         ? (() => {
                             const actionArgs = {
                               destination: (() => {
@@ -3333,6 +3336,33 @@ function PlasmicPregnancy__RenderFunc(props: {
                           "invokeGlobalAction"
                         ];
                       }
+
+                      $steps["runCode"] = (() => {
+                        if ($ctx.query?.inApp == true) return true;
+                        else return false;
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return window.FlutterChannel.postMessage(
+                                    "#healthSettingPage"
+                                  );
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
                     }}
                   >
                     <div
@@ -3357,30 +3387,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.freeBox__s3C0F)}
                       onClick={async event => {
                         const $steps = {};
-
-                        $steps["runCode"] = false
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    return window.FlutterChannel.postMessage(
-                                      "#healthSettingPage"
-                                    );
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
                       }}
                     >
                       <PlasmicImg__
@@ -4779,7 +4785,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToPage"] = true
+                    $steps["goToPage"] = (() => {
+                      if ($ctx.query?.inApp == true) return false;
+                      else return true;
+                    })()
                       ? (() => {
                           const actionArgs = {
                             destination: (() => {
@@ -4891,23 +4900,37 @@ function PlasmicPregnancy__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["runCode"] =
-                      $ctx.query.userId == "41-p265149po-3"
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  return window.FlutterChannel.postMessage(
-                                    "#events"
-                                  );
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                    $steps["runCode"] = (() => {
+                      if ($ctx.query?.inApp == true) return true;
+                      else return false;
+                    })()
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                var link =
+                                  "https://apps.liom.app/weekByWeek/?token=" +
+                                  $ctx.query.token +
+                                  "&userId=" +
+                                  $ctx.query.userId +
+                                  "&theme=" +
+                                  $ctx.query.theme +
+                                  "&weekNum=" +
+                                  $state.weeksPregnant +
+                                  "&days=" +
+                                  $state.daysPregnant;
+                                return window.FlutterChannel.postMessage(
+                                  "#inAppWebView**@@**ابزار هفته به هفته**@@**" +
+                                    link
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
                     if (
                       $steps["runCode"] != null &&
                       typeof $steps["runCode"] === "object" &&

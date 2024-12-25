@@ -66,6 +66,11 @@
 .rootpregnancy {
   background: var(--token-jgohepLVeKvh);
 }
+@media (max-width: 640px) {
+  .rootpregnancy {
+    padding-bottom: 8px;
+  }
+}
 .rootperiod_fertility {
   padding: 8px;
 }
@@ -242,12 +247,15 @@
 .img__n86H3 {
   object-fit: cover;
   max-width: 100%;
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
   object-position: center center;
+  outline-width: thick;
+  outline-color: var(--token-SX03PBUzWAqr);
+  outline-style: solid;
   flex-shrink: 0;
-  border-radius: 8px;
-  border: 5px solid #0000001a;
+  border-radius: 12px;
+  border: 5px solid var(--token-jgohepLVeKvh);
 }
 .img__n86H3 > picture > img {
   object-fit: cover;
@@ -545,4 +553,61 @@
     top: auto;
     left: auto;
   }
+}
+.freeBox__mVyUm {
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  display: none;
+  padding: 8px;
+}
+.freeBoxpregnancy__mVyUmKiZil {
+  border-top-width: 1px;
+  border-top-style: solid;
+  margin-top: 8px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 4px 0px 0px;
+}
+@media (max-width: 640px) {
+  .freeBoxpregnancy__mVyUmKiZil {
+    padding-top: 4px;
+    margin: 0px;
+  }
+}
+.freeBox__xSPpl {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+}
+.freeBoxpregnancy__xSPplKiZil {
+  justify-content: center;
+}
+.slotTargetSlot2pregnancy {
+  text-align: center;
+}
+.freeBox__gqxj {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+}
+.freeBoxpregnancy__gqxjKiZil {
+  justify-content: center;
+}
+.slotTargetSlot3pregnancy {
+  text-align: center;
 }

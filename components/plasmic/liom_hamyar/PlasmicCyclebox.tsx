@@ -107,6 +107,8 @@ export type PlasmicCyclebox__ArgsType = {
   onTextsycleChange?: (val: string) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
+  slot2?: React.ReactNode;
+  slot3?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicCyclebox__ArgsType;
 export const PlasmicCyclebox__ArgProps = new Array<ArgPropType>(
@@ -120,7 +122,9 @@ export const PlasmicCyclebox__ArgProps = new Array<ArgPropType>(
   "textsycle",
   "onTextsycleChange",
   "children",
-  "slot"
+  "slot",
+  "slot2",
+  "slot3"
 );
 
 export type PlasmicCyclebox__OverridesType = {
@@ -141,6 +145,8 @@ export interface DefaultCycleboxProps {
   onTextsycleChange?: (val: string) => void;
   children?: React.ReactNode;
   slot?: React.ReactNode;
+  slot2?: React.ReactNode;
+  slot3?: React.ReactNode;
   pms?: SingleBooleanChoiceArg<"pms">;
   fertility?: SingleBooleanChoiceArg<"fertility">;
   period?: SingleBooleanChoiceArg<"period">;
@@ -305,7 +311,12 @@ function PlasmicCyclebox__RenderFunc(props: {
             "period",
             "period"
           ),
-          [sty.freeBoxpms__dhejssscqc]: hasVariant($state, "pms", "pms")
+          [sty.freeBoxpms__dhejssscqc]: hasVariant($state, "pms", "pms"),
+          [sty.freeBoxpregnancy__dhejsKiZil]: hasVariant(
+            $state,
+            "pregnancy",
+            "pregnancy"
+          )
         })}
       >
         {renderPlasmicSlot({
@@ -373,6 +384,11 @@ function PlasmicCyclebox__RenderFunc(props: {
               $state,
               "period",
               "period"
+            ),
+            [sty.slotTargetChildrenpregnancy]: hasVariant(
+              $state,
+              "pregnancy",
+              "pregnancy"
             )
           })
         })}
@@ -438,12 +454,12 @@ function PlasmicCyclebox__RenderFunc(props: {
                 <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__n86H3)}
-                  displayHeight={"150px"}
+                  displayHeight={"100px"}
                   displayMaxHeight={"none"}
                   displayMaxWidth={"100%"}
                   displayMinHeight={"0"}
                   displayMinWidth={"0"}
-                  displayWidth={"150px"}
+                  displayWidth={"100px"}
                   loading={"lazy"}
                   src={{
                     src: "/plasmic/liom_hamyar/images/week03Png.png",
@@ -1820,6 +1836,59 @@ function PlasmicCyclebox__RenderFunc(props: {
         {hasVariant($state, "pms", "pms")
           ? "pms \u0686\u06cc\u0633\u062a\u061f"
           : "\u062a\u062e\u0645\u06a9 \u06af\u0630\u0627\u0631\u06cc \u0686\u06cc\u0633\u062a\u061f"}
+      </div>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__mVyUm, {
+          [sty.freeBoxpregnancy__mVyUmKiZil]: hasVariant(
+            $state,
+            "pregnancy",
+            "pregnancy"
+          )
+        })}
+      >
+        <div
+          className={classNames(projectcss.all, sty.freeBox__xSPpl, {
+            [sty.freeBoxpregnancy__xSPplKiZil]: hasVariant(
+              $state,
+              "pregnancy",
+              "pregnancy"
+            )
+          })}
+        >
+          {renderPlasmicSlot({
+            defaultContents: "Enter some text",
+            value: args.slot2,
+            className: classNames(sty.slotTargetSlot2, {
+              [sty.slotTargetSlot2pregnancy]: hasVariant(
+                $state,
+                "pregnancy",
+                "pregnancy"
+              )
+            })
+          })}
+        </div>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__gqxj, {
+            [sty.freeBoxpregnancy__gqxjKiZil]: hasVariant(
+              $state,
+              "pregnancy",
+              "pregnancy"
+            )
+          })}
+        >
+          {renderPlasmicSlot({
+            defaultContents: "Enter some text",
+            value: args.slot3,
+            className: classNames(sty.slotTargetSlot3, {
+              [sty.slotTargetSlot3pms]: hasVariant($state, "pms", "pms"),
+              [sty.slotTargetSlot3pregnancy]: hasVariant(
+                $state,
+                "pregnancy",
+                "pregnancy"
+              )
+            })
+          })}
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;
