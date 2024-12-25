@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
@@ -98,6 +99,7 @@ export const PlasmicWeekByWeek__ArgProps = new Array<ArgPropType>();
 export type PlasmicWeekByWeek__OverridesType = {
   root?: Flex__<"div">;
   embedHtml?: Flex__<typeof Embed>;
+  timer?: Flex__<typeof Timer>;
   favIcone?: Flex__<typeof Embed>;
   lottie?: Flex__<typeof LottieWrapper>;
   tabWeek?: Flex__<typeof TabWeek>;
@@ -461,6 +463,12 @@ function PlasmicWeekByWeek__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "isTimer",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -549,6 +557,59 @@ function PlasmicWeekByWeek__RenderFunc(props: {
             }
           />
 
+          <Timer
+            data-plasmic-name={"timer"}
+            data-plasmic-override={overrides.timer}
+            className={classNames("__wab_instance", sty.timer)}
+            intervalSeconds={1}
+            isRunning={(() => {
+              try {
+                return !$state.isTimer;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })()}
+            onTick={async () => {
+              const $steps = {};
+
+              $steps["updateIsTimer"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["isTimer"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateIsTimer"] != null &&
+                typeof $steps["updateIsTimer"] === "object" &&
+                typeof $steps["updateIsTimer"].then === "function"
+              ) {
+                $steps["updateIsTimer"] = await $steps["updateIsTimer"];
+              }
+            }}
+            runWhileEditing={false}
+          />
+
           <Embed
             data-plasmic-name={"favIcone"}
             data-plasmic-override={overrides.favIcone}
@@ -564,7 +625,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 $state?.weekNum == "" ||
                 $state?.selectedWeek == 0 ||
                 $ctx.query?.weekNum == "" ||
-                $ctx.query?.days == ""
+                $ctx.query?.days == "" ||
+                $state.isTimer == false
               );
             } catch (e) {
               if (
@@ -1092,7 +1154,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 $state?.weekNum != "" &&
                 $state?.selectedWeek != 0 &&
                 $ctx.query?.weekNum != "" &&
-                $ctx.query?.days != ""
+                $ctx.query?.days != "" &&
+                $state.isTimer == true
               );
             } catch (e) {
               if (
@@ -3092,6 +3155,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "embedHtml",
+    "timer",
     "favIcone",
     "lottie",
     "tabWeek",
@@ -3101,6 +3165,7 @@ const PlasmicDescendants = {
     "collapseHealth"
   ],
   embedHtml: ["embedHtml"],
+  timer: ["timer"],
   favIcone: ["favIcone"],
   lottie: ["lottie"],
   tabWeek: ["tabWeek"],
@@ -3115,6 +3180,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   embedHtml: typeof Embed;
+  timer: typeof Timer;
   favIcone: typeof Embed;
   lottie: typeof LottieWrapper;
   tabWeek: typeof TabWeek;
@@ -3210,6 +3276,7 @@ export const PlasmicWeekByWeek = Object.assign(
   {
     // Helper components rendering sub-elements
     embedHtml: makeNodeComponent("embedHtml"),
+    timer: makeNodeComponent("timer"),
     favIcone: makeNodeComponent("favIcone"),
     lottie: makeNodeComponent("lottie"),
     tabWeek: makeNodeComponent("tabWeek"),
