@@ -558,935 +558,572 @@ function PlasmicWeekByWeek__RenderFunc(props: {
             }
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__zfkAg)}>
-            <LottieWrapper
-              data-plasmic-name={"lottie"}
-              data-plasmic-override={overrides.lottie}
-              animationData={{
-                nm: "Loading Dots",
-                ddd: 0,
-                h: 50,
-                w: 100,
-                meta: { g: "@lottiefiles/toolkit-js 0.33.2" },
-                layers: [
-                  {
-                    ty: 4,
-                    nm: "Dot4",
-                    sr: 1,
-                    st: 0,
-                    op: 360,
-                    ip: 0,
-                    hd: false,
-                    ddd: 0,
-                    bm: 0,
-                    hasMask: false,
-                    ao: 0,
-                    ks: {
-                      a: { a: 0, k: [-284, 92, 0], ix: 1 },
-                      s: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [2.61, 2.32, 100],
-                            t: 25
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [3.91, 3.47, 100],
-                            t: 39
-                          },
-                          { s: [2.61, 2.32, 100], t: 55 }
-                        ],
-                        ix: 6
-                      },
-                      sk: { a: 0, k: 0 },
-                      p: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [59.48, 25, 0],
-                            t: 25
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [59.48, 23.15, 0],
-                            t: 39
-                          },
-                          { s: [59.48, 25, 0], t: 55 }
-                        ],
-                        ix: 2
-                      },
-                      r: { a: 0, k: 0, ix: 10 },
-                      sa: { a: 0, k: 0 },
-                      o: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [25],
-                            t: 25
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [100],
-                            t: 39
-                          },
-                          { s: [25], t: 55 }
-                        ],
-                        ix: 11
-                      }
-                    },
-                    ef: [],
-                    shapes: [
-                      {
-                        ty: "gr",
-                        bm: 0,
-                        hd: false,
-                        mn: "ADBE Vector Group",
-                        nm: "Ellipse 1",
-                        ix: 1,
-                        cix: 2,
-                        np: 3,
-                        it: [
-                          {
-                            ty: "el",
-                            bm: 0,
-                            hd: false,
-                            mn: "ADBE Vector Shape - Ellipse",
-                            nm: "Ellipse Path 1",
-                            d: 1,
-                            p: { a: 0, k: [0, 0], ix: 3 },
-                            s: { a: 0, k: [120, 120], ix: 2 }
-                          },
-                          {
-                            ty: "fl",
-                            bm: 0,
-                            hd: false,
-                            mn: "ADBE Vector Graphic - Fill",
-                            nm: "Fill 1",
-                            c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
-                            r: 1,
-                            o: { a: 0, k: 100, ix: 5 }
-                          },
-                          {
-                            ty: "tr",
-                            a: { a: 0, k: [0, 0], ix: 1 },
-                            s: { a: 0, k: [100, 100], ix: 3 },
-                            sk: { a: 0, k: 0, ix: 4 },
-                            p: { a: 0, k: [-284, 92], ix: 2 },
-                            r: { a: 0, k: 0, ix: 6 },
-                            sa: { a: 0, k: 0, ix: 5 },
-                            o: { a: 0, k: 100, ix: 7 }
-                          }
-                        ]
-                      }
-                    ],
-                    ind: 1
-                  },
-                  {
-                    ty: 4,
-                    nm: "Dot3",
-                    sr: 1,
-                    st: 0,
-                    op: 360,
-                    ip: 0,
-                    hd: false,
-                    ddd: 0,
-                    bm: 0,
-                    hasMask: false,
-                    ao: 0,
-                    ks: {
-                      a: { a: 0, k: [-284, 92, 0], ix: 1 },
-                      s: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [2.61, 2.32, 100],
-                            t: 17
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [3.91, 3.47, 100],
-                            t: 31
-                          },
-                          { s: [2.61, 2.32, 100], t: 47 }
-                        ],
-                        ix: 6
-                      },
-                      sk: { a: 0, k: 0 },
-                      p: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [53.23, 25, 0],
-                            t: 17
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [53.23, 23.15, 0],
-                            t: 31
-                          },
-                          { s: [53.23, 25, 0], t: 47 }
-                        ],
-                        ix: 2
-                      },
-                      r: { a: 0, k: 0, ix: 10 },
-                      sa: { a: 0, k: 0 },
-                      o: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [25],
-                            t: 17
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [100],
-                            t: 31
-                          },
-                          { s: [25], t: 47 }
-                        ],
-                        ix: 11
-                      }
-                    },
-                    ef: [],
-                    shapes: [
-                      {
-                        ty: "gr",
-                        bm: 0,
-                        hd: false,
-                        mn: "ADBE Vector Group",
-                        nm: "Ellipse 1",
-                        ix: 1,
-                        cix: 2,
-                        np: 3,
-                        it: [
-                          {
-                            ty: "el",
-                            bm: 0,
-                            hd: false,
-                            mn: "ADBE Vector Shape - Ellipse",
-                            nm: "Ellipse Path 1",
-                            d: 1,
-                            p: { a: 0, k: [0, 0], ix: 3 },
-                            s: { a: 0, k: [120, 120], ix: 2 }
-                          },
-                          {
-                            ty: "fl",
-                            bm: 0,
-                            hd: false,
-                            mn: "ADBE Vector Graphic - Fill",
-                            nm: "Fill 1",
-                            c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
-                            r: 1,
-                            o: { a: 0, k: 100, ix: 5 }
-                          },
-                          {
-                            ty: "tr",
-                            a: { a: 0, k: [0, 0], ix: 1 },
-                            s: { a: 0, k: [100, 100], ix: 3 },
-                            sk: { a: 0, k: 0, ix: 4 },
-                            p: { a: 0, k: [-284, 92], ix: 2 },
-                            r: { a: 0, k: 0, ix: 6 },
-                            sa: { a: 0, k: 0, ix: 5 },
-                            o: { a: 0, k: 100, ix: 7 }
-                          }
-                        ]
-                      }
-                    ],
-                    ind: 2
-                  },
-                  {
-                    ty: 4,
-                    nm: "Dot2",
-                    sr: 1,
-                    st: 0,
-                    op: 360,
-                    ip: 0,
-                    hd: false,
-                    ddd: 0,
-                    bm: 0,
-                    hasMask: false,
-                    ao: 0,
-                    ks: {
-                      a: { a: 0, k: [-284, 92, 0], ix: 1 },
-                      s: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [2.61, 2.32, 100],
-                            t: 9
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [3.91, 3.47, 100],
-                            t: 23
-                          },
-                          { s: [2.61, 2.32, 100], t: 39 }
-                        ],
-                        ix: 6
-                      },
-                      sk: { a: 0, k: 0 },
-                      p: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [46.98, 25, 0],
-                            t: 9
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [46.98, 23.15, 0],
-                            t: 23
-                          },
-                          { s: [46.98, 25, 0], t: 39 }
-                        ],
-                        ix: 2
-                      },
-                      r: { a: 0, k: 0, ix: 10 },
-                      sa: { a: 0, k: 0 },
-                      o: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [25],
-                            t: 9
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [100],
-                            t: 23
-                          },
-                          { s: [25], t: 39 }
-                        ],
-                        ix: 11
-                      }
-                    },
-                    ef: [],
-                    shapes: [
-                      {
-                        ty: "gr",
-                        bm: 0,
-                        hd: false,
-                        mn: "ADBE Vector Group",
-                        nm: "Ellipse 1",
-                        ix: 1,
-                        cix: 2,
-                        np: 3,
-                        it: [
-                          {
-                            ty: "el",
-                            bm: 0,
-                            hd: false,
-                            mn: "ADBE Vector Shape - Ellipse",
-                            nm: "Ellipse Path 1",
-                            d: 1,
-                            p: { a: 0, k: [0, 0], ix: 3 },
-                            s: { a: 0, k: [120, 120], ix: 2 }
-                          },
-                          {
-                            ty: "fl",
-                            bm: 0,
-                            hd: false,
-                            mn: "ADBE Vector Graphic - Fill",
-                            nm: "Fill 1",
-                            c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
-                            r: 1,
-                            o: { a: 0, k: 100, ix: 5 }
-                          },
-                          {
-                            ty: "tr",
-                            a: { a: 0, k: [0, 0], ix: 1 },
-                            s: { a: 0, k: [100, 100], ix: 3 },
-                            sk: { a: 0, k: 0, ix: 4 },
-                            p: { a: 0, k: [-284, 92], ix: 2 },
-                            r: { a: 0, k: 0, ix: 6 },
-                            sa: { a: 0, k: 0, ix: 5 },
-                            o: { a: 0, k: 100, ix: 7 }
-                          }
-                        ]
-                      }
-                    ],
-                    ind: 3
-                  },
-                  {
-                    ty: 4,
-                    nm: "Dot1",
-                    sr: 1,
-                    st: 0,
-                    op: 360,
-                    ip: 0,
-                    hd: false,
-                    ddd: 0,
-                    bm: 0,
-                    hasMask: false,
-                    ao: 0,
-                    ks: {
-                      a: { a: 0, k: [-284, 92, 0], ix: 1 },
-                      s: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [2.61, 2.32, 100],
-                            t: 0
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [3.91, 3.47, 100],
-                            t: 14
-                          },
-                          { s: [2.61, 2.32, 100], t: 30 }
-                        ],
-                        ix: 6
-                      },
-                      sk: { a: 0, k: 0 },
-                      p: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [40.73, 25, 0],
-                            t: 0
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [40.73, 23.15, 0],
-                            t: 14
-                          },
-                          { s: [40.73, 25, 0], t: 30 }
-                        ],
-                        ix: 2
-                      },
-                      r: { a: 0, k: 0, ix: 10 },
-                      sa: { a: 0, k: 0 },
-                      o: {
-                        a: 1,
-                        k: [
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [25],
-                            t: 0
-                          },
-                          {
-                            o: { x: 0.333, y: 0 },
-                            i: { x: 0.667, y: 1 },
-                            s: [100],
-                            t: 14
-                          },
-                          { s: [25], t: 30 }
-                        ],
-                        ix: 11
-                      }
-                    },
-                    ef: [],
-                    shapes: [
-                      {
-                        ty: "gr",
-                        bm: 0,
-                        hd: false,
-                        mn: "ADBE Vector Group",
-                        nm: "Ellipse 1",
-                        ix: 1,
-                        cix: 2,
-                        np: 3,
-                        it: [
-                          {
-                            ty: "el",
-                            bm: 0,
-                            hd: false,
-                            mn: "ADBE Vector Shape - Ellipse",
-                            nm: "Ellipse Path 1",
-                            d: 1,
-                            p: { a: 0, k: [0, 0], ix: 3 },
-                            s: { a: 0, k: [120, 120], ix: 2 }
-                          },
-                          {
-                            ty: "fl",
-                            bm: 0,
-                            hd: false,
-                            mn: "ADBE Vector Graphic - Fill",
-                            nm: "Fill 1",
-                            c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
-                            r: 1,
-                            o: { a: 0, k: 100, ix: 5 }
-                          },
-                          {
-                            ty: "tr",
-                            a: { a: 0, k: [0, 0], ix: 1 },
-                            s: { a: 0, k: [100, 100], ix: 3 },
-                            sk: { a: 0, k: 0, ix: 4 },
-                            p: { a: 0, k: [-284, 92], ix: 2 },
-                            r: { a: 0, k: 0, ix: 6 },
-                            sa: { a: 0, k: 0, ix: 5 },
-                            o: { a: 0, k: 100, ix: 7 }
-                          }
-                        ]
-                      }
-                    ],
-                    ind: 4
-                  }
-                ],
-                v: "5.7.11",
-                fr: 60,
-                op: 81,
-                ip: 0,
-                assets: []
-              }}
-              className={classNames("__wab_instance", sty.lottie)}
-            />
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__qDyNj)}>
-            {(() => {
-              try {
-                return (() => {
-                  if ($ctx.query?.inApp == "true") return false;
-                  else return true;
-                })();
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
+          {(() => {
+            try {
+              return (
+                $state?.weekNum == "" ||
+                $state?.selectedWeek == 0 ||
+                $ctx.query?.weekNum == "" ||
+                $ctx.query?.days == ""
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
               }
-            })() ? (
-              <div
-                className={classNames(projectcss.all, sty.freeBox__w2AiY, {
-                  [sty.freeBoxdark__w2AiYXyRv7]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__gcfAt)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination:
-                              "https://apps.liom.app/pregnancy/?token=" +
-                              $ctx.query.token +
-                              "&userId=" +
-                              $ctx.query.userId +
-                              "&theme=" +
-                              $ctx.query.theme +
-                              "&inApp=false"
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
-                >
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__tElNi)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"20px"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image38.svg",
-                      fullWidth: 24,
-                      fullHeight: 24,
-                      aspectRatio: 1
-                    }}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__sUv9I,
-                      {
-                        [sty.textdark__sUv9IXyRv7]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }
-                    )}
-                  >
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__zfkAg)}>
+              <LottieWrapper
+                data-plasmic-name={"lottie"}
+                data-plasmic-override={overrides.lottie}
+                animationData={{
+                  nm: "Loading Dots",
+                  ddd: 0,
+                  h: 50,
+                  w: 100,
+                  meta: { g: "@lottiefiles/toolkit-js 0.33.2" },
+                  layers: [
                     {
-                      "\u062a\u0642\u0648\u06cc\u0645 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0647\u0641\u062a\u0647 \u0628\u0647 \u0647\u0641\u062a\u0647"
-                    }
-                  </div>
-                </div>
-              </div>
-            ) : null}
-            <div className={classNames(projectcss.all, sty.freeBox___9BnK7)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__khEUf,
-                  "my-scroll-list"
-                )}
-              >
-                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
-                  (() => {
-                    try {
-                      return Array.from(
-                        { length: 40 },
-                        (_, index) => index + 1
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()
-                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                  const currentItem = __plasmic_item_0;
-                  const currentIndex = __plasmic_idx_0;
-                  return (
-                    <TabWeek
-                      data-plasmic-name={"tabWeek"}
-                      data-plasmic-override={overrides.tabWeek}
-                      className={classNames("__wab_instance", sty.tabWeek, {
-                        [sty.tabWeekdark]: hasVariant($state, "dark", "dark")
-                      })}
-                      currentItem={currentItem}
-                      dark={
-                        hasVariant($state, "dark", "dark") ? true : undefined
-                      }
-                      darkSelected={
-                        hasVariant($state, "dark", "dark")
-                          ? (() => {
-                              try {
-                                return currentItem == $state.selectedWeek;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                          : (() => {
-                              try {
-                                return false;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                      }
-                      key={currentIndex}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["invokeGlobalAction"] =
-                          $ctx.query.userId.slice(
-                            4,
-                            $ctx.query.userId.length - 4
-                          ) != "314149"
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://api.liom.app/service/log",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          userId:
-                                            $ctx.query.userId?.length > 0
-                                              ? $ctx.query.userId.slice(
-                                                  4,
-                                                  $ctx.query.userId.length - 4
-                                                )
-                                              : "guest",
-                                          pageName: "weekByWeekPage",
-                                          action: "clickWeekTab",
-                                          extraData: {}
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })(),
-                                    (() => {
-                                      try {
-                                        return {
-                                          headers: {
-                                            "Content-Type": "application/json",
-                                            Authorization:
-                                              "Bearer " +
-                                              $ctx.query.token.slice(
-                                                6,
-                                                $ctx.query.token.length - 3
-                                              )
-                                          }
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
-                                            }
-                                          };
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
+                      ty: 4,
+                      nm: "Dot4",
+                      sr: 1,
+                      st: 0,
+                      op: 360,
+                      ip: 0,
+                      hd: false,
+                      ddd: 0,
+                      bm: 0,
+                      hasMask: false,
+                      ao: 0,
+                      ks: {
+                        a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                        s: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [2.61, 2.32, 100],
+                              t: 25
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [3.91, 3.47, 100],
+                              t: 39
+                            },
+                            { s: [2.61, 2.32, 100], t: 55 }
+                          ],
+                          ix: 6
+                        },
+                        sk: { a: 0, k: 0 },
+                        p: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [59.48, 25, 0],
+                              t: 25
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [59.48, 23.15, 0],
+                              t: 39
+                            },
+                            { s: [59.48, 25, 0], t: 55 }
+                          ],
+                          ix: 2
+                        },
+                        r: { a: 0, k: 0, ix: 10 },
+                        sa: { a: 0, k: 0 },
+                        o: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [25],
+                              t: 25
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [100],
+                              t: 39
+                            },
+                            { s: [25], t: 55 }
+                          ],
+                          ix: 11
                         }
-
-                        $steps["updateSelectedWeek"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["selectedWeek"]
-                                },
-                                operation: 0,
-                                value: currentIndex + 1
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateSelectedWeek"] != null &&
-                          typeof $steps["updateSelectedWeek"] === "object" &&
-                          typeof $steps["updateSelectedWeek"].then ===
-                            "function"
-                        ) {
-                          $steps["updateSelectedWeek"] = await $steps[
-                            "updateSelectedWeek"
-                          ];
+                      },
+                      ef: [],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Group",
+                          nm: "Ellipse 1",
+                          ix: 1,
+                          cix: 2,
+                          np: 3,
+                          it: [
+                            {
+                              ty: "el",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Shape - Ellipse",
+                              nm: "Ellipse Path 1",
+                              d: 1,
+                              p: { a: 0, k: [0, 0], ix: 3 },
+                              s: { a: 0, k: [120, 120], ix: 2 }
+                            },
+                            {
+                              ty: "fl",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Graphic - Fill",
+                              nm: "Fill 1",
+                              c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
+                              r: 1,
+                              o: { a: 0, k: 100, ix: 5 }
+                            },
+                            {
+                              ty: "tr",
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              p: { a: 0, k: [-284, 92], ix: 2 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              o: { a: 0, k: 100, ix: 7 }
+                            }
+                          ]
                         }
-                      }}
-                      selected={
-                        hasVariant($state, "dark", "dark")
-                          ? (() => {
-                              try {
-                                return false;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                          : (() => {
-                              try {
-                                return currentItem == $state.selectedWeek;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                      }
-                    />
-                  );
-                })}
-              </div>
-            </div>
-            {(() => {
-              try {
-                return (
-                  $state.weekNum != $state.selectedWeek &&
-                  $ctx.query.token != ""
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
-                }
-                throw e;
-              }
-            })() ? (
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__cqBd,
-                  {
-                    [sty.textdark__cqBdXyRv7]: hasVariant(
-                      $state,
-                      "dark",
-                      "dark"
-                    )
-                  }
-                )}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateSelectedWeek"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["selectedWeek"]
-                          },
-                          operation: 0,
-                          value: $ctx.query.weekNum
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateSelectedWeek"] != null &&
-                    typeof $steps["updateSelectedWeek"] === "object" &&
-                    typeof $steps["updateSelectedWeek"].then === "function"
-                  ) {
-                    $steps["updateSelectedWeek"] = await $steps[
-                      "updateSelectedWeek"
-                    ];
-                  }
+                      ],
+                      ind: 1
+                    },
+                    {
+                      ty: 4,
+                      nm: "Dot3",
+                      sr: 1,
+                      st: 0,
+                      op: 360,
+                      ip: 0,
+                      hd: false,
+                      ddd: 0,
+                      bm: 0,
+                      hasMask: false,
+                      ao: 0,
+                      ks: {
+                        a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                        s: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [2.61, 2.32, 100],
+                              t: 17
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [3.91, 3.47, 100],
+                              t: 31
+                            },
+                            { s: [2.61, 2.32, 100], t: 47 }
+                          ],
+                          ix: 6
+                        },
+                        sk: { a: 0, k: 0 },
+                        p: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [53.23, 25, 0],
+                              t: 17
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [53.23, 23.15, 0],
+                              t: 31
+                            },
+                            { s: [53.23, 25, 0], t: 47 }
+                          ],
+                          ix: 2
+                        },
+                        r: { a: 0, k: 0, ix: 10 },
+                        sa: { a: 0, k: 0 },
+                        o: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [25],
+                              t: 17
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [100],
+                              t: 31
+                            },
+                            { s: [25], t: 47 }
+                          ],
+                          ix: 11
+                        }
+                      },
+                      ef: [],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Group",
+                          nm: "Ellipse 1",
+                          ix: 1,
+                          cix: 2,
+                          np: 3,
+                          it: [
+                            {
+                              ty: "el",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Shape - Ellipse",
+                              nm: "Ellipse Path 1",
+                              d: 1,
+                              p: { a: 0, k: [0, 0], ix: 3 },
+                              s: { a: 0, k: [120, 120], ix: 2 }
+                            },
+                            {
+                              ty: "fl",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Graphic - Fill",
+                              nm: "Fill 1",
+                              c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
+                              r: 1,
+                              o: { a: 0, k: 100, ix: 5 }
+                            },
+                            {
+                              ty: "tr",
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              p: { a: 0, k: [-284, 92], ix: 2 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              o: { a: 0, k: 100, ix: 7 }
+                            }
+                          ]
+                        }
+                      ],
+                      ind: 2
+                    },
+                    {
+                      ty: 4,
+                      nm: "Dot2",
+                      sr: 1,
+                      st: 0,
+                      op: 360,
+                      ip: 0,
+                      hd: false,
+                      ddd: 0,
+                      bm: 0,
+                      hasMask: false,
+                      ao: 0,
+                      ks: {
+                        a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                        s: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [2.61, 2.32, 100],
+                              t: 9
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [3.91, 3.47, 100],
+                              t: 23
+                            },
+                            { s: [2.61, 2.32, 100], t: 39 }
+                          ],
+                          ix: 6
+                        },
+                        sk: { a: 0, k: 0 },
+                        p: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [46.98, 25, 0],
+                              t: 9
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [46.98, 23.15, 0],
+                              t: 23
+                            },
+                            { s: [46.98, 25, 0], t: 39 }
+                          ],
+                          ix: 2
+                        },
+                        r: { a: 0, k: 0, ix: 10 },
+                        sa: { a: 0, k: 0 },
+                        o: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [25],
+                              t: 9
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [100],
+                              t: 23
+                            },
+                            { s: [25], t: 39 }
+                          ],
+                          ix: 11
+                        }
+                      },
+                      ef: [],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Group",
+                          nm: "Ellipse 1",
+                          ix: 1,
+                          cix: 2,
+                          np: 3,
+                          it: [
+                            {
+                              ty: "el",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Shape - Ellipse",
+                              nm: "Ellipse Path 1",
+                              d: 1,
+                              p: { a: 0, k: [0, 0], ix: 3 },
+                              s: { a: 0, k: [120, 120], ix: 2 }
+                            },
+                            {
+                              ty: "fl",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Graphic - Fill",
+                              nm: "Fill 1",
+                              c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
+                              r: 1,
+                              o: { a: 0, k: 100, ix: 5 }
+                            },
+                            {
+                              ty: "tr",
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              p: { a: 0, k: [-284, 92], ix: 2 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              o: { a: 0, k: 100, ix: 7 }
+                            }
+                          ]
+                        }
+                      ],
+                      ind: 3
+                    },
+                    {
+                      ty: 4,
+                      nm: "Dot1",
+                      sr: 1,
+                      st: 0,
+                      op: 360,
+                      ip: 0,
+                      hd: false,
+                      ddd: 0,
+                      bm: 0,
+                      hasMask: false,
+                      ao: 0,
+                      ks: {
+                        a: { a: 0, k: [-284, 92, 0], ix: 1 },
+                        s: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [2.61, 2.32, 100],
+                              t: 0
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [3.91, 3.47, 100],
+                              t: 14
+                            },
+                            { s: [2.61, 2.32, 100], t: 30 }
+                          ],
+                          ix: 6
+                        },
+                        sk: { a: 0, k: 0 },
+                        p: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [40.73, 25, 0],
+                              t: 0
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [40.73, 23.15, 0],
+                              t: 14
+                            },
+                            { s: [40.73, 25, 0], t: 30 }
+                          ],
+                          ix: 2
+                        },
+                        r: { a: 0, k: 0, ix: 10 },
+                        sa: { a: 0, k: 0 },
+                        o: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [25],
+                              t: 0
+                            },
+                            {
+                              o: { x: 0.333, y: 0 },
+                              i: { x: 0.667, y: 1 },
+                              s: [100],
+                              t: 14
+                            },
+                            { s: [25], t: 30 }
+                          ],
+                          ix: 11
+                        }
+                      },
+                      ef: [],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Group",
+                          nm: "Ellipse 1",
+                          ix: 1,
+                          cix: 2,
+                          np: 3,
+                          it: [
+                            {
+                              ty: "el",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Shape - Ellipse",
+                              nm: "Ellipse Path 1",
+                              d: 1,
+                              p: { a: 0, k: [0, 0], ix: 3 },
+                              s: { a: 0, k: [120, 120], ix: 2 }
+                            },
+                            {
+                              ty: "fl",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Graphic - Fill",
+                              nm: "Fill 1",
+                              c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
+                              r: 1,
+                              o: { a: 0, k: 100, ix: 5 }
+                            },
+                            {
+                              ty: "tr",
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              p: { a: 0, k: [-284, 92], ix: 2 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              o: { a: 0, k: 100, ix: 7 }
+                            }
+                          ]
+                        }
+                      ],
+                      ind: 4
+                    }
+                  ],
+                  v: "5.7.11",
+                  fr: 60,
+                  op: 81,
+                  ip: 0,
+                  assets: []
                 }}
-              >
-                {
-                  "\u0628\u0631\u06af\u0634\u062a \u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc"
+                className={classNames("__wab_instance", sty.lottie)}
+              />
+            </div>
+          ) : null}
+          {(() => {
+            try {
+              return (
+                $state?.weekNum != "" &&
+                $state?.selectedWeek != 0 &&
+                $ctx.query?.weekNum != "" &&
+                $ctx.query?.days != ""
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__qDyNj)}>
+              {(() => {
+                try {
+                  return (() => {
+                    if ($ctx.query?.inApp == "true") return false;
+                    else return true;
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
                 }
-              </div>
-            ) : null}
-            <div className={classNames(projectcss.all, sty.freeBox__skdKs)}>
-              <div
-                className={classNames(projectcss.all, sty.freeBox__p84Rg, {
-                  [sty.freeBoxdark__p84RgXyRv7]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-              >
+              })() ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__r6HVe, {
-                    [sty.freeBoxdark__r6HVeXyRv7]: hasVariant(
+                  className={classNames(projectcss.all, sty.freeBox__w2AiY, {
+                    [sty.freeBoxdark__w2AiYXyRv7]: hasVariant(
                       $state,
                       "dark",
                       "dark"
@@ -1494,90 +1131,551 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__uySe8)}
+                    className={classNames(projectcss.all, sty.freeBox__gcfAt)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination:
+                                "https://apps.liom.app/pregnancy/?token=" +
+                                $ctx.query.token +
+                                "&userId=" +
+                                $ctx.query.userId +
+                                "&theme=" +
+                                $ctx.query.theme +
+                                "&inApp=false"
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
                   >
                     <PlasmicImg__
                       alt={""}
-                      className={classNames(sty.img__irMrV)}
+                      className={classNames(sty.img__tElNi)}
                       displayHeight={"auto"}
                       displayMaxHeight={"none"}
                       displayMaxWidth={"100%"}
                       displayMinHeight={"0"}
                       displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      height={"170"}
+                      displayWidth={"20px"}
                       loading={"lazy"}
-                      src={(() => {
-                        try {
-                          return (() => {
-                            var week;
-                            if ($state.selectedWeek < 10)
-                              week = "0" + $state.selectedWeek;
-                            else week = "" + $state.selectedWeek;
-                            return (
-                              "https://liom.storage.c2.liara.space/config/pregnancy/week" +
-                              week +
-                              ".png"
-                            );
-                          })();
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return {
-                              src: "/plasmic/liom_hamyar/images/loading3SvgrepoComSvg2.svg",
-                              fullWidth: 512,
-                              fullHeight: 512,
-                              aspectRatio: 1
-                            };
-                          }
-                          throw e;
-                        }
-                      })()}
-                      width={
-                        hasVariant(globalVariants, "screen", "mobile")
-                          ? "160"
-                          : "170"
-                      }
+                      src={{
+                        src: "/plasmic/liom_hamyar/images/image38.svg",
+                        fullWidth: 24,
+                        fullHeight: 24,
+                        aspectRatio: 1
+                      }}
                     />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__sUv9I,
+                        {
+                          [sty.textdark__sUv9IXyRv7]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                    >
+                      {
+                        "\u062a\u0642\u0648\u06cc\u0645 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0647\u0641\u062a\u0647 \u0628\u0647 \u0647\u0641\u062a\u0647"
+                      }
+                    </div>
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__qlqYc)}>
-                  {(() => {
-                    try {
-                      return true;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
+              ) : null}
+              <div className={classNames(projectcss.all, sty.freeBox___9BnK7)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__khEUf,
+                    "my-scroll-list"
+                  )}
+                >
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return Array.from(
+                          { length: 40 },
+                          (_, index) => index + 1
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
                       }
-                      throw e;
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <TabWeek
+                        data-plasmic-name={"tabWeek"}
+                        data-plasmic-override={overrides.tabWeek}
+                        className={classNames("__wab_instance", sty.tabWeek, {
+                          [sty.tabWeekdark]: hasVariant($state, "dark", "dark")
+                        })}
+                        currentItem={currentItem}
+                        dark={
+                          hasVariant($state, "dark", "dark") ? true : undefined
+                        }
+                        darkSelected={
+                          hasVariant($state, "dark", "dark")
+                            ? (() => {
+                                try {
+                                  return currentItem == $state.selectedWeek;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : (() => {
+                                try {
+                                  return false;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                        }
+                        key={currentIndex}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["invokeGlobalAction"] =
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) != "314149"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId:
+                                              $ctx.query.userId?.length > 0
+                                                ? $ctx.query.userId.slice(
+                                                    4,
+                                                    $ctx.query.userId.length - 4
+                                                  )
+                                                : "guest",
+                                            pageName: "weekByWeekPage",
+                                            action: "clickWeekTab",
+                                            extraData: {}
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization:
+                                                "Bearer " +
+                                                $ctx.query.token.slice(
+                                                  6,
+                                                  $ctx.query.token.length - 3
+                                                )
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return {
+                                              headers: {
+                                                "Content-Type":
+                                                  "application/json",
+                                                Authorization:
+                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
+                                              }
+                                            };
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+
+                          $steps["updateSelectedWeek"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["selectedWeek"]
+                                  },
+                                  operation: 0,
+                                  value: currentIndex + 1
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateSelectedWeek"] != null &&
+                            typeof $steps["updateSelectedWeek"] === "object" &&
+                            typeof $steps["updateSelectedWeek"].then ===
+                              "function"
+                          ) {
+                            $steps["updateSelectedWeek"] = await $steps[
+                              "updateSelectedWeek"
+                            ];
+                          }
+                        }}
+                        selected={
+                          hasVariant($state, "dark", "dark")
+                            ? (() => {
+                                try {
+                                  return false;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            : (() => {
+                                try {
+                                  return currentItem == $state.selectedWeek;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()
+                        }
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+              {(() => {
+                try {
+                  return (
+                    $state.weekNum != $state.selectedWeek &&
+                    $ctx.query.token != ""
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__cqBd,
+                    {
+                      [sty.textdark__cqBdXyRv7]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
                     }
-                  })() ? (
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateSelectedWeek"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["selectedWeek"]
+                            },
+                            operation: 0,
+                            value: $ctx.query.weekNum
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSelectedWeek"] != null &&
+                      typeof $steps["updateSelectedWeek"] === "object" &&
+                      typeof $steps["updateSelectedWeek"].then === "function"
+                    ) {
+                      $steps["updateSelectedWeek"] = await $steps[
+                        "updateSelectedWeek"
+                      ];
+                    }
+                  }}
+                >
+                  {
+                    "\u0628\u0631\u06af\u0634\u062a \u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc"
+                  }
+                </div>
+              ) : null}
+              <div className={classNames(projectcss.all, sty.freeBox__skdKs)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__p84Rg, {
+                    [sty.freeBoxdark__p84RgXyRv7]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__r6HVe, {
+                      [sty.freeBoxdark__r6HVeXyRv7]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    })}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__uySe8)}
+                    >
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__irMrV)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        height={"170"}
+                        loading={"lazy"}
+                        src={(() => {
+                          try {
+                            return (() => {
+                              var week;
+                              if ($state.selectedWeek < 10)
+                                week = "0" + $state.selectedWeek;
+                              else week = "" + $state.selectedWeek;
+                              return (
+                                "https://liom.storage.c2.liara.space/config/pregnancy/week" +
+                                week +
+                                ".png"
+                              );
+                            })();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return {
+                                src: "/plasmic/liom_hamyar/images/loading3SvgrepoComSvg2.svg",
+                                fullWidth: 512,
+                                fullHeight: 512,
+                                aspectRatio: 1
+                              };
+                            }
+                            throw e;
+                          }
+                        })()}
+                        width={
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? "160"
+                            : "170"
+                        }
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__qlqYc)}
+                  >
+                    {(() => {
+                      try {
+                        return true;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__gtrCt
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___3Aqi
+                          )}
+                        >
+                          {"\u0648\u0632\u0646"}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__o6Jcb,
+                            {
+                              [sty.textdark__o6JcbXyRv7]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (
+                                  $state.babySize[$state.selectedWeek - 1].w +
+                                  ($state.selectedWeek - 1 >= 27
+                                    ? " کیلوگرم "
+                                    : " گرم ")
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </Stack__>
+                    ) : null}
                     <Stack__
                       as={"div"}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__gtrCt)}
+                      className={classNames(projectcss.all, sty.freeBox__tSlBm)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text___3Aqi
+                          sty.text__pmB
                         )}
                       >
-                        {"\u0648\u0632\u0646"}
+                        {"\u0627\u0646\u062f\u0627\u0632\u0647"}
                       </div>
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__o6Jcb,
+                          sty.text__gPoKb,
                           {
-                            [sty.textdark__o6JcbXyRv7]: hasVariant(
+                            [sty.textdark__gPoKbXyRv7]: hasVariant(
                               $state,
                               "dark",
                               "dark"
@@ -1589,10 +1687,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           {(() => {
                             try {
                               return (
-                                $state.babySize[$state.selectedWeek - 1].w +
-                                ($state.selectedWeek - 1 >= 27
-                                  ? " کیلوگرم "
-                                  : " گرم ")
+                                $state.babySize[$state.selectedWeek - 1].h +
+                                " سانتی متر "
                               );
                             } catch (e) {
                               if (
@@ -1607,1416 +1703,1385 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                     </Stack__>
-                  ) : null}
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__tSlBm)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__pmB
-                      )}
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__q9GLq)}
                     >
-                      {"\u0627\u0646\u062f\u0627\u0632\u0647"}
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__gPoKb,
-                        {
-                          [sty.textdark__gPoKbXyRv7]: hasVariant(
-                            $state,
-                            "dark",
-                            "dark"
-                          )
-                        }
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (
-                              $state.babySize[$state.selectedWeek - 1].h +
-                              " سانتی متر "
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__frIaN
+                        )}
+                      >
+                        {"\u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__zr2Df,
+                          {
+                            [sty.textdark__zr2DfXyRv7]: hasVariant(
+                              $state,
+                              "dark",
+                              "dark"
+                            )
                           }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                  </Stack__>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__q9GLq)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__frIaN
-                      )}
-                    >
-                      {"\u062a\u0627 \u0632\u0627\u06cc\u0645\u0627\u0646"}
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__zr2Df,
-                        {
-                          [sty.textdark__zr2DfXyRv7]: hasVariant(
-                            $state,
-                            "dark",
-                            "dark"
-                          )
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            if (
+                              $state.selectedWeek == ($ctx.query.weekNum ?? 1)
+                            )
+                              return ($ctx.query.days ?? 1) + " روز ";
+                            else return "--";
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <AntdModal
+                        data-plasmic-name={"modal"}
+                        data-plasmic-override={overrides.modal}
+                        className={classNames("__wab_instance", sty.modal)}
+                        defaultStylesClassName={classNames(
+                          projectcss.root_reset,
+                          projectcss.plasmic_default_styles,
+                          projectcss.plasmic_mixins,
+                          projectcss.plasmic_tokens,
+                          plasmic_antd_5_hostless_css.plasmic_tokens,
+                          plasmic_plasmic_rich_components_css.plasmic_tokens
+                        )}
+                        footer={
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__vw52N
+                            )}
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          return window.open(
+                                            "https://old.liom.app/link",
+                                            "_blank"
+                                          );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__gTdJu
+                              )}
+                            >
+                              {
+                                "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
+                              }
+                            </div>
+                          </Stack__>
                         }
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          if ($state.selectedWeek == ($ctx.query.weekNum ?? 1))
-                            return ($ctx.query.days ?? 1) + " روز ";
-                          else return "--";
-                        })()}
-                      </React.Fragment>
-                    </div>
-                    <AntdModal
-                      data-plasmic-name={"modal"}
-                      data-plasmic-override={overrides.modal}
-                      className={classNames("__wab_instance", sty.modal)}
-                      defaultStylesClassName={classNames(
-                        projectcss.root_reset,
-                        projectcss.plasmic_default_styles,
-                        projectcss.plasmic_mixins,
-                        projectcss.plasmic_tokens,
-                        plasmic_antd_5_hostless_css.plasmic_tokens,
-                        plasmic_plasmic_rich_components_css.plasmic_tokens
-                      )}
-                      footer={
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        modalScopeClassName={sty["modal__modal"]}
+                        onOpenChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "modal",
+                            "open"
+                          ]).apply(null, eventArgs);
+                        }}
+                        open={generateStateValueProp($state, ["modal", "open"])}
+                        title={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__v2Kpk
+                            )}
+                          >
+                            <React.Fragment>
+                              <span
+                                className={
+                                  "plasmic_default__all plasmic_default__span"
+                                }
+                                style={{ fontWeight: 700 }}
+                              >
+                                {"\u062a\u0648\u062c\u0647!"}
+                              </span>
+                            </React.Fragment>
+                          </div>
+                        }
+                        trigger={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___5AGg5
+                            )}
+                          >
+                            {""}
+                          </div>
+                        }
+                      >
+                        <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__vw52N
+                            sty.freeBox__egFqK
                           )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        return window.open(
-                                          "https://old.liom.app/link",
-                                          "_blank"
-                                        );
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
-                            }
-                          }}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
                               projectcss.__wab_text,
-                              sty.text__gTdJu
+                              sty.text___9Knjt
                             )}
                           >
                             {
-                              "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
+                              "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0648 \u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc  \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0646\u0631\u0645 \u0627\u0641\u0632\u0627\u0631 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0628\u0647 \u0635\u0648\u0631\u062a \u0631\u0627\u06cc\u06a9\u0627\u0646 \u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631  \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f ."
                             }
                           </div>
-                        </Stack__>
-                      }
-                      modalScopeClassName={sty["modal__modal"]}
-                      onOpenChange={async (...eventArgs: any) => {
-                        generateStateOnChangeProp($state, [
-                          "modal",
-                          "open"
-                        ]).apply(null, eventArgs);
-                      }}
-                      open={generateStateValueProp($state, ["modal", "open"])}
-                      title={
+                        </div>
+                      </AntdModal>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___66Tdp
+                        )}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateModalOpen"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["modal", "open"]
+                                  },
+                                  operation: 4
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  const oldValue = $stateGet(
+                                    objRoot,
+                                    variablePath
+                                  );
+                                  $stateSet(objRoot, variablePath, !oldValue);
+                                  return !oldValue;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateModalOpen"] != null &&
+                            typeof $steps["updateModalOpen"] === "object" &&
+                            typeof $steps["updateModalOpen"].then === "function"
+                          ) {
+                            $steps["updateModalOpen"] = await $steps[
+                              "updateModalOpen"
+                            ];
+                          }
+                        }}
+                      >
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__v2Kpk
+                            sty.text__fN9Y
+                          )}
+                        >
+                          {
+                            "\u062b\u0628\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
+                          }
+                        </div>
+                      </div>
+                    </Stack__>
+                  </div>
+                </div>
+              </div>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__gt682)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateModalOpen"] =
+                    $ctx.query.token == ""
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["modal", "open"]
+                            },
+                            operation: 4
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            const oldValue = $stateGet(objRoot, variablePath);
+                            $stateSet(objRoot, variablePath, !oldValue);
+                            return !oldValue;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                  if (
+                    $steps["updateModalOpen"] != null &&
+                    typeof $steps["updateModalOpen"] === "object" &&
+                    typeof $steps["updateModalOpen"].then === "function"
+                  ) {
+                    $steps["updateModalOpen"] = await $steps["updateModalOpen"];
+                  }
+                }}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__krpDp, {
+                    [sty.freeBoxdark__krpDpXyRv7]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.FlutterChannel.postMessage(
+                                  "#babySize"
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img___63OGe)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? "35px"
+                        : "45px"
+                    }
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image30.svg",
+                      fullWidth: 32,
+                      fullHeight: 32,
+                      aspectRatio: 1
+                    }}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__vsqeh,
+                      {
+                        [sty.textdark__vsqehXyRv7]: hasVariant(
+                          $state,
+                          "dark",
+                          "dark"
+                        )
+                      }
+                    )}
+                  >
+                    {"\u0633\u0627\u06cc\u0632 \u062c\u0646\u06cc\u0646"}
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__xriI1, {
+                    [sty.freeBoxdark__xriI1XyRv7]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.FlutterChannel.postMessage(
+                                  "#dangerOrNot"
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img___8Vta)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"none"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? "35px"
+                        : "45px"
+                    }
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image28.svg",
+                      fullWidth: 32,
+                      fullHeight: 32,
+                      aspectRatio: 1
+                    }}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__dpZt6,
+                      {
+                        [sty.textdark__dpZt6XyRv7]: hasVariant(
+                          $state,
+                          "dark",
+                          "dark"
+                        )
+                      }
+                    )}
+                  >
+                    {
+                      "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647\u061f"
+                    }
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__hjoy3, {
+                    [sty.freeBoxdark__hjoy3XyRv7]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.FlutterChannel.postMessage(
+                                  "#diary"
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                >
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__j5OE5)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"auto"}
+                    height={``}
+                    loading={"lazy"}
+                    src={
+                      "https://site-assets.plasmic.app/cb731cf766e9363bb5d979639af237e5.svg"
+                    }
+                    width={
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? "35"
+                        : "45"
+                    }
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__rV3MI,
+                      {
+                        [sty.textdark__rV3MIXyRv7]: hasVariant(
+                          $state,
+                          "dark",
+                          "dark"
+                        )
+                      }
+                    )}
+                  >
+                    {"\u062e\u0627\u0637\u0631\u0627\u062a \u0645\u0646"}
+                  </div>
+                </Stack__>
+              </div>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__abCtx, {
+                  [sty.freeBoxdark__abCtxXyRv7]: hasVariant(
+                    $state,
+                    "dark",
+                    "dark"
+                  )
+                })}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__mfTy, {
+                    [sty.freeBoxdark__mfTyXyRv7]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
+                >
+                  {(() => {
+                    const child$Props = {
+                      bordered: true,
+                      className: classNames(
+                        "__wab_instance",
+                        sty.collapseBaby,
+                        {
+                          [sty.collapseBabydark]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      ),
+                      expandIcon: (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.collapseBaby.open != true;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__l3Ldq)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"15px"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/liom_hamyar/images/image32.svg",
+                                fullWidth: 16,
+                                fullHeight: 16,
+                                aspectRatio: 1
+                              }}
+                            />
+                          ) : null}
+                          {(() => {
+                            try {
+                              return $state.collapseBaby.open == true;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__jrP4H)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"25px"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/liom_hamyar/images/image31.svg",
+                                fullWidth: 16,
+                                fullHeight: 16,
+                                aspectRatio: 1
+                              }}
+                            />
+                          ) : null}
+                        </React.Fragment>
+                      ),
+                      expandIconPosition: "end",
+                      ghost: true,
+                      label2: (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__wmaWs,
+                            {
+                              [sty.textdark__wmaWsXyRv7]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
+                          )}
+                        >
+                          {
+                            "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647"
+                          }
+                        </div>
+                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "open",
+                          ["collapseBaby", "open"],
+                          AntdSingleCollapse_Helpers
+                        ).apply(null, eventArgs);
+
+                        (async activeIds => {
+                          const $steps = {};
+
+                          $steps["invokeGlobalAction"] =
+                            ($state.collapseBaby.open ? true : false) &&
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) != "314149"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId:
+                                              $ctx.query.userId?.length > 0
+                                                ? $ctx.query.userId.slice(
+                                                    4,
+                                                    $ctx.query.userId.length - 4
+                                                  )
+                                                : "guest",
+                                            pageName: "weekByWeekPage",
+                                            action: "clickOpen-babyAdvice",
+                                            extraData: {}
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization:
+                                                "Bearer " +
+                                                $ctx.query.token.slice(
+                                                  6,
+                                                  $ctx.query.token.length - 3
+                                                )
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return {
+                                              headers: {
+                                                "Content-Type":
+                                                  "application/json",
+                                                Authorization:
+                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
+                                              }
+                                            };
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+                        }).apply(null, eventArgs);
+                      },
+                      open: generateStateValueProp($state, [
+                        "collapseBaby",
+                        "open"
+                      ]),
+                      showArrow: true,
+                      size: "large"
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "open",
+                          plasmicStateName: "collapseBaby.open"
+                        }
+                      ],
+                      [],
+                      AntdSingleCollapse_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <AntdSingleCollapse
+                        data-plasmic-name={"collapseBaby"}
+                        data-plasmic-override={overrides.collapseBaby}
+                        {...child$Props}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___5RMnx,
+                            {
+                              [sty.textdark___5RMnxXyRv7]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
                           )}
                         >
                           <React.Fragment>
-                            <span
-                              className={
-                                "plasmic_default__all plasmic_default__span"
+                            {(() => {
+                              try {
+                                return $state.textBaby[$state.selectedWeek - 1];
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
                               }
-                              style={{ fontWeight: 700 }}
-                            >
-                              {"\u062a\u0648\u062c\u0647!"}
-                            </span>
+                            })()}
                           </React.Fragment>
                         </div>
-                      }
-                      trigger={
+                      </AntdSingleCollapse>
+                    );
+                  })()}
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___5Onyb, {
+                    [sty.freeBoxdark___5OnybXyRv7]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
+                >
+                  {(() => {
+                    const child$Props = {
+                      bordered: true,
+                      className: classNames(
+                        "__wab_instance",
+                        sty.collapseMother,
+                        {
+                          [sty.collapseMotherdark]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      ),
+                      expandIcon: (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.collapseMother.open != true;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__m9NWm)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"15px"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/liom_hamyar/images/image32.svg",
+                                fullWidth: 16,
+                                fullHeight: 16,
+                                aspectRatio: 1
+                              }}
+                            />
+                          ) : null}
+                          {(() => {
+                            try {
+                              return $state.collapseMother.open == true;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__mzl3D)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"25px"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/liom_hamyar/images/image31.svg",
+                                fullWidth: 16,
+                                fullHeight: 16,
+                                aspectRatio: 1
+                              }}
+                            />
+                          ) : null}
+                        </React.Fragment>
+                      ),
+                      expandIconPosition: "end",
+                      ghost: true,
+                      label2: (
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text___5AGg5
+                            sty.text___5RsNt,
+                            {
+                              [sty.textdark___5RsNtXyRv7]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
                           )}
                         >
-                          {""}
+                          {
+                            "\u0635\u062d\u0628\u062a \u0628\u0627 \u0645\u0627\u062f\u0631"
+                          }
                         </div>
-                      }
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__egFqK
-                        )}
+                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "open",
+                          ["collapseMother", "open"],
+                          AntdSingleCollapse_Helpers
+                        ).apply(null, eventArgs);
+
+                        (async activeIds => {
+                          const $steps = {};
+
+                          $steps["invokeGlobalAction"] =
+                            ($state.collapseMother.open ? true : false) &&
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) != "314149"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId:
+                                              $ctx.query.userId?.length > 0
+                                                ? $ctx.query.userId.slice(
+                                                    4,
+                                                    $ctx.query.userId.length - 4
+                                                  )
+                                                : "guest",
+                                            pageName: "weekByWeekPage",
+                                            action: "clickOpen-motherAdvice",
+                                            extraData: {}
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization:
+                                                "Bearer " +
+                                                $ctx.query.token.slice(
+                                                  6,
+                                                  $ctx.query.token.length - 3
+                                                )
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return {
+                                              headers: {
+                                                "Content-Type":
+                                                  "application/json",
+                                                Authorization:
+                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
+                                              }
+                                            };
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+                        }).apply(null, eventArgs);
+                      },
+                      open: generateStateValueProp($state, [
+                        "collapseMother",
+                        "open"
+                      ]),
+                      showArrow: true,
+                      size: "large"
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "open",
+                          plasmicStateName: "collapseMother.open"
+                        }
+                      ],
+                      [],
+                      AntdSingleCollapse_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <AntdSingleCollapse
+                        data-plasmic-name={"collapseMother"}
+                        data-plasmic-override={overrides.collapseMother}
+                        {...child$Props}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text___9Knjt
+                            sty.text__zdabM,
+                            {
+                              [sty.textdark__zdabMXyRv7]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
                           )}
                         >
-                          {
-                            "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0648 \u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc  \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0646\u0631\u0645 \u0627\u0641\u0632\u0627\u0631 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0628\u0647 \u0635\u0648\u0631\u062a \u0631\u0627\u06cc\u06a9\u0627\u0646 \u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631  \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f ."
-                          }
-                        </div>
-                      </div>
-                    </AntdModal>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___66Tdp
-                      )}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["updateModalOpen"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["modal", "open"]
-                                },
-                                operation: 4
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.textMother[
+                                  $state.selectedWeek - 1
+                                ];
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
                                 }
-                                const { objRoot, variablePath } = variable;
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </AntdSingleCollapse>
+                    );
+                  })()}
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__lsYmp, {
+                    [sty.freeBoxdark__lsYmpXyRv7]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
+                >
+                  {(() => {
+                    const child$Props = {
+                      bordered: true,
+                      className: classNames(
+                        "__wab_instance",
+                        sty.collapseHealth,
+                        {
+                          [sty.collapseHealthdark]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      ),
+                      expandIcon: (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.collapseHealth.open != true;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return false;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__llz9J)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"15px"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/liom_hamyar/images/image32.svg",
+                                fullWidth: 16,
+                                fullHeight: 16,
+                                aspectRatio: 1
+                              }}
+                            />
+                          ) : null}
+                          {(() => {
+                            try {
+                              return $state.collapseHealth.open == true;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__xAvsy)}
+                              displayHeight={"auto"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"25px"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/liom_hamyar/images/image31.svg",
+                                fullWidth: 16,
+                                fullHeight: 16,
+                                aspectRatio: 1
+                              }}
+                            />
+                          ) : null}
+                        </React.Fragment>
+                      ),
+                      expandIconPosition: "end",
+                      ghost: true,
+                      label2: (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___2OsqI,
+                            {
+                              [sty.textdark___2OsqIXyRv7]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
+                          )}
+                        >
+                          {
+                            "\u062a\u0648\u0635\u06cc\u0647 \u0648 \u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u0647\u0627\u06cc \u0633\u0644\u0627\u0645\u062a\u06cc"
+                          }
+                        </div>
+                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "open",
+                          ["collapseHealth", "open"],
+                          AntdSingleCollapse_Helpers
+                        ).apply(null, eventArgs);
 
-                                const oldValue = $stateGet(
-                                  objRoot,
-                                  variablePath
+                        (async activeIds => {
+                          const $steps = {};
+
+                          $steps["invokeGlobalAction"] =
+                            ($state.collapseHealth.open ? true : false) &&
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) != "314149"
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://api.liom.app/service/log",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            userId:
+                                              $ctx.query.userId?.length > 0
+                                                ? $ctx.query.userId.slice(
+                                                    4,
+                                                    $ctx.query.userId.length - 4
+                                                  )
+                                                : "guest",
+                                            pageName: "weekByWeekPage",
+                                            action: "clickOpen-healthAdvice",
+                                            extraData: {}
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                      (() => {
+                                        try {
+                                          return {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization:
+                                                "Bearer " +
+                                                $ctx.query.token.slice(
+                                                  6,
+                                                  $ctx.query.token.length - 3
+                                                )
+                                            }
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return {
+                                              headers: {
+                                                "Content-Type":
+                                                  "application/json",
+                                                Authorization:
+                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
+                                              }
+                                            };
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+                        }).apply(null, eventArgs);
+                      },
+                      open: generateStateValueProp($state, [
+                        "collapseHealth",
+                        "open"
+                      ]),
+                      showArrow: true,
+                      size: "large"
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "open",
+                          plasmicStateName: "collapseHealth.open"
+                        }
+                      ],
+                      [],
+                      AntdSingleCollapse_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <AntdSingleCollapse
+                        data-plasmic-name={"collapseHealth"}
+                        data-plasmic-override={overrides.collapseHealth}
+                        {...child$Props}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__fA154,
+                            {
+                              [sty.textdark__fA154XyRv7]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.adviceHealth[
+                                  $state.selectedWeek - 1
+                                ];
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </AntdSingleCollapse>
+                    );
+                  })()}
+                </div>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__arqS1)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.open(
+                                  "https://old.liom.app/link",
+                                  "_blank"
                                 );
-                                $stateSet(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateModalOpen"] != null &&
-                          typeof $steps["updateModalOpen"] === "object" &&
-                          typeof $steps["updateModalOpen"].then === "function"
-                        ) {
-                          $steps["updateModalOpen"] = await $steps[
-                            "updateModalOpen"
-                          ];
-                        }
-                      }}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__fN9Y
-                        )}
-                      >
-                        {
-                          "\u062b\u0628\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
-                        }
-                      </div>
-                    </div>
-                  </Stack__>
-                </div>
-              </div>
-            </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__gt682)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["updateModalOpen"] =
-                  $ctx.query.token == ""
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["modal", "open"]
-                          },
-                          operation: 4
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          const oldValue = $stateGet(objRoot, variablePath);
-                          $stateSet(objRoot, variablePath, !oldValue);
-                          return !oldValue;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["updateModalOpen"] != null &&
-                  typeof $steps["updateModalOpen"] === "object" &&
-                  typeof $steps["updateModalOpen"].then === "function"
-                ) {
-                  $steps["updateModalOpen"] = await $steps["updateModalOpen"];
-                }
-              }}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__krpDp, {
-                  [sty.freeBoxdark__krpDpXyRv7]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return window.FlutterChannel.postMessage(
-                                "#babySize"
-                              );
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-              >
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img___63OGe)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "35px"
-                      : "45px"
-                  }
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image30.svg",
-                    fullWidth: 32,
-                    fullHeight: 32,
-                    aspectRatio: 1
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
                   }}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__vsqeh,
-                    {
-                      [sty.textdark__vsqehXyRv7]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
                 >
-                  {"\u0633\u0627\u06cc\u0632 \u062c\u0646\u06cc\u0646"}
-                </div>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__xriI1, {
-                  [sty.freeBoxdark__xriI1XyRv7]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return window.FlutterChannel.postMessage(
-                                "#dangerOrNot"
-                              );
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-              >
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img___8Vta)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"none"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "35px"
-                      : "45px"
-                  }
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image28.svg",
-                    fullWidth: 32,
-                    fullHeight: 32,
-                    aspectRatio: 1
-                  }}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__dpZt6,
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___5KNhh
+                    )}
+                  >
                     {
-                      [sty.textdark__dpZt6XyRv7]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
+                      "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
                     }
-                  )}
-                >
-                  {
-                    "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647\u061f"
-                  }
-                </div>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__hjoy3, {
-                  [sty.freeBoxdark__hjoy3XyRv7]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return window.FlutterChannel.postMessage(
-                                "#diary"
-                              );
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-              >
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img__j5OE5)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"auto"}
-                  height={``}
-                  loading={"lazy"}
-                  src={
-                    "https://site-assets.plasmic.app/cb731cf766e9363bb5d979639af237e5.svg"
-                  }
-                  width={
-                    hasVariant(globalVariants, "screen", "mobile") ? "35" : "45"
-                  }
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rV3MI,
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__hUuxZ
+                    )}
+                  >
                     {
-                      [sty.textdark__rV3MIXyRv7]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
+                      "\u0644\u06cc\u0648\u0645\u060c \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f."
                     }
-                  )}
-                >
-                  {"\u062e\u0627\u0637\u0631\u0627\u062a \u0645\u0646"}
-                </div>
-              </Stack__>
+                  </div>
+                </Stack__>
+              </div>
             </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__abCtx, {
-                [sty.freeBoxdark__abCtxXyRv7]: hasVariant(
-                  $state,
-                  "dark",
-                  "dark"
-                )
-              })}
-            >
-              <div
-                className={classNames(projectcss.all, sty.freeBox__mfTy, {
-                  [sty.freeBoxdark__mfTyXyRv7]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-              >
-                {(() => {
-                  const child$Props = {
-                    bordered: true,
-                    className: classNames("__wab_instance", sty.collapseBaby, {
-                      [sty.collapseBabydark]: hasVariant($state, "dark", "dark")
-                    }),
-                    expandIcon: (
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.collapseBaby.open != true;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return false;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <PlasmicImg__
-                            alt={""}
-                            className={classNames(sty.img__l3Ldq)}
-                            displayHeight={"auto"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"15px"}
-                            loading={"lazy"}
-                            src={{
-                              src: "/plasmic/liom_hamyar/images/image32.svg",
-                              fullWidth: 16,
-                              fullHeight: 16,
-                              aspectRatio: 1
-                            }}
-                          />
-                        ) : null}
-                        {(() => {
-                          try {
-                            return $state.collapseBaby.open == true;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <PlasmicImg__
-                            alt={""}
-                            className={classNames(sty.img__jrP4H)}
-                            displayHeight={"auto"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"25px"}
-                            loading={"lazy"}
-                            src={{
-                              src: "/plasmic/liom_hamyar/images/image31.svg",
-                              fullWidth: 16,
-                              fullHeight: 16,
-                              aspectRatio: 1
-                            }}
-                          />
-                        ) : null}
-                      </React.Fragment>
-                    ),
-                    expandIconPosition: "end",
-                    ghost: true,
-                    label2: (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__wmaWs,
-                          {
-                            [sty.textdark__wmaWsXyRv7]: hasVariant(
-                              $state,
-                              "dark",
-                              "dark"
-                            )
-                          }
-                        )}
-                      >
-                        {
-                          "\u062a\u0648\u0636\u06cc\u062d \u0631\u0627\u062c\u0628 \u0628\u0686\u0647"
-                        }
-                      </div>
-                    ),
-                    onChange: async (...eventArgs: any) => {
-                      generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "open",
-                        ["collapseBaby", "open"],
-                        AntdSingleCollapse_Helpers
-                      ).apply(null, eventArgs);
-
-                      (async activeIds => {
-                        const $steps = {};
-
-                        $steps["invokeGlobalAction"] =
-                          ($state.collapseBaby.open ? true : false) &&
-                          $ctx.query.userId.slice(
-                            4,
-                            $ctx.query.userId.length - 4
-                          ) != "314149"
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://api.liom.app/service/log",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          userId:
-                                            $ctx.query.userId?.length > 0
-                                              ? $ctx.query.userId.slice(
-                                                  4,
-                                                  $ctx.query.userId.length - 4
-                                                )
-                                              : "guest",
-                                          pageName: "weekByWeekPage",
-                                          action: "clickOpen-babyAdvice",
-                                          extraData: {}
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })(),
-                                    (() => {
-                                      try {
-                                        return {
-                                          headers: {
-                                            "Content-Type": "application/json",
-                                            Authorization:
-                                              "Bearer " +
-                                              $ctx.query.token.slice(
-                                                6,
-                                                $ctx.query.token.length - 3
-                                              )
-                                          }
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
-                                            }
-                                          };
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-                      }).apply(null, eventArgs);
-                    },
-                    open: generateStateValueProp($state, [
-                      "collapseBaby",
-                      "open"
-                    ]),
-                    showArrow: true,
-                    size: "large"
-                  };
-                  initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "open",
-                        plasmicStateName: "collapseBaby.open"
-                      }
-                    ],
-                    [],
-                    AntdSingleCollapse_Helpers ?? {},
-                    child$Props
-                  );
-
-                  return (
-                    <AntdSingleCollapse
-                      data-plasmic-name={"collapseBaby"}
-                      data-plasmic-override={overrides.collapseBaby}
-                      {...child$Props}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___5RMnx,
-                          {
-                            [sty.textdark___5RMnxXyRv7]: hasVariant(
-                              $state,
-                              "dark",
-                              "dark"
-                            )
-                          }
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return $state.textBaby[$state.selectedWeek - 1];
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </AntdSingleCollapse>
-                  );
-                })()}
-              </div>
-              <div
-                className={classNames(projectcss.all, sty.freeBox___5Onyb, {
-                  [sty.freeBoxdark___5OnybXyRv7]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-              >
-                {(() => {
-                  const child$Props = {
-                    bordered: true,
-                    className: classNames(
-                      "__wab_instance",
-                      sty.collapseMother,
-                      {
-                        [sty.collapseMotherdark]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }
-                    ),
-                    expandIcon: (
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.collapseMother.open != true;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return false;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <PlasmicImg__
-                            alt={""}
-                            className={classNames(sty.img__m9NWm)}
-                            displayHeight={"auto"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"15px"}
-                            loading={"lazy"}
-                            src={{
-                              src: "/plasmic/liom_hamyar/images/image32.svg",
-                              fullWidth: 16,
-                              fullHeight: 16,
-                              aspectRatio: 1
-                            }}
-                          />
-                        ) : null}
-                        {(() => {
-                          try {
-                            return $state.collapseMother.open == true;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <PlasmicImg__
-                            alt={""}
-                            className={classNames(sty.img__mzl3D)}
-                            displayHeight={"auto"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"25px"}
-                            loading={"lazy"}
-                            src={{
-                              src: "/plasmic/liom_hamyar/images/image31.svg",
-                              fullWidth: 16,
-                              fullHeight: 16,
-                              aspectRatio: 1
-                            }}
-                          />
-                        ) : null}
-                      </React.Fragment>
-                    ),
-                    expandIconPosition: "end",
-                    ghost: true,
-                    label2: (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___5RsNt,
-                          {
-                            [sty.textdark___5RsNtXyRv7]: hasVariant(
-                              $state,
-                              "dark",
-                              "dark"
-                            )
-                          }
-                        )}
-                      >
-                        {
-                          "\u0635\u062d\u0628\u062a \u0628\u0627 \u0645\u0627\u062f\u0631"
-                        }
-                      </div>
-                    ),
-                    onChange: async (...eventArgs: any) => {
-                      generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "open",
-                        ["collapseMother", "open"],
-                        AntdSingleCollapse_Helpers
-                      ).apply(null, eventArgs);
-
-                      (async activeIds => {
-                        const $steps = {};
-
-                        $steps["invokeGlobalAction"] =
-                          ($state.collapseMother.open ? true : false) &&
-                          $ctx.query.userId.slice(
-                            4,
-                            $ctx.query.userId.length - 4
-                          ) != "314149"
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://api.liom.app/service/log",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          userId:
-                                            $ctx.query.userId?.length > 0
-                                              ? $ctx.query.userId.slice(
-                                                  4,
-                                                  $ctx.query.userId.length - 4
-                                                )
-                                              : "guest",
-                                          pageName: "weekByWeekPage",
-                                          action: "clickOpen-motherAdvice",
-                                          extraData: {}
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })(),
-                                    (() => {
-                                      try {
-                                        return {
-                                          headers: {
-                                            "Content-Type": "application/json",
-                                            Authorization:
-                                              "Bearer " +
-                                              $ctx.query.token.slice(
-                                                6,
-                                                $ctx.query.token.length - 3
-                                              )
-                                          }
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
-                                            }
-                                          };
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-                      }).apply(null, eventArgs);
-                    },
-                    open: generateStateValueProp($state, [
-                      "collapseMother",
-                      "open"
-                    ]),
-                    showArrow: true,
-                    size: "large"
-                  };
-                  initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "open",
-                        plasmicStateName: "collapseMother.open"
-                      }
-                    ],
-                    [],
-                    AntdSingleCollapse_Helpers ?? {},
-                    child$Props
-                  );
-
-                  return (
-                    <AntdSingleCollapse
-                      data-plasmic-name={"collapseMother"}
-                      data-plasmic-override={overrides.collapseMother}
-                      {...child$Props}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__zdabM,
-                          {
-                            [sty.textdark__zdabMXyRv7]: hasVariant(
-                              $state,
-                              "dark",
-                              "dark"
-                            )
-                          }
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return $state.textMother[$state.selectedWeek - 1];
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </AntdSingleCollapse>
-                  );
-                })()}
-              </div>
-              <div
-                className={classNames(projectcss.all, sty.freeBox__lsYmp, {
-                  [sty.freeBoxdark__lsYmpXyRv7]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-              >
-                {(() => {
-                  const child$Props = {
-                    bordered: true,
-                    className: classNames(
-                      "__wab_instance",
-                      sty.collapseHealth,
-                      {
-                        [sty.collapseHealthdark]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }
-                    ),
-                    expandIcon: (
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.collapseHealth.open != true;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return false;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <PlasmicImg__
-                            alt={""}
-                            className={classNames(sty.img__llz9J)}
-                            displayHeight={"auto"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"15px"}
-                            loading={"lazy"}
-                            src={{
-                              src: "/plasmic/liom_hamyar/images/image32.svg",
-                              fullWidth: 16,
-                              fullHeight: 16,
-                              aspectRatio: 1
-                            }}
-                          />
-                        ) : null}
-                        {(() => {
-                          try {
-                            return $state.collapseHealth.open == true;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <PlasmicImg__
-                            alt={""}
-                            className={classNames(sty.img__xAvsy)}
-                            displayHeight={"auto"}
-                            displayMaxHeight={"none"}
-                            displayMaxWidth={"100%"}
-                            displayMinHeight={"0"}
-                            displayMinWidth={"0"}
-                            displayWidth={"25px"}
-                            loading={"lazy"}
-                            src={{
-                              src: "/plasmic/liom_hamyar/images/image31.svg",
-                              fullWidth: 16,
-                              fullHeight: 16,
-                              aspectRatio: 1
-                            }}
-                          />
-                        ) : null}
-                      </React.Fragment>
-                    ),
-                    expandIconPosition: "end",
-                    ghost: true,
-                    label2: (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___2OsqI,
-                          {
-                            [sty.textdark___2OsqIXyRv7]: hasVariant(
-                              $state,
-                              "dark",
-                              "dark"
-                            )
-                          }
-                        )}
-                      >
-                        {
-                          "\u062a\u0648\u0635\u06cc\u0647 \u0648 \u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u0647\u0627\u06cc \u0633\u0644\u0627\u0645\u062a\u06cc"
-                        }
-                      </div>
-                    ),
-                    onChange: async (...eventArgs: any) => {
-                      generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "open",
-                        ["collapseHealth", "open"],
-                        AntdSingleCollapse_Helpers
-                      ).apply(null, eventArgs);
-
-                      (async activeIds => {
-                        const $steps = {};
-
-                        $steps["invokeGlobalAction"] =
-                          ($state.collapseHealth.open ? true : false) &&
-                          $ctx.query.userId.slice(
-                            4,
-                            $ctx.query.userId.length - 4
-                          ) != "314149"
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://api.liom.app/service/log",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          userId:
-                                            $ctx.query.userId?.length > 0
-                                              ? $ctx.query.userId.slice(
-                                                  4,
-                                                  $ctx.query.userId.length - 4
-                                                )
-                                              : "guest",
-                                          pageName: "weekByWeekPage",
-                                          action: "clickOpen-healthAdvice",
-                                          extraData: {}
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })(),
-                                    (() => {
-                                      try {
-                                        return {
-                                          headers: {
-                                            "Content-Type": "application/json",
-                                            Authorization:
-                                              "Bearer " +
-                                              $ctx.query.token.slice(
-                                                6,
-                                                $ctx.query.token.length - 3
-                                              )
-                                          }
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
-                                            }
-                                          };
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-                      }).apply(null, eventArgs);
-                    },
-                    open: generateStateValueProp($state, [
-                      "collapseHealth",
-                      "open"
-                    ]),
-                    showArrow: true,
-                    size: "large"
-                  };
-                  initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "open",
-                        plasmicStateName: "collapseHealth.open"
-                      }
-                    ],
-                    [],
-                    AntdSingleCollapse_Helpers ?? {},
-                    child$Props
-                  );
-
-                  return (
-                    <AntdSingleCollapse
-                      data-plasmic-name={"collapseHealth"}
-                      data-plasmic-override={overrides.collapseHealth}
-                      {...child$Props}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__fA154,
-                          {
-                            [sty.textdark__fA154XyRv7]: hasVariant(
-                              $state,
-                              "dark",
-                              "dark"
-                            )
-                          }
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return $state.adviceHealth[
-                                $state.selectedWeek - 1
-                              ];
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </AntdSingleCollapse>
-                  );
-                })()}
-              </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__arqS1)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return window.open(
-                                "https://old.liom.app/link",
-                                "_blank"
-                              );
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___5KNhh
-                  )}
-                >
-                  {
-                    "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
-                  }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__hUuxZ
-                  )}
-                >
-                  {
-                    "\u0644\u06cc\u0648\u0645\u060c \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f."
-                  }
-                </div>
-              </Stack__>
-            </div>
-          </div>
+          ) : null}
         </div>
       </div>
     </React.Fragment>

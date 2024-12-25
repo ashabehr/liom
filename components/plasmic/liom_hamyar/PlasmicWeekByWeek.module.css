@@ -42,6 +42,7 @@
   object-fit: cover;
 }
 .freeBox__zfkAg {
+  display: flex;
   flex-direction: column;
   position: relative;
   align-items: center;
@@ -51,7 +52,6 @@
   max-width: 100%;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
-  display: none;
   padding: 8px;
 }
 .lottie:global(.__wab_instance) {
