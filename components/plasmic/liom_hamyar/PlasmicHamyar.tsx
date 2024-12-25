@@ -2326,9 +2326,32 @@ function PlasmicHamyar__RenderFunc(props: {
                             sty.text__lFbQr
                           )}
                         >
-                          {hasVariant(globalVariants, "screen", "mobile")
-                            ? "\u0628\u0627 \u0645\u062d\u062a\u0648\u0627\u06cc \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647\u062a\u0631 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u062d\u0645\u0627\u06cc\u062a\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647\u060c \u0628\u0647\u0634 \u0628\u062f\u06cc. \u0627\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647\u06cc \u0628\u0627\u0639\u062b \u0622\u0631\u0627\u0645\u0634 \u0648 \u0628\u0647\u0628\u0648\u062f \u062d\u0627\u0644 \u0647\u0631 \u062f\u0648\u06cc \u0634\u0645\u0627 \u0645\u06cc\u200c\u0634\u0647."
-                            : "\u0628\u0627 \u0645\u062d\u062a\u0648\u0627\u06cc \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647\u062a\u0631 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u062d\u0645\u0627\u06cc\u062a\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647\u060c \u0628\u0647\u0634 \u0628\u062f\u06cc. \u0627\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647\u06cc \u0628\u0627\u0639\u062b \u0622\u0631\u0627\u0645\u0634 \u0648 \u0628\u0647\u0628\u0648\u062f \u062d\u0627\u0644 \u0647\u0631 \u062f\u0648\u06cc \u0634\u0645\u0627 \u0645\u06cc\u200c\u0634\u0647."}
+                          {hasVariant(globalVariants, "screen", "mobile") ? (
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    "با محتوای این صفحه می‌تونی بهتر تغییرات جسمی و روحی همیارت رو درک کنی و حمایتی که نیاز داره، بهش بدی. این همراهی باعث آرامش و بهبود حال هر " +
+                                    ($state.cyclebox.cycle == "Pregnancy"
+                                      ? "سه"
+                                      : "دو") +
+                                    " شما می‌شه."
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u0628\u0627 \u0645\u062d\u062a\u0648\u0627\u06cc \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647\u062a\u0631 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u062d\u0645\u0627\u06cc\u062a\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647\u060c \u0628\u0647\u0634 \u0628\u062f\u06cc. \u0627\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647\u06cc \u0628\u0627\u0639\u062b \u0622\u0631\u0627\u0645\u0634 \u0648 \u0628\u0647\u0628\u0648\u062f \u062d\u0627\u0644 \u0647\u0631 \u062f\u0648\u06cc \u0634\u0645\u0627 \u0645\u06cc\u200c\u0634\u0647.";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          ) : (
+                            "\u0628\u0627 \u0645\u062d\u062a\u0648\u0627\u06cc \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647\u062a\u0631 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u062d\u0645\u0627\u06cc\u062a\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u0647\u060c \u0628\u0647\u0634 \u0628\u062f\u06cc. \u0627\u06cc\u0646 \u0647\u0645\u0631\u0627\u0647\u06cc \u0628\u0627\u0639\u062b \u0622\u0631\u0627\u0645\u0634 \u0648 \u0628\u0647\u0628\u0648\u062f \u062d\u0627\u0644 \u0647\u0631 \u062f\u0648\u06cc \u0634\u0645\u0627 \u0645\u06cc\u200c\u0634\u0647."
+                          )}
                         </div>
                         <Icon22Icon
                           className={classNames(projectcss.all, sty.svg__qlXq2)}
@@ -3470,7 +3493,19 @@ function PlasmicHamyar__RenderFunc(props: {
                   )
                     ? true
                     : hasVariant(globalVariants, "screen", "mobile")
-                    ? true
+                    ? (() => {
+                        try {
+                          return $state.cyclebox.cycle != "Pregnancy";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
                     : (() => {
                         try {
                           return $state.cyclebox.cycle != "Pregnancy";
@@ -12919,7 +12954,10 @@ function PlasmicHamyar__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  status: $state.cyclebox.cycle,
+                  status:
+                    $state.cyclebox.cycle == "Pregnancy"
+                      ? $state.pregnancy.week.toString()
+                      : $state.cyclebox.cycle,
                   limit: 1
                 };
               } catch (e) {

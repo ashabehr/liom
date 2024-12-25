@@ -1107,7 +1107,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                               "&userId=" +
                               $ctx.query.userId +
                               "&theme=" +
-                              $ctx.query.theme
+                              $ctx.query.theme +
+                              "&inApp=false"
                           };
                           return (({ destination }) => {
                             if (

@@ -117,7 +117,6 @@
   color: var(--token-BIuTS8zmWD0f);
 }
 .freeBox___4W6Wf {
-  display: flex;
   flex-direction: row;
   position: relative;
   align-items: stretch;
@@ -126,6 +125,7 @@
   height: 35px;
   max-width: 100%;
   background: #ffffff;
+  display: none;
   padding: 0px 16px;
 }
 .freeBoxdark___4W6WFbkz05 {
