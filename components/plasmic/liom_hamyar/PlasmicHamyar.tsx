@@ -1237,12 +1237,6 @@ function PlasmicHamyar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
-        path: "variable3",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
         path: "pregnancyData",
         type: "private",
         variableType: "array",
@@ -2607,34 +2601,12 @@ function PlasmicHamyar__RenderFunc(props: {
                               : "150px"
                           }
                           loading={"lazy"}
-                          src={(() => {
-                            try {
-                              return (() => {
-                                var week;
-                                if ($state.pregnancy.week < 10)
-                                  week = "0" + $state.pregnancy.week;
-                                else week = "" + $state.pregnancy.week;
-                                return (
-                                  "https://liom.storage.c2.liara.space/config/pregnancy/week" +
-                                  week +
-                                  ".png"
-                                );
-                              })();
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return {
-                                  src: "/plasmic/liom_hamyar/images/week03Png.png",
-                                  fullWidth: 270,
-                                  fullHeight: 270,
-                                  aspectRatio: undefined
-                                };
-                              }
-                              throw e;
-                            }
-                          })()}
+                          src={{
+                            src: "/plasmic/liom_hamyar/images/week03Png.png",
+                            fullWidth: 270,
+                            fullHeight: 270,
+                            aspectRatio: undefined
+                          }}
                         />
 
                         <div
@@ -2653,30 +2625,13 @@ function PlasmicHamyar__RenderFunc(props: {
                               "__wab_instance",
                               sty.progress
                             )}
-                            percent={(() => {
-                              try {
-                                return parseInt(
-                                  (
-                                    ((280 - $state.pregnancy.days) * 100) /
-                                    280
-                                  ).toFixed()
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return 50;
-                                }
-                                throw e;
-                              }
-                            })()}
+                            percent={50}
                             showInfo={false}
                             size={"default"}
                             status={"normal"}
                             strokeColor={true ? "#7444BC" : undefined}
                             strokeLinecap={"round"}
-                            strokeWidth={6}
+                            strokeWidth={5}
                             trailColor={
                               true ? "var(--antd-colorIcon)" : undefined
                             }
@@ -2693,33 +2648,9 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.text__rgLkr
                         )}
                       >
-                        {hasVariant(globalVariants, "screen", "mobile") ? (
-                          "\u0648\u0632\u0646 : 14 g"
-                        ) : (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  "وزن : " +
-                                  $state.pregnancyData[
-                                    $state.pregnancy.week - 1
-                                  ].weight +
-                                  ($state.pregnancy.week - 1 >= 27
-                                    ? " کیلوگرم "
-                                    : " گرم ")
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0648\u0632\u0646 : 14 \u06af\u0631\u0645";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        )}
+                        {hasVariant(globalVariants, "screen", "mobile")
+                          ? "\u0648\u0632\u0646 : 14 g"
+                          : "\u0648\u0632\u0646 : 14 \u06af\u0631\u0645"}
                       </div>
                     }
                     slot3={
@@ -2730,31 +2661,9 @@ function PlasmicHamyar__RenderFunc(props: {
                           sty.text__b09G5
                         )}
                       >
-                        {hasVariant(globalVariants, "screen", "mobile") ? (
-                          "\u0642\u062f: 16 cm"
-                        ) : (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  "قد : " +
-                                  $state.pregnancyData[
-                                    $state.pregnancy.week - 1
-                                  ].height +
-                                  " سانتی متر "
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0642\u062f 16 \u0633\u0627\u0646\u062a\u06cc \u0645\u062a\u0631";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        )}
+                        {hasVariant(globalVariants, "screen", "mobile")
+                          ? "\u0642\u062f: 16 cm"
+                          : "\u0642\u062f 16 \u0633\u0627\u0646\u062a\u06cc \u0645\u062a\u0631"}
                       </div>
                     }
                     textsycle={generateStateValueProp($state, [
@@ -2867,7 +2776,10 @@ function PlasmicHamyar__RenderFunc(props: {
                           {(() => {
                             try {
                               return (() => {
-                                switch ($state.cyclebox.cycle) {
+                                switch (
+                                  $state.user.data.result.userStatus
+                                    .periodStatus
+                                ) {
                                   case "white":
                                     return "عادی";
                                   case "fertility":
@@ -2876,14 +2788,6 @@ function PlasmicHamyar__RenderFunc(props: {
                                     return "pms";
                                   case "blood":
                                     return "پریود";
-                                  case "Pregnancy":
-                                    return (
-                                      " هفته " +
-                                      $state.pregnancyData[
-                                        $state.pregnancy.week - 1
-                                      ].week +
-                                      " بارداری "
-                                    );
                                   default:
                                     return "-";
                                 }
@@ -12566,7 +12470,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                     );
                                     $state.pregnancy = {
                                       days: daysRemaining,
-                                      week: weeksPregnant,
+                                      weeks: weeksPregnant,
                                       months: monthsPregnant
                                     };
                                   } else {

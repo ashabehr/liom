@@ -1068,92 +1068,109 @@ function PlasmicWeekByWeek__RenderFunc(props: {
             />
           </div>
           <div className={classNames(projectcss.all, sty.freeBox__qDyNj)}>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__w2AiY, {
-                [sty.freeBoxdark__w2AiYXyRv7]: hasVariant(
-                  $state,
-                  "dark",
-                  "dark"
-                )
-              })}
-            >
+            {(() => {
+              try {
+                return (() => {
+                  if ($ctx.query?.inApp == "true") return false;
+                  else return true;
+                })();
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })() ? (
               <div
-                className={classNames(projectcss.all, sty.freeBox__gcfAt)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination:
-                            "https://apps.liom.app/pregnancy/?token=" +
-                            $ctx.query.token +
-                            "&userId=" +
-                            $ctx.query.userId +
-                            "&theme=" +
-                            $ctx.query.theme
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-                }}
+                className={classNames(projectcss.all, sty.freeBox__w2AiY, {
+                  [sty.freeBoxdark__w2AiYXyRv7]: hasVariant(
+                    $state,
+                    "dark",
+                    "dark"
+                  )
+                })}
               >
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img__tElNi)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"20px"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image38.svg",
-                    fullWidth: 24,
-                    fullHeight: 24,
-                    aspectRatio: 1
-                  }}
-                />
-
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__sUv9I,
-                    {
-                      [sty.textdark__sUv9IXyRv7]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
+                  className={classNames(projectcss.all, sty.freeBox__gcfAt)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination:
+                              "https://apps.liom.app/pregnancy/?token=" +
+                              $ctx.query.token +
+                              "&userId=" +
+                              $ctx.query.userId +
+                              "&theme=" +
+                              $ctx.query.theme
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
                     }
-                  )}
+                  }}
                 >
-                  {
-                    "\u062a\u0642\u0648\u06cc\u0645 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0647\u0641\u062a\u0647 \u0628\u0647 \u0647\u0641\u062a\u0647"
-                  }
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__tElNi)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"20px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image38.svg",
+                      fullWidth: 24,
+                      fullHeight: 24,
+                      aspectRatio: 1
+                    }}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__sUv9I,
+                      {
+                        [sty.textdark__sUv9IXyRv7]: hasVariant(
+                          $state,
+                          "dark",
+                          "dark"
+                        )
+                      }
+                    )}
+                  >
+                    {
+                      "\u062a\u0642\u0648\u06cc\u0645 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0647\u0641\u062a\u0647 \u0628\u0647 \u0647\u0641\u062a\u0647"
+                    }
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : null}
             <div className={classNames(projectcss.all, sty.freeBox___9BnK7)}>
               <div
                 className={classNames(
