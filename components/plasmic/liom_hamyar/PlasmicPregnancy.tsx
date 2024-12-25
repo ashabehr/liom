@@ -555,7 +555,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox___34Wg)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox___34Wg, {
+                  [sty.freeBoxdarkMod___34WgOQOo]: hasVariant(
+                    $state,
+                    "darkMod",
+                    "darkMod"
+                  )
+                })}
+              >
                 {(() => {
                   try {
                     return true;
@@ -3268,7 +3276,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         const $steps = {};
 
                         $steps["goToPage"] = (() => {
-                          if ($ctx.query?.inApp == true) return false;
+                          if ($ctx.query?.inApp == "true") return false;
                           else return true;
                         })()
                           ? (() => {
@@ -4869,7 +4877,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       const $steps = {};
 
                       $steps["goToPage"] = (() => {
-                        if ($ctx.query?.inApp == true) return false;
+                        if ($ctx.query?.inApp == "true") return false;
                         else return true;
                       })()
                         ? (() => {

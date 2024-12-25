@@ -61,6 +61,7 @@
     width: 100%;
     grid-column-start: 1 !important;
     grid-column-end: -1 !important;
+    padding: 8px 0px;
   }
 }
 .lottie__wUfw3:global(.__wab_instance) {
