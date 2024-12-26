@@ -68,28 +68,39 @@ import sty from "./PlasmicLineClomp.module.css"; // plasmic-import: XsM8QG4wUKlk
 
 createPlasmicElementProxy;
 
-export type PlasmicLineClomp__VariantMembers = {};
-export type PlasmicLineClomp__VariantsArgs = {};
+export type PlasmicLineClomp__VariantMembers = {
+  more: "more";
+};
+export type PlasmicLineClomp__VariantsArgs = {
+  more?: SingleBooleanChoiceArg<"more">;
+};
 type VariantPropType = keyof PlasmicLineClomp__VariantsArgs;
-export const PlasmicLineClomp__VariantProps = new Array<VariantPropType>();
+export const PlasmicLineClomp__VariantProps = new Array<VariantPropType>(
+  "more"
+);
 
 export type PlasmicLineClomp__ArgsType = {
   numberOfLine?: number;
   children?: React.ReactNode;
+  onLineChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicLineClomp__ArgsType;
 export const PlasmicLineClomp__ArgProps = new Array<ArgPropType>(
   "numberOfLine",
-  "children"
+  "children",
+  "onLineChange"
 );
 
 export type PlasmicLineClomp__OverridesType = {
   root?: Flex__<"div">;
+  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultLineClompProps {
   numberOfLine?: number;
   children?: React.ReactNode;
+  onLineChange?: (val: string) => void;
+  more?: SingleBooleanChoiceArg<"more">;
   className?: string;
 }
 
@@ -133,6 +144,32 @@ function PlasmicLineClomp__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "more",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.more
+      },
+      {
+        path: "line",
+        type: "readonly",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true,
+
+        onChangeProp: "onLineChange"
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -147,43 +184,200 @@ function PlasmicLineClomp__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.rootmore]: hasVariant($state, "more", "more") }
       )}
-      style={(() => {
-        try {
-          return {
-            overflow: "hidden",
-            "-webkit-line-clamp": $props.numberOfLine.toString(),
-            "-webkit-box-orient": "vertical",
-            display: "-webkit-box"
-          };
-        } catch (e) {
-          if (
-            e instanceof TypeError ||
-            e?.plasmicType === "PlasmicUndefinedDataError"
-          ) {
-            return undefined;
-          }
-          throw e;
-        }
-      })()}
     >
-      {renderPlasmicSlot({
-        defaultContents: null,
-        value: args.children
-      })}
+      <div
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
+        className={classNames(projectcss.all, sty.freeBox, {
+          [sty.freeBoxmore]: hasVariant($state, "more", "more")
+        })}
+        style={
+          hasVariant($state, "more", "more")
+            ? (() => {
+                try {
+                  return {
+                    overflow: "hidden",
+                    "-webkit-line-clamp": $state.line
+                      ? $props.numberOfLine.toString()
+                      : "",
+                    "-webkit-box-orient": "vertical",
+                    display: "-webkit-box"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return {
+                    overflow: "hidden",
+                    "text-overflow": "ellipsis",
+                    "-webkit-line-clamp": $props.numberOfLine.toString(),
+                    "-webkit-box-orient": "vertical",
+                    display: "-webkit-box"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()
+        }
+      >
+        {renderPlasmicSlot({
+          defaultContents: null,
+          value: args.children
+        })}
+      </div>
+      {(
+        hasVariant($state, "more", "more")
+          ? (() => {
+              try {
+                return $state.line;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()
+          : true
+      ) ? (
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__xt1Z5,
+            { [sty.textmore__xt1Z5ZMi5E]: hasVariant($state, "more", "more") }
+          )}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["updateLine"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["line"]
+                    },
+                    operation: 0,
+                    value: false
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateLine"] != null &&
+              typeof $steps["updateLine"] === "object" &&
+              typeof $steps["updateLine"].then === "function"
+            ) {
+              $steps["updateLine"] = await $steps["updateLine"];
+            }
+          }}
+        >
+          {
+            "\u0645\u0634\u0627\u0647\u062f\u0647 \u0628\u06cc\u0634\u062a\u0631 ..."
+          }
+        </div>
+      ) : null}
+      {(
+        hasVariant($state, "more", "more")
+          ? (() => {
+              try {
+                return $state.line == false;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })()
+          : false
+      ) ? (
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__vEd5Q,
+            { [sty.textmore__vEd5QzMi5E]: hasVariant($state, "more", "more") }
+          )}
+          onClick={async event => {
+            const $steps = {};
+
+            $steps["updateLine"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["line"]
+                    },
+                    operation: 0,
+                    value: true
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["updateLine"] != null &&
+              typeof $steps["updateLine"] === "object" &&
+              typeof $steps["updateLine"].then === "function"
+            ) {
+              $steps["updateLine"] = await $steps["updateLine"];
+            }
+          }}
+        >
+          {"\u0645\u0634\u0627\u0647\u062f\u0647 \u06a9\u0645\u062a\u0631 ..."}
+        </div>
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "freeBox"],
+  freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -246,6 +440,7 @@ export const PlasmicLineClomp = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicLineClomp
     internalVariantProps: PlasmicLineClomp__VariantProps,

@@ -606,6 +606,25 @@ function PlasmicWeekByWeek__RenderFunc(props: {
               ) {
                 $steps["updateIsTimer"] = await $steps["updateIsTimer"];
               }
+
+              $steps["invokeGlobalAction"] =
+                $ctx.query.userId == ""
+                  ? (() => {
+                      const actionArgs = { args: [undefined, "1234567890"] };
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+              if (
+                $steps["invokeGlobalAction"] != null &&
+                typeof $steps["invokeGlobalAction"] === "object" &&
+                typeof $steps["invokeGlobalAction"].then === "function"
+              ) {
+                $steps["invokeGlobalAction"] = await $steps[
+                  "invokeGlobalAction"
+                ];
+              }
             }}
             runWhileEditing={false}
           />

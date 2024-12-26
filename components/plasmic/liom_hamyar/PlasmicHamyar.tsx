@@ -593,7 +593,15 @@ function PlasmicHamyar__RenderFunc(props: {
               })()
             : (() => {
                 try {
-                  return $state.user.data.result.userStatus.periodStatus;
+                  return (() => {
+                    if ($state.user.data.result.user.healthStatus == "period")
+                      return $state.user.data.result.userStatus.periodStatus;
+                    else if (
+                      $state.user.data.result.user.healthStatus.toLowerCase() ==
+                      "pregnancy"
+                    )
+                      return "Pregnancy";
+                  })();
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -1430,6 +1438,12 @@ function PlasmicHamyar__RenderFunc(props: {
           },
           { week: "\u0686\u0647\u0644\u0645", height: "51.2", weight: "3.5" }
         ]
+      },
+      {
+        path: "lineClomp.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2839,6 +2853,20 @@ function PlasmicHamyar__RenderFunc(props: {
                         data-plasmic-override={overrides.lineClomp}
                         className={classNames("__wab_instance", sty.lineClomp)}
                         numberOfLine={2}
+                        onLineChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "lineClomp",
+                            "line"
+                          ]).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
                       >
                         <div
                           className={classNames(
@@ -12728,14 +12756,14 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
 
                 $steps["runCode2"] =
-                  $state.user?.data?.result?.userStatus?.periodStatus ==
-                  "Pregnancy"
+                  $state.user.data?.result?.user?.healthStatus.toLowerCase() ==
+                  "pregnancy"
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
                               return fetch(
-                                "https://n8n.staas.ir/webhook/status/?userId=d20438d9-ae9f-4a59-95ce-e896d5a71934",
+                                `https://n8n.staas.ir/webhook/status/?userId=${$state.user.data.result.user.id}`,
                                 {
                                   method: "GET",
                                   headers: {

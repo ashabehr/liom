@@ -778,6 +778,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicLineClomp.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "XHIarNxr0L7f",
+          "name": "BirthConfirm",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicBirthConfirm.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/birth-confirm.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicBirthConfirm.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/birth-confirm"
         }
       ],
       "icons": [
