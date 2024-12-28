@@ -250,7 +250,7 @@
   text-align: center;
   border-radius: 8px;
   padding: 4px 6px;
-  border: 1px solid #8254c6;
+  border: 1px dashed #8254c6;
 }
 @media (max-width: 640px) {
   .text__vIHxo {

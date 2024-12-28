@@ -580,7 +580,15 @@ function PlasmicHamyar__RenderFunc(props: {
           hasVariant(globalVariants, "screen", "mobile")
             ? (() => {
                 try {
-                  return $state.user.data.result.userStatus.periodStatus;
+                  return (() => {
+                    if ($state.user.data.result.user.healthStatus == "period")
+                      return $state.user.data.result.userStatus.periodStatus;
+                    else if (
+                      $state.user.data.result.user.healthStatus.toLowerCase() ==
+                      "pregnancy"
+                    )
+                      return "Pregnancy";
+                  })();
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -12502,25 +12510,24 @@ function PlasmicHamyar__RenderFunc(props: {
                   ];
                 }
 
-                $steps["goToExpired"] = (
-                  $state.user.data?.success ? !$state.user.data.success : false
-                )
-                  ? (() => {
-                      const actionArgs = { destination: `/expired` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
+                $steps["goToExpired"] =
+                  $state.user?.data?.success == false
+                    ? (() => {
+                        const actionArgs = { destination: `/expired` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
                 if (
                   $steps["goToExpired"] != null &&
                   typeof $steps["goToExpired"] === "object" &&

@@ -103,7 +103,8 @@ export type PlasmicWeekByWeek__OverridesType = {
   favIcone?: Flex__<typeof Embed>;
   lottie?: Flex__<typeof LottieWrapper>;
   tabWeek?: Flex__<typeof TabWeek>;
-  modal?: Flex__<typeof AntdModal>;
+  modalDark?: Flex__<typeof AntdModal>;
+  modalLight?: Flex__<typeof AntdModal>;
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
@@ -418,7 +419,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
       {
-        path: "modal.open",
+        path: "modalLight.open",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -469,6 +470,12 @@ function PlasmicWeekByWeek__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "modalDark.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -605,25 +612,6 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 typeof $steps["updateIsTimer"].then === "function"
               ) {
                 $steps["updateIsTimer"] = await $steps["updateIsTimer"];
-              }
-
-              $steps["invokeGlobalAction"] =
-                $ctx.query.userId == ""
-                  ? (() => {
-                      const actionArgs = { args: [undefined, "1234567890"] };
-                      return $globalActions["Fragment.showToast"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
-              if (
-                $steps["invokeGlobalAction"] != null &&
-                typeof $steps["invokeGlobalAction"] === "object" &&
-                typeof $steps["invokeGlobalAction"].then === "function"
-              ) {
-                $steps["invokeGlobalAction"] = await $steps[
-                  "invokeGlobalAction"
-                ];
               }
             }}
             runWhileEditing={false}
@@ -1170,11 +1158,12 @@ function PlasmicWeekByWeek__RenderFunc(props: {
           {(() => {
             try {
               return (
-                $state?.weekNum != "" &&
-                $state?.selectedWeek != 0 &&
-                $ctx.query?.weekNum != "" &&
-                $ctx.query?.days != "" &&
-                $state.isTimer == true
+                ($state?.weekNum != "" &&
+                  $state?.selectedWeek != 0 &&
+                  $ctx.query?.weekNum != "" &&
+                  $ctx.query?.days != "" &&
+                  $state.isTimer == true) ||
+                true
               );
             } catch (e) {
               if (
@@ -1190,7 +1179,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
               {(() => {
                 try {
                   return (() => {
-                    if ($ctx.query?.inApp == "true") return false;
+                    if ($ctx.query?.inApp == "true" || $ctx.query.userId == "")
+                      return false;
                     else return true;
                   })();
                 } catch (e) {
@@ -1564,7 +1554,14 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                               variablePath: ["selectedWeek"]
                             },
                             operation: 0,
-                            value: $ctx.query.weekNum
+                            value: (() => {
+                              if (
+                                $ctx.query.weekNum?.length > 0 &&
+                                $ctx.query.weekNum != "0"
+                              )
+                                return $ctx.query.weekNum;
+                              else return "1";
+                            })()
                           };
                           return (({
                             variable,
@@ -1823,127 +1820,277 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                      <AntdModal
-                        data-plasmic-name={"modal"}
-                        data-plasmic-override={overrides.modal}
-                        className={classNames("__wab_instance", sty.modal)}
-                        defaultStylesClassName={classNames(
-                          projectcss.root_reset,
-                          projectcss.plasmic_default_styles,
-                          projectcss.plasmic_mixins,
-                          projectcss.plasmic_tokens,
-                          plasmic_antd_5_hostless_css.plasmic_tokens,
-                          plasmic_plasmic_rich_components_css.plasmic_tokens
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__yyw9J
                         )}
-                        footer={
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__vw52N
-                            )}
-                            onClick={async event => {
-                              const $steps = {};
+                      >
+                        <AntdModal
+                          data-plasmic-name={"modalDark"}
+                          data-plasmic-override={overrides.modalDark}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.modalDark
+                          )}
+                          closeButtonClassName={classNames({
+                            [sty["pcls_AiWk1fWytxZq"]]: true
+                          })}
+                          defaultStylesClassName={classNames(
+                            projectcss.root_reset,
+                            projectcss.plasmic_default_styles,
+                            projectcss.plasmic_mixins,
+                            projectcss.plasmic_tokens,
+                            plasmic_antd_5_hostless_css.plasmic_tokens,
+                            plasmic_plasmic_rich_components_css.plasmic_tokens
+                          )}
+                          footer={
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__lgyH3
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
 
-                              $steps["runCode"] = true
-                                ? (() => {
-                                    const actionArgs = {
-                                      customFunction: async () => {
-                                        return (() => {
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
                                           return window.open(
                                             "https://old.liom.app/link",
                                             "_blank"
                                           );
-                                        })();
-                                      }
-                                    };
-                                    return (({ customFunction }) => {
-                                      return customFunction();
-                                    })?.apply(null, [actionArgs]);
-                                  })()
-                                : undefined;
-                              if (
-                                $steps["runCode"] != null &&
-                                typeof $steps["runCode"] === "object" &&
-                                typeof $steps["runCode"].then === "function"
-                              ) {
-                                $steps["runCode"] = await $steps["runCode"];
-                              }
-                            }}
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__tXkXm
+                                )}
+                              >
+                                {
+                                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
+                                }
+                              </div>
+                            </Stack__>
+                          }
+                          modalContentClassName={classNames({
+                            [sty["pcls_CnCOgzJJGdQ6"]]: true
+                          })}
+                          modalScopeClassName={sty["modalDark__modal"]}
+                          onOpenChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "modalDark",
+                              "open"
+                            ]).apply(null, eventArgs);
+                          }}
+                          open={generateStateValueProp($state, [
+                            "modalDark",
+                            "open"
+                          ])}
+                          title={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__aTx0G
+                              )}
+                            >
+                              <React.Fragment>
+                                <span
+                                  className={
+                                    "plasmic_default__all plasmic_default__span"
+                                  }
+                                  style={{ fontWeight: 700 }}
+                                >
+                                  {"\u062a\u0648\u062c\u0647!"}
+                                </span>
+                              </React.Fragment>
+                            </div>
+                          }
+                          trigger={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__kcY97
+                              )}
+                            />
+                          }
+                          wrapClassName={classNames({
+                            [sty["pcls_lwa0qu3byVfT"]]: true
+                          })}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__qhc9X
+                            )}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__gTdJu
+                                sty.text___8K79Z
                               )}
                             >
                               {
-                                "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
+                                "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0648 \u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc  \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0646\u0631\u0645 \u0627\u0641\u0632\u0627\u0631 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0628\u0647 \u0635\u0648\u0631\u062a \u0631\u0627\u06cc\u06a9\u0627\u0646 \u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631  \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f ."
                               }
                             </div>
-                          </Stack__>
-                        }
-                        modalScopeClassName={sty["modal__modal"]}
-                        onOpenChange={async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "modal",
-                            "open"
-                          ]).apply(null, eventArgs);
-                        }}
-                        open={generateStateValueProp($state, ["modal", "open"])}
-                        title={
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__v2Kpk
-                            )}
-                          >
-                            <React.Fragment>
-                              <span
-                                className={
-                                  "plasmic_default__all plasmic_default__span"
-                                }
-                                style={{ fontWeight: 700 }}
-                              >
-                                {"\u062a\u0648\u062c\u0647!"}
-                              </span>
-                            </React.Fragment>
                           </div>
-                        }
-                        trigger={
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___5AGg5
-                            )}
-                          >
-                            {""}
-                          </div>
-                        }
-                      >
-                        <div
+                        </AntdModal>
+                        <AntdModal
+                          data-plasmic-name={"modalLight"}
+                          data-plasmic-override={overrides.modalLight}
                           className={classNames(
-                            projectcss.all,
-                            sty.freeBox__egFqK
+                            "__wab_instance",
+                            sty.modalLight
                           )}
+                          closeButtonClassName={classNames({
+                            [sty["pcls_1DQ_Zhcin71I"]]: true
+                          })}
+                          defaultStylesClassName={classNames(
+                            projectcss.root_reset,
+                            projectcss.plasmic_default_styles,
+                            projectcss.plasmic_mixins,
+                            projectcss.plasmic_tokens,
+                            plasmic_antd_5_hostless_css.plasmic_tokens,
+                            plasmic_plasmic_rich_components_css.plasmic_tokens
+                          )}
+                          footer={
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__vw52N
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            return window.open(
+                                              "https://old.liom.app/link",
+                                              "_blank"
+                                            );
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
+                                }
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__gTdJu
+                                )}
+                              >
+                                {
+                                  "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645"
+                                }
+                              </div>
+                            </Stack__>
+                          }
+                          modalContentClassName={classNames({
+                            [sty["pcls_3atqTrmweiam"]]: true
+                          })}
+                          modalScopeClassName={sty["modalLight__modal"]}
+                          onOpenChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "modalLight",
+                              "open"
+                            ]).apply(null, eventArgs);
+                          }}
+                          open={generateStateValueProp($state, [
+                            "modalLight",
+                            "open"
+                          ])}
+                          title={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__v2Kpk
+                              )}
+                            >
+                              <React.Fragment>
+                                <span
+                                  className={
+                                    "plasmic_default__all plasmic_default__span"
+                                  }
+                                  style={{ fontWeight: 700 }}
+                                >
+                                  {"\u062a\u0648\u062c\u0647!"}
+                                </span>
+                              </React.Fragment>
+                            </div>
+                          }
+                          trigger={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ov3Ed
+                              )}
+                            />
+                          }
+                          wrapClassName={classNames({
+                            [sty["pcls_6hR9RdDHAR0J"]]: true
+                          })}
                         >
                           <div
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___9Knjt
+                              sty.freeBox__egFqK
                             )}
                           >
-                            {
-                              "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0648 \u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc  \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0646\u0631\u0645 \u0627\u0641\u0632\u0627\u0631 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0628\u0647 \u0635\u0648\u0631\u062a \u0631\u0627\u06cc\u06a9\u0627\u0646 \u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631  \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f ."
-                            }
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___9Knjt
+                              )}
+                            >
+                              {
+                                "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0627\u06cc\u0646 \u0627\u0628\u0632\u0627\u0631 \u0648 \u0627\u0628\u0632\u0627\u0631\u0647\u0627\u06cc \u062f\u06cc\u06af\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc  \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0646\u0631\u0645 \u0627\u0641\u0632\u0627\u0631 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0628\u0647 \u0635\u0648\u0631\u062a \u0631\u0627\u06cc\u06a9\u0627\u0646 \u0628\u0627 \u06a9\u0644\u06cc\u06a9 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631  \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f ."
+                              }
+                            </div>
                           </div>
-                        </div>
-                      </AntdModal>
+                        </AntdModal>
+                      </div>
                       <div
                         className={classNames(
                           projectcss.all,
@@ -1952,35 +2099,36 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["updateModalOpen"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["modal", "open"]
-                                  },
-                                  operation: 4
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
+                          $steps["updateModalOpen"] =
+                            $ctx.query.theme != "dark"
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["modalLight", "open"]
+                                    },
+                                    operation: 4
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
 
-                                  const oldValue = $stateGet(
-                                    objRoot,
-                                    variablePath
-                                  );
-                                  $stateSet(objRoot, variablePath, !oldValue);
-                                  return !oldValue;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                           if (
                             $steps["updateModalOpen"] != null &&
                             typeof $steps["updateModalOpen"] === "object" &&
@@ -1988,6 +2136,47 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           ) {
                             $steps["updateModalOpen"] = await $steps[
                               "updateModalOpen"
+                            ];
+                          }
+
+                          $steps["updateModalDarkOpen"] =
+                            $ctx.query.theme == "dark"
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["modalDark", "open"]
+                                    },
+                                    operation: 4
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    const oldValue = $stateGet(
+                                      objRoot,
+                                      variablePath
+                                    );
+                                    $stateSet(objRoot, variablePath, !oldValue);
+                                    return !oldValue;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateModalDarkOpen"] != null &&
+                            typeof $steps["updateModalDarkOpen"] === "object" &&
+                            typeof $steps["updateModalDarkOpen"].then ===
+                              "function"
+                          ) {
+                            $steps["updateModalDarkOpen"] = await $steps[
+                              "updateModalDarkOpen"
                             ];
                           }
                         }}
@@ -2019,7 +2208,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           const actionArgs = {
                             variable: {
                               objRoot: $state,
-                              variablePath: ["modal", "open"]
+                              variablePath: ["modalLight", "open"]
                             },
                             operation: 4
                           };
@@ -3178,7 +3367,8 @@ const PlasmicDescendants = {
     "favIcone",
     "lottie",
     "tabWeek",
-    "modal",
+    "modalDark",
+    "modalLight",
     "collapseBaby",
     "collapseMother",
     "collapseHealth"
@@ -3188,7 +3378,8 @@ const PlasmicDescendants = {
   favIcone: ["favIcone"],
   lottie: ["lottie"],
   tabWeek: ["tabWeek"],
-  modal: ["modal"],
+  modalDark: ["modalDark"],
+  modalLight: ["modalLight"],
   collapseBaby: ["collapseBaby"],
   collapseMother: ["collapseMother"],
   collapseHealth: ["collapseHealth"]
@@ -3203,7 +3394,8 @@ type NodeDefaultElementType = {
   favIcone: typeof Embed;
   lottie: typeof LottieWrapper;
   tabWeek: typeof TabWeek;
-  modal: typeof AntdModal;
+  modalDark: typeof AntdModal;
+  modalLight: typeof AntdModal;
   collapseBaby: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
   collapseHealth: typeof AntdSingleCollapse;
@@ -3299,7 +3491,8 @@ export const PlasmicWeekByWeek = Object.assign(
     favIcone: makeNodeComponent("favIcone"),
     lottie: makeNodeComponent("lottie"),
     tabWeek: makeNodeComponent("tabWeek"),
-    modal: makeNodeComponent("modal"),
+    modalDark: makeNodeComponent("modalDark"),
+    modalLight: makeNodeComponent("modalLight"),
     collapseBaby: makeNodeComponent("collapseBaby"),
     collapseMother: makeNodeComponent("collapseMother"),
     collapseHealth: makeNodeComponent("collapseHealth"),
