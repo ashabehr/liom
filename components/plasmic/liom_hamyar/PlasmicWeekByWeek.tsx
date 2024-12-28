@@ -1158,12 +1158,11 @@ function PlasmicWeekByWeek__RenderFunc(props: {
           {(() => {
             try {
               return (
-                ($state?.weekNum != "" &&
-                  $state?.selectedWeek != 0 &&
-                  $ctx.query?.weekNum != "" &&
-                  $ctx.query?.days != "" &&
-                  $state.isTimer == true) ||
-                true
+                $state?.weekNum != "" &&
+                $state?.selectedWeek != 0 &&
+                $ctx.query?.weekNum != "" &&
+                $ctx.query?.days != "" &&
+                $state.isTimer == true
               );
             } catch (e) {
               if (
