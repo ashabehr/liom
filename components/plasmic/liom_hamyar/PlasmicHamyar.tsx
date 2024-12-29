@@ -1250,11 +1250,20 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "pregnancy",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({
-          days: 190,
-          week: 13,
-          months: 3
-        })
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return { days: 190, week: 13, months: 3 };
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "pregnancyData",
@@ -6256,11 +6265,23 @@ function PlasmicHamyar__RenderFunc(props: {
                               <React.Fragment>
                                 {(() => {
                                   try {
-                                    return (
-                                      "شروع دوره pms رو با پیامک بهت اطلاع میدم تا بتونی " +
-                                      $state.name +
-                                      " رو بیشتر درک کنی و از ناراحتی های احتمالی جلوگیری کنی. "
-                                    );
+                                    return (() => {
+                                      if (
+                                        $state.cyclebox.cycle === "Pregnancy"
+                                      ) {
+                                        return (
+                                          "تغییرات دوران بارداری رو بهت اطلاع میدم تا بتونی تغییرات " +
+                                          $state.name +
+                                          " رو بهتر درک کنی و از نگرانی‌ها و ناراحتی‌های احتمالی جلوگیری کنی."
+                                        );
+                                      } else {
+                                        return (
+                                          "شروع دوره pms رو با پیامک بهت اطلاع میدم تا بتونی " +
+                                          $state.name +
+                                          " رو بیشتر درک کنی و از ناراحتی های احتمالی جلوگیری کنی. "
+                                        );
+                                      }
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -6335,9 +6356,34 @@ function PlasmicHamyar__RenderFunc(props: {
                               sty.li__fXauv
                             )}
                           >
-                            {hasVariant(globalVariants, "screen", "mobile")
-                              ? '"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0627 \u0628\u0647\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc."\n'
-                              : "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u06a9\u0645\u062a\u0631 \u062f\u0631\u062f \u0628\u06a9\u0634\u0647 \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc"}
+                            {hasVariant(globalVariants, "screen", "mobile") ? (
+                              '"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0627 \u0628\u0647\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc."\n'
+                            ) : (
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      if (
+                                        $state.cyclebox.cycle === "Pregnancy"
+                                      ) {
+                                        return "تغییرات هر هفته از دوران بارداری رو برات پیامک می‌کنم تا بتونی بیشتر از همسرت مراقبت کنی\u060C به تغییرات بدنش و جنین توجه داشته باشی و این دوران رو با آرامش و حمایت بیشتر کنار هم بگذرونید.";
+                                      } else {
+                                        return "شروع پریودش رو برات پیامک میکنم تا بتونی بیشتر ازش مراقبت کنی و کمتر درد بکشه و رابطه شادتری بسازی";
+                                      }
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u06a9\u0646\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u06a9\u0645\u062a\u0631 \u062f\u0631\u062f \u0628\u06a9\u0634\u0647 \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            )}
                           </li>
                           <li
                             className={classNames(
@@ -12572,6 +12618,77 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateTokenUser"] = await $steps["updateTokenUser"];
                 }
 
+                $steps["runCode2"] =
+                  $state.user.data?.result?.user?.healthStatus.toLowerCase() ==
+                  "pregnancy"
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return fetch(
+                                `https://n8n.staas.ir/webhook/status/?userId=${$state.user.data.result.user.id}`,
+                                {
+                                  method: "GET",
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                  }
+                                }
+                              )
+                                .then(response => response.json())
+                                .then(data => {
+                                  const dueDate = data?.[0]?.dueDate;
+                                  if (dueDate) {
+                                    let initialDate = new Date(dueDate);
+                                    let daysToSubtract = 280;
+                                    let resultDate = new Date(initialDate);
+                                    resultDate.setDate(
+                                      resultDate.getDate() - daysToSubtract
+                                    );
+                                    let today = new Date();
+                                    let differenceInTime = today - resultDate;
+                                    let differenceInDays = Math.floor(
+                                      differenceInTime / (1000 * 60 * 60 * 24)
+                                    );
+                                    let daysRemaining =
+                                      parseInt(280 - differenceInDays) - 1;
+                                    let weeksPregnant =
+                                      parseInt((differenceInDays + 1) / 7) === 0
+                                        ? 1
+                                        : parseInt((differenceInDays + 1) / 7) +
+                                          1;
+                                    let monthsPregnant = parseInt(
+                                      (weeksPregnant / 4)
+                                        .toString()
+                                        .substring(0, 1)
+                                    );
+                                    $state.pregnancy = {
+                                      days: daysRemaining,
+                                      week: weeksPregnant,
+                                      months: monthsPregnant
+                                    };
+                                  } else {
+                                    console.log("تاریخ زایمان در دسترس نیست.");
+                                  }
+                                })
+                                .catch(error => console.error("Error:", error));
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
+
                 $steps["updateName"] = (
                   $state.user.data?.success ? $state.user.data.success : false
                 )
@@ -12760,77 +12877,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateLackOfCourseInformation"] = await $steps[
                     "updateLackOfCourseInformation"
                   ];
-                }
-
-                $steps["runCode2"] =
-                  $state.user.data?.result?.user?.healthStatus.toLowerCase() ==
-                  "pregnancy"
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return fetch(
-                                `https://n8n.staas.ir/webhook/status/?userId=${$state.user.data.result.user.id}`,
-                                {
-                                  method: "GET",
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                  }
-                                }
-                              )
-                                .then(response => response.json())
-                                .then(data => {
-                                  const dueDate = data?.[0]?.dueDate;
-                                  if (dueDate) {
-                                    let initialDate = new Date(dueDate);
-                                    let daysToSubtract = 280;
-                                    let resultDate = new Date(initialDate);
-                                    resultDate.setDate(
-                                      resultDate.getDate() - daysToSubtract
-                                    );
-                                    let today = new Date();
-                                    let differenceInTime = today - resultDate;
-                                    let differenceInDays = Math.floor(
-                                      differenceInTime / (1000 * 60 * 60 * 24)
-                                    );
-                                    let daysRemaining =
-                                      parseInt(280 - differenceInDays) - 1;
-                                    let weeksPregnant =
-                                      parseInt((differenceInDays + 1) / 7) === 0
-                                        ? 1
-                                        : parseInt((differenceInDays + 1) / 7) +
-                                          1;
-                                    let monthsPregnant = parseInt(
-                                      (weeksPregnant / 4)
-                                        .toString()
-                                        .substring(0, 1)
-                                    );
-                                    $state.pregnancy = {
-                                      days: daysRemaining,
-                                      weeks: weeksPregnant,
-                                      months: monthsPregnant
-                                    };
-                                  } else {
-                                    console.log("تاریخ زایمان در دسترس نیست.");
-                                  }
-                                })
-                                .catch(error => console.error("Error:", error));
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["runCode2"] != null &&
-                  typeof $steps["runCode2"] === "object" &&
-                  typeof $steps["runCode2"].then === "function"
-                ) {
-                  $steps["runCode2"] = await $steps["runCode2"];
                 }
               }).apply(null, eventArgs);
             }}

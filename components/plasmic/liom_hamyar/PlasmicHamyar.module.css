@@ -617,7 +617,8 @@
 .cyclebox:global(.__wab_instance) {
   position: relative;
   width: 40%;
-  height: auto;
+  height: 100%;
+  min-height: 0;
 }
 @media (max-width: 640px) {
   .cyclebox:global(.__wab_instance) {
@@ -1045,7 +1046,7 @@
 }
 @media (max-width: 640px) {
   .freeBox__kH1Sk {
-    padding: 8px;
+    padding: 0px 8px 8px;
   }
 }
 @media (max-width: 640px) {
