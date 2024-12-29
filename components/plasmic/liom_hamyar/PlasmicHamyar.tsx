@@ -6277,17 +6277,9 @@ function PlasmicHamyar__RenderFunc(props: {
                                       if (
                                         $state.cyclebox.cycle === "Pregnancy"
                                       ) {
-                                        return (
-                                          "تغییرات دوران بارداری رو بهت اطلاع میدم تا بتونی تغییرات " +
-                                          $state.name +
-                                          " رو بهتر درک کنی و از نگرانی‌ها و ناراحتی‌های احتمالی جلوگیری کنی."
-                                        );
+                                        return `تغییرات دوران بارداری رو بهت اطلاع میدم تا بتونی تغییرات ${$state.name} رو بهتر درک کنی و از نگرانی‌ها و ناراحتی‌های احتمالی جلوگیری کنی.`;
                                       } else {
-                                        return (
-                                          "شروع دوره pms رو با پیامک بهت اطلاع میدم تا بتونی " +
-                                          $state.name +
-                                          " رو بیشتر درک کنی و از ناراحتی های احتمالی جلوگیری کنی. "
-                                        );
+                                        return `شروع دوره pms رو با پیامک بهت اطلاع میدم تا بتونی ${$state.name} رو بیشتر درک کنی و از ناراحتی های احتمالی جلوگیری کنی. `;
                                       }
                                     })();
                                   } catch (e) {
@@ -12769,38 +12761,8 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["refreshData"] = await $steps["refreshData"];
                 }
 
-                $steps["updateLackOfCourseInformation"] =
-                  $state.user?.data?.result?.user?.name &&
-                  !$state.user?.data?.result?.userStatus?.periodStatus
-                    ? (() => {
-                        const actionArgs = {
-                          vgroup: "lackOfCourseInformation",
-                          operation: 4,
-                          value: "lackOfCourseInformation"
-                        };
-                        return (({ vgroup, value }) => {
-                          if (typeof value === "string") {
-                            value = [value];
-                          }
-
-                          $stateSet($state, vgroup, true);
-                          return true;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["updateLackOfCourseInformation"] != null &&
-                  typeof $steps["updateLackOfCourseInformation"] === "object" &&
-                  typeof $steps["updateLackOfCourseInformation"].then ===
-                    "function"
-                ) {
-                  $steps["updateLackOfCourseInformation"] = await $steps[
-                    "updateLackOfCourseInformation"
-                  ];
-                }
-
                 $steps["runCode2"] =
-                  $state.user.data?.result?.user?.healthStatus.toLowerCase() ==
+                  $state.user.data?.result?.user?.healthStatus?.toLowerCase() ===
                   "pregnancy"
                     ? (() => {
                         const actionArgs = {
@@ -12869,16 +12831,43 @@ function PlasmicHamyar__RenderFunc(props: {
                 ) {
                   $steps["runCode2"] = await $steps["runCode2"];
                 }
+
+                $steps["updateLackOfCourseInformation"] =
+                  $state.user?.data?.result?.user?.name &&
+                  !$state.user?.data?.result?.userStatus?.periodStatus
+                    ? (() => {
+                        const actionArgs = {
+                          vgroup: "lackOfCourseInformation",
+                          operation: 4,
+                          value: "lackOfCourseInformation"
+                        };
+                        return (({ vgroup, value }) => {
+                          if (typeof value === "string") {
+                            value = [value];
+                          }
+
+                          $stateSet($state, vgroup, true);
+                          return true;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateLackOfCourseInformation"] != null &&
+                  typeof $steps["updateLackOfCourseInformation"] === "object" &&
+                  typeof $steps["updateLackOfCourseInformation"].then ===
+                    "function"
+                ) {
+                  $steps["updateLackOfCourseInformation"] = await $steps[
+                    "updateLackOfCourseInformation"
+                  ];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
               try {
                 return {
                   r: $state.r,
-                  m: $state.m,
-                  mid:
-                    $ctx.query.userId.slice(4, $ctx.query.userId.length - 4) ||
-                    ""
+                  m: $state.m
                 };
               } catch (e) {
                 if (
