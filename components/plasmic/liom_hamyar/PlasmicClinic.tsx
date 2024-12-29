@@ -366,24 +366,33 @@ function PlasmicClinic__RenderFunc(props: {
               $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
             }
 
-            $steps["runCode"] = true
+            $steps["updateGetData"] = true
               ? (() => {
                   const actionArgs = {
-                    customFunction: async () => {
-                      return console.log($steps.invokeGlobalAction?.error);
-                    }
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["getData"]
+                    },
+                    operation: 0,
+                    value: $steps.invokeGlobalAction?.data
                   };
-                  return (({ customFunction }) => {
-                    return customFunction();
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
                   })?.apply(null, [actionArgs]);
                 })()
               : undefined;
             if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
+              $steps["updateGetData"] != null &&
+              typeof $steps["updateGetData"] === "object" &&
+              typeof $steps["updateGetData"].then === "function"
             ) {
-              $steps["runCode"] = await $steps["runCode"];
+              $steps["updateGetData"] = await $steps["updateGetData"];
             }
           }}
         >
@@ -616,7 +625,15 @@ function PlasmicClinic__RenderFunc(props: {
                   "\u062f\u0633\u062a\u0647 \u0628\u0646\u062f\u06cc \u0647\u0627"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___1U1Cf)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox___1U1Cf, {
+                  [sty.freeBox_1_docter___1U1Cf8Ddm8]: hasVariant(
+                    $state,
+                    "_1",
+                    "docter"
+                  )
+                })}
+              >
                 <Stack__
                   as={"div"}
                   data-plasmic-name={"card6"}

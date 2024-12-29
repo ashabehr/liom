@@ -581,13 +581,14 @@ function PlasmicHamyar__RenderFunc(props: {
             ? (() => {
                 try {
                   return (() => {
-                    if ($state.user.data.result.user.healthStatus == "period")
-                      return $state.user.data.result.userStatus.periodStatus;
-                    else if (
-                      $state.user.data.result.user.healthStatus.toLowerCase() ==
+                    if (
+                      $state.user.data.result.user?.healthStatus?.toLowerCase() ===
                       "pregnancy"
-                    )
+                    ) {
                       return "Pregnancy";
+                    } else {
+                      return $state.user.data.result.userStatus.periodStatus;
+                    }
                   })();
                 } catch (e) {
                   if (
@@ -602,13 +603,14 @@ function PlasmicHamyar__RenderFunc(props: {
             : (() => {
                 try {
                   return (() => {
-                    if ($state.user.data.result.user.healthStatus == "period")
-                      return $state.user.data.result.userStatus.periodStatus;
-                    else if (
-                      $state.user.data.result.user.healthStatus.toLowerCase() ==
+                    if (
+                      $state.user.data.result.user?.healthStatus?.toLowerCase() ===
                       "pregnancy"
-                    )
+                    ) {
                       return "Pregnancy";
+                    } else {
+                      return $state.user.data.result.userStatus.periodStatus;
+                    }
                   })();
                 } catch (e) {
                   if (
@@ -12607,77 +12609,6 @@ function PlasmicHamyar__RenderFunc(props: {
                   $steps["updateTokenUser"] = await $steps["updateTokenUser"];
                 }
 
-                $steps["runCode2"] =
-                  $state.user.data?.result?.user?.healthStatus.toLowerCase() ==
-                  "pregnancy"
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return fetch(
-                                `https://n8n.staas.ir/webhook/status/?userId=${$state.user.data.result.user.id}`,
-                                {
-                                  method: "GET",
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                  }
-                                }
-                              )
-                                .then(response => response.json())
-                                .then(data => {
-                                  const dueDate = data?.[0]?.dueDate;
-                                  if (dueDate) {
-                                    let initialDate = new Date(dueDate);
-                                    let daysToSubtract = 280;
-                                    let resultDate = new Date(initialDate);
-                                    resultDate.setDate(
-                                      resultDate.getDate() - daysToSubtract
-                                    );
-                                    let today = new Date();
-                                    let differenceInTime = today - resultDate;
-                                    let differenceInDays = Math.floor(
-                                      differenceInTime / (1000 * 60 * 60 * 24)
-                                    );
-                                    let daysRemaining =
-                                      parseInt(280 - differenceInDays) - 1;
-                                    let weeksPregnant =
-                                      parseInt((differenceInDays + 1) / 7) === 0
-                                        ? 1
-                                        : parseInt((differenceInDays + 1) / 7) +
-                                          1;
-                                    let monthsPregnant = parseInt(
-                                      (weeksPregnant / 4)
-                                        .toString()
-                                        .substring(0, 1)
-                                    );
-                                    $state.pregnancy = {
-                                      days: daysRemaining,
-                                      week: weeksPregnant,
-                                      months: monthsPregnant
-                                    };
-                                  } else {
-                                    console.log("تاریخ زایمان در دسترس نیست.");
-                                  }
-                                })
-                                .catch(error => console.error("Error:", error));
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["runCode2"] != null &&
-                  typeof $steps["runCode2"] === "object" &&
-                  typeof $steps["runCode2"].then === "function"
-                ) {
-                  $steps["runCode2"] = await $steps["runCode2"];
-                }
-
                 $steps["updateName"] = (
                   $state.user.data?.success ? $state.user.data.success : false
                 )
@@ -12867,19 +12798,87 @@ function PlasmicHamyar__RenderFunc(props: {
                     "updateLackOfCourseInformation"
                   ];
                 }
+
+                $steps["runCode2"] =
+                  $state.user.data?.result?.user?.healthStatus.toLowerCase() ==
+                  "pregnancy"
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return fetch(
+                                `https://n8n.staas.ir/webhook/status/?userId=${$state.user.data.result.user.id}`,
+                                {
+                                  method: "GET",
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                  }
+                                }
+                              )
+                                .then(response => response.json())
+                                .then(data => {
+                                  const dueDate = data?.[0]?.dueDate;
+                                  if (dueDate) {
+                                    let initialDate = new Date(dueDate);
+                                    let daysToSubtract = 280;
+                                    let resultDate = new Date(initialDate);
+                                    resultDate.setDate(
+                                      resultDate.getDate() - daysToSubtract
+                                    );
+                                    let today = new Date();
+                                    let differenceInTime = today - resultDate;
+                                    let differenceInDays = Math.floor(
+                                      differenceInTime / (1000 * 60 * 60 * 24)
+                                    );
+                                    let daysRemaining =
+                                      parseInt(280 - differenceInDays) - 1;
+                                    let weeksPregnant =
+                                      parseInt((differenceInDays + 1) / 7) === 0
+                                        ? 1
+                                        : parseInt((differenceInDays + 1) / 7) +
+                                          1;
+                                    let monthsPregnant = parseInt(
+                                      (weeksPregnant / 4)
+                                        .toString()
+                                        .substring(0, 1)
+                                    );
+                                    $state.pregnancy = {
+                                      days: daysRemaining,
+                                      week: weeksPregnant,
+                                      months: monthsPregnant
+                                    };
+                                  } else {
+                                    console.log("تاریخ زایمان در دسترس نیست.");
+                                  }
+                                })
+                                .catch(error => console.error("Error:", error));
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["runCode2"] != null &&
+                  typeof $steps["runCode2"] === "object" &&
+                  typeof $steps["runCode2"].then === "function"
+                ) {
+                  $steps["runCode2"] = await $steps["runCode2"];
+                }
               }).apply(null, eventArgs);
             }}
             params={(() => {
               try {
                 return {
-                  r: new URLSearchParams(window.location.search).get("r") || "",
-                  m: new URLSearchParams(window.location.search).get("m") || "",
-                  mid: (() => {
-                    const userId = new URLSearchParams(
-                      window.location.search
-                    ).get("userId");
-                    return userId ? userId.slice(4, userId.length - 4) : "";
-                  })()
+                  r: $state.r,
+                  m: $state.m,
+                  mid:
+                    $ctx.query.userId.slice(4, $ctx.query.userId.length - 4) ||
+                    ""
                 };
               } catch (e) {
                 if (
