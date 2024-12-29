@@ -6142,7 +6142,10 @@ function PlasmicHamyar__RenderFunc(props: {
                     hasVariant(globalVariants, "screen", "mobile")
                       ? (() => {
                           try {
-                            return !$state.user.data.result.man.hamyarStatus;
+                            return (
+                              !$state.user.data.result.man.hamyarStatus &&
+                              $state.cyclebox.cycle != "Pregnancy"
+                            );
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -6155,7 +6158,10 @@ function PlasmicHamyar__RenderFunc(props: {
                         })()
                       : (() => {
                           try {
-                            return !$state.user.data.result.man.hamyarStatus;
+                            return (
+                              !$state.user.data.result.man.hamyarStatus &&
+                              $state.cyclebox.cycle != "Pregnancy"
+                            );
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
