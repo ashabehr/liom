@@ -12454,24 +12454,7 @@ function PlasmicHamyar__RenderFunc(props: {
                       throw e;
                     }
                   })()
-                : (() => {
-                    try {
-                      return {
-                        refCode: $state.r,
-                        mobile: $state.m,
-                        appKey:
-                          "wejieiuedoioo-xxluySEJKLSjho5[afeawd2012-qigwi-1457W#idq"
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
+                : undefined
             }
             className={classNames("__wab_instance", sty.user, {
               [sty.userlackOfCourseInformation]: hasVariant(
@@ -12889,8 +12872,14 @@ function PlasmicHamyar__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  r: $state.r,
-                  m: $state.m
+                  r: new URLSearchParams(window.location.search).get("r") || "",
+                  m: new URLSearchParams(window.location.search).get("m") || "",
+                  mid: (() => {
+                    const userId = new URLSearchParams(
+                      window.location.search
+                    ).get("userId");
+                    return userId ? userId.slice(4, userId.length - 4) : "";
+                  })()
                 };
               } catch (e) {
                 if (
