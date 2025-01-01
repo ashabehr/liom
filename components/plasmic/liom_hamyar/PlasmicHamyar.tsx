@@ -68,17 +68,17 @@ import {
 
 import Nofiticon from "../../Nofiticon"; // plasmic-import: J7iX9VyuSoJi/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
-import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Useful from "../../Useful"; // plasmic-import: 2qiQ4nSmOYBA/component
 import Harmful from "../../Harmful"; // plasmic-import: XLWl_YcBNVp7/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import Subscription from "../../Subscription"; // plasmic-import: RkqUeSl2AMb8/component
-import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import SlideinModal from "../../SlideinModal"; // plasmic-import: Y_p0qKIshDe1/component
@@ -99,12 +99,15 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicHamyar.module.css"; // plasmic-import: TOxGOz1ONYz_/css
 
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
-import Icon39Icon from "./icons/PlasmicIcon__Icon39"; // plasmic-import: G3nZy4Yv7luo/icon
-import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: boEzwrzcFMy4/icon
+import Icon125Icon from "./icons/PlasmicIcon__Icon125"; // plasmic-import: Q7X4s11MfEIR/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon124Icon from "./icons/PlasmicIcon__Icon124"; // plasmic-import: PTcWiaBFyPBw/icon
+import Icon126Icon from "./icons/PlasmicIcon__Icon126"; // plasmic-import: MKLSqOtGUXQ0/icon
+import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: boEzwrzcFMy4/icon
+import Icon39Icon from "./icons/PlasmicIcon__Icon39"; // plasmic-import: G3nZy4Yv7luo/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
-import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon7Icon from "./icons/PlasmicIcon__Icon7"; // plasmic-import: UbRafB34Z-K-/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
 import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
@@ -132,10 +135,14 @@ export type PlasmicHamyar__OverridesType = {
   root?: Flex__<"div">;
   nofiticon?: Flex__<typeof Nofiticon>;
   switchbest?: Flex__<typeof Switchbest>;
-  countdown2?: Flex__<typeof Countdown>;
   cyclebox?: Flex__<typeof Cyclebox>;
   lineClomp?: Flex__<typeof LineClomp>;
   progress?: Flex__<typeof AntdProgress>;
+  button7?: Flex__<typeof Button>;
+  countdown3?: Flex__<typeof Countdown>;
+  button8?: Flex__<typeof Button>;
+  button9?: Flex__<typeof Button>;
+  button10?: Flex__<typeof Button>;
   checkbox?: Flex__<typeof Checkbox>;
   reveal?: Flex__<typeof Reveal>;
   useful2?: Flex__<typeof Useful>;
@@ -166,6 +173,7 @@ export type PlasmicHamyar__OverridesType = {
   favicon?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   advice?: Flex__<typeof ApiRequest>;
+  section?: Flex__<"section">;
   embedHtml?: Flex__<typeof Embed>;
   countNotif?: Flex__<typeof ApiRequest>;
 };
@@ -714,47 +722,6 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "countdown2.remainingSeconds",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant(globalVariants, "screen", "mobile")
-            ? (() => {
-                try {
-                  return (() => {
-                    let current_date = new Date();
-                    let delta = $state.expdate - current_date;
-                    return Math.floor(delta / 1000);
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return 0;
-                  }
-                  throw e;
-                }
-              })()
-            : (() => {
-                try {
-                  return (() => {
-                    let current_date = new Date();
-                    let delta = $state.expdate - current_date;
-                    return Math.floor(delta / 1000);
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return 0;
-                  }
-                  throw e;
-                }
-              })()
       },
       {
         path: "advice.data",
@@ -1463,6 +1430,71 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button7.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+      },
+      {
+        path: "countdown3.remainingSeconds",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile")
+            ? (() => {
+                try {
+                  return (() => {
+                    let current_date = new Date();
+                    let delta = $state.expdate - current_date;
+                    return Math.floor(delta / 1000);
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return 0;
+                  }
+                  throw e;
+                }
+              })()
+            : (() => {
+                try {
+                  return (() => {
+                    let current_date = new Date();
+                    let delta = $state.expdate - current_date;
+                    return Math.floor(delta / 1000);
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return 0;
+                  }
+                  throw e;
+                }
+              })()
+      },
+      {
+        path: "button8.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "softRed"
+      },
+      {
+        path: "button9.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+      },
+      {
+        path: "button10.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
       }
     ],
     [$props, $ctx, $refs]
@@ -1881,402 +1913,6 @@ function PlasmicHamyar__RenderFunc(props: {
                           }
                         </div>
                       </Switchbest>
-                    </div>
-                  ) : null}
-                  {(
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? (() => {
-                          try {
-                            return $state.user.data.result.man.hamyarStatus;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })()
-                      : (() => {
-                          try {
-                            return $state.user.data.result.man.hamyarStatus;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return true;
-                            }
-                            throw e;
-                          }
-                        })()
-                  ) ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__bph6)}
-                    >
-                      {(
-                        hasVariant(globalVariants, "screen", "mobile")
-                          ? (() => {
-                              try {
-                                return (() => {
-                                  let current_date = new Date();
-                                  let delta = $state.expdate - current_date;
-                                  let days_remaining = Math.floor(
-                                    delta / (1000 * 60 * 60 * 24)
-                                  );
-                                  if (days_remaining > 3) return true;
-                                  else return false;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })()
-                          : (() => {
-                              try {
-                                return (() => {
-                                  if (
-                                    $state.user.data.result.man
-                                      .timeToEndHamyarTime.days > 3
-                                  )
-                                    return true;
-                                  else return false;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })()
-                      ) ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__uHwR
-                          )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["updateModalOpen"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["modal", "open"]
-                                    },
-                                    operation: 0,
-                                    value: true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateModalOpen"] != null &&
-                              typeof $steps["updateModalOpen"] === "object" &&
-                              typeof $steps["updateModalOpen"].then ===
-                                "function"
-                            ) {
-                              $steps["updateModalOpen"] = await $steps[
-                                "updateModalOpen"
-                              ];
-                            }
-                          }}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__hbXo8
-                            )}
-                          >
-                            {hasVariant(globalVariants, "screen", "mobile")
-                              ? "\u0648\u0636\u0639\u06cc\u062a\u200c\u0627\u0634\u062a\u0631\u0627\u06a9 : "
-                              : "\u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9 : "}
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__tJ051
-                            )}
-                          >
-                            {hasVariant(globalVariants, "screen", "mobile") ? (
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return (() => {
-                                      let current_date = new Date();
-                                      let delta = $state.expdate - current_date;
-                                      let days_remaining = Math.floor(
-                                        delta / (1000 * 60 * 60 * 24)
-                                      );
-                                      let hours_remaining = Math.floor(
-                                        (delta % (1000 * 60 * 60 * 24)) /
-                                          (1000 * 60 * 60)
-                                      );
-                                      return days_remaining + " روز باقیمانده ";
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "365 \u0631\u0648\u0632 20 \u0633\u0627\u0639\u062a \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647 ";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            ) : (
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return (() => {
-                                      return (
-                                        $state.user.data.result.man
-                                          .timeToEndHamyarTime.days +
-                                        " روز باقی مانده"
-                                      );
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "15 \u0631\u0648\u0632";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            )}
-                          </div>
-                        </div>
-                      ) : null}
-                      {(
-                        hasVariant(globalVariants, "screen", "mobile")
-                          ? (() => {
-                              try {
-                                return (() => {
-                                  let current_date = new Date();
-                                  let delta = $state.expdate - current_date;
-                                  let days_remaining = Math.floor(
-                                    delta / (1000 * 60 * 60 * 24)
-                                  );
-                                  if (days_remaining > 3) return false;
-                                  else return true;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })()
-                          : (() => {
-                              try {
-                                return (() => {
-                                  if (
-                                    $state.user.data.result.man
-                                      .timeToEndHamyarTime.days > 3
-                                  )
-                                    return false;
-                                  else return true;
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })()
-                      ) ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__d1Foh
-                          )}
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["updateModalOpen"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["modal", "open"]
-                                    },
-                                    operation: 0,
-                                    value: true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateModalOpen"] != null &&
-                              typeof $steps["updateModalOpen"] === "object" &&
-                              typeof $steps["updateModalOpen"].then ===
-                                "function"
-                            ) {
-                              $steps["updateModalOpen"] = await $steps[
-                                "updateModalOpen"
-                              ];
-                            }
-                          }}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text___0HM2W
-                            )}
-                          >
-                            {hasVariant(globalVariants, "screen", "mobile")
-                              ? "\u0648\u0636\u0639\u06cc\u062a\u200c\u0627\u0634\u062a\u0631\u0627\u06a9 : "
-                              : "\u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9 : "}
-                          </div>
-                          {(() => {
-                            const child$Props = {
-                              className: classNames(
-                                "__wab_instance",
-                                sty.countdown2
-                              ),
-                              onRemainingSecondsChange: async (
-                                ...eventArgs: any
-                              ) => {
-                                generateStateOnChangeProp($state, [
-                                  "countdown2",
-                                  "remainingSeconds"
-                                ]).apply(null, eventArgs);
-
-                                if (
-                                  eventArgs.length > 1 &&
-                                  eventArgs[1] &&
-                                  eventArgs[1]._plasmic_state_init_
-                                ) {
-                                  return;
-                                }
-                              },
-                              remainingSeconds: generateStateValueProp($state, [
-                                "countdown2",
-                                "remainingSeconds"
-                              ]),
-                              targetTimeUtc: hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobile"
-                              )
-                                ? "2025-12-10T23:26:60.224Z"
-                                : undefined
-                            };
-
-                            initializePlasmicStates(
-                              $state,
-                              [
-                                {
-                                  name: "countdown2.remainingSeconds",
-                                  initFunc: ({ $props, $state, $queries }) =>
-                                    hasVariant(
-                                      globalVariants,
-                                      "screen",
-                                      "mobile"
-                                    )
-                                      ? (() => {
-                                          try {
-                                            return (() => {
-                                              let current_date = new Date();
-                                              let delta =
-                                                $state.expdate - current_date;
-                                              return Math.floor(delta / 1000);
-                                            })();
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return 0;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      : (() => {
-                                          try {
-                                            return (() => {
-                                              let current_date = new Date();
-                                              let delta =
-                                                $state.expdate - current_date;
-                                              return Math.floor(delta / 1000);
-                                            })();
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return 0;
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                }
-                              ],
-                              []
-                            );
-                            return (
-                              <Countdown
-                                data-plasmic-name={"countdown2"}
-                                data-plasmic-override={overrides.countdown2}
-                                {...child$Props}
-                              />
-                            );
-                          })()}
-                        </div>
-                      ) : null}
                     </div>
                   ) : null}
                 </Stack__>
@@ -3025,109 +2661,711 @@ function PlasmicHamyar__RenderFunc(props: {
                       hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__su6M)}
                     >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___1QlVh
-                        )}
-                      >
-                        <PlasmicIcon__
-                          PlasmicIconType={
-                            hasVariant(globalVariants, "screen", "mobile")
-                              ? Icon39Icon
-                              : Icon39Icon
+                      {(() => {
+                        try {
+                          return !$state.user.data.result.man.hamyarStatus;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
                           }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
                           className={classNames(
                             projectcss.all,
-                            sty.svg___4TMsI
+                            sty.freeBox__q6Qfm
                           )}
-                          role={"img"}
-                        />
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___1QlVh
+                            )}
+                          >
+                            <PlasmicIcon__
+                              PlasmicIconType={
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? Icon125Icon
+                                  : Icon125Icon
+                              }
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___4TMsI
+                              )}
+                              role={"img"}
+                            />
 
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__gfJmW
-                          )}
-                        >
-                          {hasVariant(globalVariants, "screen", "mobile") ? (
                             <div
-                              className={projectcss.__wab_expr_html_text}
-                              dangerouslySetInnerHTML={{
-                                __html: (() => {
-                                  try {
-                                    return "توصیه امروز";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              }}
-                            />
-                          ) : (
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__gfJmW
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobile"
+                              ) ? (
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return "ارسال یادآوری";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  }}
+                                />
+                              ) : (
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return "ارسال یادآوری";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  }}
+                                />
+                              )}
+                            </div>
+                          </Stack__>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__kH1Sk
+                            )}
+                          >
                             <div
-                              className={projectcss.__wab_expr_html_text}
-                              dangerouslySetInnerHTML={{
-                                __html: (() => {
-                                  try {
-                                    return "توصیه امروز";
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
-                                    }
-                                    throw e;
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__o3HzY
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobile"
+                              ) ? (
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return "«تغییرات <b style='color: purple;'>چرخه قاعدگیش</b> رو برات ارسال می‌کنم که <b style='color: purple;'>راحت‌تر بتونی مراقبش باشی.</b> اینطوری <b style='color: purple;'>رابطه شادتری</b> دارین.»";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u06a9\u0647 <b>\u0631\u0627\u062d\u062a\u200c\u062a\u0631 <b/>\u0628\u062a\u0648\u0646\u06cc \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0648 \u0645\u0631\u0627\u0642\u0628\u0634 \u0628\u0627\u0634\u06cc. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0628\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631 \u0645\u06cc\u0627\u06cc\u062f \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u0646.";
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  }}
+                                />
+                              ) : (
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return "تغییرات <b style='color: purple;'>چرخه قاعدگیش</b> رو برات ارسال می‌کنم که <b style='color: purple;'>راحت‌تر بتونی اطلاع داشته باشی و مراقبش باشی.</b> اینطوری راحت‌تر با هم کنار میاید و <b style='color: purple;'>رابطه شادتری دارین.</b>";
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc\u0634 \u0631\u0648 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u06a9\u0647 <b>\u0631\u0627\u062d\u062a\u200c\u062a\u0631 <b/>\u0628\u062a\u0648\u0646\u06cc \u0627\u0637\u0644\u0627\u0639 \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc \u0648 \u0645\u0631\u0627\u0642\u0628\u0634 \u0628\u0627\u0634\u06cc. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0628\u0627 \u0647\u0645 \u06a9\u0646\u0627\u0631 \u0645\u06cc\u0627\u06cc\u062f \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u0646.";
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  }}
+                                />
+                              )}
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__mmV40
+                              )}
+                            >
+                              <Button
+                                data-plasmic-name={"button7"}
+                                data-plasmic-override={overrides.button7}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.button7
+                                )}
+                                color={generateStateValueProp($state, [
+                                  "button7",
+                                  "color"
+                                ])}
+                                onClick={async event => {
+                                  const $steps = {};
+
+                                  $steps["runCode"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return (() => {
+                                              return window.scrollTo({
+                                                top: document.body.scrollHeight,
+                                                behavior: "smooth"
+                                              });
+                                            })();
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["runCode"] != null &&
+                                    typeof $steps["runCode"] === "object" &&
+                                    typeof $steps["runCode"].then === "function"
+                                  ) {
+                                    $steps["runCode"] = await $steps["runCode"];
                                   }
-                                })()
-                              }}
+                                }}
+                                onColorChange={async (...eventArgs: any) => {
+                                  ((...eventArgs) => {
+                                    generateStateOnChangeProp($state, [
+                                      "button7",
+                                      "color"
+                                    ])(eventArgs[0]);
+                                  }).apply(null, eventArgs);
+
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
+                                    return;
+                                  }
+                                }}
+                                size={
+                                  hasVariant(globalVariants, "screen", "mobile")
+                                    ? "minimal"
+                                    : "compact"
+                                }
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__eWvCx,
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                      ? "animashen"
+                                      : undefined
+                                  )}
+                                >
+                                  {
+                                    "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646"
+                                  }
+                                </div>
+                              </Button>
+                            </div>
+                            <Icon124Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__ui9Fe,
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? ``
+                                  : "bounce"
+                              )}
+                              role={"img"}
                             />
-                          )}
+                          </Stack__>
                         </div>
-                      </Stack__>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__kH1Sk
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__aCPbG
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
+                      ) : null}
+                      {(
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? (() => {
                               try {
-                                return $state.advice.data[0].doc;
+                                return $state.user.data.result.man.hamyarStatus;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "";
+                                  return true;
                                 }
                                 throw e;
                               }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      </Stack__>
+                            })()
+                          : (() => {
+                              try {
+                                return $state.user.data.result.man.hamyarStatus;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })()
+                      ) ? (
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__nm5J
+                          )}
+                        >
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__svqqa
+                            )}
+                          >
+                            <PlasmicIcon__
+                              PlasmicIconType={
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? Icon126Icon
+                                  : Icon126Icon
+                              }
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__o1MEw
+                              )}
+                              role={"img"}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__syqU
+                              )}
+                            >
+                              {
+                                "\u0648\u0636\u0639\u06cc\u062a \u0627\u0634\u062a\u0631\u0627\u06a9"
+                              }
+                            </div>
+                          </Stack__>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__uf4Gz
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ifXd6
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateModalOpen"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["modal", "open"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateModalOpen"] != null &&
+                                  typeof $steps["updateModalOpen"] ===
+                                    "object" &&
+                                  typeof $steps["updateModalOpen"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateModalOpen"] = await $steps[
+                                    "updateModalOpen"
+                                  ];
+                                }
+                              }}
+                              style={(() => {
+                                try {
+                                  return {
+                                    boxShadow: `0 0px 4px 2px ${
+                                      $state.user?.data?.result?.man
+                                        ?.timeToEndHamyarTime?.days > 3
+                                        ? "#00C371"
+                                        : "#EB464A"
+                                    }`
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            >
+                              {(() => {
+                                const child$Props = {
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.countdown3
+                                  ),
+                                  color: (() => {
+                                    try {
+                                      return $state.user?.data?.result?.man
+                                        ?.timeToEndHamyarTime?.days > 3
+                                        ? "green"
+                                        : "red";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  date: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? (() => {
+                                        try {
+                                          return $state.user?.data?.result?.man
+                                            ?.timeToEndHamyarTime.days /
+                                            30 !=
+                                            0
+                                            ? "moanth"
+                                            : "dey";
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "moanth";
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    : (() => {
+                                        try {
+                                          return $state.user?.data?.result?.man
+                                            ?.timeToEndHamyarTime.days /
+                                            30 !=
+                                            0
+                                            ? "moanth"
+                                            : "dey";
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return [];
+                                          }
+                                          throw e;
+                                        }
+                                      })(),
+                                  onRemainingSecondsChange: async (
+                                    ...eventArgs: any
+                                  ) => {
+                                    generateStateOnChangeProp($state, [
+                                      "countdown3",
+                                      "remainingSeconds"
+                                    ]).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  },
+                                  remainingSeconds: generateStateValueProp(
+                                    $state,
+                                    ["countdown3", "remainingSeconds"]
+                                  ),
+                                  targetTimeUtc: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? "2025-12-10T23:26:60.224Z"
+                                    : undefined
+                                };
+
+                                initializePlasmicStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "countdown3.remainingSeconds",
+                                      initFunc: ({
+                                        $props,
+                                        $state,
+                                        $queries
+                                      }) =>
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                          ? (() => {
+                                              try {
+                                                return (() => {
+                                                  let current_date = new Date();
+                                                  let delta =
+                                                    $state.expdate -
+                                                    current_date;
+                                                  return Math.floor(
+                                                    delta / 1000
+                                                  );
+                                                })();
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return 0;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                          : (() => {
+                                              try {
+                                                return (() => {
+                                                  let current_date = new Date();
+                                                  let delta =
+                                                    $state.expdate -
+                                                    current_date;
+                                                  return Math.floor(
+                                                    delta / 1000
+                                                  );
+                                                })();
+                                              } catch (e) {
+                                                if (
+                                                  e instanceof TypeError ||
+                                                  e?.plasmicType ===
+                                                    "PlasmicUndefinedDataError"
+                                                ) {
+                                                  return 0;
+                                                }
+                                                throw e;
+                                              }
+                                            })()
+                                    }
+                                  ],
+                                  []
+                                );
+                                return (
+                                  <Countdown
+                                    data-plasmic-name={"countdown3"}
+                                    data-plasmic-override={overrides.countdown3}
+                                    {...child$Props}
+                                  />
+                                );
+                              })()}
+                              {(
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? (() => {
+                                      try {
+                                        return $state.user?.data?.result?.man
+                                          ?.timeToEndHamyarTime?.days > 3
+                                          ? false
+                                          : true;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  : (() => {
+                                      try {
+                                        return $state.user?.data?.result?.man
+                                          ?.timeToEndHamyarTime?.days > 3
+                                          ? false
+                                          : true;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                              ) ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__gELe
+                                  )}
+                                >
+                                  <Button
+                                    data-plasmic-name={"button8"}
+                                    data-plasmic-override={overrides.button8}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.button8
+                                    )}
+                                    color={generateStateValueProp($state, [
+                                      "button8",
+                                      "color"
+                                    ])}
+                                    onClick={async event => {
+                                      const $steps = {};
+
+                                      $steps["runCode"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              customFunction: async () => {
+                                                return window.scrollTo({
+                                                  top: document.body
+                                                    .scrollHeight,
+                                                  behavior: "smooth"
+                                                });
+                                              }
+                                            };
+                                            return (({ customFunction }) => {
+                                              return customFunction();
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["runCode"] != null &&
+                                        typeof $steps["runCode"] === "object" &&
+                                        typeof $steps["runCode"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode"] = await $steps[
+                                          "runCode"
+                                        ];
+                                      }
+                                    }}
+                                    onColorChange={async (
+                                      ...eventArgs: any
+                                    ) => {
+                                      ((...eventArgs) => {
+                                        generateStateOnChangeProp($state, [
+                                          "button8",
+                                          "color"
+                                        ])(eventArgs[0]);
+                                      }).apply(null, eventArgs);
+
+                                      if (
+                                        eventArgs.length > 1 &&
+                                        eventArgs[1] &&
+                                        eventArgs[1]._plasmic_state_init_
+                                      ) {
+                                        return;
+                                      }
+                                    }}
+                                    size={
+                                      hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "mobile"
+                                      )
+                                        ? "minimal"
+                                        : "compact"
+                                    }
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__jQbJj,
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                          ? "animashen"
+                                          : undefined
+                                      )}
+                                    >
+                                      {
+                                        "\u062a\u0645\u062f\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
+                                      }
+                                    </div>
+                                  </Button>
+                                </div>
+                              ) : null}
+                            </Stack__>
+                          </div>
+                        </Stack__>
+                      ) : null}
                     </Stack__>
                     <Stack__
                       as={"div"}
@@ -3202,7 +3440,9 @@ function PlasmicHamyar__RenderFunc(props: {
                           )}
                         </div>
                       </Stack__>
-                      <div
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
                         className={classNames(
                           projectcss.all,
                           sty.freeBox__njNi1
@@ -3245,7 +3485,9 @@ function PlasmicHamyar__RenderFunc(props: {
                                 }
                               })()
                         ) ? (
-                          <div
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
                             className={classNames(
                               projectcss.all,
                               sty.freeBox___7HwaX
@@ -3254,86 +3496,209 @@ function PlasmicHamyar__RenderFunc(props: {
                             <div
                               className={classNames(
                                 projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__pSXtV
+                                sty.freeBox__guraR
                               )}
                             >
-                              {hasVariant(globalVariants, "screen", "mobile")
-                                ? "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f:"
-                                : "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f:"}
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__v9Vi8
-                              )}
-                            >
-                              {hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobile"
-                              ) ? (
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (() => {
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__pSXtV
+                                )}
+                              >
+                                {hasVariant(globalVariants, "screen", "mobile")
+                                  ? "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f:"
+                                  : "\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f:"}
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__v9Vi8
+                                )}
+                              >
+                                {hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                ) ? (
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (() => {
+                                          if (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms == 0
+                                          )
+                                            return "تا پایان امروز";
+                                          return (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms +
+                                            " روز " +
+                                            "دیگر"
+                                          );
+                                        })();
+                                      } catch (e) {
                                         if (
-                                          $state.user.data.result.userStatus
-                                            .daysToEndPms == 0
-                                        )
-                                          return "تا پایان امروز";
-                                        return (
-                                          $state.user.data.result.userStatus
-                                            .daysToEndPms +
-                                          " روز " +
-                                          "دیگر"
-                                        );
-                                      })();
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "-";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                ) : (
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (() => {
+                                          if (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms == 0
+                                          )
+                                            return "تا پایان امروز";
+                                          return (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms +
+                                            " روز " +
+                                            "دیگر"
+                                          );
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "-";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                )}
+                              </div>
+                            </div>
+                            {(
+                              hasVariant(globalVariants, "screen", "mobile")
+                                ? (() => {
+                                    try {
+                                      return !$state.user.data.result.man
+                                        .hamyarStatus;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
                                         e?.plasmicType ===
                                           "PlasmicUndefinedDataError"
                                       ) {
-                                        return "-";
+                                        return true;
                                       }
                                       throw e;
                                     }
-                                  })()}
-                                </React.Fragment>
-                              ) : (
-                                <React.Fragment>
-                                  {(() => {
+                                  })()
+                                : (() => {
                                     try {
-                                      return (() => {
-                                        if (
-                                          $state.user.data.result.userStatus
-                                            .daysToEndPms == 0
-                                        )
-                                          return "تا پایان امروز";
-                                        return (
-                                          $state.user.data.result.userStatus
-                                            .daysToEndPms +
-                                          " روز " +
-                                          "دیگر"
-                                        );
-                                      })();
+                                      return !$state.user.data.result.man
+                                        .hamyarStatus;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
                                         e?.plasmicType ===
                                           "PlasmicUndefinedDataError"
                                       ) {
-                                        return "-";
+                                        return true;
                                       }
                                       throw e;
                                     }
-                                  })()}
-                                </React.Fragment>
-                              )}
-                            </div>
-                          </div>
+                                  })()
+                            ) ? (
+                              <Button
+                                data-plasmic-name={"button9"}
+                                data-plasmic-override={overrides.button9}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.button9
+                                )}
+                                color={generateStateValueProp($state, [
+                                  "button9",
+                                  "color"
+                                ])}
+                                onClick={async event => {
+                                  const $steps = {};
+
+                                  $steps["runCode"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return window.scrollTo({
+                                              top: document.body.scrollHeight,
+                                              behavior: "smooth"
+                                            });
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["runCode"] != null &&
+                                    typeof $steps["runCode"] === "object" &&
+                                    typeof $steps["runCode"].then === "function"
+                                  ) {
+                                    $steps["runCode"] = await $steps["runCode"];
+                                  }
+                                }}
+                                onColorChange={async (...eventArgs: any) => {
+                                  ((...eventArgs) => {
+                                    generateStateOnChangeProp($state, [
+                                      "button9",
+                                      "color"
+                                    ])(eventArgs[0]);
+                                  }).apply(null, eventArgs);
+
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
+                                    return;
+                                  }
+                                }}
+                                size={
+                                  hasVariant(globalVariants, "screen", "mobile")
+                                    ? "minimal"
+                                    : "minimal"
+                                }
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__oPdm3,
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                      ? ``
+                                      : undefined
+                                  )}
+                                >
+                                  {hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? "\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u06a9\u0646"
+                                    : "\u0628\u0647\u0645 \u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u06a9\u0646"}
+                                </div>
+                              </Button>
+                            ) : null}
+                          </Stack__>
                         ) : null}
                         {(() => {
                           try {
@@ -3351,7 +3716,9 @@ function PlasmicHamyar__RenderFunc(props: {
                             throw e;
                           }
                         })() ? (
-                          <div
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
                             className={classNames(
                               projectcss.all,
                               sty.freeBox___6A6Xj
@@ -3360,90 +3727,213 @@ function PlasmicHamyar__RenderFunc(props: {
                             <div
                               className={classNames(
                                 projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__wcSo3
+                                sty.freeBox___3OjnJ
                               )}
                             >
-                              {hasVariant(globalVariants, "screen", "mobile")
-                                ? "\u0634\u0631\u0648\u0639 pms :"
-                                : "\u0634\u0631\u0648\u0639 pms :"}
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__wcSo3
+                                )}
+                              >
+                                {hasVariant(globalVariants, "screen", "mobile")
+                                  ? "\u0634\u0631\u0648\u0639 pms :"
+                                  : "\u0634\u0631\u0648\u0639 pms :"}
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__n80C
+                                )}
+                              >
+                                {hasVariant(
+                                  globalVariants,
+                                  "screen",
+                                  "mobile"
+                                ) ? (
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (() => {
+                                          let future1 = new Date(
+                                            $state.user.data.result.userStatus.pmsStart
+                                          );
+                                          let current_date1 = new Date();
+                                          let delta1 = future1 - current_date1;
+                                          let days_remaining1 = Math.floor(
+                                            delta1 / (1000 * 60 * 60 * 24)
+                                          );
+                                          if (days_remaining1 == 0)
+                                            return "تا پایان امروز";
+                                          return (
+                                            days_remaining1 + " روز " + "دیگر"
+                                          );
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "-";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                ) : (
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return (() => {
+                                          let future1 = new Date(
+                                            $state.user.data.result.userStatus.pmsStart
+                                          );
+                                          let current_date1 = new Date();
+                                          let delta1 = future1 - current_date1;
+                                          let days_remaining1 = Math.floor(
+                                            delta1 / (1000 * 60 * 60 * 24)
+                                          );
+                                          if (days_remaining1 == 0)
+                                            return "تا پایان امروز";
+                                          return (
+                                            days_remaining1 + " روز " + "دیگر"
+                                          );
+                                        })();
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "-";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                )}
+                              </div>
                             </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__n80C
-                              )}
-                            >
-                              {hasVariant(
-                                globalVariants,
-                                "screen",
-                                "mobile"
-                              ) ? (
-                                <React.Fragment>
-                                  {(() => {
+                            {(
+                              hasVariant(globalVariants, "screen", "mobile")
+                                ? (() => {
                                     try {
-                                      return (() => {
-                                        let future1 = new Date(
-                                          $state.user.data.result.userStatus.pmsStart
-                                        );
-                                        let current_date1 = new Date();
-                                        let delta1 = future1 - current_date1;
-                                        let days_remaining1 = Math.floor(
-                                          delta1 / (1000 * 60 * 60 * 24)
-                                        );
-                                        if (days_remaining1 == 0)
-                                          return "تا پایان امروز";
-                                        return (
-                                          days_remaining1 + " روز " + "دیگر"
-                                        );
-                                      })();
+                                      return !$state.user.data.result.man
+                                        .hamyarStatus;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
                                         e?.plasmicType ===
                                           "PlasmicUndefinedDataError"
                                       ) {
-                                        return "-";
+                                        return true;
                                       }
                                       throw e;
                                     }
-                                  })()}
-                                </React.Fragment>
-                              ) : (
-                                <React.Fragment>
-                                  {(() => {
+                                  })()
+                                : (() => {
                                     try {
-                                      return (() => {
-                                        let future1 = new Date(
-                                          $state.user.data.result.userStatus.pmsStart
-                                        );
-                                        let current_date1 = new Date();
-                                        let delta1 = future1 - current_date1;
-                                        let days_remaining1 = Math.floor(
-                                          delta1 / (1000 * 60 * 60 * 24)
-                                        );
-                                        if (days_remaining1 == 0)
-                                          return "تا پایان امروز";
-                                        return (
-                                          days_remaining1 + " روز " + "دیگر"
-                                        );
-                                      })();
+                                      return !$state.user.data.result.man
+                                        .hamyarStatus;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
                                         e?.plasmicType ===
                                           "PlasmicUndefinedDataError"
                                       ) {
-                                        return "-";
+                                        return true;
                                       }
                                       throw e;
                                     }
-                                  })()}
-                                </React.Fragment>
-                              )}
-                            </div>
-                          </div>
+                                  })()
+                            ) ? (
+                              <Button
+                                data-plasmic-name={"button10"}
+                                data-plasmic-override={overrides.button10}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.button10
+                                )}
+                                color={generateStateValueProp($state, [
+                                  "button10",
+                                  "color"
+                                ])}
+                                onClick={async event => {
+                                  const $steps = {};
+
+                                  $steps["runCode"] = true
+                                    ? (() => {
+                                        const actionArgs = {
+                                          customFunction: async () => {
+                                            return window.scrollTo({
+                                              top: document.body.scrollHeight,
+                                              behavior: "smooth"
+                                            });
+                                          }
+                                        };
+                                        return (({ customFunction }) => {
+                                          return customFunction();
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                  if (
+                                    $steps["runCode"] != null &&
+                                    typeof $steps["runCode"] === "object" &&
+                                    typeof $steps["runCode"].then === "function"
+                                  ) {
+                                    $steps["runCode"] = await $steps["runCode"];
+                                  }
+                                }}
+                                onColorChange={async (...eventArgs: any) => {
+                                  ((...eventArgs) => {
+                                    generateStateOnChangeProp($state, [
+                                      "button10",
+                                      "color"
+                                    ])(eventArgs[0]);
+                                  }).apply(null, eventArgs);
+
+                                  if (
+                                    eventArgs.length > 1 &&
+                                    eventArgs[1] &&
+                                    eventArgs[1]._plasmic_state_init_
+                                  ) {
+                                    return;
+                                  }
+                                }}
+                                size={
+                                  hasVariant(globalVariants, "screen", "mobile")
+                                    ? "minimal"
+                                    : "minimal"
+                                }
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text___2Qyu1,
+                                    hasVariant(
+                                      globalVariants,
+                                      "screen",
+                                      "mobile"
+                                    )
+                                      ? ``
+                                      : undefined
+                                  )}
+                                >
+                                  {hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? "\u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u06a9\u0646"
+                                    : "\u0628\u0647\u0645 \u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u06a9\u0646"}
+                                </div>
+                              </Button>
+                            ) : null}
+                          </Stack__>
                         ) : null}
                         {(() => {
                           try {
@@ -3528,10 +4018,136 @@ function PlasmicHamyar__RenderFunc(props: {
                             </div>
                           </div>
                         ) : null}
-                      </div>
+                      </Stack__>
                     </Stack__>
                   </Stack__>
                 </Stack__>
+                <div className={classNames(projectcss.all, sty.freeBox__hN0VM)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__mf5Ow, {
+                      [sty.freeBoxlackOfCourseInformation__mf5Ow07Srs]:
+                        hasVariant(
+                          $state,
+                          "lackOfCourseInformation",
+                          "lackOfCourseInformation"
+                        )
+                    })}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__iols)}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ltGpm
+                        )}
+                      >
+                        <PlasmicIcon__
+                          PlasmicIconType={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? Icon39Icon
+                              : Icon39Icon
+                          }
+                          className={classNames(projectcss.all, sty.svg__ftvZ9)}
+                          role={"img"}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__e9FJp,
+                            {
+                              [sty.textlackOfCourseInformation__e9FJp07Srs]:
+                                hasVariant(
+                                  $state,
+                                  "lackOfCourseInformation",
+                                  "lackOfCourseInformation"
+                                )
+                            }
+                          )}
+                        >
+                          {hasVariant(globalVariants, "screen", "mobile") ? (
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return "توصیه امروز";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          ) : (
+                            <div
+                              className={projectcss.__wab_expr_html_text}
+                              dangerouslySetInnerHTML={{
+                                __html: (() => {
+                                  try {
+                                    return "توصیه امروز";
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              }}
+                            />
+                          )}
+                        </div>
+                      </Stack__>
+                    </Stack__>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__xfaVm)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__cGtLv
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.advice.data[0].doc;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </Stack__>
+                  </Stack__>
+                </div>
                 {(
                   hasVariant(
                     $state,
@@ -6161,7 +6777,9 @@ function PlasmicHamyar__RenderFunc(props: {
                       : (() => {
                           try {
                             return (
-                              !$state.user.data.result.man.hamyarStatus &&
+                              (!$state.user.data.result.man.hamyarStatus ||
+                                $state.user?.data?.result?.man
+                                  ?.timeToEndHamyarTime?.days < 3) &&
                               $state.cyclebox.cycle != "Pregnancy"
                             );
                           } catch (e) {
@@ -13037,111 +13655,49 @@ function PlasmicHamyar__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/hamyar/advice"}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__s6DdH)}>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__maG1)}
-            >
-              <div
-                className={classNames(projectcss.all, sty.freeBox___5YvYk)}
-                onClick={async event => {
-                  const $steps = {};
-                }}
+          <section
+            data-plasmic-name={"section"}
+            data-plasmic-override={overrides.section}
+            className={classNames(projectcss.all, sty.section)}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__s6DdH)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__maG1)}
               >
-                <Icon7Icon
-                  className={classNames(projectcss.all, sty.svg__nzzVb)}
-                  role={"img"}
-                />
-
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___0Tc1Z
-                  )}
+                  className={classNames(projectcss.all, sty.freeBox___5YvYk)}
+                  onClick={async event => {
+                    const $steps = {};
+                  }}
                 >
-                  {"\u0647\u0645\u06cc\u0627\u0631"}
-                </div>
-              </div>
-              <div
-                aria-pressed={undefined}
-                className={classNames(projectcss.all, sty.freeBox__bHpZ)}
-                onClick={async event => {
-                  const $steps = {};
+                  <Icon7Icon
+                    className={classNames(projectcss.all, sty.svg__nzzVb)}
+                    role={"img"}
+                  />
 
-                  $steps["goToBioritm"] =
-                    localStorage.getItem("token") != "undefined" ||
-                    localStorage.getItem("token") != null
-                      ? (() => {
-                          const actionArgs = { destination: `/bioritm` };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                  if (
-                    $steps["goToBioritm"] != null &&
-                    typeof $steps["goToBioritm"] === "object" &&
-                    typeof $steps["goToBioritm"].then === "function"
-                  ) {
-                    $steps["goToBioritm"] = await $steps["goToBioritm"];
-                  }
-                }}
-              >
-                <PlasmicIcon__
-                  PlasmicIconType={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? Icon23Icon
-                      : Icon23Icon
-                  }
-                  className={classNames(projectcss.all, sty.svg__guU78)}
-                  role={"img"}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___4Ln4F
-                  )}
-                >
-                  {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___0Tc1Z
+                    )}
+                  >
+                    {"\u0647\u0645\u06cc\u0627\u0631"}
+                  </div>
                 </div>
-              </div>
-              {(() => {
-                try {
-                  return $ctx.query.m == "71ef2e";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return true;
-                  }
-                  throw e;
-                }
-              })() ? (
                 <div
                   aria-pressed={undefined}
-                  className={classNames(projectcss.all, sty.freeBox__avzuw)}
+                  className={classNames(projectcss.all, sty.freeBox__bHpZ)}
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToFood"] =
+                    $steps["goToBioritm"] =
                       localStorage.getItem("token") != "undefined" ||
                       localStorage.getItem("token") != null
                         ? (() => {
-                            const actionArgs = { destination: `/food` };
+                            const actionArgs = { destination: `/bioritm` };
                             return (({ destination }) => {
                               if (
                                 typeof destination === "string" &&
@@ -13157,21 +13713,21 @@ function PlasmicHamyar__RenderFunc(props: {
                           })()
                         : undefined;
                     if (
-                      $steps["goToFood"] != null &&
-                      typeof $steps["goToFood"] === "object" &&
-                      typeof $steps["goToFood"].then === "function"
+                      $steps["goToBioritm"] != null &&
+                      typeof $steps["goToBioritm"] === "object" &&
+                      typeof $steps["goToBioritm"].then === "function"
                     ) {
-                      $steps["goToFood"] = await $steps["goToFood"];
+                      $steps["goToBioritm"] = await $steps["goToBioritm"];
                     }
                   }}
                 >
                   <PlasmicIcon__
                     PlasmicIconType={
                       hasVariant(globalVariants, "screen", "mobile")
-                        ? Icon72Icon
-                        : Icon72Icon
+                        ? Icon23Icon
+                        : Icon23Icon
                     }
-                    className={classNames(projectcss.all, sty.svg__teWPd)}
+                    className={classNames(projectcss.all, sty.svg__guU78)}
                     role={"img"}
                   />
 
@@ -13179,17 +13735,85 @@ function PlasmicHamyar__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__ssYYa
+                      sty.text___4Ln4F
                     )}
                   >
-                    {
-                      "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
-                    }
+                    {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
                   </div>
                 </div>
-              ) : null}
-            </Stack__>
-          </div>
+                {(() => {
+                  try {
+                    return $ctx.query.m == "71ef2e";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    aria-pressed={undefined}
+                    className={classNames(projectcss.all, sty.freeBox__avzuw)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToFood"] =
+                        localStorage.getItem("token") != "undefined" ||
+                        localStorage.getItem("token") != null
+                          ? (() => {
+                              const actionArgs = { destination: `/food` };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["goToFood"] != null &&
+                        typeof $steps["goToFood"] === "object" &&
+                        typeof $steps["goToFood"].then === "function"
+                      ) {
+                        $steps["goToFood"] = await $steps["goToFood"];
+                      }
+                    }}
+                  >
+                    <PlasmicIcon__
+                      PlasmicIconType={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? Icon72Icon
+                          : Icon72Icon
+                      }
+                      className={classNames(projectcss.all, sty.svg__teWPd)}
+                      role={"img"}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__ssYYa
+                      )}
+                    >
+                      {
+                        "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
+                      }
+                    </div>
+                  </div>
+                ) : null}
+              </Stack__>
+            </div>
+          </section>
           <Embed
             data-plasmic-name={"embedHtml"}
             data-plasmic-override={overrides.embedHtml}
@@ -13252,10 +13876,14 @@ const PlasmicDescendants = {
     "root",
     "nofiticon",
     "switchbest",
-    "countdown2",
     "cyclebox",
     "lineClomp",
     "progress",
+    "button7",
+    "countdown3",
+    "button8",
+    "button9",
+    "button10",
     "checkbox",
     "reveal",
     "useful2",
@@ -13286,15 +13914,20 @@ const PlasmicDescendants = {
     "favicon",
     "pullToRefresh",
     "advice",
+    "section",
     "embedHtml",
     "countNotif"
   ],
   nofiticon: ["nofiticon"],
   switchbest: ["switchbest"],
-  countdown2: ["countdown2"],
   cyclebox: ["cyclebox", "lineClomp", "progress"],
   lineClomp: ["lineClomp"],
   progress: ["progress"],
+  button7: ["button7"],
+  countdown3: ["countdown3"],
+  button8: ["button8"],
+  button9: ["button9"],
+  button10: ["button10"],
   checkbox: ["checkbox"],
   reveal: ["reveal", "useful2", "useful"],
   useful2: ["useful2"],
@@ -13325,6 +13958,7 @@ const PlasmicDescendants = {
   favicon: ["favicon"],
   pullToRefresh: ["pullToRefresh"],
   advice: ["advice"],
+  section: ["section"],
   embedHtml: ["embedHtml"],
   countNotif: ["countNotif"]
 } as const;
@@ -13335,10 +13969,14 @@ type NodeDefaultElementType = {
   root: "div";
   nofiticon: typeof Nofiticon;
   switchbest: typeof Switchbest;
-  countdown2: typeof Countdown;
   cyclebox: typeof Cyclebox;
   lineClomp: typeof LineClomp;
   progress: typeof AntdProgress;
+  button7: typeof Button;
+  countdown3: typeof Countdown;
+  button8: typeof Button;
+  button9: typeof Button;
+  button10: typeof Button;
   checkbox: typeof Checkbox;
   reveal: typeof Reveal;
   useful2: typeof Useful;
@@ -13369,6 +14007,7 @@ type NodeDefaultElementType = {
   favicon: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
   advice: typeof ApiRequest;
+  section: "section";
   embedHtml: typeof Embed;
   countNotif: typeof ApiRequest;
 };
@@ -13460,10 +14099,14 @@ export const PlasmicHamyar = Object.assign(
     // Helper components rendering sub-elements
     nofiticon: makeNodeComponent("nofiticon"),
     switchbest: makeNodeComponent("switchbest"),
-    countdown2: makeNodeComponent("countdown2"),
     cyclebox: makeNodeComponent("cyclebox"),
     lineClomp: makeNodeComponent("lineClomp"),
     progress: makeNodeComponent("progress"),
+    button7: makeNodeComponent("button7"),
+    countdown3: makeNodeComponent("countdown3"),
+    button8: makeNodeComponent("button8"),
+    button9: makeNodeComponent("button9"),
+    button10: makeNodeComponent("button10"),
     checkbox: makeNodeComponent("checkbox"),
     reveal: makeNodeComponent("reveal"),
     useful2: makeNodeComponent("useful2"),
@@ -13494,6 +14137,7 @@ export const PlasmicHamyar = Object.assign(
     favicon: makeNodeComponent("favicon"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     advice: makeNodeComponent("advice"),
+    section: makeNodeComponent("section"),
     embedHtml: makeNodeComponent("embedHtml"),
     countNotif: makeNodeComponent("countNotif"),
 

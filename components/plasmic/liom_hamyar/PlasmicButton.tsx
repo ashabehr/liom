@@ -139,25 +139,25 @@ export const PlasmicButton__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicButton__ArgsType = {
-  children?: React.ReactNode;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
   link?: string;
   submitsForm?: boolean;
   target?: boolean;
   onColorChange?: (val: any) => void;
   disabled?: boolean;
+  startIcon?: React.ReactNode;
+  children?: React.ReactNode;
+  endIcon?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicButton__ArgsType;
 export const PlasmicButton__ArgProps = new Array<ArgPropType>(
-  "children",
-  "startIcon",
-  "endIcon",
   "link",
   "submitsForm",
   "target",
   "onColorChange",
-  "disabled"
+  "disabled",
+  "startIcon",
+  "children",
+  "endIcon"
 );
 
 export type PlasmicButton__OverridesType = {

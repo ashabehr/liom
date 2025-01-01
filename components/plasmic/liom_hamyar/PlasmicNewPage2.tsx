@@ -150,6 +150,8 @@ function PlasmicNewPage2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -187,6 +189,18 @@ function PlasmicNewPage2__RenderFunc(props: {
           },
           { massege: "salam", person: "mdfdfdfde", time: "11405-555-55 10:30" }
         ]
+      },
+      {
+        path: "start",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "sessionId",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -467,14 +481,12 @@ function PlasmicNewPage2__RenderFunc(props: {
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
-                                return (() => {
-                                  return $state.variable.push({
-                                    massege: $state.textArea.value,
-                                    person: "me",
-                                    time: $$.dayjs().format("YYYY-MM-DD HH:mm"),
-                                    send: 0
-                                  });
-                                })();
+                                return $state.variable.push({
+                                  massege: $state.textArea.value,
+                                  person: "me",
+                                  time: $$.dayjs().format("YYYY-MM-DD HH:mm"),
+                                  send: 0
+                                });
                               }
                             };
                             return (({ customFunction }) => {
@@ -490,6 +502,147 @@ function PlasmicNewPage2__RenderFunc(props: {
                       ) {
                         $steps["updateTextAreaValue2"] = await $steps[
                           "updateTextAreaValue2"
+                        ];
+                      }
+
+                      $steps["sendstart"] = $state.start
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/help/getListHelp",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      listID: parseInt($ctx.query.listID),
+                                      subList: parseInt($ctx.query.subList),
+                                      title: " ",
+                                      text: $state.textArea.value,
+                                      doctorID: parseInt($ctx.query.doctorID),
+                                      token: $ctx.query.token
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["sendstart"] != null &&
+                        typeof $steps["sendstart"] === "object" &&
+                        typeof $steps["sendstart"].then === "function"
+                      ) {
+                        $steps["sendstart"] = await $steps["sendstart"];
+                      }
+
+                      $steps["send"] = !$state.start
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "PUT",
+                                "https://n8n.staas.ir/webhook/help/getListHelp",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      text: $state.textArea.value,
+                                      sessionID: $state.sessionId,
+                                      token: $ctx.query.token
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["send"] != null &&
+                        typeof $steps["send"] === "object" &&
+                        typeof $steps["send"].then === "function"
+                      ) {
+                        $steps["send"] = await $steps["send"];
+                      }
+
+                      $steps["updateTextAreaValue4"] =
+                        $steps.send?.data?.success == true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return ($state.variable[
+                                    $state.variable.length - 1
+                                  ].send = 1);
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateTextAreaValue4"] != null &&
+                        typeof $steps["updateTextAreaValue4"] === "object" &&
+                        typeof $steps["updateTextAreaValue4"].then ===
+                          "function"
+                      ) {
+                        $steps["updateTextAreaValue4"] = await $steps[
+                          "updateTextAreaValue4"
+                        ];
+                      }
+
+                      $steps["updateTextAreaValue7"] =
+                        $steps.sendstart?.data?.success == true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    $state.sessionId =
+                                      $steps.sendstart.data.sessionID;
+                                    return ($state.variable[
+                                      $state.variable.length - 1
+                                    ].send = 1);
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateTextAreaValue7"] != null &&
+                        typeof $steps["updateTextAreaValue7"] === "object" &&
+                        typeof $steps["updateTextAreaValue7"].then ===
+                          "function"
+                      ) {
+                        $steps["updateTextAreaValue7"] = await $steps[
+                          "updateTextAreaValue7"
                         ];
                       }
 
@@ -552,6 +705,43 @@ function PlasmicNewPage2__RenderFunc(props: {
                       ) {
                         $steps["updateTextAreaValue3"] = await $steps[
                           "updateTextAreaValue3"
+                        ];
+                      }
+
+                      $steps["updateTextAreaValue5"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["start"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateTextAreaValue5"] != null &&
+                        typeof $steps["updateTextAreaValue5"] === "object" &&
+                        typeof $steps["updateTextAreaValue5"].then ===
+                          "function"
+                      ) {
+                        $steps["updateTextAreaValue5"] = await $steps[
+                          "updateTextAreaValue5"
                         ];
                       }
                     }}

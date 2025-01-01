@@ -61,9 +61,15 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import IconClinic from "../../IconClinic"; // plasmic-import: TdNZ6qWfkqbt/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import Star from "../../Star"; // plasmic-import: i69c2Ujsm_H6/component
+import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { DialogTitle } from "@plasmicpkgs/radix-ui";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -76,10 +82,6 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicClinic.module.css"; // plasmic-import: YAtLxskjvTM0/css
 
 import Icon74Icon from "./icons/PlasmicIcon__Icon74"; // plasmic-import: ARDSibiJTpV7/icon
-import Icon75Icon from "./icons/PlasmicIcon__Icon75"; // plasmic-import: CaIiVU2Vq7gB/icon
-import MindSvgIcon from "./icons/PlasmicIcon__MindSvg"; // plasmic-import: g6DmzM6RGQ3O/icon
-import DermisSvgIcon from "./icons/PlasmicIcon__DermisSvg"; // plasmic-import: u3bGCjW3RhfE/icon
-import DietFoodSvgIcon from "./icons/PlasmicIcon__DietFoodSvg"; // plasmic-import: ozXswRIM6iv_/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon104Icon from "./icons/PlasmicIcon__Icon104"; // plasmic-import: 6Kx4mXYQvykk/icon
 import Icon102Icon from "./icons/PlasmicIcon__Icon102"; // plasmic-import: 9fS9dn8xohZT/icon
@@ -87,9 +89,10 @@ import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import Icon76Icon from "./icons/PlasmicIcon__Icon76"; // plasmic-import: ePwPtQfgTARC/icon
 import Icon2Icon from "../todo_mvc_app/icons/PlasmicIcon__Icon2"; // plasmic-import: EwJmqOfKx7up/icon
-import Icon86Icon from "./icons/PlasmicIcon__Icon86"; // plasmic-import: WyXhO3yfiBut/icon
-import Icon80Icon from "./icons/PlasmicIcon__Icon80"; // plasmic-import: ixGmg3HZ4zCd/icon
-import Icon85Icon from "./icons/PlasmicIcon__Icon85"; // plasmic-import: doh7qrCd7t0X/icon
+import Icon77Icon from "./icons/PlasmicIcon__Icon77"; // plasmic-import: wjMNvLG8jaXy/icon
+import Icon120Icon from "./icons/PlasmicIcon__Icon120"; // plasmic-import: lWsc7Ggg4B53/icon
+import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 
 createPlasmicElementProxy;
 
@@ -117,9 +120,7 @@ export type PlasmicClinic__OverridesType = {
   rectangle3?: Flex__<"div">;
   speciality?: Flex__<"div">;
   card6?: Flex__<"div">;
-  card4?: Flex__<"div">;
-  card8?: Flex__<"div">;
-  card5?: Flex__<"div">;
+  iconClinic?: Flex__<typeof IconClinic>;
   speciality2?: Flex__<"div">;
   card9?: Flex__<"div">;
   button3?: Flex__<typeof Button>;
@@ -141,20 +142,22 @@ export type PlasmicClinic__OverridesType = {
   mensah2?: Flex__<"div">;
   doctorsDetails?: Flex__<"div">;
   bg2?: Flex__<"div">;
-  patients?: Flex__<"div">;
-  group?: Flex__<"div">;
-  rectangle14?: Flex__<"div">;
-  patients2?: Flex__<"div">;
-  group2?: Flex__<"div">;
-  rectangle15?: Flex__<"div">;
-  patients3?: Flex__<"div">;
-  group3?: Flex__<"div">;
-  rectangle16?: Flex__<"div">;
   about?: Flex__<"div">;
   drBellamyNicholas?: Flex__<"div">;
   workingTime?: Flex__<"div">;
   monSat0830Am?: Flex__<"div">;
+  speciality4?: Flex__<"div">;
+  card15?: Flex__<"div">;
+  button9?: Flex__<typeof Button>;
+  section?: Flex__<"section">;
   button?: Flex__<typeof Button>;
+  dialog?: Flex__<typeof Dialog>;
+  shop?: Flex__<typeof ApiRequest>;
+  dialogTitle?: Flex__<typeof DialogTitle>;
+  h5?: Flex__<"h5">;
+  input3?: Flex__<typeof AntdInput>;
+  button10?: Flex__<typeof Button>;
+  button11?: Flex__<typeof Button>;
   timer?: Flex__<typeof Timer>;
 };
 
@@ -287,6 +290,74 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhZjQzNGI2LTYxYmUtNDY4NS04MzQ3LTAzZjFmMzBkNDk4YSIsImlhdCI6MTczNDk1MDMwOX0.PGi7C6RqKoMXIH9q9lYQCnXgKFtpn8xEmj9r2_qAJZU"
+      },
+      {
+        path: "getList",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "button9[].color",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "input3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "button10.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button11.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "shop.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "shop.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "shop.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "dialog.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "chats",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -341,16 +412,25 @@ function PlasmicClinic__RenderFunc(props: {
                   const actionArgs = {
                     args: [
                       undefined,
-                      "https://api.liom-app.ir/help/getList",
-                      undefined,
-                      undefined,
-                      {
-                        headers: {
-                          Authorization:
-                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhZjQzNGI2LTYxYmUtNDY4NS04MzQ3LTAzZjFmMzBkNDk4YSIsImlhdCI6MTczNDk1MDMwOX0.PGi7C6RqKoMXIH9q9lYQCnXgKFtpn8xEmj9r2_qAJZU",
-                          version: "1.0.0 Pmoshavere"
+                      "https://n8n.staas.ir/webhook/help/getList",
+                      (() => {
+                        try {
+                          return {
+                            token:
+                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhZjQzNGI2LTYxYmUtNDY4NS04MzQ3LTAzZjFmMzBkNDk4YSIsImlhdCI6MTczNDk1MDMwOX0.PGi7C6RqKoMXIH9q9lYQCnXgKFtpn8xEmj9r2_qAJZU"
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
                         }
-                      }
+                      })(),
+                      undefined,
+                      {}
                     ]
                   };
                   return $globalActions["Fragment.apiRequest"]?.apply(null, [
@@ -366,7 +446,7 @@ function PlasmicClinic__RenderFunc(props: {
               $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
             }
 
-            $steps["updateGetData"] = true
+            $steps["updateGetData"] = $steps.invokeGlobalAction?.data
               ? (() => {
                   const actionArgs = {
                     variable: {
@@ -374,7 +454,7 @@ function PlasmicClinic__RenderFunc(props: {
                       variablePath: ["getData"]
                     },
                     operation: 0,
-                    value: $steps.invokeGlobalAction?.data
+                    value: $steps.invokeGlobalAction.data
                   };
                   return (({ variable, value, startIndex, deleteCount }) => {
                     if (!variable) {
@@ -517,6 +597,11 @@ function PlasmicClinic__RenderFunc(props: {
                   "_1",
                   "chatviow"
                 ),
+                [sty.freeBox_1_docter__nTa7N8Ddm8]: hasVariant(
+                  $state,
+                  "_1",
+                  "docter"
+                ),
                 [sty.freeBox_1_docters__nTa7Npv2Kd]: hasVariant(
                   $state,
                   "_1",
@@ -527,9 +612,84 @@ function PlasmicClinic__RenderFunc(props: {
               <div
                 data-plasmic-name={"rectangle"}
                 data-plasmic-override={overrides.rectangle}
-                className={classNames(projectcss.all, sty.rectangle)}
+                className={classNames(projectcss.all, sty.rectangle, {
+                  [sty.rectangle_1_docter]: hasVariant($state, "_1", "docter")
+                })}
                 onClick={async event => {
                   const $steps = {};
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "https://n8n.staas.ir/webhook/help/getListHelp",
+                            (() => {
+                              try {
+                                return { token: $state.token };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
+                  $steps["updateChats"] = (
+                    $steps.invokeGlobalAction?.data ? true : false
+                  )
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["chats"]
+                          },
+                          operation: 0,
+                          value: $steps.invokeGlobalAction.data
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateChats"] != null &&
+                    typeof $steps["updateChats"] === "object" &&
+                    typeof $steps["updateChats"].then === "function"
+                  ) {
+                    $steps["updateChats"] = await $steps["updateChats"];
+                  }
 
                   $steps["update1"] = true
                     ? (() => {
@@ -634,94 +794,194 @@ function PlasmicClinic__RenderFunc(props: {
                   )
                 })}
               >
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card6"}
-                  data-plasmic-override={overrides.card6}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card6)}
-                >
-                  <Icon75Icon
-                    className={classNames(projectcss.all, sty.svg___9K68Y)}
-                    role={"img"}
-                  />
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.getData.list;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"card6"}
+                      data-plasmic-override={overrides.card6}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.card6, {
+                        [sty.card6_1_docter]: hasVariant(
+                          $state,
+                          "_1",
+                          "docter"
+                        ),
+                        [sty.card6_1_docters]: hasVariant(
+                          $state,
+                          "_1",
+                          "docters"
+                        )
+                      })}
+                      key={currentIndex}
+                      onClick={async event => {
+                        const $steps = {};
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___0LZ3U
-                    )}
-                  >
-                    {"\u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc"}
-                  </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card4"}
-                  data-plasmic-override={overrides.card4}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card4)}
-                >
-                  <MindSvgIcon
-                    className={classNames(projectcss.all, sty.svg__qjZxp)}
-                    role={"img"}
-                  />
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/help/getList",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        token: "Bearer " + $state.token,
+                                        id: currentItem.id.toString()
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___8C9L
-                    )}
-                  >
-                    {"\u0631\u0648\u0646\u0634\u0646\u0627\u0633\u06cc"}
-                  </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card8"}
-                  data-plasmic-override={overrides.card8}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card8)}
-                >
-                  <DermisSvgIcon
-                    className={classNames(projectcss.all, sty.svg__xTznG)}
-                    role={"img"}
-                  />
+                        $steps["updateGetList"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["getList"]
+                                },
+                                operation: 0,
+                                value: $steps.invokeGlobalAction.data
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__fiAos
-                    )}
-                  >
-                    {"\u067e\u0648\u0633\u062a \u0648 \u0645\u0648"}
-                  </div>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card5"}
-                  data-plasmic-override={overrides.card5}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card5)}
-                >
-                  <DietFoodSvgIcon
-                    className={classNames(projectcss.all, sty.svg__gyF8L)}
-                    role={"img"}
-                  />
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateGetList"] != null &&
+                          typeof $steps["updateGetList"] === "object" &&
+                          typeof $steps["updateGetList"].then === "function"
+                        ) {
+                          $steps["updateGetList"] = await $steps[
+                            "updateGetList"
+                          ];
+                        }
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__toSoa
-                    )}
-                  >
-                    {"\u062a\u063a\u0630\u06cc\u0647"}
-                  </div>
-                </Stack__>
+                        $steps["update1"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                vgroup: "_1",
+                                operation: 0,
+                                value: "docter"
+                              };
+                              return (({ vgroup, value }) => {
+                                if (typeof value === "string") {
+                                  value = [value];
+                                }
+
+                                $stateSet($state, vgroup, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["update1"] != null &&
+                          typeof $steps["update1"] === "object" &&
+                          typeof $steps["update1"].then === "function"
+                        ) {
+                          $steps["update1"] = await $steps["update1"];
+                        }
+                      }}
+                    >
+                      <IconClinic
+                        data-plasmic-name={"iconClinic"}
+                        data-plasmic-override={overrides.iconClinic}
+                        className={classNames("__wab_instance", sty.iconClinic)}
+                        unnamedGroupOfVariants={(() => {
+                          try {
+                            return "_" + currentItem.id.toString();
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___0LZ3U
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.text;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </Stack__>
+                  );
+                })}
               </div>
             </Stack__>
             <Stack__
@@ -821,7 +1081,7 @@ function PlasmicClinic__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
                       }
                     </div>
                   </Button>
@@ -1508,6 +1768,11 @@ function PlasmicClinic__RenderFunc(props: {
                     "_1",
                     "chatviow"
                   ),
+                  [sty.freeBox_1_docter__rzfOh8Ddm8]: hasVariant(
+                    $state,
+                    "_1",
+                    "docter"
+                  ),
                   [sty.freeBox_1_docters__rzfOhpv2Kd]: hasVariant(
                     $state,
                     "_1",
@@ -1908,308 +2173,539 @@ function PlasmicClinic__RenderFunc(props: {
                   role={"img"}
                 />
               </div>
-              <div
-                data-plasmic-name={"mensah2"}
-                data-plasmic-override={overrides.mensah2}
-                className={classNames(projectcss.all, sty.mensah2, {
-                  [sty.mensah2_1_chatviow]: hasVariant(
-                    $state,
-                    "_1",
-                    "chatviow"
-                  ),
-                  [sty.mensah2_1_docter]: hasVariant($state, "_1", "docter"),
-                  [sty.mensah2_1_docters]: hasVariant($state, "_1", "docters")
-                })}
-              >
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img___5GhNp, {
-                    [sty.img_1_chatviow___5GhNPaYJmT]: hasVariant(
-                      $state,
-                      "_1",
-                      "chatviow"
-                    ),
-                    [sty.img_1_docters___5GhNPpv2Kd]: hasVariant(
-                      $state,
-                      "_1",
-                      "docters"
-                    )
-                  })}
-                  displayHeight={
-                    hasVariant($state, "_1", "chatviow") &&
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "40px"
-                      : hasVariant($state, "_1", "chatviow")
-                      ? "50px"
-                      : hasVariant($state, "_1", "docters") &&
-                        hasVariant(globalVariants, "screen", "mobile")
-                      ? "60px"
-                      : "79px"
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.chats.list;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
                   }
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={
-                    hasVariant($state, "_1", "chatviow") &&
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "40px"
-                      : hasVariant($state, "_1", "chatviow")
-                      ? "50px"
-                      : hasVariant($state, "_1", "docters") &&
-                        hasVariant(globalVariants, "screen", "mobile")
-                      ? "60px"
-                      : "79px"
-                  }
-                  loading={"lazy"}
-                  src={
-                    hasVariant($state, "_1", "chatviow") &&
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? {
-                          src: "/plasmic/liom_hamyar/images/image10.ico",
-                          fullWidth: 256,
-                          fullHeight: 256,
-                          aspectRatio: undefined
-                        }
-                      : hasVariant($state, "_1", "docters") &&
-                        hasVariant(globalVariants, "screen", "mobile")
-                      ? {
-                          src: "/plasmic/liom_hamyar/images/image10.ico",
-                          fullWidth: 256,
-                          fullHeight: 256,
-                          aspectRatio: undefined
-                        }
-                      : {
-                          src: "/plasmic/liom_hamyar/images/imagePlaceholder.svg",
-                          fullWidth: 79,
-                          fullHeight: 79,
-                          aspectRatio: 1
-                        }
-                  }
-                />
-
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__gusno, {
-                    [sty.freeBox_1_chatviow__gusnoaYJmT]: hasVariant(
-                      $state,
-                      "_1",
-                      "chatviow"
-                    ),
-                    [sty.freeBox_1_docters__gusnopv2Kd]: hasVariant(
-                      $state,
-                      "_1",
-                      "docters"
-                    )
-                  })}
-                >
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nBn0,
-                      {
-                        [sty.text_1_chatviow__nBn0AYJmT]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.text_1_docters__nBn0Pv2Kd]: hasVariant(
-                          $state,
-                          "_1",
-                          "docters"
-                        )
-                      }
-                    )}
-                  >
-                    {"Dr. Mensah T"}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__oLwL,
-                      {
-                        [sty.text_1_chatviow__oLwLaYJmT]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.text_1_docters__oLwLpv2Kd]: hasVariant(
-                          $state,
-                          "_1",
-                          "docters"
-                        )
-                      }
-                    )}
-                  >
-                    {hasVariant($state, "_1", "chatviow")
-                      ? "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f"
-                      : "Oncologists"}
-                  </div>
-                </Stack__>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__ku7Xf, {
-                    [sty.freeBox_1_chatviow__ku7XfaYJmT]: hasVariant(
-                      $state,
-                      "_1",
-                      "chatviow"
-                    ),
-                    [sty.freeBox_1_docters__ku7Xfpv2Kd]: hasVariant(
-                      $state,
-                      "_1",
-                      "docters"
-                    )
-                  })}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__unrkr, {
-                      [sty.freeBox_1_chatviow__unrkraYJmT]: hasVariant(
+                    data-plasmic-name={"mensah2"}
+                    data-plasmic-override={overrides.mensah2}
+                    className={classNames(projectcss.all, sty.mensah2, {
+                      [sty.mensah2_1_chatviow]: hasVariant(
                         $state,
                         "_1",
                         "chatviow"
                       ),
-                      [sty.freeBox_1_docters__unrkrpv2Kd]: hasVariant(
+                      [sty.mensah2_1_docter]: hasVariant(
+                        $state,
+                        "_1",
+                        "docter"
+                      ),
+                      [sty.mensah2_1_docters]: hasVariant(
                         $state,
                         "_1",
                         "docters"
                       )
                     })}
+                    key={currentIndex}
                   >
-                    <Star
-                      action={true}
-                      className={classNames("__wab_instance", sty.star__cKIzO, {
-                        [sty.star_1_chatviow__cKIzOaYJmT]: hasVariant(
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img___5GhNp, {
+                        [sty.img_1_chatviow___5GhNPaYJmT]: hasVariant(
                           $state,
                           "_1",
                           "chatviow"
                         ),
-                        [sty.star_1_docters__cKIzOpv2Kd]: hasVariant(
+                        [sty.img_1_docters___5GhNPpv2Kd]: hasVariant(
                           $state,
                           "_1",
                           "docters"
                         )
                       })}
+                      displayHeight={
+                        hasVariant($state, "_1", "chatviow") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "40px"
+                          : hasVariant($state, "_1", "chatviow")
+                          ? "50px"
+                          : hasVariant($state, "_1", "docters") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "60px"
+                          : "79px"
+                      }
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={
+                        hasVariant($state, "_1", "chatviow") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "40px"
+                          : hasVariant($state, "_1", "chatviow")
+                          ? "50px"
+                          : hasVariant($state, "_1", "docters") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? "60px"
+                          : "79px"
+                      }
+                      loading={"lazy"}
+                      src={
+                        hasVariant($state, "_1", "chatviow") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? {
+                              src: "/plasmic/liom_hamyar/images/image10.ico",
+                              fullWidth: 256,
+                              fullHeight: 256,
+                              aspectRatio: undefined
+                            }
+                          : hasVariant($state, "_1", "docters") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                          ? {
+                              src: "/plasmic/liom_hamyar/images/image10.ico",
+                              fullWidth: 256,
+                              fullHeight: 256,
+                              aspectRatio: undefined
+                            }
+                          : {
+                              src: "/plasmic/liom_hamyar/images/imagePlaceholder.svg",
+                              fullWidth: 79,
+                              fullHeight: 79,
+                              aspectRatio: 1
+                            }
+                      }
                     />
 
-                    <Star
-                      action={true}
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
                       className={classNames(
-                        "__wab_instance",
-                        sty.star___2Hhp8,
+                        projectcss.all,
+                        sty.freeBox__gusno,
                         {
-                          [sty.star_1_chatviow___2Hhp8AYJmT]: hasVariant(
+                          [sty.freeBox_1_chatviow__gusnoaYJmT]: hasVariant(
                             $state,
                             "_1",
                             "chatviow"
                           ),
-                          [sty.star_1_docters___2Hhp8Pv2Kd]: hasVariant(
+                          [sty.freeBox_1_docters__gusnopv2Kd]: hasVariant(
                             $state,
                             "_1",
                             "docters"
                           )
                         }
                       )}
-                    />
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__nBn0,
+                          {
+                            [sty.text_1_chatviow__nBn0AYJmT]: hasVariant(
+                              $state,
+                              "_1",
+                              "chatviow"
+                            ),
+                            [sty.text_1_docters__nBn0Pv2Kd]: hasVariant(
+                              $state,
+                              "_1",
+                              "docters"
+                            )
+                          }
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.getData.list.filter(
+                                item => item.id == currentItem.listID
+                              )[0].text;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "Dr. Mensah T";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___2WNhL,
+                          {
+                            [sty.freeBox_1_chatviow___2WNhLaYJmT]: hasVariant(
+                              $state,
+                              "_1",
+                              "chatviow"
+                            )
+                          }
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__oLwL,
+                            {
+                              [sty.text_1_chatviow__oLwLaYJmT]: hasVariant(
+                                $state,
+                                "_1",
+                                "chatviow"
+                              ),
+                              [sty.text_1_docters__oLwLpv2Kd]: hasVariant(
+                                $state,
+                                "_1",
+                                "docters"
+                              )
+                            }
+                          )}
+                        >
+                          {hasVariant($state, "_1", "chatviow") ? (
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.text;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          ) : (
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return undefined;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          )}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__xOlDb,
+                            {
+                              [sty.text_1_chatviow__xOlDbaYJmT]: hasVariant(
+                                $state,
+                                "_1",
+                                "chatviow"
+                              ),
+                              [sty.text_1_docters__xOlDbpv2Kd]: hasVariant(
+                                $state,
+                                "_1",
+                                "docters"
+                              )
+                            }
+                          )}
+                        >
+                          {hasVariant($state, "_1", "chatviow") ? (
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.date;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          ) : (
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return undefined;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          )}
+                        </div>
+                      </Stack__>
+                    </Stack__>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__ku7Xf,
+                        {
+                          [sty.freeBox_1_chatviow__ku7XfaYJmT]: hasVariant(
+                            $state,
+                            "_1",
+                            "chatviow"
+                          ),
+                          [sty.freeBox_1_docters__ku7Xfpv2Kd]: hasVariant(
+                            $state,
+                            "_1",
+                            "docters"
+                          )
+                        }
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__unrkr,
+                          {
+                            [sty.freeBox_1_chatviow__unrkraYJmT]: hasVariant(
+                              $state,
+                              "_1",
+                              "chatviow"
+                            ),
+                            [sty.freeBox_1_docters__unrkrpv2Kd]: hasVariant(
+                              $state,
+                              "_1",
+                              "docters"
+                            )
+                          }
+                        )}
+                      >
+                        <Star
+                          action={true}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.star__cKIzO,
+                            {
+                              [sty.star_1_chatviow__cKIzOaYJmT]: hasVariant(
+                                $state,
+                                "_1",
+                                "chatviow"
+                              ),
+                              [sty.star_1_docters__cKIzOpv2Kd]: hasVariant(
+                                $state,
+                                "_1",
+                                "docters"
+                              )
+                            }
+                          )}
+                        />
 
-                    <Star
-                      action={
-                        hasVariant($state, "_1", "chatviow") &&
-                        hasVariant(globalVariants, "screen", "mobile")
-                          ? undefined
-                          : hasVariant($state, "_1", "docters") &&
+                        <Star
+                          action={true}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.star___2Hhp8,
+                            {
+                              [sty.star_1_chatviow___2Hhp8AYJmT]: hasVariant(
+                                $state,
+                                "_1",
+                                "chatviow"
+                              ),
+                              [sty.star_1_docters___2Hhp8Pv2Kd]: hasVariant(
+                                $state,
+                                "_1",
+                                "docters"
+                              )
+                            }
+                          )}
+                        />
+
+                        <Star
+                          action={
+                            hasVariant($state, "_1", "chatviow") &&
                             hasVariant(globalVariants, "screen", "mobile")
-                          ? undefined
-                          : true
-                      }
-                      className={classNames("__wab_instance", sty.star__joJew, {
-                        [sty.star_1_chatviow__joJeWaYJmT]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.star_1_docters__joJeWpv2Kd]: hasVariant(
-                          $state,
-                          "_1",
-                          "docters"
-                        )
-                      })}
-                    />
+                              ? undefined
+                              : hasVariant($state, "_1", "docters") &&
+                                hasVariant(globalVariants, "screen", "mobile")
+                              ? undefined
+                              : true
+                          }
+                          className={classNames(
+                            "__wab_instance",
+                            sty.star__joJew,
+                            {
+                              [sty.star_1_chatviow__joJeWaYJmT]: hasVariant(
+                                $state,
+                                "_1",
+                                "chatviow"
+                              ),
+                              [sty.star_1_docters__joJeWpv2Kd]: hasVariant(
+                                $state,
+                                "_1",
+                                "docters"
+                              )
+                            }
+                          )}
+                        />
 
-                    <Star
-                      action={true}
-                      className={classNames("__wab_instance", sty.star__rqGdG, {
-                        [sty.star_1_chatviow__rqGdGaYJmT]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.star_1_docters__rqGdGpv2Kd]: hasVariant(
-                          $state,
-                          "_1",
-                          "docters"
-                        )
-                      })}
-                    />
+                        <Star
+                          action={true}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.star__rqGdG,
+                            {
+                              [sty.star_1_chatviow__rqGdGaYJmT]: hasVariant(
+                                $state,
+                                "_1",
+                                "chatviow"
+                              ),
+                              [sty.star_1_docters__rqGdGpv2Kd]: hasVariant(
+                                $state,
+                                "_1",
+                                "docters"
+                              )
+                            }
+                          )}
+                        />
 
-                    <Star
-                      action={true}
-                      className={classNames("__wab_instance", sty.star__wkmEv, {
-                        [sty.star_1_chatviow__wkmEvaYJmT]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.star_1_docters__wkmEvpv2Kd]: hasVariant(
-                          $state,
-                          "_1",
-                          "docters"
-                        )
-                      })}
-                    />
+                        <Star
+                          action={true}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.star__wkmEv,
+                            {
+                              [sty.star_1_chatviow__wkmEvaYJmT]: hasVariant(
+                                $state,
+                                "_1",
+                                "chatviow"
+                              ),
+                              [sty.star_1_docters__wkmEvpv2Kd]: hasVariant(
+                                $state,
+                                "_1",
+                                "docters"
+                              )
+                            }
+                          )}
+                        />
 
-                    <Star
-                      action={true}
-                      className={classNames("__wab_instance", sty.star__aycr4, {
-                        [sty.star_1_chatviow__aycr4AYJmT]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.star_1_docters__aycr4Pv2Kd]: hasVariant(
-                          $state,
-                          "_1",
-                          "docters"
-                        )
-                      })}
-                    />
+                        <Star
+                          action={true}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.star__aycr4,
+                            {
+                              [sty.star_1_chatviow__aycr4AYJmT]: hasVariant(
+                                $state,
+                                "_1",
+                                "chatviow"
+                              ),
+                              [sty.star_1_docters__aycr4Pv2Kd]: hasVariant(
+                                $state,
+                                "_1",
+                                "docters"
+                              )
+                            }
+                          )}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__cbbPn,
+                          {
+                            [sty.text_1_chatviow__cbbPnaYJmT]: hasVariant(
+                              $state,
+                              "_1",
+                              "chatviow"
+                            ),
+                            [sty.text_1_docters__cbbPnpv2Kd]: hasVariant(
+                              $state,
+                              "_1",
+                              "docters"
+                            )
+                          }
+                        )}
+                      >
+                        {
+                          "\u062a\u0639\u062f\u0627\u062f \u0645\u0631\u0627\u062c\u0639 (150)"
+                        }
+                      </div>
+                    </div>
                   </div>
+                );
+              })}
+              {(() => {
+                try {
+                  return $state.chats.userID ? $state.chats.list == 0 : false;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div className={classNames(projectcss.all, sty.freeBox__biyqo)}>
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__mliO, {
+                      [sty.img_1_chatviow__mliOaYJmT]: hasVariant(
+                        $state,
+                        "_1",
+                        "chatviow"
+                      )
+                    })}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"150px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image41.png",
+                      fullWidth: 450,
+                      fullHeight: 450,
+                      aspectRatio: undefined
+                    }}
+                  />
+
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__cbbPn,
-                      {
-                        [sty.text_1_chatviow__cbbPnaYJmT]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.text_1_docters__cbbPnpv2Kd]: hasVariant(
-                          $state,
-                          "_1",
-                          "docters"
-                        )
-                      }
+                      sty.text___4NZ5R
                     )}
                   >
                     {
-                      "\u062a\u0639\u062f\u0627\u062f \u0645\u0631\u0627\u062c\u0639 (150)"
+                      "\u0634\u0645\u0627 \u0647\u06cc\u0686 \u067e\u0631\u0633\u0634 \u0628\u0627\u0632\u06cc \u0646\u062f\u0627\u0631\u06cc\u062f."
                     }
                   </div>
                 </div>
-              </div>
+              ) : null}
             </Stack__>
           ) : null}
           {(
@@ -2291,19 +2787,35 @@ function PlasmicClinic__RenderFunc(props: {
                       "docter"
                     )
                   })}
-                  displayHeight={"118px"}
+                  displayHeight={
+                    hasVariant($state, "_1", "docter") ? "100px" : "118px"
+                  }
                   displayMaxHeight={"none"}
                   displayMaxWidth={"100%"}
                   displayMinHeight={"0"}
                   displayMinWidth={"0"}
-                  displayWidth={"118px"}
+                  displayWidth={
+                    hasVariant($state, "_1", "docter") ? "100px" : "118px"
+                  }
                   loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image7.png",
-                    fullWidth: 1302,
-                    fullHeight: 900,
-                    aspectRatio: undefined
-                  }}
+                  src={(() => {
+                    try {
+                      return $state.getList.doctor.image;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return {
+                          src: "/plasmic/liom_hamyar/images/image7.png",
+                          fullWidth: 1302,
+                          fullHeight: 900,
+                          aspectRatio: undefined
+                        };
+                      }
+                      throw e;
+                    }
+                  })()}
                 />
 
                 <Stack__
@@ -2341,7 +2853,25 @@ function PlasmicClinic__RenderFunc(props: {
                       }
                     )}
                   >
-                    {"Dr. Bellamy Nicholas"}
+                    {hasVariant($state, "_1", "docter") ? (
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getList.doctor.name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "Dr. Bellamy Nicholas";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    ) : (
+                      "Dr. Bellamy Nicholas"
+                    )}
                   </div>
                   <div
                     className={classNames(
@@ -2362,378 +2892,66 @@ function PlasmicClinic__RenderFunc(props: {
                       }
                     )}
                   >
-                    {"Viralogist"}
+                    {hasVariant($state, "_1", "docter") ? (
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "Viralogist";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    ) : (
+                      "Viralogist"
+                    )}
                   </div>
                 </Stack__>
                 <Stack__
                   as={"div"}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__jnhnw, {
-                    [sty.freeBox_1_chatviow__jnhnwaYJmT]: hasVariant(
-                      $state,
-                      "_1",
-                      "chatviow"
-                    ),
-                    [sty.freeBox_1_docter__jnhnw8Ddm8]: hasVariant(
+                  className={classNames(projectcss.all, sty.freeBox__gteHv, {
+                    [sty.freeBox_1_docter__gteHv8Ddm8]: hasVariant(
                       $state,
                       "_1",
                       "docter"
                     )
                   })}
                 >
-                  <div
-                    data-plasmic-name={"patients"}
-                    data-plasmic-override={overrides.patients}
-                    className={classNames(projectcss.all, sty.patients, {
-                      [sty.patients_1_chatviow]: hasVariant(
-                        $state,
-                        "_1",
-                        "chatviow"
-                      ),
-                      [sty.patients_1_docter]: hasVariant(
-                        $state,
-                        "_1",
-                        "docter"
-                      )
-                    })}
-                  >
-                    <div
-                      data-plasmic-name={"group"}
-                      data-plasmic-override={overrides.group}
-                      className={classNames(projectcss.all, sty.group, {
-                        [sty.group_1_chatviow]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.group_1_docter]: hasVariant($state, "_1", "docter")
-                      })}
-                    >
-                      <div
-                        data-plasmic-name={"rectangle14"}
-                        data-plasmic-override={overrides.rectangle14}
-                        className={classNames(projectcss.all, sty.rectangle14, {
-                          [sty.rectangle14_1_chatviow]: hasVariant(
-                            $state,
-                            "_1",
-                            "chatviow"
-                          ),
-                          [sty.rectangle14_1_docter]: hasVariant(
-                            $state,
-                            "_1",
-                            "docter"
-                          )
-                        })}
-                      >
-                        <Icon86Icon
-                          className={classNames(projectcss.all, sty.svg__ja7Ew)}
-                          role={"img"}
-                        />
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__byAR, {
-                        [sty.freeBox_1_chatviow__byARaYJmT]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.freeBox_1_docter__byAR8Ddm8]: hasVariant(
-                          $state,
-                          "_1",
-                          "docter"
-                        )
-                      })}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__w1R8V,
-                          {
-                            [sty.text_1_chatviow__w1R8VaYJmT]: hasVariant(
-                              $state,
-                              "_1",
-                              "chatviow"
-                            ),
-                            [sty.text_1_docter__w1R8V8Ddm8]: hasVariant(
-                              $state,
-                              "_1",
-                              "docter"
-                            )
-                          }
-                        )}
-                      >
-                        {"1000+"}
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__osTTt,
-                          {
-                            [sty.text_1_chatviow__osTTtaYJmT]: hasVariant(
-                              $state,
-                              "_1",
-                              "chatviow"
-                            ),
-                            [sty.text_1_docter__osTTt8Ddm8]: hasVariant(
-                              $state,
-                              "_1",
-                              "docter"
-                            )
-                          }
-                        )}
-                      >
-                        {
-                          "\u0631\u062a\u0628\u0647 \u0628\u0646\u062f\u06cc \u0647\u0627"
+                  {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                    (() => {
+                      try {
+                        return Array.from(
+                          { length: $state.getList.doctor.rate },
+                          () => $state.getList.doctor.rate
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
                         }
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    data-plasmic-name={"patients2"}
-                    data-plasmic-override={overrides.patients2}
-                    className={classNames(projectcss.all, sty.patients2, {
-                      [sty.patients2_1_chatviow]: hasVariant(
-                        $state,
-                        "_1",
-                        "chatviow"
-                      ),
-                      [sty.patients2_1_docter]: hasVariant(
-                        $state,
-                        "_1",
-                        "docter"
-                      )
-                    })}
-                  >
-                    <div
-                      data-plasmic-name={"group2"}
-                      data-plasmic-override={overrides.group2}
-                      className={classNames(projectcss.all, sty.group2, {
-                        [sty.group2_1_chatviow]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.group2_1_docter]: hasVariant(
-                          $state,
-                          "_1",
-                          "docter"
-                        )
-                      })}
-                    >
-                      <div
-                        data-plasmic-name={"rectangle15"}
-                        data-plasmic-override={overrides.rectangle15}
-                        className={classNames(projectcss.all, sty.rectangle15, {
-                          [sty.rectangle15_1_chatviow]: hasVariant(
-                            $state,
-                            "_1",
-                            "chatviow"
-                          ),
-                          [sty.rectangle15_1_docter]: hasVariant(
-                            $state,
-                            "_1",
-                            "docter"
-                          )
-                        })}
-                      >
-                        <Icon80Icon
-                          className={classNames(projectcss.all, sty.svg__vt3C)}
-                          role={"img"}
-                        />
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__pFjEn,
-                        {
-                          [sty.freeBox_1_chatviow__pFjEnaYJmT]: hasVariant(
-                            $state,
-                            "_1",
-                            "chatviow"
-                          ),
-                          [sty.freeBox_1_docter__pFjEn8Ddm8]: hasVariant(
-                            $state,
-                            "_1",
-                            "docter"
-                          )
-                        }
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___3CNf1,
-                          {
-                            [sty.text_1_chatviow___3CNf1AYJmT]: hasVariant(
-                              $state,
-                              "_1",
-                              "chatviow"
-                            ),
-                            [sty.text_1_docter___3CNf18Ddm8]: hasVariant(
-                              $state,
-                              "_1",
-                              "docter"
-                            )
-                          }
-                        )}
-                      >
-                        {"1000+"}
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__dEuTn,
-                          {
-                            [sty.text_1_chatviow__dEuTnaYJmT]: hasVariant(
-                              $state,
-                              "_1",
-                              "chatviow"
-                            ),
-                            [sty.text_1_docter__dEuTn8Ddm8]: hasVariant(
-                              $state,
-                              "_1",
-                              "docter"
-                            )
-                          }
-                        )}
-                      >
-                        {hasVariant($state, "_1", "chatviow")
-                          ? "\u0633\u0627\u0628\u0642\u0647"
-                          : hasVariant($state, "_1", "docter")
-                          ? "\u0633\u0627\u0628\u0642\u0647"
-                          : "Patients"}
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    data-plasmic-name={"patients3"}
-                    data-plasmic-override={overrides.patients3}
-                    className={classNames(projectcss.all, sty.patients3, {
-                      [sty.patients3_1_chatviow]: hasVariant(
-                        $state,
-                        "_1",
-                        "chatviow"
-                      ),
-                      [sty.patients3_1_docter]: hasVariant(
-                        $state,
-                        "_1",
-                        "docter"
-                      )
-                    })}
-                  >
-                    <div
-                      data-plasmic-name={"group3"}
-                      data-plasmic-override={overrides.group3}
-                      className={classNames(projectcss.all, sty.group3, {
-                        [sty.group3_1_chatviow]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.group3_1_docter]: hasVariant(
-                          $state,
-                          "_1",
-                          "docter"
-                        )
-                      })}
-                    >
-                      <div
-                        data-plasmic-name={"rectangle16"}
-                        data-plasmic-override={overrides.rectangle16}
-                        className={classNames(projectcss.all, sty.rectangle16, {
-                          [sty.rectangle16_1_chatviow]: hasVariant(
-                            $state,
-                            "_1",
-                            "chatviow"
-                          ),
-                          [sty.rectangle16_1_docter]: hasVariant(
-                            $state,
-                            "_1",
-                            "docter"
-                          )
-                        })}
-                      >
-                        <Icon85Icon
-                          className={classNames(projectcss.all, sty.svg__uODi3)}
-                          role={"img"}
-                        />
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__m6SF5,
-                        {
-                          [sty.freeBox_1_chatviow__m6SF5AYJmT]: hasVariant(
-                            $state,
-                            "_1",
-                            "chatviow"
-                          ),
-                          [sty.freeBox_1_docter__m6SF58Ddm8]: hasVariant(
-                            $state,
-                            "_1",
-                            "docter"
-                          )
-                        }
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__sRaD8,
-                          {
-                            [sty.text_1_chatviow__sRaD8AYJmT]: hasVariant(
-                              $state,
-                              "_1",
-                              "chatviow"
-                            ),
-                            [sty.text_1_docter__sRaD88Ddm8]: hasVariant(
-                              $state,
-                              "_1",
-                              "docter"
-                            )
-                          }
-                        )}
-                      >
-                        {"1000+"}
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__m5IrK,
-                          {
-                            [sty.text_1_chatviow__m5IrKaYJmT]: hasVariant(
-                              $state,
-                              "_1",
-                              "chatviow"
-                            ),
-                            [sty.text_1_docter__m5IrK8Ddm8]: hasVariant(
-                              $state,
-                              "_1",
-                              "docter"
-                            ),
-                            [sty.text_1_docters__m5IrKpv2Kd]: hasVariant(
-                              $state,
-                              "_1",
-                              "docters"
-                            )
-                          }
-                        )}
-                      >
-                        {hasVariant($state, "_1", "docter")
-                          ? "\u062a\u0639\u062f\u0627\u062f \u0648\u06cc\u0632\u06cc\u062a"
-                          : "Patients"}
-                      </div>
-                    </div>
-                  </div>
+                        throw e;
+                      }
+                    })()
+                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                    const currentItem = __plasmic_item_0;
+                    const currentIndex = __plasmic_idx_0;
+                    return (
+                      <Icon77Icon
+                        className={classNames(projectcss.all, sty.svg___2TsPd)}
+                        key={currentIndex}
+                        role={"img"}
+                      />
+                    );
+                  })}
                 </Stack__>
               </Stack__>
               <Stack__
@@ -2812,11 +3030,41 @@ function PlasmicClinic__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "_1", "chatviow")
-                      ? "\u062f\u06a9\u062a\u0631 [\u0646\u0627\u0645 \u067e\u0632\u0634\u06a9]\u060c \u0645\u062a\u062e\u0635\u0635 [\u062a\u062e\u0635\u0635 \u067e\u0632\u0634\u06a9] \u0628\u0627 [\u062a\u0639\u062f\u0627\u062f] \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647\u060c \u0622\u0645\u0627\u062f\u0647 \u0627\u0631\u0627\u0626\u0647 \u062e\u062f\u0645\u0627\u062a \u062f\u0631\u0645\u0627\u0646\u06cc \u0628\u0627 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0631\u0648\u0634\u200c\u0647\u0627 \u0648 \u062f\u0627\u0646\u0634 \u0631\u0648\u0632 \u0627\u0633\u062a. \u0627\u06cc\u0634\u0627\u0646 \u0641\u0627\u0631\u063a\u200c\u0627\u0644\u062a\u062d\u0635\u06cc\u0644 \u0627\u0632 \u062f\u0627\u0646\u0634\u06af\u0627\u0647 [\u0646\u0627\u0645 \u062f\u0627\u0646\u0634\u06af\u0627\u0647] \u0628\u0648\u062f\u0647 \u0648 \u0628\u0627 \u0631\u0648\u06cc\u06a9\u0631\u062f\u06cc \u0635\u0645\u06cc\u0645\u06cc \u0648 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u0628\u0647 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u0628\u062a \u06cc\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0628\u062e\u0634 \u0645\u0631\u0628\u0648\u0637\u0647 \u0627\u0642\u062f\u0627\u0645 \u06a9\u0646\u06cc\u062f."
-                      : hasVariant($state, "_1", "docter")
-                      ? "\u062f\u06a9\u062a\u0631 [\u0646\u0627\u0645 \u067e\u0632\u0634\u06a9]\u060c \u0645\u062a\u062e\u0635\u0635 [\u062a\u062e\u0635\u0635 \u067e\u0632\u0634\u06a9] \u0628\u0627 [\u062a\u0639\u062f\u0627\u062f] \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647\u060c \u0622\u0645\u0627\u062f\u0647 \u0627\u0631\u0627\u0626\u0647 \u062e\u062f\u0645\u0627\u062a \u062f\u0631\u0645\u0627\u0646\u06cc \u0628\u0627 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0631\u0648\u0634\u200c\u0647\u0627 \u0648 \u062f\u0627\u0646\u0634 \u0631\u0648\u0632 \u0627\u0633\u062a. \u0627\u06cc\u0634\u0627\u0646 \u0641\u0627\u0631\u063a\u200c\u0627\u0644\u062a\u062d\u0635\u06cc\u0644 \u0627\u0632 \u062f\u0627\u0646\u0634\u06af\u0627\u0647 [\u0646\u0627\u0645 \u062f\u0627\u0646\u0634\u06af\u0627\u0647] \u0628\u0648\u062f\u0647 \u0648 \u0628\u0627 \u0631\u0648\u06cc\u06a9\u0631\u062f\u06cc \u0635\u0645\u06cc\u0645\u06cc \u0648 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u0628\u0647 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u0628\u062a \u06cc\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0628\u062e\u0634 \u0645\u0631\u0628\u0648\u0637\u0647 \u0627\u0642\u062f\u0627\u0645 \u06a9\u0646\u06cc\u062f."
-                      : "Dr. Bellamy Nicholas is a top specialist at London Bridge Hospital at London. He has achieved several awards and recognition for is contribution and service in his own field. He is available for private consultation. "}
+                    {hasVariant($state, "_1", "chatviow") ? (
+                      "\u062f\u06a9\u062a\u0631 [\u0646\u0627\u0645 \u067e\u0632\u0634\u06a9]\u060c \u0645\u062a\u062e\u0635\u0635 [\u062a\u062e\u0635\u0635 \u067e\u0632\u0634\u06a9] \u0628\u0627 [\u062a\u0639\u062f\u0627\u062f] \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647\u060c \u0622\u0645\u0627\u062f\u0647 \u0627\u0631\u0627\u0626\u0647 \u062e\u062f\u0645\u0627\u062a \u062f\u0631\u0645\u0627\u0646\u06cc \u0628\u0627 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0631\u0648\u0634\u200c\u0647\u0627 \u0648 \u062f\u0627\u0646\u0634 \u0631\u0648\u0632 \u0627\u0633\u062a. \u0627\u06cc\u0634\u0627\u0646 \u0641\u0627\u0631\u063a\u200c\u0627\u0644\u062a\u062d\u0635\u06cc\u0644 \u0627\u0632 \u062f\u0627\u0646\u0634\u06af\u0627\u0647 [\u0646\u0627\u0645 \u062f\u0627\u0646\u0634\u06af\u0627\u0647] \u0628\u0648\u062f\u0647 \u0648 \u0628\u0627 \u0631\u0648\u06cc\u06a9\u0631\u062f\u06cc \u0635\u0645\u06cc\u0645\u06cc \u0648 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u0628\u0647 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u0628\u062a \u06cc\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0628\u062e\u0634 \u0645\u0631\u0628\u0648\u0637\u0647 \u0627\u0642\u062f\u0627\u0645 \u06a9\u0646\u06cc\u062f."
+                    ) : hasVariant($state, "_1", "docter") ? (
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getList.doctor.description;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u062f\u06a9\u062a\u0631 [\u0646\u0627\u0645 \u067e\u0632\u0634\u06a9]\u060c \u0645\u062a\u062e\u0635\u0635 [\u062a\u062e\u0635\u0635 \u067e\u0632\u0634\u06a9] \u0628\u0627 [\u062a\u0639\u062f\u0627\u062f] \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647\u060c \u0622\u0645\u0627\u062f\u0647 \u0627\u0631\u0627\u0626\u0647 \u062e\u062f\u0645\u0627\u062a \u062f\u0631\u0645\u0627\u0646\u06cc \u0628\u0627 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0631\u0648\u0634\u200c\u0647\u0627 \u0648 \u062f\u0627\u0646\u0634 \u0631\u0648\u0632 \u0627\u0633\u062a. \u0627\u06cc\u0634\u0627\u0646 \u0641\u0627\u0631\u063a\u200c\u0627\u0644\u062a\u062d\u0635\u06cc\u0644 \u0627\u0632 \u062f\u0627\u0646\u0634\u06af\u0627\u0647 [\u0646\u0627\u0645 \u062f\u0627\u0646\u0634\u06af\u0627\u0647] \u0628\u0648\u062f\u0647 \u0648 \u0628\u0627 \u0631\u0648\u06cc\u06a9\u0631\u062f\u06cc \u0635\u0645\u06cc\u0645\u06cc \u0648 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u0628\u0647 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u0628\u062a \u06cc\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0628\u062e\u0634 \u0645\u0631\u0628\u0648\u0637\u0647 \u0627\u0642\u062f\u0627\u0645 \u06a9\u0646\u06cc\u062f.";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    ) : (
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "\u062f\u06a9\u062a\u0631 [\u0646\u0627\u0645 \u067e\u0632\u0634\u06a9]\u060c \u0645\u062a\u062e\u0635\u0635 [\u062a\u062e\u0635\u0635 \u067e\u0632\u0634\u06a9] \u0628\u0627 [\u062a\u0639\u062f\u0627\u062f] \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647\u060c \u0622\u0645\u0627\u062f\u0647 \u0627\u0631\u0627\u0626\u0647 \u062e\u062f\u0645\u0627\u062a \u062f\u0631\u0645\u0627\u0646\u06cc \u0628\u0627 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0631\u0648\u0634\u200c\u0647\u0627 \u0648 \u062f\u0627\u0646\u0634 \u0631\u0648\u0632 \u0627\u0633\u062a. \u0627\u06cc\u0634\u0627\u0646 \u0641\u0627\u0631\u063a\u200c\u0627\u0644\u062a\u062d\u0635\u06cc\u0644 \u0627\u0632 \u062f\u0627\u0646\u0634\u06af\u0627\u0647 [\u0646\u0627\u0645 \u062f\u0627\u0646\u0634\u06af\u0627\u0647] \u0628\u0648\u062f\u0647 \u0648 \u0628\u0627 \u0631\u0648\u06cc\u06a9\u0631\u062f\u06cc \u0635\u0645\u06cc\u0645\u06cc \u0648 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u0628\u0647 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u0628\u062a \u06cc\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0628\u062e\u0634 \u0645\u0631\u0628\u0648\u0637\u0647 \u0627\u0642\u062f\u0627\u0645 \u06a9\u0646\u06cc\u062f.";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    )}
                   </div>
                 </Stack__>
                 <Stack__
@@ -2859,23 +3107,108 @@ function PlasmicClinic__RenderFunc(props: {
                     {hasVariant($state, "_1", "chatviow")
                       ? "\u0633\u0627\u0639\u0627\u062a \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc"
                       : hasVariant($state, "_1", "docter")
-                      ? "\u0633\u0627\u0639\u0627\u062a \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc"
+                      ? "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646 \u0632\u0645\u0627\u0646 \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc"
                       : "Working time"}
                   </div>
                   <div
-                    data-plasmic-name={"monSat0830Am"}
-                    data-plasmic-override={overrides.monSat0830Am}
+                    className={classNames(projectcss.all, sty.freeBox___8Zuwg, {
+                      [sty.freeBox_1_chatviow___8ZuwgaYJmT]: hasVariant(
+                        $state,
+                        "_1",
+                        "chatviow"
+                      ),
+                      [sty.freeBox_1_docter___8Zuwg8Ddm8]: hasVariant(
+                        $state,
+                        "_1",
+                        "docter"
+                      )
+                    })}
+                  >
+                    <div
+                      data-plasmic-name={"monSat0830Am"}
+                      data-plasmic-override={overrides.monSat0830Am}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.monSat0830Am,
+                        {
+                          [sty.monSat0830Am_1_chatviow]: hasVariant(
+                            $state,
+                            "_1",
+                            "chatviow"
+                          ),
+                          [sty.monSat0830Am_1_docter]: hasVariant(
+                            $state,
+                            "_1",
+                            "docter"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "_1", "chatviow") ? (
+                        "\u0631\u0648\u0632\u0647\u0627\u06cc \u0632\u0648\u062c (\u0633\u0627\u0639\u062a 9 \u0627\u0644\u06cc 15)"
+                      ) : hasVariant($state, "_1", "docter") ? (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.getList.doctor.time + " ساعت ";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0631\u0648\u0632\u0647\u0627\u06cc \u0632\u0648\u062c (\u0633\u0627\u0639\u062a 9 \u0627\u0644\u06cc 15)";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      ) : (
+                        "Mon - Sat (08:30 AM - 09:00 PM)"
+                      )}
+                    </div>
+                    <Icon120Icon
+                      className={classNames(projectcss.all, sty.svg__hBotm, {
+                        [sty.svg_1_docter__hBotm8Ddm8]: hasVariant(
+                          $state,
+                          "_1",
+                          "docter"
+                        )
+                      })}
+                      role={"img"}
+                    />
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"speciality4"}
+                  data-plasmic-override={overrides.speciality4}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.speciality4, {
+                    [sty.speciality4_1_chatviow]: hasVariant(
+                      $state,
+                      "_1",
+                      "chatviow"
+                    ),
+                    [sty.speciality4_1_docter]: hasVariant(
+                      $state,
+                      "_1",
+                      "docter"
+                    ),
+                    [sty.speciality4_1_docters]: hasVariant(
+                      $state,
+                      "_1",
+                      "docters"
+                    )
+                  })}
+                >
+                  <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.monSat0830Am,
+                      sty.text__o2Q8F,
                       {
-                        [sty.monSat0830Am_1_chatviow]: hasVariant(
-                          $state,
-                          "_1",
-                          "chatviow"
-                        ),
-                        [sty.monSat0830Am_1_docter]: hasVariant(
+                        [sty.text_1_docter__o2Q8F8Ddm8]: hasVariant(
                           $state,
                           "_1",
                           "docter"
@@ -2883,28 +3216,399 @@ function PlasmicClinic__RenderFunc(props: {
                       }
                     )}
                   >
-                    {hasVariant($state, "_1", "chatviow")
-                      ? "\u0631\u0648\u0632\u0647\u0627\u06cc \u0632\u0648\u062c (\u0633\u0627\u0639\u062a 9 \u0627\u0644\u06cc 15)"
-                      : hasVariant($state, "_1", "docter")
-                      ? "\u0631\u0648\u0632\u0647\u0627\u06cc \u0632\u0648\u062c (\u0633\u0627\u0639\u062a 9 \u0627\u0644\u06cc 15)"
-                      : "Mon - Sat (08:30 AM - 09:00 PM)"}
+                    {hasVariant($state, "_1", "docter")
+                      ? "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 ..."
+                      : "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc \u0648 \u0631\u0648\u0627\u0628\u0637 \u062c\u0646\u0633\u06cc"}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__tqzU6, {
+                      [sty.freeBox_1_docter__tqzU68Ddm8]: hasVariant(
+                        $state,
+                        "_1",
+                        "docter"
+                      )
+                    })}
+                  >
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return $state.getList.list;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <Stack__
+                          as={"div"}
+                          data-plasmic-name={"card15"}
+                          data-plasmic-override={overrides.card15}
+                          hasGap={true}
+                          className={classNames(projectcss.all, sty.card15, {
+                            [sty.card15_1_docter]: hasVariant(
+                              $state,
+                              "_1",
+                              "docter"
+                            )
+                          })}
+                          key={currentIndex}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateDialogOpendialog"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["dialog", "opendialog"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateDialogOpendialog"] != null &&
+                              typeof $steps["updateDialogOpendialog"] ===
+                                "object" &&
+                              typeof $steps["updateDialogOpendialog"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDialogOpendialog"] = await $steps[
+                                "updateDialogOpendialog"
+                              ];
+                            }
+                          }}
+                          style={
+                            hasVariant($state, "_1", "docter") &&
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? (() => {
+                                  try {
+                                    return {
+                                      "background-color":
+                                        currentItem.backColor + "a1",
+                                      border: `solid ${currentItem.textColor} 1px`
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              : (() => {
+                                  try {
+                                    return {
+                                      "background-color":
+                                        currentItem.backColor + "a1",
+                                      border: `solid ${currentItem.textColor} 2px`
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                          }
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__p0th,
+                              {
+                                [sty.text_1_docter__p0Th8Ddm8]: hasVariant(
+                                  $state,
+                                  "_1",
+                                  "docter"
+                                )
+                              }
+                            )}
+                            style={(() => {
+                              try {
+                                return {
+                                  color: currentItem.textColor
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                          >
+                            {hasVariant($state, "_1", "docter") ? (
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentItem.text;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0634\u06a9\u0644\u0627\u062a \u062c\u0646\u0633\u06cc ";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            ) : (
+                              "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0634\u06a9\u0644\u0627\u062a \u062c\u0646\u0633\u06cc "
+                            )}
+                          </div>
+                          {(() => {
+                            const child$Props = {
+                              className: classNames(
+                                "__wab_instance",
+                                sty.button9,
+                                {
+                                  [sty.button9_1_docter]: hasVariant(
+                                    $state,
+                                    "_1",
+                                    "docter"
+                                  )
+                                }
+                              ),
+                              color: generateStateValueProp($state, [
+                                "button9",
+                                __plasmic_idx_0,
+                                "color"
+                              ]),
+                              endIcon: (
+                                <Icon104Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__kjKgl
+                                  )}
+                                  role={"img"}
+                                />
+                              ),
+
+                              onColorChange: async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button9",
+                                    __plasmic_idx_0,
+                                    "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              },
+                              showEndIcon: true,
+                              size: hasVariant($state, "_1", "docter")
+                                ? "minimal"
+                                : "compact"
+                            };
+
+                            initializePlasmicStates(
+                              $state,
+                              [
+                                {
+                                  name: "button9[].color",
+                                  initFunc: ({ $props, $state, $queries }) =>
+                                    undefined
+                                }
+                              ],
+                              [__plasmic_idx_0]
+                            );
+                            return (
+                              <Button
+                                data-plasmic-name={"button9"}
+                                data-plasmic-override={overrides.button9}
+                                {...child$Props}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__uWhmh,
+                                    {
+                                      [sty.text_1_docter__uWhmh8Ddm8]:
+                                        hasVariant($state, "_1", "docter")
+                                    }
+                                  )}
+                                >
+                                  {
+                                    "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                                  }
+                                </div>
+                              </Button>
+                            );
+                          })()}
+                        </Stack__>
+                      );
+                    })}
                   </div>
                 </Stack__>
               </Stack__>
-              <Button
-                data-plasmic-name={"button"}
-                data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button, {
-                  [sty.button_1_chatviow]: hasVariant($state, "_1", "chatviow"),
-                  [sty.button_1_docter]: hasVariant($state, "_1", "docter")
+              <section
+                data-plasmic-name={"section"}
+                data-plasmic-override={overrides.section}
+                className={classNames(projectcss.all, sty.section, {
+                  [sty.section_1_docter]: hasVariant($state, "_1", "docter")
                 })}
-                color={generateStateValueProp($state, ["button", "color"])}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
+              >
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button, {
+                    [sty.button_1_chatviow]: hasVariant(
+                      $state,
+                      "_1",
+                      "chatviow"
+                    ),
+                    [sty.button_1_docter]: hasVariant($state, "_1", "docter")
+                  })}
+                  color={generateStateValueProp($state, ["button", "color"])}
+                  loading={
+                    hasVariant($state, "_1", "docter") ? undefined : true
+                  }
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDialogOpendialog"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dialog", "opendialog"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDialogOpendialog"] != null &&
+                      typeof $steps["updateDialogOpendialog"] === "object" &&
+                      typeof $steps["updateDialogOpendialog"].then ===
+                        "function"
+                    ) {
+                      $steps["updateDialogOpendialog"] = await $steps[
+                        "updateDialogOpendialog"
+                      ];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___1UZth,
+                      {
+                        [sty.text_1_chatviow___1UZthaYJmT]: hasVariant(
+                          $state,
+                          "_1",
+                          "chatviow"
+                        ),
+                        [sty.text_1_docter___1UZth8Ddm8]: hasVariant(
+                          $state,
+                          "_1",
+                          "docter"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "_1", "chatviow") &&
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
+                      : hasVariant($state, "_1", "chatviow")
+                      ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
+                      : hasVariant($state, "_1", "docter") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                      ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
+                      : hasVariant($state, "_1", "docter")
+                      ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
+                      : "Button"}
+                  </div>
+                </Button>
+              </section>
+              <Dialog
+                data-plasmic-name={"dialog"}
+                data-plasmic-override={overrides.dialog}
+                className={classNames("__wab_instance", sty.dialog, {
+                  [sty.dialog_1_chatviow]: hasVariant($state, "_1", "chatviow"),
+                  [sty.dialog_1_docter]: hasVariant($state, "_1", "docter"),
+                  [sty.dialog_1_docters]: hasVariant($state, "_1", "docters")
+                })}
+                onOpendialogChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "dialog",
+                    "opendialog"
+                  ]).apply(null, eventArgs);
 
                   if (
                     eventArgs.length > 1 &&
@@ -2914,45 +3618,661 @@ function PlasmicClinic__RenderFunc(props: {
                     return;
                   }
                 }}
+                open={
+                  hasVariant($state, "_1", "docter")
+                    ? false
+                    : hasVariant(globalVariants, "screen", "mobile")
+                    ? true
+                    : false
+                }
+                opendialog={generateStateValueProp($state, [
+                  "dialog",
+                  "opendialog"
+                ])}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___1UZth,
-                    {
-                      [sty.text_1_chatviow___1UZthaYJmT]: hasVariant(
-                        $state,
-                        "_1",
-                        "chatviow"
-                      ),
-                      [sty.text_1_docter___1UZth8Ddm8]: hasVariant(
+                <ApiRequest
+                  data-plasmic-name={"shop"}
+                  data-plasmic-override={overrides.shop}
+                  className={classNames("__wab_instance", sty.shop, {
+                    [sty.shop_1_docter]: hasVariant($state, "_1", "docter")
+                  })}
+                  errorDisplay={null}
+                  loadingDisplay={
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__mLLf, {
+                        [sty.freeBox_1_docter__mLLf8Ddm8]: hasVariant(
+                          $state,
+                          "_1",
+                          "docter"
+                        )
+                      })}
+                    >
+                      <Icon115Icon
+                        className={classNames(projectcss.all, sty.svg__sfPaQ)}
+                        role={"img"}
+                      />
+                    </div>
+                  }
+                  method={"GET"}
+                  onError={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, ["shop", "error"]).apply(
+                      null,
+                      eventArgs
+                    );
+                  }}
+                  onLoading={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "shop",
+                      "loading"
+                    ]).apply(null, eventArgs);
+                  }}
+                  onSuccess={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, ["shop", "data"]).apply(
+                      null,
+                      eventArgs
+                    );
+                  }}
+                  params={(() => {
+                    try {
+                      return {
+                        token: $state.token,
+                        id: 14
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return { id: 14 };
+                      }
+                      throw e;
+                    }
+                  })()}
+                  url={"https://n8n.staas.ir/webhook/help/shop"}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__stOAm, {
+                      [sty.freeBox_1_docter__stOAm8Ddm8]: hasVariant(
                         $state,
                         "_1",
                         "docter"
                       )
-                    }
-                  )}
-                >
-                  {hasVariant($state, "_1", "chatviow") &&
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
-                    : hasVariant($state, "_1", "chatviow")
-                    ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
-                    : hasVariant($state, "_1", "docter") &&
-                      hasVariant(globalVariants, "screen", "mobile")
-                    ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
-                    : hasVariant($state, "_1", "docter")
-                    ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
-                    : "Button"}
-                </div>
-              </Button>
+                    })}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__cbfk6)}
+                      dir={"rtl"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__wqzf
+                        )}
+                      />
+
+                      <DialogTitle
+                        data-plasmic-name={"dialogTitle"}
+                        data-plasmic-override={overrides.dialogTitle}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.dialogTitle
+                        )}
+                      >
+                        <h5
+                          data-plasmic-name={"h5"}
+                          data-plasmic-override={overrides.h5}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.h5,
+                            sty.h5
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__fZnWn,
+                              {
+                                [sty.text_1_docter__fZnWn8Ddm8]: hasVariant(
+                                  $state,
+                                  "_1",
+                                  "docter"
+                                )
+                              }
+                            )}
+                          >
+                            {hasVariant($state, "_1", "docter") ? (
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return undefined;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "Dialog title";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            ) : (
+                              "Dialog title"
+                            )}
+                          </div>
+                        </h5>
+                      </DialogTitle>
+                    </Stack__>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__izDgj)}
+                      dir={"rtl"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___8MEOk
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return undefined;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "You can insert dialog body content here in this slot.";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__bh7Fx
+                        )}
+                      >
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__iRax,
+                            {
+                              [sty.freeBox_1_docter__iRax8Ddm8]: hasVariant(
+                                $state,
+                                "_1",
+                                "docter"
+                              )
+                            }
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox___0W0DV
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__xXvz8
+                              )}
+                            >
+                              {
+                                "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39"
+                              }
+                            </div>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__bNzvz
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ddtM4
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return $state.shop.data.item.name;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__jHkCv
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__ftmM9
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.shop.data.item.fullPrice;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__wEgiz
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        $state.shop.data.item.price + " تومان"
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__bSLZ
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__llY03
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.shop.data.item.offer + "%";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "1";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__vyXc9
+                            )}
+                          >
+                            {
+                              "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
+                            }
+                          </div>
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__zc0UE
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__lSs3Z
+                              )}
+                            >
+                              {(() => {
+                                const child$Props = {
+                                  allowClear: false,
+                                  autoFocus: false,
+                                  bordered: false,
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.input3
+                                  ),
+                                  disabled: false,
+                                  onChange: async (...eventArgs: any) => {
+                                    generateStateOnChangePropForCodeComponents(
+                                      $state,
+                                      "value",
+                                      ["input3", "value"],
+                                      AntdInput_Helpers
+                                    ).apply(null, eventArgs);
+                                  },
+                                  placeholder:
+                                    "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
+                                  prefix: (
+                                    <Icon10Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__yvOvX
+                                      )}
+                                      role={"img"}
+                                    />
+                                  ),
+
+                                  readOnly: false,
+                                  size: "small",
+                                  suffix: null,
+                                  value: generateStateValueProp($state, [
+                                    "input3",
+                                    "value"
+                                  ])
+                                };
+                                initializeCodeComponentStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "value",
+                                      plasmicStateName: "input3.value"
+                                    }
+                                  ],
+                                  [],
+                                  AntdInput_Helpers ?? {},
+                                  child$Props
+                                );
+
+                                return (
+                                  <AntdInput
+                                    data-plasmic-name={"input3"}
+                                    data-plasmic-override={overrides.input3}
+                                    {...child$Props}
+                                  />
+                                );
+                              })()}
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__dqZ3Y
+                                )}
+                              />
+                            </div>
+                            <Button
+                              data-plasmic-name={"button10"}
+                              data-plasmic-override={overrides.button10}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button10
+                              )}
+                              color={generateStateValueProp($state, [
+                                "button10",
+                                "color"
+                              ])}
+                              onColorChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button10",
+                                    "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__zo74
+                                )}
+                              >
+                                {"\u062a\u0627\u06cc\u06cc\u062f"}
+                              </div>
+                            </Button>
+                          </Stack__>
+                          <Button
+                            data-plasmic-name={"button11"}
+                            data-plasmic-override={overrides.button11}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button11,
+                              {
+                                [sty.button11_1_chatviow]: hasVariant(
+                                  $state,
+                                  "_1",
+                                  "chatviow"
+                                ),
+                                [sty.button11_1_docter]: hasVariant(
+                                  $state,
+                                  "_1",
+                                  "docter"
+                                )
+                              }
+                            )}
+                            color={generateStateValueProp($state, [
+                              "button11",
+                              "color"
+                            ])}
+                            endIcon={
+                              <Icon12Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__sHhYj
+                                )}
+                                role={"img"}
+                              />
+                            }
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["invokeGlobalAction"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      args: [
+                                        "POST",
+                                        "https://n8n.staas.ir/webhook/help/shop",
+                                        undefined,
+                                        (() => {
+                                          try {
+                                            return {
+                                              token: "Bearer " + $state.token,
+                                              id: $state.shop.data.item.id
+                                            };
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ]
+                                    };
+                                    return $globalActions[
+                                      "Fragment.apiRequest"
+                                    ]?.apply(null, [...actionArgs.args]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] = await $steps[
+                                  "invokeGlobalAction"
+                                ];
+                              }
+
+                              $steps["goToPage"] =
+                                $steps.invokeGlobalAction?.data.success == true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        destination: (() => {
+                                          try {
+                                            return $steps.invokeGlobalAction
+                                              .data.url;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "";
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      };
+                                      return (({ destination }) => {
+                                        if (
+                                          typeof destination === "string" &&
+                                          destination.startsWith("#")
+                                        ) {
+                                          document
+                                            .getElementById(
+                                              destination.substr(1)
+                                            )
+                                            .scrollIntoView({
+                                              behavior: "smooth"
+                                            });
+                                        } else {
+                                          __nextRouter?.push(destination);
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["goToPage"] != null &&
+                                typeof $steps["goToPage"] === "object" &&
+                                typeof $steps["goToPage"].then === "function"
+                              ) {
+                                $steps["goToPage"] = await $steps["goToPage"];
+                              }
+                            }}
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button11",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__gGv5H
+                              )}
+                            >
+                              {"\u067e\u0631\u062f\u0627\u062e\u062a"}
+                            </div>
+                          </Button>
+                          <p
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.p,
+                              projectcss.__wab_text,
+                              sty.p__pJfyS
+                            )}
+                          >
+                            {
+                              "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                            }
+                          </p>
+                          <p
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.p,
+                              projectcss.__wab_text,
+                              sty.p__cjp15
+                            )}
+                          >
+                            {
+                              "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                            }
+                          </p>
+                        </Stack__>
+                      </div>
+                    </Stack__>
+                  </div>
+                </ApiRequest>
+              </Dialog>
             </Stack__>
           ) : null}
           <Timer
             data-plasmic-name={"timer"}
             data-plasmic-override={overrides.timer}
-            className={classNames("__wab_instance", sty.timer)}
+            className={classNames("__wab_instance", sty.timer, {
+              [sty.timer_1_docter]: hasVariant($state, "_1", "docter")
+            })}
             intervalSeconds={1}
             isRunning={true}
             onTick={async () => {
@@ -3007,9 +4327,7 @@ const PlasmicDescendants = {
     "rectangle3",
     "speciality",
     "card6",
-    "card4",
-    "card8",
-    "card5",
+    "iconClinic",
     "speciality2",
     "card9",
     "button3",
@@ -3031,20 +4349,22 @@ const PlasmicDescendants = {
     "mensah2",
     "doctorsDetails",
     "bg2",
-    "patients",
-    "group",
-    "rectangle14",
-    "patients2",
-    "group2",
-    "rectangle15",
-    "patients3",
-    "group3",
-    "rectangle16",
     "about",
     "drBellamyNicholas",
     "workingTime",
     "monSat0830Am",
+    "speciality4",
+    "card15",
+    "button9",
+    "section",
     "button",
+    "dialog",
+    "shop",
+    "dialogTitle",
+    "h5",
+    "input3",
+    "button10",
+    "button11",
     "timer"
   ],
   bg: ["bg", "rectangle2", "\u0627", "\u06272"],
@@ -3054,11 +4374,9 @@ const PlasmicDescendants = {
   rectangle: ["rectangle", "findSuitableSpecia", "rectangle3"],
   findSuitableSpecia: ["findSuitableSpecia"],
   rectangle3: ["rectangle3"],
-  speciality: ["speciality", "card6", "card4", "card8", "card5"],
-  card6: ["card6"],
-  card4: ["card4"],
-  card8: ["card8"],
-  card5: ["card5"],
+  speciality: ["speciality", "card6", "iconClinic"],
+  card6: ["card6", "iconClinic"],
+  iconClinic: ["iconClinic"],
   speciality2: [
     "speciality2",
     "card9",
@@ -3097,47 +4415,48 @@ const PlasmicDescendants = {
   doctorsDetails: [
     "doctorsDetails",
     "bg2",
-    "patients",
-    "group",
-    "rectangle14",
-    "patients2",
-    "group2",
-    "rectangle15",
-    "patients3",
-    "group3",
-    "rectangle16",
     "about",
     "drBellamyNicholas",
     "workingTime",
     "monSat0830Am",
-    "button"
+    "speciality4",
+    "card15",
+    "button9",
+    "section",
+    "button",
+    "dialog",
+    "shop",
+    "dialogTitle",
+    "h5",
+    "input3",
+    "button10",
+    "button11"
   ],
-  bg2: [
-    "bg2",
-    "patients",
-    "group",
-    "rectangle14",
-    "patients2",
-    "group2",
-    "rectangle15",
-    "patients3",
-    "group3",
-    "rectangle16"
-  ],
-  patients: ["patients", "group", "rectangle14"],
-  group: ["group", "rectangle14"],
-  rectangle14: ["rectangle14"],
-  patients2: ["patients2", "group2", "rectangle15"],
-  group2: ["group2", "rectangle15"],
-  rectangle15: ["rectangle15"],
-  patients3: ["patients3", "group3", "rectangle16"],
-  group3: ["group3", "rectangle16"],
-  rectangle16: ["rectangle16"],
+  bg2: ["bg2"],
   about: ["about", "drBellamyNicholas"],
   drBellamyNicholas: ["drBellamyNicholas"],
   workingTime: ["workingTime", "monSat0830Am"],
   monSat0830Am: ["monSat0830Am"],
+  speciality4: ["speciality4", "card15", "button9"],
+  card15: ["card15", "button9"],
+  button9: ["button9"],
+  section: ["section", "button"],
   button: ["button"],
+  dialog: [
+    "dialog",
+    "shop",
+    "dialogTitle",
+    "h5",
+    "input3",
+    "button10",
+    "button11"
+  ],
+  shop: ["shop", "dialogTitle", "h5", "input3", "button10", "button11"],
+  dialogTitle: ["dialogTitle", "h5"],
+  h5: ["h5"],
+  input3: ["input3"],
+  button10: ["button10"],
+  button11: ["button11"],
   timer: ["timer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -3154,9 +4473,7 @@ type NodeDefaultElementType = {
   rectangle3: "div";
   speciality: "div";
   card6: "div";
-  card4: "div";
-  card8: "div";
-  card5: "div";
+  iconClinic: typeof IconClinic;
   speciality2: "div";
   card9: "div";
   button3: typeof Button;
@@ -3178,20 +4495,22 @@ type NodeDefaultElementType = {
   mensah2: "div";
   doctorsDetails: "div";
   bg2: "div";
-  patients: "div";
-  group: "div";
-  rectangle14: "div";
-  patients2: "div";
-  group2: "div";
-  rectangle15: "div";
-  patients3: "div";
-  group3: "div";
-  rectangle16: "div";
   about: "div";
   drBellamyNicholas: "div";
   workingTime: "div";
   monSat0830Am: "div";
+  speciality4: "div";
+  card15: "div";
+  button9: typeof Button;
+  section: "section";
   button: typeof Button;
+  dialog: typeof Dialog;
+  shop: typeof ApiRequest;
+  dialogTitle: typeof DialogTitle;
+  h5: "h5";
+  input3: typeof AntdInput;
+  button10: typeof Button;
+  button11: typeof Button;
   timer: typeof Timer;
 };
 
@@ -3289,9 +4608,7 @@ export const PlasmicClinic = Object.assign(
     rectangle3: makeNodeComponent("rectangle3"),
     speciality: makeNodeComponent("speciality"),
     card6: makeNodeComponent("card6"),
-    card4: makeNodeComponent("card4"),
-    card8: makeNodeComponent("card8"),
-    card5: makeNodeComponent("card5"),
+    iconClinic: makeNodeComponent("iconClinic"),
     speciality2: makeNodeComponent("speciality2"),
     card9: makeNodeComponent("card9"),
     button3: makeNodeComponent("button3"),
@@ -3313,20 +4630,22 @@ export const PlasmicClinic = Object.assign(
     mensah2: makeNodeComponent("mensah2"),
     doctorsDetails: makeNodeComponent("doctorsDetails"),
     bg2: makeNodeComponent("bg2"),
-    patients: makeNodeComponent("patients"),
-    group: makeNodeComponent("group"),
-    rectangle14: makeNodeComponent("rectangle14"),
-    patients2: makeNodeComponent("patients2"),
-    group2: makeNodeComponent("group2"),
-    rectangle15: makeNodeComponent("rectangle15"),
-    patients3: makeNodeComponent("patients3"),
-    group3: makeNodeComponent("group3"),
-    rectangle16: makeNodeComponent("rectangle16"),
     about: makeNodeComponent("about"),
     drBellamyNicholas: makeNodeComponent("drBellamyNicholas"),
     workingTime: makeNodeComponent("workingTime"),
     monSat0830Am: makeNodeComponent("monSat0830Am"),
+    speciality4: makeNodeComponent("speciality4"),
+    card15: makeNodeComponent("card15"),
+    button9: makeNodeComponent("button9"),
+    section: makeNodeComponent("section"),
     button: makeNodeComponent("button"),
+    dialog: makeNodeComponent("dialog"),
+    shop: makeNodeComponent("shop"),
+    dialogTitle: makeNodeComponent("dialogTitle"),
+    h5: makeNodeComponent("h5"),
+    input3: makeNodeComponent("input3"),
+    button10: makeNodeComponent("button10"),
+    button11: makeNodeComponent("button11"),
     timer: makeNodeComponent("timer"),
 
     // Metadata about props expected for PlasmicClinic

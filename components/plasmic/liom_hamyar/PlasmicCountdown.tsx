@@ -73,10 +73,19 @@ import sty from "./PlasmicCountdown.module.css"; // plasmic-import: 1ruheQLCU5pc
 
 createPlasmicElementProxy;
 
-export type PlasmicCountdown__VariantMembers = {};
-export type PlasmicCountdown__VariantsArgs = {};
+export type PlasmicCountdown__VariantMembers = {
+  color: "green" | "red";
+  date: "dey" | "moanth";
+};
+export type PlasmicCountdown__VariantsArgs = {
+  color?: SingleChoiceArg<"green" | "red">;
+  date?: SingleChoiceArg<"dey" | "moanth">;
+};
 type VariantPropType = keyof PlasmicCountdown__VariantsArgs;
-export const PlasmicCountdown__VariantProps = new Array<VariantPropType>();
+export const PlasmicCountdown__VariantProps = new Array<VariantPropType>(
+  "color",
+  "date"
+);
 
 export type PlasmicCountdown__ArgsType = {
   remainingSeconds?: number;
@@ -100,6 +109,8 @@ export interface DefaultCountdownProps {
   remainingSeconds?: number;
   onRemainingSecondsChange?: (val: string) => void;
   targetTimeUtc?: string;
+  color?: SingleChoiceArg<"green" | "red">;
+  date?: SingleChoiceArg<"dey" | "moanth">;
   className?: string;
 }
 
@@ -154,6 +165,18 @@ function PlasmicCountdown__RenderFunc(props: {
 
         valueProp: "remainingSeconds",
         onChangeProp: "onRemainingSecondsChange"
+      },
+      {
+        path: "color",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.color
+      },
+      {
+        path: "date",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.date
       }
     ],
     [$props, $ctx, $refs]
@@ -183,7 +206,12 @@ function PlasmicCountdown__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        {
+          [sty.rootcolor_green]: hasVariant($state, "color", "green"),
+          [sty.rootcolor_red]: hasVariant($state, "color", "red"),
+          [sty.rootdate_moanth]: hasVariant($state, "date", "moanth")
+        }
       )}
     >
       <Stack__
@@ -191,33 +219,82 @@ function PlasmicCountdown__RenderFunc(props: {
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
         hasGap={true}
-        className={classNames(projectcss.all, sty.freeBox)}
+        className={classNames(projectcss.all, sty.freeBox, {
+          [sty.freeBoxcolor_green]: hasVariant($state, "color", "green"),
+          [sty.freeBoxdate_moanth]: hasVariant($state, "date", "moanth"),
+          [sty.freeBoxdate_moanth_color_green]:
+            hasVariant($state, "date", "moanth") &&
+            hasVariant($state, "color", "green")
+        })}
       >
         <CountdownNumber
-          className={classNames("__wab_instance", sty.countdownNumber__dJw6J)}
+          className={classNames("__wab_instance", sty.countdownNumber__dJw6J, {
+            [sty.countdownNumbercolor_green__dJw6Jzcge]: hasVariant(
+              $state,
+              "color",
+              "green"
+            ),
+            [sty.countdownNumberdate_moanth__dJw6JrMljd]: hasVariant(
+              $state,
+              "date",
+              "moanth"
+            )
+          })}
           number={
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text___77QVc
+                sty.text___77QVc,
+                {
+                  [sty.textcolor_green___77QVCzcge]: hasVariant(
+                    $state,
+                    "color",
+                    "green"
+                  ),
+                  [sty.textdate_moanth___77QVCrMljd]: hasVariant(
+                    $state,
+                    "date",
+                    "moanth"
+                  )
+                }
               )}
             >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return Math.floor($state.remainingSeconds / 60 / 60 / 24);
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "42";
+              {hasVariant($state, "date", "moanth") ? (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return Math.floor(
+                        $state.remainingSeconds / 60 / 60 / 24 / 30
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "42";
+                      }
+                      throw e;
                     }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
+                  })()}
+                </React.Fragment>
+              ) : (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return Math.floor($state.remainingSeconds / 60 / 60 / 24);
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "42";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              )}
             </div>
           }
           unit={
@@ -225,22 +302,163 @@ function PlasmicCountdown__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__qsTu
+                sty.text__qsTu,
+                {
+                  [sty.textcolor_green__qsTuzcge]: hasVariant(
+                    $state,
+                    "color",
+                    "green"
+                  ),
+                  [sty.textdate_moanth__qsTurMljd]: hasVariant(
+                    $state,
+                    "date",
+                    "moanth"
+                  )
+                }
               )}
             >
-              {"\u0631\u0648\u0632"}
+              {hasVariant($state, "date", "moanth")
+                ? "\u0645\u0627\u0647"
+                : "\u0631\u0648\u0632"}
             </div>
           }
         />
 
+        {(hasVariant($state, "date", "moanth") ? true : false) ? (
+          <CountdownNumber
+            className={classNames(
+              "__wab_instance",
+              sty.countdownNumber__fO6Af,
+              {
+                [sty.countdownNumbercolor_green__fO6Afzcge]: hasVariant(
+                  $state,
+                  "color",
+                  "green"
+                ),
+                [sty.countdownNumberdate_moanth__fO6AfrMljd]: hasVariant(
+                  $state,
+                  "date",
+                  "moanth"
+                )
+              }
+            )}
+            number={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__lPfgf,
+                  {
+                    [sty.textcolor_green__lPfgfzcge]: hasVariant(
+                      $state,
+                      "color",
+                      "green"
+                    ),
+                    [sty.textdate_moanth__lPfgfrMljd]: hasVariant(
+                      $state,
+                      "date",
+                      "moanth"
+                    )
+                  }
+                )}
+              >
+                {hasVariant($state, "date", "moanth") &&
+                hasVariant(globalVariants, "screen", "mobile") ? (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (
+                          Math.floor($state.remainingSeconds / 60 / 60 / 24) %
+                          30
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "42";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return Math.floor(
+                          $state.remainingSeconds / 60 / 60 / 24
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "42";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                )}
+              </div>
+            }
+            unit={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__oilAg,
+                  {
+                    [sty.textcolor_green__oilAgzcge]: hasVariant(
+                      $state,
+                      "color",
+                      "green"
+                    ),
+                    [sty.textdate_moanth__oilAgrMljd]: hasVariant(
+                      $state,
+                      "date",
+                      "moanth"
+                    )
+                  }
+                )}
+              >
+                {"\u0631\u0648\u0632"}
+              </div>
+            }
+          />
+        ) : null}
         <CountdownNumber
-          className={classNames("__wab_instance", sty.countdownNumber__tPnLe)}
+          className={classNames("__wab_instance", sty.countdownNumber__tPnLe, {
+            [sty.countdownNumbercolor_green__tPnLezcge]: hasVariant(
+              $state,
+              "color",
+              "green"
+            ),
+            [sty.countdownNumberdate_moanth__tPnLerMljd]: hasVariant(
+              $state,
+              "date",
+              "moanth"
+            )
+          })}
           number={
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__nCs9
+                sty.text__nCs9,
+                {
+                  [sty.textcolor_green__nCs9Zcge]: hasVariant(
+                    $state,
+                    "color",
+                    "green"
+                  ),
+                  [sty.textdate_moanth__nCs9RMljd]: hasVariant(
+                    $state,
+                    "date",
+                    "moanth"
+                  )
+                }
               )}
             >
               <React.Fragment>
@@ -265,7 +483,14 @@ function PlasmicCountdown__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__gpy6Q
+                sty.text__gpy6Q,
+                {
+                  [sty.textcolor_green__gpy6Qzcge]: hasVariant(
+                    $state,
+                    "color",
+                    "green"
+                  )
+                }
               )}
             >
               {"\u0633\u0627\u0639\u062a"}
@@ -274,13 +499,31 @@ function PlasmicCountdown__RenderFunc(props: {
         />
 
         <CountdownNumber
-          className={classNames("__wab_instance", sty.countdownNumber___4HVd)}
+          className={classNames("__wab_instance", sty.countdownNumber___4HVd, {
+            [sty.countdownNumbercolor_green___4HVdZcge]: hasVariant(
+              $state,
+              "color",
+              "green"
+            )
+          })}
           number={
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__u8Ay
+                sty.text__u8Ay,
+                {
+                  [sty.textcolor_green__u8AyZcge]: hasVariant(
+                    $state,
+                    "color",
+                    "green"
+                  ),
+                  [sty.textdate_moanth__u8AyRMljd]: hasVariant(
+                    $state,
+                    "date",
+                    "moanth"
+                  )
+                }
               )}
             >
               <React.Fragment>
@@ -305,7 +548,14 @@ function PlasmicCountdown__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__rdxiz
+                sty.text__rdxiz,
+                {
+                  [sty.textcolor_green__rdxiZzcge]: hasVariant(
+                    $state,
+                    "color",
+                    "green"
+                  )
+                }
               )}
             >
               {"\u062f\u0642\u06cc\u0642\u0647"}

@@ -67,6 +67,7 @@ import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5x
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -106,6 +107,7 @@ export type PlasmicSettingPregnancy__OverridesType = {
   dateOfBirthBox?: Flex__<typeof AntdInput>;
   lastTimeBox?: Flex__<typeof AntdInput>;
   button3?: Flex__<typeof Button>;
+  getUserInfo?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSettingPregnancyProps {}
@@ -323,6 +325,30 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "getUserInfo.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getUserInfo.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "getUserInfo.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "isGetInfo",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2256,7 +2282,10 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button3", "color"])}
                   isDisabled={(() => {
                     try {
-                      return $state.duDate == "";
+                      return (
+                        $state.duDate == ""
+                        //|| (!$state.isGetInfo) || (!$state.getUserInfo.data[0].success)
+                      );
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -2452,7 +2481,16 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                     userId: $ctx.query.userId.slice(
                                       4,
                                       +$ctx.query.userId.length - 4
-                                    )
+                                    ),
+                                    name:
+                                      $state.getUserInfo.data[0].result.user
+                                        ?.name ?? "",
+                                    mobile:
+                                      $state.getUserInfo.data[0].result.user
+                                        ?.mobile ?? "",
+                                    email:
+                                      $state.getUserInfo.data[0].result.user
+                                        ?.email ?? ""
                                   };
                                 } catch (e) {
                                   if (
@@ -2864,6 +2902,106 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 </Button>
               </div>
             </div>
+            <ApiRequest
+              data-plasmic-name={"getUserInfo"}
+              data-plasmic-override={overrides.getUserInfo}
+              className={classNames("__wab_instance", sty.getUserInfo)}
+              errorDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__kgCrk
+                  )}
+                >
+                  {"Error fetching data"}
+                </div>
+              }
+              loadingDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__bNmqr
+                  )}
+                >
+                  {"Loading..."}
+                </div>
+              }
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "getUserInfo",
+                  "error"
+                ]).apply(null, eventArgs);
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "getUserInfo",
+                  "loading"
+                ]).apply(null, eventArgs);
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "getUserInfo",
+                  "data"
+                ]).apply(null, eventArgs);
+
+                (async data => {
+                  const $steps = {};
+
+                  $steps["updateIsGetInfo"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["isGetInfo"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateIsGetInfo"] != null &&
+                    typeof $steps["updateIsGetInfo"] === "object" &&
+                    typeof $steps["updateIsGetInfo"].then === "function"
+                  ) {
+                    $steps["updateIsGetInfo"] = await $steps["updateIsGetInfo"];
+                  }
+                }).apply(null, eventArgs);
+              }}
+              params={(() => {
+                try {
+                  return {
+                    token: $ctx.query.token
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://n8n.staas.ir/webhook/userInfo"}
+            />
           </div>
         </div>
       </div>
@@ -2880,7 +3018,8 @@ const PlasmicDescendants = {
     "button",
     "dateOfBirthBox",
     "lastTimeBox",
-    "button3"
+    "button3",
+    "getUserInfo"
   ],
   img: ["img"],
   dateModal: ["dateModal", "datePickers", "button"],
@@ -2888,7 +3027,8 @@ const PlasmicDescendants = {
   button: ["button"],
   dateOfBirthBox: ["dateOfBirthBox"],
   lastTimeBox: ["lastTimeBox"],
-  button3: ["button3"]
+  button3: ["button3"],
+  getUserInfo: ["getUserInfo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2902,6 +3042,7 @@ type NodeDefaultElementType = {
   dateOfBirthBox: typeof AntdInput;
   lastTimeBox: typeof AntdInput;
   button3: typeof Button;
+  getUserInfo: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2996,6 +3137,7 @@ export const PlasmicSettingPregnancy = Object.assign(
     dateOfBirthBox: makeNodeComponent("dateOfBirthBox"),
     lastTimeBox: makeNodeComponent("lastTimeBox"),
     button3: makeNodeComponent("button3"),
+    getUserInfo: makeNodeComponent("getUserInfo"),
 
     // Metadata about props expected for PlasmicSettingPregnancy
     internalVariantProps: PlasmicSettingPregnancy__VariantProps,
