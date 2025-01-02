@@ -87,6 +87,24 @@
   --plasmic-token-base: var(--token-Wa5tmrNKVUYF);
   --token-g4c3GPshSjp1: #2b2f33;
   --plasmic-token-dark: var(--token-g4c3GPshSjp1);
+  --token-ZvaN7zB_BbvY: 0.5rem;
+  --plasmic-token-size-8: var(--token-ZvaN7zB_BbvY);
+  --token-ODBUExjR6VEF: #030712;
+  --plasmic-token-basic-text-primary: var(--token-ODBUExjR6VEF);
+  --token-2lDfJHYaD05G: Inter;
+  --plasmic-token-sans-serif: var(--token-2lDfJHYaD05G);
+  --token-LMEbRDTg0Iix: 1rem;
+  --plasmic-token-font-md: var(--token-LMEbRDTg0Iix);
+  --token-MZ4KWwVSoShs: 1.25;
+  --plasmic-token-line-height-md: var(--token-MZ4KWwVSoShs);
+  --token-i_KeTXgXb5hw: 1.25rem;
+  --plasmic-token-size-20: var(--token-i_KeTXgXb5hw);
+  --token-LNIzKl5AGPPT: #9ca3af;
+  --plasmic-token-basic-ring: var(--token-LNIzKl5AGPPT);
+  --token-0xHMxyAHbOos: #2563eb;
+  --plasmic-token-brand-brand: var(--token-0xHMxyAHbOos);
+  --token-3VFsPoJwdkXP: 0.375rem;
+  --plasmic-token-size-6: var(--token-3VFsPoJwdkXP);
 }
 
 @media (max-width: 640px) {

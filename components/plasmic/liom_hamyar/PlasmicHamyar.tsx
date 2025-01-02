@@ -139,8 +139,8 @@ export type PlasmicHamyar__OverridesType = {
   lineClomp?: Flex__<typeof LineClomp>;
   progress?: Flex__<typeof AntdProgress>;
   button7?: Flex__<typeof Button>;
-  countdown3?: Flex__<typeof Countdown>;
   button8?: Flex__<typeof Button>;
+  countdown3?: Flex__<typeof Countdown>;
   button9?: Flex__<typeof Button>;
   button10?: Flex__<typeof Button>;
   checkbox?: Flex__<typeof Checkbox>;
@@ -3063,6 +3063,184 @@ function PlasmicHamyar__RenderFunc(props: {
                                 }
                               })()}
                             >
+                              {(
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? (() => {
+                                      try {
+                                        return $state.user?.data?.result?.man
+                                          ?.timeToEndHamyarTime?.days > 3
+                                          ? false
+                                          : true;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  : (() => {
+                                      try {
+                                        return $state.user?.data?.result?.man
+                                          ?.timeToEndHamyarTime?.days > 3
+                                          ? false
+                                          : true;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return true;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                              ) ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__gELe
+                                  )}
+                                >
+                                  <Button
+                                    data-plasmic-name={"button8"}
+                                    data-plasmic-override={overrides.button8}
+                                    className={classNames(
+                                      "__wab_instance",
+                                      sty.button8
+                                    )}
+                                    color={generateStateValueProp($state, [
+                                      "button8",
+                                      "color"
+                                    ])}
+                                    onClick={async event => {
+                                      const $steps = {};
+
+                                      $steps["runCode"] = true
+                                        ? (() => {
+                                            const actionArgs = {
+                                              customFunction: async () => {
+                                                return window.scrollTo({
+                                                  top: document.body
+                                                    .scrollHeight,
+                                                  behavior: "smooth"
+                                                });
+                                              }
+                                            };
+                                            return (({ customFunction }) => {
+                                              return customFunction();
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                      if (
+                                        $steps["runCode"] != null &&
+                                        typeof $steps["runCode"] === "object" &&
+                                        typeof $steps["runCode"].then ===
+                                          "function"
+                                      ) {
+                                        $steps["runCode"] = await $steps[
+                                          "runCode"
+                                        ];
+                                      }
+                                    }}
+                                    onColorChange={async (
+                                      ...eventArgs: any
+                                    ) => {
+                                      ((...eventArgs) => {
+                                        generateStateOnChangeProp($state, [
+                                          "button8",
+                                          "color"
+                                        ])(eventArgs[0]);
+                                      }).apply(null, eventArgs);
+
+                                      if (
+                                        eventArgs.length > 1 &&
+                                        eventArgs[1] &&
+                                        eventArgs[1]._plasmic_state_init_
+                                      ) {
+                                        return;
+                                      }
+                                    }}
+                                    size={
+                                      hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "mobile"
+                                      )
+                                        ? "minimal"
+                                        : "compact"
+                                    }
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__jQbJj,
+                                        hasVariant(
+                                          globalVariants,
+                                          "screen",
+                                          "mobile"
+                                        )
+                                          ? "animashen"
+                                          : undefined
+                                      )}
+                                    >
+                                      {
+                                        "\u062a\u0645\u062f\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
+                                      }
+                                    </div>
+                                  </Button>
+                                </div>
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return $state.user?.data?.result?.man
+                                    ?.timeToEndHamyarTime?.days > 3
+                                    ? true
+                                    : false;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__njJsd
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__g5WCv
+                                    )}
+                                  />
+
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__khnnx
+                                    )}
+                                  >
+                                    {
+                                      "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a."
+                                    }
+                                  </div>
+                                </Stack__>
+                              ) : null}
                               {(() => {
                                 const child$Props = {
                                   className: classNames(
@@ -3229,139 +3407,6 @@ function PlasmicHamyar__RenderFunc(props: {
                                   />
                                 );
                               })()}
-                              {(
-                                hasVariant(globalVariants, "screen", "mobile")
-                                  ? (() => {
-                                      try {
-                                        return $state.user?.data?.result?.man
-                                          ?.timeToEndHamyarTime?.days > 3
-                                          ? false
-                                          : true;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return true;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  : (() => {
-                                      try {
-                                        return $state.user?.data?.result?.man
-                                          ?.timeToEndHamyarTime?.days > 3
-                                          ? false
-                                          : true;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return true;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                              ) ? (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__gELe
-                                  )}
-                                >
-                                  <Button
-                                    data-plasmic-name={"button8"}
-                                    data-plasmic-override={overrides.button8}
-                                    className={classNames(
-                                      "__wab_instance",
-                                      sty.button8
-                                    )}
-                                    color={generateStateValueProp($state, [
-                                      "button8",
-                                      "color"
-                                    ])}
-                                    onClick={async event => {
-                                      const $steps = {};
-
-                                      $steps["runCode"] = true
-                                        ? (() => {
-                                            const actionArgs = {
-                                              customFunction: async () => {
-                                                return window.scrollTo({
-                                                  top: document.body
-                                                    .scrollHeight,
-                                                  behavior: "smooth"
-                                                });
-                                              }
-                                            };
-                                            return (({ customFunction }) => {
-                                              return customFunction();
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
-                                      if (
-                                        $steps["runCode"] != null &&
-                                        typeof $steps["runCode"] === "object" &&
-                                        typeof $steps["runCode"].then ===
-                                          "function"
-                                      ) {
-                                        $steps["runCode"] = await $steps[
-                                          "runCode"
-                                        ];
-                                      }
-                                    }}
-                                    onColorChange={async (
-                                      ...eventArgs: any
-                                    ) => {
-                                      ((...eventArgs) => {
-                                        generateStateOnChangeProp($state, [
-                                          "button8",
-                                          "color"
-                                        ])(eventArgs[0]);
-                                      }).apply(null, eventArgs);
-
-                                      if (
-                                        eventArgs.length > 1 &&
-                                        eventArgs[1] &&
-                                        eventArgs[1]._plasmic_state_init_
-                                      ) {
-                                        return;
-                                      }
-                                    }}
-                                    size={
-                                      hasVariant(
-                                        globalVariants,
-                                        "screen",
-                                        "mobile"
-                                      )
-                                        ? "minimal"
-                                        : "compact"
-                                    }
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__jQbJj,
-                                        hasVariant(
-                                          globalVariants,
-                                          "screen",
-                                          "mobile"
-                                        )
-                                          ? "animashen"
-                                          : undefined
-                                      )}
-                                    >
-                                      {
-                                        "\u062a\u0645\u062f\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
-                                      }
-                                    </div>
-                                  </Button>
-                                </div>
-                              ) : null}
                             </Stack__>
                           </div>
                         </Stack__>
@@ -13880,8 +13925,8 @@ const PlasmicDescendants = {
     "lineClomp",
     "progress",
     "button7",
-    "countdown3",
     "button8",
+    "countdown3",
     "button9",
     "button10",
     "checkbox",
@@ -13924,8 +13969,8 @@ const PlasmicDescendants = {
   lineClomp: ["lineClomp"],
   progress: ["progress"],
   button7: ["button7"],
-  countdown3: ["countdown3"],
   button8: ["button8"],
+  countdown3: ["countdown3"],
   button9: ["button9"],
   button10: ["button10"],
   checkbox: ["checkbox"],
@@ -13973,8 +14018,8 @@ type NodeDefaultElementType = {
   lineClomp: typeof LineClomp;
   progress: typeof AntdProgress;
   button7: typeof Button;
-  countdown3: typeof Countdown;
   button8: typeof Button;
+  countdown3: typeof Countdown;
   button9: typeof Button;
   button10: typeof Button;
   checkbox: typeof Checkbox;
@@ -14103,8 +14148,8 @@ export const PlasmicHamyar = Object.assign(
     lineClomp: makeNodeComponent("lineClomp"),
     progress: makeNodeComponent("progress"),
     button7: makeNodeComponent("button7"),
-    countdown3: makeNodeComponent("countdown3"),
     button8: makeNodeComponent("button8"),
+    countdown3: makeNodeComponent("countdown3"),
     button9: makeNodeComponent("button9"),
     button10: makeNodeComponent("button10"),
     checkbox: makeNodeComponent("checkbox"),
