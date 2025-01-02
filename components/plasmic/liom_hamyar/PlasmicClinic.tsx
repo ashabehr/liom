@@ -3618,13 +3618,6 @@ function PlasmicClinic__RenderFunc(props: {
                     return;
                   }
                 }}
-                open={
-                  hasVariant($state, "_1", "docter")
-                    ? false
-                    : hasVariant(globalVariants, "screen", "mobile")
-                    ? true
-                    : false
-                }
                 opendialog={generateStateValueProp($state, [
                   "dialog",
                   "opendialog"

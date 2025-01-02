@@ -105,6 +105,8 @@
   --plasmic-token-brand-brand: var(--token-0xHMxyAHbOos);
   --token-3VFsPoJwdkXP: 0.375rem;
   --plasmic-token-size-6: var(--token-3VFsPoJwdkXP);
+  --token-ZuffvoxgS-gS: 0.875rem;
+  --plasmic-token-small: var(--token-ZuffvoxgS-gS);
 }
 
 @media (max-width: 640px) {

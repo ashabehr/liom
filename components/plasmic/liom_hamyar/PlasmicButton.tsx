@@ -164,6 +164,7 @@ export type PlasmicButton__OverridesType = {
   root?: Flex__<"button">;
   startIconContainer?: Flex__<"div">;
   contentContainer?: Flex__<"div">;
+  svg?: Flex__<"svg">;
   endIconContainer?: Flex__<"div">;
 };
 
@@ -508,6 +509,16 @@ function PlasmicButton__RenderFunc(props: {
           )
         })}
       >
+        {(hasVariant($state, "loading", "loading") ? true : false) ? (
+          <Icon115Icon
+            data-plasmic-name={"svg"}
+            data-plasmic-override={overrides.svg}
+            className={classNames(projectcss.all, sty.svg, {
+              [sty.svgloading]: hasVariant($state, "loading", "loading")
+            })}
+            role={"img"}
+          />
+        ) : null}
         {(hasVariant($state, "loading", "loading") ? false : true)
           ? renderPlasmicSlot({
               defaultContents: " ",
@@ -660,73 +671,75 @@ function PlasmicButton__RenderFunc(props: {
             )
           })}
         >
-          {renderPlasmicSlot({
-            defaultContents: (
-              <Icon115Icon
-                className={classNames(projectcss.all, sty.svg__ggkwO)}
-                role={"img"}
-              />
-            ),
+          {(hasVariant($state, "loading", "loading") ? false : true)
+            ? renderPlasmicSlot({
+                defaultContents: (
+                  <Icon115Icon
+                    className={classNames(projectcss.all, sty.svg__ggkwO)}
+                    role={"img"}
+                  />
+                ),
 
-            value: args.endIcon,
-            className: classNames(sty.slotTargetEndIcon, {
-              [sty.slotTargetEndIconcolor_clear]: hasVariant(
-                $state,
-                "color",
-                "clear"
-              ),
-              [sty.slotTargetEndIconcolor_link]: hasVariant(
-                $state,
-                "color",
-                "link"
-              ),
-              [sty.slotTargetEndIconcolor_softBlue]: hasVariant(
-                $state,
-                "color",
-                "softBlue"
-              ),
-              [sty.slotTargetEndIconcolor_softGreen]: hasVariant(
-                $state,
-                "color",
-                "softGreen"
-              ),
-              [sty.slotTargetEndIconcolor_softRed]: hasVariant(
-                $state,
-                "color",
-                "softRed"
-              ),
-              [sty.slotTargetEndIconcolor_softSand]: hasVariant(
-                $state,
-                "color",
-                "softSand"
-              ),
-              [sty.slotTargetEndIconcolor_softYellow]: hasVariant(
-                $state,
-                "color",
-                "softYellow"
-              ),
-              [sty.slotTargetEndIconcolor_white]: hasVariant(
-                $state,
-                "color",
-                "white"
-              ),
-              [sty.slotTargetEndIconcolor_yellow]: hasVariant(
-                $state,
-                "color",
-                "yellow"
-              ),
-              [sty.slotTargetEndIconloading]: hasVariant(
-                $state,
-                "loading",
-                "loading"
-              ),
-              [sty.slotTargetEndIconshowEndIcon]: hasVariant(
-                $state,
-                "showEndIcon",
-                "showEndIcon"
-              )
-            })
-          })}
+                value: args.endIcon,
+                className: classNames(sty.slotTargetEndIcon, {
+                  [sty.slotTargetEndIconcolor_clear]: hasVariant(
+                    $state,
+                    "color",
+                    "clear"
+                  ),
+                  [sty.slotTargetEndIconcolor_link]: hasVariant(
+                    $state,
+                    "color",
+                    "link"
+                  ),
+                  [sty.slotTargetEndIconcolor_softBlue]: hasVariant(
+                    $state,
+                    "color",
+                    "softBlue"
+                  ),
+                  [sty.slotTargetEndIconcolor_softGreen]: hasVariant(
+                    $state,
+                    "color",
+                    "softGreen"
+                  ),
+                  [sty.slotTargetEndIconcolor_softRed]: hasVariant(
+                    $state,
+                    "color",
+                    "softRed"
+                  ),
+                  [sty.slotTargetEndIconcolor_softSand]: hasVariant(
+                    $state,
+                    "color",
+                    "softSand"
+                  ),
+                  [sty.slotTargetEndIconcolor_softYellow]: hasVariant(
+                    $state,
+                    "color",
+                    "softYellow"
+                  ),
+                  [sty.slotTargetEndIconcolor_white]: hasVariant(
+                    $state,
+                    "color",
+                    "white"
+                  ),
+                  [sty.slotTargetEndIconcolor_yellow]: hasVariant(
+                    $state,
+                    "color",
+                    "yellow"
+                  ),
+                  [sty.slotTargetEndIconloading]: hasVariant(
+                    $state,
+                    "loading",
+                    "loading"
+                  ),
+                  [sty.slotTargetEndIconshowEndIcon]: hasVariant(
+                    $state,
+                    "showEndIcon",
+                    "showEndIcon"
+                  )
+                })
+              })
+            : null}
         </div>
       ) : null}
     </Stack__>
@@ -763,9 +776,16 @@ function useBehavior<P extends pp.PlumeButtonProps>(
 }
 
 const PlasmicDescendants = {
-  root: ["root", "startIconContainer", "contentContainer", "endIconContainer"],
+  root: [
+    "root",
+    "startIconContainer",
+    "contentContainer",
+    "svg",
+    "endIconContainer"
+  ],
   startIconContainer: ["startIconContainer"],
-  contentContainer: ["contentContainer"],
+  contentContainer: ["contentContainer", "svg"],
+  svg: ["svg"],
   endIconContainer: ["endIconContainer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -775,6 +795,7 @@ type NodeDefaultElementType = {
   root: "button";
   startIconContainer: "div";
   contentContainer: "div";
+  svg: "svg";
   endIconContainer: "div";
 };
 
@@ -840,6 +861,7 @@ export const PlasmicButton = Object.assign(
     // Helper components rendering sub-elements
     startIconContainer: makeNodeComponent("startIconContainer"),
     contentContainer: makeNodeComponent("contentContainer"),
+    svg: makeNodeComponent("svg"),
     endIconContainer: makeNodeComponent("endIconContainer"),
 
     // Metadata about props expected for PlasmicButton

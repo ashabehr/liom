@@ -733,7 +733,7 @@
   text-decoration-line: none !important;
   text-overflow: clip !important;
 }
-.svg__hmOfT {
+.svg__pwuBx {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -745,6 +745,7 @@
   color: var(--token-jgohepLVeKvh);
   right: auto;
   bottom: auto;
+  display: none;
 }
 .button2:global(.__wab_instance) {
   max-width: 100%;

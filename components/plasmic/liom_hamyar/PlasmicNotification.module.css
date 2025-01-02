@@ -368,7 +368,7 @@
   width: auto;
   height: 1em;
 }
-.svg__ltvY {
+.svg__kBm9L {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -380,6 +380,7 @@
   color: var(--token-jgohepLVeKvh);
   right: auto;
   bottom: auto;
+  display: none;
 }
 .apiRequest:global(.__wab_instance) {
   max-width: 100%;

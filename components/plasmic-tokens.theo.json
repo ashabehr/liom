@@ -2821,6 +2821,16 @@
       }
     },
     {
+      "name": "small",
+      "type": "fontsize",
+      "value": "0.875rem",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "ZuffvoxgS-gS"
+      }
+    },
+    {
       "name": "surface",
       "type": "color",
       "value": "#FFFBFF",

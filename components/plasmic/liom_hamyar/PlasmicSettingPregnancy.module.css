@@ -254,7 +254,7 @@
   width: auto;
   height: 1em;
 }
-.svg__vlAPc {
+.svg__aItwF {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -266,6 +266,7 @@
   color: var(--token-jgohepLVeKvh);
   right: auto;
   bottom: auto;
+  display: none;
 }
 .freeBox__z4LTn {
   display: flex;
@@ -448,7 +449,7 @@
   width: auto;
   height: 1em;
 }
-.svg__hD2Sl {
+.svg__ccgaz {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -460,6 +461,7 @@
   color: var(--token-jgohepLVeKvh);
   right: auto;
   bottom: auto;
+  display: none;
 }
 .getUserInfo:global(.__wab_instance) {
   max-width: 100%;

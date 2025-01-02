@@ -884,7 +884,10 @@ function PlasmicTodoList__RenderFunc(props: {
                                   (() => {
                                     try {
                                       return {
-                                        userId: $props.userId,
+                                        userId: $props.userId.slice(
+                                          4,
+                                          $props.userId.length - 4
+                                        ),
                                         id: currentItem.id
                                       };
                                     } catch (e) {

@@ -60,11 +60,12 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import { Dialog } from "@plasmicpkgs/radix-ui";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DialogContent } from "@plasmicpkgs/radix-ui";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { DialogClose } from "@plasmicpkgs/radix-ui";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -76,9 +77,11 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicDialog.module.css"; // plasmic-import: 6XHfwWx1PCn8/css
 
+import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
+import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
@@ -90,14 +93,12 @@ type VariantPropType = keyof PlasmicDialog__VariantsArgs;
 export const PlasmicDialog__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicDialog__ArgsType = {
-  open?: boolean;
   children?: React.ReactNode;
   opendialog?: boolean;
   onOpendialogChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicDialog__ArgsType;
 export const PlasmicDialog__ArgProps = new Array<ArgPropType>(
-  "open",
   "children",
   "opendialog",
   "onOpendialogChange"
@@ -105,13 +106,12 @@ export const PlasmicDialog__ArgProps = new Array<ArgPropType>(
 
 export type PlasmicDialog__OverridesType = {
   dialog3?: Flex__<typeof Dialog>;
+  button3?: Flex__<typeof Button>;
   dialogContent?: Flex__<typeof DialogContent>;
   dialogClose?: Flex__<typeof DialogClose>;
-  svg?: Flex__<"svg">;
 };
 
 export interface DefaultDialogProps {
-  open?: boolean;
   children?: React.ReactNode;
   opendialog?: boolean;
   onOpendialogChange?: (val: string) => void;
@@ -186,6 +186,12 @@ function PlasmicDialog__RenderFunc(props: {
 
         valueProp: "opendialog",
         onChangeProp: "onOpendialogChange"
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -235,6 +241,39 @@ function PlasmicDialog__RenderFunc(props: {
           null,
           eventArgs
         );
+
+        (async open => {
+          const $steps = {};
+
+          $steps["updateOpendialog"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["opendialog"]
+                  },
+                  operation: 4
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  const oldValue = $stateGet(objRoot, variablePath);
+                  $stateSet(objRoot, variablePath, !oldValue);
+                  return !oldValue;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateOpendialog"] != null &&
+            typeof $steps["updateOpendialog"] === "object" &&
+            typeof $steps["updateOpendialog"].then === "function"
+          ) {
+            $steps["updateOpendialog"] = await $steps["updateOpendialog"];
+          }
+        }).apply(null, eventArgs);
       }}
       open={generateStateValueProp($state, ["dialog3", "open"])}
       overlayClassName={classNames({
@@ -253,7 +292,41 @@ function PlasmicDialog__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens
       )}
-      triggerSlot={null}
+      triggerSlot={
+        <Button
+          data-plasmic-name={"button3"}
+          data-plasmic-override={overrides.button3}
+          className={classNames("__wab_instance", sty.button3)}
+          color={generateStateValueProp($state, ["button3", "color"])}
+          endIcon={
+            <ChevronLeftIcon
+              className={classNames(projectcss.all, sty.svg___9To4X)}
+              role={"img"}
+            />
+          }
+          onColorChange={async (...eventArgs: any) => {
+            ((...eventArgs) => {
+              generateStateOnChangeProp($state, ["button3", "color"])(
+                eventArgs[0]
+              );
+            }).apply(null, eventArgs);
+
+            if (
+              eventArgs.length > 1 &&
+              eventArgs[1] &&
+              eventArgs[1]._plasmic_state_init_
+            ) {
+              return;
+            }
+          }}
+          startIcon={
+            <ChevronRightIcon
+              className={classNames(projectcss.all, sty.svg__aaZnS)}
+              role={"img"}
+            />
+          }
+        />
+      }
     >
       <DialogContent
         data-plasmic-name={"dialogContent"}
@@ -282,259 +355,300 @@ function PlasmicDialog__RenderFunc(props: {
       >
         {renderPlasmicSlot({
           defaultContents: (
-            <div className={classNames(projectcss.all, sty.freeBox__jQcEw)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__ljft)}
-                dir={"rtl"}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__w5K6I)}
-                />
-
-                <DialogTitle
-                  className={classNames(
-                    "__wab_instance",
-                    sty.dialogTitle__cyUlG
-                  )}
-                >
-                  <h5
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h5,
-                      sty.h5__p9SwK
-                    )}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___1Nw6I
-                      )}
-                    >
-                      {"Dialog title"}
-                    </div>
-                  </h5>
-                </DialogTitle>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__y9LMr)}
-                dir={"rtl"}
-              >
+            <ApiRequest
+              className={classNames(
+                "__wab_instance",
+                sty.fragmentApiRequest__ljqLe
+              )}
+              errorDisplay={
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__oqIFe
+                    sty.text__r7Nm8
                   )}
                 >
-                  {"You can insert dialog body content here in this slot."}
+                  {"Error fetching data"}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__xvWuc)}>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__nBycr)}
+              }
+              loadingDisplay={
+                <div className={classNames(projectcss.all, sty.freeBox__wYXt)}>
+                  <Icon115Icon
+                    className={classNames(projectcss.all, sty.svg__axmAj)}
+                    role={"img"}
+                  />
+                </div>
+              }
+              method={"GET"}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__jQcEw)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__ljft)}
+                  dir={"rtl"}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__w5K6I)}
+                  />
+
+                  <DialogTitle
+                    className={classNames(
+                      "__wab_instance",
+                      sty.dialogTitle__cyUlG
+                    )}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox___1AMs)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__c1Au4
-                        )}
-                      >
-                        {
-                          "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39"
-                        }
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__m0Cle)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__piA7Q
-                        )}
-                      >
-                        {"Enter some text"}
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__msm1G
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__xrYhG
-                          )}
-                        >
-                          {"Enter some text"}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__ccHss
-                          )}
-                        >
-                          {"Enter some text"}
-                        </div>
-                      </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__sk2NQ
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__ezKt4
-                          )}
-                        >
-                          {"1"}
-                        </div>
-                      </div>
-                    </div>
-                    <div
+                    <h5
                       className={classNames(
                         projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__nNrrf
+                        projectcss.h5,
+                        sty.h5__p9SwK
                       )}
                     >
-                      {
-                        "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
-                      }
-                    </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___1Nw6I
+                        )}
+                      >
+                        {"Dialog title"}
+                      </div>
+                    </h5>
+                  </DialogTitle>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__y9LMr)}
+                  dir={"rtl"}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__oqIFe
+                    )}
+                  >
+                    {"You can insert dialog body content here in this slot."}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__xvWuc)}
+                  >
                     <Stack__
                       as={"div"}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__py1OJ)}
+                      className={classNames(projectcss.all, sty.freeBox__nBycr)}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__ssAUw
-                        )}
-                      >
-                        {(() => {
-                          const child$Props = {
-                            allowClear: false,
-                            autoFocus: false,
-                            bordered: false,
-                            className: classNames(
-                              "__wab_instance",
-                              sty.input__hpUyO
-                            ),
-                            disabled: false,
-                            placeholder:
-                              "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
-                            prefix: (
-                              <Icon10Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg___9KzOg
-                                )}
-                                role={"img"}
-                              />
-                            ),
-
-                            readOnly: false,
-                            size: "small",
-                            suffix: null
-                          };
-
-                          return <AntdInput {...child$Props} />;
-                        })()}
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__ryBL
-                          )}
-                        />
-                      </div>
-                      <Button
-                        className={classNames(
-                          "__wab_instance",
-                          sty.button__h2Mqf
+                          sty.freeBox___1AMs
                         )}
                       >
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__i4Ie
+                            sty.text__c1Au4
                           )}
                         >
-                          {"\u062a\u0627\u06cc\u06cc\u062f"}
+                          {
+                            "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39"
+                          }
                         </div>
-                      </Button>
-                    </Stack__>
-                    <Button
-                      className={classNames(
-                        "__wab_instance",
-                        sty.button__oQxvD
-                      )}
-                      endIcon={
-                        <Icon12Icon
-                          className={classNames(projectcss.all, sty.svg__rEpSt)}
-                          role={"img"}
-                        />
-                      }
-                    >
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__m0Cle
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__piA7Q
+                          )}
+                        >
+                          {"Enter some text"}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__msm1G
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__xrYhG
+                            )}
+                          >
+                            {"Enter some text"}
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ccHss
+                            )}
+                          >
+                            {"Enter some text"}
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__sk2NQ
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ezKt4
+                            )}
+                          >
+                            {"1"}
+                          </div>
+                        </div>
+                      </div>
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__prJij
+                          sty.text__nNrrf
                         )}
                       >
                         {
-                          "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                          "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                         }
                       </div>
-                    </Button>
-                    <p
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.p,
-                        projectcss.__wab_text,
-                        sty.p__kUk7S
-                      )}
-                    >
-                      {
-                        "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
-                      }
-                    </p>
-                    <p
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.p,
-                        projectcss.__wab_text,
-                        sty.p___2Rx58
-                      )}
-                    >
-                      {
-                        "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
-                      }
-                    </p>
-                  </Stack__>
-                </div>
-              </Stack__>
-            </div>
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__py1OJ
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ssAUw
+                          )}
+                        >
+                          {(() => {
+                            const child$Props = {
+                              allowClear: false,
+                              autoFocus: false,
+                              bordered: false,
+                              className: classNames(
+                                "__wab_instance",
+                                sty.input__hpUyO
+                              ),
+                              disabled: false,
+                              placeholder:
+                                "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
+                              prefix: (
+                                <Icon10Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg___9KzOg
+                                  )}
+                                  role={"img"}
+                                />
+                              ),
+
+                              readOnly: false,
+                              size: "small",
+                              suffix: null
+                            };
+
+                            return <AntdInput {...child$Props} />;
+                          })()}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__ryBL
+                            )}
+                          />
+                        </div>
+                        <Button
+                          className={classNames(
+                            "__wab_instance",
+                            sty.button__h2Mqf
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__i4Ie
+                            )}
+                          >
+                            {"\u062a\u0627\u06cc\u06cc\u062f"}
+                          </div>
+                        </Button>
+                      </Stack__>
+                      <Button
+                        className={classNames(
+                          "__wab_instance",
+                          sty.button__oQxvD
+                        )}
+                        endIcon={
+                          <Icon12Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__rEpSt
+                            )}
+                            role={"img"}
+                          />
+                        }
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__prJij
+                          )}
+                        >
+                          {
+                            "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                          }
+                        </div>
+                      </Button>
+                      <p
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.p,
+                          projectcss.__wab_text,
+                          sty.p__kUk7S
+                        )}
+                      >
+                        {
+                          "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                        }
+                      </p>
+                      <p
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.p,
+                          projectcss.__wab_text,
+                          sty.p___2Rx58
+                        )}
+                      >
+                        {
+                          "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                        }
+                      </p>
+                    </Stack__>
+                  </div>
+                </Stack__>
+              </div>
+            </ApiRequest>
           ),
           value: args.children
         })}
@@ -544,9 +658,7 @@ function PlasmicDialog__RenderFunc(props: {
           className={classNames("__wab_instance", sty.dialogClose)}
         >
           <XIcon
-            data-plasmic-name={"svg"}
-            data-plasmic-override={overrides.svg}
-            className={classNames(projectcss.all, sty.svg)}
+            className={classNames(projectcss.all, sty.svg__jazEp)}
             role={"img"}
           />
         </DialogClose>
@@ -556,19 +668,19 @@ function PlasmicDialog__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  dialog3: ["dialog3", "dialogContent", "dialogClose", "svg"],
-  dialogContent: ["dialogContent", "dialogClose", "svg"],
-  dialogClose: ["dialogClose", "svg"],
-  svg: ["svg"]
+  dialog3: ["dialog3", "button3", "dialogContent", "dialogClose"],
+  button3: ["button3"],
+  dialogContent: ["dialogContent", "dialogClose"],
+  dialogClose: ["dialogClose"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   dialog3: typeof Dialog;
+  button3: typeof Button;
   dialogContent: typeof DialogContent;
   dialogClose: typeof DialogClose;
-  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -631,9 +743,9 @@ export const PlasmicDialog = Object.assign(
   makeNodeComponent("dialog3"),
   {
     // Helper components rendering sub-elements
+    button3: makeNodeComponent("button3"),
     dialogContent: makeNodeComponent("dialogContent"),
     dialogClose: makeNodeComponent("dialogClose"),
-    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicDialog
     internalVariantProps: PlasmicDialog__VariantProps,

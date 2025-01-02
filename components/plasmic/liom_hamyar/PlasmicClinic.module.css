@@ -1384,7 +1384,7 @@
   height: 20px;
   color: var(--token-SX03PBUzWAqr);
 }
-.svg__xcbct {
+.svg__y0LxU {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -1396,6 +1396,7 @@
   color: var(--token-jgohepLVeKvh);
   right: auto;
   bottom: auto;
+  display: none;
 }
 .freeBox__sm50 {
   flex-direction: column;
@@ -3427,7 +3428,7 @@
     font-weight: 700;
   }
 }
-.svg__ri6B1 {
+.svg__uyZCl {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -3439,6 +3440,7 @@
   color: var(--token-jgohepLVeKvh);
   right: auto;
   bottom: auto;
+  display: none;
 }
 .dialog:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
@@ -3945,7 +3947,7 @@
   letter-spacing: normal;
   white-space: pre;
 }
-.svg__ig5Rp {
+.svg___8OHir {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -3957,6 +3959,7 @@
   color: var(--token-jgohepLVeKvh);
   right: auto;
   bottom: auto;
+  display: none;
 }
 .button11:global(.__wab_instance) {
   max-width: 100%;

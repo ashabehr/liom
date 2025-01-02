@@ -1190,6 +1190,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 $state.user = data;
                                 $state.loading = false;
                               }
+                              console.log("user get");
                             })
                             .catch(error => console.error("Error3:", error));
                         }
@@ -1286,6 +1287,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           )
                             .then(response => response.json())
                             .then(data => {
+                              console.log("advice");
                               $state.getAdvice = data;
                             })
                             .catch(error => console.error("Error2:", error));
@@ -1310,16 +1312,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                         customFunction: async () => {
                           return fetch(
                             "https://n8n.staas.ir/webhook/task/?appKey=com.diacotdj.liom&userId=" +
-                              $ctx.query.userId.slice(
-                                4,
-                                $ctx.query.userId.length - 4
-                              ) +
+                              $ctx.query.userId +
                               "&weekNumber=" +
                               $state.weeksPregnant,
                             { method: "GET" }
                           )
                             .then(response => response.json())
                             .then(data => {
+                              console.log("task");
                               $state.getTask.list = data;
                               $state.getTask.loading = false;
                             })
@@ -1370,6 +1370,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                           args: [
                             "POST",
                             "https://api.liom.app/service/log",
+                            undefined,
                             (() => {
                               try {
                                 return {
@@ -1391,7 +1392,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 throw e;
                               }
                             })(),
-                            undefined,
                             (() => {
                               try {
                                 return {
@@ -1516,7 +1516,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 return response.json();
                               })
                               .then(data => {
-                                console.log("Response Dataaaaa:", data);
+                                console.log("user send");
                               })
                               .catch(error => {
                                 console.error("Error3333:", error);

@@ -149,7 +149,7 @@
   width: auto;
   height: 1em;
 }
-.svg__aFtVo {
+.svg__hi2Zd {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -161,6 +161,7 @@
   color: var(--token-jgohepLVeKvh);
   right: auto;
   bottom: auto;
+  display: none;
 }
 .freeBox__cebvZ {
   display: block;

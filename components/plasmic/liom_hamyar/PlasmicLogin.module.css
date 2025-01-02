@@ -9924,7 +9924,7 @@
   bottom: 0px;
   min-width: 0;
 }
-.svg__qlTv {
+.svg__goCxg {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -9936,6 +9936,7 @@
   color: var(--token-jgohepLVeKvh);
   right: auto;
   bottom: auto;
+  display: none;
 }
 .mobileCode:global(.__wab_instance) {
   max-width: 100%;
