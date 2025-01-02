@@ -657,6 +657,11 @@ function PlasmicIntro__RenderFunc(props: {
               sty.freeBox__laGek,
               "zoom-animation",
               {
+                [sty.freeBox_1_slid1__laGekvlIdd]: hasVariant(
+                  $state,
+                  "_1",
+                  "slid1"
+                ),
                 [sty.freeBox_1_slid2__laGekMvA2]: hasVariant(
                   $state,
                   "_1",
@@ -1105,16 +1110,54 @@ function PlasmicIntro__RenderFunc(props: {
         >
           <div
             className={classNames(projectcss.all, sty.freeBox__oUZm, {
+              [sty.freeBox_1_slid1__oUZmvlIdd]: hasVariant(
+                $state,
+                "_1",
+                "slid1"
+              ),
               [sty.freeBox_1_slid3__oUZmSwIh2]: hasVariant(
                 $state,
                 "_1",
                 "slid3"
               )
             })}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["update1"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "_1",
+                      operation: 0,
+                      value: "slid3"
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      $stateSet($state, vgroup, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["update1"] != null &&
+                typeof $steps["update1"] === "object" &&
+                typeof $steps["update1"].then === "function"
+              ) {
+                $steps["update1"] = await $steps["update1"];
+              }
+            }}
           />
 
           <div
             className={classNames(projectcss.all, sty.freeBox__boi5L, {
+              [sty.freeBox_1_slid1__boi5LvlIdd]: hasVariant(
+                $state,
+                "_1",
+                "slid1"
+              ),
               [sty.freeBox_1_slid2__boi5LMvA2]: hasVariant(
                 $state,
                 "_1",
@@ -1126,6 +1169,34 @@ function PlasmicIntro__RenderFunc(props: {
                 "slid3"
               )
             })}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["update1"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "_1",
+                      operation: 0,
+                      value: "slid2"
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      $stateSet($state, vgroup, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["update1"] != null &&
+                typeof $steps["update1"] === "object" &&
+                typeof $steps["update1"].then === "function"
+              ) {
+                $steps["update1"] = await $steps["update1"];
+              }
+            }}
           />
 
           <div
@@ -1146,6 +1217,34 @@ function PlasmicIntro__RenderFunc(props: {
                 "slid3"
               )
             })}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["update1"] = true
+                ? (() => {
+                    const actionArgs = {
+                      vgroup: "_1",
+                      operation: 0,
+                      value: "slid1"
+                    };
+                    return (({ vgroup, value }) => {
+                      if (typeof value === "string") {
+                        value = [value];
+                      }
+
+                      $stateSet($state, vgroup, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["update1"] != null &&
+                typeof $steps["update1"] === "object" &&
+                typeof $steps["update1"].then === "function"
+              ) {
+                $steps["update1"] = await $steps["update1"];
+              }
+            }}
           />
         </Stack__>
         <Dialog
