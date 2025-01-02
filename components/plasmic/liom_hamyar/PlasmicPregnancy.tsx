@@ -483,6 +483,12 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "isNoData",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -1156,7 +1162,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   $steps["updateIsTimer"] = await $steps["updateIsTimer"];
                 }
 
-                $steps["runCode3"] = true
+                $steps["runCode"] = true
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
@@ -1177,131 +1183,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                           )
                             .then(response => response.json())
                             .then(data => {
-                              $state.user = data;
-                              $state.loading = false;
-                              console.log(data?.[0]?.id ?? "dd");
+                              if (typeof data?.[0]?.dueDate == "undefined") {
+                                $state.isNoData = true;
+                              } else {
+                                $state.isNoData = false;
+                                $state.user = data;
+                                $state.loading = false;
+                              }
                             })
                             .catch(error => console.error("Error3:", error));
-                        }
-                      };
-                      return (({ customFunction }) => {
-                        return customFunction();
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["runCode3"] != null &&
-                  typeof $steps["runCode3"] === "object" &&
-                  typeof $steps["runCode3"].then === "function"
-                ) {
-                  $steps["runCode3"] = await $steps["runCode3"];
-                }
-
-                $steps["goToPage"] =
-                  $state.user == null ||
-                  $state.user?.[0] == null ||
-                  $state.user?.[0]?.dueDate == null ||
-                  $state.user?.[0]?.dueDate == ""
-                    ? (() => {
-                        const actionArgs = {
-                          destination: (() => {
-                            try {
-                              return (
-                                "https://apps.liom.app/setting-pregnancy/?token=" +
-                                $ctx.query.token +
-                                "&userId=" +
-                                $ctx.query.userId +
-                                "&theme=" +
-                                $ctx.query.theme
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
-                ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
-                }
-
-                $steps["invokeGlobalAction"] =
-                  $state.user == null ||
-                  $state.user?.[0] == null ||
-                  $state.user?.[0]?.dueDate == null ||
-                  $state.user?.[0]?.dueDate == ""
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            "error",
-                            (() => {
-                              try {
-                                return "برای استفاده از برنامه لطفا اطلاعات خود را وارد کنید";
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            "bottom-center"
-                          ]
-                        };
-                        return $globalActions["Fragment.showToast"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                if (
-                  $steps["invokeGlobalAction"] != null &&
-                  typeof $steps["invokeGlobalAction"] === "object" &&
-                  typeof $steps["invokeGlobalAction"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction"] = await $steps[
-                    "invokeGlobalAction"
-                  ];
-                }
-
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: async () => {
-                          return fetch(
-                            "https://n8n.staas.ir/webhook/getAdvice/?weekNumber=" +
-                              ($state.weeksPregnant <= 9 ? "0" : "") +
-                              $state.weeksPregnant
-                          )
-                            .then(response => response.json())
-                            .then(data => {
-                              $state.getAdvice.text = data.text;
-                            })
-                            .catch(error => console.log("Error1:", error));
                         }
                       };
                       return (({ customFunction }) => {
@@ -1317,24 +1207,88 @@ function PlasmicPregnancy__RenderFunc(props: {
                   $steps["runCode"] = await $steps["runCode"];
                 }
 
+                $steps["showToast"] = $state.isNoData
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "error",
+                          "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0628\u062a\u062f\u0627 \u0628\u0627\u06cc\u062f \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                          "bottom-center"
+                        ]
+                      };
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["showToast"] != null &&
+                  typeof $steps["showToast"] === "object" &&
+                  typeof $steps["showToast"].then === "function"
+                ) {
+                  $steps["showToast"] = await $steps["showToast"];
+                }
+
+                $steps["goToPage"] = $state.isNoData
+                  ? (() => {
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return (
+                              "https://apps.liom.app/setting-pregnancy/?token=" +
+                              $ctx.query.token +
+                              "&userId=" +
+                              $ctx.query.userId +
+                              "&theme=" +
+                              $ctx.query.theme
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
+                ) {
+                  $steps["goToPage"] = await $steps["goToPage"];
+                }
+
                 $steps["runCode2"] = true
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
                           return fetch(
-                            "https://n8n.staas.ir/webhook/task/?weekNumber=" +
-                              ($state.weeksPregnant <= 9 ? "0" : "") +
-                              $state.weeksPregnant +
-                              "&userId=" +
-                              $ctx.query.userId +
-                              "&appKey=com.diacotdj.liom"
+                            "https://n8n.staas.ir/webhook/getAdvice/?weekNumber=" +
+                              $state.weeksPregnant,
+                            { method: "GET" }
                           )
                             .then(response => response.json())
-                            .then(tsk => {
-                              $state.getTask.loading = false;
-                              $state.getTask.list = tsk;
+                            .then(data => {
+                              $state.getAdvice = data;
                             })
-                            .catch(error => console.log("Error2:", error));
+                            .catch(error => console.error("Error2:", error));
                         }
                       };
                       return (({ customFunction }) => {
@@ -1348,6 +1302,41 @@ function PlasmicPregnancy__RenderFunc(props: {
                   typeof $steps["runCode2"].then === "function"
                 ) {
                   $steps["runCode2"] = await $steps["runCode2"];
+                }
+
+                $steps["runCode3"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return fetch(
+                            "https://n8n.staas.ir/webhook/task/?appKey=com.diacotdj.liom&userId=" +
+                              $ctx.query.userId.slice(
+                                4,
+                                $ctx.query.userId.length - 4
+                              ) +
+                              "&weekNumber=" +
+                              $state.weeksPregnant,
+                            { method: "GET" }
+                          )
+                            .then(response => response.json())
+                            .then(data => {
+                              $state.getTask.list = data;
+                              $state.getTask.loading = false;
+                            })
+                            .catch(error => console.error("Error1:", error));
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode3"] != null &&
+                  typeof $steps["runCode3"] === "object" &&
+                  typeof $steps["runCode3"].then === "function"
+                ) {
+                  $steps["runCode3"] = await $steps["runCode3"];
                 }
 
                 $steps["refreshData"] = true
@@ -1371,73 +1360,181 @@ function PlasmicPregnancy__RenderFunc(props: {
                   $steps["refreshData"] = await $steps["refreshData"];
                 }
 
-                $steps["invokeGlobalAction2"] = true
+                $steps["invokeGlobalAction"] =
+                  $ctx.query.userId.slice(4, $ctx.query.userId.length - 4) !=
+                    "314149" &&
+                  $ctx.query.userId.slice(4, $ctx.query.userId.length - 4) !=
+                    "1"
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://api.liom.app/service/log",
+                            (() => {
+                              try {
+                                return {
+                                  userId: $ctx.query.userId.slice(
+                                    4,
+                                    $ctx.query.userId.length - 4
+                                  ),
+                                  pageName: "mainPage_pregnancy",
+                                  action: "loadPage",
+                                  extraData: {}
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                  }
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+
+                $steps["runCode4"] = true
                   ? (() => {
                       const actionArgs = {
-                        args: [
-                          "POST",
-                          "https://api.liom.app/service/log",
-                          undefined,
-                          (() => {
-                            try {
-                              return {
+                        customFunction: async () => {
+                          return setTimeout(() => {
+                            var name =
+                              $state.getUserInfo.data?.[0]?.result?.user
+                                ?.name ?? "";
+                            var mobile =
+                              $state.getUserInfo.data?.[0]?.result?.user
+                                ?.mobile ?? "";
+                            var email =
+                              $state.getUserInfo.data?.[0]?.result?.user
+                                ?.email ?? "";
+                            if (typeof mobile == "undefined") {
+                              mobile = "";
+                            }
+                            if (typeof email == "undefined") {
+                              email = "";
+                            }
+                            if (typeof name == "undefined") {
+                              name = "";
+                            }
+                            var gy = parseInt(
+                              $state.user?.[0]?.dueDate.split("-")[0]
+                            );
+                            var gm = parseInt(
+                              $state.user?.[0]?.dueDate.split("-")[1]
+                            );
+                            var gd = parseInt(
+                              $state.user?.[0]?.dueDate.split("-")[2]
+                            );
+                            let hamyarsData = []; // ایجاد یک آرایه خالی به جای شیء
+                            for (
+                              let i = 0;
+                              i <
+                              $state.getUserInfo.data[0].result.hamyars.length;
+                              i++
+                            ) {
+                              hamyarsData.push({
+                                name: $state.getUserInfo.data[0].result.hamyars[
+                                  i
+                                ].user.name,
+                                mobile:
+                                  $state.getUserInfo.data[0].result.hamyars[i]
+                                    .user.mobile,
+                                statusSms:
+                                  $state.getUserInfo.data[0].result.hamyars[i]
+                                    .rel.statusSms,
+                                hamyarStatus:
+                                  $state.getUserInfo.data[0].result.hamyars[i]
+                                    .user.hamyarStatus,
+                                hamyarTime:
+                                  $state.getUserInfo.data[0].result.hamyars[i]
+                                    .user.hamyarTime,
+                                email:
+                                  $state.getUserInfo.data[0].result.hamyars[i]
+                                    .user.email
+                              });
+                            }
+
+                            fetch("https://n8n.staas.ir/webhook/status", {
+                              method: "POST",
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                              },
+                              body: JSON.stringify({
+                                area: "pregnancy",
+                                duDate: gy + "-" + gm + "-" + gd + " 10:10:10",
                                 userId: $ctx.query.userId.slice(
                                   4,
-                                  $ctx.query.userId.length - 4
+                                  +$ctx.query.userId.length - 4
                                 ),
-                                pageName: "mainPage_pregnancy",
-                                action: "loadPage",
-                                extraData: {}
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })(),
-                          (() => {
-                            try {
-                              return {
-                                headers: {
-                                  "Content-Type": "application/json",
-                                  Authorization:
-                                    "Bearer " +
-                                    $ctx.query.token.slice(
-                                      6,
-                                      $ctx.query.token.length - 3
-                                    )
+                                name: name,
+                                mobile: mobile,
+                                email: email,
+                                hamyarData: {
+                                  hamyarsData
                                 }
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()
-                        ]
+                              })
+                            })
+                              .then(response => {
+                                return response.json();
+                              })
+                              .then(data => {
+                                console.log("Response Dataaaaa:", data);
+                              })
+                              .catch(error => {
+                                console.error("Error3333:", error);
+                              });
+                          }, 3000);
+                        }
                       };
-                      return $globalActions["Fragment.apiRequest"]?.apply(
-                        null,
-                        [...actionArgs.args]
-                      );
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["invokeGlobalAction2"] != null &&
-                  typeof $steps["invokeGlobalAction2"] === "object" &&
-                  typeof $steps["invokeGlobalAction2"].then === "function"
+                  $steps["runCode4"] != null &&
+                  typeof $steps["runCode4"] === "object" &&
+                  typeof $steps["runCode4"].then === "function"
                 ) {
-                  $steps["invokeGlobalAction2"] = await $steps[
-                    "invokeGlobalAction2"
-                  ];
+                  $steps["runCode4"] = await $steps["runCode4"];
                 }
               }}
               runWhileEditing={false}
@@ -1487,6 +1584,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                   "getUserInfo",
                   "data"
                 ]).apply(null, eventArgs);
+
+                (async data => {
+                  const $steps = {};
+                }).apply(null, eventArgs);
               }}
               params={(() => {
                 try {
@@ -1578,9 +1679,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__whQxm,
+                          sty.text__oYhii,
                           {
-                            [sty.textdarkMod__whQxmoQOo]: hasVariant(
+                            [sty.textdarkMod__oYhiioQOo]: hasVariant(
                               $state,
                               "darkMod",
                               "darkMod"
@@ -1590,79 +1691,16 @@ function PlasmicPregnancy__RenderFunc(props: {
                       >
                         <React.Fragment>
                           {(() => {
-                            try {
-                              return $state.user.userId;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632";
-                              }
-                              throw e;
+                            var random = Math.floor(Math.random() * 2);
+                            switch (random) {
+                              case 0:
+                                return "مامان عزیز";
+                              case 1:
+                                return "مامان " + $state.user?.[0]?.name;
                             }
                           })()}
                         </React.Fragment>
                       </div>
-                      {(() => {
-                        try {
-                          return (
-                            !$state.getUserInfo.loading &&
-                            $state.getUserInfo.data[0].success
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return false;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__oYhii,
-                            {
-                              [sty.textdarkMod__oYhiioQOo]: hasVariant(
-                                $state,
-                                "darkMod",
-                                "darkMod"
-                              )
-                            }
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (() => {
-                                  var random = Math.floor(Math.random() * 2);
-                                  switch (random) {
-                                    case 0:
-                                      return "مامان عزیز";
-                                    case 1:
-                                      return (
-                                        "مامان " +
-                                        $state.getUserInfo?.data?.[0]?.result
-                                          ?.user?.name
-                                      );
-                                  }
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "\u0645\u0627\u0645\u0627\u0646 \u0639\u0632\u06cc\u0632";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
-                      ) : null}
                       <div
                         className={classNames(
                           projectcss.all,
@@ -3329,7 +3367,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                           $ctx.query.userId.slice(
                             4,
                             $ctx.query.userId.length - 4
-                          ) != "314149"
+                          ) != "314149" &&
+                          $ctx.query.userId.slice(
+                            4,
+                            $ctx.query.userId.length - 4
+                          ) != "1"
                             ? (() => {
                                 const actionArgs = {
                                   args: [
@@ -3358,37 +3400,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         throw e;
                                       }
                                     })(),
-                                    (() => {
-                                      try {
-                                        return {
-                                          headers: {
-                                            "Content-Type": "application/json",
-                                            Authorization:
-                                              "Bearer " +
-                                              $ctx.query.token.slice(
-                                                6,
-                                                $ctx.query.token.length - 3
-                                              )
-                                          }
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
-                                            }
-                                          };
-                                        }
-                                        throw e;
+                                    {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization:
+                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
                                       }
-                                    })()
+                                    }
                                   ]
                                 };
                                 return $globalActions[
@@ -4935,7 +4953,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                         $ctx.query.userId.slice(
                           4,
                           $ctx.query.userId.length - 4
-                        ) != "314149"
+                        ) != "314149" &&
+                        $ctx.query.userId.slice(
+                          4,
+                          $ctx.query.userId.length - 4
+                        ) != "1"
                           ? (() => {
                               const actionArgs = {
                                 args: [
@@ -4968,11 +4990,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     headers: {
                                       "Content-Type": "application/json",
                                       Authorization:
-                                        "Bearer " +
-                                        $ctx.query.token.slice(
-                                          6,
-                                          $ctx.query.token.length - 3
-                                        )
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
                                     }
                                   }
                                 ]

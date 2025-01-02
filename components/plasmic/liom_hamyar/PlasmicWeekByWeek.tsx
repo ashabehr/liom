@@ -1358,7 +1358,11 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             $ctx.query.userId.slice(
                               4,
                               $ctx.query.userId.length - 4
-                            ) != "314149"
+                            ) != "314149" &&
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) != "1"
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -1390,38 +1394,13 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                                           throw e;
                                         }
                                       })(),
-                                      (() => {
-                                        try {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer " +
-                                                $ctx.query.token.slice(
-                                                  6,
-                                                  $ctx.query.token.length - 3
-                                                )
-                                            }
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return {
-                                              headers: {
-                                                "Content-Type":
-                                                  "application/json",
-                                                Authorization:
-                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
-                                              }
-                                            };
-                                          }
-                                          throw e;
+                                      {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
                                         }
-                                      })()
+                                      }
                                     ]
                                   };
                                   return $globalActions[
@@ -2606,7 +2585,11 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             $ctx.query.userId.slice(
                               4,
                               $ctx.query.userId.length - 4
-                            ) != "314149"
+                            ) != "314149" &&
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) != "1"
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -2638,38 +2621,13 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                                           throw e;
                                         }
                                       })(),
-                                      (() => {
-                                        try {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer " +
-                                                $ctx.query.token.slice(
-                                                  6,
-                                                  $ctx.query.token.length - 3
-                                                )
-                                            }
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return {
-                                              headers: {
-                                                "Content-Type":
-                                                  "application/json",
-                                                Authorization:
-                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
-                                              }
-                                            };
-                                          }
-                                          throw e;
+                                      {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
                                         }
-                                      })()
+                                      }
                                     ]
                                   };
                                   return $globalActions[
@@ -2872,11 +2830,15 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           const $steps = {};
 
                           $steps["invokeGlobalAction"] =
-                            ($state.collapseMother.open ? true : false) &&
+                            ($state.collapseBaby.open ? true : false) &&
                             $ctx.query.userId.slice(
                               4,
                               $ctx.query.userId.length - 4
-                            ) != "314149"
+                            ) != "314149" &&
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) != "1"
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -2894,7 +2856,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                                                   )
                                                 : "guest",
                                             pageName: "weekByWeekPage",
-                                            action: "clickOpen-motherAdvice",
+                                            action: "clickOpen-babyAdvice",
                                             extraData: {}
                                           };
                                         } catch (e) {
@@ -2915,11 +2877,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                                               "Content-Type":
                                                 "application/json",
                                               Authorization:
-                                                "Bearer " +
-                                                $ctx.query.token.slice(
-                                                  6,
-                                                  $ctx.query.token.length - 3
-                                                )
+                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
                                             }
                                           };
                                         } catch (e) {
@@ -2928,14 +2886,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                                             e?.plasmicType ===
                                               "PlasmicUndefinedDataError"
                                           ) {
-                                            return {
-                                              headers: {
-                                                "Content-Type":
-                                                  "application/json",
-                                                Authorization:
-                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
-                                              }
-                                            };
+                                            return undefined;
                                           }
                                           throw e;
                                         }
@@ -3144,11 +3095,15 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           const $steps = {};
 
                           $steps["invokeGlobalAction"] =
-                            ($state.collapseHealth.open ? true : false) &&
+                            ($state.collapseBaby.open ? true : false) &&
                             $ctx.query.userId.slice(
                               4,
                               $ctx.query.userId.length - 4
-                            ) != "314149"
+                            ) != "314149" &&
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) != "1"
                               ? (() => {
                                   const actionArgs = {
                                     args: [
@@ -3180,38 +3135,13 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                                           throw e;
                                         }
                                       })(),
-                                      (() => {
-                                        try {
-                                          return {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer " +
-                                                $ctx.query.token.slice(
-                                                  6,
-                                                  $ctx.query.token.length - 3
-                                                )
-                                            }
-                                          };
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return {
-                                              headers: {
-                                                "Content-Type":
-                                                  "application/json",
-                                                Authorization:
-                                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tTWFuIn0.8MepI5_3S2y_j9dMR1g1BWkZBNV3vkIFVdiC8pFCP0Y"
-                                              }
-                                            };
-                                          }
-                                          throw e;
+                                      {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
                                         }
-                                      })()
+                                      }
                                     ]
                                   };
                                   return $globalActions[

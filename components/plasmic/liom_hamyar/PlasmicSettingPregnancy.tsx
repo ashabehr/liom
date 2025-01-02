@@ -2283,8 +2283,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   isDisabled={(() => {
                     try {
                       return (
-                        $state.duDate == ""
-                        //|| (!$state.isGetInfo) || (!$state.getUserInfo.data[0].success)
+                        $state.duDate == "" ||
+                        !$state.isGetInfo ||
+                        !$state.getUserInfo.data[0].success
                       );
                     } catch (e) {
                       if (
@@ -2469,29 +2470,54 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               undefined,
                               (() => {
                                 try {
-                                  return {
-                                    area: "pregnancy",
-                                    duDate:
-                                      $state.duDate[0] +
-                                      "-" +
-                                      $state.duDate[1] +
-                                      "-" +
-                                      $state.duDate[2] +
-                                      " 10:10:10",
-                                    userId: $ctx.query.userId.slice(
-                                      4,
-                                      +$ctx.query.userId.length - 4
-                                    ),
-                                    name:
-                                      $state.getUserInfo.data[0].result.user
-                                        ?.name ?? "",
-                                    mobile:
-                                      $state.getUserInfo.data[0].result.user
-                                        ?.mobile ?? "",
-                                    email:
-                                      $state.getUserInfo.data[0].result.user
-                                        ?.email ?? ""
-                                  };
+                                  return (() => {
+                                    let hamyarsData = { hamyarsList: [] };
+                                    for (
+                                      let i = 0;
+                                      i <
+                                      $state.getUserInfo.data[0].result.hamyars
+                                        .length;
+                                      i++
+                                    ) {
+                                      hamyarsData.hamyarsList.push({
+                                        name: $state.getUserInfo.data[0].result
+                                          .hamyars[i].user.name,
+                                        active:
+                                          $state.getUserInfo.data[0].result
+                                            .hamyars[i].user.active,
+                                        hamyarStatus:
+                                          $state.getUserInfo.data[0].result
+                                            .hamyars[i].user.hamyarStatus,
+                                        mobile:
+                                          $state.getUserInfo.data[0].result
+                                            .hamyars[i].user.mobile
+                                      });
+                                    }
+                                    return {
+                                      area: "pregnancy",
+                                      duDate:
+                                        $state.duDate[0] +
+                                        "-" +
+                                        $state.duDate[1] +
+                                        "-" +
+                                        $state.duDate[2] +
+                                        " 10:10:10",
+                                      userId: $ctx.query.userId.slice(
+                                        4,
+                                        +$ctx.query.userId.length - 4
+                                      ),
+                                      name:
+                                        $state.getUserInfo.data[0].result.user
+                                          ?.name ?? "",
+                                      mobile:
+                                        $state.getUserInfo.data[0].result.user
+                                          ?.mobile ?? "",
+                                      email:
+                                        $state.getUserInfo.data[0].result.user
+                                          ?.email ?? "",
+                                      hamyarData: hamyarsData
+                                    };
+                                  })();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2748,7 +2774,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         $ctx.query.userId.slice(
                           4,
                           $ctx.query.userId.length - 4
-                        ) == "314149"
+                        ) == "314149" ||
+                        $ctx.query.userId.slice(
+                          4,
+                          $ctx.query.userId.length - 4
+                        ) == "1"
                       ) {
                         return false;
                       }
@@ -2855,11 +2885,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                 headers: {
                                   "Content-Type": "application/json",
                                   Authorization:
-                                    "Bearer " +
-                                    $ctx.query.token.slice(
-                                      6,
-                                      $ctx.query.token.length - 3
-                                    )
+                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
                                 }
                               }
                             ]
@@ -2917,17 +2943,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   {"Error fetching data"}
                 </div>
               }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bNmqr
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
+              loadingDisplay={null}
               method={"GET"}
               onError={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
