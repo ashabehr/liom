@@ -416,35 +416,35 @@ function PlasmicIntro__RenderFunc(props: {
                             break;
                           case "slid2":
                             $state.slid = "slid1";
-                            run();
+                            run1();
                             break;
                           case "slid3":
                             $state.slid = "slid2";
-                            run();
+                            run1();
                             break;
                         }
                       } else if ($state.startX < event.clientX) {
                         switch ($state.slid) {
                           case "slid1":
                             $state.slid = "slid2";
-                            run();
+                            run1();
                             break;
                           case "slid2":
                             $state.slid = "slid3";
-                            run();
+                            run1();
                             break;
                           case "slid3":
                             break;
                         }
                       }
-                      function run() {
-                        const box = document.getElementById("myBox");
+                      function run1() {
+                        var box = document.getElementById("myBox");
                         box.classList.remove("zoom-animation");
                         void box.offsetWidth;
                         box.classList.add("zoom-animation");
                       }
-                      return function run() {
-                        const box = document.getElementById("myBox");
+                      return function run1() {
+                        var box = document.getElementById("myBox");
                         box.classList.remove("zoom-animation");
                         void box.offsetWidth;
                         box.classList.add("zoom-animation");
@@ -535,13 +535,13 @@ function PlasmicIntro__RenderFunc(props: {
                         }
                       }
                       function run() {
-                        const box = document.getElementById("myBox");
+                        var box = document.getElementById("myBox");
                         box.classList.remove("zoom-animation");
                         void box.offsetWidth;
                         box.classList.add("zoom-animation");
                       }
                       return function run() {
-                        const box = document.getElementById("myBox");
+                        var box = document.getElementById("myBox");
                         box.classList.remove("zoom-animation");
                         void box.offsetWidth;
                         box.classList.add("zoom-animation");
