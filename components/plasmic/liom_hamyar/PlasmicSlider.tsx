@@ -183,129 +183,275 @@ function PlasmicSlider__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
-        <div
-          data-plasmic-name={"root"}
-          data-plasmic-override={overrides.root}
-          data-plasmic-root={true}
-          data-plasmic-for-node={forNode}
-          className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
-            projectcss.plasmic_tokens,
-            plasmic_antd_5_hostless_css.plasmic_tokens,
-            plasmic_plasmic_rich_components_css.plasmic_tokens,
-            sty.root,
-            {
-              [sty.root_1_slid1]: hasVariant($state, "_1", "slid1"),
-              [sty.root_1_slid2]: hasVariant($state, "_1", "slid2"),
-              [sty.root_1_slid3]: hasVariant($state, "_1", "slid3")
-            }
-          )}
-          onDragEnd={async event => {
-            const $steps = {};
+      <div
+        data-plasmic-name={"root"}
+        data-plasmic-override={overrides.root}
+        data-plasmic-root={true}
+        data-plasmic-for-node={forNode}
+        className={classNames(
+          projectcss.all,
+          projectcss.root_reset,
+          projectcss.plasmic_default_styles,
+          projectcss.plasmic_mixins,
+          projectcss.plasmic_tokens,
+          plasmic_antd_5_hostless_css.plasmic_tokens,
+          plasmic_plasmic_rich_components_css.plasmic_tokens,
+          sty.root,
+          {
+            [sty.root_1_slid1]: hasVariant($state, "_1", "slid1"),
+            [sty.root_1_slid2]: hasVariant($state, "_1", "slid2"),
+            [sty.root_1_slid3]: hasVariant($state, "_1", "slid3")
+          }
+        )}
+        draggable={``}
+        onDragEnd={async event => {
+          const $steps = {};
 
-            $steps["goToPage"] = true
-              ? (() => {
-                  const actionArgs = {
-                    destination: (() => {
-                      try {
-                        return (() => {
-                          if ($state.startX > event.clientX) {
-                            switch ($state.slid) {
-                              case "slid1":
-                                break;
-                              case "slid2":
-                                $state.slid = "slid1";
-                                break;
-                              case "slid3":
-                                $state.slid = "slid2";
-                                break;
-                            }
-                          } else if ($state.startX < event.clientX) {
-                            switch ($state.slid) {
-                              case "slid1":
-                                $state.slid = "slid2";
-                                break;
-                              case "slid2":
-                                $state.slid = "slid3";
-                                break;
-                              case "slid3":
-                                break;
-                            }
-                          }
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      if ($state.startX > event.clientX) {
+                        switch ($state.slid) {
+                          case "slid1":
+                            break;
+                          case "slid2":
+                            $state.slid = "slid1";
+                            break;
+                          case "slid3":
+                            $state.slid = "slid2";
+                            break;
                         }
-                        throw e;
+                        const box = document.getElementById("myBox");
+                        box.classList.remove("zoom-animation");
+                        void box.offsetWidth;
+                        return box.classList.add("zoom-animation");
+                      } else if ($state.startX < event.clientX) {
+                        switch ($state.slid) {
+                          case "slid1":
+                            $state.slid = "slid2";
+                            break;
+                          case "slid2":
+                            $state.slid = "slid3";
+                            break;
+                          case "slid3":
+                            break;
+                        }
                       }
-                    })()
-                  };
-                  return (({ destination }) => {
-                    if (
-                      typeof destination === "string" &&
-                      destination.startsWith("#")
-                    ) {
-                      document
-                        .getElementById(destination.substr(1))
-                        .scrollIntoView({ behavior: "smooth" });
-                    } else {
-                      __nextRouter?.push(destination);
-                    }
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["goToPage"] != null &&
-              typeof $steps["goToPage"] === "object" &&
-              typeof $steps["goToPage"].then === "function"
-            ) {
-              $steps["goToPage"] = await $steps["goToPage"];
-            }
-          }}
-          onDragStart={async event => {
-            const $steps = {};
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+        }}
+        onDragStart={async event => {
+          const $steps = {};
 
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return undefined;
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-          }}
+          $steps["updateStartX"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["startX"]
+                  },
+                  operation: 0,
+                  value: event.clientX
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateStartX"] != null &&
+            typeof $steps["updateStartX"] === "object" &&
+            typeof $steps["updateStartX"].then === "function"
+          ) {
+            $steps["updateStartX"] = await $steps["updateStartX"];
+          }
+        }}
+        onTouchEnd={async event => {
+          const $steps = {};
+
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return (() => {
+                      if ($state.startX > event.changedTouches[0].clientX) {
+                        switch ($state.slid) {
+                          case "slid1":
+                            break;
+                          case "slid2":
+                            $state.slid = "slid1";
+                            break;
+                          case "slid3":
+                            $state.slid = "slid2";
+                            break;
+                        }
+                      } else if (
+                        $state.startX < event.changedTouches[0].clientX
+                      ) {
+                        switch ($state.slid) {
+                          case "slid1":
+                            $state.slid = "slid2";
+                            break;
+                          case "slid2":
+                            $state.slid = "slid3";
+                            break;
+                          case "slid3":
+                            break;
+                        }
+                      }
+                    })();
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+        }}
+        onTouchStart={async event => {
+          const $steps = {};
+
+          $steps["updateStartX"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["startX"]
+                  },
+                  operation: 0,
+                  value: event.touches[0].clientX
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateStartX"] != null &&
+            typeof $steps["updateStartX"] === "object" &&
+            typeof $steps["updateStartX"].then === "function"
+          ) {
+            $steps["updateStartX"] = await $steps["updateStartX"];
+          }
+        }}
+      >
+        <div
+          className={classNames(projectcss.all, sty.freeBox__k9FFd, {
+            [sty.freeBox_1_slid2__k9FFdMvA2]: hasVariant($state, "_1", "slid2")
+          })}
         >
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__h1Sjj)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={
+              hasVariant(globalVariants, "screen", "mobile") ? "100px" : "100px"
+            }
+            src={{
+              src: "/plasmic/liom_hamyar/images/image40.png",
+              fullWidth: 128,
+              fullHeight: 128,
+              aspectRatio: undefined
+            }}
+          />
+
           <div
-            className={classNames(projectcss.all, sty.freeBox__k9FFd, {
-              [sty.freeBox_1_slid2__k9FFdMvA2]: hasVariant(
-                $state,
-                "_1",
-                "slid2"
-              )
-            })}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__c7Pzm
+            )}
+          >
+            {
+              "\u0644\u06cc\u0648\u0645  | \u062a\u0642\u0648\u06cc\u0645 \u067e\u0631\u06cc\u0648\u062f\u06cc"
+            }
+          </div>
+        </div>
+        <Reveal
+          data-plasmic-name={"reveal"}
+          data-plasmic-override={overrides.reveal}
+          cascade={
+            hasVariant(globalVariants, "screen", "mobile") ? false : undefined
+          }
+          className={classNames("__wab_instance", sty.reveal, {
+            [sty.reveal_1_slid1]: hasVariant($state, "_1", "slid1"),
+            [sty.reveal_1_slid2]: hasVariant($state, "_1", "slid2"),
+            [sty.reveal_1_slid3]: hasVariant($state, "_1", "slid3")
+          })}
+          direction={
+            hasVariant(globalVariants, "screen", "mobile") ? "right" : "down"
+          }
+          duration={1000}
+          effect={"fade"}
+          triggerOnce={true}
+        >
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__laGek,
+              "zoom-animation",
+              {
+                [sty.freeBox_1_slid2__laGekMvA2]: hasVariant(
+                  $state,
+                  "_1",
+                  "slid2"
+                ),
+                [sty.freeBox_1_slid3__laGekSwIh2]: hasVariant(
+                  $state,
+                  "_1",
+                  "slid3"
+                )
+              }
+            )}
+            draggable={"true"}
+            id={"myBox"}
           >
             <PlasmicImg__
               alt={""}
-              className={classNames(sty.img__h1Sjj)}
+              className={classNames(sty.img__sp7Oz, {
+                [sty.img_1_slid2__sp7OzMvA2]: hasVariant($state, "_1", "slid2"),
+                [sty.img_1_slid3__sp7OzSwIh2]: hasVariant($state, "_1", "slid3")
+              })}
               displayHeight={"auto"}
               displayMaxHeight={"none"}
               displayMaxWidth={"100%"}
@@ -313,261 +459,184 @@ function PlasmicSlider__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
-                  ? "100px"
-                  : "100px"
+                  ? "300px"
+                  : "320px"
               }
-              src={{
-                src: "/plasmic/liom_hamyar/images/image40.png",
-                fullWidth: 128,
-                fullHeight: 128,
-                aspectRatio: undefined
-              }}
+              loading={"lazy"}
+              src={
+                hasVariant($state, "_1", "slid3")
+                  ? {
+                      src: "/plasmic/liom_hamyar/images/image48.svg",
+                      fullWidth: 175,
+                      fullHeight: 168,
+                      aspectRatio: 1.041667
+                    }
+                  : hasVariant($state, "_1", "slid2")
+                  ? {
+                      src: "/plasmic/liom_hamyar/images/image45.svg",
+                      fullWidth: 193,
+                      fullHeight: 188,
+                      aspectRatio: 1.026596
+                    }
+                  : {
+                      src: "/plasmic/liom_hamyar/images/image43.svg",
+                      fullWidth: 388,
+                      fullHeight: 344,
+                      aspectRatio: 1.127907
+                    }
+              }
             />
 
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__c7Pzm
-              )}
-            >
-              {
-                "\u0644\u06cc\u0648\u0645  | \u062a\u0642\u0648\u06cc\u0645 \u067e\u0631\u06cc\u0648\u062f\u06cc"
-              }
-            </div>
-          </div>
-          <Reveal
-            data-plasmic-name={"reveal"}
-            data-plasmic-override={overrides.reveal}
-            cascade={
-              hasVariant(globalVariants, "screen", "mobile") ? false : undefined
-            }
-            className={classNames("__wab_instance", sty.reveal, {
-              [sty.reveal_1_slid1]: hasVariant($state, "_1", "slid1"),
-              [sty.reveal_1_slid2]: hasVariant($state, "_1", "slid2"),
-              [sty.reveal_1_slid3]: hasVariant($state, "_1", "slid3")
-            })}
-            direction={
-              hasVariant(globalVariants, "screen", "mobile") ? "right" : "right"
-            }
-            duration={1000}
-            effect={"zoom"}
-            triggerOnce={true}
-          >
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__laGek, {
-                [sty.freeBox_1_slid3__laGekSwIh2]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid3"
-                )
-              })}
-            >
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img__sp7Oz, {
-                  [sty.img_1_slid2__sp7OzMvA2]: hasVariant(
+                sty.text___1P3IJ,
+                {
+                  [sty.text_1_slid1___1P3IJvlIdd]: hasVariant(
+                    $state,
+                    "_1",
+                    "slid1"
+                  ),
+                  [sty.text_1_slid2___1P3IJMvA2]: hasVariant(
                     $state,
                     "_1",
                     "slid2"
                   ),
-                  [sty.img_1_slid3__sp7OzSwIh2]: hasVariant(
+                  [sty.text_1_slid3___1P3IJSwIh2]: hasVariant(
                     $state,
                     "_1",
                     "slid3"
                   )
-                })}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? "300px"
-                    : "320px"
                 }
-                loading={"lazy"}
-                src={
-                  hasVariant($state, "_1", "slid3")
-                    ? {
-                        src: "/plasmic/liom_hamyar/images/image48.svg",
-                        fullWidth: 175,
-                        fullHeight: 168,
-                        aspectRatio: 1.041667
-                      }
-                    : hasVariant($state, "_1", "slid2")
-                    ? {
-                        src: "/plasmic/liom_hamyar/images/image45.svg",
-                        fullWidth: 193,
-                        fullHeight: 188,
-                        aspectRatio: 1.026596
-                      }
-                    : {
-                        src: "/plasmic/liom_hamyar/images/image43.svg",
-                        fullWidth: 388,
-                        fullHeight: 344,
-                        aspectRatio: 1.127907
-                      }
-                }
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___1P3IJ,
-                  {
-                    [sty.text_1_slid2___1P3IJMvA2]: hasVariant(
-                      $state,
-                      "_1",
-                      "slid2"
-                    ),
-                    [sty.text_1_slid3___1P3IJSwIh2]: hasVariant(
-                      $state,
-                      "_1",
-                      "slid3"
-                    )
-                  }
-                )}
-              >
-                {hasVariant($state, "_1", "slid3") ? (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<strong style="color: purple;">با خرید اشتراک، تغییرات چرخه قاعدگی و توصیه‌هایی برای رابطه بهتر رو برات پیامک می‌کنیم.</strong> 
+              )}
+            >
+              {hasVariant($state, "_1", "slid3") ? (
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return `<strong style="color: purple;">با خرید اشتراک، تغییرات چرخه قاعدگی و توصیه‌هایی برای رابطه بهتر رو برات پیامک می‌کنیم.</strong> 
   به پارتنتم هم می‌گیم که وقتی حالش مثل PMS هست، 
   <strong style="color: purple;">حواسش به تو و خلق‌وخوی خودش باشه.</strong>`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0628\u0627 \u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9\u060c \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0648 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u0631\u0627\u0628\u0637\u0647 \u0628\u0647\u062a\u0631 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645. \u0628\u0647 \u067e\u0627\u0631\u062a\u0646\u062a\u0645 \u0647\u0645 \u0645\u06cc\u200c\u06af\u06cc\u0645 \u06a9\u0647 \u0648\u0642\u062a\u06cc \u062d\u0627\u0644\u0634 \u0645\u062b\u0644 PMS \u0647\u0633\u062a\u060c \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u062e\u0644\u0642\u200c\u0648\u062e\u0648\u06cc \u062e\u0648\u062f\u0634 \u0628\u0627\u0634\u0647.";
-                          }
-                          throw e;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0628\u0627 \u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9\u060c \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0648 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u0631\u0627\u0628\u0637\u0647 \u0628\u0647\u062a\u0631 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645. \u0628\u0647 \u067e\u0627\u0631\u062a\u0646\u062a\u0645 \u0647\u0645 \u0645\u06cc\u200c\u06af\u06cc\u0645 \u06a9\u0647 \u0648\u0642\u062a\u06cc \u062d\u0627\u0644\u0634 \u0645\u062b\u0644 PMS \u0647\u0633\u062a\u060c \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u062e\u0644\u0642\u200c\u0648\u062e\u0648\u06cc \u062e\u0648\u062f\u0634 \u0628\u0627\u0634\u0647.";
                         }
-                      })()
-                    }}
-                  />
-                ) : hasVariant($state, "_1", "slid2") ? (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `
+                        throw e;
+                      }
+                    })()
+                  }}
+                />
+              ) : hasVariant($state, "_1", "slid2") ? (
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return `
   <strong style="color: purple;">اینجا هوای خودت رو هم داریم!</strong> وضعیت حال و احساست رو بررسی می‌کنیم تا 
   <strong style="color: purple;">با آگاهی و آرامش بیشتری ادامه بدی.</strong>
 `;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0627\u06cc\u0646\u062c\u0627 \u0647\u0648\u0627\u06cc \u062e\u0648\u062f\u062a \u0631\u0648 \u0647\u0645 \u062f\u0627\u0631\u06cc\u0645! \u0648\u0636\u0639\u06cc\u062a \u062d\u0627\u0644 \u0648 \u0627\u062d\u0633\u0627\u0633\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645 \u062a\u0627 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0648 \u0622\u0631\u0627\u0645\u0634 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u062f\u0627\u0645\u0647 \u0628\u062f\u06cc.";
-                          }
-                          throw e;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0627\u06cc\u0646\u062c\u0627 \u0647\u0648\u0627\u06cc \u062e\u0648\u062f\u062a \u0631\u0648 \u0647\u0645 \u062f\u0627\u0631\u06cc\u0645! \u0648\u0636\u0639\u06cc\u062a \u062d\u0627\u0644 \u0648 \u0627\u062d\u0633\u0627\u0633\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645 \u062a\u0627 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0648 \u0622\u0631\u0627\u0645\u0634 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u062f\u0627\u0645\u0647 \u0628\u062f\u06cc.";
                         }
-                      })()
-                    }}
-                  />
-                ) : (
-                  <div
-                    className={projectcss.__wab_expr_html_text}
-                    dangerouslySetInnerHTML={{
-                      __html: (() => {
-                        try {
-                          return `<strong style="color: purple;">اینجا می‌تونی راحت‌تر از تغییرات حال پارتنرت باخبری باشی</strong> و با آگاهی بیشتر از شرایطش، 
+                        throw e;
+                      }
+                    })()
+                  }}
+                />
+              ) : (
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return `<strong style="color: purple;">اینجا می‌تونی راحت‌تر از تغییرات حال پارتنرت باخبری باشی</strong> و با آگاهی بیشتر از شرایطش، 
   <strong style="color: purple;">رابطه‌تون شادتر و بهتر بشه.</strong> 
   اینطوری می‌تونی بیشتر از همدیگه حمایت کنید و <strong style="color: purple;">کنار هم روزهای بهتری بسازید!</strong>`;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
-                          }
-                          throw e;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
                         }
-                      })()
-                    }}
-                  />
-                )}
-              </div>
-            </Stack__>
-          </Reveal>
-          <Stack__
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__rmy4S, {
-              [sty.freeBox_1_slid1__rmy4SvlIdd]: hasVariant(
-                $state,
-                "_1",
-                "slid1"
-              ),
-              [sty.freeBox_1_slid2__rmy4SMvA2]: hasVariant(
-                $state,
-                "_1",
-                "slid2"
-              ),
-              [sty.freeBox_1_slid3__rmy4SSwIh2]: hasVariant(
+                        throw e;
+                      }
+                    })()
+                  }}
+                />
+              )}
+            </div>
+          </Stack__>
+        </Reveal>
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__rmy4S, {
+            [sty.freeBox_1_slid1__rmy4SvlIdd]: hasVariant(
+              $state,
+              "_1",
+              "slid1"
+            ),
+            [sty.freeBox_1_slid2__rmy4SMvA2]: hasVariant($state, "_1", "slid2"),
+            [sty.freeBox_1_slid3__rmy4SSwIh2]: hasVariant($state, "_1", "slid3")
+          })}
+        >
+          <div
+            className={classNames(projectcss.all, sty.freeBox__oUZm, {
+              [sty.freeBox_1_slid3__oUZmSwIh2]: hasVariant(
                 $state,
                 "_1",
                 "slid3"
               )
             })}
-          >
-            <div
-              className={classNames(projectcss.all, sty.freeBox__oUZm, {
-                [sty.freeBox_1_slid3__oUZmSwIh2]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid3"
-                )
-              })}
-            />
+          />
 
-            <div
-              className={classNames(projectcss.all, sty.freeBox__boi5L, {
-                [sty.freeBox_1_slid2__boi5LMvA2]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid2"
-                ),
-                [sty.freeBox_1_slid3__boi5LSwIh2]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid3"
-                )
-              })}
-            />
+          <div
+            className={classNames(projectcss.all, sty.freeBox__boi5L, {
+              [sty.freeBox_1_slid2__boi5LMvA2]: hasVariant(
+                $state,
+                "_1",
+                "slid2"
+              ),
+              [sty.freeBox_1_slid3__boi5LSwIh2]: hasVariant(
+                $state,
+                "_1",
+                "slid3"
+              )
+            })}
+          />
 
-            <div
-              className={classNames(projectcss.all, sty.freeBox__pHr7Z, {
-                [sty.freeBox_1_slid1__pHr7ZvlIdd]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid1"
-                ),
-                [sty.freeBox_1_slid2__pHr7ZMvA2]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid2"
-                ),
-                [sty.freeBox_1_slid3__pHr7ZSwIh2]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid3"
-                )
-              })}
-            />
-          </Stack__>
-        </div>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__pHr7Z, {
+              [sty.freeBox_1_slid1__pHr7ZvlIdd]: hasVariant(
+                $state,
+                "_1",
+                "slid1"
+              ),
+              [sty.freeBox_1_slid2__pHr7ZMvA2]: hasVariant(
+                $state,
+                "_1",
+                "slid2"
+              ),
+              [sty.freeBox_1_slid3__pHr7ZSwIh2]: hasVariant(
+                $state,
+                "_1",
+                "slid3"
+              )
+            })}
+          />
+        </Stack__>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;

@@ -3,7 +3,7 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   align-content: space-between;
   justify-items: center;
   justify-content: center;
@@ -15,8 +15,8 @@
     #e0d8f1 55%,
     #8254c6cc 100%
   );
+  overflow: auto;
   min-width: 0;
-  min-height: 0;
   grid-template-columns:
     var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
     min(
@@ -162,13 +162,23 @@
   max-width: 100%;
   text-align: center;
   font-weight: 500;
-  font-size: 17px;
+  font-size: 18px;
   min-width: 0;
 }
 @media (max-width: 640px) {
   .text___1P3IJ {
     text-align: justify;
-    font-size: 16px;
+    font-size: 18px;
+  }
+}
+@media (max-width: 640px) {
+  .text_1_slid2___1P3IJMvA2 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 640px) {
+  .text_1_slid3___1P3IJSwIh2 {
+    font-size: 18px;
   }
 }
 .freeBox__rmy4S {
