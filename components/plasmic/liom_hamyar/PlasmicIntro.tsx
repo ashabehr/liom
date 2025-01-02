@@ -2858,7 +2858,9 @@ function PlasmicIntro__RenderFunc(props: {
             (async data => {
               const $steps = {};
 
-              $steps["updateToken"] = true
+              $steps["updateToken"] = (
+                $state.user.data?.result?.token ? true : false
+              )
                 ? (() => {
                     const actionArgs = {
                       variable: {
@@ -2891,10 +2893,8 @@ function PlasmicIntro__RenderFunc(props: {
           params={(() => {
             try {
               return {
-                //new URLSearchParams(window.location.search).get("r") ||
-                r: $ctx.query.r,
-                //new URLSearchParams(window.location.search).get("m") ||
-                m: $ctx.query.m
+                r: new URLSearchParams(window.location.search).get("r"),
+                m: new URLSearchParams(window.location.search).get("m")
               };
             } catch (e) {
               if (
