@@ -2982,33 +2982,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   ) {
                     $steps["updateIsGetInfo"] = await $steps["updateIsGetInfo"];
                   }
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              console.log($state.isGetInfo);
-                              console.log($state.getUserInfo.loading);
-                              console.log($state.duDate);
-                              return console.log(
-                                $state.getUserInfo.data[0].success
-                              );
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
                 }).apply(null, eventArgs);
               }}
               params={(() => {

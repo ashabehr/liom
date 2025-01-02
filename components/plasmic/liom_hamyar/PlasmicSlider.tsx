@@ -218,27 +218,39 @@ function PlasmicSlider__RenderFunc(props: {
                             break;
                           case "slid2":
                             $state.slid = "slid1";
+                            run();
                             break;
                           case "slid3":
                             $state.slid = "slid2";
+                            run();
                             break;
                         }
-                        const box = document.getElementById("myBox");
-                        box.classList.remove("zoom-animation");
-                        void box.offsetWidth;
-                        return box.classList.add("zoom-animation");
                       } else if ($state.startX < event.clientX) {
                         switch ($state.slid) {
                           case "slid1":
                             $state.slid = "slid2";
+                            run();
                             break;
                           case "slid2":
                             $state.slid = "slid3";
+                            run();
                             break;
                           case "slid3":
                             break;
                         }
                       }
+                      function run() {
+                        const box = document.getElementById("myBox");
+                        box.classList.remove("zoom-animation");
+                        void box.offsetWidth;
+                        box.classList.add("zoom-animation");
+                      }
+                      return function run() {
+                        const box = document.getElementById("myBox");
+                        box.classList.remove("zoom-animation");
+                        void box.offsetWidth;
+                        box.classList.add("zoom-animation");
+                      };
                     })();
                   }
                 };
@@ -301,9 +313,11 @@ function PlasmicSlider__RenderFunc(props: {
                             break;
                           case "slid2":
                             $state.slid = "slid1";
+                            run();
                             break;
                           case "slid3":
                             $state.slid = "slid2";
+                            run();
                             break;
                         }
                       } else if (
@@ -312,14 +326,28 @@ function PlasmicSlider__RenderFunc(props: {
                         switch ($state.slid) {
                           case "slid1":
                             $state.slid = "slid2";
+                            run();
                             break;
                           case "slid2":
                             $state.slid = "slid3";
+                            run();
                             break;
                           case "slid3":
                             break;
                         }
                       }
+                      function run() {
+                        const box = document.getElementById("myBox");
+                        box.classList.remove("zoom-animation");
+                        void box.offsetWidth;
+                        box.classList.add("zoom-animation");
+                      }
+                      return function run() {
+                        const box = document.getElementById("myBox");
+                        box.classList.remove("zoom-animation");
+                        void box.offsetWidth;
+                        box.classList.add("zoom-animation");
+                      };
                     })();
                   }
                 };
