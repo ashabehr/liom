@@ -61,7 +61,6 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import { Reveal } from "@plasmicpkgs/react-awesome-reveal";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
@@ -104,7 +103,6 @@ export const PlasmicIntro__ArgProps = new Array<ArgPropType>("on1Change");
 
 export type PlasmicIntro__OverridesType = {
   root?: Flex__<"div">;
-  reveal?: Flex__<typeof Reveal>;
   button8?: Flex__<typeof Button>;
   button7?: Flex__<typeof Button>;
   dialog?: Flex__<typeof Dialog>;
@@ -631,470 +629,429 @@ function PlasmicIntro__RenderFunc(props: {
             }
           </div>
         </div>
-        <Reveal
-          data-plasmic-name={"reveal"}
-          data-plasmic-override={overrides.reveal}
-          cascade={
-            hasVariant(globalVariants, "screen", "mobile") ? false : undefined
-          }
-          className={classNames("__wab_instance", sty.reveal, {
-            [sty.reveal_1_slid1]: hasVariant($state, "_1", "slid1"),
-            [sty.reveal_1_slid2]: hasVariant($state, "_1", "slid2"),
-            [sty.reveal_1_slid3]: hasVariant($state, "_1", "slid3")
-          })}
-          direction={
-            hasVariant(globalVariants, "screen", "mobile") ? "right" : "down"
-          }
-          duration={1000}
-          effect={"fade"}
-          triggerOnce={true}
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(
+            projectcss.all,
+            sty.freeBox__laGek,
+            "zoom-animation",
+            {
+              [sty.freeBox_1_slid1__laGekvlIdd]: hasVariant(
+                $state,
+                "_1",
+                "slid1"
+              ),
+              [sty.freeBox_1_slid2__laGekMvA2]: hasVariant(
+                $state,
+                "_1",
+                "slid2"
+              ),
+              [sty.freeBox_1_slid3__laGekSwIh2]: hasVariant(
+                $state,
+                "_1",
+                "slid3"
+              )
+            }
+          )}
+          draggable={"true"}
+          id={"myBox"}
         >
-          <Stack__
-            as={"div"}
-            hasGap={true}
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__sp7Oz, {
+              [sty.img_1_slid1__sp7OzvlIdd]: hasVariant($state, "_1", "slid1"),
+              [sty.img_1_slid2__sp7OzMvA2]: hasVariant($state, "_1", "slid2"),
+              [sty.img_1_slid3__sp7OzSwIh2]: hasVariant($state, "_1", "slid3")
+            })}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={
+              hasVariant(globalVariants, "screen", "mobile") ? "300px" : "320px"
+            }
+            loading={"lazy"}
+            src={
+              hasVariant($state, "_1", "slid3")
+                ? {
+                    src: "/plasmic/liom_hamyar/images/image48.svg",
+                    fullWidth: 175,
+                    fullHeight: 168,
+                    aspectRatio: 1.041667
+                  }
+                : hasVariant($state, "_1", "slid2")
+                ? {
+                    src: "/plasmic/liom_hamyar/images/image45.svg",
+                    fullWidth: 193,
+                    fullHeight: 188,
+                    aspectRatio: 1.026596
+                  }
+                : {
+                    src: "/plasmic/liom_hamyar/images/image43.svg",
+                    fullWidth: 388,
+                    fullHeight: 344,
+                    aspectRatio: 1.127907
+                  }
+            }
+          />
+
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__nK0A, {
+              [sty.img_1_slid1__nK0AvlIdd]: hasVariant($state, "_1", "slid1"),
+              [sty.img_1_slid2__nK0AMvA2]: hasVariant($state, "_1", "slid2"),
+              [sty.img_1_slid3__nK0ASwIh2]: hasVariant($state, "_1", "slid3")
+            })}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={
+              hasVariant(globalVariants, "screen", "mobile") ? "300px" : "320px"
+            }
+            loading={"lazy"}
+            src={
+              hasVariant($state, "_1", "slid3")
+                ? {
+                    src: "/plasmic/liom_hamyar/images/image48.svg",
+                    fullWidth: 175,
+                    fullHeight: 168,
+                    aspectRatio: 1.041667
+                  }
+                : hasVariant($state, "_1", "slid2")
+                ? {
+                    src: "/plasmic/liom_hamyar/images/image45.svg",
+                    fullWidth: 193,
+                    fullHeight: 188,
+                    aspectRatio: 1.026596
+                  }
+                : {
+                    src: "/plasmic/liom_hamyar/images/image45.svg",
+                    fullWidth: 193,
+                    fullHeight: 188,
+                    aspectRatio: 1.026596
+                  }
+            }
+          />
+
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img___5Wg2D, {
+              [sty.img_1_slid1___5Wg2DvlIdd]: hasVariant($state, "_1", "slid1"),
+              [sty.img_1_slid2___5Wg2DMvA2]: hasVariant($state, "_1", "slid2"),
+              [sty.img_1_slid3___5Wg2DSwIh2]: hasVariant($state, "_1", "slid3")
+            })}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={
+              hasVariant(globalVariants, "screen", "mobile") ? "300px" : "320px"
+            }
+            loading={"lazy"}
+            src={
+              hasVariant($state, "_1", "slid3")
+                ? {
+                    src: "/plasmic/liom_hamyar/images/image48.svg",
+                    fullWidth: 175,
+                    fullHeight: 168,
+                    aspectRatio: 1.041667
+                  }
+                : hasVariant($state, "_1", "slid2")
+                ? {
+                    src: "/plasmic/liom_hamyar/images/image45.svg",
+                    fullWidth: 193,
+                    fullHeight: 188,
+                    aspectRatio: 1.026596
+                  }
+                : {
+                    src: "/plasmic/liom_hamyar/images/image48.svg",
+                    fullWidth: 175,
+                    fullHeight: 168,
+                    aspectRatio: 1.041667
+                  }
+            }
+          />
+
+          <div
             className={classNames(
               projectcss.all,
-              sty.freeBox__laGek,
-              "zoom-animation",
+              projectcss.__wab_text,
+              sty.text___1P3IJ,
               {
-                [sty.freeBox_1_slid1__laGekvlIdd]: hasVariant(
+                [sty.text_1_slid1___1P3IJvlIdd]: hasVariant(
                   $state,
                   "_1",
                   "slid1"
                 ),
-                [sty.freeBox_1_slid2__laGekMvA2]: hasVariant(
+                [sty.text_1_slid2___1P3IJMvA2]: hasVariant(
                   $state,
                   "_1",
                   "slid2"
                 ),
-                [sty.freeBox_1_slid3__laGekSwIh2]: hasVariant(
+                [sty.text_1_slid3___1P3IJSwIh2]: hasVariant(
                   $state,
                   "_1",
                   "slid3"
                 )
               }
             )}
-            draggable={"true"}
-            id={"myBox"}
           >
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__sp7Oz, {
-                [sty.img_1_slid1__sp7OzvlIdd]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid1"
-                ),
-                [sty.img_1_slid2__sp7OzMvA2]: hasVariant($state, "_1", "slid2"),
-                [sty.img_1_slid3__sp7OzSwIh2]: hasVariant($state, "_1", "slid3")
-              })}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
-                  : "320px"
-              }
-              loading={"lazy"}
-              src={
-                hasVariant($state, "_1", "slid3")
-                  ? {
-                      src: "/plasmic/liom_hamyar/images/image48.svg",
-                      fullWidth: 175,
-                      fullHeight: 168,
-                      aspectRatio: 1.041667
-                    }
-                  : hasVariant($state, "_1", "slid2")
-                  ? {
-                      src: "/plasmic/liom_hamyar/images/image45.svg",
-                      fullWidth: 193,
-                      fullHeight: 188,
-                      aspectRatio: 1.026596
-                    }
-                  : {
-                      src: "/plasmic/liom_hamyar/images/image43.svg",
-                      fullWidth: 388,
-                      fullHeight: 344,
-                      aspectRatio: 1.127907
-                    }
-              }
-            />
-
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__nK0A, {
-                [sty.img_1_slid1__nK0AvlIdd]: hasVariant($state, "_1", "slid1"),
-                [sty.img_1_slid2__nK0AMvA2]: hasVariant($state, "_1", "slid2"),
-                [sty.img_1_slid3__nK0ASwIh2]: hasVariant($state, "_1", "slid3")
-              })}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
-                  : "320px"
-              }
-              loading={"lazy"}
-              src={
-                hasVariant($state, "_1", "slid3")
-                  ? {
-                      src: "/plasmic/liom_hamyar/images/image48.svg",
-                      fullWidth: 175,
-                      fullHeight: 168,
-                      aspectRatio: 1.041667
-                    }
-                  : hasVariant($state, "_1", "slid2")
-                  ? {
-                      src: "/plasmic/liom_hamyar/images/image45.svg",
-                      fullWidth: 193,
-                      fullHeight: 188,
-                      aspectRatio: 1.026596
-                    }
-                  : {
-                      src: "/plasmic/liom_hamyar/images/image45.svg",
-                      fullWidth: 193,
-                      fullHeight: 188,
-                      aspectRatio: 1.026596
-                    }
-              }
-            />
-
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img___5Wg2D, {
-                [sty.img_1_slid1___5Wg2DvlIdd]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid1"
-                ),
-                [sty.img_1_slid2___5Wg2DMvA2]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid2"
-                ),
-                [sty.img_1_slid3___5Wg2DSwIh2]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid3"
-                )
-              })}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
-                  : "320px"
-              }
-              loading={"lazy"}
-              src={
-                hasVariant($state, "_1", "slid3")
-                  ? {
-                      src: "/plasmic/liom_hamyar/images/image48.svg",
-                      fullWidth: 175,
-                      fullHeight: 168,
-                      aspectRatio: 1.041667
-                    }
-                  : hasVariant($state, "_1", "slid2")
-                  ? {
-                      src: "/plasmic/liom_hamyar/images/image45.svg",
-                      fullWidth: 193,
-                      fullHeight: 188,
-                      aspectRatio: 1.026596
-                    }
-                  : {
-                      src: "/plasmic/liom_hamyar/images/image48.svg",
-                      fullWidth: 175,
-                      fullHeight: 168,
-                      aspectRatio: 1.041667
-                    }
-              }
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___1P3IJ,
-                {
-                  [sty.text_1_slid1___1P3IJvlIdd]: hasVariant(
-                    $state,
-                    "_1",
-                    "slid1"
-                  ),
-                  [sty.text_1_slid2___1P3IJMvA2]: hasVariant(
-                    $state,
-                    "_1",
-                    "slid2"
-                  ),
-                  [sty.text_1_slid3___1P3IJSwIh2]: hasVariant(
-                    $state,
-                    "_1",
-                    "slid3"
-                  )
-                }
-              )}
-            >
-              {hasVariant($state, "_1", "slid3") ? (
-                <div
-                  className={projectcss.__wab_expr_html_text}
-                  dangerouslySetInnerHTML={{
-                    __html: (() => {
-                      try {
-                        return `<strong style="color: purple;">با فعال سازی یادآور، تغییرات چرخه قاعدگی و توصیه‌هایی برای رابطه بهتر رو برات پیامک می‌کنیم.</strong> 
+            {hasVariant($state, "_1", "slid3") ? (
+              <div
+                className={projectcss.__wab_expr_html_text}
+                dangerouslySetInnerHTML={{
+                  __html: (() => {
+                    try {
+                      return `<strong style="color: purple;">با فعال سازی یادآور، تغییرات چرخه قاعدگی و توصیه‌هایی برای رابطه بهتر رو برات پیامک می‌کنیم.</strong> 
   به پارتنتم هم می‌گیم که وقتی حالش مثل PMS هست، 
   <strong style="color: purple;">حواسش به تو و خلق‌وخوی خودش باشه.</strong>`;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "\u0628\u0627 \u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9\u060c \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0648 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u0631\u0627\u0628\u0637\u0647 \u0628\u0647\u062a\u0631 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645. \u0628\u0647 \u067e\u0627\u0631\u062a\u0646\u062a\u0645 \u0647\u0645 \u0645\u06cc\u200c\u06af\u06cc\u0645 \u06a9\u0647 \u0648\u0642\u062a\u06cc \u062d\u0627\u0644\u0634 \u0645\u062b\u0644 PMS \u0647\u0633\u062a\u060c \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u062e\u0644\u0642\u200c\u0648\u062e\u0648\u06cc \u062e\u0648\u062f\u0634 \u0628\u0627\u0634\u0647.";
-                        }
-                        throw e;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u0628\u0627 \u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9\u060c \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0648 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u0631\u0627\u0628\u0637\u0647 \u0628\u0647\u062a\u0631 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645. \u0628\u0647 \u067e\u0627\u0631\u062a\u0646\u062a\u0645 \u0647\u0645 \u0645\u06cc\u200c\u06af\u06cc\u0645 \u06a9\u0647 \u0648\u0642\u062a\u06cc \u062d\u0627\u0644\u0634 \u0645\u062b\u0644 PMS \u0647\u0633\u062a\u060c \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u062e\u0644\u0642\u200c\u0648\u062e\u0648\u06cc \u062e\u0648\u062f\u0634 \u0628\u0627\u0634\u0647.";
                       }
-                    })()
-                  }}
-                />
-              ) : hasVariant($state, "_1", "slid2") ? (
-                <div
-                  className={projectcss.__wab_expr_html_text}
-                  dangerouslySetInnerHTML={{
-                    __html: (() => {
-                      try {
-                        return `
+                      throw e;
+                    }
+                  })()
+                }}
+              />
+            ) : hasVariant($state, "_1", "slid2") ? (
+              <div
+                className={projectcss.__wab_expr_html_text}
+                dangerouslySetInnerHTML={{
+                  __html: (() => {
+                    try {
+                      return `
   <strong style="color: purple;">اینجا هوای خودت رو هم داریم!</strong> وضعیت حال و احساست رو بررسی می‌کنیم تا 
   <strong style="color: purple;">با آگاهی و آرامش بیشتری ادامه بدی.</strong>
 `;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "\u0627\u06cc\u0646\u062c\u0627 \u0647\u0648\u0627\u06cc \u062e\u0648\u062f\u062a \u0631\u0648 \u0647\u0645 \u062f\u0627\u0631\u06cc\u0645! \u0648\u0636\u0639\u06cc\u062a \u062d\u0627\u0644 \u0648 \u0627\u062d\u0633\u0627\u0633\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645 \u062a\u0627 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0648 \u0622\u0631\u0627\u0645\u0634 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u062f\u0627\u0645\u0647 \u0628\u062f\u06cc.";
-                        }
-                        throw e;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u0627\u06cc\u0646\u062c\u0627 \u0647\u0648\u0627\u06cc \u062e\u0648\u062f\u062a \u0631\u0648 \u0647\u0645 \u062f\u0627\u0631\u06cc\u0645! \u0648\u0636\u0639\u06cc\u062a \u062d\u0627\u0644 \u0648 \u0627\u062d\u0633\u0627\u0633\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645 \u062a\u0627 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0648 \u0622\u0631\u0627\u0645\u0634 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u062f\u0627\u0645\u0647 \u0628\u062f\u06cc.";
                       }
-                    })()
-                  }}
-                />
-              ) : (
-                <div
-                  className={projectcss.__wab_expr_html_text}
-                  dangerouslySetInnerHTML={{
-                    __html: (() => {
-                      try {
-                        return `<strong style="color: purple;">اینجا می‌تونی راحت‌تر از تغییرات حال پارتنرت باخبری باشی</strong> و با آگاهی بیشتر از شرایطش، 
+                      throw e;
+                    }
+                  })()
+                }}
+              />
+            ) : (
+              <div
+                className={projectcss.__wab_expr_html_text}
+                dangerouslySetInnerHTML={{
+                  __html: (() => {
+                    try {
+                      return `<strong style="color: purple;">اینجا می‌تونی راحت‌تر از تغییرات حال پارتنرت باخبری باشی</strong> و با آگاهی بیشتر از شرایطش، 
   <strong style="color: purple;">رابطه‌تون شادتر و بهتر بشه.</strong> 
   اینطوری می‌تونی بیشتر از همدیگه حمایت کنید و <strong style="color: purple;">کنار هم روزهای بهتری بسازید!</strong>`;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
-                        }
-                        throw e;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
                       }
-                    })()
-                  }}
-                />
-              )}
-            </div>
-            <Stack__
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__bDsFg, {
-                [sty.freeBox_1_slid3__bDsFgSwIh2]: hasVariant(
-                  $state,
-                  "_1",
-                  "slid3"
-                )
-              })}
-            >
-              {(hasVariant($state, "_1", "slid3") ? true : false) ? (
-                <Button
-                  data-plasmic-name={"button8"}
-                  data-plasmic-override={overrides.button8}
-                  className={classNames("__wab_instance", sty.button8, {
-                    [sty.button8_1_slid3]: hasVariant($state, "_1", "slid3")
-                  })}
-                  color={generateStateValueProp($state, ["button8", "color"])}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return ($state.dialog.opendialog = true);
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
+                      throw e;
                     }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button8", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
+                  })()
+                }}
+              />
+            )}
+          </div>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__bDsFg, {
+              [sty.freeBox_1_slid3__bDsFgSwIh2]: hasVariant(
+                $state,
+                "_1",
+                "slid3"
+              )
+            })}
+          >
+            {(hasVariant($state, "_1", "slid3") ? true : false) ? (
+              <Button
+                data-plasmic-name={"button8"}
+                data-plasmic-override={overrides.button8}
+                className={classNames("__wab_instance", sty.button8, {
+                  [sty.button8_1_slid3]: hasVariant($state, "_1", "slid3")
+                })}
+                color={generateStateValueProp($state, ["button8", "color"])}
+                onClick={async event => {
+                  const $steps = {};
 
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  size={
-                    hasVariant($state, "_1", "slid3") &&
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "compact"
-                      : hasVariant($state, "_1", "slid3")
-                      ? undefined
-                      : hasVariant(globalVariants, "screen", "mobile")
-                      ? "minimal"
-                      : "compact"
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return ($state.dialog.opendialog = true);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
                   }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__gAtfI,
-                      hasVariant($state, "_1", "slid3") &&
-                        hasVariant(globalVariants, "screen", "mobile")
-                        ? "animashen"
-                        : hasVariant($state, "_1", "slid3")
-                        ? "animashen"
-                        : hasVariant(globalVariants, "screen", "mobile")
-                        ? "animashen"
-                        : undefined,
-                      {
-                        [sty.text_1_slid3__gAtfISwIh2]: hasVariant(
-                          $state,
-                          "_1",
-                          "slid3"
-                        )
-                      }
-                    )}
-                  >
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button8", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={
+                  hasVariant($state, "_1", "slid3") &&
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? "compact"
+                    : hasVariant($state, "_1", "slid3")
+                    ? undefined
+                    : hasVariant(globalVariants, "screen", "mobile")
+                    ? "minimal"
+                    : "compact"
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__gAtfI,
+                    hasVariant($state, "_1", "slid3") &&
+                      hasVariant(globalVariants, "screen", "mobile")
+                      ? "animashen"
+                      : hasVariant($state, "_1", "slid3")
+                      ? "animashen"
+                      : hasVariant(globalVariants, "screen", "mobile")
+                      ? "animashen"
+                      : undefined,
                     {
-                      "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646"
+                      [sty.text_1_slid3__gAtfISwIh2]: hasVariant(
+                        $state,
+                        "_1",
+                        "slid3"
+                      )
                     }
-                  </div>
-                </Button>
-              ) : null}
-              {(hasVariant($state, "_1", "slid3") ? true : false) ? (
-                <Button
-                  data-plasmic-name={"button7"}
-                  data-plasmic-override={overrides.button7}
-                  className={classNames("__wab_instance", sty.button7, {
-                    [sty.button7_1_slid3]: hasVariant($state, "_1", "slid3")
-                  })}
-                  color={generateStateValueProp($state, ["button7", "color"])}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (window.location.href =
-                                "https://apps.liom.app/hamyar/?r=" +
-                                $ctx.query.r +
-                                "&m=" +
-                                $ctx.query.m);
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button7", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  size={
-                    hasVariant($state, "_1", "slid3") &&
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "compact"
-                      : hasVariant($state, "_1", "slid3")
-                      ? undefined
-                      : hasVariant(globalVariants, "screen", "mobile")
-                      ? "minimal"
-                      : "compact"
-                  }
+                  )}
                 >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___00Uil,
-                      hasVariant($state, "_1", "slid3") &&
-                        hasVariant(globalVariants, "screen", "mobile")
-                        ? ``
-                        : hasVariant(globalVariants, "screen", "mobile")
-                        ? "animashen"
-                        : undefined,
-                      {
-                        [sty.text_1_slid3___00UilSwIh2]: hasVariant(
-                          $state,
-                          "_1",
-                          "slid3"
-                        )
-                      }
-                    )}
-                  >
-                    {hasVariant($state, "_1", "slid3")
-                      ? "\u0628\u0632\u0646 \u0628\u0631\u06cc\u0645"
-                      : "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646"}
-                  </div>
-                </Button>
-              ) : null}
-            </Stack__>
+                  {
+                    "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646"
+                  }
+                </div>
+              </Button>
+            ) : null}
+            {(hasVariant($state, "_1", "slid3") ? true : false) ? (
+              <Button
+                data-plasmic-name={"button7"}
+                data-plasmic-override={overrides.button7}
+                className={classNames("__wab_instance", sty.button7, {
+                  [sty.button7_1_slid3]: hasVariant($state, "_1", "slid3")
+                })}
+                color={generateStateValueProp($state, ["button7", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (window.location.href =
+                              "https://apps.liom.app/hamyar/?r=" +
+                              $ctx.query.r +
+                              "&m=" +
+                              $ctx.query.m);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button7", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={
+                  hasVariant($state, "_1", "slid3") &&
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? "compact"
+                    : hasVariant($state, "_1", "slid3")
+                    ? undefined
+                    : hasVariant(globalVariants, "screen", "mobile")
+                    ? "minimal"
+                    : "compact"
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___00Uil,
+                    hasVariant($state, "_1", "slid3") &&
+                      hasVariant(globalVariants, "screen", "mobile")
+                      ? ``
+                      : hasVariant(globalVariants, "screen", "mobile")
+                      ? "animashen"
+                      : undefined,
+                    {
+                      [sty.text_1_slid3___00UilSwIh2]: hasVariant(
+                        $state,
+                        "_1",
+                        "slid3"
+                      )
+                    }
+                  )}
+                >
+                  {hasVariant($state, "_1", "slid3")
+                    ? "\u0628\u0632\u0646 \u0628\u0631\u06cc\u0645"
+                    : "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646"}
+                </div>
+              </Button>
+            ) : null}
           </Stack__>
-        </Reveal>
+        </Stack__>
         <Stack__
           as={"div"}
           hasGap={true}
@@ -3015,7 +2972,6 @@ function PlasmicIntro__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "reveal",
     "button8",
     "button7",
     "dialog",
@@ -3030,7 +2986,6 @@ const PlasmicDescendants = {
     "button3",
     "user"
   ],
-  reveal: ["reveal", "button8", "button7"],
   button8: ["button8"],
   button7: ["button7"],
   dialog: [
@@ -3071,7 +3026,6 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  reveal: typeof Reveal;
   button8: typeof Button;
   button7: typeof Button;
   dialog: typeof Dialog;
@@ -3172,7 +3126,6 @@ export const PlasmicIntro = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    reveal: makeNodeComponent("reveal"),
     button8: makeNodeComponent("button8"),
     button7: makeNodeComponent("button7"),
     dialog: makeNodeComponent("dialog"),
