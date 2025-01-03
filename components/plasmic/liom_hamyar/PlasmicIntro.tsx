@@ -638,7 +638,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
+                  ? "250px"
                   : "320px"
               }
               loading={"lazy"}
@@ -706,9 +706,7 @@ function PlasmicIntro__RenderFunc(props: {
                 dangerouslySetInnerHTML={{
                   __html: (() => {
                     try {
-                      return `<strong style="color: purple;">اینجا می‌تونی راحت‌تر از تغییرات حال پارتنرت باخبری باشی</strong> و با آگاهی بیشتر از شرایطش، 
-  <strong style="color: purple;">رابطه‌تون شادتر و بهتر بشه.</strong> 
-  اینطوری می‌تونی بیشتر از همدیگه حمایت کنید و <strong style="color: purple;">کنار هم روزهای بهتری بسازید!</strong>`;
+                      return `<strong style="color: purple;">اینجا می‌تونی از حال پارتنرت باخبر بشی و بیشتر مراقبش باشی</strong> و با آگاهی بیشتر، <strong style="color: purple;">رابطه شادتری بسازی.</strong>`;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -780,7 +778,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
+                  ? "250px"
                   : "320px"
               }
               loading={"lazy"}
@@ -923,7 +921,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
+                  ? "250px"
                   : "320px"
               }
               loading={"lazy"}
@@ -942,26 +940,49 @@ function PlasmicIntro__RenderFunc(props: {
                 sty.text__pmql3
               )}
             >
-              <div
-                className={projectcss.__wab_expr_html_text}
-                dangerouslySetInnerHTML={{
-                  __html: (() => {
-                    try {
-                      return `<strong style="color: purple;">با فعال سازی یادآور، تغییرات چرخه قاعدگی و توصیه‌هایی برای رابطه بهتر رو برات پیامک می‌کنیم.</strong> 
-  به پارتنتم هم می‌گیم که وقتی حالش مثل PMS هست، 
-  <strong style="color: purple;">حواسش به تو و خلق‌وخوی خودش باشه.</strong>`;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
+              {hasVariant(globalVariants, "screen", "mobile") ? (
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return `<strong style="color: purple;">با فعال‌سازی یادآور، تغییرات چرخه قاعدگی و توصیه‌های رابطه بهتر رو برات پیامک می‌کنیم.</strong> 
+به پارتنرت هم یادآوری می‌کنیم که <strong style="color: purple;">حواسش به توام باشه.</strong>
+`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()
-                }}
-              />
+                    })()
+                  }}
+                />
+              ) : (
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return `<strong style="color: purple;">با فعال‌سازی یادآور، تغییرات چرخه قاعدگی و توصیه‌های رابطه بهتر رو برات پیامک می‌کنیم.</strong> 
+به پارتنرت هم یادآوری می‌کنیم که <strong style="color: purple;">حواسش به توام باشه.</strong>
+`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
+                        }
+                        throw e;
+                      }
+                    })()
+                  }}
+                />
+              )}
             </div>
             <Stack__
               as={"div"}
@@ -1106,11 +1127,146 @@ function PlasmicIntro__RenderFunc(props: {
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__rmy4S)}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__oUZm)} />
+          <div
+            className={classNames(projectcss.all, sty.freeBox__oUZm)}
+            style={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? (() => {
+                    try {
+                      return {
+                        transform:
+                          $state.slid == "slid1"
+                            ? "translateX(0px)"
+                            : $state.slid == "slid2"
+                            ? "translateX(0px)"
+                            : "translateX(-38px)"
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : (() => {
+                    try {
+                      return {
+                        transform:
+                          $state.slid == "slid1"
+                            ? "translateX(0px)"
+                            : $state.slid == "slid2"
+                            ? "translateX(0px)"
+                            : "translateX(-48px)"
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+            }
+          />
 
-          <div className={classNames(projectcss.all, sty.freeBox__boi5L)} />
+          <div
+            className={classNames(projectcss.all, sty.freeBox__boi5L)}
+            style={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? (() => {
+                    try {
+                      return {
+                        transform:
+                          $state.slid == "slid1"
+                            ? "translateX(0px)"
+                            : $state.slid == "slid2"
+                            ? "translateX(-38px)"
+                            : "translateX(-38px)"
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : (() => {
+                    try {
+                      return {
+                        transform:
+                          $state.slid == "slid1"
+                            ? "translateX(0px)"
+                            : $state.slid == "slid2"
+                            ? "translateX(-48px)"
+                            : "translateX(-48px)"
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+            }
+          />
 
-          <div className={classNames(projectcss.all, sty.freeBox__pHr7Z)} />
+          <div
+            className={classNames(projectcss.all, sty.freeBox__pHr7Z)}
+            style={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? (() => {
+                    try {
+                      return {
+                        transform:
+                          $state.slid == "slid1"
+                            ? "translateX(0px)"
+                            : $state.slid == "slid2"
+                            ? "translateX(38px)"
+                            : "translateX(76px)"
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+                : (() => {
+                    try {
+                      return {
+                        transform:
+                          $state.slid == "slid1"
+                            ? "translateX(0px)"
+                            : $state.slid == "slid2"
+                            ? "translateX(48px)"
+                            : "translateX(96px)"
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
+            }
+          />
         </Stack__>
         <Dialog
           data-plasmic-name={"dialog"}
