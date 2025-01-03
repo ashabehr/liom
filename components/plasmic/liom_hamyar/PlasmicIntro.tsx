@@ -87,19 +87,19 @@ import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdU
 createPlasmicElementProxy;
 
 export type PlasmicIntro__VariantMembers = {
-  _1: "slid1" | "slid2" | "slid3";
+  intro: "slid1" | "slid2" | "slid3";
 };
 export type PlasmicIntro__VariantsArgs = {
-  _1?: SingleChoiceArg<"slid1" | "slid2" | "slid3">;
+  intro?: SingleChoiceArg<"slid1" | "slid2" | "slid3">;
 };
 type VariantPropType = keyof PlasmicIntro__VariantsArgs;
-export const PlasmicIntro__VariantProps = new Array<VariantPropType>("_1");
+export const PlasmicIntro__VariantProps = new Array<VariantPropType>("intro");
 
 export type PlasmicIntro__ArgsType = {
-  on1Change?: (val: any) => void;
+  onIntroChange?: (val: any) => void;
 };
 type ArgPropType = keyof PlasmicIntro__ArgsType;
-export const PlasmicIntro__ArgProps = new Array<ArgPropType>("on1Change");
+export const PlasmicIntro__ArgProps = new Array<ArgPropType>("onIntroChange");
 
 export type PlasmicIntro__OverridesType = {
   root?: Flex__<"div">;
@@ -165,12 +165,12 @@ function PlasmicIntro__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "_1",
+        path: "intro",
         type: "writable",
         variableType: "variant",
 
-        valueProp: "_1",
-        onChangeProp: "on1Change"
+        valueProp: "intro",
+        onChangeProp: "onIntroChange"
       },
       {
         path: "startX",
@@ -189,7 +189,7 @@ function PlasmicIntro__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "_1", "slid3") ? false : false
+          hasVariant($state, "intro", "slid3") ? false : false
       },
       {
         path: "shop.data",
@@ -335,7 +335,7 @@ function PlasmicIntro__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "_1", "slid3") ? [] : "perper"
+          hasVariant($state, "intro", "slid3") ? [] : "perper"
       },
       {
         path: "user.data",
@@ -394,9 +394,9 @@ function PlasmicIntro__RenderFunc(props: {
           plasmic_plasmic_rich_components_css.plasmic_tokens,
           sty.root,
           {
-            [sty.root_1_slid1]: hasVariant($state, "_1", "slid1"),
-            [sty.root_1_slid2]: hasVariant($state, "_1", "slid2"),
-            [sty.root_1_slid3]: hasVariant($state, "_1", "slid3")
+            [sty.rootintro_slid1]: hasVariant($state, "intro", "slid1"),
+            [sty.rootintro_slid2]: hasVariant($state, "intro", "slid2"),
+            [sty.rootintro_slid3]: hasVariant($state, "intro", "slid3")
           }
         )}
         draggable={``}
@@ -408,7 +408,7 @@ function PlasmicIntro__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      if ($state.startX > event.clientX) {
+                      if ($state.startX < event.clientX) {
                         switch ($state.slid) {
                           case "slid1":
                             break;
@@ -421,7 +421,7 @@ function PlasmicIntro__RenderFunc(props: {
                             run1();
                             break;
                         }
-                      } else if ($state.startX < event.clientX) {
+                      } else if ($state.startX > event.clientX) {
                         switch ($state.slid) {
                           case "slid1":
                             $state.slid = "slid2";
@@ -503,7 +503,7 @@ function PlasmicIntro__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      if ($state.startX > event.changedTouches[0].clientX) {
+                      if ($state.startX < event.changedTouches[0].clientX) {
                         switch ($state.slid) {
                           case "slid1":
                             break;
@@ -517,7 +517,7 @@ function PlasmicIntro__RenderFunc(props: {
                             break;
                         }
                       } else if (
-                        $state.startX < event.changedTouches[0].clientX
+                        $state.startX > event.changedTouches[0].clientX
                       ) {
                         switch ($state.slid) {
                           case "slid1":
@@ -595,7 +595,11 @@ function PlasmicIntro__RenderFunc(props: {
       >
         <div
           className={classNames(projectcss.all, sty.freeBox__k9FFd, {
-            [sty.freeBox_1_slid2__k9FFdMvA2]: hasVariant($state, "_1", "slid2")
+            [sty.freeBoxintro_slid2__k9FFdMvA2]: hasVariant(
+              $state,
+              "intro",
+              "slid2"
+            )
           })}
         >
           <PlasmicImg__
@@ -637,19 +641,19 @@ function PlasmicIntro__RenderFunc(props: {
             sty.freeBox__laGek,
             "zoom-animation",
             {
-              [sty.freeBox_1_slid1__laGekvlIdd]: hasVariant(
+              [sty.freeBoxintro_slid1__laGekvlIdd]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid1"
               ),
-              [sty.freeBox_1_slid2__laGekMvA2]: hasVariant(
+              [sty.freeBoxintro_slid2__laGekMvA2]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid2"
               ),
-              [sty.freeBox_1_slid3__laGekSwIh2]: hasVariant(
+              [sty.freeBoxintro_slid3__laGekSwIh2]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid3"
               )
             }
@@ -660,9 +664,21 @@ function PlasmicIntro__RenderFunc(props: {
           <PlasmicImg__
             alt={""}
             className={classNames(sty.img__sp7Oz, {
-              [sty.img_1_slid1__sp7OzvlIdd]: hasVariant($state, "_1", "slid1"),
-              [sty.img_1_slid2__sp7OzMvA2]: hasVariant($state, "_1", "slid2"),
-              [sty.img_1_slid3__sp7OzSwIh2]: hasVariant($state, "_1", "slid3")
+              [sty.imgintro_slid1__sp7OzvlIdd]: hasVariant(
+                $state,
+                "intro",
+                "slid1"
+              ),
+              [sty.imgintro_slid2__sp7OzMvA2]: hasVariant(
+                $state,
+                "intro",
+                "slid2"
+              ),
+              [sty.imgintro_slid3__sp7OzSwIh2]: hasVariant(
+                $state,
+                "intro",
+                "slid3"
+              )
             })}
             displayHeight={"auto"}
             displayMaxHeight={"none"}
@@ -674,14 +690,14 @@ function PlasmicIntro__RenderFunc(props: {
             }
             loading={"lazy"}
             src={
-              hasVariant($state, "_1", "slid3")
+              hasVariant($state, "intro", "slid3")
                 ? {
                     src: "/plasmic/liom_hamyar/images/image48.svg",
                     fullWidth: 175,
                     fullHeight: 168,
                     aspectRatio: 1.041667
                   }
-                : hasVariant($state, "_1", "slid2")
+                : hasVariant($state, "intro", "slid2")
                 ? {
                     src: "/plasmic/liom_hamyar/images/image45.svg",
                     fullWidth: 193,
@@ -700,9 +716,21 @@ function PlasmicIntro__RenderFunc(props: {
           <PlasmicImg__
             alt={""}
             className={classNames(sty.img__nK0A, {
-              [sty.img_1_slid1__nK0AvlIdd]: hasVariant($state, "_1", "slid1"),
-              [sty.img_1_slid2__nK0AMvA2]: hasVariant($state, "_1", "slid2"),
-              [sty.img_1_slid3__nK0ASwIh2]: hasVariant($state, "_1", "slid3")
+              [sty.imgintro_slid1__nK0AvlIdd]: hasVariant(
+                $state,
+                "intro",
+                "slid1"
+              ),
+              [sty.imgintro_slid2__nK0AMvA2]: hasVariant(
+                $state,
+                "intro",
+                "slid2"
+              ),
+              [sty.imgintro_slid3__nK0ASwIh2]: hasVariant(
+                $state,
+                "intro",
+                "slid3"
+              )
             })}
             displayHeight={"auto"}
             displayMaxHeight={"none"}
@@ -714,14 +742,14 @@ function PlasmicIntro__RenderFunc(props: {
             }
             loading={"lazy"}
             src={
-              hasVariant($state, "_1", "slid3")
+              hasVariant($state, "intro", "slid3")
                 ? {
                     src: "/plasmic/liom_hamyar/images/image48.svg",
                     fullWidth: 175,
                     fullHeight: 168,
                     aspectRatio: 1.041667
                   }
-                : hasVariant($state, "_1", "slid2")
+                : hasVariant($state, "intro", "slid2")
                 ? {
                     src: "/plasmic/liom_hamyar/images/image45.svg",
                     fullWidth: 193,
@@ -740,9 +768,21 @@ function PlasmicIntro__RenderFunc(props: {
           <PlasmicImg__
             alt={""}
             className={classNames(sty.img___5Wg2D, {
-              [sty.img_1_slid1___5Wg2DvlIdd]: hasVariant($state, "_1", "slid1"),
-              [sty.img_1_slid2___5Wg2DMvA2]: hasVariant($state, "_1", "slid2"),
-              [sty.img_1_slid3___5Wg2DSwIh2]: hasVariant($state, "_1", "slid3")
+              [sty.imgintro_slid1___5Wg2DvlIdd]: hasVariant(
+                $state,
+                "intro",
+                "slid1"
+              ),
+              [sty.imgintro_slid2___5Wg2DMvA2]: hasVariant(
+                $state,
+                "intro",
+                "slid2"
+              ),
+              [sty.imgintro_slid3___5Wg2DSwIh2]: hasVariant(
+                $state,
+                "intro",
+                "slid3"
+              )
             })}
             displayHeight={"auto"}
             displayMaxHeight={"none"}
@@ -754,14 +794,14 @@ function PlasmicIntro__RenderFunc(props: {
             }
             loading={"lazy"}
             src={
-              hasVariant($state, "_1", "slid3")
+              hasVariant($state, "intro", "slid3")
                 ? {
                     src: "/plasmic/liom_hamyar/images/image48.svg",
                     fullWidth: 175,
                     fullHeight: 168,
                     aspectRatio: 1.041667
                   }
-                : hasVariant($state, "_1", "slid2")
+                : hasVariant($state, "intro", "slid2")
                 ? {
                     src: "/plasmic/liom_hamyar/images/image45.svg",
                     fullWidth: 193,
@@ -783,25 +823,25 @@ function PlasmicIntro__RenderFunc(props: {
               projectcss.__wab_text,
               sty.text___1P3IJ,
               {
-                [sty.text_1_slid1___1P3IJvlIdd]: hasVariant(
+                [sty.textintro_slid1___1P3IJvlIdd]: hasVariant(
                   $state,
-                  "_1",
+                  "intro",
                   "slid1"
                 ),
-                [sty.text_1_slid2___1P3IJMvA2]: hasVariant(
+                [sty.textintro_slid2___1P3IJMvA2]: hasVariant(
                   $state,
-                  "_1",
+                  "intro",
                   "slid2"
                 ),
-                [sty.text_1_slid3___1P3IJSwIh2]: hasVariant(
+                [sty.textintro_slid3___1P3IJSwIh2]: hasVariant(
                   $state,
-                  "_1",
+                  "intro",
                   "slid3"
                 )
               }
             )}
           >
-            {hasVariant($state, "_1", "slid3") ? (
+            {hasVariant($state, "intro", "slid3") ? (
               <div
                 className={projectcss.__wab_expr_html_text}
                 dangerouslySetInnerHTML={{
@@ -822,7 +862,7 @@ function PlasmicIntro__RenderFunc(props: {
                   })()
                 }}
               />
-            ) : hasVariant($state, "_1", "slid2") ? (
+            ) : hasVariant($state, "intro", "slid2") ? (
               <div
                 className={projectcss.__wab_expr_html_text}
                 dangerouslySetInnerHTML={{
@@ -871,19 +911,19 @@ function PlasmicIntro__RenderFunc(props: {
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__bDsFg, {
-              [sty.freeBox_1_slid3__bDsFgSwIh2]: hasVariant(
+              [sty.freeBoxintro_slid3__bDsFgSwIh2]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid3"
               )
             })}
           >
-            {(hasVariant($state, "_1", "slid3") ? true : false) ? (
+            {(hasVariant($state, "intro", "slid3") ? true : false) ? (
               <Button
                 data-plasmic-name={"button8"}
                 data-plasmic-override={overrides.button8}
                 className={classNames("__wab_instance", sty.button8, {
-                  [sty.button8_1_slid3]: hasVariant($state, "_1", "slid3")
+                  [sty.button8intro_slid3]: hasVariant($state, "intro", "slid3")
                 })}
                 color={generateStateValueProp($state, ["button8", "color"])}
                 onClick={async event => {
@@ -925,10 +965,10 @@ function PlasmicIntro__RenderFunc(props: {
                   }
                 }}
                 size={
-                  hasVariant($state, "_1", "slid3") &&
+                  hasVariant($state, "intro", "slid3") &&
                   hasVariant(globalVariants, "screen", "mobile")
                     ? "compact"
-                    : hasVariant($state, "_1", "slid3")
+                    : hasVariant($state, "intro", "slid3")
                     ? undefined
                     : hasVariant(globalVariants, "screen", "mobile")
                     ? "minimal"
@@ -940,18 +980,18 @@ function PlasmicIntro__RenderFunc(props: {
                     projectcss.all,
                     projectcss.__wab_text,
                     sty.text__gAtfI,
-                    hasVariant($state, "_1", "slid3") &&
+                    hasVariant($state, "intro", "slid3") &&
                       hasVariant(globalVariants, "screen", "mobile")
                       ? "animashen"
-                      : hasVariant($state, "_1", "slid3")
+                      : hasVariant($state, "intro", "slid3")
                       ? "animashen"
                       : hasVariant(globalVariants, "screen", "mobile")
                       ? "animashen"
                       : undefined,
                     {
-                      [sty.text_1_slid3__gAtfISwIh2]: hasVariant(
+                      [sty.textintro_slid3__gAtfISwIh2]: hasVariant(
                         $state,
-                        "_1",
+                        "intro",
                         "slid3"
                       )
                     }
@@ -963,12 +1003,12 @@ function PlasmicIntro__RenderFunc(props: {
                 </div>
               </Button>
             ) : null}
-            {(hasVariant($state, "_1", "slid3") ? true : false) ? (
+            {(hasVariant($state, "intro", "slid3") ? true : false) ? (
               <Button
                 data-plasmic-name={"button7"}
                 data-plasmic-override={overrides.button7}
                 className={classNames("__wab_instance", sty.button7, {
-                  [sty.button7_1_slid3]: hasVariant($state, "_1", "slid3")
+                  [sty.button7intro_slid3]: hasVariant($state, "intro", "slid3")
                 })}
                 color={generateStateValueProp($state, ["button7", "color"])}
                 onClick={async event => {
@@ -1014,10 +1054,10 @@ function PlasmicIntro__RenderFunc(props: {
                   }
                 }}
                 size={
-                  hasVariant($state, "_1", "slid3") &&
+                  hasVariant($state, "intro", "slid3") &&
                   hasVariant(globalVariants, "screen", "mobile")
                     ? "compact"
-                    : hasVariant($state, "_1", "slid3")
+                    : hasVariant($state, "intro", "slid3")
                     ? undefined
                     : hasVariant(globalVariants, "screen", "mobile")
                     ? "minimal"
@@ -1029,22 +1069,22 @@ function PlasmicIntro__RenderFunc(props: {
                     projectcss.all,
                     projectcss.__wab_text,
                     sty.text___00Uil,
-                    hasVariant($state, "_1", "slid3") &&
+                    hasVariant($state, "intro", "slid3") &&
                       hasVariant(globalVariants, "screen", "mobile")
                       ? ``
                       : hasVariant(globalVariants, "screen", "mobile")
                       ? "animashen"
                       : undefined,
                     {
-                      [sty.text_1_slid3___00UilSwIh2]: hasVariant(
+                      [sty.textintro_slid3___00UilSwIh2]: hasVariant(
                         $state,
-                        "_1",
+                        "intro",
                         "slid3"
                       )
                     }
                   )}
                 >
-                  {hasVariant($state, "_1", "slid3")
+                  {hasVariant($state, "intro", "slid3")
                     ? "\u0628\u0632\u0646 \u0628\u0631\u06cc\u0645"
                     : "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646"}
                 </div>
@@ -1056,25 +1096,33 @@ function PlasmicIntro__RenderFunc(props: {
           as={"div"}
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__rmy4S, {
-            [sty.freeBox_1_slid1__rmy4SvlIdd]: hasVariant(
+            [sty.freeBoxintro_slid1__rmy4SvlIdd]: hasVariant(
               $state,
-              "_1",
+              "intro",
               "slid1"
             ),
-            [sty.freeBox_1_slid2__rmy4SMvA2]: hasVariant($state, "_1", "slid2"),
-            [sty.freeBox_1_slid3__rmy4SSwIh2]: hasVariant($state, "_1", "slid3")
+            [sty.freeBoxintro_slid2__rmy4SMvA2]: hasVariant(
+              $state,
+              "intro",
+              "slid2"
+            ),
+            [sty.freeBoxintro_slid3__rmy4SSwIh2]: hasVariant(
+              $state,
+              "intro",
+              "slid3"
+            )
           })}
         >
           <div
             className={classNames(projectcss.all, sty.freeBox__oUZm, {
-              [sty.freeBox_1_slid1__oUZmvlIdd]: hasVariant(
+              [sty.freeBoxintro_slid1__oUZmvlIdd]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid1"
               ),
-              [sty.freeBox_1_slid3__oUZmSwIh2]: hasVariant(
+              [sty.freeBoxintro_slid3__oUZmSwIh2]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid3"
               )
             })}
@@ -1084,7 +1132,7 @@ function PlasmicIntro__RenderFunc(props: {
               $steps["update1"] = true
                 ? (() => {
                     const actionArgs = {
-                      vgroup: "_1",
+                      vgroup: "intro",
                       operation: 0,
                       value: "slid3"
                     };
@@ -1110,19 +1158,19 @@ function PlasmicIntro__RenderFunc(props: {
 
           <div
             className={classNames(projectcss.all, sty.freeBox__boi5L, {
-              [sty.freeBox_1_slid1__boi5LvlIdd]: hasVariant(
+              [sty.freeBoxintro_slid1__boi5LvlIdd]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid1"
               ),
-              [sty.freeBox_1_slid2__boi5LMvA2]: hasVariant(
+              [sty.freeBoxintro_slid2__boi5LMvA2]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid2"
               ),
-              [sty.freeBox_1_slid3__boi5LSwIh2]: hasVariant(
+              [sty.freeBoxintro_slid3__boi5LSwIh2]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid3"
               )
             })}
@@ -1132,7 +1180,7 @@ function PlasmicIntro__RenderFunc(props: {
               $steps["update1"] = true
                 ? (() => {
                     const actionArgs = {
-                      vgroup: "_1",
+                      vgroup: "intro",
                       operation: 0,
                       value: "slid2"
                     };
@@ -1158,19 +1206,19 @@ function PlasmicIntro__RenderFunc(props: {
 
           <div
             className={classNames(projectcss.all, sty.freeBox__pHr7Z, {
-              [sty.freeBox_1_slid1__pHr7ZvlIdd]: hasVariant(
+              [sty.freeBoxintro_slid1__pHr7ZvlIdd]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid1"
               ),
-              [sty.freeBox_1_slid2__pHr7ZMvA2]: hasVariant(
+              [sty.freeBoxintro_slid2__pHr7ZMvA2]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid2"
               ),
-              [sty.freeBox_1_slid3__pHr7ZSwIh2]: hasVariant(
+              [sty.freeBoxintro_slid3__pHr7ZSwIh2]: hasVariant(
                 $state,
-                "_1",
+                "intro",
                 "slid3"
               )
             })}
@@ -1180,7 +1228,7 @@ function PlasmicIntro__RenderFunc(props: {
               $steps["update1"] = true
                 ? (() => {
                     const actionArgs = {
-                      vgroup: "_1",
+                      vgroup: "intro",
                       operation: 0,
                       value: "slid1"
                     };
@@ -1208,9 +1256,9 @@ function PlasmicIntro__RenderFunc(props: {
           data-plasmic-name={"dialog"}
           data-plasmic-override={overrides.dialog}
           className={classNames("__wab_instance", sty.dialog, {
-            [sty.dialog_1_slid1]: hasVariant($state, "_1", "slid1"),
-            [sty.dialog_1_slid2]: hasVariant($state, "_1", "slid2"),
-            [sty.dialog_1_slid3]: hasVariant($state, "_1", "slid3")
+            [sty.dialogintro_slid1]: hasVariant($state, "intro", "slid1"),
+            [sty.dialogintro_slid2]: hasVariant($state, "intro", "slid2"),
+            [sty.dialogintro_slid3]: hasVariant($state, "intro", "slid3")
           })}
           onOpendialogChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["dialog", "opendialog"]).apply(
@@ -2964,6 +3012,30 @@ function PlasmicIntro__RenderFunc(props: {
           })()}
           url={"https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"}
         />
+
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__cRIx
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.slid;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </div>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
