@@ -86,25 +86,19 @@ import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdU
 
 createPlasmicElementProxy;
 
-export type PlasmicIntro__VariantMembers = {
-  intro: "slid1" | "slid2" | "slid3";
-};
-export type PlasmicIntro__VariantsArgs = {
-  intro?: SingleChoiceArg<"slid1" | "slid2" | "slid3">;
-};
+export type PlasmicIntro__VariantMembers = {};
+export type PlasmicIntro__VariantsArgs = {};
 type VariantPropType = keyof PlasmicIntro__VariantsArgs;
-export const PlasmicIntro__VariantProps = new Array<VariantPropType>("intro");
+export const PlasmicIntro__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicIntro__ArgsType = {
-  onIntroChange?: (val: any) => void;
-};
+export type PlasmicIntro__ArgsType = {};
 type ArgPropType = keyof PlasmicIntro__ArgsType;
-export const PlasmicIntro__ArgProps = new Array<ArgPropType>("onIntroChange");
+export const PlasmicIntro__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicIntro__OverridesType = {
   root?: Flex__<"div">;
-  button8?: Flex__<typeof Button>;
-  button7?: Flex__<typeof Button>;
+  button11?: Flex__<typeof Button>;
+  button12?: Flex__<typeof Button>;
   dialog?: Flex__<typeof Dialog>;
   shop?: Flex__<typeof ApiRequest>;
   dialogTitle?: Flex__<typeof DialogTitle>;
@@ -165,14 +159,6 @@ function PlasmicIntro__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "intro",
-        type: "writable",
-        variableType: "variant",
-
-        valueProp: "intro",
-        onChangeProp: "onIntroChange"
-      },
-      {
         path: "startX",
         type: "private",
         variableType: "number",
@@ -188,8 +174,7 @@ function PlasmicIntro__RenderFunc(props: {
         path: "dialog.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "intro", "slid3") ? false : false
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "shop.data",
@@ -325,19 +310,6 @@ function PlasmicIntro__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "button7.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
-      },
-      {
-        path: "button8.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          hasVariant($state, "intro", "slid3") ? [] : "perper"
-      },
-      {
         path: "user.data",
         type: "private",
         variableType: "object",
@@ -354,6 +326,18 @@ function PlasmicIntro__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button11.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "button12.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
       }
     ],
     [$props, $ctx, $refs]
@@ -392,12 +376,7 @@ function PlasmicIntro__RenderFunc(props: {
           projectcss.plasmic_tokens,
           plasmic_antd_5_hostless_css.plasmic_tokens,
           plasmic_plasmic_rich_components_css.plasmic_tokens,
-          sty.root,
-          {
-            [sty.rootintro_slid1]: hasVariant($state, "intro", "slid1"),
-            [sty.rootintro_slid2]: hasVariant($state, "intro", "slid2"),
-            [sty.rootintro_slid3]: hasVariant($state, "intro", "slid3")
-          }
+          sty.root
         )}
         draggable={``}
         onDragEnd={async event => {
@@ -593,15 +572,7 @@ function PlasmicIntro__RenderFunc(props: {
           }
         }}
       >
-        <div
-          className={classNames(projectcss.all, sty.freeBox__k9FFd, {
-            [sty.freeBoxintro_slid2__k9FFdMvA2]: hasVariant(
-              $state,
-              "intro",
-              "slid2"
-            )
-          })}
-        >
+        <div className={classNames(projectcss.all, sty.freeBox__k9FFd)}>
           <PlasmicImg__
             alt={""}
             className={classNames(sty.img__h1Sjj)}
@@ -633,258 +604,103 @@ function PlasmicIntro__RenderFunc(props: {
             }
           </div>
         </div>
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(
-            projectcss.all,
-            sty.freeBox__laGek,
-            "zoom-animation",
-            {
-              [sty.freeBoxintro_slid1__laGekvlIdd]: hasVariant(
-                $state,
-                "intro",
-                "slid1"
-              ),
-              [sty.freeBoxintro_slid2__laGekMvA2]: hasVariant(
-                $state,
-                "intro",
-                "slid2"
-              ),
-              [sty.freeBoxintro_slid3__laGekSwIh2]: hasVariant(
-                $state,
-                "intro",
-                "slid3"
-              )
+        {(() => {
+          try {
+            return $state.slid == "slid1";
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
             }
-          )}
-          draggable={"true"}
-          id={"myBox"}
-        >
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img__sp7Oz, {
-              [sty.imgintro_slid1__sp7OzvlIdd]: hasVariant(
-                $state,
-                "intro",
-                "slid1"
-              ),
-              [sty.imgintro_slid2__sp7OzMvA2]: hasVariant(
-                $state,
-                "intro",
-                "slid2"
-              ),
-              [sty.imgintro_slid3__sp7OzSwIh2]: hasVariant(
-                $state,
-                "intro",
-                "slid3"
-              )
-            })}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={
-              hasVariant(globalVariants, "screen", "mobile") ? "300px" : "320px"
-            }
-            loading={"lazy"}
-            src={
-              hasVariant($state, "intro", "slid3")
-                ? {
-                    src: "/plasmic/liom_hamyar/images/image48.svg",
-                    fullWidth: 175,
-                    fullHeight: 168,
-                    aspectRatio: 1.041667
-                  }
-                : hasVariant($state, "intro", "slid2")
-                ? {
-                    src: "/plasmic/liom_hamyar/images/image45.svg",
-                    fullWidth: 193,
-                    fullHeight: 188,
-                    aspectRatio: 1.026596
-                  }
-                : {
-                    src: "/plasmic/liom_hamyar/images/image43.svg",
-                    fullWidth: 388,
-                    fullHeight: 344,
-                    aspectRatio: 1.127907
-                  }
-            }
-          />
-
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img__nK0A, {
-              [sty.imgintro_slid1__nK0AvlIdd]: hasVariant(
-                $state,
-                "intro",
-                "slid1"
-              ),
-              [sty.imgintro_slid2__nK0AMvA2]: hasVariant(
-                $state,
-                "intro",
-                "slid2"
-              ),
-              [sty.imgintro_slid3__nK0ASwIh2]: hasVariant(
-                $state,
-                "intro",
-                "slid3"
-              )
-            })}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={
-              hasVariant(globalVariants, "screen", "mobile") ? "300px" : "320px"
-            }
-            loading={"lazy"}
-            src={
-              hasVariant($state, "intro", "slid3")
-                ? {
-                    src: "/plasmic/liom_hamyar/images/image48.svg",
-                    fullWidth: 175,
-                    fullHeight: 168,
-                    aspectRatio: 1.041667
-                  }
-                : hasVariant($state, "intro", "slid2")
-                ? {
-                    src: "/plasmic/liom_hamyar/images/image45.svg",
-                    fullWidth: 193,
-                    fullHeight: 188,
-                    aspectRatio: 1.026596
-                  }
-                : {
-                    src: "/plasmic/liom_hamyar/images/image45.svg",
-                    fullWidth: 193,
-                    fullHeight: 188,
-                    aspectRatio: 1.026596
-                  }
-            }
-          />
-
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img___5Wg2D, {
-              [sty.imgintro_slid1___5Wg2DvlIdd]: hasVariant(
-                $state,
-                "intro",
-                "slid1"
-              ),
-              [sty.imgintro_slid2___5Wg2DMvA2]: hasVariant(
-                $state,
-                "intro",
-                "slid2"
-              ),
-              [sty.imgintro_slid3___5Wg2DSwIh2]: hasVariant(
-                $state,
-                "intro",
-                "slid3"
-              )
-            })}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={
-              hasVariant(globalVariants, "screen", "mobile") ? "300px" : "320px"
-            }
-            loading={"lazy"}
-            src={
-              hasVariant($state, "intro", "slid3")
-                ? {
-                    src: "/plasmic/liom_hamyar/images/image48.svg",
-                    fullWidth: 175,
-                    fullHeight: 168,
-                    aspectRatio: 1.041667
-                  }
-                : hasVariant($state, "intro", "slid2")
-                ? {
-                    src: "/plasmic/liom_hamyar/images/image45.svg",
-                    fullWidth: 193,
-                    fullHeight: 188,
-                    aspectRatio: 1.026596
-                  }
-                : {
-                    src: "/plasmic/liom_hamyar/images/image48.svg",
-                    fullWidth: 175,
-                    fullHeight: 168,
-                    aspectRatio: 1.041667
-                  }
-            }
-          />
-
-          <div
+            throw e;
+          }
+        })() ? (
+          <Stack__
+            as={"div"}
+            hasGap={true}
             className={classNames(
               projectcss.all,
-              projectcss.__wab_text,
-              sty.text___1P3IJ,
-              {
-                [sty.textintro_slid1___1P3IJvlIdd]: hasVariant(
-                  $state,
-                  "intro",
-                  "slid1"
-                ),
-                [sty.textintro_slid2___1P3IJMvA2]: hasVariant(
-                  $state,
-                  "intro",
-                  "slid2"
-                ),
-                [sty.textintro_slid3___1P3IJSwIh2]: hasVariant(
-                  $state,
-                  "intro",
-                  "slid3"
-                )
-              }
+              sty.freeBox__laGek,
+              "zoom-animation"
             )}
+            draggable={"true"}
+            id={"myBox"}
           >
-            {hasVariant($state, "intro", "slid3") ? (
-              <div
-                className={projectcss.__wab_expr_html_text}
-                dangerouslySetInnerHTML={{
-                  __html: (() => {
-                    try {
-                      return `<strong style="color: purple;">با فعال سازی یادآور، تغییرات چرخه قاعدگی و توصیه‌هایی برای رابطه بهتر رو برات پیامک می‌کنیم.</strong> 
-  به پارتنتم هم می‌گیم که وقتی حالش مثل PMS هست، 
-  <strong style="color: purple;">حواسش به تو و خلق‌وخوی خودش باشه.</strong>`;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "\u0628\u0627 \u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9\u060c \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0648 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u0631\u0627\u0628\u0637\u0647 \u0628\u0647\u062a\u0631 \u0631\u0648 \u0628\u0631\u0627\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645. \u0628\u0647 \u067e\u0627\u0631\u062a\u0646\u062a\u0645 \u0647\u0645 \u0645\u06cc\u200c\u06af\u06cc\u0645 \u06a9\u0647 \u0648\u0642\u062a\u06cc \u062d\u0627\u0644\u0634 \u0645\u062b\u0644 PMS \u0647\u0633\u062a\u060c \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u062e\u0644\u0642\u200c\u0648\u062e\u0648\u06cc \u062e\u0648\u062f\u0634 \u0628\u0627\u0634\u0647.";
-                      }
-                      throw e;
-                    }
-                  })()
-                }}
-              />
-            ) : hasVariant($state, "intro", "slid2") ? (
-              <div
-                className={projectcss.__wab_expr_html_text}
-                dangerouslySetInnerHTML={{
-                  __html: (() => {
-                    try {
-                      return `
-  <strong style="color: purple;">اینجا هوای خودت رو هم داریم!</strong> وضعیت حال و احساست رو بررسی می‌کنیم تا 
-  <strong style="color: purple;">با آگاهی و آرامش بیشتری ادامه بدی.</strong>
-`;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "\u0627\u06cc\u0646\u062c\u0627 \u0647\u0648\u0627\u06cc \u062e\u0648\u062f\u062a \u0631\u0648 \u0647\u0645 \u062f\u0627\u0631\u06cc\u0645! \u0648\u0636\u0639\u06cc\u062a \u062d\u0627\u0644 \u0648 \u0627\u062d\u0633\u0627\u0633\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645 \u062a\u0627 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0648 \u0622\u0631\u0627\u0645\u0634 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u062f\u0627\u0645\u0647 \u0628\u062f\u06cc.";
-                      }
-                      throw e;
-                    }
-                  })()
-                }}
-              />
-            ) : (
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__sp7Oz)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "300px"
+                  : "320px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image43.svg",
+                fullWidth: 388,
+                fullHeight: 344,
+                aspectRatio: 1.127907
+              }}
+            />
+
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__nK0A)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "300px"
+                  : "320px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image45.svg",
+                fullWidth: 193,
+                fullHeight: 188,
+                aspectRatio: 1.026596
+              }}
+            />
+
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img___5Wg2D)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "300px"
+                  : "320px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image48.svg",
+                fullWidth: 175,
+                fullHeight: 168,
+                aspectRatio: 1.041667
+              }}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___1P3IJ
+              )}
+            >
               <div
                 className={projectcss.__wab_expr_html_text}
                 dangerouslySetInnerHTML={{
@@ -905,27 +721,258 @@ function PlasmicIntro__RenderFunc(props: {
                   })()
                 }}
               />
-            )}
-          </div>
+            </div>
+          </Stack__>
+        ) : null}
+        {(() => {
+          try {
+            return $state.slid == "slid2";
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })() ? (
           <Stack__
             as={"div"}
             hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__bDsFg, {
-              [sty.freeBoxintro_slid3__bDsFgSwIh2]: hasVariant(
-                $state,
-                "intro",
-                "slid3"
-              )
-            })}
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__iCvx9,
+              "zoom-animation"
+            )}
+            draggable={"true"}
+            id={"myBox"}
           >
-            {(hasVariant($state, "intro", "slid3") ? true : false) ? (
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__d69Jc)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "300px"
+                  : "320px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image43.svg",
+                fullWidth: 388,
+                fullHeight: 344,
+                aspectRatio: 1.127907
+              }}
+            />
+
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__y7LC)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "300px"
+                  : "320px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image45.svg",
+                fullWidth: 193,
+                fullHeight: 188,
+                aspectRatio: 1.026596
+              }}
+            />
+
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__kxn6W)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "300px"
+                  : "320px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image48.svg",
+                fullWidth: 175,
+                fullHeight: 168,
+                aspectRatio: 1.041667
+              }}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__i0XsN
+              )}
+            >
+              <div
+                className={projectcss.__wab_expr_html_text}
+                dangerouslySetInnerHTML={{
+                  __html: (() => {
+                    try {
+                      return `
+  <strong style="color: purple;">اینجا هوای خودت رو هم داریم!</strong> وضعیت حال و احساست رو بررسی می‌کنیم تا 
+  <strong style="color: purple;">با آگاهی و آرامش بیشتری ادامه بدی.</strong>
+`;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
+                      }
+                      throw e;
+                    }
+                  })()
+                }}
+              />
+            </div>
+          </Stack__>
+        ) : null}
+        {(() => {
+          try {
+            return $state.slid == "slid3";
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })() ? (
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(
+              projectcss.all,
+              sty.freeBox__mGssn,
+              "zoom-animation"
+            )}
+            draggable={"true"}
+            id={"myBox"}
+          >
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__b5XRr)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "300px"
+                  : "320px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image43.svg",
+                fullWidth: 388,
+                fullHeight: 344,
+                aspectRatio: 1.127907
+              }}
+            />
+
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__aiZ1J)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "300px"
+                  : "320px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image45.svg",
+                fullWidth: 193,
+                fullHeight: 188,
+                aspectRatio: 1.026596
+              }}
+            />
+
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__kjy5)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile")
+                  ? "300px"
+                  : "320px"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image48.svg",
+                fullWidth: 175,
+                fullHeight: 168,
+                aspectRatio: 1.041667
+              }}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__pmql3
+              )}
+            >
+              <div
+                className={projectcss.__wab_expr_html_text}
+                dangerouslySetInnerHTML={{
+                  __html: (() => {
+                    try {
+                      return `<strong style="color: purple;">با فعال سازی یادآور، تغییرات چرخه قاعدگی و توصیه‌هایی برای رابطه بهتر رو برات پیامک می‌کنیم.</strong> 
+  به پارتنتم هم می‌گیم که وقتی حالش مثل PMS هست، 
+  <strong style="color: purple;">حواسش به تو و خلق‌وخوی خودش باشه.</strong>`;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
+                      }
+                      throw e;
+                    }
+                  })()
+                }}
+              />
+            </div>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__nGlzo)}
+            >
               <Button
-                data-plasmic-name={"button8"}
-                data-plasmic-override={overrides.button8}
-                className={classNames("__wab_instance", sty.button8, {
-                  [sty.button8intro_slid3]: hasVariant($state, "intro", "slid3")
-                })}
-                color={generateStateValueProp($state, ["button8", "color"])}
+                data-plasmic-name={"button11"}
+                data-plasmic-override={overrides.button11}
+                className={classNames("__wab_instance", sty.button11)}
+                color={generateStateValueProp($state, ["button11", "color"])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -951,7 +998,7 @@ function PlasmicIntro__RenderFunc(props: {
                 }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button8", "color"])(
+                    generateStateOnChangeProp($state, ["button11", "color"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -965,36 +1012,19 @@ function PlasmicIntro__RenderFunc(props: {
                   }
                 }}
                 size={
-                  hasVariant($state, "intro", "slid3") &&
                   hasVariant(globalVariants, "screen", "mobile")
                     ? "compact"
-                    : hasVariant($state, "intro", "slid3")
-                    ? undefined
-                    : hasVariant(globalVariants, "screen", "mobile")
-                    ? "minimal"
-                    : "compact"
+                    : undefined
                 }
               >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__gAtfI,
-                    hasVariant($state, "intro", "slid3") &&
-                      hasVariant(globalVariants, "screen", "mobile")
+                    sty.text__jEtYi,
+                    hasVariant(globalVariants, "screen", "mobile")
                       ? "animashen"
-                      : hasVariant($state, "intro", "slid3")
-                      ? "animashen"
-                      : hasVariant(globalVariants, "screen", "mobile")
-                      ? "animashen"
-                      : undefined,
-                    {
-                      [sty.textintro_slid3__gAtfISwIh2]: hasVariant(
-                        $state,
-                        "intro",
-                        "slid3"
-                      )
-                    }
+                      : "animashen"
                   )}
                 >
                   {
@@ -1002,15 +1032,11 @@ function PlasmicIntro__RenderFunc(props: {
                   }
                 </div>
               </Button>
-            ) : null}
-            {(hasVariant($state, "intro", "slid3") ? true : false) ? (
               <Button
-                data-plasmic-name={"button7"}
-                data-plasmic-override={overrides.button7}
-                className={classNames("__wab_instance", sty.button7, {
-                  [sty.button7intro_slid3]: hasVariant($state, "intro", "slid3")
-                })}
-                color={generateStateValueProp($state, ["button7", "color"])}
+                data-plasmic-name={"button12"}
+                data-plasmic-override={overrides.button12}
+                className={classNames("__wab_instance", sty.button12)}
+                color={generateStateValueProp($state, ["button12", "color"])}
                 onClick={async event => {
                   const $steps = {};
 
@@ -1040,7 +1066,7 @@ function PlasmicIntro__RenderFunc(props: {
                 }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button7", "color"])(
+                    generateStateOnChangeProp($state, ["button12", "color"])(
                       eventArgs[0]
                     );
                   }).apply(null, eventArgs);
@@ -1054,212 +1080,42 @@ function PlasmicIntro__RenderFunc(props: {
                   }
                 }}
                 size={
-                  hasVariant($state, "intro", "slid3") &&
                   hasVariant(globalVariants, "screen", "mobile")
                     ? "compact"
-                    : hasVariant($state, "intro", "slid3")
-                    ? undefined
-                    : hasVariant(globalVariants, "screen", "mobile")
-                    ? "minimal"
-                    : "compact"
+                    : undefined
                 }
               >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text___00Uil,
-                    hasVariant($state, "intro", "slid3") &&
-                      hasVariant(globalVariants, "screen", "mobile")
+                    sty.text__jshbf,
+                    hasVariant(globalVariants, "screen", "mobile")
                       ? ``
-                      : hasVariant(globalVariants, "screen", "mobile")
-                      ? "animashen"
-                      : undefined,
-                    {
-                      [sty.textintro_slid3___00UilSwIh2]: hasVariant(
-                        $state,
-                        "intro",
-                        "slid3"
-                      )
-                    }
+                      : undefined
                   )}
                 >
-                  {hasVariant($state, "intro", "slid3")
-                    ? "\u0628\u0632\u0646 \u0628\u0631\u06cc\u0645"
-                    : "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646"}
+                  {"\u0628\u0632\u0646 \u0628\u0631\u06cc\u0645"}
                 </div>
               </Button>
-            ) : null}
+            </Stack__>
           </Stack__>
-        </Stack__>
+        ) : null}
         <Stack__
           as={"div"}
           hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__rmy4S, {
-            [sty.freeBoxintro_slid1__rmy4SvlIdd]: hasVariant(
-              $state,
-              "intro",
-              "slid1"
-            ),
-            [sty.freeBoxintro_slid2__rmy4SMvA2]: hasVariant(
-              $state,
-              "intro",
-              "slid2"
-            ),
-            [sty.freeBoxintro_slid3__rmy4SSwIh2]: hasVariant(
-              $state,
-              "intro",
-              "slid3"
-            )
-          })}
+          className={classNames(projectcss.all, sty.freeBox__rmy4S)}
         >
-          <div
-            className={classNames(projectcss.all, sty.freeBox__oUZm, {
-              [sty.freeBoxintro_slid1__oUZmvlIdd]: hasVariant(
-                $state,
-                "intro",
-                "slid1"
-              ),
-              [sty.freeBoxintro_slid3__oUZmSwIh2]: hasVariant(
-                $state,
-                "intro",
-                "slid3"
-              )
-            })}
-            onClick={async event => {
-              const $steps = {};
+          <div className={classNames(projectcss.all, sty.freeBox__oUZm)} />
 
-              $steps["update1"] = true
-                ? (() => {
-                    const actionArgs = {
-                      vgroup: "intro",
-                      operation: 0,
-                      value: "slid3"
-                    };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
+          <div className={classNames(projectcss.all, sty.freeBox__boi5L)} />
 
-                      $stateSet($state, vgroup, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["update1"] != null &&
-                typeof $steps["update1"] === "object" &&
-                typeof $steps["update1"].then === "function"
-              ) {
-                $steps["update1"] = await $steps["update1"];
-              }
-            }}
-          />
-
-          <div
-            className={classNames(projectcss.all, sty.freeBox__boi5L, {
-              [sty.freeBoxintro_slid1__boi5LvlIdd]: hasVariant(
-                $state,
-                "intro",
-                "slid1"
-              ),
-              [sty.freeBoxintro_slid2__boi5LMvA2]: hasVariant(
-                $state,
-                "intro",
-                "slid2"
-              ),
-              [sty.freeBoxintro_slid3__boi5LSwIh2]: hasVariant(
-                $state,
-                "intro",
-                "slid3"
-              )
-            })}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["update1"] = true
-                ? (() => {
-                    const actionArgs = {
-                      vgroup: "intro",
-                      operation: 0,
-                      value: "slid2"
-                    };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
-
-                      $stateSet($state, vgroup, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["update1"] != null &&
-                typeof $steps["update1"] === "object" &&
-                typeof $steps["update1"].then === "function"
-              ) {
-                $steps["update1"] = await $steps["update1"];
-              }
-            }}
-          />
-
-          <div
-            className={classNames(projectcss.all, sty.freeBox__pHr7Z, {
-              [sty.freeBoxintro_slid1__pHr7ZvlIdd]: hasVariant(
-                $state,
-                "intro",
-                "slid1"
-              ),
-              [sty.freeBoxintro_slid2__pHr7ZMvA2]: hasVariant(
-                $state,
-                "intro",
-                "slid2"
-              ),
-              [sty.freeBoxintro_slid3__pHr7ZSwIh2]: hasVariant(
-                $state,
-                "intro",
-                "slid3"
-              )
-            })}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["update1"] = true
-                ? (() => {
-                    const actionArgs = {
-                      vgroup: "intro",
-                      operation: 0,
-                      value: "slid1"
-                    };
-                    return (({ vgroup, value }) => {
-                      if (typeof value === "string") {
-                        value = [value];
-                      }
-
-                      $stateSet($state, vgroup, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["update1"] != null &&
-                typeof $steps["update1"] === "object" &&
-                typeof $steps["update1"].then === "function"
-              ) {
-                $steps["update1"] = await $steps["update1"];
-              }
-            }}
-          />
+          <div className={classNames(projectcss.all, sty.freeBox__pHr7Z)} />
         </Stack__>
         <Dialog
           data-plasmic-name={"dialog"}
           data-plasmic-override={overrides.dialog}
-          className={classNames("__wab_instance", sty.dialog, {
-            [sty.dialogintro_slid1]: hasVariant($state, "intro", "slid1"),
-            [sty.dialogintro_slid2]: hasVariant($state, "intro", "slid2"),
-            [sty.dialogintro_slid3]: hasVariant($state, "intro", "slid3")
-          })}
+          className={classNames("__wab_instance", sty.dialog)}
           onOpendialogChange={async (...eventArgs: any) => {
             generateStateOnChangeProp($state, ["dialog", "opendialog"]).apply(
               null,
@@ -3012,30 +2868,6 @@ function PlasmicIntro__RenderFunc(props: {
           })()}
           url={"https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"}
         />
-
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__cRIx
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $state.slid;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </div>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -3044,8 +2876,8 @@ function PlasmicIntro__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "button8",
-    "button7",
+    "button11",
+    "button12",
     "dialog",
     "shop",
     "dialogTitle",
@@ -3058,8 +2890,8 @@ const PlasmicDescendants = {
     "button3",
     "user"
   ],
-  button8: ["button8"],
-  button7: ["button7"],
+  button11: ["button11"],
+  button12: ["button12"],
   dialog: [
     "dialog",
     "shop",
@@ -3098,8 +2930,8 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  button8: typeof Button;
-  button7: typeof Button;
+  button11: typeof Button;
+  button12: typeof Button;
   dialog: typeof Dialog;
   shop: typeof ApiRequest;
   dialogTitle: typeof DialogTitle;
@@ -3198,8 +3030,8 @@ export const PlasmicIntro = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    button8: makeNodeComponent("button8"),
-    button7: makeNodeComponent("button7"),
+    button11: makeNodeComponent("button11"),
+    button12: makeNodeComponent("button12"),
     dialog: makeNodeComponent("dialog"),
     shop: makeNodeComponent("shop"),
     dialogTitle: makeNodeComponent("dialogTitle"),
