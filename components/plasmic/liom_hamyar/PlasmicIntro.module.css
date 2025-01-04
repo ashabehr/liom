@@ -46,6 +46,11 @@
   min-width: 0;
   padding: 8px;
 }
+@media (max-width: 640px) {
+  .freeBox__k9FFd {
+    padding: 0px 0px 8px;
+  }
+}
 .img__h1Sjj {
   object-fit: cover;
   max-width: 100%;
@@ -56,7 +61,7 @@
 }
 @media (max-width: 640px) {
   .img__h1Sjj {
-    width: 100px;
+    width: 80px;
   }
 }
 .text__c7Pzm {
@@ -364,7 +369,7 @@
 }
 .freeBox__nGlzo {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
   width: 100%;
   height: auto;
@@ -373,12 +378,12 @@
   padding: 8px;
 }
 .freeBox__nGlzo > :global(.__wab_flex-container) {
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
   min-width: 0;
-  margin-left: calc(0px - 8px);
-  width: calc(100% + 8px);
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
 }
 .freeBox__nGlzo > :global(.__wab_flex-container) > *,
 .freeBox__nGlzo > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -388,7 +393,7 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-left: 8px;
+  margin-top: 8px;
 }
 @media (max-width: 640px) {
   .freeBox__nGlzo {
@@ -420,6 +425,51 @@
   }
 }
 .svg__a4WFg {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
+}
+.button13:global(.__wab_instance) {
+  max-width: 100%;
+  width: auto;
+  position: relative;
+  left: auto;
+  top: auto;
+}
+@media (max-width: 640px) {
+  .button13:global(.__wab_instance) {
+    width: auto;
+  }
+}
+.svg__b1GW {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__iz8L6 {
+  font-weight: 700;
+  color: #7444bc;
+  font-size: 16px;
+}
+@media (max-width: 640px) {
+  .text__iz8L6 {
+    font-weight: 500;
+    color: var(--token-55cSeNPovQFh);
+    font-size: 14px;
+    padding: 4px;
+  }
+}
+.svg__b4KDk {
   object-fit: cover;
   max-width: 100%;
   width: 40px;
@@ -539,52 +589,6 @@
   > picture
   > img {
   margin-left: 8px;
-}
-.button13:global(.__wab_instance) {
-  max-width: 100%;
-  width: auto;
-  position: absolute;
-  left: auto;
-  top: -16px;
-  right: 8px;
-}
-@media (max-width: 640px) {
-  .button13:global(.__wab_instance) {
-    width: auto;
-  }
-}
-.svg__pdAt4 {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.text__jyoN {
-  font-weight: 700;
-  color: #7444bc;
-  font-size: 16px;
-}
-@media (max-width: 640px) {
-  .text__jyoN {
-    font-weight: 500;
-    color: var(--token-55cSeNPovQFh);
-    font-size: 14px;
-    padding: 4px;
-  }
-}
-.svg__ui2KG {
-  object-fit: cover;
-  max-width: 100%;
-  width: 40px;
-  height: 50px;
-  position: relative;
-  left: auto;
-  top: auto;
-  z-index: 1;
-  color: var(--token-jgohepLVeKvh);
-  right: auto;
-  bottom: auto;
-  display: none;
 }
 .button5:global(.__wab_instance) {
   max-width: 100%;

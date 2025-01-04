@@ -98,9 +98,9 @@ export const PlasmicIntro__ArgProps = new Array<ArgPropType>();
 export type PlasmicIntro__OverridesType = {
   root?: Flex__<"div">;
   button11?: Flex__<typeof Button>;
+  button13?: Flex__<typeof Button>;
   button12?: Flex__<typeof Button>;
   section?: Flex__<"section">;
-  button13?: Flex__<typeof Button>;
   button5?: Flex__<typeof Button>;
   button4?: Flex__<typeof Button>;
   dialog?: Flex__<typeof Dialog>;
@@ -359,7 +359,7 @@ function PlasmicIntro__RenderFunc(props: {
         path: "button13.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
       }
     ],
     [$props, $ctx, $refs]
@@ -409,7 +409,7 @@ function PlasmicIntro__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      if ($state.startX - event.clientX > 80) {
+                      if (event.clientX - $state.startX > 80) {
                         switch ($state.slid) {
                           case "slid1":
                             break;
@@ -422,7 +422,7 @@ function PlasmicIntro__RenderFunc(props: {
                             run1();
                             break;
                         }
-                      } else if (event.clientX - $state.startX > 80) {
+                      } else if ($state.startX - event.clientX > 80) {
                         switch ($state.slid) {
                           case "slid1":
                             $state.slid = "slid2";
@@ -505,7 +505,7 @@ function PlasmicIntro__RenderFunc(props: {
                   customFunction: async () => {
                     return (() => {
                       if (
-                        $state.startX - event.changedTouches[0].clientX >
+                        event.changedTouches[0].clientX - $state.startX >
                         80
                       ) {
                         switch ($state.slid) {
@@ -521,7 +521,7 @@ function PlasmicIntro__RenderFunc(props: {
                             break;
                         }
                       } else if (
-                        event.changedTouches[0].clientX - $state.startX >
+                        $state.startX - event.changedTouches[0].clientX >
                         80
                       ) {
                         switch ($state.slid) {
@@ -608,7 +608,7 @@ function PlasmicIntro__RenderFunc(props: {
             displayMinHeight={"0"}
             displayMinWidth={"0"}
             displayWidth={
-              hasVariant(globalVariants, "screen", "mobile") ? "100px" : "100px"
+              hasVariant(globalVariants, "screen", "mobile") ? "80px" : "100px"
             }
             src={{
               src: "/plasmic/liom_hamyar/images/image40.png",
@@ -1079,6 +1079,88 @@ function PlasmicIntro__RenderFunc(props: {
                   }
                 </div>
               </Button>
+              {(() => {
+                try {
+                  return $state.slid == "slid3";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <Button
+                  data-plasmic-name={"button13"}
+                  data-plasmic-override={overrides.button13}
+                  className={classNames("__wab_instance", sty.button13)}
+                  color={generateStateValueProp($state, ["button13", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (window.location.href =
+                                "https://apps.liom.app/hamyar/?r=" +
+                                $ctx.query.r +
+                                "&m=" +
+                                $ctx.query.m);
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button13", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  size={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? "minimal"
+                      : "compact"
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__iz8L6,
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? ``
+                        : undefined
+                    )}
+                  >
+                    {
+                      "\u0648\u0631\u0648\u062f \u0628\u0647 \u0628\u0631\u0646\u0627\u0645\u0647 >"
+                    }
+                  </div>
+                </Button>
+              ) : null}
               <Button
                 data-plasmic-name={"button12"}
                 data-plasmic-override={overrides.button12}
@@ -1160,88 +1242,6 @@ function PlasmicIntro__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__rmy4S)}
           >
-            {(() => {
-              try {
-                return $state.slid == "slid3";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
-              <Button
-                data-plasmic-name={"button13"}
-                data-plasmic-override={overrides.button13}
-                className={classNames("__wab_instance", sty.button13)}
-                color={generateStateValueProp($state, ["button13", "color"])}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (window.location.href =
-                              "https://apps.liom.app/hamyar/?r=" +
-                              $ctx.query.r +
-                              "&m=" +
-                              $ctx.query.m);
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
-                  }
-                }}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button13", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                size={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? "compact"
-                    : "compact"
-                }
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__jyoN,
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? ``
-                      : undefined
-                  )}
-                >
-                  {
-                    "\u0648\u0631\u0648\u062f \u0628\u0647 \u0628\u0631\u0646\u0627\u0645\u0647"
-                  }
-                </div>
-              </Button>
-            ) : null}
             {(() => {
               try {
                 return $state.slid != "slid3";
@@ -2373,6 +2373,45 @@ function PlasmicIntro__RenderFunc(props: {
                           $steps["runCode2"] = await $steps["runCode2"];
                         }
 
+                        $steps["updateSelectedShop"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["selectedShop"]
+                                },
+                                operation: 0,
+                                value: $state.shop.data.result.findIndex(
+                                  item => item.selected === 1
+                                )
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateSelectedShop"] != null &&
+                          typeof $steps["updateSelectedShop"] === "object" &&
+                          typeof $steps["updateSelectedShop"].then ===
+                            "function"
+                        ) {
+                          $steps["updateSelectedShop"] = await $steps[
+                            "updateSelectedShop"
+                          ];
+                        }
+
                         $steps["invokeGlobalAction"] = true
                           ? (() => {
                               const actionArgs = {
@@ -3329,9 +3368,9 @@ const PlasmicDescendants = {
   root: [
     "root",
     "button11",
+    "button13",
     "button12",
     "section",
-    "button13",
     "button5",
     "button4",
     "dialog",
@@ -3347,9 +3386,9 @@ const PlasmicDescendants = {
     "user"
   ],
   button11: ["button11"],
-  button12: ["button12"],
-  section: ["section", "button13", "button5", "button4"],
   button13: ["button13"],
+  button12: ["button12"],
+  section: ["section", "button5", "button4"],
   button5: ["button5"],
   button4: ["button4"],
   dialog: [
@@ -3391,9 +3430,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   button11: typeof Button;
+  button13: typeof Button;
   button12: typeof Button;
   section: "section";
-  button13: typeof Button;
   button5: typeof Button;
   button4: typeof Button;
   dialog: typeof Dialog;
@@ -3495,9 +3534,9 @@ export const PlasmicIntro = Object.assign(
   {
     // Helper components rendering sub-elements
     button11: makeNodeComponent("button11"),
+    button13: makeNodeComponent("button13"),
     button12: makeNodeComponent("button12"),
     section: makeNodeComponent("section"),
-    button13: makeNodeComponent("button13"),
     button5: makeNodeComponent("button5"),
     button4: makeNodeComponent("button4"),
     dialog: makeNodeComponent("dialog"),

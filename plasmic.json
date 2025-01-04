@@ -845,6 +845,32 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicRadio.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "f_5OZPoRC_w4",
+          "name": "Subscription2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSubscription2.tsx",
+          "importSpec": {
+            "modulePath": "Subscription2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSubscription2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "DuWIegJ6qGVC",
+          "name": "Dialog2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDialog2.tsx",
+          "importSpec": {
+            "modulePath": "Dialog2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDialog2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
