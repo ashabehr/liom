@@ -289,6 +289,10 @@ function PlasmicCyclebox__RenderFunc(props: {
             hasVariant($state, "pms", "pms") &&
             hasVariant($state, "fertility", "fertility") &&
             hasVariant($state, "period", "period"),
+          [sty.rootperiod_pms_normalpms]:
+            hasVariant($state, "pms", "pms") &&
+            hasVariant($state, "period", "period") &&
+            hasVariant($state, "normalpms", "normalpms"),
           [sty.rootperiod_pms_normalpms_fertility]:
             hasVariant($state, "pms", "pms") &&
             hasVariant($state, "fertility", "fertility") &&
@@ -304,6 +308,9 @@ function PlasmicCyclebox__RenderFunc(props: {
           [sty.rootpms_fertility]:
             hasVariant($state, "pms", "pms") &&
             hasVariant($state, "fertility", "fertility"),
+          [sty.rootpms_normalpms]:
+            hasVariant($state, "pms", "pms") &&
+            hasVariant($state, "normalpms", "normalpms"),
           [sty.rootpregnancy]: hasVariant($state, "pregnancy", "pregnancy")
         }
       )}
@@ -421,7 +428,29 @@ function PlasmicCyclebox__RenderFunc(props: {
             "period",
             "period"
           ),
+          [sty.freeBoxperiod_fertility___66Lnm6AdLdVlklK]:
+            hasVariant($state, "fertility", "fertility") &&
+            hasVariant($state, "period", "period"),
+          [sty.freeBoxperiod_pms_fertility___66Lnm6AdLdSscqcVlklK]:
+            hasVariant($state, "pms", "pms") &&
+            hasVariant($state, "fertility", "fertility") &&
+            hasVariant($state, "period", "period"),
+          [sty.freeBoxperiod_pms_normalpms___66Lnm6AdLdSscqcU3BKb]:
+            hasVariant($state, "pms", "pms") &&
+            hasVariant($state, "period", "period") &&
+            hasVariant($state, "normalpms", "normalpms"),
+          [sty.freeBoxperiod_pms_normalpms_fertility___66Lnm6AdLdSscqcU3BKbVlklK]:
+            hasVariant($state, "pms", "pms") &&
+            hasVariant($state, "fertility", "fertility") &&
+            hasVariant($state, "period", "period") &&
+            hasVariant($state, "normalpms", "normalpms"),
           [sty.freeBoxpms___66Lnmsscqc]: hasVariant($state, "pms", "pms"),
+          [sty.freeBoxpms_fertility___66LnmsscqcVlklK]:
+            hasVariant($state, "pms", "pms") &&
+            hasVariant($state, "fertility", "fertility"),
+          [sty.freeBoxpms_normalpms___66LnmsscqcU3BKb]:
+            hasVariant($state, "pms", "pms") &&
+            hasVariant($state, "normalpms", "normalpms"),
           [sty.freeBoxpregnancy___66LnmKiZil]: hasVariant(
             $state,
             "pregnancy",

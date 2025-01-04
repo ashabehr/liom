@@ -195,17 +195,37 @@
   width: 100%;
   min-width: 0;
 }
+@media (max-width: 640px) {
+  .freeBoxpms___66Lnmsscqc {
+    padding: 0px;
+  }
+}
 .freeBoxfertility___66LnmvlklK {
   width: 100%;
   min-width: 0;
+}
+@media (max-width: 640px) {
+  .freeBoxfertility___66LnmvlklK {
+    padding: 0px;
+  }
 }
 .freeBoxperiod___66Lnm6AdLd {
   width: 100%;
   min-width: 0;
 }
+@media (max-width: 640px) {
+  .freeBoxperiod___66Lnm6AdLd {
+    padding: 0px;
+  }
+}
 .freeBoxnormalpms___66Lnmu3BKb {
   width: 100%;
   min-width: 0;
+}
+@media (max-width: 640px) {
+  .freeBoxnormalpms___66Lnmu3BKb {
+    padding: 0px;
+  }
 }
 .freeBoxpregnancy___66LnmKiZil {
   padding: 0px;

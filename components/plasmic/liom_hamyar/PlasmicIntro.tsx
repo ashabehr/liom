@@ -172,7 +172,7 @@ function PlasmicIntro__RenderFunc(props: {
         path: "slid",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "slid1"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "slid3"
       },
       {
         path: "dialog.opendialog",

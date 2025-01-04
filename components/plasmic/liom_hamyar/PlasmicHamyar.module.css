@@ -409,7 +409,8 @@
 }
 @media (max-width: 640px) {
   .freeBox__nRwCr {
-    height: 280px;
+    height: 290px;
+    max-height: 300px;
     flex-shrink: 0;
     padding: 0px 16px;
   }
@@ -5584,9 +5585,9 @@
 @media (max-width: 640px) {
   .text__frfXm {
     text-align: right;
-    font-size: 11px;
+    font-size: 14px;
     text-decoration-line: underline;
-    padding: 0px;
+    padding: 0px 8px;
   }
 }
 .freeBox__b7Fgp {

@@ -400,7 +400,21 @@ function PlasmicHamyar__RenderFunc(props: {
         path: "buyId",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.shop.data.result.find(item => item.selected === 1)
+                .id;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "discountCode",
@@ -2549,7 +2563,7 @@ function PlasmicHamyar__RenderFunc(props: {
                                   dangerouslySetInnerHTML={{
                                     __html: (() => {
                                       try {
-                                        return "\xABتغییرات <b style='color: purple;'>چرخه قاعدگیش</b> رو برات ارسال می‌کنم که <b style='color: purple;'>راحت‌تر بتونی مراقبش باشی.</b> اینطوری <b style='color: purple;'>رابطه شادتری</b> دارین.\xBB";
+                                        return "\xABتغییرات <b>چرخه قاعدگیش</b> رو برات ارسال می‌کنم که <b>راحت‌تر بتونی مراقبش باشی.</b> اینطوری <b>رابطه شادتری</b> دارین.\xBB";
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||
@@ -14283,6 +14297,32 @@ function PlasmicHamyar__RenderFunc(props: {
                             role={"img"}
                           />
                         }
+                        isDisabled={(() => {
+                          try {
+                            return $state.loadingshop;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        loading={(() => {
+                          try {
+                            return $state.loadingshop;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
                         onClick={async event => {
                           const $steps = {};
 
@@ -14445,6 +14485,25 @@ function PlasmicHamyar__RenderFunc(props: {
                                         }
                                         throw e;
                                       }
+                                    })(),
+                                    (() => {
+                                      try {
+                                        return {
+                                          headers: {
+                                            "Content-Type": "application/json",
+                                            Authorization: $state.tokenUser
+                                          }
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
                                     })()
                                   ]
                                 };
@@ -14532,7 +14591,7 @@ function PlasmicHamyar__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     args: [
-                                      undefined,
+                                      "error",
                                       "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f."
                                     ]
                                   };
@@ -14963,6 +15022,32 @@ function PlasmicHamyar__RenderFunc(props: {
                         role={"img"}
                       />
                     }
+                    isDisabled={(() => {
+                      try {
+                        return $state.loadingshop;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    loading={(() => {
+                      try {
+                        return $state.loadingshop;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     onClick={async event => {
                       const $steps = {};
 
@@ -15038,6 +15123,25 @@ function PlasmicHamyar__RenderFunc(props: {
                                         ].price +
                                         "&manId=" +
                                         $state.user.data.result.man.id
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                (() => {
+                                  try {
+                                    return {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization: $state.tokenUser
+                                      }
                                     };
                                   } catch (e) {
                                     if (
@@ -15135,7 +15239,7 @@ function PlasmicHamyar__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 args: [
-                                  undefined,
+                                  "error",
                                   "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f."
                                 ]
                               };
