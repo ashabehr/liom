@@ -589,8 +589,9 @@
 .button5:global(.__wab_instance) {
   max-width: 100%;
   position: absolute;
-  left: 763px;
+  left: auto;
   top: 0px;
+  right: 8px;
 }
 .svg___3W9Ri {
   position: relative;

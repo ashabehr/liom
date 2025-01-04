@@ -1452,6 +1452,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             if (typeof name == "undefined") {
                               name = "";
                             }
+                            console.log($state.getUserInfo.data[0].result);
                             var gy = parseInt(
                               $state.user?.[0]?.dueDate.split("-")[0]
                             );
