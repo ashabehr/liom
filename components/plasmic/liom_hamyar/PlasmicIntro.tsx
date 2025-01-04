@@ -99,6 +99,10 @@ export type PlasmicIntro__OverridesType = {
   root?: Flex__<"div">;
   button11?: Flex__<typeof Button>;
   button12?: Flex__<typeof Button>;
+  section?: Flex__<"section">;
+  button13?: Flex__<typeof Button>;
+  button5?: Flex__<typeof Button>;
+  button4?: Flex__<typeof Button>;
   dialog?: Flex__<typeof Dialog>;
   shop?: Flex__<typeof ApiRequest>;
   dialogTitle?: Flex__<typeof DialogTitle>;
@@ -168,7 +172,7 @@ function PlasmicIntro__RenderFunc(props: {
         path: "slid",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "slid1"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "slid3"
       },
       {
         path: "dialog.opendialog",
@@ -338,6 +342,24 @@ function PlasmicIntro__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "button5.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "button13.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
       }
     ],
     [$props, $ctx, $refs]
@@ -387,7 +409,7 @@ function PlasmicIntro__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      if ($state.startX < event.clientX) {
+                      if ($state.startX - event.clientX > 80) {
                         switch ($state.slid) {
                           case "slid1":
                             break;
@@ -400,7 +422,7 @@ function PlasmicIntro__RenderFunc(props: {
                             run1();
                             break;
                         }
-                      } else if ($state.startX > event.clientX) {
+                      } else if (event.clientX - $state.startX > 80) {
                         switch ($state.slid) {
                           case "slid1":
                             $state.slid = "slid2";
@@ -482,7 +504,10 @@ function PlasmicIntro__RenderFunc(props: {
                 const actionArgs = {
                   customFunction: async () => {
                     return (() => {
-                      if ($state.startX < event.changedTouches[0].clientX) {
+                      if (
+                        $state.startX - event.changedTouches[0].clientX >
+                        80
+                      ) {
                         switch ($state.slid) {
                           case "slid1":
                             break;
@@ -496,7 +521,8 @@ function PlasmicIntro__RenderFunc(props: {
                             break;
                         }
                       } else if (
-                        $state.startX > event.changedTouches[0].clientX
+                        event.changedTouches[0].clientX - $state.startX >
+                        80
                       ) {
                         switch ($state.slid) {
                           case "slid1":
@@ -1116,158 +1142,428 @@ function PlasmicIntro__RenderFunc(props: {
                       : undefined
                   )}
                 >
-                  {"\u0628\u0632\u0646 \u0628\u0631\u06cc\u0645"}
+                  {
+                    "\u0648\u0631\u0648\u062f \u0628\u0647 \u0628\u0631\u0646\u0627\u0645\u0647"
+                  }
                 </div>
               </Button>
             </Stack__>
           </Stack__>
         ) : null}
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__rmy4S)}
+        <section
+          data-plasmic-name={"section"}
+          data-plasmic-override={overrides.section}
+          className={classNames(projectcss.all, sty.section)}
         >
-          <div
-            className={classNames(projectcss.all, sty.freeBox__oUZm)}
-            style={
-              hasVariant(globalVariants, "screen", "mobile")
-                ? (() => {
-                    try {
-                      return {
-                        transform:
-                          $state.slid == "slid1"
-                            ? "translateX(0px)"
-                            : $state.slid == "slid2"
-                            ? "translateX(0px)"
-                            : "translateX(-38px)"
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                : (() => {
-                    try {
-                      return {
-                        transform:
-                          $state.slid == "slid1"
-                            ? "translateX(0px)"
-                            : $state.slid == "slid2"
-                            ? "translateX(0px)"
-                            : "translateX(-48px)"
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-            }
-          />
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__rmy4S)}
+          >
+            {(() => {
+              try {
+                return $state.slid == "slid3";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Button
+                data-plasmic-name={"button13"}
+                data-plasmic-override={overrides.button13}
+                className={classNames("__wab_instance", sty.button13)}
+                color={generateStateValueProp($state, ["button13", "color"])}
+                onClick={async event => {
+                  const $steps = {};
 
-          <div
-            className={classNames(projectcss.all, sty.freeBox__boi5L)}
-            style={
-              hasVariant(globalVariants, "screen", "mobile")
-                ? (() => {
-                    try {
-                      return {
-                        transform:
-                          $state.slid == "slid1"
-                            ? "translateX(0px)"
-                            : $state.slid == "slid2"
-                            ? "translateX(-38px)"
-                            : "translateX(-38px)"
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                : (() => {
-                    try {
-                      return {
-                        transform:
-                          $state.slid == "slid1"
-                            ? "translateX(0px)"
-                            : $state.slid == "slid2"
-                            ? "translateX(-48px)"
-                            : "translateX(-48px)"
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-            }
-          />
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (window.location.href =
+                              "https://apps.liom.app/hamyar/?r=" +
+                              $ctx.query.r +
+                              "&m=" +
+                              $ctx.query.m);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button13", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
 
-          <div
-            className={classNames(projectcss.all, sty.freeBox__pHr7Z)}
-            style={
-              hasVariant(globalVariants, "screen", "mobile")
-                ? (() => {
-                    try {
-                      return {
-                        transform:
-                          $state.slid == "slid1"
-                            ? "translateX(0px)"
-                            : $state.slid == "slid2"
-                            ? "translateX(38px)"
-                            : "translateX(76px)"
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-                : (() => {
-                    try {
-                      return {
-                        transform:
-                          $state.slid == "slid1"
-                            ? "translateX(0px)"
-                            : $state.slid == "slid2"
-                            ? "translateX(48px)"
-                            : "translateX(96px)"
-                      };
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()
-            }
-          />
-        </Stack__>
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? "compact"
+                    : "compact"
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__jyoN,
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? ``
+                      : undefined
+                  )}
+                >
+                  {
+                    "\u0648\u0631\u0648\u062f \u0628\u0647 \u0628\u0631\u0646\u0627\u0645\u0647"
+                  }
+                </div>
+              </Button>
+            ) : null}
+            {(() => {
+              try {
+                return $state.slid != "slid3";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Button
+                data-plasmic-name={"button5"}
+                data-plasmic-override={overrides.button5}
+                className={classNames("__wab_instance", sty.button5)}
+                color={generateStateValueProp($state, ["button5", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              switch ($state.slid) {
+                                case "slid1":
+                                  $state.slid = "slid2";
+                                  break;
+                                case "slid2":
+                                  $state.slid = "slid3";
+                                  run1();
+                                  break;
+                              }
+                              function run1() {
+                                var box = document.getElementById("myBox");
+                                box.classList.remove("zoom-animation");
+                                void box.offsetWidth;
+                                box.classList.add("zoom-animation");
+                              }
+                              return function run1() {
+                                var box = document.getElementById("myBox");
+                                box.classList.remove("zoom-animation");
+                                void box.offsetWidth;
+                                box.classList.add("zoom-animation");
+                              };
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button5", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={"minimal"}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__j0V1A
+                  )}
+                >
+                  {"\u0628\u0639\u062f\u06cc"}
+                </div>
+              </Button>
+            ) : null}
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__twHqb)}
+            >
+              <div
+                className={classNames(projectcss.all, sty.freeBox__oUZm)}
+                style={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? (() => {
+                        try {
+                          return {
+                            transform:
+                              $state.slid == "slid1"
+                                ? "translateX(0px)"
+                                : $state.slid == "slid2"
+                                ? "translateX(0px)"
+                                : "translateX(-38px)"
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : (() => {
+                        try {
+                          return {
+                            transform:
+                              $state.slid == "slid1"
+                                ? "translateX(0px)"
+                                : $state.slid == "slid2"
+                                ? "translateX(0px)"
+                                : "translateX(-48px)"
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                }
+              />
+
+              <div
+                className={classNames(projectcss.all, sty.freeBox__boi5L)}
+                style={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? (() => {
+                        try {
+                          return {
+                            transform:
+                              $state.slid == "slid1"
+                                ? "translateX(0px)"
+                                : $state.slid == "slid2"
+                                ? "translateX(-38px)"
+                                : "translateX(-38px)"
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : (() => {
+                        try {
+                          return {
+                            transform:
+                              $state.slid == "slid1"
+                                ? "translateX(0px)"
+                                : $state.slid == "slid2"
+                                ? "translateX(-48px)"
+                                : "translateX(-48px)"
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                }
+              />
+
+              <div
+                className={classNames(projectcss.all, sty.freeBox__pHr7Z)}
+                style={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? (() => {
+                        try {
+                          return {
+                            transform:
+                              $state.slid == "slid1"
+                                ? "translateX(0px)"
+                                : $state.slid == "slid2"
+                                ? "translateX(38px)"
+                                : "translateX(76px)"
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                    : (() => {
+                        try {
+                          return {
+                            transform:
+                              $state.slid == "slid1"
+                                ? "translateX(0px)"
+                                : $state.slid == "slid2"
+                                ? "translateX(48px)"
+                                : "translateX(96px)"
+                          };
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()
+                }
+              />
+            </Stack__>
+            {(() => {
+              try {
+                return $state.slid != "slid3";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Button
+                data-plasmic-name={"button4"}
+                data-plasmic-override={overrides.button4}
+                className={classNames("__wab_instance", sty.button4)}
+                color={generateStateValueProp($state, ["button4", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateSlid"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["slid"]
+                          },
+                          operation: 0,
+                          value: "slid3"
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSlid"] != null &&
+                    typeof $steps["updateSlid"] === "object" &&
+                    typeof $steps["updateSlid"].then === "function"
+                  ) {
+                    $steps["updateSlid"] = await $steps["updateSlid"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button4", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                size={"minimal"}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__sb4Z8
+                  )}
+                >
+                  {"\u0631\u062f \u0634\u062f\u0646"}
+                </div>
+              </Button>
+            ) : null}
+          </Stack__>
+        </section>
         <Dialog
           data-plasmic-name={"dialog"}
           data-plasmic-override={overrides.dialog}
@@ -3034,6 +3330,10 @@ const PlasmicDescendants = {
     "root",
     "button11",
     "button12",
+    "section",
+    "button13",
+    "button5",
+    "button4",
     "dialog",
     "shop",
     "dialogTitle",
@@ -3048,6 +3348,10 @@ const PlasmicDescendants = {
   ],
   button11: ["button11"],
   button12: ["button12"],
+  section: ["section", "button13", "button5", "button4"],
+  button13: ["button13"],
+  button5: ["button5"],
+  button4: ["button4"],
   dialog: [
     "dialog",
     "shop",
@@ -3088,6 +3392,10 @@ type NodeDefaultElementType = {
   root: "div";
   button11: typeof Button;
   button12: typeof Button;
+  section: "section";
+  button13: typeof Button;
+  button5: typeof Button;
+  button4: typeof Button;
   dialog: typeof Dialog;
   shop: typeof ApiRequest;
   dialogTitle: typeof DialogTitle;
@@ -3188,6 +3496,10 @@ export const PlasmicIntro = Object.assign(
     // Helper components rendering sub-elements
     button11: makeNodeComponent("button11"),
     button12: makeNodeComponent("button12"),
+    section: makeNodeComponent("section"),
+    button13: makeNodeComponent("button13"),
+    button5: makeNodeComponent("button5"),
+    button4: makeNodeComponent("button4"),
     dialog: makeNodeComponent("dialog"),
     shop: makeNodeComponent("shop"),
     dialogTitle: makeNodeComponent("dialogTitle"),
