@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Seen from "../../Seen"; // plasmic-import: JqwoohhEEPXm/component
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -69,32 +70,54 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicMassage.module.css"; // plasmic-import: Bqqk_Gx32qFA/css
 
 import Icon97Icon from "./icons/PlasmicIcon__Icon97"; // plasmic-import: kvFh159WsbQ8/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
 export type PlasmicMassage__VariantMembers = {
   you: "you";
+  end: "end";
 };
 export type PlasmicMassage__VariantsArgs = {
   you?: SingleBooleanChoiceArg<"you">;
+  end?: SingleBooleanChoiceArg<"end">;
 };
 type VariantPropType = keyof PlasmicMassage__VariantsArgs;
-export const PlasmicMassage__VariantProps = new Array<VariantPropType>("you");
+export const PlasmicMassage__VariantProps = new Array<VariantPropType>(
+  "you",
+  "end"
+);
 
 export type PlasmicMassage__ArgsType = {
   rectangle6?: React.ReactNode;
+  loading?: boolean;
+  onLoadingChange?: (val: string) => void;
+  onButtonclick?: (event: any) => void;
 };
 type ArgPropType = keyof PlasmicMassage__ArgsType;
-export const PlasmicMassage__ArgProps = new Array<ArgPropType>("rectangle6");
+export const PlasmicMassage__ArgProps = new Array<ArgPropType>(
+  "rectangle6",
+  "loading",
+  "onLoadingChange",
+  "onButtonclick"
+);
 
 export type PlasmicMassage__OverridesType = {
   group2?: Flex__<"div">;
   rectangle5?: Flex__<"div">;
+  helloDoctorIBel3?: Flex__<"div">;
+  button?: Flex__<typeof Button>;
+  helloDoctorIBel4?: Flex__<"div">;
 };
 
 export interface DefaultMassageProps {
   rectangle6?: React.ReactNode;
+  loading?: boolean;
+  onLoadingChange?: (val: string) => void;
+  onButtonclick?: (event: any) => void;
   you?: SingleBooleanChoiceArg<"you">;
+  end?: SingleBooleanChoiceArg<"end">;
   className?: string;
 }
 
@@ -145,6 +168,26 @@ function PlasmicMassage__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.you
+      },
+      {
+        path: "end",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.end
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "red"
+      },
+      {
+        path: "loading",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "loading",
+        onChangeProp: "onLoadingChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -173,68 +216,198 @@ function PlasmicMassage__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.group2,
-        { [sty.group2you]: hasVariant($state, "you", "you") }
+        {
+          [sty.group2end]: hasVariant($state, "end", "end"),
+          [sty.group2you]: hasVariant($state, "you", "you")
+        }
       )}
     >
       <div
         data-plasmic-name={"rectangle5"}
         data-plasmic-override={overrides.rectangle5}
         className={classNames(projectcss.all, sty.rectangle5, {
+          [sty.rectangle5end]: hasVariant($state, "end", "end"),
           [sty.rectangle5you]: hasVariant($state, "you", "you")
         })}
       >
-        {renderPlasmicSlot({
-          defaultContents: (
-            <React.Fragment>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__nUuru
-                )}
-              >
-                {"\u0633\u0644\u0627\u0645"}
-              </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__dt3N)}
-              >
-                <Seen
-                  className={classNames("__wab_instance", sty.seen___1VeD8, {
-                    [sty.seenyou___1VeD88X9HZ]: hasVariant($state, "you", "you")
-                  })}
-                />
+        {(hasVariant($state, "end", "end") ? false : true)
+          ? renderPlasmicSlot({
+              defaultContents: (
+                <React.Fragment>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__nUuru
+                    )}
+                  >
+                    {
+                      "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"
+                    }
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__fHuP5,
+                      {
+                        [sty.textend__fHuP5QZsv]: hasVariant(
+                          $state,
+                          "end",
+                          "end"
+                        )
+                      }
+                    )}
+                  >
+                    {
+                      "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"
+                    }
+                  </div>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__dt3N)}
+                  >
+                    <Seen
+                      className={classNames(
+                        "__wab_instance",
+                        sty.seen___1VeD8,
+                        {
+                          [sty.seenyou___1VeD88X9HZ]: hasVariant(
+                            $state,
+                            "you",
+                            "you"
+                          )
+                        }
+                      )}
+                    />
 
-                <Icon97Icon
-                  className={classNames(projectcss.all, sty.svg__aV0YT, {
-                    [sty.svgyou__aV0YT8X9HZ]: hasVariant($state, "you", "you")
-                  })}
-                  role={"img"}
-                />
+                    <Icon97Icon
+                      className={classNames(projectcss.all, sty.svg__aV0YT, {
+                        [sty.svgyou__aV0YT8X9HZ]: hasVariant(
+                          $state,
+                          "you",
+                          "you"
+                        )
+                      })}
+                      role={"img"}
+                    />
 
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gHqyz
-                  )}
-                >
-                  {"10:13"}
-                </div>
-              </Stack__>
-            </React.Fragment>
-          ),
-          value: args.rectangle6
-        })}
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__gHqyz
+                      )}
+                    >
+                      {"10:13"}
+                    </div>
+                  </Stack__>
+                </React.Fragment>
+              ),
+              value: args.rectangle6
+            })
+          : null}
+        {(hasVariant($state, "end", "end") ? true : false) ? (
+          <div
+            data-plasmic-name={"helloDoctorIBel3"}
+            data-plasmic-override={overrides.helloDoctorIBel3}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.helloDoctorIBel3,
+              { [sty.helloDoctorIBel3end]: hasVariant($state, "end", "end") }
+            )}
+          >
+            {hasVariant($state, "end", "end")
+              ? "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a \u0631\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"
+              : "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"}
+          </div>
+        ) : null}
       </div>
+      <Button
+        data-plasmic-name={"button"}
+        data-plasmic-override={overrides.button}
+        className={classNames("__wab_instance", sty.button, {
+          [sty.buttonend]: hasVariant($state, "end", "end")
+        })}
+        color={generateStateValueProp($state, ["button", "color"])}
+        isDisabled={(() => {
+          try {
+            return $state.loading;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return [];
+            }
+            throw e;
+          }
+        })()}
+        loading={(() => {
+          try {
+            return $state.loading;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return [];
+            }
+            throw e;
+          }
+        })()}
+        onClick={args.onButtonclick}
+        onColorChange={async (...eventArgs: any) => {
+          ((...eventArgs) => {
+            generateStateOnChangeProp($state, ["button", "color"])(
+              eventArgs[0]
+            );
+          }).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        shape={"rounded"}
+        size={"compact"}
+      >
+        <div
+          data-plasmic-name={"helloDoctorIBel4"}
+          data-plasmic-override={overrides.helloDoctorIBel4}
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.helloDoctorIBel4,
+            { [sty.helloDoctorIBel4end]: hasVariant($state, "end", "end") }
+          )}
+        >
+          {hasVariant($state, "end", "end")
+            ? "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a \u0631\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"
+            : "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"}
+        </div>
+      </Button>
     </Stack__>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  group2: ["group2", "rectangle5"],
-  rectangle5: ["rectangle5"]
+  group2: [
+    "group2",
+    "rectangle5",
+    "helloDoctorIBel3",
+    "button",
+    "helloDoctorIBel4"
+  ],
+  rectangle5: ["rectangle5", "helloDoctorIBel3"],
+  helloDoctorIBel3: ["helloDoctorIBel3"],
+  button: ["button", "helloDoctorIBel4"],
+  helloDoctorIBel4: ["helloDoctorIBel4"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -242,6 +415,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   group2: "div";
   rectangle5: "div";
+  helloDoctorIBel3: "div";
+  button: typeof Button;
+  helloDoctorIBel4: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -305,6 +481,9 @@ export const PlasmicMassage = Object.assign(
   {
     // Helper components rendering sub-elements
     rectangle5: makeNodeComponent("rectangle5"),
+    helloDoctorIBel3: makeNodeComponent("helloDoctorIBel3"),
+    button: makeNodeComponent("button"),
+    helloDoctorIBel4: makeNodeComponent("helloDoctorIBel4"),
 
     // Metadata about props expected for PlasmicMassage
     internalVariantProps: PlasmicMassage__VariantProps,

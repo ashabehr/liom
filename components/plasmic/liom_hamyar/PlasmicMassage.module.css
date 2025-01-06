@@ -29,6 +29,10 @@
   align-items: flex-end;
   justify-content: flex-start;
 }
+.group2end > :global(.__wab_flex-container) {
+  align-items: center;
+  justify-content: flex-start;
+}
 .rectangle5 {
   background: #e4d4fa;
   width: auto;
@@ -48,13 +52,18 @@
   background: #ffffff;
   border-radius: 12px 12px 12px 0px;
 }
+.rectangle5end {
+  background: var(--token-4RAe7M2gInqR);
+  display: none;
+  border-radius: 12px;
+}
 .text__nUuru {
   display: block;
   font-size: 14px;
   font-family: "Museo Sans Cyrl";
   letter-spacing: 0.233px;
   line-height: 18px;
-  color: var(--token-_wos1hXSjLbY);
+  color: var(--token-R_Rsn0nP9oIv);
   position: relative;
   top: auto;
   left: auto;
@@ -62,8 +71,24 @@
   text-align: justify;
   min-width: 0;
 }
+.text__fHuP5 {
+  display: block;
+  font-size: 14px;
+  font-family: "Museo Sans Cyrl";
+  letter-spacing: 0.233px;
+  line-height: 18px;
+  color: var(--token-R_Rsn0nP9oIv);
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  text-align: justify;
+  min-width: 0;
+}
+.textend__fHuP5QZsv {
+  display: none;
+}
 .freeBox__dt3N {
-  display: flex;
   flex-direction: row;
   position: relative;
   width: 100%;
@@ -72,6 +97,7 @@
   top: auto;
   left: auto;
   min-width: 0;
+  display: none;
   padding: 0px;
 }
 .freeBox__dt3N > :global(.__wab_flex-container) {
@@ -123,4 +149,69 @@
   letter-spacing: 0.2px;
   line-height: 100%;
   color: var(--token-WxvvgatuPYoJ);
+}
+.helloDoctorIBel3 {
+  display: block;
+  font-size: 14px;
+  font-family: "Museo Sans Cyrl";
+  letter-spacing: 0.233px;
+  line-height: 18px;
+  color: var(--token-R_Rsn0nP9oIv);
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  text-align: justify;
+  min-width: 0;
+}
+.helloDoctorIBel3end {
+  left: auto;
+  top: auto;
+}
+.button:global(.__wab_instance) {
+  max-width: 100%;
+  align-self: center;
+  display: none;
+}
+.buttonend:global(.__wab_instance) {
+  display: flex;
+}
+.svg__ngNpp {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.helloDoctorIBel4 {
+  display: block;
+  font-size: 14px;
+  font-family: "Museo Sans Cyrl";
+  letter-spacing: 0.233px;
+  line-height: 18px;
+  color: var(--token-R_Rsn0nP9oIv);
+  position: relative;
+  top: auto;
+  left: auto;
+  width: 100%;
+  text-align: justify;
+  min-width: 0;
+}
+.helloDoctorIBel4end {
+  left: auto;
+  top: auto;
+  align-self: center;
+}
+.svg__ahiad {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
 }

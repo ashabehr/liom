@@ -65,6 +65,7 @@ import IconClinic from "../../IconClinic"; // plasmic-import: TdNZ6qWfkqbt/compo
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import Star from "../../Star"; // plasmic-import: i69c2Ujsm_H6/component
+import Seen from "../../Seen"; // plasmic-import: JqwoohhEEPXm/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
@@ -140,6 +141,7 @@ export type PlasmicClinic__OverridesType = {
   mensah?: Flex__<"div">;
   input2?: Flex__<typeof Input>;
   mensah2?: Flex__<"div">;
+  seen?: Flex__<typeof Seen>;
   doctorsDetails?: Flex__<"div">;
   bg2?: Flex__<"div">;
   about?: Flex__<"div">;
@@ -296,7 +298,19 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhZjQzNGI2LTYxYmUtNDY4NS04MzQ3LTAzZjFmMzBkNDk4YSIsImlhdCI6MTczNDk1MDMwOX0.PGi7C6RqKoMXIH9q9lYQCnXgKFtpn8xEmj9r2_qAJZU"
+          (() => {
+            try {
+              return localStorage.getItem("ClinicToken");
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "getList",
@@ -407,6 +421,32 @@ function PlasmicClinic__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
 
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        var urlParams = new URLSearchParams(
+                          window.location.search
+                        );
+                        var app = urlParams.get("token");
+                        return localStorage.setItem("ClinicToken", app);
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+
             $steps["invokeGlobalAction"] = true
               ? (() => {
                   const actionArgs = {
@@ -415,10 +455,7 @@ function PlasmicClinic__RenderFunc(props: {
                       "https://n8n.staas.ir/webhook/help/getList",
                       (() => {
                         try {
-                          return {
-                            token:
-                              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjFhZjQzNGI2LTYxYmUtNDY4NS04MzQ3LTAzZjFmMzBkNDk4YSIsImlhdCI6MTczNDk1MDMwOX0.PGi7C6RqKoMXIH9q9lYQCnXgKFtpn8xEmj9r2_qAJZU"
-                          };
+                          return { token: localStorage.getItem("ClinicToken") };
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -2212,16 +2249,81 @@ function PlasmicClinic__RenderFunc(props: {
                       )
                     })}
                     key={currentIndex}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return `https://apps.liom.app/chat?sessionID=${currentItem.id}&listiD=${currentItem.listID}&subList=${currentItem.subList}&doctorID=`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                    style={
+                      hasVariant($state, "_1", "chatviow")
+                        ? (() => {
+                            try {
+                              return {
+                                "background-color":
+                                  currentItem.status == -1
+                                    ? "#ff0000"
+                                    : "#00ff00"
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        : undefined
+                    }
                   >
                     <PlasmicImg__
                       alt={""}
-                      className={classNames(sty.img___5GhNp, {
-                        [sty.img_1_chatviow___5GhNPaYJmT]: hasVariant(
+                      className={classNames(sty.img__eynUl, {
+                        [sty.img_1_chatviow__eynUlaYJmT]: hasVariant(
                           $state,
                           "_1",
                           "chatviow"
                         ),
-                        [sty.img_1_docters___5GhNPpv2Kd]: hasVariant(
+                        [sty.img_1_docters__eynUlpv2Kd]: hasVariant(
                           $state,
                           "_1",
                           "docters"
@@ -2352,61 +2454,106 @@ function PlasmicClinic__RenderFunc(props: {
                           }
                         )}
                       >
-                        <div
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__oLwL,
+                            sty.freeBox__dvfRs,
                             {
-                              [sty.text_1_chatviow__oLwLaYJmT]: hasVariant(
+                              [sty.freeBox_1_chatviow__dvfRsaYJmT]: hasVariant(
                                 $state,
                                 "_1",
                                 "chatviow"
-                              ),
-                              [sty.text_1_docters__oLwLpv2Kd]: hasVariant(
-                                $state,
-                                "_1",
-                                "docters"
                               )
                             }
                           )}
                         >
-                          {hasVariant($state, "_1", "chatviow") ? (
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return currentItem.text;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__oLwL,
+                              {
+                                [sty.text_1_chatviow__oLwLaYJmT]: hasVariant(
+                                  $state,
+                                  "_1",
+                                  "chatviow"
+                                ),
+                                [sty.text_1_docters__oLwLpv2Kd]: hasVariant(
+                                  $state,
+                                  "_1",
+                                  "docters"
+                                )
+                              }
+                            )}
+                          >
+                            {hasVariant($state, "_1", "chatviow") ? (
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return currentItem.text;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          ) : (
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return undefined;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
+                                })()}
+                              </React.Fragment>
+                            ) : (
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return undefined;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
+                                    }
+                                    throw e;
                                   }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          )}
-                        </div>
+                                })()}
+                              </React.Fragment>
+                            )}
+                          </div>
+                          <Seen
+                            data-plasmic-name={"seen"}
+                            data-plasmic-override={overrides.seen}
+                            className={classNames("__wab_instance", sty.seen, {
+                              [sty.seen_1_chatviow]: hasVariant(
+                                $state,
+                                "_1",
+                                "chatviow"
+                              )
+                            })}
+                            unnamedGroupOfVariants={
+                              hasVariant($state, "_1", "chatviow")
+                                ? (() => {
+                                    try {
+                                      return `_${currentItem.status + 1}`;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                : undefined
+                            }
+                          />
+                        </Stack__>
                         <div
                           className={classNames(
                             projectcss.all,
@@ -2430,7 +2577,68 @@ function PlasmicClinic__RenderFunc(props: {
                             <React.Fragment>
                               {(() => {
                                 try {
-                                  return currentItem.date;
+                                  return (() => {
+                                    var birthDate = currentItem.date.split("-");
+                                    let gy = parseInt(birthDate[0]);
+                                    let gm = parseInt(birthDate[1]);
+                                    let gd = parseInt(birthDate[2]);
+                                    let shamsiMonthDays = [
+                                      31, 31, 31, 31, 31, 31, 30, 30, 30, 30,
+                                      30, 29
+                                    ];
+
+                                    let miladiDaysInMonth = [
+                                      31, 28, 31, 30, 31, 30, 31, 31, 30, 31,
+                                      30, 31
+                                    ];
+
+                                    let isLeapYear =
+                                      gy % 4 === 0 &&
+                                      (gy % 100 !== 0 || gy % 400 === 0);
+                                    if (isLeapYear) {
+                                      miladiDaysInMonth[1] = 29;
+                                    }
+                                    let daysPassedMiladi = gd;
+                                    for (let i = 0; i < gm - 1; i++) {
+                                      daysPassedMiladi += miladiDaysInMonth[i];
+                                    }
+                                    let shamsiNewYearDay = new Date(gy, 2, 21);
+                                    let shamsiStartDayInMiladi =
+                                      (shamsiNewYearDay - new Date(gy, 0, 1)) /
+                                      (1000 * 60 * 60 * 24);
+                                    let daysPassedInShamsiYear =
+                                      daysPassedMiladi - shamsiStartDayInMiladi;
+                                    if (daysPassedInShamsiYear < 0) {
+                                      gy--;
+                                      shamsiNewYearDay = new Date(gy, 2, 21);
+                                      shamsiStartDayInMiladi =
+                                        (shamsiNewYearDay -
+                                          new Date(gy, 0, 1)) /
+                                        (1000 * 60 * 60 * 24);
+                                      daysPassedInShamsiYear =
+                                        daysPassedMiladi +
+                                        (365 - shamsiStartDayInMiladi);
+                                      if (isLeapYear) {
+                                        daysPassedInShamsiYear++;
+                                      }
+                                    }
+                                    let jy = gy - 621;
+                                    let jm = 0;
+                                    let jd = daysPassedInShamsiYear;
+                                    for (
+                                      let i = 0;
+                                      i < shamsiMonthDays.length;
+                                      i++
+                                    ) {
+                                      if (jd <= shamsiMonthDays[i]) {
+                                        jm = i + 1;
+                                        break;
+                                      } else {
+                                        jd -= shamsiMonthDays[i];
+                                      }
+                                    }
+                                    return `${jy}/${jm}/${jd}`;
+                                  })();
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2444,22 +2652,7 @@ function PlasmicClinic__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           ) : (
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return undefined;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
+                            "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f"
                           )}
                         </div>
                       </Stack__>
@@ -4340,6 +4533,7 @@ const PlasmicDescendants = {
     "mensah",
     "input2",
     "mensah2",
+    "seen",
     "doctorsDetails",
     "bg2",
     "about",
@@ -4404,7 +4598,8 @@ const PlasmicDescendants = {
   input: ["input"],
   mensah: ["mensah"],
   input2: ["input2"],
-  mensah2: ["mensah2"],
+  mensah2: ["mensah2", "seen"],
+  seen: ["seen"],
   doctorsDetails: [
     "doctorsDetails",
     "bg2",
@@ -4486,6 +4681,7 @@ type NodeDefaultElementType = {
   mensah: "div";
   input2: typeof Input;
   mensah2: "div";
+  seen: typeof Seen;
   doctorsDetails: "div";
   bg2: "div";
   about: "div";
@@ -4621,6 +4817,7 @@ export const PlasmicClinic = Object.assign(
     mensah: makeNodeComponent("mensah"),
     input2: makeNodeComponent("input2"),
     mensah2: makeNodeComponent("mensah2"),
+    seen: makeNodeComponent("seen"),
     doctorsDetails: makeNodeComponent("doctorsDetails"),
     bg2: makeNodeComponent("bg2"),
     about: makeNodeComponent("about"),

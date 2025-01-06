@@ -28,16 +28,16 @@
   align-items: center;
   justify-content: center;
   border-radius: 99px;
-  border: 2px solid var(--token-G-IZ_XhVdlqp);
+  border: 2px solid var(--token-55cSeNPovQFh);
 }
 .ariaRadio[data-selected] .freeBox__ujPkd {
-  background: var(--token-G-IZ_XhVdlqp);
-  border-color: var(--token-G-IZ_XhVdlqp);
+  background: var(--token-55cSeNPovQFh);
+  border-color: var(--token-55cSeNPovQFh);
 }
 .ariaRadio[data-focus-visible] .freeBox__ujPkd {
   outline-offset: 1px;
   outline-style: solid;
-  outline-color: var(--token-0xHMxyAHbOos);
+  outline-color: var(--token-IlR0iqdnKI_m);
   outline-width: 2px;
 }
 .ariaRadio[data-pressed][data-selected] .freeBox__ujPkd {
