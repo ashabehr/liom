@@ -61,12 +61,19 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicLandingPage.module.css"; // plasmic-import: j6Q-FbS-KGQL/css
+
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -81,6 +88,8 @@ export const PlasmicLandingPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicLandingPage__OverridesType = {
   root?: Flex__<"div">;
+  section?: Flex__<"section">;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultLandingPageProps {}
@@ -125,6 +134,28 @@ function PlasmicLandingPage__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "green"
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -165,19 +196,30 @@ function PlasmicLandingPage__RenderFunc(props: {
                   <React.Fragment>
                     <span
                       className={"plasmic_default__all plasmic_default__span"}
-                      style={{ color: "var(--token-IdKt2w2aRFZS)" }}
+                      style={{ color: "var(--token-55cSeNPovQFh)" }}
                     >
                       {"\u0647\u062f\u06cc\u0647 \u0648\u06cc\u0698\u0647"}
                     </span>
-                    <React.Fragment>{"\n"}</React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ color: "var(--token-7fkkqjqo9aea)" }}
-                    >
-                      {"aaaaa"}
-                    </span>
                   </React.Fragment>
                 </div>
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__s3R9J)}
+                  displayHeight={"50%"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"30%"}
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/liom_hamyar/images/image60.png",
+                    fullWidth: 450,
+                    fullHeight: 450,
+                    aspectRatio: undefined
+                  }}
+                />
+
                 <div
                   className={classNames(
                     projectcss.all,
@@ -226,38 +268,71 @@ function PlasmicLandingPage__RenderFunc(props: {
                   displayWidth={"80px"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/liom_hamyar/images/image51.svg",
-                    fullWidth: 512,
-                    fullHeight: 512,
-                    aspectRatio: 1
+                    src: "/plasmic/liom_hamyar/images/image59.png",
+                    fullWidth: 450,
+                    fullHeight: 450,
+                    aspectRatio: undefined
                   }}
                 />
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___5TWC
-                )}
-              >
-                <React.Fragment>
-                  <span
-                    className={"plasmic_default__all plasmic_default__span"}
-                    style={{
-                      fontWeight: 700,
-                      color: "var(--token-IdKt2w2aRFZS)"
-                    }}
+              <div className={classNames(projectcss.all, sty.freeBox__o0Hbg)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___5TWC
+                  )}
+                >
+                  {hasVariant(globalVariants, "screen", "mobile") ? (
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          fontWeight: 700,
+                          color: "var(--token-IdKt2w2aRFZS)"
+                        }}
+                      >
+                        {
+                          "\u062f\u06cc\u06af\u0647 \u063a\u0627\u0641\u0644\u06af\u06cc\u0631 \u0646\u0634\u0648!"
+                        }
+                      </span>
+                    </React.Fragment>
+                  ) : (
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          fontWeight: 700,
+                          color: "var(--token-IdKt2w2aRFZS)"
+                        }}
+                      >
+                        {
+                          "\u062f\u06cc\u06af\u0647 \u063a\u0627\u0641\u0644\u06af\u06cc\u0631 \u0646\u0634\u0648!"
+                        }
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\n\u06cc\u0647\u0648 \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u0646 \u0648 \u0622\u0645\u0627\u062f\u0647 \u0646\u0628\u0648\u062f\u0646 \u062a\u0645\u0648\u0645 \u0634\u062f. \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u0686\u0631\u062e\u0647\u200c\u062a \u0647\u0645\u06cc\u0634\u0647 \u06cc\u0627\u062f\u062a \u0645\u06cc\u200c\u0645\u0648\u0646\u0647."
+                        }
+                      </React.Fragment>
+                    </React.Fragment>
+                  )}
+                </div>
+                {(
+                  hasVariant(globalVariants, "screen", "mobile") ? true : false
+                ) ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__odsAp
+                    )}
                   >
                     {
-                      "\u062f\u06cc\u06af\u0647 \u063a\u0627\u0641\u0644\u06af\u06cc\u0631 \u0646\u0634\u0648!"
+                      "\u06cc\u0647\u0648 \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u0646 \u0648 \u0622\u0645\u0627\u062f\u0647 \u0646\u0628\u0648\u062f\u0646 \u062a\u0645\u0648\u0645 \u0634\u062f. \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u0686\u0631\u062e\u0647\u200c\u062a \u0647\u0645\u06cc\u0634\u0647 \u06cc\u0627\u062f\u062a \u0645\u06cc\u200c\u0645\u0648\u0646\u0647."
                     }
-                  </span>
-                  <React.Fragment>
-                    {
-                      "\n\u06cc\u0647\u0648 \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u0646 \u0648 \u0622\u0645\u0627\u062f\u0647 \u0646\u0628\u0648\u062f\u0646 \u062a\u0645\u0648\u0645 \u0634\u062f. \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0628\u0631\u0627\u062a \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u0686\u0631\u062e\u0647\u200c\u062a \u0647\u0645\u06cc\u0634\u0647 \u06cc\u0627\u062f\u062a \u0645\u06cc\u200c\u0645\u0648\u0646\u0647."
-                    }
-                  </React.Fragment>
-                </React.Fragment>
+                  </div>
+                ) : null}
               </div>
             </Stack__>
             <div className={classNames(projectcss.all, sty.freeBox__curiS)}>
@@ -288,31 +363,64 @@ function PlasmicLandingPage__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__hHd5Z)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vFvyy
-                )}
-              >
-                <React.Fragment>
-                  <span
-                    className={"plasmic_default__all plasmic_default__span"}
-                    style={{
-                      fontWeight: 700,
-                      color: "var(--token-SX03PBUzWAqr)"
-                    }}
+              <div className={classNames(projectcss.all, sty.freeBox__lthq)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__vFvyy
+                  )}
+                >
+                  {hasVariant(globalVariants, "screen", "mobile") ? (
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          fontWeight: 700,
+                          color: "var(--token-SX03PBUzWAqr)"
+                        }}
+                      >
+                        {
+                          "\u0631\u0627\u0628\u0637\u0647\u200c\u0647\u0627\u062a \u0631\u0648 \u0646\u062c\u0627\u062a \u0628\u062f\u0647!"
+                        }
+                      </span>
+                    </React.Fragment>
+                  ) : (
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          fontWeight: 700,
+                          color: "var(--token-SX03PBUzWAqr)"
+                        }}
+                      >
+                        {
+                          "\u0631\u0627\u0628\u0637\u0647\u200c\u0647\u0627\u062a \u0631\u0648 \u0646\u062c\u0627\u062a \u0628\u062f\u0647!"
+                        }
+                      </span>
+                      <React.Fragment>
+                        {
+                          "\n\u0645\u0627 \u0628\u0647 \u0647\u0645\u0633\u0631\u062a \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645 \u062a\u0648 \u0631\u0648\u0632\u0627\u06cc PMS \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9\u062a \u06a9\u0646\u0647. \u0648 \u0645\u0631\u0627\u0642\u0628\u062a \u0628\u0627\u0634\u0647 \u0648 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0644\u0627\u0641\u0647 \u0628\u0648\u062f\u0646 \u06cc\u0639\u0646\u06cc \u0686\u06cc."
+                        }
+                      </React.Fragment>
+                    </React.Fragment>
+                  )}
+                </div>
+                {(
+                  hasVariant(globalVariants, "screen", "mobile") ? true : false
+                ) ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__jO7B
+                    )}
                   >
                     {
-                      "\u0631\u0627\u0628\u0637\u0647\u200c\u0647\u0627\u062a \u0631\u0648 \u0646\u062c\u0627\u062a \u0628\u062f\u0647!"
+                      "\u0645\u0627 \u0628\u0647 \u0647\u0645\u0633\u0631\u062a \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645 \u062a\u0648 \u0631\u0648\u0632\u0627\u06cc PMS \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9\u062a \u06a9\u0646\u0647. \u0648 \u0645\u0631\u0627\u0642\u0628\u062a \u0628\u0627\u0634\u0647 \u0648 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0644\u0627\u0641\u0647 \u0628\u0648\u062f\u0646 \u06cc\u0639\u0646\u06cc \u0686\u06cc."
                     }
-                  </span>
-                  <React.Fragment>
-                    {
-                      "\n\u0645\u0627 \u0628\u0647 \u0647\u0645\u0633\u0631\u062a \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645 \u062a\u0648 \u0631\u0648\u0632\u0627\u06cc PMS \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9\u062a \u06a9\u0646\u0647. \u0648 \u0645\u0631\u0627\u0642\u0628\u062a \u0628\u0627\u0634\u0647 \u0648 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0644\u0627\u0641\u0647 \u0628\u0648\u062f\u0646 \u06cc\u0639\u0646\u06cc \u0686\u06cc."
-                    }
-                  </React.Fragment>
-                </React.Fragment>
+                  </div>
+                ) : null}
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__dEa3S)}>
                 <PlasmicImg__
@@ -326,10 +434,10 @@ function PlasmicLandingPage__RenderFunc(props: {
                   displayWidth={"80px"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/liom_hamyar/images/image52.svg",
-                    fullWidth: 512,
-                    fullHeight: 512,
-                    aspectRatio: 1
+                    src: "/plasmic/liom_hamyar/images/image57.png",
+                    fullWidth: 450,
+                    fullHeight: 450,
+                    aspectRatio: undefined
                   }}
                 />
               </div>
@@ -374,10 +482,10 @@ function PlasmicLandingPage__RenderFunc(props: {
                   displayWidth={"80px"}
                   loading={"lazy"}
                   src={{
-                    src: "/plasmic/liom_hamyar/images/image53.svg",
-                    fullWidth: 512,
-                    fullHeight: 512,
-                    aspectRatio: 1
+                    src: "/plasmic/liom_hamyar/images/image58.png",
+                    fullWidth: 450,
+                    fullHeight: 450,
+                    aspectRatio: undefined
                   }}
                 />
               </div>
@@ -408,18 +516,39 @@ function PlasmicLandingPage__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </Stack__>
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__q9Ozk,
-                "pulse-animation"
-              )}
+          </div>
+          <section
+            data-plasmic-name={"section"}
+            data-plasmic-override={overrides.section}
+            className={classNames(projectcss.all, sty.section)}
+          >
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button)}
+              color={generateStateValueProp($state, ["button", "color"])}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
             >
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__tZ1P5
+                  sty.text__vjVwI,
+                  "animashen"
                 )}
               >
                 <React.Fragment>
@@ -433,8 +562,8 @@ function PlasmicLandingPage__RenderFunc(props: {
                   </span>
                 </React.Fragment>
               </div>
-            </div>
-          </div>
+            </Button>
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -442,13 +571,17 @@ function PlasmicLandingPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "section", "button"],
+  section: ["section", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  section: "section";
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -536,6 +669,8 @@ export const PlasmicLandingPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    section: makeNodeComponent("section"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicLandingPage
     internalVariantProps: PlasmicLandingPage__VariantProps,
