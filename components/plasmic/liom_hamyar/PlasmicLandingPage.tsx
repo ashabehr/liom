@@ -63,6 +63,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Subscription2 from "../../Subscription2"; // plasmic-import: UEZZNXct214t/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -92,6 +93,7 @@ export type PlasmicLandingPage__OverridesType = {
   subscription2?: Flex__<typeof Subscription2>;
   section?: Flex__<"section">;
   button?: Flex__<typeof Button>;
+  favicon?: Flex__<typeof Embed>;
 };
 
 export interface DefaultLandingPageProps {}
@@ -190,7 +192,20 @@ function PlasmicLandingPage__RenderFunc(props: {
 
   return (
     <React.Fragment>
-      <Head></Head>
+      <Head>
+        <meta name="twitter:card" content="summary" />
+        <title key="title">{PlasmicLandingPage.pageMetadata.title}</title>
+        <meta
+          key="og:title"
+          property="og:title"
+          content={PlasmicLandingPage.pageMetadata.title}
+        />
+        <meta
+          key="twitter:title"
+          name="twitter:title"
+          content={PlasmicLandingPage.pageMetadata.title}
+        />
+      </Head>
 
       <style>{`
         body {
@@ -791,6 +806,16 @@ function PlasmicLandingPage__RenderFunc(props: {
               </div>
             </Button>
           </section>
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -798,10 +823,11 @@ function PlasmicLandingPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "subscription2", "section", "button"],
+  root: ["root", "subscription2", "section", "button", "favicon"],
   subscription2: ["subscription2"],
   section: ["section", "button"],
-  button: ["button"]
+  button: ["button"],
+  favicon: ["favicon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -811,6 +837,7 @@ type NodeDefaultElementType = {
   subscription2: typeof Subscription2;
   section: "section";
   button: typeof Button;
+  favicon: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -901,6 +928,7 @@ export const PlasmicLandingPage = Object.assign(
     subscription2: makeNodeComponent("subscription2"),
     section: makeNodeComponent("section"),
     button: makeNodeComponent("button"),
+    favicon: makeNodeComponent("favicon"),
 
     // Metadata about props expected for PlasmicLandingPage
     internalVariantProps: PlasmicLandingPage__VariantProps,
@@ -908,7 +936,7 @@ export const PlasmicLandingPage = Object.assign(
 
     // Page metadata
     pageMetadata: {
-      title: "",
+      title: "لیوم | هدیه ویژه",
       description: "",
       ogImageSrc: "",
       canonical: ""
