@@ -957,7 +957,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLandingPage.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/landing-page.tsx"
+            "modulePath": "../src/pages/pay.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicLandingPage.module.css",
           "scheme": "blackbox",
