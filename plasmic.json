@@ -963,6 +963,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/landing-page"
+        },
+        {
+          "id": "UEZZNXct214t",
+          "name": "Subscription2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSubscription2.tsx",
+          "importSpec": {
+            "modulePath": "Subscription2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSubscription2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2287,6 +2300,11 @@
           "id": "jJiww_xIhW8T",
           "name": "image 60",
           "filePath": "../public/plasmic/liom_hamyar/images/image60.png"
+        },
+        {
+          "id": "PqMCL1oLZHkg",
+          "name": "image 61",
+          "filePath": "../public/plasmic/liom_hamyar/images/image61.svg"
         }
       ],
       "indirect": false,

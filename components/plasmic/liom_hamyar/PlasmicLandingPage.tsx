@@ -61,6 +61,7 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import Subscription2 from "../../Subscription2"; // plasmic-import: UEZZNXct214t/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -88,6 +89,7 @@ export const PlasmicLandingPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicLandingPage__OverridesType = {
   root?: Flex__<"div">;
+  subscription2?: Flex__<typeof Subscription2>;
   section?: Flex__<"section">;
   button?: Flex__<typeof Button>;
 };
@@ -141,6 +143,36 @@ function PlasmicLandingPage__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "subscription2.clickitem",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "subscription2.title",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "subscription2.price",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 120000
+      },
+      {
+        path: "subscription2.discount",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "50%"
+      },
+      {
+        path: "subscription2.fullprice",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -193,14 +225,25 @@ function PlasmicLandingPage__RenderFunc(props: {
                     sty.text__go9Yl
                   )}
                 >
-                  <React.Fragment>
-                    <span
-                      className={"plasmic_default__all plasmic_default__span"}
-                      style={{ color: "var(--token-55cSeNPovQFh)" }}
-                    >
-                      {"\u0647\u062f\u06cc\u0647 \u0648\u06cc\u0698\u0647"}
-                    </span>
-                  </React.Fragment>
+                  {hasVariant(globalVariants, "screen", "mobile") ? (
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "var(--token-64O07uLgKimi)" }}
+                      >
+                        {"\u0647\u062f\u06cc\u0647 \u0648\u06cc\u0698\u0647"}
+                      </span>
+                    </React.Fragment>
+                  ) : (
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "var(--token-64O07uLgKimi)" }}
+                      >
+                        {"\u0647\u062f\u06cc\u0647 \u0648\u06cc\u0698\u0647"}
+                      </span>
+                    </React.Fragment>
+                  )}
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__oszIx)}>
                   <div
@@ -210,25 +253,10 @@ function PlasmicLandingPage__RenderFunc(props: {
                       sty.text__hp5Dl
                     )}
                   >
-                    {"\u062a\u062e\u0641\u06cc\u0641"}
+                    {hasVariant(globalVariants, "screen", "mobile")
+                      ? "\u062a\u062e\u0641\u06cc\u0641 48%"
+                      : "\u062a\u062e\u0641\u06cc\u0641 48%"}
                   </div>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__s3R9J)}
-                    displayHeight={"50%"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"30%"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image60.png",
-                      fullWidth: 450,
-                      fullHeight: 450,
-                      aspectRatio: undefined
-                    }}
-                  />
                 </div>
                 <div
                   className={classNames(
@@ -237,8 +265,192 @@ function PlasmicLandingPage__RenderFunc(props: {
                     sty.text__grted
                   )}
                 >
-                  {"\u0645\u062e\u0635\u0648\u0635 \u0634\u0645\u0627"}
+                  {hasVariant(globalVariants, "screen", "mobile") ? (
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "var(--token-64O07uLgKimi)" }}
+                      >
+                        {"\u0645\u062e\u0635\u0648\u0635 \u0634\u0645\u0627"}
+                      </span>
+                    </React.Fragment>
+                  ) : (
+                    "\u0645\u062e\u0635\u0648\u0635 \u0634\u0645\u0627"
+                  )}
                 </div>
+                <Subscription2
+                  data-plasmic-name={"subscription2"}
+                  data-plasmic-override={overrides.subscription2}
+                  className={classNames("__wab_instance", sty.subscription2)}
+                  clickitem={generateStateValueProp($state, [
+                    "subscription2",
+                    "clickitem"
+                  ])}
+                  discount={generateStateValueProp($state, [
+                    "subscription2",
+                    "discount"
+                  ])}
+                  fullprice={generateStateValueProp($state, [
+                    "subscription2",
+                    "fullprice"
+                  ])}
+                  onClickitemChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "subscription2",
+                      "clickitem"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onDiscountChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "subscription2",
+                      "discount"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onFullpriceChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "subscription2",
+                      "fullprice"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onPriceChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "subscription2",
+                      "price"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  onTitleChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "subscription2",
+                      "title"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  price={generateStateValueProp($state, [
+                    "subscription2",
+                    "price"
+                  ])}
+                  title={generateStateValueProp($state, [
+                    "subscription2",
+                    "title"
+                  ])}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__bUoAp)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__tnYlK
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return 150000;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "120000";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___5C9Oo
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return 72000 + " تومان ";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "40000 \u062a\u0648\u0645\u0627\u0646";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__wgCu)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rFzdH
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return "48%";
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "50%";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </div>
+                  </div>
+                </Subscription2>
               </div>
             </div>
             <div
@@ -363,10 +575,7 @@ function PlasmicLandingPage__RenderFunc(props: {
                     <React.Fragment>
                       <span
                         className={"plasmic_default__all plasmic_default__span"}
-                        style={{
-                          fontWeight: 700,
-                          color: "var(--token-SX03PBUzWAqr)"
-                        }}
+                        style={{ fontWeight: 700, color: "#8254C6" }}
                       >
                         {
                           "\u0631\u0627\u0628\u0637\u0647\u200c\u0647\u0627\u062a \u0631\u0648 \u0646\u062c\u0627\u062a \u0628\u062f\u0647!"
@@ -589,7 +798,8 @@ function PlasmicLandingPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "button"],
+  root: ["root", "subscription2", "section", "button"],
+  subscription2: ["subscription2"],
   section: ["section", "button"],
   button: ["button"]
 } as const;
@@ -598,6 +808,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  subscription2: typeof Subscription2;
   section: "section";
   button: typeof Button;
 };
@@ -687,6 +898,7 @@ export const PlasmicLandingPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    subscription2: makeNodeComponent("subscription2"),
     section: makeNodeComponent("section"),
     button: makeNodeComponent("button"),
 
