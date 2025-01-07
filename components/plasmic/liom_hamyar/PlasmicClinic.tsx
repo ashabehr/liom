@@ -2439,6 +2439,11 @@ function PlasmicClinic__RenderFunc(props: {
                           "_1",
                           "chatviow"
                         ),
+                        [sty.img_1_docter__eynUl8Ddm8]: hasVariant(
+                          $state,
+                          "_1",
+                          "docter"
+                        ),
                         [sty.img_1_docters__eynUlpv2Kd]: hasVariant(
                           $state,
                           "_1",
@@ -2489,7 +2494,24 @@ function PlasmicClinic__RenderFunc(props: {
                               fullHeight: 256,
                               aspectRatio: undefined
                             }
-                          : undefined
+                          : (() => {
+                              try {
+                                return currentItem.doctor.image;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return {
+                                    src: "/plasmic/liom_hamyar/images/imagePlaceholder.svg",
+                                    fullWidth: 79,
+                                    fullHeight: 79,
+                                    aspectRatio: 1
+                                  };
+                                }
+                                throw e;
+                              }
+                            })()
                       }
                     />
 
@@ -3116,10 +3138,10 @@ function PlasmicClinic__RenderFunc(props: {
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
                               return {
-                                src: "/plasmic/liom_hamyar/images/image7.png",
-                                fullWidth: 1302,
-                                fullHeight: 900,
-                                aspectRatio: undefined
+                                src: "/plasmic/fragment_icons/images/redDot.svg",
+                                fullWidth: 169,
+                                fullHeight: 150,
+                                aspectRatio: 1.125
                               };
                             }
                             throw e;

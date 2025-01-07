@@ -951,20 +951,6 @@
           "componentType": "component"
         },
         {
-          "id": "j6Q-FbS-KGQL",
-          "name": "LandingPage",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLandingPage.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/pay.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicLandingPage.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/landing-page"
-        },
-        {
           "id": "UEZZNXct214t",
           "name": "Subscription2",
           "type": "managed",
