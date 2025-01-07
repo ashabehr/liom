@@ -94,6 +94,7 @@ import Icon77Icon from "./icons/PlasmicIcon__Icon77"; // plasmic-import: wjMNvLG
 import Icon120Icon from "./icons/PlasmicIcon__Icon120"; // plasmic-import: lWsc7Ggg4B53/icon
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
+import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: r-c9byRGfifF/icon
 
 createPlasmicElementProxy;
 
@@ -161,6 +162,9 @@ export type PlasmicClinic__OverridesType = {
   button10?: Flex__<typeof Button>;
   button11?: Flex__<typeof Button>;
   timer?: Flex__<typeof Timer>;
+  dialog2?: Flex__<typeof Dialog>;
+  shop2?: Flex__<typeof ApiRequest>;
+  button12?: Flex__<typeof Button>;
 };
 
 export interface DefaultClinicProps {}
@@ -372,6 +376,73 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "btnloading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "status",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "false"
+      },
+      {
+        path: "dialog2.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.status == "false";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "shop2.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "shop2.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "shop2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button12.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "listId",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "sublist",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -421,7 +492,7 @@ function PlasmicClinic__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
 
-            $steps["runCode"] = true
+            $steps["runCode"] = !localStorage.getItem("ClinicToken")
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
@@ -430,7 +501,18 @@ function PlasmicClinic__RenderFunc(props: {
                           window.location.search
                         );
                         var app = urlParams.get("token");
-                        return localStorage.setItem("ClinicToken", app);
+                        localStorage.setItem("ClinicToken", app);
+                        var status = urlParams.get("status");
+                        if (status == "false") return ($state.status = "false");
+                        else if (status == "true") {
+                          var chatstart = JSON.parse(
+                            localStorage.getItem("chatstart")
+                          );
+                          return window.open(
+                            `https://apps.liom.app/chat?listiD=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}`,
+                            "_self"
+                          );
+                        }
                       })();
                     }
                   };
@@ -946,6 +1028,40 @@ function PlasmicClinic__RenderFunc(props: {
                           $steps["updateGetList"] = await $steps[
                             "updateGetList"
                           ];
+                        }
+
+                        $steps["updateListId"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["listId"]
+                                },
+                                operation: 0,
+                                value: currentItem.id
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateListId"] != null &&
+                          typeof $steps["updateListId"] === "object" &&
+                          typeof $steps["updateListId"].then === "function"
+                        ) {
+                          $steps["updateListId"] = await $steps["updateListId"];
                         }
 
                         $steps["update1"] = true
@@ -2257,7 +2373,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `https://apps.liom.app/chat?sessionID=${currentItem.id}&listiD=${currentItem.listID}&subList=${currentItem.subList}&doctorID=`;
+                                  return `https://apps.liom.app/chat?sessionID=${currentItem.id}&listiD=${currentItem.listID}&subList=${currentItem.subList}&doctorID=${currentItem.doctorID}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2297,10 +2413,10 @@ function PlasmicClinic__RenderFunc(props: {
                         ? (() => {
                             try {
                               return {
-                                "background-color":
+                                border:
                                   currentItem.status == -1
-                                    ? "#ff0000"
-                                    : "#00ff00"
+                                    ? "solid 1px #EB464A"
+                                    : "solid 1px #8254C6"
                               };
                             } catch (e) {
                               if (
@@ -2373,12 +2489,24 @@ function PlasmicClinic__RenderFunc(props: {
                               fullHeight: 256,
                               aspectRatio: undefined
                             }
-                          : {
-                              src: "/plasmic/liom_hamyar/images/imagePlaceholder.svg",
-                              fullWidth: 79,
-                              fullHeight: 79,
-                              aspectRatio: 1
-                            }
+                          : (() => {
+                              try {
+                                return currentItem.doctor.image;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return {
+                                    src: "/plasmic/liom_hamyar/images/imagePlaceholder.svg",
+                                    fullWidth: 79,
+                                    fullHeight: 79,
+                                    aspectRatio: 1
+                                  };
+                                }
+                                throw e;
+                              }
+                            })()
                       }
                     />
 
@@ -2424,9 +2552,7 @@ function PlasmicClinic__RenderFunc(props: {
                         <React.Fragment>
                           {(() => {
                             try {
-                              return $state.getData.list.filter(
-                                item => item.id == currentItem.listID
-                              )[0].text;
+                              return currentItem.doctor.name;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -2538,7 +2664,12 @@ function PlasmicClinic__RenderFunc(props: {
                               hasVariant($state, "_1", "chatviow")
                                 ? (() => {
                                     try {
-                                      return `_${currentItem.status + 1}`;
+                                      return (() => {
+                                        if (currentItem.status == -1)
+                                          return "_2";
+                                        else
+                                          return `_${currentItem.status + 1}`;
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -3494,6 +3625,42 @@ function PlasmicClinic__RenderFunc(props: {
                                 "updateDialogOpendialog"
                               ];
                             }
+
+                            $steps["updateSublist"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["sublist"]
+                                    },
+                                    operation: 0,
+                                    value: currentItem.id
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateSublist"] != null &&
+                              typeof $steps["updateSublist"] === "object" &&
+                              typeof $steps["updateSublist"].then === "function"
+                            ) {
+                              $steps["updateSublist"] = await $steps[
+                                "updateSublist"
+                              ];
+                            }
                           }}
                           style={
                             hasVariant($state, "_1", "docter") &&
@@ -3738,6 +3905,42 @@ function PlasmicClinic__RenderFunc(props: {
                       $steps["updateDialogOpendialog"] = await $steps[
                         "updateDialogOpendialog"
                       ];
+                    }
+
+                    $steps["updateSublist"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["sublist"]
+                            },
+                            operation: 0,
+                            value: $state.getList.list.filter(
+                              item => item.text == "سایر"
+                            )[0].id
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSublist"] != null &&
+                      typeof $steps["updateSublist"] === "object" &&
+                      typeof $steps["updateSublist"].then === "function"
+                    ) {
+                      $steps["updateSublist"] = await $steps["updateSublist"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
@@ -4302,8 +4505,80 @@ function PlasmicClinic__RenderFunc(props: {
                                 role={"img"}
                               />
                             }
+                            isDisabled={(() => {
+                              try {
+                                return $state.btnloading;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()}
+                            loading={(() => {
+                              try {
+                                return $state.btnloading;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()}
                             onClick={async event => {
                               const $steps = {};
+
+                              $steps["updateBtnloading"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["btnloading"]
+                                      },
+                                      operation: 4
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      const oldValue = $stateGet(
+                                        objRoot,
+                                        variablePath
+                                      );
+                                      $stateSet(
+                                        objRoot,
+                                        variablePath,
+                                        !oldValue
+                                      );
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateBtnloading"] != null &&
+                                typeof $steps["updateBtnloading"] ===
+                                  "object" &&
+                                typeof $steps["updateBtnloading"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateBtnloading"] = await $steps[
+                                  "updateBtnloading"
+                                ];
+                              }
 
                               $steps["invokeGlobalAction"] = true
                                 ? (() => {
@@ -4392,6 +4667,79 @@ function PlasmicClinic__RenderFunc(props: {
                                 typeof $steps["goToPage"].then === "function"
                               ) {
                                 $steps["goToPage"] = await $steps["goToPage"];
+                              }
+
+                              $steps["runCode"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return localStorage.setItem(
+                                          "chatstart",
+                                          JSON.stringify({
+                                            listID: $state.listId,
+                                            sublist: $state.sublist,
+                                            docterID: $state.getList.doctor.id
+                                          })
+                                        );
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["runCode"] != null &&
+                                typeof $steps["runCode"] === "object" &&
+                                typeof $steps["runCode"].then === "function"
+                              ) {
+                                $steps["runCode"] = await $steps["runCode"];
+                              }
+
+                              $steps["updateBtnloading2"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["btnloading"]
+                                      },
+                                      operation: 4
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      const oldValue = $stateGet(
+                                        objRoot,
+                                        variablePath
+                                      );
+                                      $stateSet(
+                                        objRoot,
+                                        variablePath,
+                                        !oldValue
+                                      );
+                                      return !oldValue;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateBtnloading2"] != null &&
+                                typeof $steps["updateBtnloading2"] ===
+                                  "object" &&
+                                typeof $steps["updateBtnloading2"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateBtnloading2"] = await $steps[
+                                  "updateBtnloading2"
+                                ];
                               }
                             }}
                             onColorChange={async (...eventArgs: any) => {
@@ -4495,6 +4843,371 @@ function PlasmicClinic__RenderFunc(props: {
             }}
             runWhileEditing={true}
           />
+
+          <Dialog
+            data-plasmic-name={"dialog2"}
+            data-plasmic-override={overrides.dialog2}
+            className={classNames("__wab_instance", sty.dialog2, {
+              [sty.dialog2_1_chatviow]: hasVariant($state, "_1", "chatviow"),
+              [sty.dialog2_1_docter]: hasVariant($state, "_1", "docter"),
+              [sty.dialog2_1_docters]: hasVariant($state, "_1", "docters")
+            })}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "dialog2",
+                "opendialog"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, [
+              "dialog2",
+              "opendialog"
+            ])}
+          >
+            <ApiRequest
+              data-plasmic-name={"shop2"}
+              data-plasmic-override={overrides.shop2}
+              className={classNames("__wab_instance", sty.shop2, {
+                [sty.shop2_1_docter]: hasVariant($state, "_1", "docter")
+              })}
+              errorDisplay={null}
+              loadingDisplay={
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__bTxwL, {
+                    [sty.freeBox_1_docter__bTxwL8Ddm8]: hasVariant(
+                      $state,
+                      "_1",
+                      "docter"
+                    )
+                  })}
+                >
+                  <Icon115Icon
+                    className={classNames(projectcss.all, sty.svg___013UO)}
+                    role={"img"}
+                  />
+                </div>
+              }
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["shop2", "error"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["shop2", "loading"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["shop2", "data"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+              params={(() => {
+                try {
+                  return {
+                    token: $state.token,
+                    id: 14
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return { id: 14 };
+                  }
+                  throw e;
+                }
+              })()}
+              url={"https://n8n.staas.ir/webhook/help/shop"}
+            >
+              <div
+                className={classNames(projectcss.all, sty.freeBox__zAikU, {
+                  [sty.freeBox_1_docter__zAikU8Ddm8]: hasVariant(
+                    $state,
+                    "_1",
+                    "docter"
+                  )
+                })}
+              >
+                <EmojiSadSquareSvgrepoComSvgIcon
+                  className={classNames(projectcss.all, sty.svg__a5XMa)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__nsfLw
+                  )}
+                >
+                  {
+                    "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642"
+                  }
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__tyezp
+                  )}
+                >
+                  {
+                    "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f . "
+                  }
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__rSwa2)}>
+                  <Button
+                    data-plasmic-name={"button12"}
+                    data-plasmic-override={overrides.button12}
+                    className={classNames("__wab_instance", sty.button12, {
+                      [sty.button12_1_chatviow]: hasVariant(
+                        $state,
+                        "_1",
+                        "chatviow"
+                      ),
+                      [sty.button12_1_docter]: hasVariant(
+                        $state,
+                        "_1",
+                        "docter"
+                      )
+                    })}
+                    color={generateStateValueProp($state, [
+                      "button12",
+                      "color"
+                    ])}
+                    endIcon={
+                      <Icon12Icon
+                        className={classNames(projectcss.all, sty.svg__cJgT)}
+                        role={"img"}
+                      />
+                    }
+                    isDisabled={(() => {
+                      try {
+                        return $state.btnloading;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    loading={(() => {
+                      try {
+                        return $state.btnloading;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateBtnloading"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["btnloading"]
+                              },
+                              operation: 4
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              const oldValue = $stateGet(objRoot, variablePath);
+                              $stateSet(objRoot, variablePath, !oldValue);
+                              return !oldValue;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateBtnloading"] != null &&
+                        typeof $steps["updateBtnloading"] === "object" &&
+                        typeof $steps["updateBtnloading"].then === "function"
+                      ) {
+                        $steps["updateBtnloading"] = await $steps[
+                          "updateBtnloading"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/help/shop",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      token: "Bearer " + $state.token,
+                                      id: $state.shop2.data.item.id
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["goToPage"] =
+                        $steps.invokeGlobalAction?.data.success == true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return $steps.invokeGlobalAction.data.url;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+
+                      $steps["updateBtnloading2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["btnloading"]
+                              },
+                              operation: 4
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              const oldValue = $stateGet(objRoot, variablePath);
+                              $stateSet(objRoot, variablePath, !oldValue);
+                              return !oldValue;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateBtnloading2"] != null &&
+                        typeof $steps["updateBtnloading2"] === "object" &&
+                        typeof $steps["updateBtnloading2"].then === "function"
+                      ) {
+                        $steps["updateBtnloading2"] = await $steps[
+                          "updateBtnloading2"
+                        ];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button12",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__thDti
+                      )}
+                    >
+                      {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
+                    </div>
+                  </Button>
+                </div>
+              </div>
+            </ApiRequest>
+          </Dialog>
         </div>
       </div>
     </React.Fragment>
@@ -4552,7 +5265,10 @@ const PlasmicDescendants = {
     "input3",
     "button10",
     "button11",
-    "timer"
+    "timer",
+    "dialog2",
+    "shop2",
+    "button12"
   ],
   bg: ["bg", "rectangle2", "\u0627", "\u06272"],
   rectangle2: ["rectangle2", "\u0627", "\u06272"],
@@ -4645,7 +5361,10 @@ const PlasmicDescendants = {
   input3: ["input3"],
   button10: ["button10"],
   button11: ["button11"],
-  timer: ["timer"]
+  timer: ["timer"],
+  dialog2: ["dialog2", "shop2", "button12"],
+  shop2: ["shop2", "button12"],
+  button12: ["button12"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4701,6 +5420,9 @@ type NodeDefaultElementType = {
   button10: typeof Button;
   button11: typeof Button;
   timer: typeof Timer;
+  dialog2: typeof Dialog;
+  shop2: typeof ApiRequest;
+  button12: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4837,6 +5559,9 @@ export const PlasmicClinic = Object.assign(
     button10: makeNodeComponent("button10"),
     button11: makeNodeComponent("button11"),
     timer: makeNodeComponent("timer"),
+    dialog2: makeNodeComponent("dialog2"),
+    shop2: makeNodeComponent("shop2"),
+    button12: makeNodeComponent("button12"),
 
     // Metadata about props expected for PlasmicClinic
     internalVariantProps: PlasmicClinic__VariantProps,

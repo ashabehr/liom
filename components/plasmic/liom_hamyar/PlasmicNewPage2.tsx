@@ -192,31 +192,44 @@ function PlasmicNewPage2__RenderFunc(props: {
         path: "variable",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => [
-          {
-            duration: "",
-            id: 14300,
-            text: "  : salam doktor",
-            isUser: 1,
-            timestamp: "2025-01-04 10:43:28",
-            seen: 2
-          },
-          {
-            duration: "",
-            id: 14301,
-            text: "che khabar",
-            isUser: 1,
-            timestamp: "2025-01-04 10:44:41",
-            seen: 2
-          },
-          {
-            duration: "",
-            id: 14302,
-            text: "\u0633\u0644\u0627\u0645 \u0639\u0632\u06cc\u0632\u0645 \u0645\u062a\u0646 \u0633\u0648\u0627\u0644\u062a \u0628\u0631\u0627\u0645 \u0646\u06cc\u0648\u0645\u062f\u0647.",
-            isUser: 0,
-            timestamp: "2025-01-04 11:51:13"
-          }
-        ]
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return [];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [
+                  {
+                    duration: "",
+                    id: 14300,
+                    text: "  : salam doktor",
+                    isUser: 1,
+                    timestamp: "2025-01-04 10:43:28",
+                    seen: 2
+                  },
+                  {
+                    duration: "",
+                    id: 14301,
+                    text: "che khabar",
+                    isUser: 1,
+                    timestamp: "2025-01-04 10:44:41",
+                    seen: 2
+                  },
+                  {
+                    duration: "",
+                    id: 14302,
+                    text: "\u0633\u0644\u0627\u0645 \u0639\u0632\u06cc\u0632\u0645 \u0645\u062a\u0646 \u0633\u0648\u0627\u0644\u062a \u0628\u0631\u0627\u0645 \u0646\u06cc\u0648\u0645\u062f\u0647.",
+                    isUser: 0,
+                    timestamp: "2025-01-04 11:51:13"
+                  }
+                ];
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "start",
@@ -1126,7 +1139,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                                   isUser: 1,
                                   timestamp:
                                     $$.dayjs().format("YYYY-MM-DD HH:mm"),
-                                  send: 0
+                                  seen: 0
                                 });
                               }
                             };

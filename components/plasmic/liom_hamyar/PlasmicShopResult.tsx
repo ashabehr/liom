@@ -320,6 +320,9 @@ function PlasmicShopResult__RenderFunc(props: {
           >
             <EmojiHappySquareSvgrepoComSvg2Icon
               className={classNames(projectcss.all, sty.svg__ep8Ay, {
+                [sty.svgfailed_successful__ep8Ay1GaCO3MxK]:
+                  hasVariant($state, "successful", "successful") &&
+                  hasVariant($state, "failed", "failed"),
                 [sty.svgsuccessful__ep8Ayo3MxK]: hasVariant(
                   $state,
                   "successful",
@@ -749,7 +752,10 @@ function PlasmicShopResult__RenderFunc(props: {
                       $state,
                       "failed",
                       "failed"
-                    )
+                    ),
+                    [sty.svgfailed_successful__lbPmL1GaCO3MxK]:
+                      hasVariant($state, "successful", "successful") &&
+                      hasVariant($state, "failed", "failed")
                   })}
                   role={"img"}
                 />
@@ -791,7 +797,10 @@ function PlasmicShopResult__RenderFunc(props: {
                         $state,
                         "failed",
                         "failed"
-                      )
+                      ),
+                      [sty.textfailed_successful__rd3K1GaCO3MxK]:
+                        hasVariant($state, "successful", "successful") &&
+                        hasVariant($state, "failed", "failed")
                     }
                   )}
                 >

@@ -116,7 +116,7 @@
 }
 .text__hd0Pr {
   display: block;
-  font-size: 16px;
+  font-size: 18px;
   font-family: "Museo Sans Cyrl";
   letter-spacing: 0.266px;
   line-height: 100%;
@@ -127,7 +127,7 @@
   width: 100%;
   text-align: right;
   align-self: auto;
-  font-weight: 500;
+  font-weight: 700;
   min-width: 0;
 }
 .button3:global(.__wab_instance) {
@@ -387,7 +387,7 @@
 }
 .text__pKYvm {
   display: block;
-  font-size: 16px;
+  font-size: 18px;
   font-family: "Museo Sans Cyrl";
   letter-spacing: 0.266px;
   line-height: 100%;
@@ -398,6 +398,7 @@
   width: 100%;
   text-align: right;
   align-self: auto;
+  font-weight: 700;
   min-width: 0;
 }
 .freeBox__wenK {
