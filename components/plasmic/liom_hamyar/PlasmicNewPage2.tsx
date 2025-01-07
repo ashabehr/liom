@@ -619,24 +619,6 @@ function PlasmicNewPage2__RenderFunc(props: {
                   displayMinWidth={"0"}
                   displayWidth={"40px"}
                   loading={"lazy"}
-                  src={(() => {
-                    try {
-                      return $state.doctor.image;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return {
-                          src: "/plasmic/liom_hamyar/images/imagePlaceholder4.svg",
-                          fullWidth: 40,
-                          fullHeight: 40,
-                          aspectRatio: 1
-                        };
-                      }
-                      throw e;
-                    }
-                  })()}
                 />
               </div>
               <div

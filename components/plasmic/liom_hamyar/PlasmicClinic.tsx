@@ -2489,24 +2489,7 @@ function PlasmicClinic__RenderFunc(props: {
                               fullHeight: 256,
                               aspectRatio: undefined
                             }
-                          : (() => {
-                              try {
-                                return currentItem.doctor.image;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return {
-                                    src: "/plasmic/liom_hamyar/images/imagePlaceholder.svg",
-                                    fullWidth: 79,
-                                    fullHeight: 79,
-                                    aspectRatio: 1
-                                  };
-                                }
-                                throw e;
-                              }
-                            })()
+                          : undefined
                       }
                     />
 
@@ -3122,24 +3105,45 @@ function PlasmicClinic__RenderFunc(props: {
                     hasVariant($state, "_1", "docter") ? "100px" : "118px"
                   }
                   loading={"lazy"}
-                  src={(() => {
-                    try {
-                      return $state.getList.doctor.image;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return {
-                          src: "/plasmic/liom_hamyar/images/image7.png",
-                          fullWidth: 1302,
-                          fullHeight: 900,
-                          aspectRatio: undefined
-                        };
-                      }
-                      throw e;
-                    }
-                  })()}
+                  src={
+                    hasVariant($state, "_1", "docter")
+                      ? (() => {
+                          try {
+                            return "";
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return {
+                                src: "/plasmic/liom_hamyar/images/image7.png",
+                                fullWidth: 1302,
+                                fullHeight: 900,
+                                aspectRatio: undefined
+                              };
+                            }
+                            throw e;
+                          }
+                        })()
+                      : (() => {
+                          try {
+                            return $state.getList.doctor.image;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return {
+                                src: "/plasmic/liom_hamyar/images/image7.png",
+                                fullWidth: 1302,
+                                fullHeight: 900,
+                                aspectRatio: undefined
+                              };
+                            }
+                            throw e;
+                          }
+                        })()
+                  }
                 />
 
                 <Stack__
