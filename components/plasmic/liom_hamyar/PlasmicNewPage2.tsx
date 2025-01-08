@@ -514,8 +514,9 @@ function PlasmicNewPage2__RenderFunc(props: {
                     },
                     operation: 0,
                     value: (() => {
-                      var updatedList = $steps.invokeGlobalAction.data.list.map(
+                      return $steps.invokeGlobalAction.data.list.map(
                         (item, index, array) => {
+                          let seen = -2;
                           var hasNextUser0 = array
                             .slice(index + 1)
                             .some(msg => msg.isUser === 0);
@@ -530,7 +531,6 @@ function PlasmicNewPage2__RenderFunc(props: {
                           };
                         }
                       );
-                      return updatedList;
                     })()
                   };
                   return (({ variable, value, startIndex, deleteCount }) => {
