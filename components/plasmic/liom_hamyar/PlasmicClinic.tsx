@@ -2416,7 +2416,8 @@ function PlasmicClinic__RenderFunc(props: {
                                 border:
                                   currentItem.status == -1
                                     ? "solid 1px #EB464A"
-                                    : "solid 1px #8254C6"
+                                    : "solid 1px #8254C6",
+                                opacity: currentItem.status == -1 ? "0.5" : "1"
                               };
                             } catch (e) {
                               if (
@@ -2428,7 +2429,25 @@ function PlasmicClinic__RenderFunc(props: {
                               throw e;
                             }
                           })()
-                        : undefined
+                        : (() => {
+                            try {
+                              return {
+                                border:
+                                  currentItem.status == -1
+                                    ? "solid 1px #EB464A"
+                                    : "solid 1px #8254C6",
+                                opacity: currentItem.status == -1 ? "0.5" : "1"
+                              };
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
                     }
                   >
                     <PlasmicImg__
@@ -2494,24 +2513,7 @@ function PlasmicClinic__RenderFunc(props: {
                               fullHeight: 256,
                               aspectRatio: undefined
                             }
-                          : (() => {
-                              try {
-                                return currentItem.doctor.image;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return {
-                                    src: "/plasmic/liom_hamyar/images/imagePlaceholder.svg",
-                                    fullWidth: 79,
-                                    fullHeight: 79,
-                                    aspectRatio: 1
-                                  };
-                                }
-                                throw e;
-                              }
-                            })()
+                          : "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
                       }
                     />
 
@@ -2554,21 +2556,41 @@ function PlasmicClinic__RenderFunc(props: {
                           }
                         )}
                       >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem.doctor.name;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "Dr. Mensah T";
+                        {hasVariant($state, "_1", "chatviow") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.getData.list.filter(
+                                  item => item.id == currentItem.listID
+                                )[0].text;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Dr. Mensah T";
+                                }
+                                throw e;
                               }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.doctor.name;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Dr. Mensah T";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
                       </div>
                       <Stack__
                         as={"div"}
@@ -3131,18 +3153,13 @@ function PlasmicClinic__RenderFunc(props: {
                     hasVariant($state, "_1", "docter")
                       ? (() => {
                           try {
-                            return "";
+                            return $state.getList.doctor.image;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return {
-                                src: "/plasmic/fragment_icons/images/redDot.svg",
-                                fullWidth: 169,
-                                fullHeight: 150,
-                                aspectRatio: 1.125
-                              };
+                              return "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg";
                             }
                             throw e;
                           }

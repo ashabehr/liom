@@ -622,6 +622,34 @@ function PlasmicNewPage2__RenderFunc(props: {
             >
               <Icon22Icon
                 className={classNames(projectcss.all, sty.svg__h4BiE)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToClinic"] = true
+                    ? (() => {
+                        const actionArgs = { destination: `/clinic` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToClinic"] != null &&
+                    typeof $steps["goToClinic"] === "object" &&
+                    typeof $steps["goToClinic"].then === "function"
+                  ) {
+                    $steps["goToClinic"] = await $steps["goToClinic"];
+                  }
+                }}
                 role={"img"}
               />
 
@@ -642,6 +670,9 @@ function PlasmicNewPage2__RenderFunc(props: {
                   displayMinWidth={"0"}
                   displayWidth={"40px"}
                   loading={"lazy"}
+                  src={
+                    "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
+                  }
                 />
               </div>
               <div

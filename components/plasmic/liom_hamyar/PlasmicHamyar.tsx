@@ -13709,38 +13709,77 @@ function PlasmicHamyar__RenderFunc(props: {
                       hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__fMtGi)}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__lECft
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__la3I3
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
+                      {(
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? (() => {
                               try {
                                 return $state.shopDialog.data.result.find(
                                   item => item.selected === 1
-                                ).topBadge;
+                                ).topBadge
+                                  ? true
+                                  : false;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39";
+                                  return true;
                                 }
                                 throw e;
                               }
-                            })()}
-                          </React.Fragment>
+                            })()
+                          : (() => {
+                              try {
+                                return $state.shopDialog.data.result.find(
+                                  item => item.selected === 1
+                                ).topBadge
+                                  ? true
+                                  : false;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })()
+                      ) ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__lECft
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__la3I3
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $state.shopDialog.data.result.find(
+                                    item => item.selected === 1
+                                  ).topBadge;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
                         </div>
-                      </div>
+                      ) : null}
                       <div
                         className={classNames(
                           projectcss.all,

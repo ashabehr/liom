@@ -2054,6 +2054,10 @@
   > img {
   margin-top: 10px;
 }
+.freeBox_1_chatviow__gusnoaYJmT > :global(.__wab_flex-container) {
+  align-items: center;
+  justify-content: center;
+}
 .text__nBn0 {
   display: block;
   font-size: 16px;

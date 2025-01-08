@@ -5479,6 +5479,11 @@
   border-bottom-left-radius: 8px;
   padding: 3px 8px 2px;
 }
+@media (max-width: 640px) {
+  .freeBox__lECft {
+    display: block;
+  }
+}
 .text__la3I3 {
   position: sticky;
   width: 100%;
@@ -5809,6 +5814,12 @@
   text-overflow: clip;
   cursor: pointer;
   font-family: "Roboto", sans-serif;
+  padding-bottom: 8px;
+}
+@media (max-width: 640px) {
+  .p__jSKov {
+    padding-bottom: 8px;
+  }
 }
 .p__plVhz {
   text-align: center;
