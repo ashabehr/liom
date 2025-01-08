@@ -129,6 +129,7 @@ export type PlasmicNewPage2__OverridesType = {
   modal2?: Flex__<typeof AntdModal>;
   star?: Flex__<typeof Star>;
   button4?: Flex__<typeof Button>;
+  favicon?: Flex__<typeof Embed>;
 };
 
 export interface DefaultNewPage2Props {}
@@ -2216,7 +2217,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                         }
 
                         $steps["invokeGlobalAction"] = (
-                          $state.form.find(item => item.anwer == "")
+                          $state.form.find(item => item.answer == "")
                             ? false
                             : true
                         )
@@ -2263,7 +2264,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                         }
 
                         $steps["invokeGlobalAction2"] = (
-                          $state.form.find(item => item.anwer == "")
+                          $state.form.find(item => item.answer == "")
                             ? true
                             : false
                         )
@@ -2876,6 +2877,16 @@ function PlasmicNewPage2__RenderFunc(props: {
               </Button>
             </Stack__>
           </AntdModal>
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -2907,7 +2918,8 @@ const PlasmicDescendants = {
     "button2",
     "modal2",
     "star",
-    "button4"
+    "button4",
+    "favicon"
   ],
   chat: [
     "chat",
@@ -2961,7 +2973,8 @@ const PlasmicDescendants = {
   button2: ["button2"],
   modal2: ["modal2", "star", "button4"],
   star: ["star"],
-  button4: ["button4"]
+  button4: ["button4"],
+  favicon: ["favicon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2991,6 +3004,7 @@ type NodeDefaultElementType = {
   modal2: typeof AntdModal;
   star: typeof Star;
   button4: typeof Button;
+  favicon: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3101,6 +3115,7 @@ export const PlasmicNewPage2 = Object.assign(
     modal2: makeNodeComponent("modal2"),
     star: makeNodeComponent("star"),
     button4: makeNodeComponent("button4"),
+    favicon: makeNodeComponent("favicon"),
 
     // Metadata about props expected for PlasmicNewPage2
     internalVariantProps: PlasmicNewPage2__VariantProps,

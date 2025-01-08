@@ -76,6 +76,7 @@ import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -172,6 +173,7 @@ export type PlasmicClinic__OverridesType = {
   dialog2?: Flex__<typeof Dialog>;
   shop2?: Flex__<typeof ApiRequest>;
   button12?: Flex__<typeof Button>;
+  favicon?: Flex__<typeof Embed>;
 };
 
 export interface DefaultClinicProps {}
@@ -5454,6 +5456,16 @@ function PlasmicClinic__RenderFunc(props: {
               </div>
             </ApiRequest>
           </Dialog>
+          <Embed
+            data-plasmic-name={"favicon"}
+            data-plasmic-override={overrides.favicon}
+            className={classNames("__wab_instance", sty.favicon)}
+            code={
+              hasVariant(globalVariants, "screen", "mobile")
+                ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+                : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -5517,7 +5529,8 @@ const PlasmicDescendants = {
     "timer",
     "dialog2",
     "shop2",
-    "button12"
+    "button12",
+    "favicon"
   ],
   bg: ["bg", "rectangle2", "\u0627", "\u06272"],
   rectangle2: ["rectangle2", "\u0627", "\u06272"],
@@ -5616,7 +5629,8 @@ const PlasmicDescendants = {
   timer: ["timer"],
   dialog2: ["dialog2", "shop2", "button12"],
   shop2: ["shop2", "button12"],
-  button12: ["button12"]
+  button12: ["button12"],
+  favicon: ["favicon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -5678,6 +5692,7 @@ type NodeDefaultElementType = {
   dialog2: typeof Dialog;
   shop2: typeof ApiRequest;
   button12: typeof Button;
+  favicon: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -5820,6 +5835,7 @@ export const PlasmicClinic = Object.assign(
     dialog2: makeNodeComponent("dialog2"),
     shop2: makeNodeComponent("shop2"),
     button12: makeNodeComponent("button12"),
+    favicon: makeNodeComponent("favicon"),
 
     // Metadata about props expected for PlasmicClinic
     internalVariantProps: PlasmicClinic__VariantProps,
