@@ -936,6 +936,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSubscription2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "fmyovDT1Cvc-",
+          "name": "Search",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSearch.tsx",
+          "importSpec": {
+            "modulePath": "Search.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSearch.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [

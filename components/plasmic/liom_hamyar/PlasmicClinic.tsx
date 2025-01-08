@@ -65,7 +65,11 @@ import IconClinic from "../../IconClinic"; // plasmic-import: TdNZ6qWfkqbt/compo
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Input } from "@/fragment/components/input"; // plasmic-import: zZH7vV9pXyf8/codeComponent
 import Star from "../../Star"; // plasmic-import: i69c2Ujsm_H6/component
+import Search from "../../Search"; // plasmic-import: fmyovDT1Cvc-/component
+import { Input as Input2 } from "@plasmicpkgs/antd/skinny/registerInput";
+import { inputHelpers as Input2_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
 import Seen from "../../Seen"; // plasmic-import: JqwoohhEEPXm/component
+import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
@@ -140,9 +144,12 @@ export type PlasmicClinic__OverridesType = {
   button2?: Flex__<typeof Button>;
   input?: Flex__<typeof Input>;
   mensah?: Flex__<"div">;
+  search?: Flex__<typeof Search>;
+  antdInput?: Flex__<typeof Input2>;
   input2?: Flex__<typeof Input>;
   mensah2?: Flex__<"div">;
   seen?: Flex__<typeof Seen>;
+  lineClomp?: Flex__<typeof LineClomp>;
   doctorsDetails?: Flex__<"div">;
   bg2?: Flex__<"div">;
   about?: Flex__<"div">;
@@ -443,6 +450,38 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "antdInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input2_Helpers)
+      },
+      {
+        path: "filter",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.chats.list;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "lineClomp[].line",
+        type: "private",
+        variableType: "boolean"
       }
     ],
     [$props, $ctx, $refs]
@@ -732,7 +771,13 @@ function PlasmicClinic__RenderFunc(props: {
                 data-plasmic-name={"rectangle"}
                 data-plasmic-override={overrides.rectangle}
                 className={classNames(projectcss.all, sty.rectangle, {
-                  [sty.rectangle_1_docter]: hasVariant($state, "_1", "docter")
+                  [sty.rectangle_1_chatviow]: hasVariant(
+                    $state,
+                    "_1",
+                    "chatviow"
+                  ),
+                  [sty.rectangle_1_docter]: hasVariant($state, "_1", "docter"),
+                  [sty.rectangle_1_docters]: hasVariant($state, "_1", "docters")
                 })}
                 onClick={async event => {
                   const $steps = {};
@@ -2243,34 +2288,122 @@ function PlasmicClinic__RenderFunc(props: {
                     ? "\u06af\u0641\u062a\u06af\u0648 \u0647\u0627"
                     : "\u067e\u0632\u0634\u06a9\u0627\u0646"}
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__kX4E8, {
-                    [sty.freeBox_1_chatviow__kX4E8AYJmT]: hasVariant(
+                <Search
+                  data-plasmic-name={"search"}
+                  data-plasmic-override={overrides.search}
+                  _1={
+                    hasVariant($state, "_1", "chatviow") &&
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? "chatviow"
+                      : hasVariant($state, "_1", "chatviow")
+                      ? "chatviow"
+                      : undefined
+                  }
+                  antdInput2={(() => {
+                    const child$Props = {
+                      bordered: false,
+                      className: classNames("__wab_instance", sty.antdInput, {
+                        [sty.antdInput_1_chatviow]: hasVariant(
+                          $state,
+                          "_1",
+                          "chatviow"
+                        )
+                      }),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["antdInput", "value"],
+                          Input2_Helpers
+                        ).apply(null, eventArgs);
+
+                        (async event => {
+                          const $steps = {};
+
+                          $steps["updateFilter"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["filter"]
+                                  },
+                                  operation: 0,
+                                  value: (() => {
+                                    return $state.chats.list.filter(
+                                      item =>
+                                        item.text.includes(
+                                          $state.antdInput.value
+                                        ) ||
+                                        item.subList_name.includes(
+                                          $state.antdInput.value
+                                        ) ||
+                                        item.doctor.name.includes(
+                                          $state.antdInput.value
+                                        )
+                                    );
+                                  })()
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateFilter"] != null &&
+                            typeof $steps["updateFilter"] === "object" &&
+                            typeof $steps["updateFilter"].then === "function"
+                          ) {
+                            $steps["updateFilter"] = await $steps[
+                              "updateFilter"
+                            ];
+                          }
+                        }).apply(null, eventArgs);
+                      },
+                      value: generateStateValueProp($state, [
+                        "antdInput",
+                        "value"
+                      ])
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "value",
+                          plasmicStateName: "antdInput.value"
+                        }
+                      ],
+                      [],
+                      Input2_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <Input2
+                        data-plasmic-name={"antdInput"}
+                        data-plasmic-override={overrides.antdInput}
+                        {...child$Props}
+                      />
+                    );
+                  })()}
+                  className={classNames("__wab_instance", sty.search, {
+                    [sty.search_1_chatviow]: hasVariant(
                       $state,
                       "_1",
                       "chatviow"
                     )
                   })}
-                >
-                  <PlasmicIcon__
-                    PlasmicIconType={
-                      hasVariant($state, "_1", "chatviow") &&
-                      hasVariant(globalVariants, "screen", "mobile")
-                        ? Icon76Icon
-                        : hasVariant($state, "_1", "chatviow")
-                        ? Icon76Icon
-                        : "div"
-                    }
-                    className={classNames(projectcss.all, sty.svg__vIVk, {
-                      [sty.svg_1_chatviow__vIVKaYJmT]: hasVariant(
-                        $state,
-                        "_1",
-                        "chatviow"
-                      )
-                    })}
-                    role={"img"}
-                  />
-                </div>
+                />
               </div>
               <div
                 className={classNames(projectcss.all, sty.freeBox__v9Uib, {
@@ -2329,7 +2462,7 @@ function PlasmicClinic__RenderFunc(props: {
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
-                    return $state.chats.list;
+                    return $state.filter;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -2499,12 +2632,7 @@ function PlasmicClinic__RenderFunc(props: {
                       src={
                         hasVariant($state, "_1", "chatviow") &&
                         hasVariant(globalVariants, "screen", "mobile")
-                          ? {
-                              src: "/plasmic/liom_hamyar/images/image10.ico",
-                              fullWidth: 256,
-                              fullHeight: 256,
-                              aspectRatio: undefined
-                            }
+                          ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
                           : hasVariant($state, "_1", "docters") &&
                             hasVariant(globalVariants, "screen", "mobile")
                           ? {
@@ -2540,66 +2668,9 @@ function PlasmicClinic__RenderFunc(props: {
                       <div
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__nBn0,
+                          sty.freeBox___7CsOa,
                           {
-                            [sty.text_1_chatviow__nBn0AYJmT]: hasVariant(
-                              $state,
-                              "_1",
-                              "chatviow"
-                            ),
-                            [sty.text_1_docters__nBn0Pv2Kd]: hasVariant(
-                              $state,
-                              "_1",
-                              "docters"
-                            )
-                          }
-                        )}
-                      >
-                        {hasVariant($state, "_1", "chatviow") ? (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return $state.getData.list.filter(
-                                  item => item.id == currentItem.listID
-                                )[0].text;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "Dr. Mensah T";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        ) : (
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return currentItem.doctor.name;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "Dr. Mensah T";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        )}
-                      </div>
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___2WNhL,
-                          {
-                            [sty.freeBox_1_chatviow___2WNhLaYJmT]: hasVariant(
+                            [sty.freeBox_1_chatviow___7CsOaaYJmT]: hasVariant(
                               $state,
                               "_1",
                               "chatviow"
@@ -2607,14 +2678,67 @@ function PlasmicClinic__RenderFunc(props: {
                           }
                         )}
                       >
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
+                        <div
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox__dvfRs,
+                            projectcss.__wab_text,
+                            sty.text__nBn0,
                             {
-                              [sty.freeBox_1_chatviow__dvfRsaYJmT]: hasVariant(
+                              [sty.text_1_chatviow__nBn0AYJmT]: hasVariant(
+                                $state,
+                                "_1",
+                                "chatviow"
+                              ),
+                              [sty.text_1_docters__nBn0Pv2Kd]: hasVariant(
+                                $state,
+                                "_1",
+                                "docters"
+                              )
+                            }
+                          )}
+                        >
+                          {hasVariant($state, "_1", "chatviow") ? (
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.doctor.name;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "Dr. Mensah T";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          ) : (
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.doctor.name;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "Dr. Mensah T";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          )}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox___7Dgs3,
+                            {
+                              [sty.freeBox_1_chatviow___7Dgs3AYJmT]: hasVariant(
                                 $state,
                                 "_1",
                                 "chatviow"
@@ -2622,61 +2746,6 @@ function PlasmicClinic__RenderFunc(props: {
                             }
                           )}
                         >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__oLwL,
-                              {
-                                [sty.text_1_chatviow__oLwLaYJmT]: hasVariant(
-                                  $state,
-                                  "_1",
-                                  "chatviow"
-                                ),
-                                [sty.text_1_docters__oLwLpv2Kd]: hasVariant(
-                                  $state,
-                                  "_1",
-                                  "docters"
-                                )
-                              }
-                            )}
-                          >
-                            {hasVariant($state, "_1", "chatviow") ? (
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return currentItem.text;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            ) : (
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return undefined;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            )}
-                          </div>
                           <Seen
                             data-plasmic-name={"seen"}
                             data-plasmic-override={overrides.seen}
@@ -2711,108 +2780,240 @@ function PlasmicClinic__RenderFunc(props: {
                                 : undefined
                             }
                           />
-                        </Stack__>
-                        <div
+
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__xOlDb,
+                              {
+                                [sty.text_1_chatviow__xOlDbaYJmT]: hasVariant(
+                                  $state,
+                                  "_1",
+                                  "chatviow"
+                                ),
+                                [sty.text_1_docters__xOlDbpv2Kd]: hasVariant(
+                                  $state,
+                                  "_1",
+                                  "docters"
+                                )
+                              }
+                            )}
+                          >
+                            {hasVariant($state, "_1", "chatviow") ? (
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      var birthDate =
+                                        currentItem.date.split("-");
+                                      let gy = parseInt(birthDate[0]);
+                                      let gm = parseInt(birthDate[1]);
+                                      let gd = parseInt(birthDate[2]);
+                                      let shamsiMonthDays = [
+                                        31, 31, 31, 31, 31, 31, 30, 30, 30, 30,
+                                        30, 29
+                                      ];
+
+                                      let miladiDaysInMonth = [
+                                        31, 28, 31, 30, 31, 30, 31, 31, 30, 31,
+                                        30, 31
+                                      ];
+
+                                      let isLeapYear =
+                                        gy % 4 === 0 &&
+                                        (gy % 100 !== 0 || gy % 400 === 0);
+                                      if (isLeapYear) {
+                                        miladiDaysInMonth[1] = 29;
+                                      }
+                                      let daysPassedMiladi = gd;
+                                      for (let i = 0; i < gm - 1; i++) {
+                                        daysPassedMiladi +=
+                                          miladiDaysInMonth[i];
+                                      }
+                                      let shamsiNewYearDay = new Date(
+                                        gy,
+                                        2,
+                                        21
+                                      );
+                                      let shamsiStartDayInMiladi =
+                                        (shamsiNewYearDay -
+                                          new Date(gy, 0, 1)) /
+                                        (1000 * 60 * 60 * 24);
+                                      let daysPassedInShamsiYear =
+                                        daysPassedMiladi -
+                                        shamsiStartDayInMiladi;
+                                      if (daysPassedInShamsiYear < 0) {
+                                        gy--;
+                                        shamsiNewYearDay = new Date(gy, 2, 21);
+                                        shamsiStartDayInMiladi =
+                                          (shamsiNewYearDay -
+                                            new Date(gy, 0, 1)) /
+                                          (1000 * 60 * 60 * 24);
+                                        daysPassedInShamsiYear =
+                                          daysPassedMiladi +
+                                          (365 - shamsiStartDayInMiladi);
+                                        if (isLeapYear) {
+                                          daysPassedInShamsiYear++;
+                                        }
+                                      }
+                                      let jy = gy - 621;
+                                      let jm = 0;
+                                      let jd = daysPassedInShamsiYear;
+                                      for (
+                                        let i = 0;
+                                        i < shamsiMonthDays.length;
+                                        i++
+                                      ) {
+                                        if (jd <= shamsiMonthDays[i]) {
+                                          jm = i + 1;
+                                          break;
+                                        } else {
+                                          jd -= shamsiMonthDays[i];
+                                        }
+                                      }
+                                      return `${jy}/${jm}/${jd}`;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            ) : (
+                              "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f"
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___2WNhL,
+                          {
+                            [sty.freeBox_1_chatviow___2WNhLaYJmT]: hasVariant(
+                              $state,
+                              "_1",
+                              "chatviow"
+                            )
+                          }
+                        )}
+                      >
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__xOlDb,
+                            sty.freeBox__dvfRs,
                             {
-                              [sty.text_1_chatviow__xOlDbaYJmT]: hasVariant(
+                              [sty.freeBox_1_chatviow__dvfRsaYJmT]: hasVariant(
                                 $state,
                                 "_1",
                                 "chatviow"
-                              ),
-                              [sty.text_1_docters__xOlDbpv2Kd]: hasVariant(
-                                $state,
-                                "_1",
-                                "docters"
                               )
                             }
                           )}
                         >
-                          {hasVariant($state, "_1", "chatviow") ? (
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return (() => {
-                                    var birthDate = currentItem.date.split("-");
-                                    let gy = parseInt(birthDate[0]);
-                                    let gm = parseInt(birthDate[1]);
-                                    let gd = parseInt(birthDate[2]);
-                                    let shamsiMonthDays = [
-                                      31, 31, 31, 31, 31, 31, 30, 30, 30, 30,
-                                      30, 29
-                                    ];
+                          <LineClomp
+                            data-plasmic-name={"lineClomp"}
+                            data-plasmic-override={overrides.lineClomp}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.lineClomp,
+                              {
+                                [sty.lineClomp_1_chatviow]: hasVariant(
+                                  $state,
+                                  "_1",
+                                  "chatviow"
+                                )
+                              }
+                            )}
+                            numberOfLine={
+                              hasVariant($state, "_1", "chatviow")
+                                ? 1
+                                : undefined
+                            }
+                            onLineChange={async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "lineClomp",
+                                __plasmic_idx_0,
+                                "line"
+                              ]).apply(null, eventArgs);
 
-                                    let miladiDaysInMonth = [
-                                      31, 28, 31, 30, 31, 30, 31, 31, 30, 31,
-                                      30, 31
-                                    ];
-
-                                    let isLeapYear =
-                                      gy % 4 === 0 &&
-                                      (gy % 100 !== 0 || gy % 400 === 0);
-                                    if (isLeapYear) {
-                                      miladiDaysInMonth[1] = 29;
-                                    }
-                                    let daysPassedMiladi = gd;
-                                    for (let i = 0; i < gm - 1; i++) {
-                                      daysPassedMiladi += miladiDaysInMonth[i];
-                                    }
-                                    let shamsiNewYearDay = new Date(gy, 2, 21);
-                                    let shamsiStartDayInMiladi =
-                                      (shamsiNewYearDay - new Date(gy, 0, 1)) /
-                                      (1000 * 60 * 60 * 24);
-                                    let daysPassedInShamsiYear =
-                                      daysPassedMiladi - shamsiStartDayInMiladi;
-                                    if (daysPassedInShamsiYear < 0) {
-                                      gy--;
-                                      shamsiNewYearDay = new Date(gy, 2, 21);
-                                      shamsiStartDayInMiladi =
-                                        (shamsiNewYearDay -
-                                          new Date(gy, 0, 1)) /
-                                        (1000 * 60 * 60 * 24);
-                                      daysPassedInShamsiYear =
-                                        daysPassedMiladi +
-                                        (365 - shamsiStartDayInMiladi);
-                                      if (isLeapYear) {
-                                        daysPassedInShamsiYear++;
-                                      }
-                                    }
-                                    let jy = gy - 621;
-                                    let jm = 0;
-                                    let jd = daysPassedInShamsiYear;
-                                    for (
-                                      let i = 0;
-                                      i < shamsiMonthDays.length;
-                                      i++
-                                    ) {
-                                      if (jd <= shamsiMonthDays[i]) {
-                                        jm = i + 1;
-                                        break;
-                                      } else {
-                                        jd -= shamsiMonthDays[i];
-                                      }
-                                    }
-                                    return `${jy}/${jm}/${jd}`;
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
-                                  }
-                                  throw e;
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__oLwL,
+                                {
+                                  [sty.text_1_chatviow__oLwLaYJmT]: hasVariant(
+                                    $state,
+                                    "_1",
+                                    "chatviow"
+                                  ),
+                                  [sty.text_1_docters__oLwLpv2Kd]: hasVariant(
+                                    $state,
+                                    "_1",
+                                    "docters"
+                                  )
                                 }
-                              })()}
-                            </React.Fragment>
-                          ) : (
-                            "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f"
-                          )}
-                        </div>
+                              )}
+                            >
+                              {hasVariant($state, "_1", "chatviow") ? (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return currentItem.text;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              ) : (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return undefined;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u0633\u0644\u0627\u0645 \u062f\u06a9\u062a\u0631 \u062d\u0627\u0644\u062a\u0648\u0646 \u0686\u0637\u0648\u0631\u0647 \u061f";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              )}
+                            </div>
+                          </LineClomp>
+                        </Stack__>
                       </Stack__>
                     </Stack__>
                     <div
@@ -5287,9 +5488,12 @@ const PlasmicDescendants = {
     "button2",
     "input",
     "mensah",
+    "search",
+    "antdInput",
     "input2",
     "mensah2",
     "seen",
+    "lineClomp",
     "doctorsDetails",
     "bg2",
     "about",
@@ -5356,9 +5560,12 @@ const PlasmicDescendants = {
   button2: ["button2"],
   input: ["input"],
   mensah: ["mensah"],
+  search: ["search", "antdInput"],
+  antdInput: ["antdInput"],
   input2: ["input2"],
-  mensah2: ["mensah2", "seen"],
+  mensah2: ["mensah2", "seen", "lineClomp"],
   seen: ["seen"],
+  lineClomp: ["lineClomp"],
   doctorsDetails: [
     "doctorsDetails",
     "bg2",
@@ -5441,9 +5648,12 @@ type NodeDefaultElementType = {
   button2: typeof Button;
   input: typeof Input;
   mensah: "div";
+  search: typeof Search;
+  antdInput: typeof Input2;
   input2: typeof Input;
   mensah2: "div";
   seen: typeof Seen;
+  lineClomp: typeof LineClomp;
   doctorsDetails: "div";
   bg2: "div";
   about: "div";
@@ -5580,9 +5790,12 @@ export const PlasmicClinic = Object.assign(
     button2: makeNodeComponent("button2"),
     input: makeNodeComponent("input"),
     mensah: makeNodeComponent("mensah"),
+    search: makeNodeComponent("search"),
+    antdInput: makeNodeComponent("antdInput"),
     input2: makeNodeComponent("input2"),
     mensah2: makeNodeComponent("mensah2"),
     seen: makeNodeComponent("seen"),
+    lineClomp: makeNodeComponent("lineClomp"),
     doctorsDetails: makeNodeComponent("doctorsDetails"),
     bg2: makeNodeComponent("bg2"),
     about: makeNodeComponent("about"),
