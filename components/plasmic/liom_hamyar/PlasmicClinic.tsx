@@ -550,7 +550,7 @@ function PlasmicClinic__RenderFunc(props: {
                             localStorage.getItem("chatstart")
                           );
                           return window.open(
-                            `https://apps.liom.app/chat?listiD=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}`,
+                            `https://apps.liom.app/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}`,
                             "_self"
                           );
                         }
@@ -2508,7 +2508,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `https://apps.liom.app/chat?sessionID=${currentItem.id}&listiD=${currentItem.listID}&subList=${currentItem.subList}&doctorID=${currentItem.doctorID}`;
+                                  return `https://apps.liom.app/chat?sessionID=${currentItem.id}&listID=${currentItem.listID}&subList=${currentItem.subList}&doctorID=${currentItem.doctorID}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
