@@ -584,7 +584,7 @@ function PlasmicNewPage2__RenderFunc(props: {
             }
 
             $steps["runCode"] =
-              $state.variable[0].status == -1
+              $state.variable[0]?.status == -1
                 ? (() => {
                     const actionArgs = {
                       customFunction: async () => {
