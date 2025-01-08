@@ -583,6 +583,30 @@ function PlasmicNewPage2__RenderFunc(props: {
             ) {
               $steps["updateDoctor"] = await $steps["updateDoctor"];
             }
+
+            $steps["runCode"] =
+              $state.variable[0].status == -1
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return $state.variable.push({
+                          text: "",
+                          isUser: -1
+                        });
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
           }}
         >
           <div
@@ -754,6 +778,19 @@ function PlasmicNewPage2__RenderFunc(props: {
                   return (() => {
                     const child$Props = {
                       className: classNames("__wab_instance", sty.massage),
+                      end: (() => {
+                        try {
+                          return currentItem.isUser == -1;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })(),
                       key: currentIndex,
                       loading: generateStateValueProp($state, [
                         "massage",
@@ -1072,6 +1109,22 @@ function PlasmicNewPage2__RenderFunc(props: {
               data-plasmic-override={overrides.bottomInput}
               hasGap={true}
               className={classNames(projectcss.all, sty.bottomInput)}
+              style={(() => {
+                try {
+                  return {
+                    "background-color":
+                      $state.variable[0].status == -1 ? "#f5f5f5" : "#ffffff"
+                  };
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
             >
               <Reveal
                 cascade={true}
@@ -1389,6 +1442,19 @@ function PlasmicNewPage2__RenderFunc(props: {
                 const child$Props = {
                   autoSize: true,
                   className: classNames("__wab_instance", sty.textArea),
+                  disabled: (() => {
+                    try {
+                      return $state.variable[0].status == -1;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })(),
                   onChange: async (...eventArgs: any) => {
                     generateStateOnChangePropForCodeComponents(
                       $state,

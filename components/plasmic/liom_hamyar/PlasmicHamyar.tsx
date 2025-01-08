@@ -10110,14 +10110,27 @@ function PlasmicHamyar__RenderFunc(props: {
                   "\u0628\u0647\u0634 \u0628\u06af\u0648 \u062d\u0648\u0627\u0633\u0645 \u0628\u0647\u062a \u0647\u0633\u062a."
                 }
               >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___81Z6T)}
-                >
-                  <Heart
-                    data-plasmic-name={"heart"}
-                    data-plasmic-override={overrides.heart}
-                    className={classNames("__wab_instance", sty.heart)}
-                  />
+                <div className={classNames(projectcss.all, sty.freeBox__sKsJr)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___81Z6T)}
+                  >
+                    <Heart
+                      data-plasmic-name={"heart"}
+                      data-plasmic-override={overrides.heart}
+                      className={classNames("__wab_instance", sty.heart)}
+                    />
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__mXDr
+                    )}
+                  >
+                    {
+                      "\u0628\u0647\u0634 \u0628\u06af\u0648 \u062d\u0648\u0627\u0633\u0645 \u0628\u0647\u062a \u0647\u0633\u062a."
+                    }
+                  </div>
                 </div>
               </AntdTooltip>
             </div>

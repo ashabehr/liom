@@ -387,7 +387,7 @@ function PlasmicClinic__RenderFunc(props: {
         path: "status",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "false"
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "dialog2.opendialog",

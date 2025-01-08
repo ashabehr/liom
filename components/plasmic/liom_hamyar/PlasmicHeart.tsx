@@ -167,6 +167,7 @@ function PlasmicHeart__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
+        "animashen",
         { [sty.rootclick]: hasVariant($state, "click", "click") }
       )}
       onClick={async event => {
