@@ -531,7 +531,7 @@ function PlasmicClinic__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
 
-            $steps["runCode"] = !localStorage.getItem("ClinicToken")
+            $steps["runCode"] = true
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
@@ -539,8 +539,10 @@ function PlasmicClinic__RenderFunc(props: {
                         var urlParams = new URLSearchParams(
                           window.location.search
                         );
-                        var app = urlParams.get("token");
-                        localStorage.setItem("ClinicToken", app);
+                        if (!localStorage.getItem("ClinicToken")) {
+                          var app = urlParams.get("token");
+                          localStorage.setItem("ClinicToken", app);
+                        }
                         var status = urlParams.get("status");
                         if (status == "false") return ($state.status = "false");
                         else if (status == "true") {
