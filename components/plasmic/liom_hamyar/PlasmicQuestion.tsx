@@ -61,8 +61,6 @@ import {
 
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import RadioGroup from "../../RadioGroup"; // plasmic-import: bKwCi29rjzVj/component
-import Radio from "../../Radio"; // plasmic-import: 7gGRP6bmPdFU/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -216,53 +214,6 @@ function PlasmicQuestion__RenderFunc(props: {
                   return <AntdTextArea {...child$Props} />;
                 })()
               : null}
-            <RadioGroup
-              className={classNames("__wab_instance", sty.radioGroup__imka)}
-              label={null}
-              options={
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__oBUcq)}
-                >
-                  <Radio
-                    className={classNames("__wab_instance", sty.radio__m7Mm)}
-                    label={"Option 1"}
-                    value={"option1"}
-                  />
-
-                  <Radio
-                    className={classNames("__wab_instance", sty.radio__hkldA)}
-                    label={"Option 2"}
-                    value={"option2"}
-                  />
-                </Stack__>
-              }
-            />
-
-            <RadioGroup
-              className={classNames("__wab_instance", sty.radioGroup__j7FkE)}
-              label={null}
-              options={
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__xbJVr)}
-                >
-                  <Radio
-                    className={classNames("__wab_instance", sty.radio__uy0Tf)}
-                    label={"Option 1"}
-                    value={"option1"}
-                  />
-
-                  <Radio
-                    className={classNames("__wab_instance", sty.radio__lxrsO)}
-                    label={"Option 2"}
-                    value={"option2"}
-                  />
-                </Stack__>
-              }
-            />
           </React.Fragment>
         ),
         value: args.children

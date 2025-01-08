@@ -834,19 +834,6 @@
           "path": "/intro"
         },
         {
-          "id": "7gGRP6bmPdFU",
-          "name": "Radio",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicRadio.tsx",
-          "importSpec": {
-            "modulePath": "Radio.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicRadio.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "f_5OZPoRC_w4",
           "name": "Subscription2",
           "type": "managed",
@@ -934,19 +921,6 @@
             "modulePath": "Description.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicDescription.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
-          "id": "bKwCi29rjzVj",
-          "name": "RadioGroup",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicRadioGroup.tsx",
-          "importSpec": {
-            "modulePath": "RadioGroup.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicRadioGroup.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         },
