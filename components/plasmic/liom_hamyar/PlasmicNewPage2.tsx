@@ -1280,7 +1280,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                                     return {
                                       text: $state.textArea.value,
                                       sessionID: $state.sessionId,
-                                      token: $ctx.query.token
+                                      token: $state.token
                                     };
                                   } catch (e) {
                                     if (
