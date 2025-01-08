@@ -502,8 +502,24 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  background: #ffffff;
   min-width: 0;
-  padding: 0px;
+  border-radius: 8px;
+  padding: 8px;
+}
+.radioGroup2:global(.__wab_instance) {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
+  row-gap: 4px;
+  padding: 8px;
 }
 .freeBox__oh4QW {
   display: flex;
@@ -517,6 +533,19 @@
   background: #ffffff;
   min-width: 0;
   border-radius: 8px;
+  padding: 8px;
+}
+.radioGroup:global(.__wab_instance) {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: cover;
+  min-width: 0;
   padding: 8px;
 }
 .freeBox___03PYq {

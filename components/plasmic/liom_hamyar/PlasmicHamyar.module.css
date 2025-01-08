@@ -4834,11 +4834,13 @@
   width: auto;
   height: auto;
   background: none;
+  display: none;
 }
 @media (max-width: 640px) {
   .tooltip:global(.__wab_instance) {
     right: 0;
     bottom: 0;
+    display: none;
   }
 }
 .freeBox__sKsJr {

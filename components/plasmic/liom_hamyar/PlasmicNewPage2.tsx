@@ -71,6 +71,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Question from "../../Question"; // plasmic-import: Z2cK5LB8JLFR/component
+import { AntdRadioGroup } from "@plasmicpkgs/antd5/skinny/registerRadio";
 import Star from "../../Star"; // plasmic-import: i69c2Ujsm_H6/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -121,6 +122,8 @@ export type PlasmicNewPage2__OverridesType = {
   apiRequest?: Flex__<typeof ApiRequest>;
   question?: Flex__<typeof Question>;
   textArea2?: Flex__<typeof AntdTextArea>;
+  radioGroup2?: Flex__<typeof AntdRadioGroup>;
+  radioGroup?: Flex__<typeof AntdRadioGroup>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   modal2?: Flex__<typeof AntdModal>;
@@ -401,6 +404,16 @@ function PlasmicNewPage2__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "radioGroup[].value",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "radioGroup2[].value",
+        type: "private",
+        variableType: "text"
       }
     ],
     [$props, $ctx, $refs]
@@ -1838,13 +1851,130 @@ function PlasmicNewPage2__RenderFunc(props: {
                             })()}
                           </div>
                         ) : null}
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__slJht
-                          )}
-                        />
+                        {(() => {
+                          try {
+                            return currentItem.option.length == 4;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__slJht
+                            )}
+                          >
+                            {(() => {
+                              const child$Props = {
+                                children: null,
+                                className: classNames(
+                                  "__wab_instance",
+                                  sty.radioGroup2
+                                ),
+                                onChange: async (...eventArgs: any) => {
+                                  generateStateOnChangeProp($state, [
+                                    "radioGroup2",
+                                    __plasmic_idx_0,
+                                    "value"
+                                  ]).apply(null, eventArgs);
 
+                                  (async value => {
+                                    const $steps = {};
+
+                                    $steps["runCode"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return ($state.form.find(
+                                                item =>
+                                                  item.questionID ==
+                                                  currentItem.id
+                                              ).answer =
+                                                $state.radioGroup2[
+                                                  currentIndex
+                                                ].value);
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["runCode"] = await $steps[
+                                        "runCode"
+                                      ];
+                                    }
+                                  }).apply(null, eventArgs);
+                                },
+                                optionType: "default",
+                                options: (() => {
+                                  try {
+                                    return currentItem.option.map(item => ({
+                                      value: item.id,
+                                      label: item.text
+                                    }));
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                value: generateStateValueProp($state, [
+                                  "radioGroup2",
+                                  __plasmic_idx_0,
+                                  "value"
+                                ])
+                              };
+                              initializeCodeComponentStates(
+                                $state,
+                                [
+                                  {
+                                    name: "value",
+                                    plasmicStateName: "radioGroup2[].value"
+                                  }
+                                ],
+                                [__plasmic_idx_0],
+                                undefined ?? {},
+                                child$Props
+                              );
+                              initializePlasmicStates(
+                                $state,
+                                [
+                                  {
+                                    name: "radioGroup2[].value",
+                                    initFunc: ({ $props, $state, $queries }) =>
+                                      undefined
+                                  }
+                                ],
+                                [__plasmic_idx_0]
+                              );
+                              return (
+                                <AntdRadioGroup
+                                  data-plasmic-name={"radioGroup2"}
+                                  data-plasmic-override={overrides.radioGroup2}
+                                  {...child$Props}
+                                />
+                              );
+                            })()}
+                          </div>
+                        ) : null}
                         {(() => {
                           try {
                             return currentItem.option.length == 2;
@@ -1863,7 +1993,111 @@ function PlasmicNewPage2__RenderFunc(props: {
                               projectcss.all,
                               sty.freeBox__oh4QW
                             )}
-                          />
+                          >
+                            {(() => {
+                              const child$Props = {
+                                children: null,
+                                className: classNames(
+                                  "__wab_instance",
+                                  sty.radioGroup
+                                ),
+                                onChange: async (...eventArgs: any) => {
+                                  generateStateOnChangeProp($state, [
+                                    "radioGroup",
+                                    __plasmic_idx_0,
+                                    "value"
+                                  ]).apply(null, eventArgs);
+
+                                  (async value => {
+                                    const $steps = {};
+
+                                    $steps["runCode"] = true
+                                      ? (() => {
+                                          const actionArgs = {
+                                            customFunction: async () => {
+                                              return ($state.form.find(
+                                                item =>
+                                                  item.questionID ==
+                                                  currentItem.id
+                                              ).answer =
+                                                $state.radioGroup[
+                                                  currentIndex
+                                                ].value);
+                                            }
+                                          };
+                                          return (({ customFunction }) => {
+                                            return customFunction();
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                    if (
+                                      $steps["runCode"] != null &&
+                                      typeof $steps["runCode"] === "object" &&
+                                      typeof $steps["runCode"].then ===
+                                        "function"
+                                    ) {
+                                      $steps["runCode"] = await $steps[
+                                        "runCode"
+                                      ];
+                                    }
+                                  }).apply(null, eventArgs);
+                                },
+                                optionType: "default",
+                                options: (() => {
+                                  try {
+                                    return currentItem.option.map(item => ({
+                                      value: item.id,
+                                      label: item.text
+                                    }));
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [];
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                value: generateStateValueProp($state, [
+                                  "radioGroup",
+                                  __plasmic_idx_0,
+                                  "value"
+                                ])
+                              };
+                              initializeCodeComponentStates(
+                                $state,
+                                [
+                                  {
+                                    name: "value",
+                                    plasmicStateName: "radioGroup[].value"
+                                  }
+                                ],
+                                [__plasmic_idx_0],
+                                undefined ?? {},
+                                child$Props
+                              );
+                              initializePlasmicStates(
+                                $state,
+                                [
+                                  {
+                                    name: "radioGroup[].value",
+                                    initFunc: ({ $props, $state, $queries }) =>
+                                      undefined
+                                  }
+                                ],
+                                [__plasmic_idx_0]
+                              );
+                              return (
+                                <AntdRadioGroup
+                                  data-plasmic-name={"radioGroup"}
+                                  data-plasmic-override={overrides.radioGroup}
+                                  {...child$Props}
+                                />
+                              );
+                            })()}
+                          </div>
                         ) : null}
                       </Question>
                     );
@@ -2636,6 +2870,8 @@ const PlasmicDescendants = {
     "apiRequest",
     "question",
     "textArea2",
+    "radioGroup2",
+    "radioGroup",
     "button",
     "button2",
     "modal2",
@@ -2671,13 +2907,25 @@ const PlasmicDescendants = {
     "apiRequest",
     "question",
     "textArea2",
+    "radioGroup2",
+    "radioGroup",
     "button",
     "button2"
   ],
   top2: ["top2"],
-  apiRequest: ["apiRequest", "question", "textArea2", "button", "button2"],
-  question: ["question", "textArea2"],
+  apiRequest: [
+    "apiRequest",
+    "question",
+    "textArea2",
+    "radioGroup2",
+    "radioGroup",
+    "button",
+    "button2"
+  ],
+  question: ["question", "textArea2", "radioGroup2", "radioGroup"],
   textArea2: ["textArea2"],
+  radioGroup2: ["radioGroup2"],
+  radioGroup: ["radioGroup"],
   button: ["button"],
   button2: ["button2"],
   modal2: ["modal2", "star", "button4"],
@@ -2705,6 +2953,8 @@ type NodeDefaultElementType = {
   apiRequest: typeof ApiRequest;
   question: typeof Question;
   textArea2: typeof AntdTextArea;
+  radioGroup2: typeof AntdRadioGroup;
+  radioGroup: typeof AntdRadioGroup;
   button: typeof Button;
   button2: typeof Button;
   modal2: typeof AntdModal;
@@ -2813,6 +3063,8 @@ export const PlasmicNewPage2 = Object.assign(
     apiRequest: makeNodeComponent("apiRequest"),
     question: makeNodeComponent("question"),
     textArea2: makeNodeComponent("textArea2"),
+    radioGroup2: makeNodeComponent("radioGroup2"),
+    radioGroup: makeNodeComponent("radioGroup"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
     modal2: makeNodeComponent("modal2"),
