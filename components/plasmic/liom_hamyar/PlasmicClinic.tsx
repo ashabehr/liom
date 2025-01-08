@@ -669,6 +669,28 @@ function PlasmicClinic__RenderFunc(props: {
                 data-plasmic-override={overrides.rectangle2}
                 className={classNames(projectcss.all, sty.rectangle2)}
               >
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__eYiNj)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? "150px"
+                      : "300px"
+                  }
+                  loading={"lazy"}
+                  src={{
+                    src: "/plasmic/liom_hamyar/images/医疗工作的男医生矢量扁平插画0918果冻画板1.png",
+                    fullWidth: 888,
+                    fullHeight: 705,
+                    aspectRatio: undefined
+                  }}
+                />
+
                 <Stack__
                   as={"div"}
                   hasGap={true}
@@ -729,27 +751,6 @@ function PlasmicClinic__RenderFunc(props: {
                     }
                   </div>
                 </Stack__>
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img__eYiNj)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={
-                    hasVariant(globalVariants, "screen", "mobile")
-                      ? "250px"
-                      : "200px"
-                  }
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/医疗工作的男医生矢量扁平插画0918果冻画板1.png",
-                    fullWidth: 888,
-                    fullHeight: 705,
-                    aspectRatio: undefined
-                  }}
-                />
               </div>
             </div>
             <div
@@ -1679,6 +1680,80 @@ function PlasmicClinic__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button2", "color"])}
                   onClick={async event => {
                     const $steps = {};
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "GET",
+                              "https://n8n.staas.ir/webhook/help/getListHelp",
+                              (() => {
+                                try {
+                                  return { token: $state.token };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+
+                    $steps["updateChats"] = (
+                      $steps.invokeGlobalAction?.data ? true : false
+                    )
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["chats"]
+                            },
+                            operation: 0,
+                            value: $steps.invokeGlobalAction.data
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateChats"] != null &&
+                      typeof $steps["updateChats"] === "object" &&
+                      typeof $steps["updateChats"].then === "function"
+                    ) {
+                      $steps["updateChats"] = await $steps["updateChats"];
+                    }
 
                     $steps["update1"] = true
                       ? (() => {
