@@ -1472,6 +1472,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 name: $state.getUserInfo.data[0].result.hamyars[
                                   i
                                 ].user.name,
+                                id: $state.getUserInfo.data[0].result.hamyars[i]
+                                  .user.id,
                                 mobile:
                                   $state.getUserInfo.data[0].result.hamyars[i]
                                     .user.mobile,

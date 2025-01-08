@@ -71,8 +71,6 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Question from "../../Question"; // plasmic-import: Z2cK5LB8JLFR/component
-import RadioGroup from "../../RadioGroup"; // plasmic-import: bKwCi29rjzVj/component
-import Radio from "../../Radio"; // plasmic-import: 7gGRP6bmPdFU/component
 import Star from "../../Star"; // plasmic-import: i69c2Ujsm_H6/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -123,8 +121,6 @@ export type PlasmicNewPage2__OverridesType = {
   apiRequest?: Flex__<typeof ApiRequest>;
   question?: Flex__<typeof Question>;
   textArea2?: Flex__<typeof AntdTextArea>;
-  radioGroup?: Flex__<typeof RadioGroup>;
-  radioGroup2?: Flex__<typeof RadioGroup>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
   modal2?: Flex__<typeof AntdModal>;
@@ -328,16 +324,6 @@ function PlasmicNewPage2__RenderFunc(props: {
         variableType: "text",
 
         onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
-      },
-      {
-        path: "radioGroup[].value",
-        type: "private",
-        variableType: "array"
-      },
-      {
-        path: "radioGroup2[].value",
-        type: "private",
-        variableType: "array"
       },
       {
         path: "form",
@@ -1857,161 +1843,8 @@ function PlasmicNewPage2__RenderFunc(props: {
                             projectcss.all,
                             sty.freeBox__slJht
                           )}
-                        >
-                          {(() => {
-                            try {
-                              return currentItem.option.length == 4;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <RadioGroup
-                              data-plasmic-name={"radioGroup"}
-                              data-plasmic-override={overrides.radioGroup}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.radioGroup
-                              )}
-                              label={null}
-                              onChange={async (...eventArgs: any) => {
-                                generateStateOnChangeProp($state, [
-                                  "radioGroup",
-                                  __plasmic_idx_0,
-                                  "value"
-                                ]).apply(null, eventArgs);
+                        />
 
-                                if (
-                                  eventArgs.length > 1 &&
-                                  eventArgs[1] &&
-                                  eventArgs[1]._plasmic_state_init_
-                                ) {
-                                  return;
-                                }
-
-                                (async val => {
-                                  const $steps = {};
-
-                                  $steps["runCode"] = true
-                                    ? (() => {
-                                        const actionArgs = {
-                                          customFunction: async () => {
-                                            return ($state.form.find(
-                                              item =>
-                                                item.questionID ==
-                                                currentItem.id
-                                            ).answer =
-                                              $state.radioGroup[
-                                                currentIndex
-                                              ].value);
-                                          }
-                                        };
-                                        return (({ customFunction }) => {
-                                          return customFunction();
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                  if (
-                                    $steps["runCode"] != null &&
-                                    typeof $steps["runCode"] === "object" &&
-                                    typeof $steps["runCode"].then === "function"
-                                  ) {
-                                    $steps["runCode"] = await $steps["runCode"];
-                                  }
-                                }).apply(null, eventArgs);
-                              }}
-                              options={
-                                <Stack__
-                                  as={"div"}
-                                  hasGap={true}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__zmWRj
-                                  )}
-                                >
-                                  {(_par =>
-                                    !_par
-                                      ? []
-                                      : Array.isArray(_par)
-                                      ? _par
-                                      : [_par])(
-                                    (() => {
-                                      try {
-                                        return currentItem.option;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return [];
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                                    const currentItem = __plasmic_item_1;
-                                    const currentIndex = __plasmic_idx_1;
-                                    return (
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          sty.freeBox__rUUb
-                                        )}
-                                        key={currentIndex}
-                                      >
-                                        <Radio
-                                          className={classNames(
-                                            "__wab_instance",
-                                            sty.radio__jwwDm
-                                          )}
-                                          label={
-                                            <React.Fragment>
-                                              {(() => {
-                                                try {
-                                                  return currentItem.text;
-                                                } catch (e) {
-                                                  if (
-                                                    e instanceof TypeError ||
-                                                    e?.plasmicType ===
-                                                      "PlasmicUndefinedDataError"
-                                                  ) {
-                                                    return "Option 1";
-                                                  }
-                                                  throw e;
-                                                }
-                                              })()}
-                                            </React.Fragment>
-                                          }
-                                          value={(() => {
-                                            try {
-                                              return currentItem.id;
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
-                                              }
-                                              throw e;
-                                            }
-                                          })()}
-                                        />
-                                      </div>
-                                    );
-                                  })}
-                                </Stack__>
-                              }
-                              showLabel={false}
-                            />
-                          ) : null}
-                        </div>
                         {(() => {
                           try {
                             return currentItem.option.length == 2;
@@ -2030,159 +1863,7 @@ function PlasmicNewPage2__RenderFunc(props: {
                               projectcss.all,
                               sty.freeBox__oh4QW
                             )}
-                          >
-                            {(() => {
-                              try {
-                                return currentItem.option.length == 2;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <RadioGroup
-                                data-plasmic-name={"radioGroup2"}
-                                data-plasmic-override={overrides.radioGroup2}
-                                className={classNames(
-                                  "__wab_instance",
-                                  sty.radioGroup2
-                                )}
-                                label={null}
-                                onChange={async (...eventArgs: any) => {
-                                  generateStateOnChangeProp($state, [
-                                    "radioGroup2",
-                                    __plasmic_idx_0,
-                                    "value"
-                                  ]).apply(null, eventArgs);
-
-                                  if (
-                                    eventArgs.length > 1 &&
-                                    eventArgs[1] &&
-                                    eventArgs[1]._plasmic_state_init_
-                                  ) {
-                                    return;
-                                  }
-
-                                  (async val => {
-                                    const $steps = {};
-
-                                    $steps["runCode"] = true
-                                      ? (() => {
-                                          const actionArgs = {
-                                            customFunction: async () => {
-                                              return ($state.form.find(
-                                                item =>
-                                                  item.questionID ==
-                                                  currentItem.id
-                                              ).answer =
-                                                $state.radioGroup2[
-                                                  currentIndex
-                                                ].value);
-                                            }
-                                          };
-                                          return (({ customFunction }) => {
-                                            return customFunction();
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                    if (
-                                      $steps["runCode"] != null &&
-                                      typeof $steps["runCode"] === "object" &&
-                                      typeof $steps["runCode"].then ===
-                                        "function"
-                                    ) {
-                                      $steps["runCode"] = await $steps[
-                                        "runCode"
-                                      ];
-                                    }
-                                  }).apply(null, eventArgs);
-                                }}
-                                options={
-                                  <Stack__
-                                    as={"div"}
-                                    hasGap={true}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__w0KkL
-                                    )}
-                                  >
-                                    {(_par =>
-                                      !_par
-                                        ? []
-                                        : Array.isArray(_par)
-                                        ? _par
-                                        : [_par])(
-                                      (() => {
-                                        try {
-                                          return currentItem.option;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return [];
-                                          }
-                                          throw e;
-                                        }
-                                      })()
-                                    ).map(
-                                      (__plasmic_item_1, __plasmic_idx_1) => {
-                                        const currentItem = __plasmic_item_1;
-                                        const currentIndex = __plasmic_idx_1;
-                                        return (
-                                          <Radio
-                                            className={classNames(
-                                              "__wab_instance",
-                                              sty.radio___3MVfb
-                                            )}
-                                            key={currentIndex}
-                                            label={
-                                              <React.Fragment>
-                                                {(() => {
-                                                  try {
-                                                    return currentItem.text;
-                                                  } catch (e) {
-                                                    if (
-                                                      e instanceof TypeError ||
-                                                      e?.plasmicType ===
-                                                        "PlasmicUndefinedDataError"
-                                                    ) {
-                                                      return "Option 1";
-                                                    }
-                                                    throw e;
-                                                  }
-                                                })()}
-                                              </React.Fragment>
-                                            }
-                                            value={(() => {
-                                              try {
-                                                return currentItem.id;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return undefined;
-                                                }
-                                                throw e;
-                                              }
-                                            })()}
-                                          />
-                                        );
-                                      }
-                                    )}
-                                  </Stack__>
-                                }
-                                showLabel={false}
-                              />
-                            ) : null}
-                          </div>
+                          />
                         ) : null}
                       </Question>
                     );
@@ -2955,8 +2636,6 @@ const PlasmicDescendants = {
     "apiRequest",
     "question",
     "textArea2",
-    "radioGroup",
-    "radioGroup2",
     "button",
     "button2",
     "modal2",
@@ -2992,25 +2671,13 @@ const PlasmicDescendants = {
     "apiRequest",
     "question",
     "textArea2",
-    "radioGroup",
-    "radioGroup2",
     "button",
     "button2"
   ],
   top2: ["top2"],
-  apiRequest: [
-    "apiRequest",
-    "question",
-    "textArea2",
-    "radioGroup",
-    "radioGroup2",
-    "button",
-    "button2"
-  ],
-  question: ["question", "textArea2", "radioGroup", "radioGroup2"],
+  apiRequest: ["apiRequest", "question", "textArea2", "button", "button2"],
+  question: ["question", "textArea2"],
   textArea2: ["textArea2"],
-  radioGroup: ["radioGroup"],
-  radioGroup2: ["radioGroup2"],
   button: ["button"],
   button2: ["button2"],
   modal2: ["modal2", "star", "button4"],
@@ -3038,8 +2705,6 @@ type NodeDefaultElementType = {
   apiRequest: typeof ApiRequest;
   question: typeof Question;
   textArea2: typeof AntdTextArea;
-  radioGroup: typeof RadioGroup;
-  radioGroup2: typeof RadioGroup;
   button: typeof Button;
   button2: typeof Button;
   modal2: typeof AntdModal;
@@ -3148,8 +2813,6 @@ export const PlasmicNewPage2 = Object.assign(
     apiRequest: makeNodeComponent("apiRequest"),
     question: makeNodeComponent("question"),
     textArea2: makeNodeComponent("textArea2"),
-    radioGroup: makeNodeComponent("radioGroup"),
-    radioGroup2: makeNodeComponent("radioGroup2"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
     modal2: makeNodeComponent("modal2"),
