@@ -172,7 +172,7 @@ function PlasmicIntro__RenderFunc(props: {
         path: "slid",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "slid3"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "slid1"
       },
       {
         path: "dialog.opendialog",
@@ -679,7 +679,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
                   ? "250px"
-                  : "320px"
+                  : "250px"
               }
               loading={"lazy"}
               src={{
@@ -746,7 +746,25 @@ function PlasmicIntro__RenderFunc(props: {
                 dangerouslySetInnerHTML={{
                   __html: (() => {
                     try {
-                      return `<strong style="color: purple;">اینجا می‌تونی از حال پارتنرت باخبر بشی و بیشتر مراقبش باشی</strong> و با آگاهی بیشتر، <strong style="color: purple;">رابطه شادتری بسازی.</strong>`;
+                      return `<p>
+  تا حالا شده با خودت بگی من که چیزی نگفتم پس چرا انقدر 
+  <b style="color: purple;">عصبی</b> 
+  شد و 
+  <b style="color: purple;">درکم نمی‌کنه</b>؟
+</p>
+<p>
+  یا 
+  <b style="color: purple;">درد</b> 
+  داشته و 
+  <b style="color: purple;">نمی‌دونستی</b> 
+  چیکار کنی؟
+</p>
+<p>
+  اینجا یاد می‌گیری چطور این وضعیت رو بهتر 
+  <b style="color: purple;">مدیریت</b> 
+  کنی.
+</p>
+`;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -819,7 +837,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
                   ? "250px"
-                  : "320px"
+                  : "250px"
               }
               loading={"lazy"}
               src={{
@@ -864,9 +882,23 @@ function PlasmicIntro__RenderFunc(props: {
                 dangerouslySetInnerHTML={{
                   __html: (() => {
                     try {
-                      return `
-  <strong style="color: purple;">اینجا هوای خودت رو هم داریم!</strong> وضعیت حال و احساست رو بررسی می‌کنیم تا 
-  <strong style="color: purple;">با آگاهی و آرامش بیشتری ادامه بدی.</strong>
+                      return `<p>
+  همه ما این مشکل رو داریم و نمی‌دونیم چرا بعضی روزها 
+  <b style="color: purple;">انرژی نداریم</b> 
+  یا 
+  <b style="color: purple;">مغزمون کار نمی‌کنه</b>.
+</p>
+<p>
+  حالا ما بهت کمک می‌کنیم تا 
+  <b style="color: purple;">دلیلش رو پیدا کنی</b> 
+  و بتونی 
+  <b style="color: purple;">بهتر مدیریتش کنی</b>.
+</p>
+<p>
+  لیوم فقط برای خانومت نیست، برای 
+  <b style="color: purple;">مراقبت از تو</b> 
+  هم هست.
+</p>
 `;
                     } catch (e) {
                       if (
@@ -962,7 +994,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
                   ? "250px"
-                  : "320px"
+                  : "250px"
               }
               loading={"lazy"}
               src={{
@@ -986,8 +1018,20 @@ function PlasmicIntro__RenderFunc(props: {
                   dangerouslySetInnerHTML={{
                     __html: (() => {
                       try {
-                        return `<strong style="color: purple;">با فعال‌سازی یادآور، تغییرات چرخه قاعدگی و توصیه‌های رابطه بهتر رو برات پیامک می‌کنیم.</strong> 
-به پارتنرت هم یادآوری می‌کنیم که <strong style="color: purple;">حواسش به توام باشه.</strong>
+                        return `<p>
+  می‌تونی به جای هر روز سر زدن به اپلیکیشن، یادآوری پیامکی رو فعال کنی تا:
+</p>
+<ul>
+  <li>
+    از وضعیت <b style="color: purple;">پریود</b>، <b style="color: purple;">PMS</b>، و <b style="color: purple;">باروری</b> همسرت آگاه بشی.
+  </li>
+  <li>
+    بدونی بهترین زمان برای بیان خواسته‌هات چه موقع هست.
+  </li>
+  <li>
+    چطور رابطه‌تون رو <b style="color: purple;">کنترل</b> کنی.
+  </li>
+</ul>
 `;
                       } catch (e) {
                         if (
@@ -1007,8 +1051,20 @@ function PlasmicIntro__RenderFunc(props: {
                   dangerouslySetInnerHTML={{
                     __html: (() => {
                       try {
-                        return `<strong style="color: purple;">با فعال‌سازی یادآور، تغییرات چرخه قاعدگی و توصیه‌های رابطه بهتر رو برات پیامک می‌کنیم.</strong> 
-به پارتنرت هم یادآوری می‌کنیم که <strong style="color: purple;">حواسش به توام باشه.</strong>
+                        return `<p>
+  می‌تونی به جای هر روز سر زدن به اپلیکیشن، یادآوری پیامکی رو فعال کنی تا:
+</p>
+<ul>
+  <li>
+    از وضعیت <b style="color: purple;">پریود</b>، <b style="color: purple;">PMS</b>، و <b style="color: purple;">باروری</b> همسرت آگاه بشی.
+  </li>
+  <li>
+    بدونی بهترین زمان برای بیان خواسته‌هات چه موقع هست.
+  </li>
+  <li>
+    چطور رابطه‌تون رو <b style="color: purple;">کنترل</b> کنی.
+  </li>
+</ul>
 `;
                       } catch (e) {
                         if (
@@ -1089,7 +1145,7 @@ function PlasmicIntro__RenderFunc(props: {
                   )}
                 >
                   {
-                    "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627  \u06cc\u0627\u062f\u0622\u0648\u0631 \u0641\u0639\u0627\u0644 \u06a9\u0646"
+                    "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9"
                   }
                 </div>
               </Button>
