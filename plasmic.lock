@@ -31,7 +31,7 @@
       "fileLocks": [
         {
           "assetId": "suVPi77vb6vv9K5rYJwyxC",
-          "checksum": "17315fb4ef420be3c4778df80d4df614",
+          "checksum": "a9e5bea2b74ba8385e12af810db0b679",
           "type": "globalContexts"
         },
         {
@@ -1047,12 +1047,12 @@
         {
           "type": "renderModule",
           "assetId": "YAtLxskjvTM0",
-          "checksum": "d124dce107fc683e69d0bef1119ec2b2"
+          "checksum": "97ff4b4e339884eb9eff7d7516fdc4aa"
         },
         {
           "type": "cssRules",
           "assetId": "YAtLxskjvTM0",
-          "checksum": "d124dce107fc683e69d0bef1119ec2b2"
+          "checksum": "97ff4b4e339884eb9eff7d7516fdc4aa"
         },
         {
           "type": "renderModule",
@@ -1067,12 +1067,12 @@
         {
           "type": "renderModule",
           "assetId": "GWUycYOHSME2",
-          "checksum": "94be9a55987ae250b564ac7ef2f53362"
+          "checksum": "f99fb675165351aaaddfb121a54d69db"
         },
         {
           "type": "cssRules",
           "assetId": "GWUycYOHSME2",
-          "checksum": "94be9a55987ae250b564ac7ef2f53362"
+          "checksum": "f99fb675165351aaaddfb121a54d69db"
         },
         {
           "type": "renderModule",
@@ -2047,17 +2047,22 @@
         {
           "type": "renderModule",
           "assetId": "fmyovDT1Cvc-",
-          "checksum": "c553d56c105ed89d17e319943e8d4260"
+          "checksum": "a44b463aabecea51186277300dd7481e"
         },
         {
           "type": "cssRules",
           "assetId": "fmyovDT1Cvc-",
-          "checksum": "c553d56c105ed89d17e319943e8d4260"
+          "checksum": "a44b463aabecea51186277300dd7481e"
         },
         {
           "assetId": "suVPi77vb6vv9K5rYJwyxC",
           "type": "projectCss",
           "checksum": "029fef4c6a8fea365281d788c67aa3dc"
+        },
+        {
+          "type": "image",
+          "assetId": "CmG5X3Fg24XC",
+          "checksum": "53348db892194fc573074622e4367375"
         }
       ],
       "codegenVersion": "0.0.1"
