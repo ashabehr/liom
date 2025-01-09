@@ -685,7 +685,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
-                  ? "200px"
+                  ? "250px"
                   : "250px"
               }
               loading={"lazy"}
@@ -704,42 +704,81 @@ function PlasmicIntro__RenderFunc(props: {
                 sty.text___1P3IJ
               )}
             >
-              <div
-                className={projectcss.__wab_expr_html_text}
-                dangerouslySetInnerHTML={{
-                  __html: (() => {
-                    try {
-                      return `<p>
+              {hasVariant(globalVariants, "screen", "mobile") ? (
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return `<p>
   تا حالا شده با خودت بگی من که چیزی نگفتم پس چرا انقدر 
-  <b style="color: purple;">عصبی</b> 
+  <b style="color: #7444BC;">عصبی</b> 
   شد و 
-  <b style="color: purple;">درکم نمی‌کنه</b>؟
+  <b style="color: #7444BC;">درکم نمی‌کنه</b>؟
 </p>
 <p>
   یا 
-  <b style="color: purple;">درد</b> 
+  <b style="color: #7444BC;">درد</b> 
   داشته و 
-  <b style="color: purple;">نمی‌دونستی</b> 
+  <b style="color: #7444BC;">نمی‌دونستی</b> 
   چیکار کنی؟
 </p>
 <p>
   اینجا یاد می‌گیری چطور این وضعیت رو بهتر 
-  <b style="color: purple;">مدیریت</b> 
+  <b style="color: #7444BC;">مدیریت</b> 
   کنی.
 </p>
 `;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
+                        }
+                        throw e;
                       }
-                      throw e;
-                    }
-                  })()
-                }}
-              />
+                    })()
+                  }}
+                />
+              ) : (
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return `<p>
+  تا حالا شده با خودت بگی من که چیزی نگفتم پس چرا انقدر 
+  <b style="color: #7444BC;">عصبی</b> 
+  شد و 
+  <b style="color: #7444BC;">درکم نمی‌کنه</b>؟
+</p>
+<p>
+  یا 
+  <b style="color: #7444BC;">درد</b> 
+  داشته و 
+  <b style="color: #7444BC;">نمی‌دونستی</b> 
+  چیکار کنی؟
+</p>
+<p>
+  اینجا یاد می‌گیری چطور این وضعیت رو بهتر 
+  <b style="color: #7444BC;">مدیریت</b> 
+  کنی.
+</p>
+`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0627\u06cc\u0646\u062c\u0627 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062d\u0627\u0644 \u067e\u0627\u0631\u062a\u0646\u0631\u062a \u0628\u0627\u062e\u0628\u0631\u06cc \u0628\u0627\u0634\u06cc \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637\u0634\u060c \u0631\u0627\u0628\u0637\u0647\u200c\u062a\u0648\u0646 \u0634\u0627\u062f\u062a\u0631 \u0648 \u0628\u0647\u062a\u0631 \u0628\u0634\u0647. \u0627\u06cc\u0646\u0637\u0648\u0631\u06cc \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0647\u0645\u062f\u06cc\u06af\u0647 \u062d\u0645\u0627\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u06a9\u0646\u0627\u0631 \u0647\u0645 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u0647\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc\u062f!";
+                        }
+                        throw e;
+                      }
+                    })()
+                  }}
+                />
+              )}
             </div>
           </Stack__>
         ) : null}
@@ -777,7 +816,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
-                  ? "200px"
+                  ? "250px"
                   : "250px"
               }
               loading={"lazy"}
@@ -803,19 +842,19 @@ function PlasmicIntro__RenderFunc(props: {
                     try {
                       return `<p>
   همه ما این مشکل رو داریم و نمی‌دونیم چرا بعضی روزها 
-  <b style="color: purple;">انرژی نداریم</b> 
+  <b style="color: #7444BC;">انرژی نداریم</b> 
   یا 
-  <b style="color: purple;">مغزمون کار نمی‌کنه</b>.
+  <b style="color: #7444BC;">مغزمون کار نمی‌کنه</b>.
 </p>
 <p>
   حالا ما بهت کمک می‌کنیم تا 
-  <b style="color: purple;">دلیلش رو پیدا کنی</b> 
+  <b style="color: #7444BC;">دلیلش رو پیدا کنی</b> 
   و بتونی 
-  <b style="color: purple;">بهتر مدیریتش کنی</b>.
+  <b style="color: #7444BC;">بهتر مدیریتش کنی</b>.
 </p>
 <p>
   لیوم فقط برای خانومت نیست، برای 
-  <b style="color: purple;">مراقبت از تو</b> 
+  <b style="color: #7444BC;">مراقبت از تو</b> 
   هم هست.
 </p>
 `;
@@ -868,7 +907,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
-                  ? "200px"
+                  ? "250px"
                   : "250px"
               }
               loading={"lazy"}
@@ -895,18 +934,13 @@ function PlasmicIntro__RenderFunc(props: {
                       try {
                         return `<p>
   می‌تونی به جای هر روز سر زدن به اپلیکیشن، یادآوری پیامکی رو فعال کنی تا:
-</p>
-<ul>
-  <li>
-    از وضعیت <b style="color: purple;">پریود</b>، <b style="color: purple;">PMS</b>، و <b style="color: purple;">باروری</b> همسرت آگاه بشی.
-  </li>
-  <li>
+</p> ⚈
+    از وضعیت <b style="color: #7444BC;">پریود</b>، <b style="color: #7444BC;">PMS</b>، و <b style="color: #7444BC;">باروری</b> همسرت آگاه بشی.
+<br> ⚈
     بدونی بهترین زمان برای بیان خواسته‌هات چه موقع هست.
-  </li>
-  <li>
-    چطور رابطه‌تون رو <b style="color: purple;">کنترل</b> کنی.
-  </li>
-</ul>
+<br>⚈
+    چطور رابطه‌تون رو <b style="color: #7444BC;">کنترل</b> کنی.
+
 `;
                       } catch (e) {
                         if (
@@ -931,13 +965,13 @@ function PlasmicIntro__RenderFunc(props: {
 </p>
 <ul>
   <li>
-    از وضعیت <b style="color: purple;">پریود</b>، <b style="color: purple;">PMS</b>، و <b style="color: purple;">باروری</b> همسرت آگاه بشی.
+    از وضعیت <b style="color: #7444BC;">پریود</b>، <b style="color: #7444BC;">PMS</b>، و <b style="color: #7444BC;">باروری</b> همسرت آگاه بشی.
   </li>
   <li>
     بدونی بهترین زمان برای بیان خواسته‌هات چه موقع هست.
   </li>
   <li>
-    چطور رابطه‌تون رو <b style="color: purple;">کنترل</b> کنی.
+    چطور رابطه‌تون رو <b style="color: #7444BC;">کنترل</b> کنی.
   </li>
 </ul>
 `;

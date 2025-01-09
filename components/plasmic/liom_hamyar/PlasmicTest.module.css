@@ -32,7 +32,3 @@
   position: fixed;
   right: 0;
 }
-.timer:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
