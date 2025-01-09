@@ -1645,8 +1645,7 @@ function PlasmicHamyar__RenderFunc(props: {
                     return !(
                       $state.user.loading ||
                       $state.name == "" ||
-                      $state.shop.loading ||
-                      !localStorage.getItem("liomHamyar_intro")
+                      $state.shop.loading
                     );
                   } catch (e) {
                     if (
@@ -10191,8 +10190,7 @@ function PlasmicHamyar__RenderFunc(props: {
                     return (
                       $state.user.loading ||
                       $state.name == "" ||
-                      $state.shop.loading ||
-                      !localStorage.getItem("liomHamyar_intro")
+                      $state.shop.loading
                     );
                   } catch (e) {
                     if (
