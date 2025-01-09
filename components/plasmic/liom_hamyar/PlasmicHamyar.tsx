@@ -1592,7 +1592,7 @@ function PlasmicHamyar__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
 
-            $steps["runCode"] = !localStorage.getItem("liomHamyar_intro")
+            $steps["runCode"] = false
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
