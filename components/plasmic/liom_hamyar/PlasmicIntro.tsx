@@ -60,6 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
@@ -384,6 +389,8 @@ function PlasmicIntro__RenderFunc(props: {
     $queries: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6BytLjmha8VC()
@@ -1042,12 +1049,10 @@ function PlasmicIntro__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return (() => {
-                                return localStorage.setItem(
-                                  "liomHamyar_intro",
-                                  "true"
-                                );
-                              })();
+                              return localStorage.setItem(
+                                "liomHamyar_intro",
+                                "true"
+                              );
                             }
                           };
                           return (({ customFunction }) => {
@@ -1061,6 +1066,27 @@ function PlasmicIntro__RenderFunc(props: {
                       typeof $steps["runCode2"].then === "function"
                     ) {
                       $steps["runCode2"] = await $steps["runCode2"];
+                    }
+
+                    $steps["refreshData"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            queryInvalidation: ["plasmic_refresh_all"]
+                          };
+                          return (async ({ queryInvalidation }) => {
+                            if (!queryInvalidation) {
+                              return;
+                            }
+                            await plasmicInvalidate(queryInvalidation);
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["refreshData"] != null &&
+                      typeof $steps["refreshData"] === "object" &&
+                      typeof $steps["refreshData"].then === "function"
+                    ) {
+                      $steps["refreshData"] = await $steps["refreshData"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
