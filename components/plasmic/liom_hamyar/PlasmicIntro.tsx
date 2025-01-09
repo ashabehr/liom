@@ -172,7 +172,7 @@ function PlasmicIntro__RenderFunc(props: {
         path: "slid",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "slid3"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "slid1"
       },
       {
         path: "dialog.opendialog",
@@ -622,7 +622,7 @@ function PlasmicIntro__RenderFunc(props: {
             displayMinHeight={"0"}
             displayMinWidth={"0"}
             displayWidth={
-              hasVariant(globalVariants, "screen", "mobile") ? "80px" : "100px"
+              hasVariant(globalVariants, "screen", "mobile") ? "50px" : "100px"
             }
             src={{
               src: "/plasmic/liom_hamyar/images/image40.png",
@@ -678,7 +678,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
-                  ? "250px"
+                  ? "200px"
                   : "250px"
               }
               loading={"lazy"}
@@ -687,50 +687,6 @@ function PlasmicIntro__RenderFunc(props: {
                 fullWidth: 388,
                 fullHeight: 344,
                 aspectRatio: 1.127907
-              }}
-            />
-
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__nK0A)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
-                  : "320px"
-              }
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_hamyar/images/image45.svg",
-                fullWidth: 193,
-                fullHeight: 188,
-                aspectRatio: 1.026596
-              }}
-            />
-
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img___5Wg2D)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
-                  : "320px"
-              }
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_hamyar/images/image48.svg",
-                fullWidth: 175,
-                fullHeight: 168,
-                aspectRatio: 1.041667
               }}
             />
 
@@ -806,28 +762,6 @@ function PlasmicIntro__RenderFunc(props: {
           >
             <PlasmicImg__
               alt={""}
-              className={classNames(sty.img__d69Jc)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
-                  : "320px"
-              }
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_hamyar/images/image43.svg",
-                fullWidth: 388,
-                fullHeight: 344,
-                aspectRatio: 1.127907
-              }}
-            />
-
-            <PlasmicImg__
-              alt={""}
               className={classNames(sty.img__y7LC)}
               displayHeight={"auto"}
               displayMaxHeight={"none"}
@@ -836,7 +770,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
-                  ? "250px"
+                  ? "200px"
                   : "250px"
               }
               loading={"lazy"}
@@ -845,28 +779,6 @@ function PlasmicIntro__RenderFunc(props: {
                 fullWidth: 193,
                 fullHeight: 188,
                 aspectRatio: 1.026596
-              }}
-            />
-
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__kxn6W)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
-                  : "320px"
-              }
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_hamyar/images/image48.svg",
-                fullWidth: 175,
-                fullHeight: 168,
-                aspectRatio: 1.041667
               }}
             />
 
@@ -941,50 +853,6 @@ function PlasmicIntro__RenderFunc(props: {
           >
             <PlasmicImg__
               alt={""}
-              className={classNames(sty.img__b5XRr)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
-                  : "320px"
-              }
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_hamyar/images/image43.svg",
-                fullWidth: 388,
-                fullHeight: 344,
-                aspectRatio: 1.127907
-              }}
-            />
-
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__aiZ1J)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? "300px"
-                  : "320px"
-              }
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/liom_hamyar/images/image45.svg",
-                fullWidth: 193,
-                fullHeight: 188,
-                aspectRatio: 1.026596
-              }}
-            />
-
-            <PlasmicImg__
-              alt={""}
               className={classNames(sty.img__kjy5)}
               displayHeight={"auto"}
               displayMaxHeight={"none"}
@@ -993,7 +861,7 @@ function PlasmicIntro__RenderFunc(props: {
               displayMinWidth={"0"}
               displayWidth={
                 hasVariant(globalVariants, "screen", "mobile")
-                  ? "250px"
+                  ? "200px"
                   : "250px"
               }
               loading={"lazy"}

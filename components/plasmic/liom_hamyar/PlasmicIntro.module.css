@@ -61,7 +61,7 @@
 }
 @media (max-width: 640px) {
   .img__h1Sjj {
-    width: 80px;
+    width: 50px;
   }
 }
 .text__c7Pzm {
@@ -76,7 +76,7 @@
 }
 @media (max-width: 640px) {
   .text__c7Pzm {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 .freeBox__laGek {
@@ -124,39 +124,7 @@
 }
 @media (max-width: 640px) {
   .img__sp7Oz {
-    width: 250px;
-  }
-}
-.img__nK0A {
-  object-fit: cover;
-  max-width: 100%;
-  object-position: 50% 50%;
-  width: 320px;
-  display: none !important;
-}
-.img__nK0A > picture > img {
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-@media (max-width: 640px) {
-  .img__nK0A {
-    width: 300px;
-  }
-}
-.img___5Wg2D {
-  object-fit: cover;
-  max-width: 100%;
-  object-position: 50% 50%;
-  width: 320px;
-  display: none !important;
-}
-.img___5Wg2D > picture > img {
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-@media (max-width: 640px) {
-  .img___5Wg2D {
-    width: 300px;
+    width: 200px;
   }
 }
 .text___1P3IJ {
@@ -209,22 +177,6 @@
     padding: 0px;
   }
 }
-.img__d69Jc {
-  object-fit: cover;
-  max-width: 100%;
-  object-position: 50% 50%;
-  width: 320px;
-  display: none !important;
-}
-.img__d69Jc > picture > img {
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-@media (max-width: 640px) {
-  .img__d69Jc {
-    width: 300px;
-  }
-}
 .img__y7LC {
   object-fit: cover;
   max-width: 100%;
@@ -237,23 +189,7 @@
 }
 @media (max-width: 640px) {
   .img__y7LC {
-    width: 250px;
-  }
-}
-.img__kxn6W {
-  object-fit: cover;
-  max-width: 100%;
-  object-position: 50% 50%;
-  width: 320px;
-  display: none !important;
-}
-.img__kxn6W > picture > img {
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-@media (max-width: 640px) {
-  .img__kxn6W {
-    width: 300px;
+    width: 200px;
   }
 }
 .text__i0XsN {
@@ -305,38 +241,6 @@
     padding: 0px;
   }
 }
-.img__b5XRr {
-  object-fit: cover;
-  max-width: 100%;
-  object-position: 50% 50%;
-  width: 320px;
-  display: none !important;
-}
-.img__b5XRr > picture > img {
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-@media (max-width: 640px) {
-  .img__b5XRr {
-    width: 300px;
-  }
-}
-.img__aiZ1J {
-  object-fit: cover;
-  max-width: 100%;
-  object-position: 50% 50%;
-  width: 320px;
-  display: none !important;
-}
-.img__aiZ1J > picture > img {
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-@media (max-width: 640px) {
-  .img__aiZ1J {
-    width: 300px;
-  }
-}
 .img__kjy5 {
   object-fit: cover;
   max-width: 100%;
@@ -349,7 +253,7 @@
 }
 @media (max-width: 640px) {
   .img__kjy5 {
-    width: 250px;
+    width: 200px;
   }
 }
 .text__pmql3 {
