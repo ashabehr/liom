@@ -2549,6 +2549,29 @@ function PlasmicIntro__RenderFunc(props: {
                             "invokeGlobalAction2"
                           ];
                         }
+
+                        $steps["runCode3"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return localStorage.setItem(
+                                    "liomHamyar_intro",
+                                    "true"
+                                  );
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode3"] != null &&
+                          typeof $steps["runCode3"] === "object" &&
+                          typeof $steps["runCode3"].then === "function"
+                        ) {
+                          $steps["runCode3"] = await $steps["runCode3"];
+                        }
                       }}
                       onColorChange={async (...eventArgs: any) => {
                         ((...eventArgs) => {
@@ -3181,6 +3204,29 @@ function PlasmicIntro__RenderFunc(props: {
                       $steps["invokeGlobalAction2"] = await $steps[
                         "invokeGlobalAction2"
                       ];
+                    }
+
+                    $steps["runCode2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return localStorage.setItem(
+                                "liomHamyar_intro",
+                                "true"
+                              );
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode2"] != null &&
+                      typeof $steps["runCode2"] === "object" &&
+                      typeof $steps["runCode2"].then === "function"
+                    ) {
+                      $steps["runCode2"] = await $steps["runCode2"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {
