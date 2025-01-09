@@ -1175,7 +1175,7 @@ function PlasmicIntro__RenderFunc(props: {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                loacalStorag.setItem(
+                                loacalStorage.setItem(
                                   "liomHamyar_intro",
                                   "true"
                                 );
