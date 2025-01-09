@@ -172,7 +172,7 @@ function PlasmicIntro__RenderFunc(props: {
         path: "slid",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "slid1"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "slid3"
       },
       {
         path: "dialog.opendialog",
@@ -1174,11 +1174,17 @@ function PlasmicIntro__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
-                              return (window.location.href =
-                                "https://apps.liom.app/hamyar/?r=" +
-                                $ctx.query.r +
-                                "&m=" +
-                                $ctx.query.m);
+                              return (() => {
+                                loacalStorag.setItem(
+                                  "liomHamyar_intro",
+                                  "true"
+                                );
+                                return (window.location.href =
+                                  "https://apps.liom.app/hamyar/?r=" +
+                                  $ctx.query.r +
+                                  "&m=" +
+                                  $ctx.query.m);
+                              })();
                             }
                           };
                           return (({ customFunction }) => {

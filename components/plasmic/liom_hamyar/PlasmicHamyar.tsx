@@ -1592,10 +1592,7 @@ function PlasmicHamyar__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
 
-            $steps["runCode"] = !localStorage.getItem(
-              "liomHamyar_intro",
-              "true"
-            )
+            $steps["runCode"] = !localStorage.getItem("liomHamyar_intro")
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
@@ -1648,7 +1645,8 @@ function PlasmicHamyar__RenderFunc(props: {
                     return !(
                       $state.user.loading ||
                       $state.name == "" ||
-                      $state.shop.loading
+                      $state.shop.loading ||
+                      !localStorage.getItem("liomHamyar_intro")
                     );
                   } catch (e) {
                     if (
@@ -10193,7 +10191,8 @@ function PlasmicHamyar__RenderFunc(props: {
                     return (
                       $state.user.loading ||
                       $state.name == "" ||
-                      $state.shop.loading
+                      $state.shop.loading ||
+                      !localStorage.getItem("liomHamyar_intro")
                     );
                   } catch (e) {
                     if (
