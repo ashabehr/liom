@@ -61,7 +61,7 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import { Video } from "@plasmicpkgs/plasmic-basic-components";
+import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -83,7 +83,7 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
-  htmlVideo?: Flex__<typeof Video>;
+  iframe?: Flex__<typeof Iframe>;
 };
 
 export interface DefaultTestProps {}
@@ -155,15 +155,44 @@ function PlasmicTest__RenderFunc(props: {
             sty.root
           )}
         >
-          <Video
-            data-plasmic-name={"htmlVideo"}
-            data-plasmic-override={overrides.htmlVideo}
-            className={classNames("__wab_instance", sty.htmlVideo)}
-            controls={true}
-            src={
-              "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+          {(() => {
+            try {
+              return localStorage.getItem("liomHamyar_intro") ? false : true;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
             }
-          />
+          })() ? (
+            <Iframe
+              data-plasmic-name={"iframe"}
+              data-plasmic-override={overrides.iframe}
+              className={classNames("__wab_instance", sty.iframe)}
+              preview={true}
+              src={(() => {
+                try {
+                  return (
+                    "https://apps.liom.app/intro/?r=" +
+                    $ctx.query.r +
+                    "&m=" +
+                    $ctx.query.m
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          ) : null}
         </div>
       </div>
     </React.Fragment>
@@ -171,15 +200,15 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "htmlVideo"],
-  htmlVideo: ["htmlVideo"]
+  root: ["root", "iframe"],
+  iframe: ["iframe"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  htmlVideo: typeof Video;
+  iframe: typeof Iframe;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -267,7 +296,7 @@ export const PlasmicTest = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    htmlVideo: makeNodeComponent("htmlVideo"),
+    iframe: makeNodeComponent("iframe"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

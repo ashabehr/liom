@@ -172,7 +172,7 @@ function PlasmicIntro__RenderFunc(props: {
         path: "slid",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => "slid1"
+        initFunc: ({ $props, $state, $queries, $ctx }) => "slid3"
       },
       {
         path: "dialog.opendialog",
@@ -1038,20 +1038,15 @@ function PlasmicIntro__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["runCode"] = true
+                    $steps["runCode2"] = true
                       ? (() => {
                           const actionArgs = {
                             customFunction: async () => {
                               return (() => {
-                                loacalStorage.setItem(
+                                return localStorage.setItem(
                                   "liomHamyar_intro",
                                   "true"
                                 );
-                                return (window.location.href =
-                                  "https://apps.liom.app/hamyar/?r=" +
-                                  $ctx.query.r +
-                                  "&m=" +
-                                  $ctx.query.m);
                               })();
                             }
                           };
@@ -1061,11 +1056,11 @@ function PlasmicIntro__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
+                      $steps["runCode2"] != null &&
+                      typeof $steps["runCode2"] === "object" &&
+                      typeof $steps["runCode2"].then === "function"
                     ) {
-                      $steps["runCode"] = await $steps["runCode"];
+                      $steps["runCode2"] = await $steps["runCode2"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {

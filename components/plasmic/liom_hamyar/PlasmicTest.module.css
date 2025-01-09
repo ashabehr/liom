@@ -21,9 +21,14 @@
 .root > * {
   grid-column: 4;
 }
-.htmlVideo:global(.__wab_instance) {
-  width: 640px;
-  height: auto;
+.iframe:global(.__wab_instance) {
+  width: 100vw;
+  height: 100vh;
   max-width: 100%;
   object-fit: cover;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  right: 0;
 }
