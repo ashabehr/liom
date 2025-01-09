@@ -60,11 +60,6 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
-import {
-  executePlasmicDataOp,
-  usePlasmicDataOp,
-  usePlasmicInvalidate
-} from "@plasmicapp/react-web/lib/data-sources";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
@@ -389,8 +384,6 @@ function PlasmicIntro__RenderFunc(props: {
     $queries: {},
     $refs
   });
-  const dataSourcesCtx = usePlasmicDataSourceContext();
-  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6BytLjmha8VC()
@@ -934,13 +927,13 @@ function PlasmicIntro__RenderFunc(props: {
                       try {
                         return `<p>
   می‌تونی به جای هر روز سر زدن به اپلیکیشن، یادآوری پیامکی رو فعال کنی تا:
-</p> ⚈
+</p> <small>●
     از وضعیت <b style="color: #7444BC;">پریود</b>، <b style="color: #7444BC;">PMS</b>، و <b style="color: #7444BC;">باروری</b> همسرت آگاه بشی.
-<br> ⚈
+<br> ●
     بدونی بهترین زمان برای بیان خواسته‌هات چه موقع هست.
-<br>⚈
+<br>●
     چطور رابطه‌تون رو <b style="color: #7444BC;">کنترل</b> کنی.
-
+</small>
 `;
                       } catch (e) {
                         if (
@@ -962,18 +955,13 @@ function PlasmicIntro__RenderFunc(props: {
                       try {
                         return `<p>
   می‌تونی به جای هر روز سر زدن به اپلیکیشن، یادآوری پیامکی رو فعال کنی تا:
-</p>
-<ul>
-  <li>
+</p> <small>●
     از وضعیت <b style="color: #7444BC;">پریود</b>، <b style="color: #7444BC;">PMS</b>، و <b style="color: #7444BC;">باروری</b> همسرت آگاه بشی.
-  </li>
-  <li>
+<br> ●
     بدونی بهترین زمان برای بیان خواسته‌هات چه موقع هست.
-  </li>
-  <li>
+<br>●
     چطور رابطه‌تون رو <b style="color: #7444BC;">کنترل</b> کنی.
-  </li>
-</ul>
+</small>
 `;
                       } catch (e) {
                         if (
@@ -1100,27 +1088,6 @@ function PlasmicIntro__RenderFunc(props: {
                       typeof $steps["runCode2"].then === "function"
                     ) {
                       $steps["runCode2"] = await $steps["runCode2"];
-                    }
-
-                    $steps["refreshData"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            queryInvalidation: ["plasmic_refresh_all"]
-                          };
-                          return (async ({ queryInvalidation }) => {
-                            if (!queryInvalidation) {
-                              return;
-                            }
-                            await plasmicInvalidate(queryInvalidation);
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["refreshData"] != null &&
-                      typeof $steps["refreshData"] === "object" &&
-                      typeof $steps["refreshData"].then === "function"
-                    ) {
-                      $steps["refreshData"] = await $steps["refreshData"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {

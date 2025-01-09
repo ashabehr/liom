@@ -67,6 +67,7 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -89,6 +90,7 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   iframe?: Flex__<typeof Iframe>;
+  timer?: Flex__<typeof Timer>;
 };
 
 export interface DefaultTestProps {}
@@ -195,7 +197,7 @@ function PlasmicTest__RenderFunc(props: {
         >
           {(() => {
             try {
-              return localStorage.getItem("liomHamyar_intro") ? false : true;
+              return $state.intro;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -255,6 +257,48 @@ function PlasmicTest__RenderFunc(props: {
               })()}
             />
           ) : null}
+          <Timer
+            data-plasmic-name={"timer"}
+            data-plasmic-override={overrides.timer}
+            className={classNames("__wab_instance", sty.timer)}
+            intervalSeconds={1}
+            isRunning={true}
+            onTick={async () => {
+              const $steps = {};
+
+              $steps["updateIntro"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["intro"]
+                      },
+                      operation: 0,
+                      value: localStorage.getItem("liomHamyar_intro")
+                        ? false
+                        : true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateIntro"] != null &&
+                typeof $steps["updateIntro"] === "object" &&
+                typeof $steps["updateIntro"].then === "function"
+              ) {
+                $steps["updateIntro"] = await $steps["updateIntro"];
+              }
+            }}
+            runWhileEditing={false}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -262,8 +306,9 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "iframe"],
-  iframe: ["iframe"]
+  root: ["root", "iframe", "timer"],
+  iframe: ["iframe"],
+  timer: ["timer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -271,6 +316,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   iframe: typeof Iframe;
+  timer: typeof Timer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -359,6 +405,7 @@ export const PlasmicTest = Object.assign(
   {
     // Helper components rendering sub-elements
     iframe: makeNodeComponent("iframe"),
+    timer: makeNodeComponent("timer"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,
