@@ -769,7 +769,7 @@
   margin-left: 16px;
 }
 .card9 {
-  background: url("/plasmic/liom_hamyar/images/newProjectPng2.png") top 50% left 50% / cover repeat,
+  background: url("/plasmic/liom_hamyar/images/image63.png") top 50% left 50% / cover repeat,
     var(--token-jgohepLVeKvh);
   width: 300px;
   height: 200px;
@@ -4860,6 +4860,7 @@
   background: #ffffff;
   border-bottom-width: 2px;
   border-bottom-style: solid;
+  display: flex;
   padding: 16px;
   margin: 0px;
 }

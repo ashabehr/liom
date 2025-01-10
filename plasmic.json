@@ -645,20 +645,6 @@
           "componentType": "component"
         },
         {
-          "id": "GWUycYOHSME2",
-          "name": "NewPage2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicNewPage2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/chat.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicNewPage2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/chat"
-        },
-        {
           "id": "Bqqk_Gx32qFA",
           "name": "Massage",
           "type": "managed",
@@ -949,6 +935,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSearch.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "GWUycYOHSME2",
+          "name": "Chat",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicChat.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/chat.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicChat.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/chat"
         }
       ],
       "icons": [
