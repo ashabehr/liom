@@ -491,7 +491,7 @@ function PlasmicClinic__RenderFunc(props: {
         path: "loadingPage",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -1844,7 +1844,7 @@ function PlasmicClinic__RenderFunc(props: {
                     )}
                   >
                     {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u06a9\u0627\u0634\u062a \u0645\u0648"
+                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062e\u0634\u06a9\u06cc \u067e\u0648\u0633\u062a \u0648 \u0644\u0628"
                     }
                   </div>
                   <Button
