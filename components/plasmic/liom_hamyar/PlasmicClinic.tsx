@@ -735,6 +735,42 @@ function PlasmicClinic__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
+                      $steps["updateLoadingPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage"] != null &&
+                        typeof $steps["updateLoadingPage"] === "object" &&
+                        typeof $steps["updateLoadingPage"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage"] = await $steps[
+                          "updateLoadingPage"
+                        ];
+                      }
+
                       $steps["update1"] = true
                         ? (() => {
                             const actionArgs = {
@@ -758,6 +794,42 @@ function PlasmicClinic__RenderFunc(props: {
                         typeof $steps["update1"].then === "function"
                       ) {
                         $steps["update1"] = await $steps["update1"];
+                      }
+
+                      $steps["updateLoadingPage2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage2"] != null &&
+                        typeof $steps["updateLoadingPage2"] === "object" &&
+                        typeof $steps["updateLoadingPage2"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage2"] = await $steps[
+                          "updateLoadingPage2"
+                        ];
                       }
                     }}
                   >
@@ -823,6 +895,42 @@ function PlasmicClinic__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
+                  $steps["updateLoadingPage"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loadingPage"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoadingPage"] != null &&
+                    typeof $steps["updateLoadingPage"] === "object" &&
+                    typeof $steps["updateLoadingPage"].then === "function"
+                  ) {
+                    $steps["updateLoadingPage"] = await $steps[
+                      "updateLoadingPage"
+                    ];
+                  }
+
                   $steps["update1"] = true
                     ? (() => {
                         const actionArgs = {
@@ -846,42 +954,6 @@ function PlasmicClinic__RenderFunc(props: {
                     typeof $steps["update1"].then === "function"
                   ) {
                     $steps["update1"] = await $steps["update1"];
-                  }
-
-                  $steps["updateLoadingPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loadingPage"]
-                          },
-                          operation: 4
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          const oldValue = $stateGet(objRoot, variablePath);
-                          $stateSet(objRoot, variablePath, !oldValue);
-                          return !oldValue;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateLoadingPage"] != null &&
-                    typeof $steps["updateLoadingPage"] === "object" &&
-                    typeof $steps["updateLoadingPage"].then === "function"
-                  ) {
-                    $steps["updateLoadingPage"] = await $steps[
-                      "updateLoadingPage"
-                    ];
                   }
 
                   $steps["invokeGlobalAction"] = true
@@ -964,7 +1036,8 @@ function PlasmicClinic__RenderFunc(props: {
                             objRoot: $state,
                             variablePath: ["loadingPage"]
                           },
-                          operation: 4
+                          operation: 0,
+                          value: false
                         };
                         return (({
                           variable,
@@ -977,9 +1050,8 @@ function PlasmicClinic__RenderFunc(props: {
                           }
                           const { objRoot, variablePath } = variable;
 
-                          const oldValue = $stateGet(objRoot, variablePath);
-                          $stateSet(objRoot, variablePath, !oldValue);
-                          return !oldValue;
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
@@ -1110,6 +1182,42 @@ function PlasmicClinic__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
+                        $steps["updateLoadingPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadingPage"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadingPage"] != null &&
+                          typeof $steps["updateLoadingPage"] === "object" &&
+                          typeof $steps["updateLoadingPage"].then === "function"
+                        ) {
+                          $steps["updateLoadingPage"] = await $steps[
+                            "updateLoadingPage"
+                          ];
+                        }
+
                         $steps["update1"] = true
                           ? (() => {
                               const actionArgs = {
@@ -1133,45 +1241,6 @@ function PlasmicClinic__RenderFunc(props: {
                           typeof $steps["update1"].then === "function"
                         ) {
                           $steps["update1"] = await $steps["update1"];
-                        }
-
-                        $steps["updateLoadingPage"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["loadingPage"]
-                                },
-                                operation: 4
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                const oldValue = $stateGet(
-                                  objRoot,
-                                  variablePath
-                                );
-                                $stateSet(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateLoadingPage"] != null &&
-                          typeof $steps["updateLoadingPage"] === "object" &&
-                          typeof $steps["updateLoadingPage"].then === "function"
-                        ) {
-                          $steps["updateLoadingPage"] = await $steps[
-                            "updateLoadingPage"
-                          ];
                         }
 
                         $steps["invokeGlobalAction"] = true
@@ -1293,7 +1362,8 @@ function PlasmicClinic__RenderFunc(props: {
                                   objRoot: $state,
                                   variablePath: ["loadingPage"]
                                 },
-                                operation: 4
+                                operation: 0,
+                                value: false
                               };
                               return (({
                                 variable,
@@ -1306,12 +1376,8 @@ function PlasmicClinic__RenderFunc(props: {
                                 }
                                 const { objRoot, variablePath } = variable;
 
-                                const oldValue = $stateGet(
-                                  objRoot,
-                                  variablePath
-                                );
-                                $stateSet(objRoot, variablePath, !oldValue);
-                                return !oldValue;
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
@@ -1421,7 +1487,10 @@ function PlasmicClinic__RenderFunc(props: {
                   data-plasmic-name={"card9"}
                   data-plasmic-override={overrides.card9}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.card9)}
+                  className={classNames(projectcss.all, sty.card9, {
+                    [sty.card9_1_docter]: hasVariant($state, "_1", "docter"),
+                    [sty.card9_1_docters]: hasVariant($state, "_1", "docters")
+                  })}
                 >
                   <div
                     className={classNames(
@@ -1531,7 +1600,7 @@ function PlasmicClinic__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
                       }
                     </div>
                   </Button>
@@ -1591,7 +1660,7 @@ function PlasmicClinic__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
                       }
                     </div>
                   </Button>
@@ -1695,7 +1764,7 @@ function PlasmicClinic__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
                       }
                     </div>
                   </Button>
@@ -1755,7 +1824,7 @@ function PlasmicClinic__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
                       }
                     </div>
                   </Button>
@@ -1815,7 +1884,7 @@ function PlasmicClinic__RenderFunc(props: {
                       )}
                     >
                       {
-                        "\u0627\u0646\u062a\u062e\u0627\u0628 \u067e\u0632\u0634\u06a9"
+                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
                       }
                     </div>
                   </Button>
@@ -2304,6 +2373,42 @@ function PlasmicClinic__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
+                    $steps["updateLoadingPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["loadingPage"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateLoadingPage"] != null &&
+                      typeof $steps["updateLoadingPage"] === "object" &&
+                      typeof $steps["updateLoadingPage"].then === "function"
+                    ) {
+                      $steps["updateLoadingPage"] = await $steps[
+                        "updateLoadingPage"
+                      ];
+                    }
+
                     $steps["update1"] = true
                       ? (() => {
                           const actionArgs = {
@@ -2327,42 +2432,6 @@ function PlasmicClinic__RenderFunc(props: {
                       typeof $steps["update1"].then === "function"
                     ) {
                       $steps["update1"] = await $steps["update1"];
-                    }
-
-                    $steps["updateLoadingPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["loadingPage"]
-                            },
-                            operation: 4
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            const oldValue = $stateGet(objRoot, variablePath);
-                            $stateSet(objRoot, variablePath, !oldValue);
-                            return !oldValue;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateLoadingPage"] != null &&
-                      typeof $steps["updateLoadingPage"] === "object" &&
-                      typeof $steps["updateLoadingPage"].then === "function"
-                    ) {
-                      $steps["updateLoadingPage"] = await $steps[
-                        "updateLoadingPage"
-                      ];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -2482,7 +2551,8 @@ function PlasmicClinic__RenderFunc(props: {
                               objRoot: $state,
                               variablePath: ["loadingPage"]
                             },
-                            operation: 4
+                            operation: 0,
+                            value: false
                           };
                           return (({
                             variable,
@@ -2495,9 +2565,8 @@ function PlasmicClinic__RenderFunc(props: {
                             }
                             const { objRoot, variablePath } = variable;
 
-                            const oldValue = $stateGet(objRoot, variablePath);
-                            $stateSet(objRoot, variablePath, !oldValue);
-                            return !oldValue;
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
@@ -6118,6 +6187,42 @@ function PlasmicClinic__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
+                  $steps["updateLoadingPage"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loadingPage"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoadingPage"] != null &&
+                    typeof $steps["updateLoadingPage"] === "object" &&
+                    typeof $steps["updateLoadingPage"].then === "function"
+                  ) {
+                    $steps["updateLoadingPage"] = await $steps[
+                      "updateLoadingPage"
+                    ];
+                  }
+
                   $steps["update1"] = true
                     ? (() => {
                         const actionArgs = {
@@ -6141,42 +6246,6 @@ function PlasmicClinic__RenderFunc(props: {
                     typeof $steps["update1"].then === "function"
                   ) {
                     $steps["update1"] = await $steps["update1"];
-                  }
-
-                  $steps["updateLoadingPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loadingPage"]
-                          },
-                          operation: 4
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          const oldValue = $stateGet(objRoot, variablePath);
-                          $stateSet(objRoot, variablePath, !oldValue);
-                          return !oldValue;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateLoadingPage"] != null &&
-                    typeof $steps["updateLoadingPage"] === "object" &&
-                    typeof $steps["updateLoadingPage"].then === "function"
-                  ) {
-                    $steps["updateLoadingPage"] = await $steps[
-                      "updateLoadingPage"
-                    ];
                   }
 
                   $steps["invokeGlobalAction"] = true
@@ -6259,7 +6328,8 @@ function PlasmicClinic__RenderFunc(props: {
                             objRoot: $state,
                             variablePath: ["loadingPage"]
                           },
-                          operation: 4
+                          operation: 0,
+                          value: false
                         };
                         return (({
                           variable,
@@ -6272,9 +6342,8 @@ function PlasmicClinic__RenderFunc(props: {
                           }
                           const { objRoot, variablePath } = variable;
 
-                          const oldValue = $stateGet(objRoot, variablePath);
-                          $stateSet(objRoot, variablePath, !oldValue);
-                          return !oldValue;
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;

@@ -429,7 +429,7 @@ function PlasmicChat__RenderFunc(props: {
         path: "loadingPage",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "text",
@@ -487,36 +487,6 @@ function PlasmicChat__RenderFunc(props: {
           )}
           onLoad={async event => {
             const $steps = {};
-
-            $steps["updateLoadingPage"] = true
-              ? (() => {
-                  const actionArgs = {
-                    variable: {
-                      objRoot: $state,
-                      variablePath: ["loadingPage"]
-                    },
-                    operation: 4,
-                    value: true
-                  };
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-
-                    const oldValue = $stateGet(objRoot, variablePath);
-                    $stateSet(objRoot, variablePath, !oldValue);
-                    return !oldValue;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updateLoadingPage"] != null &&
-              typeof $steps["updateLoadingPage"] === "object" &&
-              typeof $steps["updateLoadingPage"].then === "function"
-            ) {
-              $steps["updateLoadingPage"] = await $steps["updateLoadingPage"];
-            }
 
             $steps["invokeGlobalAction"] = (
               new URLSearchParams(new URL(window.location.href).search).get(
@@ -672,7 +642,8 @@ function PlasmicChat__RenderFunc(props: {
                       objRoot: $state,
                       variablePath: ["loadingPage"]
                     },
-                    operation: 4
+                    operation: 0,
+                    value: false
                   };
                   return (({ variable, value, startIndex, deleteCount }) => {
                     if (!variable) {
@@ -680,9 +651,8 @@ function PlasmicChat__RenderFunc(props: {
                     }
                     const { objRoot, variablePath } = variable;
 
-                    const oldValue = $stateGet(objRoot, variablePath);
-                    $stateSet(objRoot, variablePath, !oldValue);
-                    return !oldValue;
+                    $stateSet(objRoot, variablePath, value);
+                    return value;
                   })?.apply(null, [actionArgs]);
                 })()
               : undefined;
