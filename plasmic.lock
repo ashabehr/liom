@@ -2065,14 +2065,14 @@
           "checksum": "74bac83aac2fdcaf88e7c7d3d007bd5e"
         },
         {
-          "assetId": "suVPi77vb6vv9K5rYJwyxC",
-          "type": "projectCss",
-          "checksum": "029fef4c6a8fea365281d788c67aa3dc"
-        },
-        {
           "type": "image",
           "assetId": "FfPtqVRwOvA-",
           "checksum": "343d80b89740e50acf8cf83261121f63"
+        },
+        {
+          "assetId": "suVPi77vb6vv9K5rYJwyxC",
+          "type": "projectCss",
+          "checksum": "029fef4c6a8fea365281d788c67aa3dc"
         }
       ],
       "codegenVersion": "0.0.1"
