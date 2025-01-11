@@ -231,7 +231,20 @@ function PlasmicClinic__RenderFunc(props: {
         path: "_1",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props._1
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $ctx.query.page;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })() ?? $props._1
       },
       {
         path: "input.value",
@@ -790,6 +803,32 @@ function PlasmicClinic__RenderFunc(props: {
                           ];
                         }
 
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return history.pushState(
+                                      null,
+                                      "",
+                                      "https://apps.liom.app/clinic/"
+                                    );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
                         $steps["update1"] = true
                           ? (() => {
                               const actionArgs = {
@@ -1084,6 +1123,30 @@ function PlasmicClinic__RenderFunc(props: {
                     $steps["updateLoadingPage2"] = await $steps[
                       "updateLoadingPage2"
                     ];
+                  }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return history.pushState(
+                              null,
+                              "",
+                              "https://apps.liom.app/clinic/"
+                            );
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
                   }
                 }}
               >
@@ -1411,6 +1474,30 @@ function PlasmicClinic__RenderFunc(props: {
                           $steps["updateLoadingPage2"] = await $steps[
                             "updateLoadingPage2"
                           ];
+                        }
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return history.pushState(
+                                    null,
+                                    "",
+                                    "https://apps.liom.app/clinic/"
+                                  );
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
                         }
                       }}
                     >
@@ -1804,7 +1891,7 @@ function PlasmicClinic__RenderFunc(props: {
                     )}
                   >
                     {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "
+                      "\u0645\u0634\u0640\u0640\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "
                     }
                   </div>
                   <Button
@@ -7823,6 +7910,30 @@ function PlasmicClinic__RenderFunc(props: {
                     $steps["updateLoadingPage2"] = await $steps[
                       "updateLoadingPage2"
                     ];
+                  }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return history.pushState(
+                              null,
+                              "",
+                              "https://apps.liom.app/clinic/"
+                            );
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {

@@ -2888,6 +2888,35 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         "invokeGlobalAction4"
                       ];
                     }
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return console.log(
+                                  $state.duDate[0] +
+                                    "-" +
+                                    $state.duDate[1] +
+                                    "-" +
+                                    $state.duDate[2] +
+                                    " 10:10:10"
+                                );
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
                   }}
                   onColorChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {
