@@ -64,6 +64,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -80,6 +81,7 @@ import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld
 import EmojiSadSquareSvgrepoComSvgIcon from "./icons/PlasmicIcon__EmojiSadSquareSvgrepoComSvg"; // plasmic-import: r-c9byRGfifF/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: 8DTE5iQ0tvze/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
 
@@ -108,6 +110,11 @@ export type PlasmicShopResult__OverridesType = {
   button3?: Flex__<typeof Button>;
   fragmentApiRequest?: Flex__<typeof ApiRequest>;
   lottie?: Flex__<typeof LottieWrapper>;
+  button4?: Flex__<typeof Button>;
+  modal?: Flex__<typeof AntdModal>;
+  section?: Flex__<"section">;
+  button5?: Flex__<typeof Button>;
+  button6?: Flex__<typeof Button>;
 };
 
 export interface DefaultShopResultProps {}
@@ -249,6 +256,38 @@ function PlasmicShopResult__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "failed", "failed") &&
+          hasVariant(globalVariants, "screen", "mobile")
+            ? false
+            : hasVariant($state, "failed", "failed")
+            ? false
+            : undefined
+      },
+      {
+        path: "button5.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "failed", "failed") ? "blue" : undefined
+      },
+      {
+        path: "button6.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant($state, "failed", "failed") ? "green" : undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -3995,6 +4034,563 @@ function PlasmicShopResult__RenderFunc(props: {
             loop={true}
             preview={false}
           />
+
+          <Button
+            data-plasmic-name={"button4"}
+            data-plasmic-override={overrides.button4}
+            className={classNames("__wab_instance", sty.button4, {
+              [sty.button4failed]: hasVariant($state, "failed", "failed")
+            })}
+            color={generateStateValueProp($state, ["button4", "color"])}
+            onClick={async event => {
+              const $steps = {};
+
+              $steps["updateModalOpen"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["modal", "open"]
+                      },
+                      operation: 0,
+                      value: true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateModalOpen"] != null &&
+                typeof $steps["updateModalOpen"] === "object" &&
+                typeof $steps["updateModalOpen"].then === "function"
+              ) {
+                $steps["updateModalOpen"] = await $steps["updateModalOpen"];
+              }
+            }}
+            onColorChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button4", "color"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___9KCfa,
+                {
+                  [sty.textfailed___9KCfa1GaC]: hasVariant(
+                    $state,
+                    "failed",
+                    "failed"
+                  )
+                }
+              )}
+            >
+              {
+                "\u062e\u0631\u06cc\u062f\u0645 \u0646\u0627\u0645\u0648\u0641\u0642 \u0634\u062f \u0648 \u0627\u0634\u062a\u0631\u0627\u06a9\u0645 \u0641\u0639\u0627\u0644 \u0646\u0634\u062f , \u0686\u06cc\u06a9\u0627\u0631 \u06a9\u0646\u0645 \u061f"
+              }
+            </div>
+          </Button>
+          <AntdModal
+            data-plasmic-name={"modal"}
+            data-plasmic-override={overrides.modal}
+            className={classNames("__wab_instance", sty.modal, {
+              [sty.modalfailed]: hasVariant($state, "failed", "failed"),
+              [sty.modalsuccessful]: hasVariant(
+                $state,
+                "successful",
+                "successful"
+              )
+            })}
+            closeIcon={
+              (hasVariant($state, "failed", "failed") ? true : false) ? (
+                <XIcon
+                  className={classNames(projectcss.all, sty.svg__ghHTq, {
+                    [sty.svgfailed__ghHTq1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    )
+                  })}
+                  role={"img"}
+                />
+              ) : null
+            }
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            hideFooter={
+              hasVariant($state, "failed", "failed") ? true : undefined
+            }
+            modalContentClassName={classNames({
+              [sty["pcls_W1g57UBaetdD"]]: hasVariant($state, "failed", "failed")
+            })}
+            modalScopeClassName={sty["modal__modal"]}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["modal", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["modal", "open"])}
+            title={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__pdnS,
+                  {
+                    [sty.textfailed__pdnS1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    )
+                  }
+                )}
+              >
+                {hasVariant($state, "failed", "failed") ? "" : "Modal title"}
+              </div>
+            }
+            trigger={null}
+            width={hasVariant($state, "failed", "failed") ? "100vw" : ``}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__xP9, {
+                [sty.freeBoxfailed__xP91GaC]: hasVariant(
+                  $state,
+                  "failed",
+                  "failed"
+                )
+              })}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___1Mb5J,
+                  {
+                    [sty.textfailed___1Mb5J1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    )
+                  }
+                )}
+              >
+                {hasVariant($state, "failed", "failed")
+                  ? "\u062e\u0637\u0627\u200c\u0647\u0627\u06cc \u0645\u062a\u062f\u0627\u0648\u0644 \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
+                  : "Modal content"}
+              </div>
+            </Stack__>
+            <section
+              data-plasmic-name={"section"}
+              data-plasmic-override={overrides.section}
+              className={classNames(projectcss.all, sty.section, {
+                [sty.sectionfailed]: hasVariant($state, "failed", "failed")
+              })}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__eXol, {
+                  [sty.freeBoxfailed__eXol1GaC]: hasVariant(
+                    $state,
+                    "failed",
+                    "failed"
+                  )
+                })}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__bzwOn, {
+                    [sty.freeBoxfailed__bzwOn1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__nynC7,
+                      {
+                        [sty.textfailed__nynC71GaC]: hasVariant(
+                          $state,
+                          "failed",
+                          "failed"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "failed", "failed")
+                      ? "\u0627\u06af\u0647 \u067e\u0631\u062f\u0627\u062e\u062a \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u06cc \u0627\u0645\u0627 \u0628\u0627 \u067e\u06cc\u0627\u0645 \u062e\u0631\u06cc\u062f \u0646\u0627\u0645\u0648\u0641\u0642 \u0645\u0648\u0627\u062c\u0647 \u0634\u062f\u06cc\u066c \u0637\u0628\u0642 \u0645\u0631\u0627\u062d\u0644 \u0632\u06cc\u0631 \u0628\u0631\u0648 \u062c\u0644\u0648:"
+                      : "Enter some text"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__cNfZi,
+                      {
+                        [sty.textfailed__cNfZi1GaC]: hasVariant(
+                          $state,
+                          "failed",
+                          "failed"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "failed", "failed") ? (
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return `<hr><p>۱- اگر از بازار/مایکت اشتراک رو فعال کردی٬ وارد حساب کاربریت در بازار/مایکت شو و از قسمت کیف پول چک کن که مبلغ اشتراک به کیف پولت برگشته یا نه .</p>
+<hr>
+<p>۲- اگه مبلغ به کیف پول برگشته بود مجددا تهیه اشتراک رو بزن و اینبار به جای پرداخت از کارت بانکی٬ پرداخت از کیف پول رو انتخاب کن.</p>
+<hr>
+<p>۳- اگر مبلغ به کیف پول برنگشته بود٬ اول چک کن که فیلتر شکن یا vpn روشن نباشه و اگر روشن بود خاموشش کن و یکبار کاملا اپلیکیشن لیوم رو ببند و مجدد وارد اپلیکیشن بشو.</p>
+<hr>
+<p>۴- اگر بازهم فعال نشد ممکنه خطایی در درگاه بانکی به وجود اومده باشه و تا چند ساعت آینده مبلع به حساب بانکی شما برمیگرده.</p>
+<hr>
+<p>۵- اگر مبلغ بعد از چند ساعت بازگشت داده نشد لطفا اسکرین شات تراکنشی که داشتی رو برای پشتیبانی بفرست تا بتونیم سریعا پیگیری کنیم.</p>`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
+                    ) : (
+                      "Enter some text"
+                    )}
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__uWqiw, {
+                    [sty.freeBoxfailed__uWqiw1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___10ZCc,
+                      {
+                        [sty.textfailed___10ZCc1GaC]: hasVariant(
+                          $state,
+                          "failed",
+                          "failed"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "failed", "failed")
+                      ? "\u0627\u06af\u0647 \u062f\u0631 \u0647\u0646\u06af\u0627\u0645 \u0627\u0646\u062a\u062e\u0627\u0628 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645\u0627 \u0648\u0627\u0631\u062f \u0635\u0641\u062d\u0647 \u062e\u0631\u06cc\u062f \u0646\u0627\u0645\u0648\u0641\u0642 \u0634\u062f\u06cc \u0637\u0628\u0642 \u0645\u0631\u0627\u062d\u0644 \u0632\u06cc\u0631 \u062c\u0644\u0648 \u0628\u0631\u0648:"
+                      : "Enter some text"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__gVmLw,
+                      {
+                        [sty.textfailed__gVmLw1GaC]: hasVariant(
+                          $state,
+                          "failed",
+                          "failed"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "failed", "failed") ? (
+                      <div
+                        className={projectcss.__wab_expr_html_text}
+                        dangerouslySetInnerHTML={{
+                          __html: (() => {
+                            try {
+                              return `<hr>
+<p>۱- اگر برای لیوم نسخه بروزسانی اومده حتما نسخه جدید رو نصب کن.</p>
+<hr>
+<p>۲- مطمئن شو که قبل از شروع فرایند خرید فیلترشکن (vpn) رو خاموش کردی.</p>
+<hr>
+<p>۳- اگر از بازار یا مایکت در حال تهیه اشتراک هستی حتما چک کن که وارد اکانتت در بازار/مایکت شده باشی.</p>`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()
+                        }}
+                      />
+                    ) : (
+                      "Enter some text"
+                    )}
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__wwQEz, {
+                    [sty.freeBoxfailed__wwQEz1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__mEgPr,
+                      {
+                        [sty.textfailed__mEgPr1GaC]: hasVariant(
+                          $state,
+                          "failed",
+                          "failed"
+                        )
+                      }
+                    )}
+                  >
+                    {hasVariant($state, "failed", "failed")
+                      ? "\u0627\u06af\u0647 \u0647\u06cc\u0686 \u06a9\u062f\u0648\u0645 \u0627\u0632 \u0631\u0648\u0634 \u0647\u0627\u06cc \u0628\u0627\u0644\u0627 \u062c\u0648\u0627\u0628 \u0646\u062f\u0627\u062f \u0644\u0637\u0641\u0627 \u0628\u0647 \u0645\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647:"
+                      : "Enter some text"}
+                  </div>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___9LVeq, {
+                      [sty.freeBoxfailed___9LVeq1GaC]: hasVariant(
+                        $state,
+                        "failed",
+                        "failed"
+                      )
+                    })}
+                  >
+                    <Button
+                      data-plasmic-name={"button5"}
+                      data-plasmic-override={overrides.button5}
+                      className={classNames("__wab_instance", sty.button5, {
+                        [sty.button5failed]: hasVariant(
+                          $state,
+                          "failed",
+                          "failed"
+                        )
+                      })}
+                      color={generateStateValueProp($state, [
+                        "button5",
+                        "color"
+                      ])}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToHttpsTMeLiomSupport"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: "https://t.me/liom_support"
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToHttpsTMeLiomSupport"] != null &&
+                          typeof $steps["goToHttpsTMeLiomSupport"] ===
+                            "object" &&
+                          typeof $steps["goToHttpsTMeLiomSupport"].then ===
+                            "function"
+                        ) {
+                          $steps["goToHttpsTMeLiomSupport"] = await $steps[
+                            "goToHttpsTMeLiomSupport"
+                          ];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button5",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      size={
+                        hasVariant($state, "failed", "failed")
+                          ? "compact"
+                          : undefined
+                      }
+                    >
+                      {hasVariant($state, "failed", "failed")
+                        ? "\u067e\u06cc\u0627\u0645 \u062f\u0631 \u062a\u0644\u06af\u0631\u0627\u0645"
+                        : " "}
+                    </Button>
+                    <Button
+                      data-plasmic-name={"button6"}
+                      data-plasmic-override={overrides.button6}
+                      className={classNames("__wab_instance", sty.button6, {
+                        [sty.button6failed]: hasVariant(
+                          $state,
+                          "failed",
+                          "failed"
+                        )
+                      })}
+                      color={generateStateValueProp($state, [
+                        "button6",
+                        "color"
+                      ])}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToHttpsWebBaleAiChatUid156227309"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination:
+                                  "https://web.bale.ai/chat?uid=156227309"
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToHttpsWebBaleAiChatUid156227309"] !=
+                            null &&
+                          typeof $steps[
+                            "goToHttpsWebBaleAiChatUid156227309"
+                          ] === "object" &&
+                          typeof $steps["goToHttpsWebBaleAiChatUid156227309"]
+                            .then === "function"
+                        ) {
+                          $steps["goToHttpsWebBaleAiChatUid156227309"] =
+                            await $steps["goToHttpsWebBaleAiChatUid156227309"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button6",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      size={
+                        hasVariant($state, "failed", "failed")
+                          ? "compact"
+                          : undefined
+                      }
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__zk4Wf,
+                          {
+                            [sty.textfailed__zk4Wf1GaC]: hasVariant(
+                              $state,
+                              "failed",
+                              "failed"
+                            )
+                          }
+                        )}
+                      >
+                        {hasVariant($state, "failed", "failed")
+                          ? "\u067e\u06cc\u0627\u0645 \u062f\u0631 \u0628\u0644\u0647"
+                          : " "}
+                      </div>
+                    </Button>
+                  </Stack__>
+                </Stack__>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__soPTb, {
+                    [sty.freeBoxfailed__soPTb1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    )
+                  })}
+                />
+              </Stack__>
+            </section>
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -4008,13 +4604,23 @@ const PlasmicDescendants = {
     "button2",
     "button3",
     "fragmentApiRequest",
-    "lottie"
+    "lottie",
+    "button4",
+    "modal",
+    "section",
+    "button5",
+    "button6"
   ],
   button: ["button"],
   button2: ["button2"],
   button3: ["button3"],
   fragmentApiRequest: ["fragmentApiRequest"],
-  lottie: ["lottie"]
+  lottie: ["lottie"],
+  button4: ["button4"],
+  modal: ["modal", "section", "button5", "button6"],
+  section: ["section", "button5", "button6"],
+  button5: ["button5"],
+  button6: ["button6"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -4026,6 +4632,11 @@ type NodeDefaultElementType = {
   button3: typeof Button;
   fragmentApiRequest: typeof ApiRequest;
   lottie: typeof LottieWrapper;
+  button4: typeof Button;
+  modal: typeof AntdModal;
+  section: "section";
+  button5: typeof Button;
+  button6: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -4118,6 +4729,11 @@ export const PlasmicShopResult = Object.assign(
     button3: makeNodeComponent("button3"),
     fragmentApiRequest: makeNodeComponent("fragmentApiRequest"),
     lottie: makeNodeComponent("lottie"),
+    button4: makeNodeComponent("button4"),
+    modal: makeNodeComponent("modal"),
+    section: makeNodeComponent("section"),
+    button5: makeNodeComponent("button5"),
+    button6: makeNodeComponent("button6"),
 
     // Metadata about props expected for PlasmicShopResult
     internalVariantProps: PlasmicShopResult__VariantProps,

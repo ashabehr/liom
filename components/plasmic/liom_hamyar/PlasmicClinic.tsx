@@ -582,15 +582,29 @@ function PlasmicClinic__RenderFunc(props: {
                           localStorage.setItem("ClinicToken", app);
                         }
                         var status = urlParams.get("status");
-                        if (status == "false") return ($state.status = "false");
+                        if (status == "false") $state.status = "false";
                         else if (status == "true") {
                           var chatstart = JSON.parse(
                             localStorage.getItem("chatstart")
                           );
-                          return window.open(
+                          window.open(
                             `https://apps.liom.app/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}`,
                             "_self"
                           );
+                        }
+                        var page = urlParams.get("page");
+                        if (page == "chatviow") {
+                          return fetch(
+                            "https://n8n.staas.ir/webhook/help/getListHelp/?token=" +
+                              localStorage.getItem("ClinicToken"),
+                            { method: "GET" }
+                          )
+                            .then(response => response.json())
+                            .then(data => {
+                              $state.chats = data;
+                              console.log("user get");
+                            })
+                            .catch(error => console.error("Error3:", error));
                         }
                       })();
                     }
@@ -671,6 +685,24 @@ function PlasmicClinic__RenderFunc(props: {
               typeof $steps["updateGetData"].then === "function"
             ) {
               $steps["updateGetData"] = await $steps["updateGetData"];
+            }
+
+            $steps["invokeGlobalAction2"] = true
+              ? (() => {
+                  const actionArgs = { args: [2000] };
+                  return $globalActions["Fragment.wait"]?.apply(null, [
+                    ...actionArgs.args
+                  ]);
+                })()
+              : undefined;
+            if (
+              $steps["invokeGlobalAction2"] != null &&
+              typeof $steps["invokeGlobalAction2"] === "object" &&
+              typeof $steps["invokeGlobalAction2"].then === "function"
+            ) {
+              $steps["invokeGlobalAction2"] = await $steps[
+                "invokeGlobalAction2"
+              ];
             }
 
             $steps["updateLoadingPage2"] = true

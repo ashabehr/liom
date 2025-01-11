@@ -172,7 +172,7 @@
   left: auto;
   min-height: 100vh;
   min-width: 0;
-  padding: 8px 15px 100px;
+  padding: 80px 15px;
 }
 .freeBox__tujJc > :global(.__wab_flex-container) {
   flex-direction: column;

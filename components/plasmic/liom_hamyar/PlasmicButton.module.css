@@ -102,6 +102,9 @@
   border-width: 2px;
   border-color: var(--token-55cSeNPovQFh);
 }
+.rootcolor_orange {
+  background: #fa8214;
+}
 .rootloading {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -222,6 +225,13 @@
 }
 .rootcolor_line:active {
   background: #7444bc33;
+}
+.rootcolor_orange:hover {
+  background: #fa6a14;
+  opacity: 0.9;
+}
+.rootcolor_orange:active {
+  background: #fa6214;
 }
 .startIconContainer {
   display: flex;
