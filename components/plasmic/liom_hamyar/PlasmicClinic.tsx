@@ -133,16 +133,18 @@ export type PlasmicClinic__OverridesType = {
   card9?: Flex__<"div">;
   button3?: Flex__<typeof Button>;
   card10?: Flex__<"div">;
-  button4?: Flex__<typeof Button>;
+  button13?: Flex__<typeof Button>;
   card11?: Flex__<"div">;
-  button5?: Flex__<typeof Button>;
+  button4?: Flex__<typeof Button>;
+  card16?: Flex__<"div">;
   speciality3?: Flex__<"div">;
   card12?: Flex__<"div">;
-  button6?: Flex__<typeof Button>;
+  button5?: Flex__<typeof Button>;
   card13?: Flex__<"div">;
-  button7?: Flex__<typeof Button>;
+  button6?: Flex__<typeof Button>;
   card14?: Flex__<"div">;
-  button8?: Flex__<typeof Button>;
+  button7?: Flex__<typeof Button>;
+  card17?: Flex__<"div">;
   input?: Flex__<typeof Input>;
   mensah?: Flex__<"div">;
   card7?: Flex__<"div">;
@@ -157,6 +159,7 @@ export type PlasmicClinic__OverridesType = {
   workingTime?: Flex__<"div">;
   monSat0830Am?: Flex__<"div">;
   speciality4?: Flex__<"div">;
+  lineClomp2?: Flex__<typeof LineClomp>;
   card15?: Flex__<"div">;
   button9?: Flex__<typeof Button>;
   section?: Flex__<"section">;
@@ -268,36 +271,6 @@ function PlasmicClinic__RenderFunc(props: {
       },
       {
         path: "button3.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button4.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button5.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button6.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button7.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button8.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -492,6 +465,42 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "lineClomp2.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button13.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button5.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button6.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button7.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -541,7 +550,7 @@ function PlasmicClinic__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
 
-            $steps["runCode"] = true
+            $steps["runCode"] = !localStorage.getItem("ClinicToken")
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
@@ -1455,28 +1464,34 @@ function PlasmicClinic__RenderFunc(props: {
                 [sty.speciality2_1_docters]: hasVariant($state, "_1", "docters")
               })}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__tI0Jp
-                )}
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___0Ofm2)}
               >
-                {
-                  "\u0645\u062a\u062e\u0635\u0635\u06cc\u0646  \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc"
-                }
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ffSEd
-                )}
-              >
-                {
-                  "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc \u0648 \u0631\u0648\u0627\u0628\u0637 \u062c\u0646\u0633\u06cc"
-                }
-              </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__tI0Jp
+                  )}
+                >
+                  {
+                    "\u0645\u062a\u062e\u0635\u0635\u06cc\u0646  \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc"
+                  }
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ffSEd
+                  )}
+                >
+                  {
+                    "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc \u0648 \u0631\u0648\u0627\u0628\u0637 \u062c\u0646\u0633\u06cc"
+                  }
+                </div>
+              </Stack__>
               <Stack__
                 as={"div"}
                 hasGap={true}
@@ -1514,6 +1529,216 @@ function PlasmicClinic__RenderFunc(props: {
                         role={"img"}
                       />
                     }
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
+                      }
+
+                      $steps["updateLoadingPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage"] != null &&
+                        typeof $steps["updateLoadingPage"] === "object" &&
+                        typeof $steps["updateLoadingPage"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage"] = await $steps[
+                          "updateLoadingPage"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/help/getList",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      token: "Bearer " + $state.token,
+                                      id: "5"
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateGetList"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["getList"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateGetList"] != null &&
+                        typeof $steps["updateGetList"] === "object" &&
+                        typeof $steps["updateGetList"].then === "function"
+                      ) {
+                        $steps["updateGetList"] = await $steps["updateGetList"];
+                      }
+
+                      $steps["updateListId"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["listId"]
+                              },
+                              operation: 0,
+                              value: 5
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateListId"] != null &&
+                        typeof $steps["updateListId"] === "object" &&
+                        typeof $steps["updateListId"].then === "function"
+                      ) {
+                        $steps["updateListId"] = await $steps["updateListId"];
+                      }
+
+                      $steps["updateLoadingPage2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage2"] != null &&
+                        typeof $steps["updateLoadingPage2"] === "object" &&
+                        typeof $steps["updateLoadingPage2"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage2"] = await $steps[
+                          "updateLoadingPage2"
+                        ];
+                      }
+                    }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
                         generateStateOnChangeProp($state, ["button3", "color"])(
@@ -1564,21 +1789,235 @@ function PlasmicClinic__RenderFunc(props: {
                     }
                   </div>
                   <Button
-                    data-plasmic-name={"button4"}
-                    data-plasmic-override={overrides.button4}
-                    className={classNames("__wab_instance", sty.button4)}
-                    color={generateStateValueProp($state, ["button4", "color"])}
+                    data-plasmic-name={"button13"}
+                    data-plasmic-override={overrides.button13}
+                    className={classNames("__wab_instance", sty.button13)}
+                    color={generateStateValueProp($state, [
+                      "button13",
+                      "color"
+                    ])}
                     endIcon={
                       <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__cIv1Z)}
+                        className={classNames(projectcss.all, sty.svg__m0J0A)}
                         role={"img"}
                       />
                     }
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
+                      }
+
+                      $steps["updateLoadingPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage"] != null &&
+                        typeof $steps["updateLoadingPage"] === "object" &&
+                        typeof $steps["updateLoadingPage"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage"] = await $steps[
+                          "updateLoadingPage"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/help/getList",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      token: "Bearer " + $state.token,
+                                      id: "5"
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateGetList"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["getList"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateGetList"] != null &&
+                        typeof $steps["updateGetList"] === "object" &&
+                        typeof $steps["updateGetList"].then === "function"
+                      ) {
+                        $steps["updateGetList"] = await $steps["updateGetList"];
+                      }
+
+                      $steps["updateListId"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["listId"]
+                              },
+                              operation: 0,
+                              value: 5
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateListId"] != null &&
+                        typeof $steps["updateListId"] === "object" &&
+                        typeof $steps["updateListId"].then === "function"
+                      ) {
+                        $steps["updateListId"] = await $steps["updateListId"];
+                      }
+
+                      $steps["updateLoadingPage2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage2"] != null &&
+                        typeof $steps["updateLoadingPage2"] === "object" &&
+                        typeof $steps["updateLoadingPage2"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage2"] = await $steps[
+                          "updateLoadingPage2"
+                        ];
+                      }
+                    }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button4", "color"])(
-                          eventArgs[0]
-                        );
+                        generateStateOnChangeProp($state, [
+                          "button13",
+                          "color"
+                        ])(eventArgs[0]);
                       }).apply(null, eventArgs);
 
                       if (
@@ -1596,7 +2035,7 @@ function PlasmicClinic__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__fjw2D
+                        sty.text__xteBd
                       )}
                     >
                       {
@@ -1624,16 +2063,560 @@ function PlasmicClinic__RenderFunc(props: {
                     }
                   </div>
                   <Button
+                    data-plasmic-name={"button4"}
+                    data-plasmic-override={overrides.button4}
+                    className={classNames("__wab_instance", sty.button4)}
+                    color={generateStateValueProp($state, ["button4", "color"])}
+                    endIcon={
+                      <Icon104Icon
+                        className={classNames(projectcss.all, sty.svg__maAo5)}
+                        role={"img"}
+                      />
+                    }
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
+                      }
+
+                      $steps["updateLoadingPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage"] != null &&
+                        typeof $steps["updateLoadingPage"] === "object" &&
+                        typeof $steps["updateLoadingPage"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage"] = await $steps[
+                          "updateLoadingPage"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/help/getList",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      token: "Bearer " + $state.token,
+                                      id: "5"
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateGetList"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["getList"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateGetList"] != null &&
+                        typeof $steps["updateGetList"] === "object" &&
+                        typeof $steps["updateGetList"].then === "function"
+                      ) {
+                        $steps["updateGetList"] = await $steps["updateGetList"];
+                      }
+
+                      $steps["updateListId"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["listId"]
+                              },
+                              operation: 0,
+                              value: 5
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateListId"] != null &&
+                        typeof $steps["updateListId"] === "object" &&
+                        typeof $steps["updateListId"].then === "function"
+                      ) {
+                        $steps["updateListId"] = await $steps["updateListId"];
+                      }
+
+                      $steps["updateLoadingPage2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage2"] != null &&
+                        typeof $steps["updateLoadingPage2"] === "object" &&
+                        typeof $steps["updateLoadingPage2"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage2"] = await $steps[
+                          "updateLoadingPage2"
+                        ];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button4", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    showEndIcon={true}
+                    size={"compact"}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__wgSuo
+                      )}
+                    >
+                      {
+                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                      }
+                    </div>
+                  </Button>
+                </Stack__>
+                {(
+                  hasVariant(globalVariants, "screen", "mobile") ? true : false
+                ) ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"card16"}
+                    data-plasmic-override={overrides.card16}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.card16)}
+                  />
+                ) : null}
+              </Stack__>
+            </Stack__>
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"speciality3"}
+              data-plasmic-override={overrides.speciality3}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.speciality3, {
+                [sty.speciality3_1_chatviow]: hasVariant(
+                  $state,
+                  "_1",
+                  "chatviow"
+                ),
+                [sty.speciality3_1_docter]: hasVariant($state, "_1", "docter"),
+                [sty.speciality3_1_docters]: hasVariant($state, "_1", "docters")
+              })}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__jHzk5)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__w2E7Q
+                  )}
+                >
+                  {
+                    "\u0645\u062a\u062e\u0635\u0635\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                  }
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__lKqE6
+                  )}
+                >
+                  {
+                    "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u0647\u0648\u0631\u0645\u0648\u0646\u06cc \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
+                  }
+                </div>
+              </Stack__>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__fyalm)}
+              >
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"card12"}
+                  data-plasmic-override={overrides.card12}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.card12, {
+                    [sty.card12_1_docter]: hasVariant($state, "_1", "docter"),
+                    [sty.card12_1_docters]: hasVariant($state, "_1", "docters")
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___46K1F
+                    )}
+                  >
+                    {
+                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646  \u062f\u0631\u062f \u0642\u0627\u0639\u062f\u06af\u06cc"
+                    }
+                  </div>
+                  <Button
                     data-plasmic-name={"button5"}
                     data-plasmic-override={overrides.button5}
                     className={classNames("__wab_instance", sty.button5)}
                     color={generateStateValueProp($state, ["button5", "color"])}
                     endIcon={
                       <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__cw7S8)}
+                        className={classNames(projectcss.all, sty.svg__se0YU)}
                         role={"img"}
                       />
                     }
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
+                      }
+
+                      $steps["updateLoadingPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage"] != null &&
+                        typeof $steps["updateLoadingPage"] === "object" &&
+                        typeof $steps["updateLoadingPage"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage"] = await $steps[
+                          "updateLoadingPage"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/help/getList",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      token: "Bearer " + $state.token,
+                                      id: "2"
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateGetList"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["getList"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateGetList"] != null &&
+                        typeof $steps["updateGetList"] === "object" &&
+                        typeof $steps["updateGetList"].then === "function"
+                      ) {
+                        $steps["updateGetList"] = await $steps["updateGetList"];
+                      }
+
+                      $steps["updateListId"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["listId"]
+                              },
+                              operation: 0,
+                              value: 2
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateListId"] != null &&
+                        typeof $steps["updateListId"] === "object" &&
+                        typeof $steps["updateListId"].then === "function"
+                      ) {
+                        $steps["updateListId"] = await $steps["updateListId"];
+                      }
+
+                      $steps["updateLoadingPage2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage2"] != null &&
+                        typeof $steps["updateLoadingPage2"] === "object" &&
+                        typeof $steps["updateLoadingPage2"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage2"] = await $steps[
+                          "updateLoadingPage2"
+                        ];
+                      }
+                    }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
                         generateStateOnChangeProp($state, ["button5", "color"])(
@@ -1656,7 +2639,7 @@ function PlasmicClinic__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__aRtM0
+                        sty.text__sLxW
                       )}
                     >
                       {
@@ -1665,68 +2648,47 @@ function PlasmicClinic__RenderFunc(props: {
                     </div>
                   </Button>
                 </Stack__>
-              </Stack__>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"speciality3"}
-              data-plasmic-override={overrides.speciality3}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.speciality3, {
-                [sty.speciality3_1_chatviow]: hasVariant(
-                  $state,
-                  "_1",
-                  "chatviow"
-                ),
-                [sty.speciality3_1_docter]: hasVariant($state, "_1", "docter"),
-                [sty.speciality3_1_docters]: hasVariant($state, "_1", "docters")
-              })}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__nvocL
-                )}
-              >
-                {
-                  "\u0645\u062a\u062e\u0635\u0635\u06cc\u0646  \u067e\u0648\u0633\u062a \u0648 \u0645\u0648"
-                }
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___3OtcA
-                )}
-              >
-                {
-                  "\u0645\u0634\u0627\u0648\u0631\u0647 \u0628\u06cc\u0645\u0627\u0631\u06cc\u200c\u0647\u0627\u06cc \u067e\u0648\u0633\u062a \u0648 \u0645\u0648 "
-                }
-              </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__q9IEz)}
-              >
                 <Stack__
                   as={"div"}
-                  data-plasmic-name={"card12"}
-                  data-plasmic-override={overrides.card12}
+                  data-plasmic-name={"card13"}
+                  data-plasmic-override={overrides.card13}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.card12)}
+                  className={classNames(projectcss.all, sty.card13)}
                 >
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__fTemr
+                      sty.text__s9Ps
                     )}
                   >
                     {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u0628\u0631\u0627\u06cc  \u062c\u0648\u0634 \u0635\u0648\u0631\u062a \u0648 \u0644\u06a9\u0647"
+                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc"
                     }
                   </div>
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? true
+                      : false
+                  ) ? (
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__dmqvY)}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"auto"}
+                      loading={"lazy"}
+                      src={{
+                        src: "/plasmic/liom_hamyar/images/image68.png",
+                        fullWidth: 720,
+                        fullHeight: 432,
+                        aspectRatio: undefined
+                      }}
+                    />
+                  ) : null}
                   <Button
                     data-plasmic-name={"button6"}
                     data-plasmic-override={overrides.button6}
@@ -1734,10 +2696,220 @@ function PlasmicClinic__RenderFunc(props: {
                     color={generateStateValueProp($state, ["button6", "color"])}
                     endIcon={
                       <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__pdMyz)}
+                        className={classNames(projectcss.all, sty.svg__oHX9)}
                         role={"img"}
                       />
                     }
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
+                      }
+
+                      $steps["updateLoadingPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage"] != null &&
+                        typeof $steps["updateLoadingPage"] === "object" &&
+                        typeof $steps["updateLoadingPage"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage"] = await $steps[
+                          "updateLoadingPage"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/help/getList",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      token: "Bearer " + $state.token,
+                                      id: "2"
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateGetList"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["getList"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateGetList"] != null &&
+                        typeof $steps["updateGetList"] === "object" &&
+                        typeof $steps["updateGetList"].then === "function"
+                      ) {
+                        $steps["updateGetList"] = await $steps["updateGetList"];
+                      }
+
+                      $steps["updateListId"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["listId"]
+                              },
+                              operation: 0,
+                              value: 2
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateListId"] != null &&
+                        typeof $steps["updateListId"] === "object" &&
+                        typeof $steps["updateListId"].then === "function"
+                      ) {
+                        $steps["updateListId"] = await $steps["updateListId"];
+                      }
+
+                      $steps["updateLoadingPage2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage2"] != null &&
+                        typeof $steps["updateLoadingPage2"] === "object" &&
+                        typeof $steps["updateLoadingPage2"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage2"] = await $steps[
+                          "updateLoadingPage2"
+                        ];
+                      }
+                    }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
                         generateStateOnChangeProp($state, ["button6", "color"])(
@@ -1760,7 +2932,7 @@ function PlasmicClinic__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__yCy31
+                        sty.text__sCglx
                       )}
                     >
                       {
@@ -1771,22 +2943,45 @@ function PlasmicClinic__RenderFunc(props: {
                 </Stack__>
                 <Stack__
                   as={"div"}
-                  data-plasmic-name={"card13"}
-                  data-plasmic-override={overrides.card13}
+                  data-plasmic-name={"card14"}
+                  data-plasmic-override={overrides.card14}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.card13)}
+                  className={classNames(projectcss.all, sty.card14)}
                 >
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text___0LsJr
+                      sty.text__gUnlX
                     )}
                   >
                     {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646  \u0631\u06cc\u0632\u0634 \u0645\u0648"
+                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0634\u06a9\u0644\u0627\u062a \u067e\u0648\u0633\u062a\u06cc \u062f\u0631 \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
                     }
                   </div>
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? true
+                      : false
+                  ) ? (
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__djHjx)}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"auto"}
+                      loading={"lazy"}
+                      src={{
+                        src: "/plasmic/liom_hamyar/images/image69.png",
+                        fullWidth: 720,
+                        fullHeight: 432,
+                        aspectRatio: undefined
+                      }}
+                    />
+                  ) : null}
                   <Button
                     data-plasmic-name={"button7"}
                     data-plasmic-override={overrides.button7}
@@ -1794,10 +2989,220 @@ function PlasmicClinic__RenderFunc(props: {
                     color={generateStateValueProp($state, ["button7", "color"])}
                     endIcon={
                       <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__uzmE)}
+                        className={classNames(projectcss.all, sty.svg__uuQl7)}
                         role={"img"}
                       />
                     }
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
+                      }
+
+                      $steps["updateLoadingPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage"] != null &&
+                        typeof $steps["updateLoadingPage"] === "object" &&
+                        typeof $steps["updateLoadingPage"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage"] = await $steps[
+                          "updateLoadingPage"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/help/getList",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      token: "Bearer " + $state.token,
+                                      id: "2"
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["updateGetList"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["getList"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction.data
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateGetList"] != null &&
+                        typeof $steps["updateGetList"] === "object" &&
+                        typeof $steps["updateGetList"].then === "function"
+                      ) {
+                        $steps["updateGetList"] = await $steps["updateGetList"];
+                      }
+
+                      $steps["updateListId"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["listId"]
+                              },
+                              operation: 0,
+                              value: 2
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateListId"] != null &&
+                        typeof $steps["updateListId"] === "object" &&
+                        typeof $steps["updateListId"].then === "function"
+                      ) {
+                        $steps["updateListId"] = await $steps["updateListId"];
+                      }
+
+                      $steps["updateLoadingPage2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadingPage"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadingPage2"] != null &&
+                        typeof $steps["updateLoadingPage2"] === "object" &&
+                        typeof $steps["updateLoadingPage2"].then === "function"
+                      ) {
+                        $steps["updateLoadingPage2"] = await $steps[
+                          "updateLoadingPage2"
+                        ];
+                      }
+                    }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
                         generateStateOnChangeProp($state, ["button7", "color"])(
@@ -1820,7 +3225,7 @@ function PlasmicClinic__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__g5Tcs
+                        sty.text___0OKea
                       )}
                     >
                       {
@@ -1829,66 +3234,17 @@ function PlasmicClinic__RenderFunc(props: {
                     </div>
                   </Button>
                 </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card14"}
-                  data-plasmic-override={overrides.card14}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card14)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___879DL
-                    )}
-                  >
-                    {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062e\u0634\u06a9\u06cc \u067e\u0648\u0633\u062a \u0648 \u0644\u0628"
-                    }
-                  </div>
-                  <Button
-                    data-plasmic-name={"button8"}
-                    data-plasmic-override={overrides.button8}
-                    className={classNames("__wab_instance", sty.button8)}
-                    color={generateStateValueProp($state, ["button8", "color"])}
-                    endIcon={
-                      <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg___5VRpx)}
-                        role={"img"}
-                      />
-                    }
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button8", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    showEndIcon={true}
-                    size={"compact"}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__fwuPe
-                      )}
-                    >
-                      {
-                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
-                      }
-                    </div>
-                  </Button>
-                </Stack__>
+                {(
+                  hasVariant(globalVariants, "screen", "mobile") ? true : false
+                ) ? (
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"card17"}
+                    data-plasmic-override={overrides.card17}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.card17)}
+                  />
+                ) : null}
               </Stack__>
             </Stack__>
           </Stack__>
@@ -2638,7 +3994,7 @@ function PlasmicClinic__RenderFunc(props: {
                           hasVariant(globalVariants, "screen", "mobile")
                         ? "50px"
                         : hasVariant($state, "_1", "docters")
-                        ? "80px"
+                        ? "60px"
                         : "79px"
                     }
                     displayMaxHeight={"none"}
@@ -2653,7 +4009,7 @@ function PlasmicClinic__RenderFunc(props: {
                           hasVariant(globalVariants, "screen", "mobile")
                         ? "50px"
                         : hasVariant($state, "_1", "docters")
-                        ? "80px"
+                        ? "60px"
                         : "79px"
                     }
                     loading={"lazy"}
@@ -2668,12 +4024,7 @@ function PlasmicClinic__RenderFunc(props: {
                           }
                         : hasVariant($state, "_1", "docters") &&
                           hasVariant(globalVariants, "screen", "mobile")
-                        ? {
-                            src: "/plasmic/liom_hamyar/images/image10.ico",
-                            fullWidth: 256,
-                            fullHeight: 256,
-                            aspectRatio: undefined
-                          }
+                        ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
                         : hasVariant($state, "_1", "docters")
                         ? "https://static.vecteezy.com/system/resources/previews/008/957/225/non_2x/female-doctor-avatar-clipart-icon-in-flat-design-vector.jpg"
                         : {
@@ -2964,7 +4315,10 @@ function PlasmicClinic__RenderFunc(props: {
                         }
                       )}
                     >
-                      {hasVariant($state, "_1", "docters")
+                      {hasVariant($state, "_1", "docters") &&
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"
+                        : hasVariant($state, "_1", "docters")
                         ? "\u0627\u0645\u062a\u06cc\u0627\u0632 \u067e\u0632\u0634\u06a9"
                         : "\u062a\u0639\u062f\u0627\u062f \u0645\u0631\u0627\u062c\u0639 (150)"}
                     </div>
@@ -3142,10 +4496,6 @@ function PlasmicClinic__RenderFunc(props: {
                         ? (() => {
                             try {
                               return {
-                                border:
-                                  currentItem.status == -1
-                                    ? "solid 1px #EB464A"
-                                    : "solid 1px #8254C6",
                                 opacity: currentItem.status == -1 ? "0.5" : "1"
                               };
                             } catch (e) {
@@ -4364,6 +5714,85 @@ function PlasmicClinic__RenderFunc(props: {
                       ? "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 ..."
                       : "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc \u0648 \u0631\u0648\u0627\u0628\u0637 \u062c\u0646\u0633\u06cc"}
                   </div>
+                  <LineClomp
+                    data-plasmic-name={"lineClomp2"}
+                    data-plasmic-override={overrides.lineClomp2}
+                    className={classNames("__wab_instance", sty.lineClomp2, {
+                      [sty.lineClomp2_1_docter]: hasVariant(
+                        $state,
+                        "_1",
+                        "docter"
+                      )
+                    })}
+                    more={
+                      hasVariant($state, "_1", "docter") &&
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? true
+                        : undefined
+                    }
+                    numberOfLine={
+                      hasVariant($state, "_1", "docter") &&
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? 2
+                        : hasVariant(globalVariants, "screen", "mobile")
+                        ? 2
+                        : undefined
+                    }
+                    onLineChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "lineClomp2",
+                        "line"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pCaSs,
+                        {
+                          [sty.text_1_docter__pCaSs8Ddm8]: hasVariant(
+                            $state,
+                            "_1",
+                            "docter"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant($state, "_1", "docter") &&
+                      hasVariant(globalVariants, "screen", "mobile") ? (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.getList.list
+                                .map(item => item.text)
+                                .join(" ، ");
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 ...";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      ) : hasVariant($state, "_1", "docter") ? (
+                        "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 ..."
+                      ) : (
+                        "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc \u0648 \u0631\u0648\u0627\u0628\u0637 \u062c\u0646\u0633\u06cc"
+                      )}
+                    </div>
+                  </LineClomp>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__tqzU6, {
                       [sty.freeBox_1_docter__tqzU68Ddm8]: hasVariant(
@@ -6679,16 +8108,18 @@ const PlasmicDescendants = {
     "card9",
     "button3",
     "card10",
-    "button4",
+    "button13",
     "card11",
-    "button5",
+    "button4",
+    "card16",
     "speciality3",
     "card12",
-    "button6",
+    "button5",
     "card13",
-    "button7",
+    "button6",
     "card14",
-    "button8",
+    "button7",
+    "card17",
     "input",
     "mensah",
     "card7",
@@ -6703,6 +8134,7 @@ const PlasmicDescendants = {
     "workingTime",
     "monSat0830Am",
     "speciality4",
+    "lineClomp2",
     "card15",
     "button9",
     "section",
@@ -6738,31 +8170,35 @@ const PlasmicDescendants = {
     "card9",
     "button3",
     "card10",
-    "button4",
+    "button13",
     "card11",
-    "button5"
+    "button4",
+    "card16"
   ],
   card9: ["card9", "button3"],
   button3: ["button3"],
-  card10: ["card10", "button4"],
+  card10: ["card10", "button13"],
+  button13: ["button13"],
+  card11: ["card11", "button4"],
   button4: ["button4"],
-  card11: ["card11", "button5"],
-  button5: ["button5"],
+  card16: ["card16"],
   speciality3: [
     "speciality3",
     "card12",
-    "button6",
+    "button5",
     "card13",
-    "button7",
+    "button6",
     "card14",
-    "button8"
+    "button7",
+    "card17"
   ],
-  card12: ["card12", "button6"],
+  card12: ["card12", "button5"],
+  button5: ["button5"],
+  card13: ["card13", "button6"],
   button6: ["button6"],
-  card13: ["card13", "button7"],
+  card14: ["card14", "button7"],
   button7: ["button7"],
-  card14: ["card14", "button8"],
-  button8: ["button8"],
+  card17: ["card17"],
   input: ["input"],
   mensah: ["mensah"],
   card7: ["card7"],
@@ -6778,6 +8214,7 @@ const PlasmicDescendants = {
     "workingTime",
     "monSat0830Am",
     "speciality4",
+    "lineClomp2",
     "card15",
     "button9",
     "section",
@@ -6795,7 +8232,8 @@ const PlasmicDescendants = {
   drBellamyNicholas: ["drBellamyNicholas"],
   workingTime: ["workingTime", "monSat0830Am"],
   monSat0830Am: ["monSat0830Am"],
-  speciality4: ["speciality4", "card15", "button9"],
+  speciality4: ["speciality4", "lineClomp2", "card15", "button9"],
+  lineClomp2: ["lineClomp2"],
   card15: ["card15", "button9"],
   button9: ["button9"],
   section: ["section", "button"],
@@ -6843,16 +8281,18 @@ type NodeDefaultElementType = {
   card9: "div";
   button3: typeof Button;
   card10: "div";
-  button4: typeof Button;
+  button13: typeof Button;
   card11: "div";
-  button5: typeof Button;
+  button4: typeof Button;
+  card16: "div";
   speciality3: "div";
   card12: "div";
-  button6: typeof Button;
+  button5: typeof Button;
   card13: "div";
-  button7: typeof Button;
+  button6: typeof Button;
   card14: "div";
-  button8: typeof Button;
+  button7: typeof Button;
+  card17: "div";
   input: typeof Input;
   mensah: "div";
   card7: "div";
@@ -6867,6 +8307,7 @@ type NodeDefaultElementType = {
   workingTime: "div";
   monSat0830Am: "div";
   speciality4: "div";
+  lineClomp2: typeof LineClomp;
   card15: "div";
   button9: typeof Button;
   section: "section";
@@ -6987,16 +8428,18 @@ export const PlasmicClinic = Object.assign(
     card9: makeNodeComponent("card9"),
     button3: makeNodeComponent("button3"),
     card10: makeNodeComponent("card10"),
-    button4: makeNodeComponent("button4"),
+    button13: makeNodeComponent("button13"),
     card11: makeNodeComponent("card11"),
-    button5: makeNodeComponent("button5"),
+    button4: makeNodeComponent("button4"),
+    card16: makeNodeComponent("card16"),
     speciality3: makeNodeComponent("speciality3"),
     card12: makeNodeComponent("card12"),
-    button6: makeNodeComponent("button6"),
+    button5: makeNodeComponent("button5"),
     card13: makeNodeComponent("card13"),
-    button7: makeNodeComponent("button7"),
+    button6: makeNodeComponent("button6"),
     card14: makeNodeComponent("card14"),
-    button8: makeNodeComponent("button8"),
+    button7: makeNodeComponent("button7"),
+    card17: makeNodeComponent("card17"),
     input: makeNodeComponent("input"),
     mensah: makeNodeComponent("mensah"),
     card7: makeNodeComponent("card7"),
@@ -7011,6 +8454,7 @@ export const PlasmicClinic = Object.assign(
     workingTime: makeNodeComponent("workingTime"),
     monSat0830Am: makeNodeComponent("monSat0830Am"),
     speciality4: makeNodeComponent("speciality4"),
+    lineClomp2: makeNodeComponent("lineClomp2"),
     card15: makeNodeComponent("card15"),
     button9: makeNodeComponent("button9"),
     section: makeNodeComponent("section"),

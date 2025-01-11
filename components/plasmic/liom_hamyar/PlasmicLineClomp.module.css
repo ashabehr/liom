@@ -32,6 +32,11 @@
 .textmore__xt1Z5ZMi5E {
   display: block;
 }
+@media (max-width: 640px) {
+  .textmore__xt1Z5ZMi5E {
+    font-weight: 500;
+  }
+}
 .text__vEd5Q {
   position: relative;
   width: 100%;
@@ -43,4 +48,9 @@
 }
 .textmore__vEd5QzMi5E {
   display: block;
+}
+@media (max-width: 640px) {
+  .textmore__vEd5QzMi5E {
+    font-weight: 500;
+  }
 }

@@ -300,7 +300,7 @@ function PlasmicLineClomp__RenderFunc(props: {
           }}
         >
           {
-            "\u0645\u0634\u0627\u0647\u062f\u0647 \u0628\u06cc\u0634\u062a\u0631 ..."
+            "\u0645\u0634\u0627\u0647\u062f\u0647 \u0628\u06cc\u0634\u062a\u0631 "
           }
         </div>
       ) : null}
@@ -361,7 +361,7 @@ function PlasmicLineClomp__RenderFunc(props: {
             }
           }}
         >
-          {"\u0645\u0634\u0627\u0647\u062f\u0647 \u06a9\u0645\u062a\u0631 ..."}
+          {"\u0645\u0634\u0627\u0647\u062f\u0647 \u06a9\u0645\u062a\u0631 "}
         </div>
       ) : null}
     </div>
