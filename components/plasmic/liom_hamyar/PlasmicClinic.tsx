@@ -464,7 +464,7 @@ function PlasmicClinic__RenderFunc(props: {
         path: "loadingPage",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "lineClomp2.line",
