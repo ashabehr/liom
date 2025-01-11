@@ -133,7 +133,7 @@ export type PlasmicClinic__OverridesType = {
   card9?: Flex__<"div">;
   button3?: Flex__<typeof Button>;
   card10?: Flex__<"div">;
-  button13?: Flex__<typeof Button>;
+  button8?: Flex__<typeof Button>;
   card11?: Flex__<"div">;
   button4?: Flex__<typeof Button>;
   card16?: Flex__<"div">;
@@ -234,7 +234,12 @@ function PlasmicClinic__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.query.page;
+              return (() => {
+                var abc = new URLSearchParams(
+                  window.location.search
+                ).urlParams.get("page");
+                return abc;
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -486,19 +491,19 @@ function PlasmicClinic__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "button13.color",
+        path: "button5.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button8.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "button4.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button5.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -807,13 +812,11 @@ function PlasmicClinic__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return (() => {
-                                    return history.pushState(
-                                      null,
-                                      "",
-                                      "https://apps.liom.app/clinic/"
-                                    );
-                                  })();
+                                  return history.pushState(
+                                    null,
+                                    "",
+                                    "https://apps.liom.app/clinic/?page="
+                                  );
                                 }
                               };
                               return (({ customFunction }) => {
@@ -1132,7 +1135,7 @@ function PlasmicClinic__RenderFunc(props: {
                             return history.pushState(
                               null,
                               "",
-                              "https://apps.liom.app/clinic/"
+                              "https://apps.liom.app/clinic/?page="
                             );
                           }
                         };
@@ -1483,7 +1486,7 @@ function PlasmicClinic__RenderFunc(props: {
                                   return history.pushState(
                                     null,
                                     "",
-                                    "https://apps.liom.app/clinic/"
+                                    "https://apps.liom.app/clinic/?page="
                                   );
                                 }
                               };
@@ -1837,6 +1840,30 @@ function PlasmicClinic__RenderFunc(props: {
                           "updateLoadingPage2"
                         ];
                       }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return history.pushState(
+                                  null,
+                                  "",
+                                  "https://apps.liom.app/clinic/?page="
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
                     }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
@@ -1895,46 +1922,18 @@ function PlasmicClinic__RenderFunc(props: {
                     }
                   </div>
                   <Button
-                    data-plasmic-name={"button13"}
-                    data-plasmic-override={overrides.button13}
-                    className={classNames("__wab_instance", sty.button13)}
-                    color={generateStateValueProp($state, [
-                      "button13",
-                      "color"
-                    ])}
+                    data-plasmic-name={"button8"}
+                    data-plasmic-override={overrides.button8}
+                    className={classNames("__wab_instance", sty.button8)}
+                    color={generateStateValueProp($state, ["button8", "color"])}
                     endIcon={
                       <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__m0J0A)}
+                        className={classNames(projectcss.all, sty.svg__mpyO8)}
                         role={"img"}
                       />
                     }
                     onClick={async event => {
                       const $steps = {};
-
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
 
                       $steps["updateLoadingPage"] = true
                         ? (() => {
@@ -1970,6 +1969,31 @@ function PlasmicClinic__RenderFunc(props: {
                         $steps["updateLoadingPage"] = await $steps[
                           "updateLoadingPage"
                         ];
+                      }
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -2117,13 +2141,36 @@ function PlasmicClinic__RenderFunc(props: {
                           "updateLoadingPage2"
                         ];
                       }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return history.pushState(
+                                  null,
+                                  "",
+                                  "https://apps.liom.app/clinic/?page="
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
                     }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "button13",
-                          "color"
-                        ])(eventArgs[0]);
+                        generateStateOnChangeProp($state, ["button8", "color"])(
+                          eventArgs[0]
+                        );
                       }).apply(null, eventArgs);
 
                       if (
@@ -2141,7 +2188,7 @@ function PlasmicClinic__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__xteBd
+                        sty.text__pTmUn
                       )}
                     >
                       {
@@ -2175,37 +2222,12 @@ function PlasmicClinic__RenderFunc(props: {
                     color={generateStateValueProp($state, ["button4", "color"])}
                     endIcon={
                       <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__maAo5)}
+                        className={classNames(projectcss.all, sty.svg__q3Wtn)}
                         role={"img"}
                       />
                     }
                     onClick={async event => {
                       const $steps = {};
-
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
 
                       $steps["updateLoadingPage"] = true
                         ? (() => {
@@ -2241,6 +2263,31 @@ function PlasmicClinic__RenderFunc(props: {
                         $steps["updateLoadingPage"] = await $steps[
                           "updateLoadingPage"
                         ];
+                      }
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -2388,6 +2435,30 @@ function PlasmicClinic__RenderFunc(props: {
                           "updateLoadingPage2"
                         ];
                       }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return history.pushState(
+                                  null,
+                                  "",
+                                  "https://apps.liom.app/clinic/?page="
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
                     }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
@@ -2411,7 +2482,7 @@ function PlasmicClinic__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__wgSuo
+                        sty.text__eGcfm
                       )}
                     >
                       {
@@ -2516,31 +2587,6 @@ function PlasmicClinic__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
-
                       $steps["updateLoadingPage"] = true
                         ? (() => {
                             const actionArgs = {
@@ -2575,6 +2621,31 @@ function PlasmicClinic__RenderFunc(props: {
                         $steps["updateLoadingPage"] = await $steps[
                           "updateLoadingPage"
                         ];
+                      }
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -2721,6 +2792,30 @@ function PlasmicClinic__RenderFunc(props: {
                         $steps["updateLoadingPage2"] = await $steps[
                           "updateLoadingPage2"
                         ];
+                      }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return history.pushState(
+                                  null,
+                                  "",
+                                  "https://apps.liom.app/clinic/?page="
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -2802,37 +2897,12 @@ function PlasmicClinic__RenderFunc(props: {
                     color={generateStateValueProp($state, ["button6", "color"])}
                     endIcon={
                       <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__oHX9)}
+                        className={classNames(projectcss.all, sty.svg__eBiQ0)}
                         role={"img"}
                       />
                     }
                     onClick={async event => {
                       const $steps = {};
-
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
 
                       $steps["updateLoadingPage"] = true
                         ? (() => {
@@ -2868,6 +2938,31 @@ function PlasmicClinic__RenderFunc(props: {
                         $steps["updateLoadingPage"] = await $steps[
                           "updateLoadingPage"
                         ];
+                      }
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -3015,6 +3110,30 @@ function PlasmicClinic__RenderFunc(props: {
                           "updateLoadingPage2"
                         ];
                       }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return history.pushState(
+                                  null,
+                                  "",
+                                  "https://apps.liom.app/clinic/?page="
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
                     }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
@@ -3038,7 +3157,7 @@ function PlasmicClinic__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__sCglx
+                        sty.text__lwkg
                       )}
                     >
                       {
@@ -3095,37 +3214,12 @@ function PlasmicClinic__RenderFunc(props: {
                     color={generateStateValueProp($state, ["button7", "color"])}
                     endIcon={
                       <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__uuQl7)}
+                        className={classNames(projectcss.all, sty.svg__e62B)}
                         role={"img"}
                       />
                     }
                     onClick={async event => {
                       const $steps = {};
-
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
 
                       $steps["updateLoadingPage"] = true
                         ? (() => {
@@ -3161,6 +3255,31 @@ function PlasmicClinic__RenderFunc(props: {
                         $steps["updateLoadingPage"] = await $steps[
                           "updateLoadingPage"
                         ];
+                      }
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -3308,6 +3427,30 @@ function PlasmicClinic__RenderFunc(props: {
                           "updateLoadingPage2"
                         ];
                       }
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return history.pushState(
+                                  null,
+                                  "",
+                                  "https://apps.liom.app/clinic/?page="
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
                     }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
@@ -3331,7 +3474,7 @@ function PlasmicClinic__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text___0OKea
+                        sty.text__fgNme
                       )}
                     >
                       {
@@ -7919,7 +8062,7 @@ function PlasmicClinic__RenderFunc(props: {
                             return history.pushState(
                               null,
                               "",
-                              "https://apps.liom.app/clinic/"
+                              "https://apps.liom.app/clinic/?page="
                             );
                           }
                         };
@@ -8258,7 +8401,7 @@ const PlasmicDescendants = {
     "card9",
     "button3",
     "card10",
-    "button13",
+    "button8",
     "card11",
     "button4",
     "card16",
@@ -8320,15 +8463,15 @@ const PlasmicDescendants = {
     "card9",
     "button3",
     "card10",
-    "button13",
+    "button8",
     "card11",
     "button4",
     "card16"
   ],
   card9: ["card9", "button3"],
   button3: ["button3"],
-  card10: ["card10", "button13"],
-  button13: ["button13"],
+  card10: ["card10", "button8"],
+  button8: ["button8"],
   card11: ["card11", "button4"],
   button4: ["button4"],
   card16: ["card16"],
@@ -8431,7 +8574,7 @@ type NodeDefaultElementType = {
   card9: "div";
   button3: typeof Button;
   card10: "div";
-  button13: typeof Button;
+  button8: typeof Button;
   card11: "div";
   button4: typeof Button;
   card16: "div";
@@ -8578,7 +8721,7 @@ export const PlasmicClinic = Object.assign(
     card9: makeNodeComponent("card9"),
     button3: makeNodeComponent("button3"),
     card10: makeNodeComponent("card10"),
-    button13: makeNodeComponent("button13"),
+    button8: makeNodeComponent("button8"),
     card11: makeNodeComponent("card11"),
     button4: makeNodeComponent("button4"),
     card16: makeNodeComponent("card16"),
