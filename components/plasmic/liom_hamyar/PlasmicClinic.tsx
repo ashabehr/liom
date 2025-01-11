@@ -179,6 +179,7 @@ export type PlasmicClinic__OverridesType = {
   button2?: Flex__<typeof Button>;
   search?: Flex__<typeof Search>;
   antdInput?: Flex__<typeof Input2>;
+  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultClinicProps {}
@@ -1917,9 +1918,9 @@ function PlasmicClinic__RenderFunc(props: {
                       }
                     )}
                   >
-                    {
-                      "\u0645\u0634\u0640\u0640\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "
-                    }
+                    {hasVariant(globalVariants, "screen", "mobile")
+                      ? "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "
+                      : "\u0645\u0634\u0640\u0640\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "}
                   </div>
                   <Button
                     data-plasmic-name={"button8"}
@@ -8378,6 +8379,14 @@ function PlasmicClinic__RenderFunc(props: {
               />
             ) : null}
           </Stack__>
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              '<script>\r\n  window.addEventListener("popstate", function(event) {\r\n    \r\n    location.reload();});\r\n</script>'
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -8446,7 +8455,8 @@ const PlasmicDescendants = {
     "favicon",
     "button2",
     "search",
-    "antdInput"
+    "antdInput",
+    "embedHtml"
   ],
   bg: ["bg", "rectangle2", "\u0627", "\u06272"],
   rectangle2: ["rectangle2", "\u0627", "\u06272"],
@@ -8553,7 +8563,8 @@ const PlasmicDescendants = {
   favicon: ["favicon"],
   button2: ["button2"],
   search: ["search", "antdInput"],
-  antdInput: ["antdInput"]
+  antdInput: ["antdInput"],
+  embedHtml: ["embedHtml"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -8620,6 +8631,7 @@ type NodeDefaultElementType = {
   button2: typeof Button;
   search: typeof Search;
   antdInput: typeof Input2;
+  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -8767,6 +8779,7 @@ export const PlasmicClinic = Object.assign(
     button2: makeNodeComponent("button2"),
     search: makeNodeComponent("search"),
     antdInput: makeNodeComponent("antdInput"),
+    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicClinic
     internalVariantProps: PlasmicClinic__VariantProps,

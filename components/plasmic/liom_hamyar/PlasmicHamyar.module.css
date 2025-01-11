@@ -5912,3 +5912,19 @@
   height: 20%;
   color: var(--token-zy6xhYnWF8Y7);
 }
+.iframe:global(.__wab_instance) {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100%;
+  object-fit: cover;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  right: 0;
+  background: #f3f3f3;
+}
+.timer:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}

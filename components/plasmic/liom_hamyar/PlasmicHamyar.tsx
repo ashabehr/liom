@@ -88,6 +88,8 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
+import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
+import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -182,6 +184,8 @@ export type PlasmicHamyar__OverridesType = {
   dialog2?: Flex__<typeof Dialog>;
   subscription3?: Flex__<typeof Subscription>;
   button11?: Flex__<typeof Button>;
+  iframe?: Flex__<typeof Iframe>;
+  timer?: Flex__<typeof Timer>;
 };
 
 export interface DefaultHamyarProps {}
@@ -1526,6 +1530,25 @@ function PlasmicHamyar__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "intro",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return localStorage.getItem("liomHamyar_intro") ? false : true;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -15390,6 +15413,113 @@ function PlasmicHamyar__RenderFunc(props: {
               </Dialog>
             </ApiRequest>
           </Dialog>
+          {(() => {
+            try {
+              return $state.intro;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Iframe
+              data-plasmic-name={"iframe"}
+              data-plasmic-override={overrides.iframe}
+              className={classNames("__wab_instance", sty.iframe)}
+              onLoad={async event => {
+                const $steps = {};
+
+                $steps["refreshData"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        queryInvalidation: ["plasmic_refresh_all"]
+                      };
+                      return (async ({ queryInvalidation }) => {
+                        if (!queryInvalidation) {
+                          return;
+                        }
+                        await plasmicInvalidate(queryInvalidation);
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["refreshData"] != null &&
+                  typeof $steps["refreshData"] === "object" &&
+                  typeof $steps["refreshData"].then === "function"
+                ) {
+                  $steps["refreshData"] = await $steps["refreshData"];
+                }
+              }}
+              preview={true}
+              src={(() => {
+                try {
+                  return (() => {
+                    var urlParams = new URLSearchParams(window.location.search);
+                    return (
+                      "https://apps.liom.app/intro/?r=" +
+                      urlParams.get("r") +
+                      "&m=" +
+                      urlParams.get("m")
+                    );
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return undefined;
+                  }
+                  throw e;
+                }
+              })()}
+            />
+          ) : null}
+          <Timer
+            data-plasmic-name={"timer"}
+            data-plasmic-override={overrides.timer}
+            className={classNames("__wab_instance", sty.timer)}
+            intervalSeconds={1}
+            isRunning={true}
+            onTick={async () => {
+              const $steps = {};
+
+              $steps["updateIntro"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["intro"]
+                      },
+                      operation: 0,
+                      value: localStorage.getItem("liomHamyar_intro")
+                        ? false
+                        : true
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+
+                      $stateSet(objRoot, variablePath, value);
+                      return value;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateIntro"] != null &&
+                typeof $steps["updateIntro"] === "object" &&
+                typeof $steps["updateIntro"].then === "function"
+              ) {
+                $steps["updateIntro"] = await $steps["updateIntro"];
+              }
+            }}
+            runWhileEditing={false}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -15447,7 +15577,9 @@ const PlasmicDescendants = {
     "button8",
     "dialog2",
     "subscription3",
-    "button11"
+    "button11",
+    "iframe",
+    "timer"
   ],
   cyclebox: ["cyclebox", "lineClomp", "progress"],
   lineClomp: ["lineClomp"],
@@ -15518,7 +15650,9 @@ const PlasmicDescendants = {
   button8: ["button8"],
   dialog2: ["dialog2", "subscription3", "button11"],
   subscription3: ["subscription3"],
-  button11: ["button11"]
+  button11: ["button11"],
+  iframe: ["iframe"],
+  timer: ["timer"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -15574,6 +15708,8 @@ type NodeDefaultElementType = {
   dialog2: typeof Dialog;
   subscription3: typeof Subscription;
   button11: typeof Button;
+  iframe: typeof Iframe;
+  timer: typeof Timer;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -15710,6 +15846,8 @@ export const PlasmicHamyar = Object.assign(
     dialog2: makeNodeComponent("dialog2"),
     subscription3: makeNodeComponent("subscription3"),
     button11: makeNodeComponent("button11"),
+    iframe: makeNodeComponent("iframe"),
+    timer: makeNodeComponent("timer"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,
