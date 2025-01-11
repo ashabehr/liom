@@ -550,7 +550,7 @@ function PlasmicClinic__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
 
-            $steps["runCode"] = !localStorage.getItem("ClinicToken")
+            $steps["runCode"] = true
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
