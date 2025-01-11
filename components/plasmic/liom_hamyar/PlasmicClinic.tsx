@@ -464,7 +464,7 @@ function PlasmicClinic__RenderFunc(props: {
         path: "loadingPage",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "lineClomp2.line",
@@ -734,117 +734,129 @@ function PlasmicClinic__RenderFunc(props: {
                       : "\u0647\u0631 \u06a9\u062c\u0627 \u06a9\u0647 \u0647\u0633\u062a\u06cc \u0648 \u0647\u0631 \u0632\u0645\u0627\u0646\u06cc \u06a9\u0647 \u0646\u06cc\u0627\u0632 \u062f\u0627\u0631\u06cc\u060c \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0628\u0647 \u067e\u0632\u0634\u06a9 \u062f\u0633\u062a\u0631\u0633\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634."}
                   </div>
                   <div
-                    data-plasmic-name={"\u06272"}
-                    data-plasmic-override={overrides.ا2}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.ا2
-                    )}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateLoadingPage"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage"] != null &&
-                        typeof $steps["updateLoadingPage"] === "object" &&
-                        typeof $steps["updateLoadingPage"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage"] = await $steps[
-                          "updateLoadingPage"
-                        ];
-                      }
-
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docters"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
-
-                      $steps["updateLoadingPage2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage2"] != null &&
-                        typeof $steps["updateLoadingPage2"] === "object" &&
-                        typeof $steps["updateLoadingPage2"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage2"] = await $steps[
-                          "updateLoadingPage2"
-                        ];
-                      }
-                    }}
+                    className={classNames(projectcss.all, sty.freeBox__pW0Ww)}
                   >
-                    {
-                      "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0645\u0644 \u067e\u0632\u0634\u06a9\u0627\u0646  >"
-                    }
+                    <div
+                      data-plasmic-name={"\u06272"}
+                      data-plasmic-override={overrides.ا2}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.ا2,
+                        {
+                          [sty.ا2_1_docters]: hasVariant(
+                            $state,
+                            "_1",
+                            "docters"
+                          )
+                        }
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateLoadingPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadingPage"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadingPage"] != null &&
+                          typeof $steps["updateLoadingPage"] === "object" &&
+                          typeof $steps["updateLoadingPage"].then === "function"
+                        ) {
+                          $steps["updateLoadingPage"] = await $steps[
+                            "updateLoadingPage"
+                          ];
+                        }
+
+                        $steps["update1"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                vgroup: "_1",
+                                operation: 0,
+                                value: "docters"
+                              };
+                              return (({ vgroup, value }) => {
+                                if (typeof value === "string") {
+                                  value = [value];
+                                }
+
+                                $stateSet($state, vgroup, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["update1"] != null &&
+                          typeof $steps["update1"] === "object" &&
+                          typeof $steps["update1"].then === "function"
+                        ) {
+                          $steps["update1"] = await $steps["update1"];
+                        }
+
+                        $steps["updateLoadingPage2"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["loadingPage"]
+                                },
+                                operation: 0,
+                                value: false
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateLoadingPage2"] != null &&
+                          typeof $steps["updateLoadingPage2"] === "object" &&
+                          typeof $steps["updateLoadingPage2"].then ===
+                            "function"
+                        ) {
+                          $steps["updateLoadingPage2"] = await $steps[
+                            "updateLoadingPage2"
+                          ];
+                        }
+                      }}
+                    >
+                      {
+                        "\u0644\u06cc\u0633\u062a \u06a9\u0627\u0645\u0644 \u067e\u0632\u0634\u06a9\u0627\u0646  >"
+                      }
+                    </div>
                   </div>
                 </Stack__>
                 <PlasmicImg__
@@ -1532,31 +1544,6 @@ function PlasmicClinic__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
-
                       $steps["updateLoadingPage"] = true
                         ? (() => {
                             const actionArgs = {
@@ -1591,6 +1578,31 @@ function PlasmicClinic__RenderFunc(props: {
                         $steps["updateLoadingPage"] = await $steps[
                           "updateLoadingPage"
                         ];
+                      }
+
+                      $steps["update1"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              vgroup: "_1",
+                              operation: 0,
+                              value: "docter"
+                            };
+                            return (({ vgroup, value }) => {
+                              if (typeof value === "string") {
+                                value = [value];
+                              }
+
+                              $stateSet($state, vgroup, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["update1"] != null &&
+                        typeof $steps["update1"] === "object" &&
+                        typeof $steps["update1"].then === "function"
+                      ) {
+                        $steps["update1"] = await $steps["update1"];
                       }
 
                       $steps["invokeGlobalAction"] = true
@@ -1781,7 +1793,14 @@ function PlasmicClinic__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__waFqj
+                      sty.text__waFqj,
+                      {
+                        [sty.text_1_docter__waFqj8Ddm8]: hasVariant(
+                          $state,
+                          "_1",
+                          "docter"
+                        )
+                      }
                     )}
                   >
                     {
@@ -2663,7 +2682,7 @@ function PlasmicClinic__RenderFunc(props: {
                     )}
                   >
                     {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc"
+                      "\u0645\u0634\u0640\u0640\u0640\u0640\u0640\u0640\u0640\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc"
                     }
                   </div>
                   {(
@@ -5351,7 +5370,7 @@ function PlasmicClinic__RenderFunc(props: {
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return "Dr. Bellamy Nicholas";
+                              return "...";
                             }
                             throw e;
                           }
@@ -5536,7 +5555,7 @@ function PlasmicClinic__RenderFunc(props: {
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return "\u062f\u06a9\u062a\u0631 [\u0646\u0627\u0645 \u067e\u0632\u0634\u06a9]\u060c \u0645\u062a\u062e\u0635\u0635 [\u062a\u062e\u0635\u0635 \u067e\u0632\u0634\u06a9] \u0628\u0627 [\u062a\u0639\u062f\u0627\u062f] \u0633\u0627\u0644 \u062a\u062c\u0631\u0628\u0647\u060c \u0622\u0645\u0627\u062f\u0647 \u0627\u0631\u0627\u0626\u0647 \u062e\u062f\u0645\u0627\u062a \u062f\u0631\u0645\u0627\u0646\u06cc \u0628\u0627 \u0628\u0647\u062a\u0631\u06cc\u0646 \u0631\u0648\u0634\u200c\u0647\u0627 \u0648 \u062f\u0627\u0646\u0634 \u0631\u0648\u0632 \u0627\u0633\u062a. \u0627\u06cc\u0634\u0627\u0646 \u0641\u0627\u0631\u063a\u200c\u0627\u0644\u062a\u062d\u0635\u06cc\u0644 \u0627\u0632 \u062f\u0627\u0646\u0634\u06af\u0627\u0647 [\u0646\u0627\u0645 \u062f\u0627\u0646\u0634\u06af\u0627\u0647] \u0628\u0648\u062f\u0647 \u0648 \u0628\u0627 \u0631\u0648\u06cc\u06a9\u0631\u062f\u06cc \u0635\u0645\u06cc\u0645\u06cc \u0648 \u062d\u0631\u0641\u0647\u200c\u0627\u06cc \u0628\u0647 \u0628\u06cc\u0645\u0627\u0631\u0627\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f. \u0628\u0631\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u0646\u0648\u0628\u062a \u06cc\u0627 \u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0628\u062e\u0634 \u0645\u0631\u0628\u0648\u0637\u0647 \u0627\u0642\u062f\u0627\u0645 \u06a9\u0646\u06cc\u062f.";
+                              return "...";
                             }
                             throw e;
                           }
@@ -5651,7 +5670,7 @@ function PlasmicClinic__RenderFunc(props: {
                                 e instanceof TypeError ||
                                 e?.plasmicType === "PlasmicUndefinedDataError"
                               ) {
-                                return "\u0631\u0648\u0632\u0647\u0627\u06cc \u0632\u0648\u062c (\u0633\u0627\u0639\u062a 9 \u0627\u0644\u06cc 15)";
+                                return "...";
                               }
                               throw e;
                             }
@@ -5728,11 +5747,15 @@ function PlasmicClinic__RenderFunc(props: {
                       hasVariant($state, "_1", "docter") &&
                       hasVariant(globalVariants, "screen", "mobile")
                         ? true
+                        : hasVariant($state, "_1", "docter")
+                        ? true
                         : undefined
                     }
                     numberOfLine={
                       hasVariant($state, "_1", "docter") &&
                       hasVariant(globalVariants, "screen", "mobile")
+                        ? 2
+                        : hasVariant($state, "_1", "docter")
                         ? 2
                         : hasVariant(globalVariants, "screen", "mobile")
                         ? 2
@@ -5774,7 +5797,7 @@ function PlasmicClinic__RenderFunc(props: {
                             try {
                               return $state.getList.list
                                 .map(item => item.text)
-                                .join(" ، ");
+                                .join("، ");
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -5787,7 +5810,23 @@ function PlasmicClinic__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       ) : hasVariant($state, "_1", "docter") ? (
-                        "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 ..."
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return $state.getList.list
+                                .map(item => item.text)
+                                .join("، ");
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "...";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
                       ) : (
                         "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc \u0648 \u0631\u0648\u0627\u0628\u0637 \u062c\u0646\u0633\u06cc"
                       )}
