@@ -236,9 +236,9 @@ function PlasmicClinic__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                var abc = new URLSearchParams(
-                  window.location.search
-                ).urlParams.get("page");
+                var abc = new URLSearchParams(window.location.search).get(
+                  "page"
+                );
                 return abc;
               })();
             } catch (e) {

@@ -263,7 +263,7 @@
   .freeBox__pW0Ww {
     top: auto;
     left: auto;
-    z-index: 5;
+    z-index: 0;
   }
 }
 .ا2 {
@@ -285,6 +285,7 @@
     font-size: 14px;
     cursor: pointer;
     mix-blend-mode: screen;
+    z-index: 0;
   }
 }
 .img__eYiNj {
@@ -5149,6 +5150,11 @@
   right: 0;
   background: #f3f3f3;
   padding: 8px;
+}
+@media (max-width: 640px) {
+  .freeBox___1Bk5A {
+    z-index: 1;
+  }
 }
 .svg__qaTs {
   object-fit: cover;
