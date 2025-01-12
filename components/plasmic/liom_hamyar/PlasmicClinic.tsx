@@ -8319,6 +8319,11 @@ function PlasmicClinic__RenderFunc(props: {
                         "chatviow"
                       )
                     }),
+                    id:
+                      hasVariant($state, "_1", "chatviow") &&
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? "inputMobile"
+                        : undefined,
                     onChange: async (...eventArgs: any) => {
                       generateStateOnChangePropForCodeComponents(
                         $state,
@@ -8420,7 +8425,7 @@ function PlasmicClinic__RenderFunc(props: {
               [sty.embedHtml_1_docters]: hasVariant($state, "_1", "docters")
             })}
             code={
-              '<script>\r\n  window.addEventListener("popstate", function(event) {\r\n    window.location.href = "https://apps.liom.app/clinic/?page="\r\n  });\r\n</script>\r\n'
+              '<script>\r\n  window.addEventListener("popstate", function(event) {\r\n    window.location.href = "https://apps.liom.app/clinic/?page=";\r\n  });\r\n</script>\r\n'
             }
           />
         </div>

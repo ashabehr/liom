@@ -662,30 +662,6 @@ function PlasmicChat__RenderFunc(props: {
             ) {
               $steps["updateLoadingPage2"] = await $steps["updateLoadingPage2"];
             }
-
-            $steps["runCode2"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return history.pushState(
-                        null,
-                        "",
-                        "https://apps.liom.app/clinic/?page=chatviow"
-                      );
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode2"] != null &&
-              typeof $steps["runCode2"] === "object" &&
-              typeof $steps["runCode2"].then === "function"
-            ) {
-              $steps["runCode2"] = await $steps["runCode2"];
-            }
           }}
         >
           <div

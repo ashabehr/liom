@@ -5228,7 +5228,7 @@
 @media (max-width: 640px) {
   .freeBox_1_chatviow___5ElpaYJmT {
     left: 0;
-    top: -7px;
+    top: 0;
     z-index: 1;
     position: fixed;
     background: #ffffff;
@@ -5304,6 +5304,14 @@
   object-fit: cover;
   height: 25px;
 }
+@media (max-width: 640px) {
+  .antdInput_1_chatviow:global(.__wab_instance) {
+    padding-right: 10px;
+    padding-left: 10px;
+    width: auto;
+    height: 20px;
+  }
+}
 .embedHtml:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -5313,13 +5321,4 @@
   .embedHtml:global(.__wab_instance) {
     display: flex;
   }
-}
-.embedHtml_1_docters:global(.__wab_instance) {
-  display: flex;
-}
-.embedHtml_1_docter:global(.__wab_instance) {
-  display: flex;
-}
-.embedHtml_1_chatviow:global(.__wab_instance) {
-  display: flex;
 }

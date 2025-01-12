@@ -1536,7 +1536,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   })()
                 : (() => {
                     try {
-                      return !$state.loading || true;
+                      return !$state.loading;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -4794,13 +4794,78 @@ function PlasmicPregnancy__RenderFunc(props: {
                     </div>
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__d05E)}>
+                {(() => {
+                  try {
+                    return $ctx?.query?.userId == "11113141490000";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__rdZrP)}
+                    className={classNames(projectcss.all, sty.freeBox__d05E)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = (() => {
+                        if ($ctx.query?.inApp == "true") return true;
+                        else return false;
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return window.FlutterChannel.postMessage(
+                                  "#directDialog-pregnancy_sub"
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+
+                      $steps["runCode2"] = (() => {
+                        if ($ctx.query?.inApp == "true") return false;
+                        else return true;
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return console.log("aaaa");
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode2"] != null &&
+                        typeof $steps["runCode2"] === "object" &&
+                        typeof $steps["runCode2"].then === "function"
+                      ) {
+                        $steps["runCode2"] = await $steps["runCode2"];
+                      }
+                    }}
                   >
                     <PlasmicImg__
                       alt={""}
-                      className={classNames(sty.img__bQodf)}
+                      className={classNames(sty.img__bski5)}
                       displayHeight={"auto"}
                       displayMaxHeight={"none"}
                       displayMaxWidth={"100%"}
@@ -4808,9 +4873,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                       displayMinWidth={"0"}
                       displayWidth={"auto"}
                       loading={"lazy"}
+                      src={{
+                        src: "/plasmic/liom_hamyar/images/image71.svg",
+                        fullWidth: 493,
+                        fullHeight: 172,
+                        aspectRatio: 2.866279
+                      }}
                     />
                   </div>
-                </div>
+                ) : null}
                 <div className={classNames(projectcss.all, sty.freeBox__d784V)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__hrMgY, {
