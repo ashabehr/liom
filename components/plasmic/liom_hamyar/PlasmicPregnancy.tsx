@@ -1430,8 +1430,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 }
 
                 $steps["runCode4"] =
-                  $ctx.query.userId ==
-                  "111179469b77-30ef-4ad1-b498-0b3434b95c390000"
+                  $ctx.query.userId == "11113141490000"
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
@@ -4890,11 +4889,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 </div>
                 {(() => {
                   try {
-                    return (
-                      $ctx?.query?.userId == "11113141490000" ||
-                      $ctx?.query?.userId ==
-                        "111179469b77-30ef-4ad1-b498-0b3434b95c390000"
-                    );
+                    return $ctx?.query?.inApp == true;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
