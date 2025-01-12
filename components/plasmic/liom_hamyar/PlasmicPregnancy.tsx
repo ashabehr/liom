@@ -1429,111 +1429,108 @@ function PlasmicPregnancy__RenderFunc(props: {
                   ];
                 }
 
-                $steps["runCode4"] =
-                  $ctx.query.userId == "11113141490000"
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return setTimeout(() => {
-                              var name =
-                                $state.getUserInfo.data?.[0]?.result?.user
-                                  ?.name ?? "";
-                              var mobile =
-                                $state.getUserInfo.data?.[0]?.result?.user
-                                  ?.mobile ?? "";
-                              var email =
-                                $state.getUserInfo.data?.[0]?.result?.user
-                                  ?.email ?? "";
-                              if (typeof mobile == "undefined") {
-                                mobile = "";
-                              }
-                              if (typeof email == "undefined") {
-                                email = "";
-                              }
-                              if (typeof name == "undefined") {
-                                name = "";
-                              }
-                              var gy = parseInt(
-                                $state.user?.[0]?.dueDate.split("-")[0]
-                              );
-                              var gm = parseInt(
-                                $state.user?.[0]?.dueDate.split("-")[1]
-                              );
-                              var gd = parseInt(
-                                $state.user?.[0]?.dueDate.split("-")[2]
-                              );
-                              let hamyarsData = []; // ایجاد یک آرایه خالی به جای شیء
-                              for (
-                                let i = 0;
-                                i <
-                                $state.getUserInfo.data[0].result.hamyars
-                                  .length;
-                                i++
-                              ) {
-                                hamyarsData.push({
-                                  name: $state.getUserInfo.data[0].result
-                                    .hamyars[i].user.name,
-                                  id: $state.getUserInfo.data[0].result.hamyars[
-                                    i
-                                  ].user.id,
-                                  mobile:
-                                    $state.getUserInfo.data[0].result.hamyars[i]
-                                      .user.mobile,
-                                  statusSms:
-                                    $state.getUserInfo.data[0].result.hamyars[i]
-                                      .rel.statusSms,
-                                  hamyarStatus:
-                                    $state.getUserInfo.data[0].result.hamyars[i]
-                                      .user.hamyarStatus,
-                                  hamyarTime:
-                                    $state.getUserInfo.data[0].result.hamyars[i]
-                                      .user.hamyarTime,
-                                  email:
-                                    $state.getUserInfo.data[0].result.hamyars[i]
-                                      .user.email
-                                });
-                              }
-                              console.log(hamyarsData);
-                              fetch("https://n8n.staas.ir/webhook/status", {
-                                method: "POST",
-                                headers: {
-                                  "Content-Type": "application/json",
-                                  Authorization:
-                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                },
-                                body: JSON.stringify({
-                                  area: "pregnancy",
-                                  duDate:
-                                    gy + "-" + gm + "-" + gd + " 10:10:10",
-                                  userId: $ctx.query.userId.slice(
-                                    4,
-                                    +$ctx.query.userId.length - 4
-                                  ),
-                                  name: name,
-                                  mobile: mobile,
-                                  email: email,
-                                  hamyarData: {
-                                    hamyarsData
-                                  }
-                                })
+                $steps["runCode4"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return setTimeout(() => {
+                            var name =
+                              $state.getUserInfo.data?.[0]?.result?.user
+                                ?.name ?? "";
+                            var mobile =
+                              $state.getUserInfo.data?.[0]?.result?.user
+                                ?.mobile ?? "";
+                            var email =
+                              $state.getUserInfo.data?.[0]?.result?.user
+                                ?.email ?? "";
+                            if (typeof mobile == "undefined") {
+                              mobile = "";
+                            }
+                            if (typeof email == "undefined") {
+                              email = "";
+                            }
+                            if (typeof name == "undefined") {
+                              name = "";
+                            }
+                            var gy = parseInt(
+                              $state.user?.[0]?.dueDate.split("-")[0]
+                            );
+                            var gm = parseInt(
+                              $state.user?.[0]?.dueDate.split("-")[1]
+                            );
+                            var gd = parseInt(
+                              $state.user?.[0]?.dueDate.split("-")[2]
+                            );
+                            let hamyarsData = []; // ایجاد یک آرایه خالی به جای شیء
+                            for (
+                              let i = 0;
+                              i <
+                              $state.getUserInfo.data[0].result.hamyars.length;
+                              i++
+                            ) {
+                              hamyarsData.push({
+                                name: $state.getUserInfo.data[0].result.hamyars[
+                                  i
+                                ].user.name,
+                                id: $state.getUserInfo.data[0].result.hamyars[i]
+                                  .user.id,
+                                mobile:
+                                  $state.getUserInfo.data[0].result.hamyars[i]
+                                    .user.mobile,
+                                statusSms:
+                                  $state.getUserInfo.data[0].result.hamyars[i]
+                                    .rel.statusSms,
+                                hamyarStatus:
+                                  $state.getUserInfo.data[0].result.hamyars[i]
+                                    .user.hamyarStatus,
+                                hamyarTime:
+                                  $state.getUserInfo.data[0].result.hamyars[i]
+                                    .user.hamyarTime,
+                                email:
+                                  $state.getUserInfo.data[0].result.hamyars[i]
+                                    .user.email
+                              });
+                            }
+                            console.log(hamyarsData);
+                            fetch("https://n8n.staas.ir/webhook/status", {
+                              method: "POST",
+                              headers: {
+                                "Content-Type": "application/json",
+                                Authorization:
+                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                              },
+                              body: JSON.stringify({
+                                area: "pregnancy",
+                                duDate: gy + "-" + gm + "-" + gd + " 10:10:10",
+                                userId: $ctx.query.userId.slice(
+                                  4,
+                                  +$ctx.query.userId.length - 4
+                                ),
+                                name: name,
+                                mobile: mobile,
+                                email: email,
+                                hamyarData: {
+                                  hamyarsData
+                                }
                               })
-                                .then(response => {
-                                  return response.json();
-                                })
-                                .then(data => {
-                                  console.log("user send");
-                                })
-                                .catch(error => {
-                                  console.error("Error3333:", error);
-                                });
-                            }, 3000);
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
+                            })
+                              .then(response => {
+                                return response.json();
+                              })
+                              .then(data => {
+                                console.log("user send");
+                              })
+                              .catch(error => {
+                                console.error("Error3333:", error);
+                              });
+                          }, 3000);
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
                 if (
                   $steps["runCode4"] != null &&
                   typeof $steps["runCode4"] === "object" &&
@@ -4889,7 +4886,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                 </div>
                 {(() => {
                   try {
-                    return $ctx?.query?.inApp == true;
+                    return $ctx?.query?.inApp == "true";
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
