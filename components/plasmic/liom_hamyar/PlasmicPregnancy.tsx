@@ -1449,7 +1449,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   $steps["runCode4"] = await $steps["runCode4"];
                 }
               }}
-              runWhileEditing={false}
+              runWhileEditing={true}
             />
 
             <ApiRequest
@@ -4874,10 +4874,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                       displayWidth={"auto"}
                       loading={"lazy"}
                       src={{
-                        src: "/plasmic/liom_hamyar/images/image71.svg",
-                        fullWidth: 493,
-                        fullHeight: 172,
-                        aspectRatio: 2.866279
+                        src: "/plasmic/liom_hamyar/images/image72.png",
+                        fullWidth: 985,
+                        fullHeight: 344,
+                        aspectRatio: undefined
                       }}
                     />
                   </div>
