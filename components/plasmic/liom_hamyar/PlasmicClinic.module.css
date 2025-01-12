@@ -1356,6 +1356,9 @@
   width: auto;
   height: 1em;
 }
+.text__sLxW {
+  color: #8254c6;
+}
 @media (max-width: 640px) {
   .text__sLxW {
     font-size: 10px;
