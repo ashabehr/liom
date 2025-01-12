@@ -123,7 +123,6 @@ export type PlasmicChat__OverridesType = {
   seen?: Flex__<typeof Seen>;
   bottomInput?: Flex__<"div">;
   textArea?: Flex__<typeof AntdTextArea>;
-  embedHtml?: Flex__<typeof Embed>;
   modal?: Flex__<typeof AntdModal>;
   top2?: Flex__<"div">;
   apiRequest?: Flex__<typeof ApiRequest>;
@@ -1712,9 +1711,10 @@ function PlasmicChat__RenderFunc(props: {
                 />
 
                 <Embed
-                  data-plasmic-name={"embedHtml"}
-                  data-plasmic-override={overrides.embedHtml}
-                  className={classNames("__wab_instance", sty.embedHtml)}
+                  className={classNames(
+                    "__wab_instance",
+                    sty.embedHtml___64Lo7
+                  )}
                   code={
                     '<input type="file" id="fileInput" accept=".jpg, .jpeg, .png">'
                   }
@@ -3084,6 +3084,13 @@ function PlasmicChat__RenderFunc(props: {
               }
             }}
           />
+
+          <Embed
+            className={classNames("__wab_instance", sty.embedHtml__gY21P)}
+            code={
+              '<script>\r\n  window.addEventListener("popstate", function(event) {\r\n    window.location.href = "https://apps.liom.app/clinic/?page=chatviow";\r\n  });\r\n</script>\r\n'
+            }
+          />
         </div>
       </div>
     </React.Fragment>
@@ -3104,7 +3111,6 @@ const PlasmicDescendants = {
     "seen",
     "bottomInput",
     "textArea",
-    "embedHtml",
     "modal",
     "top2",
     "apiRequest",
@@ -3131,8 +3137,7 @@ const PlasmicDescendants = {
     "helloDoctorIBel",
     "seen",
     "bottomInput",
-    "textArea",
-    "embedHtml"
+    "textArea"
   ],
   top: ["top", "image", "img", "lineClomp", "button3"],
   image: ["image", "img"],
@@ -3142,9 +3147,8 @@ const PlasmicDescendants = {
   massage: ["massage", "helloDoctorIBel", "seen"],
   helloDoctorIBel: ["helloDoctorIBel"],
   seen: ["seen"],
-  bottomInput: ["bottomInput", "textArea", "embedHtml"],
+  bottomInput: ["bottomInput", "textArea"],
   textArea: ["textArea"],
-  embedHtml: ["embedHtml"],
   modal: [
     "modal",
     "top2",
@@ -3194,7 +3198,6 @@ type NodeDefaultElementType = {
   seen: typeof Seen;
   bottomInput: "div";
   textArea: typeof AntdTextArea;
-  embedHtml: typeof Embed;
   modal: typeof AntdModal;
   top2: "div";
   apiRequest: typeof ApiRequest;
@@ -3307,7 +3310,6 @@ export const PlasmicChat = Object.assign(
     seen: makeNodeComponent("seen"),
     bottomInput: makeNodeComponent("bottomInput"),
     textArea: makeNodeComponent("textArea"),
-    embedHtml: makeNodeComponent("embedHtml"),
     modal: makeNodeComponent("modal"),
     top2: makeNodeComponent("top2"),
     apiRequest: makeNodeComponent("apiRequest"),

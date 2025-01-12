@@ -1536,7 +1536,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   })()
                 : (() => {
                     try {
-                      return !$state.loading;
+                      return !$state.loading || true;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -4792,6 +4792,23 @@ function PlasmicPregnancy__RenderFunc(props: {
                         ) : null}
                       </div>
                     </div>
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__d05E)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__rdZrP)}
+                  >
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__bQodf)}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"auto"}
+                      loading={"lazy"}
+                    />
                   </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__d784V)}>

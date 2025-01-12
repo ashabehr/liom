@@ -5188,7 +5188,7 @@
 }
 .freeBox_1_chatviow___5ElpaYJmT {
   left: 0;
-  top: -8px;
+  top: 0;
   z-index: 1;
   position: fixed;
   right: 0;
@@ -5313,4 +5313,13 @@
   .embedHtml:global(.__wab_instance) {
     display: flex;
   }
+}
+.embedHtml_1_docters:global(.__wab_instance) {
+  display: flex;
+}
+.embedHtml_1_docter:global(.__wab_instance) {
+  display: flex;
+}
+.embedHtml_1_chatviow:global(.__wab_instance) {
+  display: flex;
 }

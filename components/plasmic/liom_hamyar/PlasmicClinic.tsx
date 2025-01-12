@@ -8414,9 +8414,13 @@ function PlasmicClinic__RenderFunc(props: {
           <Embed
             data-plasmic-name={"embedHtml"}
             data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
+            className={classNames("__wab_instance", sty.embedHtml, {
+              [sty.embedHtml_1_chatviow]: hasVariant($state, "_1", "chatviow"),
+              [sty.embedHtml_1_docter]: hasVariant($state, "_1", "docter"),
+              [sty.embedHtml_1_docters]: hasVariant($state, "_1", "docters")
+            })}
             code={
-              '<script>\r\n  window.addEventListener("popstate", function(event) {\r\n    \r\n    location.reload();});\r\n</script>'
+              '<script>\r\n  window.addEventListener("popstate", function(event) {\r\n    window.location.href = "https://apps.liom.app/clinic/?page="\r\n  });\r\n</script>\r\n'
             }
           />
         </div>
