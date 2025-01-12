@@ -2454,7 +2454,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               (() => {
                                 try {
                                   return (() => {
-                                    let hamyarsData = { hamyarsList: [] };
+                                    let hamyarsData = { hamyarsData: [] };
                                     for (
                                       let i = 0;
                                       i <
@@ -2462,7 +2462,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                         .length;
                                       i++
                                     ) {
-                                      hamyarsData.hamyarsList.push({
+                                      hamyarsData.hamyarsData.push({
                                         name: $state.getUserInfo.data[0].result
                                           .hamyars[i].user.name,
                                         active:

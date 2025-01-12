@@ -179,7 +179,6 @@ export type PlasmicClinic__OverridesType = {
   button2?: Flex__<typeof Button>;
   search?: Flex__<typeof Search>;
   antdInput?: Flex__<typeof Input2>;
-  embedHtml?: Flex__<typeof Embed>;
 };
 
 export interface DefaultClinicProps {}
@@ -232,25 +231,7 @@ function PlasmicClinic__RenderFunc(props: {
         path: "_1",
         type: "private",
         variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                var abc = new URLSearchParams(window.location.search).get(
-                  "page"
-                );
-                return abc;
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })() ?? $props._1
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props._1
       },
       {
         path: "input.value",
@@ -582,29 +563,15 @@ function PlasmicClinic__RenderFunc(props: {
                           localStorage.setItem("ClinicToken", app);
                         }
                         var status = urlParams.get("status");
-                        if (status == "false") $state.status = "false";
+                        if (status == "false") return ($state.status = "false");
                         else if (status == "true") {
                           var chatstart = JSON.parse(
                             localStorage.getItem("chatstart")
                           );
-                          window.open(
+                          return window.open(
                             `https://apps.liom.app/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}`,
                             "_self"
                           );
-                        }
-                        var page = urlParams.get("page");
-                        if (page == "chatviow") {
-                          return fetch(
-                            "https://n8n.staas.ir/webhook/help/getListHelp/?token=" +
-                              localStorage.getItem("ClinicToken"),
-                            { method: "GET" }
-                          )
-                            .then(response => response.json())
-                            .then(data => {
-                              $state.chats = data;
-                              console.log("user get");
-                            })
-                            .catch(error => console.error("Error3:", error));
                         }
                       })();
                     }
@@ -805,126 +772,29 @@ function PlasmicClinic__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["updateLoadingPage"] = true
+                        $steps["goToDocters"] = true
                           ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["loadingPage"]
-                                },
-                                operation: 0,
-                                value: true
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
+                              const actionArgs = { destination: `/docters` };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
                                 }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
                         if (
-                          $steps["updateLoadingPage"] != null &&
-                          typeof $steps["updateLoadingPage"] === "object" &&
-                          typeof $steps["updateLoadingPage"].then === "function"
+                          $steps["goToDocters"] != null &&
+                          typeof $steps["goToDocters"] === "object" &&
+                          typeof $steps["goToDocters"].then === "function"
                         ) {
-                          $steps["updateLoadingPage"] = await $steps[
-                            "updateLoadingPage"
-                          ];
-                        }
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return history.pushState(
-                                    null,
-                                    "",
-                                    "https://apps.liom.app/clinic/?page="
-                                  );
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-
-                        $steps["update1"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                vgroup: "_1",
-                                operation: 0,
-                                value: "docters"
-                              };
-                              return (({ vgroup, value }) => {
-                                if (typeof value === "string") {
-                                  value = [value];
-                                }
-
-                                $stateSet($state, vgroup, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["update1"] != null &&
-                          typeof $steps["update1"] === "object" &&
-                          typeof $steps["update1"].then === "function"
-                        ) {
-                          $steps["update1"] = await $steps["update1"];
-                        }
-
-                        $steps["updateLoadingPage2"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["loadingPage"]
-                                },
-                                operation: 0,
-                                value: false
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateLoadingPage2"] != null &&
-                          typeof $steps["updateLoadingPage2"] === "object" &&
-                          typeof $steps["updateLoadingPage2"].then ===
-                            "function"
-                        ) {
-                          $steps["updateLoadingPage2"] = await $steps[
-                            "updateLoadingPage2"
-                          ];
+                          $steps["goToDocters"] = await $steps["goToDocters"];
                         }
                       }}
                     >
@@ -991,198 +861,29 @@ function PlasmicClinic__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateLoadingPage"] = true
+                  $steps["goToChatviow"] = true
                     ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loadingPage"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
+                        const actionArgs = { destination: `/chatviow` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
                           }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                   if (
-                    $steps["updateLoadingPage"] != null &&
-                    typeof $steps["updateLoadingPage"] === "object" &&
-                    typeof $steps["updateLoadingPage"].then === "function"
+                    $steps["goToChatviow"] != null &&
+                    typeof $steps["goToChatviow"] === "object" &&
+                    typeof $steps["goToChatviow"].then === "function"
                   ) {
-                    $steps["updateLoadingPage"] = await $steps[
-                      "updateLoadingPage"
-                    ];
-                  }
-
-                  $steps["update1"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          vgroup: "_1",
-                          operation: 0,
-                          value: "chatviow"
-                        };
-                        return (({ vgroup, value }) => {
-                          if (typeof value === "string") {
-                            value = [value];
-                          }
-
-                          $stateSet($state, vgroup, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["update1"] != null &&
-                    typeof $steps["update1"] === "object" &&
-                    typeof $steps["update1"].then === "function"
-                  ) {
-                    $steps["update1"] = await $steps["update1"];
-                  }
-
-                  $steps["invokeGlobalAction"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            undefined,
-                            "https://n8n.staas.ir/webhook/help/getListHelp",
-                            (() => {
-                              try {
-                                return { token: $state.token };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          ]
-                        };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
-                  }
-
-                  $steps["updateChats"] = (
-                    $steps.invokeGlobalAction?.data ? true : false
-                  )
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["chats"]
-                          },
-                          operation: 0,
-                          value: $steps.invokeGlobalAction.data
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateChats"] != null &&
-                    typeof $steps["updateChats"] === "object" &&
-                    typeof $steps["updateChats"].then === "function"
-                  ) {
-                    $steps["updateChats"] = await $steps["updateChats"];
-                  }
-
-                  $steps["updateLoadingPage2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loadingPage"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateLoadingPage2"] != null &&
-                    typeof $steps["updateLoadingPage2"] === "object" &&
-                    typeof $steps["updateLoadingPage2"].then === "function"
-                  ) {
-                    $steps["updateLoadingPage2"] = await $steps[
-                      "updateLoadingPage2"
-                    ];
-                  }
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return history.pushState(
-                              null,
-                              "",
-                              "https://apps.liom.app/clinic/?page="
-                            );
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
+                    $steps["goToChatviow"] = await $steps["goToChatviow"];
                   }
                 }}
               >
@@ -1302,238 +1003,44 @@ function PlasmicClinic__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["updateLoadingPage"] = true
+                        $steps["goToPage"] = true
                           ? (() => {
                               const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["loadingPage"]
-                                },
-                                operation: 0,
-                                value: true
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateLoadingPage"] != null &&
-                          typeof $steps["updateLoadingPage"] === "object" &&
-                          typeof $steps["updateLoadingPage"].then === "function"
-                        ) {
-                          $steps["updateLoadingPage"] = await $steps[
-                            "updateLoadingPage"
-                          ];
-                        }
-
-                        $steps["update1"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                vgroup: "_1",
-                                operation: 0,
-                                value: "docter"
-                              };
-                              return (({ vgroup, value }) => {
-                                if (typeof value === "string") {
-                                  value = [value];
-                                }
-
-                                $stateSet($state, vgroup, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["update1"] != null &&
-                          typeof $steps["update1"] === "object" &&
-                          typeof $steps["update1"].then === "function"
-                        ) {
-                          $steps["update1"] = await $steps["update1"];
-                        }
-
-                        $steps["invokeGlobalAction"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/help/getList",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        token: "Bearer " + $state.token,
-                                        id: currentItem.id.toString()
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
+                                destination: (() => {
+                                  try {
+                                    return `/docter?id=${currentItem.id}`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "/docter?id=cu";
                                     }
-                                  })()
-                                ]
+                                    throw e;
+                                  }
+                                })()
                               };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-
-                        $steps["updateGetList"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["getList"]
-                                },
-                                operation: 0,
-                                value: $steps.invokeGlobalAction.data
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
                                 }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
                               })?.apply(null, [actionArgs]);
                             })()
                           : undefined;
                         if (
-                          $steps["updateGetList"] != null &&
-                          typeof $steps["updateGetList"] === "object" &&
-                          typeof $steps["updateGetList"].then === "function"
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
                         ) {
-                          $steps["updateGetList"] = await $steps[
-                            "updateGetList"
-                          ];
-                        }
-
-                        $steps["updateListId"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["listId"]
-                                },
-                                operation: 0,
-                                value: currentItem.id
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateListId"] != null &&
-                          typeof $steps["updateListId"] === "object" &&
-                          typeof $steps["updateListId"].then === "function"
-                        ) {
-                          $steps["updateListId"] = await $steps["updateListId"];
-                        }
-
-                        $steps["updateLoadingPage2"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["loadingPage"]
-                                },
-                                operation: 0,
-                                value: false
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateLoadingPage2"] != null &&
-                          typeof $steps["updateLoadingPage2"] === "object" &&
-                          typeof $steps["updateLoadingPage2"].then ===
-                            "function"
-                        ) {
-                          $steps["updateLoadingPage2"] = await $steps[
-                            "updateLoadingPage2"
-                          ];
-                        }
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return history.pushState(
-                                    null,
-                                    "",
-                                    "https://apps.liom.app/clinic/?page="
-                                  );
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
+                          $steps["goToPage"] = await $steps["goToPage"];
                         }
                       }}
                     >
@@ -1641,6 +1148,48 @@ function PlasmicClinic__RenderFunc(props: {
                     [sty.card9_1_docter]: hasVariant($state, "_1", "docter"),
                     [sty.card9_1_docters]: hasVariant($state, "_1", "docters")
                   })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return `/docter?id=5`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -1667,235 +1216,44 @@ function PlasmicClinic__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateLoadingPage"] = true
+                      $steps["goToPage"] = true
                         ? (() => {
                             const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage"] != null &&
-                        typeof $steps["updateLoadingPage"] === "object" &&
-                        typeof $steps["updateLoadingPage"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage"] = await $steps[
-                          "updateLoadingPage"
-                        ];
-                      }
-
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/help/getList",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      token: "Bearer " + $state.token,
-                                      id: "5"
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=5`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
                                   }
-                                })()
-                              ]
+                                  throw e;
+                                }
+                              })()
                             };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["updateGetList"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["getList"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["updateGetList"] != null &&
-                        typeof $steps["updateGetList"] === "object" &&
-                        typeof $steps["updateGetList"].then === "function"
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
                       ) {
-                        $steps["updateGetList"] = await $steps["updateGetList"];
-                      }
-
-                      $steps["updateListId"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["listId"]
-                              },
-                              operation: 0,
-                              value: 5
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateListId"] != null &&
-                        typeof $steps["updateListId"] === "object" &&
-                        typeof $steps["updateListId"].then === "function"
-                      ) {
-                        $steps["updateListId"] = await $steps["updateListId"];
-                      }
-
-                      $steps["updateLoadingPage2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage2"] != null &&
-                        typeof $steps["updateLoadingPage2"] === "object" &&
-                        typeof $steps["updateLoadingPage2"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage2"] = await $steps[
-                          "updateLoadingPage2"
-                        ];
-                      }
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return history.pushState(
-                                  null,
-                                  "",
-                                  "https://apps.liom.app/clinic/?page="
-                                );
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -1935,6 +1293,48 @@ function PlasmicClinic__RenderFunc(props: {
                   data-plasmic-override={overrides.card10}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.card10)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return `/docter?id=5`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -1968,235 +1368,44 @@ function PlasmicClinic__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateLoadingPage"] = true
+                      $steps["goToPage"] = true
                         ? (() => {
                             const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage"] != null &&
-                        typeof $steps["updateLoadingPage"] === "object" &&
-                        typeof $steps["updateLoadingPage"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage"] = await $steps[
-                          "updateLoadingPage"
-                        ];
-                      }
-
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/help/getList",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      token: "Bearer " + $state.token,
-                                      id: "5"
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=5`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
                                   }
-                                })()
-                              ]
+                                  throw e;
+                                }
+                              })()
                             };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["updateGetList"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["getList"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["updateGetList"] != null &&
-                        typeof $steps["updateGetList"] === "object" &&
-                        typeof $steps["updateGetList"].then === "function"
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
                       ) {
-                        $steps["updateGetList"] = await $steps["updateGetList"];
-                      }
-
-                      $steps["updateListId"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["listId"]
-                              },
-                              operation: 0,
-                              value: 5
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateListId"] != null &&
-                        typeof $steps["updateListId"] === "object" &&
-                        typeof $steps["updateListId"].then === "function"
-                      ) {
-                        $steps["updateListId"] = await $steps["updateListId"];
-                      }
-
-                      $steps["updateLoadingPage2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage2"] != null &&
-                        typeof $steps["updateLoadingPage2"] === "object" &&
-                        typeof $steps["updateLoadingPage2"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage2"] = await $steps[
-                          "updateLoadingPage2"
-                        ];
-                      }
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return history.pushState(
-                                  null,
-                                  "",
-                                  "https://apps.liom.app/clinic/?page="
-                                );
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -2236,6 +1445,48 @@ function PlasmicClinic__RenderFunc(props: {
                   data-plasmic-override={overrides.card11}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.card11)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return `/docter?id=5`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -2262,235 +1513,44 @@ function PlasmicClinic__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateLoadingPage"] = true
+                      $steps["goToPage"] = true
                         ? (() => {
                             const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage"] != null &&
-                        typeof $steps["updateLoadingPage"] === "object" &&
-                        typeof $steps["updateLoadingPage"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage"] = await $steps[
-                          "updateLoadingPage"
-                        ];
-                      }
-
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/help/getList",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      token: "Bearer " + $state.token,
-                                      id: "5"
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=5`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
                                   }
-                                })()
-                              ]
+                                  throw e;
+                                }
+                              })()
                             };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["updateGetList"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["getList"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["updateGetList"] != null &&
-                        typeof $steps["updateGetList"] === "object" &&
-                        typeof $steps["updateGetList"].then === "function"
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
                       ) {
-                        $steps["updateGetList"] = await $steps["updateGetList"];
-                      }
-
-                      $steps["updateListId"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["listId"]
-                              },
-                              operation: 0,
-                              value: 5
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateListId"] != null &&
-                        typeof $steps["updateListId"] === "object" &&
-                        typeof $steps["updateListId"].then === "function"
-                      ) {
-                        $steps["updateListId"] = await $steps["updateListId"];
-                      }
-
-                      $steps["updateLoadingPage2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage2"] != null &&
-                        typeof $steps["updateLoadingPage2"] === "object" &&
-                        typeof $steps["updateLoadingPage2"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage2"] = await $steps[
-                          "updateLoadingPage2"
-                        ];
-                      }
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return history.pushState(
-                                  null,
-                                  "",
-                                  "https://apps.liom.app/clinic/?page="
-                                );
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -2594,6 +1654,48 @@ function PlasmicClinic__RenderFunc(props: {
                     [sty.card12_1_docter]: hasVariant($state, "_1", "docter"),
                     [sty.card12_1_docters]: hasVariant($state, "_1", "docters")
                   })}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return `/docter?id=2`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -2620,235 +1722,44 @@ function PlasmicClinic__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateLoadingPage"] = true
+                      $steps["goToPage"] = true
                         ? (() => {
                             const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage"] != null &&
-                        typeof $steps["updateLoadingPage"] === "object" &&
-                        typeof $steps["updateLoadingPage"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage"] = await $steps[
-                          "updateLoadingPage"
-                        ];
-                      }
-
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/help/getList",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      token: "Bearer " + $state.token,
-                                      id: "2"
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=2`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
                                   }
-                                })()
-                              ]
+                                  throw e;
+                                }
+                              })()
                             };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["updateGetList"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["getList"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["updateGetList"] != null &&
-                        typeof $steps["updateGetList"] === "object" &&
-                        typeof $steps["updateGetList"].then === "function"
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
                       ) {
-                        $steps["updateGetList"] = await $steps["updateGetList"];
-                      }
-
-                      $steps["updateListId"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["listId"]
-                              },
-                              operation: 0,
-                              value: 2
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateListId"] != null &&
-                        typeof $steps["updateListId"] === "object" &&
-                        typeof $steps["updateListId"].then === "function"
-                      ) {
-                        $steps["updateListId"] = await $steps["updateListId"];
-                      }
-
-                      $steps["updateLoadingPage2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage2"] != null &&
-                        typeof $steps["updateLoadingPage2"] === "object" &&
-                        typeof $steps["updateLoadingPage2"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage2"] = await $steps[
-                          "updateLoadingPage2"
-                        ];
-                      }
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return history.pushState(
-                                  null,
-                                  "",
-                                  "https://apps.liom.app/clinic/?page="
-                                );
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -2888,6 +1799,48 @@ function PlasmicClinic__RenderFunc(props: {
                   data-plasmic-override={overrides.card13}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.card13)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return `/docter?id=2`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -2937,235 +1890,44 @@ function PlasmicClinic__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateLoadingPage"] = true
+                      $steps["goToPage"] = true
                         ? (() => {
                             const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage"] != null &&
-                        typeof $steps["updateLoadingPage"] === "object" &&
-                        typeof $steps["updateLoadingPage"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage"] = await $steps[
-                          "updateLoadingPage"
-                        ];
-                      }
-
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/help/getList",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      token: "Bearer " + $state.token,
-                                      id: "2"
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=2`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
                                   }
-                                })()
-                              ]
+                                  throw e;
+                                }
+                              })()
                             };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["updateGetList"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["getList"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["updateGetList"] != null &&
-                        typeof $steps["updateGetList"] === "object" &&
-                        typeof $steps["updateGetList"].then === "function"
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
                       ) {
-                        $steps["updateGetList"] = await $steps["updateGetList"];
-                      }
-
-                      $steps["updateListId"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["listId"]
-                              },
-                              operation: 0,
-                              value: 2
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateListId"] != null &&
-                        typeof $steps["updateListId"] === "object" &&
-                        typeof $steps["updateListId"].then === "function"
-                      ) {
-                        $steps["updateListId"] = await $steps["updateListId"];
-                      }
-
-                      $steps["updateLoadingPage2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage2"] != null &&
-                        typeof $steps["updateLoadingPage2"] === "object" &&
-                        typeof $steps["updateLoadingPage2"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage2"] = await $steps[
-                          "updateLoadingPage2"
-                        ];
-                      }
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return history.pushState(
-                                  null,
-                                  "",
-                                  "https://apps.liom.app/clinic/?page="
-                                );
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -3205,6 +1967,48 @@ function PlasmicClinic__RenderFunc(props: {
                   data-plasmic-override={overrides.card14}
                   hasGap={true}
                   className={classNames(projectcss.all, sty.card14)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["goToPage"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            destination: (() => {
+                              try {
+                                return `/docter?id=2`;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          };
+                          return (({ destination }) => {
+                            if (
+                              typeof destination === "string" &&
+                              destination.startsWith("#")
+                            ) {
+                              document
+                                .getElementById(destination.substr(1))
+                                .scrollIntoView({ behavior: "smooth" });
+                            } else {
+                              __nextRouter?.push(destination);
+                            }
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["goToPage"] != null &&
+                      typeof $steps["goToPage"] === "object" &&
+                      typeof $steps["goToPage"].then === "function"
+                    ) {
+                      $steps["goToPage"] = await $steps["goToPage"];
+                    }
+                  }}
                 >
                   <div
                     className={classNames(
@@ -3254,235 +2058,44 @@ function PlasmicClinic__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateLoadingPage"] = true
+                      $steps["goToPage"] = true
                         ? (() => {
                             const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage"] != null &&
-                        typeof $steps["updateLoadingPage"] === "object" &&
-                        typeof $steps["updateLoadingPage"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage"] = await $steps[
-                          "updateLoadingPage"
-                        ];
-                      }
-
-                      $steps["update1"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              vgroup: "_1",
-                              operation: 0,
-                              value: "docter"
-                            };
-                            return (({ vgroup, value }) => {
-                              if (typeof value === "string") {
-                                value = [value];
-                              }
-
-                              $stateSet($state, vgroup, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["update1"] != null &&
-                        typeof $steps["update1"] === "object" &&
-                        typeof $steps["update1"].then === "function"
-                      ) {
-                        $steps["update1"] = await $steps["update1"];
-                      }
-
-                      $steps["invokeGlobalAction"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/help/getList",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      token: "Bearer " + $state.token,
-                                      id: "2"
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=2`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
                                   }
-                                })()
-                              ]
+                                  throw e;
+                                }
+                              })()
                             };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["updateGetList"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["getList"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["updateGetList"] != null &&
-                        typeof $steps["updateGetList"] === "object" &&
-                        typeof $steps["updateGetList"].then === "function"
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
                       ) {
-                        $steps["updateGetList"] = await $steps["updateGetList"];
-                      }
-
-                      $steps["updateListId"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["listId"]
-                              },
-                              operation: 0,
-                              value: 2
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateListId"] != null &&
-                        typeof $steps["updateListId"] === "object" &&
-                        typeof $steps["updateListId"].then === "function"
-                      ) {
-                        $steps["updateListId"] = await $steps["updateListId"];
-                      }
-
-                      $steps["updateLoadingPage2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loadingPage"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoadingPage2"] != null &&
-                        typeof $steps["updateLoadingPage2"] === "object" &&
-                        typeof $steps["updateLoadingPage2"].then === "function"
-                      ) {
-                        $steps["updateLoadingPage2"] = await $steps[
-                          "updateLoadingPage2"
-                        ];
-                      }
-
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return history.pushState(
-                                  null,
-                                  "",
-                                  "https://apps.liom.app/clinic/?page="
-                                );
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -7918,198 +6531,29 @@ function PlasmicClinic__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateLoadingPage"] = true
+                  $steps["goToChatviow"] = true
                     ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loadingPage"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
+                        const actionArgs = { destination: `/chatviow` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
                           }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
                         })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                   if (
-                    $steps["updateLoadingPage"] != null &&
-                    typeof $steps["updateLoadingPage"] === "object" &&
-                    typeof $steps["updateLoadingPage"].then === "function"
+                    $steps["goToChatviow"] != null &&
+                    typeof $steps["goToChatviow"] === "object" &&
+                    typeof $steps["goToChatviow"].then === "function"
                   ) {
-                    $steps["updateLoadingPage"] = await $steps[
-                      "updateLoadingPage"
-                    ];
-                  }
-
-                  $steps["update1"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          vgroup: "_1",
-                          operation: 0,
-                          value: "chatviow"
-                        };
-                        return (({ vgroup, value }) => {
-                          if (typeof value === "string") {
-                            value = [value];
-                          }
-
-                          $stateSet($state, vgroup, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["update1"] != null &&
-                    typeof $steps["update1"] === "object" &&
-                    typeof $steps["update1"].then === "function"
-                  ) {
-                    $steps["update1"] = await $steps["update1"];
-                  }
-
-                  $steps["invokeGlobalAction"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            "GET",
-                            "https://n8n.staas.ir/webhook/help/getListHelp",
-                            (() => {
-                              try {
-                                return { token: $state.token };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          ]
-                        };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                  if (
-                    $steps["invokeGlobalAction"] != null &&
-                    typeof $steps["invokeGlobalAction"] === "object" &&
-                    typeof $steps["invokeGlobalAction"].then === "function"
-                  ) {
-                    $steps["invokeGlobalAction"] = await $steps[
-                      "invokeGlobalAction"
-                    ];
-                  }
-
-                  $steps["updateChats"] = (
-                    $steps.invokeGlobalAction?.data ? true : false
-                  )
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["chats"]
-                          },
-                          operation: 0,
-                          value: $steps.invokeGlobalAction.data
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateChats"] != null &&
-                    typeof $steps["updateChats"] === "object" &&
-                    typeof $steps["updateChats"].then === "function"
-                  ) {
-                    $steps["updateChats"] = await $steps["updateChats"];
-                  }
-
-                  $steps["updateLoadingPage2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loadingPage"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateLoadingPage2"] != null &&
-                    typeof $steps["updateLoadingPage2"] === "object" &&
-                    typeof $steps["updateLoadingPage2"].then === "function"
-                  ) {
-                    $steps["updateLoadingPage2"] = await $steps[
-                      "updateLoadingPage2"
-                    ];
-                  }
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return history.pushState(
-                              null,
-                              "",
-                              "https://apps.liom.app/clinic/?page="
-                            );
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
+                    $steps["goToChatviow"] = await $steps["goToChatviow"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
@@ -8416,18 +6860,6 @@ function PlasmicClinic__RenderFunc(props: {
               />
             ) : null}
           </Stack__>
-          <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml, {
-              [sty.embedHtml_1_chatviow]: hasVariant($state, "_1", "chatviow"),
-              [sty.embedHtml_1_docter]: hasVariant($state, "_1", "docter"),
-              [sty.embedHtml_1_docters]: hasVariant($state, "_1", "docters")
-            })}
-            code={
-              '<script>\r\n  window.addEventListener("popstate", function(event) {\r\n    window.location.href = "https://apps.liom.app/clinic/?page=";\r\n  });\r\n</script>\r\n'
-            }
-          />
         </div>
       </div>
     </React.Fragment>
@@ -8496,8 +6928,7 @@ const PlasmicDescendants = {
     "favicon",
     "button2",
     "search",
-    "antdInput",
-    "embedHtml"
+    "antdInput"
   ],
   bg: ["bg", "rectangle2", "\u0627", "\u06272"],
   rectangle2: ["rectangle2", "\u0627", "\u06272"],
@@ -8604,8 +7035,7 @@ const PlasmicDescendants = {
   favicon: ["favicon"],
   button2: ["button2"],
   search: ["search", "antdInput"],
-  antdInput: ["antdInput"],
-  embedHtml: ["embedHtml"]
+  antdInput: ["antdInput"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -8672,7 +7102,6 @@ type NodeDefaultElementType = {
   button2: typeof Button;
   search: typeof Search;
   antdInput: typeof Input2;
-  embedHtml: typeof Embed;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -8820,7 +7249,6 @@ export const PlasmicClinic = Object.assign(
     button2: makeNodeComponent("button2"),
     search: makeNodeComponent("search"),
     antdInput: makeNodeComponent("antdInput"),
-    embedHtml: makeNodeComponent("embedHtml"),
 
     // Metadata about props expected for PlasmicClinic
     internalVariantProps: PlasmicClinic__VariantProps,

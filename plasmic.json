@@ -949,6 +949,48 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/chat"
+        },
+        {
+          "id": "2KPwbs47ITM_",
+          "name": "Chatviow",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicChatviow.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/chatviow.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicChatviow.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/chatviow"
+        },
+        {
+          "id": "M0USH3JYYo7O",
+          "name": "Docter",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDocter.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/docter.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDocter.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/docter"
+        },
+        {
+          "id": "MTBU9FtqOgNU",
+          "name": "Docters",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDocters.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/docters.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDocters.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/docters"
         }
       ],
       "icons": [
