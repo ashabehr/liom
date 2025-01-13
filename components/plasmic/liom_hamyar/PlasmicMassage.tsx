@@ -392,7 +392,7 @@ function PlasmicMassage__RenderFunc(props: {
           hasVariant($state, "end", "end")
             ? (() => {
                 try {
-                  return $state.loading;
+                  return !$state.loading;
                 } catch (e) {
                   if (
                     e instanceof TypeError ||
@@ -416,7 +416,7 @@ function PlasmicMassage__RenderFunc(props: {
             )}
           >
             {hasVariant($state, "end", "end")
-              ? "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a \u0631\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"
+              ? "\u0622\u06cc\u0627 \u0627\u0632 \u0627\u06cc\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0631\u0627\u0636\u06cc \u0628\u0648\u062f\u06cc\u062f\u061f"
               : "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"}
           </div>
         ) : null}
