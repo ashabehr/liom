@@ -4913,7 +4913,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                 </div>
                 {(() => {
                   try {
-                    return $ctx?.query?.inApp == "true";
+                    return (
+                      $ctx?.query?.inApp == "true" &&
+                      $state.getUserInfo?.data?.[0]?.result?.hamyars.length == 0
+                    );
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -4993,7 +4996,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       displayWidth={"auto"}
                       loading={"lazy"}
                       src={{
-                        src: "/plasmic/liom_hamyar/images/image72.png",
+                        src: "/plasmic/liom_hamyar/images/image74.png",
                         fullWidth: 985,
                         fullHeight: 344,
                         aspectRatio: undefined
