@@ -1461,7 +1461,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             var gd = parseInt(
                               $state.user?.[0]?.dueDate.split("-")[2]
                             );
-                            let hamyarsData = []; // ایجاد یک آرایه خالی به جای شیء
+                            let hamyarsData = [];
                             for (
                               let i = 0;
                               i <
@@ -1491,7 +1491,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     .user.email
                               });
                             }
-                            console.log(hamyarsData);
+
+                            // let allowance = [];
+                            // for (let i = 0; i < $state.getUserInfo.data[0].result.allowance.length; i++) {
+                            //   allowance.push(
+                            //     $state.getUserInfo.data[0].result.allowance[i]
+                            //   );
+                            // }
+                            console.log($state.getUserInfo.data[0].result);
                             fetch("https://n8n.staas.ir/webhook/status", {
                               method: "POST",
                               headers: {
@@ -1511,7 +1518,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 email: email,
                                 hamyarData: {
                                   hamyarsData
-                                }
+                                },
+                                allowance: allowance
                               })
                             })
                               .then(response => {

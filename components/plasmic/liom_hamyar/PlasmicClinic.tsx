@@ -569,7 +569,7 @@ function PlasmicClinic__RenderFunc(props: {
                             localStorage.getItem("chatstart")
                           );
                           return window.open(
-                            `https://apps.liom.app/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}`,
+                            `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}`,
                             "_self"
                           );
                         }
