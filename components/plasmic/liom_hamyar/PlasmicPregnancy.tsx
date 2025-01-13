@@ -4221,6 +4221,96 @@ function PlasmicPregnancy__RenderFunc(props: {
                           />
                         ) : null}
                       </div>
+                      {(() => {
+                        try {
+                          return (
+                            $ctx?.query?.inApp == "true" &&
+                            $state.getUserInfo.data[0].result.allowance.find(
+                              item => item.type === "husband_sms"
+                            ).active &&
+                            $ctx.query.userId ==
+                              "e24d4ddd1fab-100c-49f0-b843-e70bff8add34ffd2"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return false;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__e4MeM
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__anXyd
+                            )}
+                          >
+                            {(() => {
+                              try {
+                                return (
+                                  $state.getUserInfo.data[0].result.hamyars
+                                    .length == 0
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__sNOiO
+                                )}
+                              >
+                                {
+                                  "\u0627\u0641\u0632\u0648\u062f\u0646 \u0647\u0645\u06cc\u0627\u0631"
+                                }
+                              </div>
+                            ) : null}
+                            {(() => {
+                              try {
+                                return $state.getUserInfo.data[0].result.hamyars.some(
+                                  item => !item.rel.statusSms
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__esaJ
+                                )}
+                              >
+                                {hasVariant(globalVariants, "screen", "mobile")
+                                  ? "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9"
+                                  : "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9"}
+                              </div>
+                            ) : null}
+                          </div>
+                        </div>
+                      ) : null}
                     </div>
                     <div
                       className={classNames(
@@ -4915,7 +5005,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                   try {
                     return (
                       $ctx?.query?.inApp == "true" &&
-                      $state.getUserInfo?.data?.[0]?.result?.hamyars.length == 0
+                      !$state.getUserInfo.data[0].result.allowance.find(
+                        item => item.type === "husband_sms"
+                      ).active
                     );
                   } catch (e) {
                     if (

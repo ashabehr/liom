@@ -3439,6 +3439,90 @@
     font-size: 14px;
   }
 }
+.ol__i9KlY {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+}
+.ol__i9KlY > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-top: calc(0px - 10px);
+  height: calc(100% + 10px);
+}
+.ol__i9KlY > :global(.__wab_flex-container) > *,
+.ol__i9KlY > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.ol__i9KlY > :global(.__wab_flex-container) > picture > img,
+.ol__i9KlY
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 10px;
+}
+@media (max-width: 640px) {
+  .ol__i9KlY {
+    padding-left: 0px;
+    padding-right: 16px;
+    font-size: 12px;
+    text-align: right;
+    padding-top: 8px;
+  }
+}
+@media (max-width: 640px) {
+  .ol__i9KlY > :global(.__wab_flex-container) {
+    justify-content: space-between;
+    margin-left: calc(0px - 0px);
+    width: calc(100% + 0px);
+    margin-top: calc(0px - 8px);
+    height: calc(100% + 8px);
+  }
+}
+@media (max-width: 640px) {
+  .ol__i9KlY > :global(.__wab_flex-container) > *,
+  .ol__i9KlY > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .ol__i9KlY > :global(.__wab_flex-container) > picture > img,
+  .ol__i9KlY
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-left: 0px;
+    margin-top: 8px;
+  }
+}
+.li__dJvrz {
+  text-align: justify;
+}
+@media (max-width: 640px) {
+  .li__dJvrz {
+    text-align: justify;
+    font-size: 14px;
+  }
+}
+.li__qcnP {
+  text-align: justify;
+  color: var(--token-55cSeNPovQFh);
+}
+@media (max-width: 640px) {
+  .li__qcnP {
+    text-align: justify;
+    color: var(--token-55cSeNPovQFh);
+    font-size: 14px;
+  }
+}
+.li___0VBxb {
+  text-align: justify;
+}
+@media (max-width: 640px) {
+  .li___0VBxb {
+    text-align: justify;
+    font-size: 14px;
+  }
+}
 .freeBox__x08Rs {
   display: flex;
   flex-direction: column;
