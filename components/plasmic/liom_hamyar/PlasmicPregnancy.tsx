@@ -1452,6 +1452,18 @@ function PlasmicPregnancy__RenderFunc(props: {
                             if (typeof name == "undefined") {
                               name = "";
                             }
+                            if (
+                              typeof $state.getUserInfo.data[0].result
+                                .hamyars == "undefined"
+                            ) {
+                              $state.getUserInfo.data[0].result.hamyars = [];
+                            }
+                            if (
+                              typeof $state.getUserInfo.data[0].result
+                                .allowance == "undefined"
+                            ) {
+                              $state.getUserInfo.data[0].result.allowance = [];
+                            }
                             var gy = parseInt(
                               $state.user?.[0]?.dueDate.split("-")[0]
                             );
@@ -1492,13 +1504,18 @@ function PlasmicPregnancy__RenderFunc(props: {
                               });
                             }
 
-                            // let allowance = [];
-                            // for (let i = 0; i < $state.getUserInfo.data[0].result.allowance.length; i++) {
-                            //   allowance.push(
-                            //     $state.getUserInfo.data[0].result.allowance[i]
-                            //   );
-                            // }
-                            console.log($state.getUserInfo.data[0].result);
+                            let allowance = [];
+                            for (
+                              let i = 0;
+                              i <
+                              $state.getUserInfo.data[0].result.allowance
+                                .length;
+                              i++
+                            ) {
+                              allowance.push(
+                                $state.getUserInfo.data[0].result.allowance[i]
+                              );
+                            }
                             fetch("https://n8n.staas.ir/webhook/status", {
                               method: "POST",
                               headers: {
@@ -1519,7 +1536,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 hamyarData: {
                                   hamyarsData
                                 },
-                                allowance: allowance
+                                allowance: {
+                                  allowance
+                                }
                               })
                             })
                               .then(response => {
