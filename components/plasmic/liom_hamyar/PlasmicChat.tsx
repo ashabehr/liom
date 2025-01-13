@@ -1236,7 +1236,7 @@ function PlasmicChat__RenderFunc(props: {
             >
               {(() => {
                 try {
-                  return $state.variable[0].status
+                  return $state.variable[0]?.status
                     ? $state.variable[0].status != -1
                     : true;
                 } catch (e) {
@@ -1711,7 +1711,7 @@ function PlasmicChat__RenderFunc(props: {
 
               {(() => {
                 try {
-                  return $state.variable[0].status
+                  return $state.variable[0]?.status
                     ? $state.variable[0].status == -1
                     : false;
                 } catch (e) {
