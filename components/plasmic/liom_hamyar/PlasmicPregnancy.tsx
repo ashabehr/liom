@@ -1720,13 +1720,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       >
                         <React.Fragment>
                           {(() => {
-                            var random = Math.floor(Math.random() * 2);
-                            switch (random) {
-                              case 0:
-                                return "مامان عزیز";
-                              case 1:
-                                return "مامان " + $state.user?.[0]?.name;
-                            }
+                            return "مامان عزیز";
                           })()}
                         </React.Fragment>
                       </div>
@@ -4228,8 +4222,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                             $state.getUserInfo.data[0].result.allowance.find(
                               item => item.type === "husband_sms"
                             ).active &&
-                            $ctx.query.userId ==
-                              "e24d4ddd1fab-100c-49f0-b843-e70bff8add34ffd2"
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) == "ddd1fab-100c-49f0-b843-e70bff8add34"
                           );
                         } catch (e) {
                           if (
