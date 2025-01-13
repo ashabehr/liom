@@ -273,7 +273,10 @@ function PlasmicChatviow__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.antdInput.value != "";
+              return (
+                $state.antdInput.value != "" &&
+                $state.antdInput.value != undefined
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
