@@ -3386,6 +3386,33 @@ function PlasmicPregnancy__RenderFunc(props: {
                           $steps["goToPage"] = await $steps["goToPage"];
                         }
 
+                        $steps["runCode"] = (() => {
+                          if ($ctx.query?.inApp == "true") return true;
+                          else return false;
+                        })()
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return window.FlutterChannel.postMessage(
+                                      "#healthSettingPage"
+                                    );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
                         $steps["invokeGlobalAction"] =
                           $ctx.query.userId.slice(
                             4,
@@ -3446,33 +3473,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                           $steps["invokeGlobalAction"] = await $steps[
                             "invokeGlobalAction"
                           ];
-                        }
-
-                        $steps["runCode"] = (() => {
-                          if ($ctx.query?.inApp == "true") return true;
-                          else return false;
-                        })()
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    return window.FlutterChannel.postMessage(
-                                      "#healthSettingPage"
-                                    );
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
                         }
                       }}
                     >
@@ -4242,6 +4242,62 @@ function PlasmicPregnancy__RenderFunc(props: {
                             projectcss.all,
                             sty.freeBox__e4MeM
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] =
+                              $state.getUserInfo.data[0].result.hamyars
+                                .length == 0
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          return window.FlutterChannel.postMessage(
+                                            "#hamyarInfo"
+                                          );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+
+                            $steps["runCode2"] =
+                              $state.getUserInfo.data[0].result.hamyars.some(
+                                item => !item.rel.statusSms
+                              )
+                                ? (() => {
+                                    const actionArgs = {
+                                      customFunction: async () => {
+                                        return (() => {
+                                          return window.FlutterChannel.postMessage(
+                                            "#hamyarInfo"
+                                          );
+                                        })();
+                                      }
+                                    };
+                                    return (({ customFunction }) => {
+                                      return customFunction();
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["runCode2"] != null &&
+                              typeof $steps["runCode2"] === "object" &&
+                              typeof $steps["runCode2"].then === "function"
+                            ) {
+                              $steps["runCode2"] = await $steps["runCode2"];
+                            }
+                          }}
                         >
                           <div
                             className={classNames(
@@ -4287,7 +4343,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return true;
+                                  return false;
                                 }
                                 throw e;
                               }
