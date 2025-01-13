@@ -341,6 +341,12 @@ function PlasmicDocters__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "search.variable",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1226,14 +1232,6 @@ function PlasmicDocters__RenderFunc(props: {
               <Search
                 data-plasmic-name={"search"}
                 data-plasmic-override={overrides.search}
-                _1={
-                  hasVariant($state, "_1", "chatviow") &&
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? "chatviow"
-                    : hasVariant($state, "_1", "chatviow")
-                    ? "chatviow"
-                    : undefined
-                }
                 antdInput2={(() => {
                   const child$Props = {
                     bordered: false,
@@ -1338,6 +1336,24 @@ function PlasmicDocters__RenderFunc(props: {
                   [sty.search_1_chatviow]: hasVariant($state, "_1", "chatviow"),
                   [sty.search_1_docter]: hasVariant($state, "_1", "docter")
                 })}
+                onVariableChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "search",
+                    "variable"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                variable={generateStateValueProp($state, [
+                  "search",
+                  "variable"
+                ])}
               />
             ) : null}
           </Stack__>

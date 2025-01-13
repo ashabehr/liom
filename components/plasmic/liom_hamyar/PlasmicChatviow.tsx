@@ -265,6 +265,25 @@ function PlasmicChatviow__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "search.variable",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.antdInput.value != "";
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -387,18 +406,13 @@ function PlasmicChatviow__RenderFunc(props: {
               <Search
                 data-plasmic-name={"search"}
                 data-plasmic-override={overrides.search}
-                _1={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? "chatviow"
-                    : "chatviow"
-                }
                 antdInput2={(() => {
                   const child$Props = {
                     bordered: false,
                     className: classNames("__wab_instance", sty.antdInput),
                     id: hasVariant(globalVariants, "screen", "mobile")
                       ? "inputMobile"
-                      : undefined,
+                      : "inputMobile",
                     onChange: async (...eventArgs: any) => {
                       generateStateOnChangePropForCodeComponents(
                         $state,
@@ -485,6 +499,63 @@ function PlasmicChatviow__RenderFunc(props: {
                   );
                 })()}
                 className={classNames("__wab_instance", sty.search)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateAntdInputValue"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["antdInput", "value"]
+                          },
+                          operation: 0,
+                          value: ""
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateAntdInputValue"] != null &&
+                    typeof $steps["updateAntdInputValue"] === "object" &&
+                    typeof $steps["updateAntdInputValue"].then === "function"
+                  ) {
+                    $steps["updateAntdInputValue"] = await $steps[
+                      "updateAntdInputValue"
+                    ];
+                  }
+                }}
+                onVariableChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "search",
+                    "variable"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                variable={generateStateValueProp($state, [
+                  "search",
+                  "variable"
+                ])}
               />
             ) : null}
           </Stack__>

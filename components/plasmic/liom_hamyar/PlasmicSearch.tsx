@@ -62,8 +62,6 @@ import {
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
 
-import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -72,33 +70,38 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicSearch.module.css"; // plasmic-import: fmyovDT1Cvc-/css
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
-import Icon76Icon from "./icons/PlasmicIcon__Icon76"; // plasmic-import: ePwPtQfgTARC/icon
+import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
 
 createPlasmicElementProxy;
 
-export type PlasmicSearch__VariantMembers = {
-  _1: "docters" | "docter" | "chatviow";
-};
-export type PlasmicSearch__VariantsArgs = {
-  _1?: SingleChoiceArg<"docters" | "docter" | "chatviow">;
-};
+export type PlasmicSearch__VariantMembers = {};
+export type PlasmicSearch__VariantsArgs = {};
 type VariantPropType = keyof PlasmicSearch__VariantsArgs;
-export const PlasmicSearch__VariantProps = new Array<VariantPropType>("_1");
+export const PlasmicSearch__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicSearch__ArgsType = {
   antdInput2?: React.ReactNode;
+  onClick?: (event: any) => void;
+  variable?: boolean;
+  onVariableChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicSearch__ArgsType;
-export const PlasmicSearch__ArgProps = new Array<ArgPropType>("antdInput2");
+export const PlasmicSearch__ArgProps = new Array<ArgPropType>(
+  "antdInput2",
+  "onClick",
+  "variable",
+  "onVariableChange"
+);
 
 export type PlasmicSearch__OverridesType = {
   root?: Flex__<"div">;
-  svg?: Flex__<"svg">;
 };
 
 export interface DefaultSearchProps {
   antdInput2?: React.ReactNode;
-  _1?: SingleChoiceArg<"docters" | "docter" | "chatviow">;
+  onClick?: (event: any) => void;
+  variable?: boolean;
+  onVariableChange?: (val: string) => void;
   className?: string;
 }
 
@@ -145,10 +148,12 @@ function PlasmicSearch__RenderFunc(props: {
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
-        path: "_1",
-        type: "private",
-        variableType: "variant",
-        initFunc: ({ $props, $state, $queries, $ctx }) => $props._1
+        path: "variable",
+        type: "writable",
+        variableType: "boolean",
+
+        valueProp: "variable",
+        onChangeProp: "onVariableChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -165,10 +170,6 @@ function PlasmicSearch__RenderFunc(props: {
     hover_root: isRootHover
   };
 
-  const globalVariants = ensureGlobalVariants({
-    screen: useScreenVariants_6BytLjmha8VC()
-  });
-
   return (
     <div
       data-plasmic-name={"root"}
@@ -183,8 +184,7 @@ function PlasmicSearch__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root,
-        { [sty.root_1_chatviow]: hasVariant($state, "_1", "chatviow") }
+        sty.root
       )}
       data-plasmic-trigger-props={[triggerRootHoverProps]}
     >
@@ -201,36 +201,55 @@ function PlasmicSearch__RenderFunc(props: {
             value: args.antdInput2
           })
         : null}
-      <PlasmicIcon__
-        data-plasmic-name={"svg"}
-        data-plasmic-override={overrides.svg}
-        PlasmicIconType={
-          hasVariant($state, "_1", "chatviow") &&
-          hasVariant(globalVariants, "screen", "mobile")
-            ? Icon76Icon
-            : hasVariant($state, "_1", "chatviow")
-            ? Icon76Icon
-            : SearchSvgIcon
+      {(() => {
+        try {
+          return !$state.variable;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
         }
-        className={classNames(projectcss.all, sty.svg, {
-          [sty.svg_1_chatviow]: hasVariant($state, "_1", "chatviow")
-        })}
-        role={"img"}
-      />
+      })() ? (
+        <SearchSvgIcon
+          className={classNames(projectcss.all, sty.svg__uaSjR)}
+          role={"img"}
+        />
+      ) : null}
+      {(() => {
+        try {
+          return $state.variable;
+        } catch (e) {
+          if (
+            e instanceof TypeError ||
+            e?.plasmicType === "PlasmicUndefinedDataError"
+          ) {
+            return true;
+          }
+          throw e;
+        }
+      })() ? (
+        <XIcon
+          className={classNames(projectcss.all, sty.svg__hCFv)}
+          onClick={args.onClick}
+          role={"img"}
+        />
+      ) : null}
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg"],
-  svg: ["svg"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -293,7 +312,6 @@ export const PlasmicSearch = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicSearch
     internalVariantProps: PlasmicSearch__VariantProps,
