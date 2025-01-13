@@ -140,6 +140,7 @@
   max-width: 100%;
   object-fit: cover;
   height: 25px;
+  font-size: 14px;
 }
 @media (max-width: 640px) {
   .antdInput:global(.__wab_instance) {
