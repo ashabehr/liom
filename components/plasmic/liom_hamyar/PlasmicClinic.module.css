@@ -4845,7 +4845,7 @@
 }
 @media (max-width: 640px) {
   .svg__a5XMa {
-    height: 120px;
+    height: 80px;
     flex-shrink: 0;
   }
 }
@@ -4856,7 +4856,7 @@
   max-width: 100%;
   text-align: center;
   font-weight: 700;
-  font-size: 24px;
+  font-size: 18px;
   color: var(--token-4RAe7M2gInqR);
   min-width: 0;
 }
@@ -4876,7 +4876,7 @@
   font-size: 16px;
   color: var(--token-d0xmvBfBUlz_);
   min-width: 0;
-  padding: 8px;
+  padding: 8px 16px;
 }
 @media (max-width: 640px) {
   .text__tyezp {
@@ -4916,7 +4916,7 @@
   height: auto;
   max-width: 100%;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   font-style: normal;
   text-align: left;
