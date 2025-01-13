@@ -5005,9 +5005,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                   try {
                     return (
                       $ctx?.query?.inApp == "true" &&
-                      !$state.getUserInfo.data[0].result.allowance.find(
-                        item => item.type === "husband_sms"
-                      ).active
+                      !(
+                        $state.getUserInfo?.data?.[0]?.result?.allowance?.find(
+                          item => item.type === "husband_sms"
+                        )?.active ?? false
+                      )
                     );
                   } catch (e) {
                     if (

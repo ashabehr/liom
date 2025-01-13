@@ -155,6 +155,7 @@ export type PlasmicHamyar__OverridesType = {
   input?: Flex__<typeof AntdInput>;
   button?: Flex__<typeof Button>;
   button2?: Flex__<typeof Button>;
+  button7?: Flex__<typeof Button>;
   shopModalMobile?: Flex__<typeof SlideinModal>;
   subscription2?: Flex__<typeof Subscription>;
   button4?: Flex__<typeof Button>;
@@ -165,7 +166,6 @@ export type PlasmicHamyar__OverridesType = {
   todo?: Flex__<typeof ApiRequest>;
   tooltip?: Flex__<typeof AntdTooltip>;
   heart?: Flex__<typeof Heart>;
-  lottie?: Flex__<typeof LottieWrapper>;
   user?: Flex__<typeof ApiRequest>;
   shop?: Flex__<typeof ApiRequest>;
   favicon?: Flex__<typeof Embed>;
@@ -186,6 +186,8 @@ export type PlasmicHamyar__OverridesType = {
   button11?: Flex__<typeof Button>;
   iframe?: Flex__<typeof Iframe>;
   timer?: Flex__<typeof Timer>;
+  dialog3?: Flex__<typeof Dialog>;
+  button13?: Flex__<typeof Button>;
 };
 
 export interface DefaultHamyarProps {}
@@ -1549,6 +1551,24 @@ function PlasmicHamyar__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "button7.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "dialog3.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button13.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -6554,26 +6574,27 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "screen",
                                 "mobile"
                               ) ? (
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (
-                                        "شروع دوره PMS رو بهت پیامک می‌زنم تا " +
-                                        $state.name +
-                                        " رو بهتر درک کنی و از ناراحتی‌ها جلوگیری کنی."
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return `<b>شروع دوره PMS رو به راحتی پیگیری کن!</b>  <br>
+<div style="position: relative; left:10px;">شروع دوره PMS رو با پیامک بهت اطلاع میدم تا بتونی ${$state.name} رو بیشتر درک کنی و از ناراحتی‌های احتمالی جلوگیری کنی.</div>
+`;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
+                                    })()
+                                  }}
+                                />
                               ) : (
                                 <div
                                   className={projectcss.__wab_expr_html_text}
@@ -6611,26 +6632,27 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "screen",
                                 "mobile"
                               ) ? (
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (
-                                        "در هر روز PMS پیامک‌هایی برای " +
-                                        $state.name +
-                                        " ارسال میشه تا خودش رو کنترل کنه و به رابطه‌تون توجه داشته باشه، بدون اینکه بفهمه تو این قابلیت رو فعال کردی."
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return `<b>تو دوران PMS، رابطتون رو به بهترین شکل مدیریت کنید!</b>  <br>
+<div style="position: relative; left: 10px;">در هر روز PMS پیامک‌هایی برای ${$state.name} ارسال میشه که اون هم بتونه خودش رو کنترل کنه و حواسش به تو و رابطه‌تون باشه (البته که قرار نیست این پیامک‌ها بصورت مستقیم ارسال بشن و اون بفهمه که تو این قابلیت رو فعال کردی)</div>
+`;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
+                                    })()
+                                  }}
+                                />
                               ) : (
                                 <div
                                   className={projectcss.__wab_expr_html_text}
@@ -6668,7 +6690,27 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "screen",
                                 "mobile"
                               ) ? (
-                                '"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0627 \u0628\u0647\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc."\n'
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return `<b> شروع پریود، بیشتر مراقبش باش !</b>  <br>
+<div style="position: relative; left: 10px;">شروع پریودش رو برات پیامک میکنم تا بتونی بیشتر ازش مراقبت کنی و کمتر درد بکشه و رابطه شادتری بسازی.</div>
+`;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return '"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0627 \u0628\u0647\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc."\n';
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  }}
+                                />
                               ) : (
                                 <div
                                   className={projectcss.__wab_expr_html_text}
@@ -6790,26 +6832,27 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "screen",
                                 "mobile"
                               ) ? (
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (
-                                        "شروع دوره PMS رو بهت پیامک می‌زنم تا " +
-                                        $state.name +
-                                        " رو بهتر درک کنی و از ناراحتی‌ها جلوگیری کنی."
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return `<b>خودت رو برای بهترین نقش زندگیت آماده کن!</b>  <br>
+<div style="position: relative; left: 10px;">این پیام‌ها بهت حس پدر بودن رو یادآوری می‌کنه. وقتی احساس خوبی داشته باشی، همسرت هم آرامش بیشتری خواهد داشت.</div>
+`;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 pms \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647\u062a \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u0645 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0646\u06cc \u0648 \u0627\u0632 \u0646\u0627\u0631\u0627\u062d\u062a\u06cc \u0647\u0627\u06cc \u0627\u062d\u062a\u0645\u0627\u0644\u06cc \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u06a9\u0646\u06cc. ";
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
+                                    })()
+                                  }}
+                                />
                               ) : (
                                 <div
                                   className={projectcss.__wab_expr_html_text}
@@ -6847,26 +6890,27 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "screen",
                                 "mobile"
                               ) ? (
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return (
-                                        "در هر روز PMS پیامک‌هایی برای " +
-                                        $state.name +
-                                        " ارسال میشه تا خودش رو کنترل کنه و به رابطه‌تون توجه داشته باشه، بدون اینکه بفهمه تو این قابلیت رو فعال کردی."
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return `<b>رابطه‌تون رو قوی‌تر کن، بدون گفتن حتی یک کلمه!</b>  <br>
+<div style="position: relative; left: 10px;">این پیام‌ها به همسرت نشون می‌ده که چقدر برات مهمه. یک راه ساده برای اینکه رابطه‌تون رو محکم‌تر کنی!</div>
+`;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "\u062f\u0631 \u0647\u0631 \u0631\u0648\u0632 pms \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627\u06cc\u06cc \u0628\u0631\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631 \u0645\u0647\u0645\u0627\u0646 \u0627\u0631\u0633\u0627\u0644 \u0645\u06cc\u0634\u0647 \u06a9\u0647 \u0627\u0648\u0646 \u0647\u0645 \u0628\u062a\u0648\u0646\u0647 \u062e\u0648\u062f\u0634 \u0631\u0648 \u06a9\u0646\u062a\u0631\u0644 \u06a9\u0646\u0647 \u0648 \u062d\u0648\u0627\u0633\u0634 \u0628\u0647 \u062a\u0648 \u0648 \u0631\u0627\u0628\u0637\u0647 \u062a\u0648\u0646 \u0628\u0627\u0634\u0647(\u200c\u0627\u0644\u0628\u062a\u0647 \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a \u0627\u06cc\u0646 \u067e\u06cc\u0627\u0645\u06a9 \u0647\u0627 \u0628\u0635\u0648\u0631\u062a \u0645\u0633\u062a\u0642\u06cc\u0645 \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0646 \u0648 \u0627\u0648\u0646 \u0628\u0641\u0647\u0645\u0647 \u06a9\u0647 \u062a\u0648 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0631\u062f\u06cc)";
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
+                                    })()
+                                  }}
+                                />
                               ) : (
                                 <div
                                   className={projectcss.__wab_expr_html_text}
@@ -6904,7 +6948,27 @@ function PlasmicHamyar__RenderFunc(props: {
                                 "screen",
                                 "mobile"
                               ) ? (
-                                '"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0627 \u0628\u0647\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc."\n'
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: (() => {
+                                      try {
+                                        return `<b>حس پدر بودن رو تجربه کن!</b>  <br>
+<div style="position: relative; left: 10px;">با دریافت پیام‌هایی درباره وضعیت جنین، همیشه در جریان تغییرات و رشد فرزندت خواهی بود.</div>
+`;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return '"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f\u0634 \u0631\u0648 \u067e\u06cc\u0627\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u0645 \u062a\u0627 \u0628\u0647\u062a\u0631 \u0627\u0632\u0634 \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc \u0648 \u0631\u0627\u0628\u0637\u0647 \u0634\u0627\u062f\u062a\u0631\u06cc \u0628\u0633\u0627\u0632\u06cc."\n';
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  }}
+                                />
                               ) : (
                                 <div
                                   className={projectcss.__wab_expr_html_text}
@@ -8142,6 +8206,166 @@ function PlasmicHamyar__RenderFunc(props: {
                               </p>
                             ) : null}
                           </Stack__>
+                        </div>
+                      ) : null}
+                      {(() => {
+                        try {
+                          return $state.cyclebox.cycle == "Pregnancy";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__qzisJ
+                          )}
+                        >
+                          <Button
+                            data-plasmic-name={"button7"}
+                            data-plasmic-override={overrides.button7}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button7
+                            )}
+                            color={generateStateValueProp($state, [
+                              "button7",
+                              "color"
+                            ])}
+                            endIcon={
+                              <PlasmicIcon__
+                                PlasmicIconType={
+                                  hasVariant(globalVariants, "screen", "mobile")
+                                    ? Icon12Icon
+                                    : Icon12Icon
+                                }
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__vc87C
+                                )}
+                                role={"img"}
+                              />
+                            }
+                            isDisabled={
+                              hasVariant(globalVariants, "screen", "mobile")
+                                ? (() => {
+                                    try {
+                                      return $state.loadingshop;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                : (() => {
+                                    try {
+                                      return $state.loadingshop;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return [];
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                            }
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["updateDialog3Opendialog"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["dialog3", "opendialog"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateDialog3Opendialog"] != null &&
+                                typeof $steps["updateDialog3Opendialog"] ===
+                                  "object" &&
+                                typeof $steps["updateDialog3Opendialog"]
+                                  .then === "function"
+                              ) {
+                                $steps["updateDialog3Opendialog"] =
+                                  await $steps["updateDialog3Opendialog"];
+                              }
+                            }}
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button7",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            showEndIcon={(() => {
+                              try {
+                                return $state.loadingshop;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__rC1Y
+                              )}
+                            >
+                              {
+                                "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                              }
+                            </div>
+                          </Button>
                         </div>
                       ) : null}
                     </Stack__>
@@ -10515,8 +10739,6 @@ function PlasmicHamyar__RenderFunc(props: {
                 }
               })() ? (
                 <LottieWrapper
-                  data-plasmic-name={"lottie"}
-                  data-plasmic-override={overrides.lottie}
                   animationData={{
                     v: "5.6.10",
                     fr: 30,
@@ -13029,7 +13251,7 @@ function PlasmicHamyar__RenderFunc(props: {
                     markers: []
                   }}
                   autoplay={true}
-                  className={classNames("__wab_instance", sty.lottie)}
+                  className={classNames("__wab_instance", sty.lottie__anxge)}
                   loop={true}
                   preview={false}
                 />
@@ -15790,6 +16012,869 @@ function PlasmicHamyar__RenderFunc(props: {
             }}
             runWhileEditing={false}
           />
+
+          <Dialog
+            data-plasmic-name={"dialog3"}
+            data-plasmic-override={overrides.dialog3}
+            className={classNames("__wab_instance", sty.dialog3)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "dialog3",
+                "opendialog"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, [
+              "dialog3",
+              "opendialog"
+            ])}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__hv3WY)}
+            >
+              <LottieWrapper
+                animationData={{
+                  nm: "Warning",
+                  ddd: 0,
+                  h: 114,
+                  w: 114,
+                  meta: { g: "@lottiefiles/toolkit-js 0.33.2" },
+                  layers: [
+                    {
+                      ty: 4,
+                      nm: "Layer 5 Outlines",
+                      sr: 1,
+                      st: 4.00000016292334,
+                      op: 320.000013033867,
+                      ip: 4.00000016292334,
+                      hd: false,
+                      ddd: 0,
+                      bm: 0,
+                      hasMask: false,
+                      ao: 0,
+                      ks: {
+                        a: { a: 0, k: [56.897, 56.897, 0], ix: 1 },
+                        s: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [83, 83, 100],
+                              t: 26
+                            },
+                            { s: [100, 100, 100], t: 38.0000015477717 }
+                          ],
+                          ix: 6
+                        },
+                        sk: { a: 0, k: 0 },
+                        p: { a: 0, k: [56.853, 56.618, 0], ix: 2 },
+                        r: { a: 0, k: 0, ix: 10 },
+                        sa: { a: 0, k: 0 },
+                        o: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [0],
+                              t: 26
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [100],
+                              t: 32
+                            },
+                            { s: [0], t: 38.0000015477717 }
+                          ],
+                          ix: 11
+                        }
+                      },
+                      ef: [],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Group",
+                          nm: "Group 1",
+                          ix: 1,
+                          cix: 2,
+                          np: 4,
+                          it: [
+                            {
+                              ty: "sh",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Shape - Group",
+                              nm: "Path 1",
+                              ix: 1,
+                              d: 1,
+                              ks: {
+                                a: 0,
+                                k: {
+                                  c: true,
+                                  i: [
+                                    [28.397, 0],
+                                    [0, -28.397],
+                                    [-28.397, 0],
+                                    [0, 28.397]
+                                  ],
+                                  o: [
+                                    [-28.397, 0],
+                                    [0, 28.397],
+                                    [28.397, 0],
+                                    [0, -28.397]
+                                  ],
+                                  v: [
+                                    [0.001, -51.497],
+                                    [-51.498, 0.001],
+                                    [0.001, 51.497],
+                                    [51.498, 0.001]
+                                  ]
+                                },
+                                ix: 2
+                              }
+                            },
+                            {
+                              ty: "sh",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Shape - Group",
+                              nm: "Path 2",
+                              ix: 2,
+                              d: 1,
+                              ks: {
+                                a: 0,
+                                k: {
+                                  c: true,
+                                  i: [
+                                    [31.234, 0],
+                                    [0, 31.233],
+                                    [-31.236, 0],
+                                    [0, -31.237]
+                                  ],
+                                  o: [
+                                    [-31.236, 0],
+                                    [0, -31.237],
+                                    [31.234, 0],
+                                    [0, 31.233]
+                                  ],
+                                  v: [
+                                    [0.001, 56.647],
+                                    [-56.647, 0.001],
+                                    [0.001, -56.647],
+                                    [56.647, 0.001]
+                                  ]
+                                },
+                                ix: 2
+                              }
+                            },
+                            {
+                              ty: "mm",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Filter - Merge",
+                              nm: "Merge Paths 1",
+                              mm: 1
+                            },
+                            {
+                              ty: "fl",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Graphic - Fill",
+                              nm: "Fill 1",
+                              c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
+                              r: 1,
+                              o: { a: 0, k: 100, ix: 5 }
+                            },
+                            {
+                              ty: "tr",
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              p: { a: 0, k: [56.897, 56.898], ix: 2 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              o: { a: 0, k: 100, ix: 7 }
+                            }
+                          ]
+                        }
+                      ],
+                      ind: 1
+                    },
+                    {
+                      ty: 4,
+                      nm: "Layer 2 Outlines",
+                      sr: 1,
+                      st: 0,
+                      op: 316.000012870944,
+                      ip: 0,
+                      hd: false,
+                      ddd: 0,
+                      bm: 0,
+                      hasMask: false,
+                      ao: 0,
+                      ks: {
+                        a: { a: 0, k: [56.897, 56.897, 0], ix: 1 },
+                        s: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [83, 83, 100],
+                              t: 20
+                            },
+                            { s: [100, 100, 100], t: 32.0000013033867 }
+                          ],
+                          ix: 6
+                        },
+                        sk: { a: 0, k: 0 },
+                        p: { a: 0, k: [56.853, 56.618, 0], ix: 2 },
+                        r: { a: 0, k: 0, ix: 10 },
+                        sa: { a: 0, k: 0 },
+                        o: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [0],
+                              t: 20
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [100],
+                              t: 26
+                            },
+                            { s: [0], t: 32.0000013033867 }
+                          ],
+                          ix: 11
+                        }
+                      },
+                      ef: [],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Group",
+                          nm: "Group 1",
+                          ix: 1,
+                          cix: 2,
+                          np: 4,
+                          it: [
+                            {
+                              ty: "sh",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Shape - Group",
+                              nm: "Path 1",
+                              ix: 1,
+                              d: 1,
+                              ks: {
+                                a: 0,
+                                k: {
+                                  c: true,
+                                  i: [
+                                    [28.397, 0],
+                                    [0, -28.397],
+                                    [-28.397, 0],
+                                    [0, 28.397]
+                                  ],
+                                  o: [
+                                    [-28.397, 0],
+                                    [0, 28.397],
+                                    [28.397, 0],
+                                    [0, -28.397]
+                                  ],
+                                  v: [
+                                    [0.001, -51.497],
+                                    [-51.498, 0.001],
+                                    [0.001, 51.497],
+                                    [51.498, 0.001]
+                                  ]
+                                },
+                                ix: 2
+                              }
+                            },
+                            {
+                              ty: "sh",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Shape - Group",
+                              nm: "Path 2",
+                              ix: 2,
+                              d: 1,
+                              ks: {
+                                a: 0,
+                                k: {
+                                  c: true,
+                                  i: [
+                                    [31.234, 0],
+                                    [0, 31.233],
+                                    [-31.236, 0],
+                                    [0, -31.237]
+                                  ],
+                                  o: [
+                                    [-31.236, 0],
+                                    [0, -31.237],
+                                    [31.234, 0],
+                                    [0, 31.233]
+                                  ],
+                                  v: [
+                                    [0.001, 56.647],
+                                    [-56.647, 0.001],
+                                    [0.001, -56.647],
+                                    [56.647, 0.001]
+                                  ]
+                                },
+                                ix: 2
+                              }
+                            },
+                            {
+                              ty: "mm",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Filter - Merge",
+                              nm: "Merge Paths 1",
+                              mm: 1
+                            },
+                            {
+                              ty: "fl",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Graphic - Fill",
+                              nm: "Fill 1",
+                              c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
+                              r: 1,
+                              o: { a: 0, k: 100, ix: 5 }
+                            },
+                            {
+                              ty: "tr",
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              p: { a: 0, k: [56.897, 56.898], ix: 2 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              o: { a: 0, k: 100, ix: 7 }
+                            }
+                          ]
+                        }
+                      ],
+                      ind: 2
+                    },
+                    {
+                      ty: 4,
+                      nm: "Layer 4 Outlines",
+                      sr: 1,
+                      st: 0,
+                      op: 316.000012870944,
+                      ip: 0,
+                      hd: false,
+                      ddd: 0,
+                      bm: 0,
+                      hasMask: false,
+                      ao: 0,
+                      ks: {
+                        a: { a: 0, k: [5.434, 31.682, 0], ix: 1 },
+                        s: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [100, 100, 100],
+                              t: 0
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [115, 90, 100],
+                              t: 4
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [100, 112, 100],
+                              t: 8
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [100, 112, 100],
+                              t: 11
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [113.333, 94.333, 100],
+                              t: 13
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [100, 112, 100],
+                              t: 15
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [113, 95, 100],
+                              t: 20
+                            },
+                            { s: [100, 100, 100], t: 22.0000008960784 }
+                          ],
+                          ix: 6
+                        },
+                        sk: { a: 0, k: 0 },
+                        p: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [57.387, 65.377, 0],
+                              t: 0,
+                              ti: [0, 0.835, 0],
+                              to: [0, -0.35, 0]
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [57.387, 65.46, 0],
+                              t: 4,
+                              ti: [0, 0.609, 0],
+                              to: [0, -1.455, 0]
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [57.387, 56.377, 0],
+                              t: 11,
+                              ti: [0, 0.609, 0],
+                              to: [0, -0.958, 0]
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [57.387, 50.877, 0],
+                              t: 13,
+                              ti: [0, 0.609, 0],
+                              to: [0, -0.958, 0]
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [57.387, 56.377, 0],
+                              t: 15,
+                              ti: [0, -0.417, 0],
+                              to: [0, -0.958, 0]
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [57.387, 65.627, 0],
+                              t: 19,
+                              ti: [0, 0.958, 0],
+                              to: [0, 0.417, 0]
+                            },
+                            { s: [57.387, 65.377, 0], t: 22.0000008960784 }
+                          ],
+                          ix: 2
+                        },
+                        r: { a: 0, k: 0, ix: 10 },
+                        sa: { a: 0, k: 0 },
+                        o: { a: 0, k: 100, ix: 11 }
+                      },
+                      ef: [],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Group",
+                          nm: "Group 1",
+                          ix: 1,
+                          cix: 2,
+                          np: 2,
+                          it: [
+                            {
+                              ty: "sh",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Shape - Group",
+                              nm: "Path 1",
+                              ix: 1,
+                              d: 1,
+                              ks: {
+                                a: 0,
+                                k: {
+                                  c: true,
+                                  i: [
+                                    [2.878, 0],
+                                    [0, -2.487],
+                                    [0, 0],
+                                    [-2.951, 0],
+                                    [0, 2.426],
+                                    [0, 0]
+                                  ],
+                                  o: [
+                                    [-2.951, 0],
+                                    [0, 0],
+                                    [0, 2.49],
+                                    [2.878, 0],
+                                    [0, 0],
+                                    [0, -2.428]
+                                  ],
+                                  v: [
+                                    [0.001, -15.433],
+                                    [-5.184, -11.406],
+                                    [-5.184, 11.409],
+                                    [0.001, 15.433],
+                                    [5.184, 11.409],
+                                    [5.184, -11.406]
+                                  ]
+                                },
+                                ix: 2
+                              }
+                            },
+                            {
+                              ty: "fl",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Graphic - Fill",
+                              nm: "Fill 1",
+                              c: { a: 0, k: [1, 1, 1], ix: 4 },
+                              r: 1,
+                              o: { a: 0, k: 100, ix: 5 }
+                            },
+                            {
+                              ty: "tr",
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              p: { a: 0, k: [5.433, 15.682], ix: 2 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              o: { a: 0, k: 100, ix: 7 }
+                            }
+                          ]
+                        }
+                      ],
+                      ind: 3
+                    },
+                    {
+                      ty: 4,
+                      nm: "Layer 3 Outlines",
+                      sr: 1,
+                      st: 0,
+                      op: 316.000012870944,
+                      ip: 0,
+                      hd: false,
+                      ddd: 0,
+                      bm: 0,
+                      hasMask: false,
+                      ao: 0,
+                      ks: {
+                        a: { a: 0, k: [5.516, 11.142, 0], ix: 1 },
+                        s: {
+                          a: 1,
+                          k: [
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [100, 100, 100],
+                              t: 20
+                            },
+                            {
+                              o: { x: 0.167, y: 0.167 },
+                              i: { x: 0.833, y: 0.833 },
+                              s: [100, 79, 100],
+                              t: 22
+                            },
+                            { s: [100, 100, 100], t: 24.00000097754 }
+                          ],
+                          ix: 6
+                        },
+                        sk: { a: 0, k: 0 },
+                        p: { a: 0, k: [57.011, 80.341, 0], ix: 2 },
+                        r: { a: 0, k: 0, ix: 10 },
+                        sa: { a: 0, k: 0 },
+                        o: { a: 0, k: 100, ix: 11 }
+                      },
+                      ef: [],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Group",
+                          nm: "Group 1",
+                          ix: 1,
+                          cix: 2,
+                          np: 2,
+                          it: [
+                            {
+                              ty: "sh",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Shape - Group",
+                              nm: "Path 1",
+                              ix: 1,
+                              d: 1,
+                              ks: {
+                                a: 0,
+                                k: {
+                                  c: true,
+                                  i: [
+                                    [2.834, 0],
+                                    [0, -2.837],
+                                    [-2.835, 0],
+                                    [0, 2.833]
+                                  ],
+                                  o: [
+                                    [-2.835, 0],
+                                    [0, 2.833],
+                                    [2.834, 0],
+                                    [0, -2.837]
+                                  ],
+                                  v: [
+                                    [0.002, -5.142],
+                                    [-5.141, 0.003],
+                                    [0.002, 5.142],
+                                    [5.141, 0.003]
+                                  ]
+                                },
+                                ix: 2
+                              }
+                            },
+                            {
+                              ty: "fl",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Graphic - Fill",
+                              nm: "Fill 1",
+                              c: { a: 0, k: [1, 1, 1], ix: 4 },
+                              r: 1,
+                              o: { a: 0, k: 100, ix: 5 }
+                            },
+                            {
+                              ty: "tr",
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              p: { a: 0, k: [5.391, 5.392], ix: 2 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              o: { a: 0, k: 100, ix: 7 }
+                            }
+                          ]
+                        }
+                      ],
+                      ind: 4
+                    },
+                    {
+                      ty: 4,
+                      nm: "Layer 1 Outlines",
+                      sr: 1,
+                      st: 0,
+                      op: 316.000012870944,
+                      ip: 0,
+                      hd: false,
+                      ddd: 0,
+                      bm: 0,
+                      hasMask: false,
+                      ao: 0,
+                      ks: {
+                        a: { a: 0, k: [41.449, 41.449, 0], ix: 1 },
+                        s: { a: 0, k: [100, 100, 100], ix: 6 },
+                        sk: { a: 0, k: 0 },
+                        p: { a: 0, k: [56.854, 56.618, 0], ix: 2 },
+                        r: { a: 0, k: 0, ix: 10 },
+                        sa: { a: 0, k: 0 },
+                        o: { a: 0, k: 100, ix: 11 }
+                      },
+                      ef: [],
+                      shapes: [
+                        {
+                          ty: "gr",
+                          bm: 0,
+                          hd: false,
+                          mn: "ADBE Vector Group",
+                          nm: "Group 1",
+                          ix: 1,
+                          cix: 2,
+                          np: 2,
+                          it: [
+                            {
+                              ty: "sh",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Shape - Group",
+                              nm: "Path 1",
+                              ix: 1,
+                              d: 1,
+                              ks: {
+                                a: 0,
+                                k: {
+                                  c: true,
+                                  i: [
+                                    [-22.753, 0],
+                                    [0, -22.753],
+                                    [22.754, 0],
+                                    [0, 22.754]
+                                  ],
+                                  o: [
+                                    [22.754, 0],
+                                    [0, 22.754],
+                                    [-22.753, 0],
+                                    [0, -22.753]
+                                  ],
+                                  v: [
+                                    [0, -41.199],
+                                    [41.199, 0],
+                                    [0, 41.199],
+                                    [-41.199, 0]
+                                  ]
+                                },
+                                ix: 2
+                              }
+                            },
+                            {
+                              ty: "fl",
+                              bm: 0,
+                              hd: false,
+                              mn: "ADBE Vector Graphic - Fill",
+                              nm: "Fill 1",
+                              c: { a: 0, k: [0.5098, 0.3294, 0.7765], ix: 4 },
+                              r: 1,
+                              o: { a: 0, k: 100, ix: 5 }
+                            },
+                            {
+                              ty: "tr",
+                              a: { a: 0, k: [0, 0], ix: 1 },
+                              s: { a: 0, k: [100, 100], ix: 3 },
+                              sk: { a: 0, k: 0, ix: 4 },
+                              p: { a: 0, k: [41.449, 41.449], ix: 2 },
+                              r: { a: 0, k: 0, ix: 6 },
+                              sa: { a: 0, k: 0, ix: 5 },
+                              o: { a: 0, k: 100, ix: 7 }
+                            }
+                          ]
+                        }
+                      ],
+                      ind: 5
+                    }
+                  ],
+                  v: "5.5.9",
+                  fr: 29.9700012207031,
+                  op: 38.0000015477717,
+                  ip: 0,
+                  assets: []
+                }}
+                className={classNames("__wab_instance", sty.lottie___7UDkt)}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___7E3Gu
+                )}
+              >
+                {
+                  "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0641\u0639\u0627\u0644\u200c\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0648\u0633\u0637 \u0634\u0645\u0627 \u0627\u0645\u06a9\u0627\u0646\u200c\u067e\u0630\u06cc\u0631 \u0646\u06cc\u0633\u062a."
+                }
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__gtkIq
+                )}
+              >
+                {
+                  "\u0628\u0627 \u0639\u0631\u0636 \u067e\u0648\u0632\u0634\u060c \u0641\u0639\u0627\u0644\u200c\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062f\u0631 \u062d\u0627\u0644 \u062d\u0627\u0636\u0631 \u0641\u0642\u0637 \u062a\u0648\u0633\u0637 \u0647\u0645\u06cc\u0627\u0631 \u0634\u0645\u0627 \u0627\u0645\u06a9\u0627\u0646\u200c\u067e\u0630\u06cc\u0631 \u0627\u0633\u062a. \u062f\u0631 \u0635\u0648\u0631\u062a \u062a\u0645\u0627\u06cc\u0644\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0647\u0645\u06cc\u0627\u0631 \u062e\u0648\u062f \u0628\u062e\u0648\u0627\u0647\u06cc\u062f \u062a\u0627 \u0627\u06cc\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0627 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u06a9\u0646\u062f. \u0627\u0632 \u0647\u0645\u0631\u0627\u0647\u06cc \u0634\u0645\u0627 \u0633\u067e\u0627\u0633\u06af\u0632\u0627\u0631\u06cc\u0645."
+                }
+              </div>
+              <Button
+                data-plasmic-name={"button13"}
+                data-plasmic-override={overrides.button13}
+                className={classNames("__wab_instance", sty.button13)}
+                color={generateStateValueProp($state, ["button13", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDialog3Opendialog"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dialog3", "opendialog"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDialog3Opendialog"] != null &&
+                    typeof $steps["updateDialog3Opendialog"] === "object" &&
+                    typeof $steps["updateDialog3Opendialog"].then === "function"
+                  ) {
+                    $steps["updateDialog3Opendialog"] = await $steps[
+                      "updateDialog3Opendialog"
+                    ];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button13", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              >
+                {"\u062a\u0627\u06cc\u06cc\u062f"}
+              </Button>
+            </Stack__>
+          </Dialog>
         </div>
       </div>
     </React.Fragment>
@@ -15819,6 +16904,7 @@ const PlasmicDescendants = {
     "input",
     "button",
     "button2",
+    "button7",
     "shopModalMobile",
     "subscription2",
     "button4",
@@ -15829,7 +16915,6 @@ const PlasmicDescendants = {
     "todo",
     "tooltip",
     "heart",
-    "lottie",
     "user",
     "shop",
     "favicon",
@@ -15849,7 +16934,9 @@ const PlasmicDescendants = {
     "subscription3",
     "button11",
     "iframe",
-    "timer"
+    "timer",
+    "dialog3",
+    "button13"
   ],
   cyclebox: ["cyclebox", "lineClomp", "progress"],
   lineClomp: ["lineClomp"],
@@ -15871,6 +16958,7 @@ const PlasmicDescendants = {
   input: ["input"],
   button: ["button"],
   button2: ["button2"],
+  button7: ["button7"],
   shopModalMobile: ["shopModalMobile", "subscription2", "button4"],
   subscription2: ["subscription2"],
   button4: ["button4"],
@@ -15881,7 +16969,6 @@ const PlasmicDescendants = {
   todo: ["todo"],
   tooltip: ["tooltip", "heart"],
   heart: ["heart"],
-  lottie: ["lottie"],
   user: ["user"],
   shop: ["shop"],
   favicon: ["favicon"],
@@ -15922,7 +17009,9 @@ const PlasmicDescendants = {
   subscription3: ["subscription3"],
   button11: ["button11"],
   iframe: ["iframe"],
-  timer: ["timer"]
+  timer: ["timer"],
+  dialog3: ["dialog3", "button13"],
+  button13: ["button13"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -15949,6 +17038,7 @@ type NodeDefaultElementType = {
   input: typeof AntdInput;
   button: typeof Button;
   button2: typeof Button;
+  button7: typeof Button;
   shopModalMobile: typeof SlideinModal;
   subscription2: typeof Subscription;
   button4: typeof Button;
@@ -15959,7 +17049,6 @@ type NodeDefaultElementType = {
   todo: typeof ApiRequest;
   tooltip: typeof AntdTooltip;
   heart: typeof Heart;
-  lottie: typeof LottieWrapper;
   user: typeof ApiRequest;
   shop: typeof ApiRequest;
   favicon: typeof Embed;
@@ -15980,6 +17069,8 @@ type NodeDefaultElementType = {
   button11: typeof Button;
   iframe: typeof Iframe;
   timer: typeof Timer;
+  dialog3: typeof Dialog;
+  button13: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -16087,6 +17178,7 @@ export const PlasmicHamyar = Object.assign(
     input: makeNodeComponent("input"),
     button: makeNodeComponent("button"),
     button2: makeNodeComponent("button2"),
+    button7: makeNodeComponent("button7"),
     shopModalMobile: makeNodeComponent("shopModalMobile"),
     subscription2: makeNodeComponent("subscription2"),
     button4: makeNodeComponent("button4"),
@@ -16097,7 +17189,6 @@ export const PlasmicHamyar = Object.assign(
     todo: makeNodeComponent("todo"),
     tooltip: makeNodeComponent("tooltip"),
     heart: makeNodeComponent("heart"),
-    lottie: makeNodeComponent("lottie"),
     user: makeNodeComponent("user"),
     shop: makeNodeComponent("shop"),
     favicon: makeNodeComponent("favicon"),
@@ -16118,6 +17209,8 @@ export const PlasmicHamyar = Object.assign(
     button11: makeNodeComponent("button11"),
     iframe: makeNodeComponent("iframe"),
     timer: makeNodeComponent("timer"),
+    dialog3: makeNodeComponent("dialog3"),
+    button13: makeNodeComponent("button13"),
 
     // Metadata about props expected for PlasmicHamyar
     internalVariantProps: PlasmicHamyar__VariantProps,

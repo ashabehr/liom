@@ -540,6 +540,51 @@ function PlasmicChatviow__RenderFunc(props: {
                       "updateAntdInputValue"
                     ];
                   }
+
+                  $steps["updateFilter"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["filter"]
+                          },
+                          operation: 0,
+                          value: (() => {
+                            return $state.chat.data.list.filter(
+                              item =>
+                                item.text.includes($state.antdInput.value) ||
+                                item.subList_name.includes(
+                                  $state.antdInput.value
+                                ) ||
+                                item.doctor.name.includes(
+                                  $state.antdInput.value
+                                )
+                            );
+                          })()
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateFilter"] != null &&
+                    typeof $steps["updateFilter"] === "object" &&
+                    typeof $steps["updateFilter"].then === "function"
+                  ) {
+                    $steps["updateFilter"] = await $steps["updateFilter"];
+                  }
                 }}
                 onVariableChange={async (...eventArgs: any) => {
                   generateStateOnChangeProp($state, [
