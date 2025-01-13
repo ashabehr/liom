@@ -109,6 +109,7 @@ export type PlasmicMassage__OverridesType = {
   helloDoctorIBel3?: Flex__<"div">;
   button?: Flex__<typeof Button>;
   helloDoctorIBel4?: Flex__<"div">;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultMassageProps {
@@ -332,20 +333,17 @@ function PlasmicMassage__RenderFunc(props: {
           [sty.buttonend]: hasVariant($state, "end", "end")
         })}
         color={generateStateValueProp($state, ["button", "color"])}
+        endIcon={
+          <Icon115Icon
+            data-plasmic-name={"svg"}
+            data-plasmic-override={overrides.svg}
+            className={classNames(projectcss.all, sty.svg, {
+              [sty.svgend]: hasVariant($state, "end", "end")
+            })}
+            role={"img"}
+          />
+        }
         isDisabled={(() => {
-          try {
-            return $state.loading;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return [];
-            }
-            throw e;
-          }
-        })()}
-        loading={(() => {
           try {
             return $state.loading;
           } catch (e) {
@@ -375,22 +373,53 @@ function PlasmicMassage__RenderFunc(props: {
           }
         }}
         shape={"rounded"}
+        showEndIcon={(() => {
+          try {
+            return $state.loading;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return [];
+            }
+            throw e;
+          }
+        })()}
         size={"compact"}
       >
-        <div
-          data-plasmic-name={"helloDoctorIBel4"}
-          data-plasmic-override={overrides.helloDoctorIBel4}
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.helloDoctorIBel4,
-            { [sty.helloDoctorIBel4end]: hasVariant($state, "end", "end") }
-          )}
-        >
-          {hasVariant($state, "end", "end")
-            ? "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a \u0631\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"
-            : "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"}
-        </div>
+        {(
+          hasVariant($state, "end", "end")
+            ? (() => {
+                try {
+                  return $state.loading;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return true;
+                  }
+                  throw e;
+                }
+              })()
+            : true
+        ) ? (
+          <div
+            data-plasmic-name={"helloDoctorIBel4"}
+            data-plasmic-override={overrides.helloDoctorIBel4}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.helloDoctorIBel4,
+              { [sty.helloDoctorIBel4end]: hasVariant($state, "end", "end") }
+            )}
+          >
+            {hasVariant($state, "end", "end")
+              ? "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a \u0631\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"
+              : "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"}
+          </div>
+        ) : null}
       </Button>
     </Stack__>
   ) as React.ReactElement | null;
@@ -402,12 +431,14 @@ const PlasmicDescendants = {
     "rectangle5",
     "helloDoctorIBel3",
     "button",
-    "helloDoctorIBel4"
+    "helloDoctorIBel4",
+    "svg"
   ],
   rectangle5: ["rectangle5", "helloDoctorIBel3"],
   helloDoctorIBel3: ["helloDoctorIBel3"],
-  button: ["button", "helloDoctorIBel4"],
-  helloDoctorIBel4: ["helloDoctorIBel4"]
+  button: ["button", "helloDoctorIBel4", "svg"],
+  helloDoctorIBel4: ["helloDoctorIBel4"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -418,6 +449,7 @@ type NodeDefaultElementType = {
   helloDoctorIBel3: "div";
   button: typeof Button;
   helloDoctorIBel4: "div";
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -484,6 +516,7 @@ export const PlasmicMassage = Object.assign(
     helloDoctorIBel3: makeNodeComponent("helloDoctorIBel3"),
     button: makeNodeComponent("button"),
     helloDoctorIBel4: makeNodeComponent("helloDoctorIBel4"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicMassage
     internalVariantProps: PlasmicMassage__VariantProps,
