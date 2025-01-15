@@ -409,8 +409,8 @@
 }
 @media (max-width: 640px) {
   .freeBox__nRwCr {
-    height: 290px;
-    max-height: 300px;
+    height: 300px;
+    max-height: 500px;
     flex-shrink: 0;
     padding: 0px 16px;
   }
@@ -915,7 +915,7 @@
 }
 @media (max-width: 640px) {
   .text__uZrM0 {
-    font-size: 14px;
+    font-size: 11px;
     text-align: justify;
   }
 }
@@ -982,7 +982,7 @@
   height: 50px;
   position: absolute;
   left: 110px;
-  top: 66px;
+  top: 80px;
   flex-shrink: 0;
 }
 @media (max-width: 640px) {

@@ -2665,7 +2665,18 @@ function PlasmicHamyar__RenderFunc(props: {
                                     dangerouslySetInnerHTML={{
                                       __html: (() => {
                                         try {
-                                          return "\xABتغییرات <b>چرخه قاعدگیش</b> رو برات ارسال می‌کنم که <b>راحت‌تر بتونی مراقبش باشی.</b> اینطوری <b>رابطه شادتری</b> دارین.\xBB";
+                                          return (
+                                            `علاوه بر تغییرات <b>چرخه قاعدگیش،</b> توصیه‌هایی می‌فرستم که <b>بدونی چیکار کنی</b>. ` +
+                                            `<b>` +
+                                            (function () {
+                                              var name = $state.name;
+                                              return name.length > 10
+                                                ? name.substring(0, 10) + "..."
+                                                : name;
+                                            })() +
+                                            `</b>` +
+                                            ` هم <b>پیامک می‌گیره</b> تا حواسش به <b>رابطه‌تون</b> باشه و <b>خودش رو کنترل کنه</b>. اینطوری <b>رابطه شادتری دارید</b>.`
+                                          );
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
@@ -2685,7 +2696,18 @@ function PlasmicHamyar__RenderFunc(props: {
                                     dangerouslySetInnerHTML={{
                                       __html: (() => {
                                         try {
-                                          return "تغییرات <b>چرخه قاعدگیش</b> رو برات ارسال می‌کنم که <b>راحت‌تر بتونی اطلاع داشته باشی و مراقبش باشی.</b> اینطوری راحت‌تر با هم کنار میاید و <b>رابطه شادتری دارین.</b>";
+                                          return (
+                                            `علاوه بر تغییرات <b>چرخه قاعدگیش،</b> توصیه‌هایی می‌فرستم که <b>بدونی چیکار کنی</b>. ` +
+                                            `<b>` +
+                                            (function () {
+                                              var name = $state.name;
+                                              return name.length > 10
+                                                ? name.substring(0, 10) + "..."
+                                                : name;
+                                            })() +
+                                            `</b>` +
+                                            ` هم <b>پیامک می‌گیره</b> تا حواسش به <b>رابطه‌تون</b> باشه و <b>خودش رو کنترل کنه</b>. اینطوری <b>رابطه شادتری دارید</b>.`
+                                          );
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
