@@ -79,8 +79,8 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicQuestionnaire.module.css"; // plasmic-import: VgOjUIjY96PP/css
 
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
-import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -97,6 +97,7 @@ export type PlasmicQuestionnaire__OverridesType = {
   root?: Flex__<"div">;
   favicon?: Flex__<typeof Embed>;
   top3?: Flex__<"div">;
+  svg?: Flex__<"svg">;
   apiRequest2?: Flex__<typeof ApiRequest>;
   question?: Flex__<typeof Question>;
   textArea3?: Flex__<typeof AntdTextArea>;
@@ -424,7 +425,9 @@ function PlasmicQuestionnaire__RenderFunc(props: {
             className={classNames(projectcss.all, sty.top3)}
           >
             <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__jEjHh)}
+              data-plasmic-name={"svg"}
+              data-plasmic-override={overrides.svg}
+              className={classNames(projectcss.all, sty.svg)}
               onClick={async event => {
                 const $steps = {};
 
@@ -469,12 +472,117 @@ function PlasmicQuestionnaire__RenderFunc(props: {
             className={classNames("__wab_instance", sty.apiRequest2)}
             errorDisplay={null}
             loadingDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__p1Cy5)}>
-                <Icon115Icon
-                  className={classNames(projectcss.all, sty.svg___03Lam)}
-                  role={"img"}
-                />
-              </div>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__xkAyc)}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__hahJj)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox___6ROFz,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__zwip0,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__cjo21)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__r5At4,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__j9Oyk,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__hVuSn)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__p0JV,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__rqziw,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__qjvaa)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__g0So1,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__eRvWc,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__vcSt7)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__bbp6E,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__ibvVb,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+              </Stack__>
             }
             method={"GET"}
             onError={async (...eventArgs: any) => {
@@ -1282,9 +1390,6 @@ function PlasmicQuestionnaire__RenderFunc(props: {
               </section>
             </Stack__>
           </ApiRequest>
-          <div className={classNames(projectcss.all, sty.freeBox__xkAyc)}>
-            <div className={classNames(projectcss.all, sty.freeBox___6ROFz)} />
-          </div>
         </div>
       </div>
     </React.Fragment>
@@ -1296,6 +1401,7 @@ const PlasmicDescendants = {
     "root",
     "favicon",
     "top3",
+    "svg",
     "apiRequest2",
     "question",
     "textArea3",
@@ -1306,7 +1412,8 @@ const PlasmicDescendants = {
     "button6"
   ],
   favicon: ["favicon"],
-  top3: ["top3"],
+  top3: ["top3", "svg"],
+  svg: ["svg"],
   apiRequest2: [
     "apiRequest2",
     "question",
@@ -1332,6 +1439,7 @@ type NodeDefaultElementType = {
   root: "div";
   favicon: typeof Embed;
   top3: "div";
+  svg: "svg";
   apiRequest2: typeof ApiRequest;
   question: typeof Question;
   textArea3: typeof AntdTextArea;
@@ -1429,6 +1537,7 @@ export const PlasmicQuestionnaire = Object.assign(
     // Helper components rendering sub-elements
     favicon: makeNodeComponent("favicon"),
     top3: makeNodeComponent("top3"),
+    svg: makeNodeComponent("svg"),
     apiRequest2: makeNodeComponent("apiRequest2"),
     question: makeNodeComponent("question"),
     textArea3: makeNodeComponent("textArea3"),
