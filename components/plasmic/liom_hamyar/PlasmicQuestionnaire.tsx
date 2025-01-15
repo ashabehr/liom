@@ -606,8 +606,10 @@ function PlasmicQuestionnaire__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  listID: "1", //new URLSearchParams(new URL(window.location.href).search).get("listID"),
-                  token: $ctx.query.token //localStorage.getItem("ClinicToken")
+                  listID: new URLSearchParams(
+                    new URL(window.location.href).search
+                  ).get("listID"),
+                  token: localStorage.getItem("ClinicToken")
                 };
               } catch (e) {
                 if (
