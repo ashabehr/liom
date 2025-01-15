@@ -1256,6 +1256,25 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                         ];
                       }
 
+                      $steps["invokeGlobalAction4"] = true
+                        ? (() => {
+                            const actionArgs = { args: [2000] };
+                            return $globalActions["Fragment.wait"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction4"] != null &&
+                        typeof $steps["invokeGlobalAction4"] === "object" &&
+                        typeof $steps["invokeGlobalAction4"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction4"] = await $steps[
+                          "invokeGlobalAction4"
+                        ];
+                      }
+
                       $steps["updateLoading2"] = true
                         ? (() => {
                             const actionArgs = {
@@ -1292,24 +1311,19 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["runCode"] = (
-                        $steps.invokeGlobalAction?.data?.success
-                          ? $steps.invokeGlobalAction?.data?.success
-                          : false
-                      )
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
+                      $steps["runCode"] =
+                        $steps.invokeGlobalAction?.data?.success ?? false
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
                                   return history.back();
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                       if (
                         $steps["runCode"] != null &&
                         typeof $steps["runCode"] === "object" &&
