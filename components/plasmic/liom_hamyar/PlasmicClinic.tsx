@@ -738,6 +738,34 @@ function PlasmicClinic__RenderFunc(props: {
                 data-plasmic-name={"rectangle2"}
                 data-plasmic-override={overrides.rectangle2}
                 className={classNames(projectcss.all, sty.rectangle2)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToDocters"] = true
+                    ? (() => {
+                        const actionArgs = { destination: `/docters` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToDocters"] != null &&
+                    typeof $steps["goToDocters"] === "object" &&
+                    typeof $steps["goToDocters"].then === "function"
+                  ) {
+                    $steps["goToDocters"] = await $steps["goToDocters"];
+                  }
+                }}
               >
                 <Stack__
                   as={"div"}

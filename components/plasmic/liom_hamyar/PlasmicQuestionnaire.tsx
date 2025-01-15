@@ -271,7 +271,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.apiRequest.data.list.map(item => {
+              return $state.apiRequest2.data.list.map(item => {
                 return {
                   questionID: item.id,
                   answer: ""
@@ -606,10 +606,8 @@ function PlasmicQuestionnaire__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  listID: new URLSearchParams(
-                    new URL(window.location.href).search
-                  ).get("listID"),
-                  token: localStorage.getItem("ClinicToken")
+                  listID: "1", //new URLSearchParams(new URL(window.location.href).search).get("listID"),
+                  token: $ctx.query.token //localStorage.getItem("ClinicToken")
                 };
               } catch (e) {
                 if (
@@ -1159,8 +1157,8 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                                 "warning",
                                 "\u0644\u0637\u0641\u0627 \u0628\u0647 \u062a\u0645\u0627\u0645 \u0633\u0648\u0627\u0644\u0627\u062a \u067e\u0627\u0633\u062e \u062f\u0647\u06cc\u062f.",
                                 undefined,
-                                undefined,
-                                "bottomLeft"
+                                5,
+                                "bottomRight"
                               ]
                             };
                             return $globalActions[
@@ -1238,7 +1236,9 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                                     }
                                     throw e;
                                   }
-                                })()
+                                })(),
+                                undefined,
+                                2
                               ]
                             };
                             return $globalActions[
@@ -1311,19 +1311,24 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["runCode"] =
-                        $steps.invokeGlobalAction?.data?.success ?? false
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
+                      $steps["runCode"] = (
+                        $steps.invokeGlobalAction?.data?.success
+                          ? $steps.invokeGlobalAction.data.success
+                          : false
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
                                   return history.back();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
                       if (
                         $steps["runCode"] != null &&
                         typeof $steps["runCode"] === "object" &&
