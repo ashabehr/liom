@@ -118,7 +118,7 @@ export type PlasmicModal__OverridesType = {
   ariaDialogTrigger?: Flex__<typeof BaseDialogTrigger>;
   ariaModal?: Flex__<typeof BaseModal>;
   ariaDialog?: Flex__<typeof BaseDialog>;
-  ariaHeading?: Flex__<typeof BaseHeading>;
+  ariaHeadingDeprecated?: Flex__<typeof BaseHeading>;
   scrollableContent?: Flex__<"div">;
   freeBox?: Flex__<"div">;
 };
@@ -286,15 +286,19 @@ function PlasmicModal__RenderFunc(props: {
           >
             {$props.showHeader ? (
               <BaseHeading
-                data-plasmic-name={"ariaHeading"}
-                data-plasmic-override={overrides.ariaHeading}
-                className={classNames("__wab_instance", sty.ariaHeading, {
-                  [sty.ariaHeadingnoTrigger]: hasVariant(
-                    $state,
-                    "noTrigger",
-                    "noTrigger"
-                  )
-                })}
+                data-plasmic-name={"ariaHeadingDeprecated"}
+                data-plasmic-override={overrides.ariaHeadingDeprecated}
+                className={classNames(
+                  "__wab_instance",
+                  sty.ariaHeadingDeprecated,
+                  {
+                    [sty.ariaHeadingDeprecatednoTrigger]: hasVariant(
+                      $state,
+                      "noTrigger",
+                      "noTrigger"
+                    )
+                  }
+                )}
                 slot={"title"}
               >
                 {renderPlasmicSlot({
@@ -443,19 +447,24 @@ const PlasmicDescendants = {
     "ariaDialogTrigger",
     "ariaModal",
     "ariaDialog",
-    "ariaHeading",
+    "ariaHeadingDeprecated",
     "scrollableContent",
     "freeBox"
   ],
   ariaModal: [
     "ariaModal",
     "ariaDialog",
-    "ariaHeading",
+    "ariaHeadingDeprecated",
     "scrollableContent",
     "freeBox"
   ],
-  ariaDialog: ["ariaDialog", "ariaHeading", "scrollableContent", "freeBox"],
-  ariaHeading: ["ariaHeading"],
+  ariaDialog: [
+    "ariaDialog",
+    "ariaHeadingDeprecated",
+    "scrollableContent",
+    "freeBox"
+  ],
+  ariaHeadingDeprecated: ["ariaHeadingDeprecated"],
   scrollableContent: ["scrollableContent"],
   freeBox: ["freeBox"]
 } as const;
@@ -466,7 +475,7 @@ type NodeDefaultElementType = {
   ariaDialogTrigger: typeof BaseDialogTrigger;
   ariaModal: typeof BaseModal;
   ariaDialog: typeof BaseDialog;
-  ariaHeading: typeof BaseHeading;
+  ariaHeadingDeprecated: typeof BaseHeading;
   scrollableContent: "div";
   freeBox: "div";
 };
@@ -533,7 +542,7 @@ export const PlasmicModal = Object.assign(
     // Helper components rendering sub-elements
     ariaModal: makeNodeComponent("ariaModal"),
     ariaDialog: makeNodeComponent("ariaDialog"),
-    ariaHeading: makeNodeComponent("ariaHeading"),
+    ariaHeadingDeprecated: makeNodeComponent("ariaHeadingDeprecated"),
     scrollableContent: makeNodeComponent("scrollableContent"),
     freeBox: makeNodeComponent("freeBox"),
 

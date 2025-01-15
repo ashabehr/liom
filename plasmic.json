@@ -991,6 +991,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/docters"
+        },
+        {
+          "id": "VgOjUIjY96PP",
+          "name": "Questionnaire",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicQuestionnaire.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/Questionnaire.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicQuestionnaire.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/Questionnaire"
         }
       ],
       "icons": [
@@ -4177,8 +4191,7 @@
           "componentImportPath": "@plasmicpkgs/react-aria/skinny/registerDialog"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     }
   ],
   "globalVariants": {
