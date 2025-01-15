@@ -129,6 +129,7 @@ export type PlasmicBioritm__OverridesType = {
   button4?: Flex__<typeof Button>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   favicon?: Flex__<typeof Embed>;
+  section?: Flex__<"section">;
 };
 
 export interface DefaultBioritmProps {}
@@ -5909,151 +5910,6 @@ function PlasmicBioritm__RenderFunc(props: {
           className={classNames("__wab_instance", sty.pullToRefresh)}
         />
 
-        <Stack__
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__nexdh)}
-        >
-          <div
-            className={classNames(projectcss.all, sty.freeBox__y2Vrr)}
-            onClick={async event => {
-              const $steps = {};
-
-              $steps["runCode"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (window.location.href =
-                          "https://apps.liom.app/hamyar/?r=" +
-                          $state.userInfo.r +
-                          "&m=" +
-                          $state.userInfo.m);
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode"] != null &&
-                typeof $steps["runCode"] === "object" &&
-                typeof $steps["runCode"].then === "function"
-              ) {
-                $steps["runCode"] = await $steps["runCode"];
-              }
-            }}
-          >
-            <Icon6Icon
-              className={classNames(projectcss.all, sty.svg__wDbr)}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__pxVLk
-              )}
-            >
-              {"\u0647\u0645\u06cc\u0627\u0631"}
-            </div>
-          </div>
-          <div
-            className={classNames(projectcss.all, sty.freeBox__osP9Y)}
-            onClick={async event => {
-              const $steps = {};
-            }}
-          >
-            <PlasmicIcon__
-              PlasmicIconType={
-                hasVariant(globalVariants, "screen", "mobile")
-                  ? Icon24Icon
-                  : Icon24Icon
-              }
-              className={classNames(projectcss.all, sty.svg__ghYg)}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__wzccl
-              )}
-            >
-              {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
-            </div>
-          </div>
-          {(() => {
-            try {
-              return $state.userInfo.m == "71ef2e";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return true;
-              }
-              throw e;
-            }
-          })() ? (
-            <div
-              aria-pressed={undefined}
-              className={classNames(projectcss.all, sty.freeBox__beErA)}
-              onClick={async event => {
-                const $steps = {};
-
-                $steps["goToFood"] = true
-                  ? (() => {
-                      const actionArgs = { destination: `/food` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
-                        }
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["goToFood"] != null &&
-                  typeof $steps["goToFood"] === "object" &&
-                  typeof $steps["goToFood"].then === "function"
-                ) {
-                  $steps["goToFood"] = await $steps["goToFood"];
-                }
-              }}
-            >
-              <PlasmicIcon__
-                PlasmicIconType={
-                  hasVariant(globalVariants, "screen", "mobile")
-                    ? Icon72Icon
-                    : Icon72Icon
-                }
-                className={classNames(projectcss.all, sty.svg__ga59M)}
-                role={"img"}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ckkA
-                )}
-              >
-                {
-                  "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
-                }
-              </div>
-            </div>
-          ) : null}
-        </Stack__>
         <Embed
           data-plasmic-name={"favicon"}
           data-plasmic-override={overrides.favicon}
@@ -6064,6 +5920,158 @@ function PlasmicBioritm__RenderFunc(props: {
               : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
           }
         />
+
+        <section
+          data-plasmic-name={"section"}
+          data-plasmic-override={overrides.section}
+          className={classNames(projectcss.all, sty.section)}
+        >
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__nexdh)}
+          >
+            <div
+              className={classNames(projectcss.all, sty.freeBox__y2Vrr)}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (window.location.href =
+                            "https://apps.liom.app/hamyar/?r=" +
+                            $state.userInfo.r +
+                            "&m=" +
+                            $state.userInfo.m);
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }}
+            >
+              <Icon6Icon
+                className={classNames(projectcss.all, sty.svg__wDbr)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__pxVLk
+                )}
+              >
+                {"\u0647\u0645\u06cc\u0627\u0631"}
+              </div>
+            </div>
+            <div
+              className={classNames(projectcss.all, sty.freeBox__osP9Y)}
+              onClick={async event => {
+                const $steps = {};
+              }}
+            >
+              <PlasmicIcon__
+                PlasmicIconType={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? Icon24Icon
+                    : Icon24Icon
+                }
+                className={classNames(projectcss.all, sty.svg__ghYg)}
+                role={"img"}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__wzccl
+                )}
+              >
+                {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
+              </div>
+            </div>
+            {(() => {
+              try {
+                return $state.userInfo.m == "71ef2e";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                aria-pressed={undefined}
+                className={classNames(projectcss.all, sty.freeBox__beErA)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["goToFood"] = true
+                    ? (() => {
+                        const actionArgs = { destination: `/food` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["goToFood"] != null &&
+                    typeof $steps["goToFood"] === "object" &&
+                    typeof $steps["goToFood"].then === "function"
+                  ) {
+                    $steps["goToFood"] = await $steps["goToFood"];
+                  }
+                }}
+              >
+                <PlasmicIcon__
+                  PlasmicIconType={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? Icon72Icon
+                      : Icon72Icon
+                  }
+                  className={classNames(projectcss.all, sty.svg__ga59M)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ckkA
+                  )}
+                >
+                  {
+                    "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
+                  }
+                </div>
+              </div>
+            ) : null}
+          </Stack__>
+        </section>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
@@ -6087,7 +6095,8 @@ const PlasmicDescendants = {
     "button",
     "button4",
     "pullToRefresh",
-    "favicon"
+    "favicon",
+    "section"
   ],
   button2: ["button2"],
   button3: ["button3"],
@@ -6104,7 +6113,8 @@ const PlasmicDescendants = {
   button: ["button"],
   button4: ["button4"],
   pullToRefresh: ["pullToRefresh"],
-  favicon: ["favicon"]
+  favicon: ["favicon"],
+  section: ["section"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -6127,6 +6137,7 @@ type NodeDefaultElementType = {
   button4: typeof Button;
   pullToRefresh: typeof PullToRefresh;
   favicon: typeof Embed;
+  section: "section";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -6230,6 +6241,7 @@ export const PlasmicBioritm = Object.assign(
     button4: makeNodeComponent("button4"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     favicon: makeNodeComponent("favicon"),
+    section: makeNodeComponent("section"),
 
     // Metadata about props expected for PlasmicBioritm
     internalVariantProps: PlasmicBioritm__VariantProps,
