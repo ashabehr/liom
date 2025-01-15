@@ -1461,7 +1461,12 @@ function PlasmicDocters__RenderFunc(props: {
             }}
             params={(() => {
               try {
-                return { token: localStorage.getItem("ClinicToken") };
+                return {
+                  token: localStorage.getItem("ClinicToken"),
+                  gender: new URLSearchParams(
+                    new URL(window.location.href).search
+                  ).get("gender")
+                };
               } catch (e) {
                 if (
                   e instanceof TypeError ||

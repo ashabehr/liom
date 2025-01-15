@@ -137,6 +137,14 @@ export type PlasmicClinic__OverridesType = {
   card11?: Flex__<"div">;
   button4?: Flex__<typeof Button>;
   card16?: Flex__<"div">;
+  speciality5?: Flex__<"div">;
+  card18?: Flex__<"div">;
+  button13?: Flex__<typeof Button>;
+  card19?: Flex__<"div">;
+  button14?: Flex__<typeof Button>;
+  card20?: Flex__<"div">;
+  button15?: Flex__<typeof Button>;
+  card21?: Flex__<"div">;
   speciality3?: Flex__<"div">;
   card12?: Flex__<"div">;
   button5?: Flex__<typeof Button>;
@@ -507,6 +515,24 @@ function PlasmicClinic__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button13.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button14.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button15.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -603,7 +629,12 @@ function PlasmicClinic__RenderFunc(props: {
                       "https://n8n.staas.ir/webhook/help/getList",
                       (() => {
                         try {
-                          return { token: localStorage.getItem("ClinicToken") };
+                          return {
+                            token: localStorage.getItem("ClinicToken"),
+                            gender: new URLSearchParams(
+                              new URL(window.location.href).search
+                            ).get("gender")
+                          };
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -741,9 +772,25 @@ function PlasmicClinic__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["goToDocters"] = true
+                  $steps["goToPage"] = true
                     ? (() => {
-                        const actionArgs = { destination: `/docters` };
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return `/docters?gender=${new URLSearchParams(
+                                new URL(window.location.href).search
+                              ).get("gender")}`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return `/docters`;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
                         return (({ destination }) => {
                           if (
                             typeof destination === "string" &&
@@ -759,11 +806,11 @@ function PlasmicClinic__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["goToDocters"] != null &&
-                    typeof $steps["goToDocters"] === "object" &&
-                    typeof $steps["goToDocters"].then === "function"
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
                   ) {
-                    $steps["goToDocters"] = await $steps["goToDocters"];
+                    $steps["goToPage"] = await $steps["goToPage"];
                   }
                 }}
               >
@@ -806,9 +853,26 @@ function PlasmicClinic__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["goToDocters"] = true
+                        $steps["goToPage"] = true
                           ? (() => {
-                              const actionArgs = { destination: `/docters` };
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `/docters?gender=${new URLSearchParams(
+                                      new URL(window.location.href).search
+                                    ).get("gender")}`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return `/docters`;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
                               return (({ destination }) => {
                                 if (
                                   typeof destination === "string" &&
@@ -824,11 +888,11 @@ function PlasmicClinic__RenderFunc(props: {
                             })()
                           : undefined;
                         if (
-                          $steps["goToDocters"] != null &&
-                          typeof $steps["goToDocters"] === "object" &&
-                          typeof $steps["goToDocters"].then === "function"
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
                         ) {
-                          $steps["goToDocters"] = await $steps["goToDocters"];
+                          $steps["goToPage"] = await $steps["goToPage"];
                         }
                       }}
                     >
@@ -1125,634 +1189,88 @@ function PlasmicClinic__RenderFunc(props: {
                 })}
               </div>
             </Stack__>
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"speciality2"}
-              data-plasmic-override={overrides.speciality2}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.speciality2, {
-                [sty.speciality2_1_chatviow]: hasVariant(
-                  $state,
-                  "_1",
-                  "chatviow"
-                ),
-                [sty.speciality2_1_docter]: hasVariant($state, "_1", "docter"),
-                [sty.speciality2_1_docters]: hasVariant($state, "_1", "docters")
-              })}
-            >
+            {(() => {
+              try {
+                return (
+                  new URLSearchParams(new URL(window.location.href).search).get(
+                    "gender"
+                  ) != "male"
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
               <Stack__
                 as={"div"}
+                data-plasmic-name={"speciality2"}
+                data-plasmic-override={overrides.speciality2}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___0Ofm2)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tI0Jp
-                  )}
-                >
-                  {
-                    "\u0645\u062a\u062e\u0635\u0635\u06cc\u0646  \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc"
-                  }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ffSEd
-                  )}
-                >
-                  {
-                    "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc \u0648 \u0631\u0648\u0627\u0628\u0637 \u062c\u0646\u0633\u06cc"
-                  }
-                </div>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__x5M9Y)}
+                className={classNames(projectcss.all, sty.speciality2, {
+                  [sty.speciality2_1_chatviow]: hasVariant(
+                    $state,
+                    "_1",
+                    "chatviow"
+                  ),
+                  [sty.speciality2_1_docter]: hasVariant(
+                    $state,
+                    "_1",
+                    "docter"
+                  ),
+                  [sty.speciality2_1_docters]: hasVariant(
+                    $state,
+                    "_1",
+                    "docters"
+                  )
+                })}
               >
                 <Stack__
                   as={"div"}
-                  data-plasmic-name={"card9"}
-                  data-plasmic-override={overrides.card9}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.card9, {
-                    [sty.card9_1_docter]: hasVariant($state, "_1", "docter"),
-                    [sty.card9_1_docters]: hasVariant($state, "_1", "docters")
-                  })}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return `/docter?id=5`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
+                  className={classNames(projectcss.all, sty.freeBox___0Ofm2)}
                 >
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text___1KEvg
+                      sty.text__tI0Jp
                     )}
                   >
                     {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0634\u06a9\u0644\u0627\u062a \u062c\u0646\u0633\u06cc "
+                      "\u0645\u062a\u062e\u0635\u0635\u06cc\u0646  \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc"
                     }
                   </div>
-                  <Button
-                    data-plasmic-name={"button3"}
-                    data-plasmic-override={overrides.button3}
-                    className={classNames("__wab_instance", sty.button3)}
-                    color={generateStateValueProp($state, ["button3", "color"])}
-                    endIcon={
-                      <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__iXdYp)}
-                        role={"img"}
-                      />
-                    }
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["goToPage"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return `/docter?id=5`;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
-                      ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button3", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    showEndIcon={true}
-                    size={"compact"}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__wjvk8
-                      )}
-                    >
-                      {
-                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
-                      }
-                    </div>
-                  </Button>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card10"}
-                  data-plasmic-override={overrides.card10}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card10)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return `/docter?id=5`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
-                >
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__waFqj,
-                      {
-                        [sty.text_1_docter__waFqj8Ddm8]: hasVariant(
-                          $state,
-                          "_1",
-                          "docter"
-                        )
-                      }
-                    )}
-                  >
-                    {hasVariant(globalVariants, "screen", "mobile")
-                      ? "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "
-                      : "\u0645\u0634\u0640\u0640\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "}
-                  </div>
-                  <Button
-                    data-plasmic-name={"button8"}
-                    data-plasmic-override={overrides.button8}
-                    className={classNames("__wab_instance", sty.button8)}
-                    color={generateStateValueProp($state, ["button8", "color"])}
-                    endIcon={
-                      <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__mpyO8)}
-                        role={"img"}
-                      />
-                    }
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["goToPage"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return `/docter?id=5`;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
-                      ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button8", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    showEndIcon={true}
-                    size={"compact"}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__pTmUn
-                      )}
-                    >
-                      {
-                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
-                      }
-                    </div>
-                  </Button>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card11"}
-                  data-plasmic-override={overrides.card11}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card11)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return `/docter?id=5`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__oh8Np
+                      sty.text__ffSEd
                     )}
                   >
                     {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u0628\u0631\u0627\u06cc \u0628\u0627\u0631\u0648\u0631\u06cc "
+                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc \u0648 \u0631\u0648\u0627\u0628\u0637 \u062c\u0646\u0633\u06cc"
                     }
                   </div>
-                  <Button
-                    data-plasmic-name={"button4"}
-                    data-plasmic-override={overrides.button4}
-                    className={classNames("__wab_instance", sty.button4)}
-                    color={generateStateValueProp($state, ["button4", "color"])}
-                    endIcon={
-                      <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__q3Wtn)}
-                        role={"img"}
-                      />
-                    }
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["goToPage"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return `/docter?id=5`;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
-                      ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button4", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    showEndIcon={true}
-                    size={"compact"}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__eGcfm
-                      )}
-                    >
-                      {
-                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
-                      }
-                    </div>
-                  </Button>
                 </Stack__>
-                {(
-                  hasVariant(globalVariants, "screen", "mobile") ? true : false
-                ) ? (
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__x5M9Y)}
+                >
                   <Stack__
                     as={"div"}
-                    data-plasmic-name={"card16"}
-                    data-plasmic-override={overrides.card16}
+                    data-plasmic-name={"card9"}
+                    data-plasmic-override={overrides.card9}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.card16)}
-                  />
-                ) : null}
-              </Stack__>
-            </Stack__>
-            <Stack__
-              as={"div"}
-              data-plasmic-name={"speciality3"}
-              data-plasmic-override={overrides.speciality3}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.speciality3, {
-                [sty.speciality3_1_chatviow]: hasVariant(
-                  $state,
-                  "_1",
-                  "chatviow"
-                ),
-                [sty.speciality3_1_docter]: hasVariant($state, "_1", "docter"),
-                [sty.speciality3_1_docters]: hasVariant($state, "_1", "docters")
-              })}
-            >
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__jHzk5)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__w2E7Q
-                  )}
-                >
-                  {
-                    "\u0645\u062a\u062e\u0635\u0635\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc"
-                  }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lKqE6
-                  )}
-                >
-                  {
-                    "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u0647\u0648\u0631\u0645\u0648\u0646\u06cc \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
-                  }
-                </div>
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__fyalm)}
-              >
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card12"}
-                  data-plasmic-override={overrides.card12}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card12, {
-                    [sty.card12_1_docter]: hasVariant($state, "_1", "docter"),
-                    [sty.card12_1_docters]: hasVariant($state, "_1", "docters")
-                  })}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return `/docter?id=2`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___46K1F
-                    )}
-                  >
-                    {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646  \u062f\u0631\u062f \u0642\u0627\u0639\u062f\u06af\u06cc"
-                    }
-                  </div>
-                  <Button
-                    data-plasmic-name={"button5"}
-                    data-plasmic-override={overrides.button5}
-                    className={classNames("__wab_instance", sty.button5)}
-                    color={generateStateValueProp($state, ["button5", "color"])}
-                    endIcon={
-                      <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__se0YU)}
-                        role={"img"}
-                      />
-                    }
+                    className={classNames(projectcss.all, sty.card9, {
+                      [sty.card9_1_docter]: hasVariant($state, "_1", "docter"),
+                      [sty.card9_1_docters]: hasVariant($state, "_1", "docters")
+                    })}
                     onClick={async event => {
                       const $steps = {};
 
@@ -1761,7 +1279,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=2`;
+                                  return `/docter?id=5`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1796,299 +1314,1072 @@ function PlasmicClinic__RenderFunc(props: {
                         $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button5", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    showEndIcon={true}
-                    size={"compact"}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__sLxW
+                        sty.text___1KEvg
                       )}
                     >
                       {
-                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                        "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0634\u06a9\u0644\u0627\u062a \u062c\u0646\u0633\u06cc "
                       }
                     </div>
-                  </Button>
-                </Stack__>
-                <Stack__
-                  as={"div"}
-                  data-plasmic-name={"card13"}
-                  data-plasmic-override={overrides.card13}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.card13)}
-                  onClick={async event => {
-                    const $steps = {};
+                    <Button
+                      data-plasmic-name={"button3"}
+                      data-plasmic-override={overrides.button3}
+                      className={classNames("__wab_instance", sty.button3)}
+                      color={generateStateValueProp($state, [
+                        "button3",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon104Icon
+                          className={classNames(projectcss.all, sty.svg__iXdYp)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
 
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return `/docter?id=2`;
-                              } catch (e) {
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `/docter?id=5`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
                                 if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
                                 ) {
-                                  return undefined;
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
                                 }
-                                throw e;
-                              }
+                              })?.apply(null, [actionArgs]);
                             })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__s9Ps
-                    )}
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button3",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      showEndIcon={true}
+                      size={"compact"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__wjvk8
+                        )}
+                      >
+                        {
+                          "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                        }
+                      </div>
+                    </Button>
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"card10"}
+                    data-plasmic-override={overrides.card10}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.card10)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=5`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
                   >
-                    {
-                      "\u0645\u0634\u0640\u0640\u0640\u0640\u0640\u0640\u0640\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc"
-                    }
-                  </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__waFqj,
+                        {
+                          [sty.text_1_docter__waFqj8Ddm8]: hasVariant(
+                            $state,
+                            "_1",
+                            "docter"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant(globalVariants, "screen", "mobile")
+                        ? "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "
+                        : "\u0645\u0634\u0640\u0640\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "}
+                    </div>
+                    <Button
+                      data-plasmic-name={"button8"}
+                      data-plasmic-override={overrides.button8}
+                      className={classNames("__wab_instance", sty.button8)}
+                      color={generateStateValueProp($state, [
+                        "button8",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon104Icon
+                          className={classNames(projectcss.all, sty.svg__mpyO8)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `/docter?id=5`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button8",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      showEndIcon={true}
+                      size={"compact"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__pTmUn
+                        )}
+                      >
+                        {
+                          "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                        }
+                      </div>
+                    </Button>
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"card11"}
+                    data-plasmic-override={overrides.card11}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.card11)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=5`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__oh8Np
+                      )}
+                    >
+                      {
+                        "\u0645\u0634\u0627\u0648\u0631\u0647 \u0628\u0631\u0627\u06cc \u0628\u0627\u0631\u0648\u0631\u06cc "
+                      }
+                    </div>
+                    <Button
+                      data-plasmic-name={"button4"}
+                      data-plasmic-override={overrides.button4}
+                      className={classNames("__wab_instance", sty.button4)}
+                      color={generateStateValueProp($state, [
+                        "button4",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon104Icon
+                          className={classNames(projectcss.all, sty.svg__q3Wtn)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `/docter?id=5`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button4",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      showEndIcon={true}
+                      size={"compact"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__eGcfm
+                        )}
+                      >
+                        {
+                          "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                        }
+                      </div>
+                    </Button>
+                  </Stack__>
                   {(
                     hasVariant(globalVariants, "screen", "mobile")
                       ? true
                       : false
                   ) ? (
-                    <PlasmicImg__
-                      alt={""}
-                      className={classNames(sty.img__dmqvY)}
-                      displayHeight={"auto"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      loading={"lazy"}
-                      src={{
-                        src: "/plasmic/liom_hamyar/images/image68.png",
-                        fullWidth: 720,
-                        fullHeight: 432,
-                        aspectRatio: undefined
-                      }}
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"card16"}
+                      data-plasmic-override={overrides.card16}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.card16)}
                     />
                   ) : null}
-                  <Button
-                    data-plasmic-name={"button6"}
-                    data-plasmic-override={overrides.button6}
-                    className={classNames("__wab_instance", sty.button6)}
-                    color={generateStateValueProp($state, ["button6", "color"])}
-                    endIcon={
-                      <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__eBiQ0)}
-                        role={"img"}
-                      />
-                    }
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["goToPage"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return `/docter?id=2`;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
-                      ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button6", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    showEndIcon={true}
-                    size={"compact"}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__lwkg
-                      )}
-                    >
-                      {
-                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
-                      }
-                    </div>
-                  </Button>
                 </Stack__>
+              </Stack__>
+            ) : null}
+            {(() => {
+              try {
+                return (
+                  new URLSearchParams(new URL(window.location.href).search).get(
+                    "gender"
+                  ) == "male"
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"speciality5"}
+                data-plasmic-override={overrides.speciality5}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.speciality5, {
+                  [sty.speciality5_1_chatviow]: hasVariant(
+                    $state,
+                    "_1",
+                    "chatviow"
+                  ),
+                  [sty.speciality5_1_docter]: hasVariant(
+                    $state,
+                    "_1",
+                    "docter"
+                  ),
+                  [sty.speciality5_1_docters]: hasVariant(
+                    $state,
+                    "_1",
+                    "docters"
+                  )
+                })}
+              >
                 <Stack__
                   as={"div"}
-                  data-plasmic-name={"card14"}
-                  data-plasmic-override={overrides.card14}
                   hasGap={true}
-                  className={classNames(projectcss.all, sty.card14)}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["goToPage"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return `/docter?id=2`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-                  }}
+                  className={classNames(projectcss.all, sty.freeBox__fp07)}
                 >
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__gUnlX
+                      sty.text__xzpd
                     )}
                   >
                     {
-                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0634\u06a9\u0644\u0627\u062a \u067e\u0648\u0633\u062a\u06cc \u062f\u0631 \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                      "\u0645\u062a\u062e\u0635\u0635\u06cc\u0646  \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc"
                     }
                   </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__x82Wk
+                    )}
+                  >
+                    {
+                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u062c\u0646\u0633\u06cc \u0648 \u0631\u0648\u0627\u0628\u0637 \u062c\u0646\u0633\u06cc"
+                    }
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__uX0Qt)}
+                >
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"card18"}
+                    data-plasmic-override={overrides.card18}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.card18, {
+                      [sty.card18_1_docter]: hasVariant($state, "_1", "docter"),
+                      [sty.card18_1_docters]: hasVariant(
+                        $state,
+                        "_1",
+                        "docters"
+                      )
+                    })}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=5`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__peWl
+                      )}
+                    >
+                      {
+                        "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0634\u06a9\u0644\u0627\u062a \u062c\u0646\u0633\u06cc "
+                      }
+                    </div>
+                    <Button
+                      data-plasmic-name={"button13"}
+                      data-plasmic-override={overrides.button13}
+                      className={classNames("__wab_instance", sty.button13)}
+                      color={generateStateValueProp($state, [
+                        "button13",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon104Icon
+                          className={classNames(projectcss.all, sty.svg__lp4W)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `/docter?id=5`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button13",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      showEndIcon={true}
+                      size={"compact"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__wMcbd
+                        )}
+                      >
+                        {
+                          "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                        }
+                      </div>
+                    </Button>
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"card19"}
+                    data-plasmic-override={overrides.card19}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.card19)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=5`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__rrbwe,
+                        {
+                          [sty.text_1_docter__rrbwe8Ddm8]: hasVariant(
+                            $state,
+                            "_1",
+                            "docter"
+                          )
+                        }
+                      )}
+                    >
+                      {hasVariant(globalVariants, "screen", "mobile")
+                        ? "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "
+                        : "\u0645\u0634\u0640\u0640\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0639\u0641\u0648\u0646\u062a \u0647\u0627 "}
+                    </div>
+                    <Button
+                      data-plasmic-name={"button14"}
+                      data-plasmic-override={overrides.button14}
+                      className={classNames("__wab_instance", sty.button14)}
+                      color={generateStateValueProp($state, [
+                        "button14",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon104Icon
+                          className={classNames(projectcss.all, sty.svg__vA7RT)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `/docter?id=5`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button14",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      showEndIcon={true}
+                      size={"compact"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rwnhO
+                        )}
+                      >
+                        {
+                          "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                        }
+                      </div>
+                    </Button>
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"card20"}
+                    data-plasmic-override={overrides.card20}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.card20)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=5`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___6H65
+                      )}
+                    >
+                      {
+                        "\u0645\u0634\u0627\u0648\u0631\u0647 \u0628\u0631\u0627\u06cc \u0628\u0627\u0631\u0648\u0631\u06cc "
+                      }
+                    </div>
+                    <Button
+                      data-plasmic-name={"button15"}
+                      data-plasmic-override={overrides.button15}
+                      className={classNames("__wab_instance", sty.button15)}
+                      color={generateStateValueProp($state, [
+                        "button15",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon104Icon
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg___1Fiw7
+                          )}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `/docter?id=5`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button15",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      showEndIcon={true}
+                      size={"compact"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__i8LPr
+                        )}
+                      >
+                        {
+                          "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                        }
+                      </div>
+                    </Button>
+                  </Stack__>
                   {(
                     hasVariant(globalVariants, "screen", "mobile")
                       ? true
                       : false
                   ) ? (
-                    <PlasmicImg__
-                      alt={""}
-                      className={classNames(sty.img__djHjx)}
-                      displayHeight={"auto"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      loading={"lazy"}
-                      src={{
-                        src: "/plasmic/liom_hamyar/images/image69.png",
-                        fullWidth: 720,
-                        fullHeight: 432,
-                        aspectRatio: undefined
-                      }}
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"card21"}
+                      data-plasmic-override={overrides.card21}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.card21)}
                     />
                   ) : null}
-                  <Button
-                    data-plasmic-name={"button7"}
-                    data-plasmic-override={overrides.button7}
-                    className={classNames("__wab_instance", sty.button7)}
-                    color={generateStateValueProp($state, ["button7", "color"])}
-                    endIcon={
-                      <Icon104Icon
-                        className={classNames(projectcss.all, sty.svg__e62B)}
-                        role={"img"}
-                      />
+                </Stack__>
+              </Stack__>
+            ) : null}
+            {(() => {
+              try {
+                return (
+                  new URLSearchParams(new URL(window.location.href).search).get(
+                    "gender"
+                  ) != "male"
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"speciality3"}
+                data-plasmic-override={overrides.speciality3}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.speciality3, {
+                  [sty.speciality3_1_chatviow]: hasVariant(
+                    $state,
+                    "_1",
+                    "chatviow"
+                  ),
+                  [sty.speciality3_1_docter]: hasVariant(
+                    $state,
+                    "_1",
+                    "docter"
+                  ),
+                  [sty.speciality3_1_docters]: hasVariant(
+                    $state,
+                    "_1",
+                    "docters"
+                  )
+                })}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__jHzk5)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__w2E7Q
+                    )}
+                  >
+                    {
+                      "\u0645\u062a\u062e\u0635\u0635\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc"
                     }
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__lKqE6
+                    )}
+                  >
+                    {
+                      "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0633\u0644\u0627\u0645\u062a \u0647\u0648\u0631\u0645\u0648\u0646\u06cc \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
+                    }
+                  </div>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__fyalm)}
+                >
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"card12"}
+                    data-plasmic-override={overrides.card12}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.card12, {
+                      [sty.card12_1_docter]: hasVariant($state, "_1", "docter"),
+                      [sty.card12_1_docters]: hasVariant(
+                        $state,
+                        "_1",
+                        "docters"
+                      )
+                    })}
                     onClick={async event => {
                       const $steps = {};
 
@@ -2132,50 +2423,469 @@ function PlasmicClinic__RenderFunc(props: {
                         $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button7", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    showEndIcon={true}
-                    size={"compact"}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__fgNme
+                        sty.text___46K1F
                       )}
                     >
                       {
-                        "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                        "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646  \u062f\u0631\u062f \u0642\u0627\u0639\u062f\u06af\u06cc"
                       }
                     </div>
-                  </Button>
-                </Stack__>
-                {(
-                  hasVariant(globalVariants, "screen", "mobile") ? true : false
-                ) ? (
+                    <Button
+                      data-plasmic-name={"button5"}
+                      data-plasmic-override={overrides.button5}
+                      className={classNames("__wab_instance", sty.button5)}
+                      color={generateStateValueProp($state, [
+                        "button5",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon104Icon
+                          className={classNames(projectcss.all, sty.svg__se0YU)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `/docter?id=2`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button5",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      showEndIcon={true}
+                      size={"compact"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__sLxW
+                        )}
+                      >
+                        {
+                          "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                        }
+                      </div>
+                    </Button>
+                  </Stack__>
                   <Stack__
                     as={"div"}
-                    data-plasmic-name={"card17"}
-                    data-plasmic-override={overrides.card17}
+                    data-plasmic-name={"card13"}
+                    data-plasmic-override={overrides.card13}
                     hasGap={true}
-                    className={classNames(projectcss.all, sty.card17)}
-                  />
-                ) : null}
+                    className={classNames(projectcss.all, sty.card13)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=2`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__s9Ps
+                      )}
+                    >
+                      {
+                        "\u0645\u0634\u0640\u0640\u0640\u0640\u0640\u0640\u0640\u0627\u0648\u0631\u0647 \u062f\u0631\u0645\u0627\u0646 \u0646\u0627\u0645\u0646\u0638\u0645\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc"
+                      }
+                    </div>
+                    {(
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? true
+                        : false
+                    ) ? (
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__dmqvY)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/liom_hamyar/images/image68.png",
+                          fullWidth: 720,
+                          fullHeight: 432,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    ) : null}
+                    <Button
+                      data-plasmic-name={"button6"}
+                      data-plasmic-override={overrides.button6}
+                      className={classNames("__wab_instance", sty.button6)}
+                      color={generateStateValueProp($state, [
+                        "button6",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon104Icon
+                          className={classNames(projectcss.all, sty.svg__eBiQ0)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `/docter?id=2`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button6",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      showEndIcon={true}
+                      size={"compact"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__lwkg
+                        )}
+                      >
+                        {
+                          "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                        }
+                      </div>
+                    </Button>
+                  </Stack__>
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"card14"}
+                    data-plasmic-override={overrides.card14}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.card14)}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["goToPage"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return `/docter?id=2`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__gUnlX
+                      )}
+                    >
+                      {
+                        "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0634\u06a9\u0644\u0627\u062a \u067e\u0648\u0633\u062a\u06cc \u062f\u0631 \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                      }
+                    </div>
+                    {(
+                      hasVariant(globalVariants, "screen", "mobile")
+                        ? true
+                        : false
+                    ) ? (
+                      <PlasmicImg__
+                        alt={""}
+                        className={classNames(sty.img__djHjx)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"auto"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/liom_hamyar/images/image69.png",
+                          fullWidth: 720,
+                          fullHeight: 432,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    ) : null}
+                    <Button
+                      data-plasmic-name={"button7"}
+                      data-plasmic-override={overrides.button7}
+                      className={classNames("__wab_instance", sty.button7)}
+                      color={generateStateValueProp($state, [
+                        "button7",
+                        "color"
+                      ])}
+                      endIcon={
+                        <Icon104Icon
+                          className={classNames(projectcss.all, sty.svg__e62B)}
+                          role={"img"}
+                        />
+                      }
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `/docter?id=2`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+                      }}
+                      onColorChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "button7",
+                            "color"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                      showEndIcon={true}
+                      size={"compact"}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__fgNme
+                        )}
+                      >
+                        {
+                          "\u0634\u0631\u0648\u0639 \u06af\u0641\u062a\u06af\u0648"
+                        }
+                      </div>
+                    </Button>
+                  </Stack__>
+                  {(
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? true
+                      : false
+                  ) ? (
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"card17"}
+                      data-plasmic-override={overrides.card17}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.card17)}
+                    />
+                  ) : null}
+                </Stack__>
               </Stack__>
-            </Stack__>
+            ) : null}
           </Stack__>
           <Stack__
             as={"div"}
@@ -6931,6 +7641,14 @@ const PlasmicDescendants = {
     "card11",
     "button4",
     "card16",
+    "speciality5",
+    "card18",
+    "button13",
+    "card19",
+    "button14",
+    "card20",
+    "button15",
+    "card21",
     "speciality3",
     "card12",
     "button5",
@@ -7001,6 +7719,23 @@ const PlasmicDescendants = {
   card11: ["card11", "button4"],
   button4: ["button4"],
   card16: ["card16"],
+  speciality5: [
+    "speciality5",
+    "card18",
+    "button13",
+    "card19",
+    "button14",
+    "card20",
+    "button15",
+    "card21"
+  ],
+  card18: ["card18", "button13"],
+  button13: ["button13"],
+  card19: ["card19", "button14"],
+  button14: ["button14"],
+  card20: ["card20", "button15"],
+  button15: ["button15"],
+  card21: ["card21"],
   speciality3: [
     "speciality3",
     "card12",
@@ -7104,6 +7839,14 @@ type NodeDefaultElementType = {
   card11: "div";
   button4: typeof Button;
   card16: "div";
+  speciality5: "div";
+  card18: "div";
+  button13: typeof Button;
+  card19: "div";
+  button14: typeof Button;
+  card20: "div";
+  button15: typeof Button;
+  card21: "div";
   speciality3: "div";
   card12: "div";
   button5: typeof Button;
@@ -7251,6 +7994,14 @@ export const PlasmicClinic = Object.assign(
     card11: makeNodeComponent("card11"),
     button4: makeNodeComponent("button4"),
     card16: makeNodeComponent("card16"),
+    speciality5: makeNodeComponent("speciality5"),
+    card18: makeNodeComponent("card18"),
+    button13: makeNodeComponent("button13"),
+    card19: makeNodeComponent("card19"),
+    button14: makeNodeComponent("button14"),
+    card20: makeNodeComponent("card20"),
+    button15: makeNodeComponent("button15"),
+    card21: makeNodeComponent("card21"),
     speciality3: makeNodeComponent("speciality3"),
     card12: makeNodeComponent("card12"),
     button5: makeNodeComponent("button5"),
