@@ -720,7 +720,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                                             item =>
                                               item.questionID == currentItem.id
                                           ).answer =
-                                            $state.textArea2[
+                                            $state.textArea3[
                                               currentIndex
                                             ].value);
                                         }
@@ -823,7 +823,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                                             item =>
                                               item.questionID == currentItem.id
                                           ).answer =
-                                            $state.radioGroup2[
+                                            $state.radioGroup3[
                                               currentIndex
                                             ].value);
                                         }
@@ -942,7 +942,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                                             item =>
                                               item.questionID == currentItem.id
                                           ).answer =
-                                            $state.radioGroup[
+                                            $state.radioGroup4[
                                               currentIndex
                                             ].value);
                                         }
