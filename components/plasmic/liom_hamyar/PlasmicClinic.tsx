@@ -1872,7 +1872,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5&gender=${new URLSearchParams(
+                                  return `/docter?id=7&gender=${new URLSearchParams(
                                     new URL(window.location.href).search
                                   ).get("gender")}`;
                                 } catch (e) {
@@ -1943,7 +1943,9 @@ function PlasmicClinic__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return `/docter?id=5`;
+                                    return `/docter?id=7&gender=${new URLSearchParams(
+                                      new URL(window.location.href).search
+                                    ).get("gender")}`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -2024,7 +2026,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5&gender=${new URLSearchParams(
+                                  return `/docter?id=7&gender=${new URLSearchParams(
                                     new URL(window.location.href).search
                                   ).get("gender")}`;
                                 } catch (e) {
@@ -2102,7 +2104,9 @@ function PlasmicClinic__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return `/docter?id=5`;
+                                    return `/docter?id=7&gender=${new URLSearchParams(
+                                      new URL(window.location.href).search
+                                    ).get("gender")}`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -2183,7 +2187,7 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5&gender=${new URLSearchParams(
+                                  return `/docter?id=7&gender=${new URLSearchParams(
                                     new URL(window.location.href).search
                                   ).get("gender")}`;
                                 } catch (e) {
@@ -2257,7 +2261,9 @@ function PlasmicClinic__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return `/docter?id=5`;
+                                    return `/docter?id=7&gender=${new URLSearchParams(
+                                      new URL(window.location.href).search
+                                    ).get("gender")}`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||

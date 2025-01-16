@@ -352,9 +352,25 @@ function PlasmicChatviow__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToClinic"] = true
+                $steps["goToPage"] = true
                   ? (() => {
-                      const actionArgs = { destination: `/clinic` };
+                      const actionArgs = {
+                        destination: (() => {
+                          try {
+                            return `/clinic?gender=${new URLSearchParams(
+                              new URL(window.location.href).search
+                            ).get("gender")}`;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return `/clinic`;
+                            }
+                            throw e;
+                          }
+                        })()
+                      };
                       return (({ destination }) => {
                         if (
                           typeof destination === "string" &&
@@ -370,11 +386,11 @@ function PlasmicChatviow__RenderFunc(props: {
                     })()
                   : undefined;
                 if (
-                  $steps["goToClinic"] != null &&
-                  typeof $steps["goToClinic"] === "object" &&
-                  typeof $steps["goToClinic"].then === "function"
+                  $steps["goToPage"] != null &&
+                  typeof $steps["goToPage"] === "object" &&
+                  typeof $steps["goToPage"].then === "function"
                 ) {
-                  $steps["goToClinic"] = await $steps["goToClinic"];
+                  $steps["goToPage"] = await $steps["goToPage"];
                 }
               }}
               role={"img"}
@@ -773,7 +789,15 @@ function PlasmicChatviow__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/chat?sessionID=${currentItem.id}&listID=${currentItem.listID}&subList=${currentItem.subList}&doctorID=${currentItem.doctorID}`;
+                                  return `/chat?sessionID=${
+                                    currentItem.id
+                                  }&listID=${currentItem.listID}&subList=${
+                                    currentItem.subList
+                                  }&doctorID=${
+                                    currentItem.doctorID
+                                  }&gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
