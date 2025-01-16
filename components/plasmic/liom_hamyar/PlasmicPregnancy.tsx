@@ -4297,6 +4297,42 @@ function PlasmicPregnancy__RenderFunc(props: {
                             ) {
                               $steps["runCode2"] = await $steps["runCode2"];
                             }
+
+                            $steps["updateToolsList"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["toolsList"]
+                                    },
+                                    operation: 0
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateToolsList"] != null &&
+                              typeof $steps["updateToolsList"] === "object" &&
+                              typeof $steps["updateToolsList"].then ===
+                                "function"
+                            ) {
+                              $steps["updateToolsList"] = await $steps[
+                                "updateToolsList"
+                              ];
+                            }
                           }}
                         >
                           <div
@@ -5056,11 +5092,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                 {(() => {
                   try {
                     return (
-                      //   $ctx?.query?.inApp == 'true' &&
-                      // !(
-                      //   $state.getUserInfo?.data?.[0]?.result?.allowance?.find(item => item.type === "husband_sms")?.active ?? false
-                      // )
-                      false
+                      $ctx?.query?.inApp == "true" &&
+                      !(
+                        $state.getUserInfo?.data?.[0]?.result?.allowance?.find(
+                          item => item.type === "husband_sms"
+                        )?.active ?? false
+                      )
                     );
                   } catch (e) {
                     if (
@@ -5084,11 +5121,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
-                                return (() => {
-                                  return window.FlutterChannel.postMessage(
-                                    "#healthSubscription"
-                                  );
-                                })();
+                                return window.FlutterChannel.postMessage(
+                                  "#healthSubscription"
+                                );
                               }
                             };
                             return (({ customFunction }) => {
@@ -5111,9 +5146,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         ? (() => {
                             const actionArgs = {
                               customFunction: async () => {
-                                return (() => {
-                                  return console.log("aaaa");
-                                })();
+                                return console.log("aaaa");
                               }
                             };
                             return (({ customFunction }) => {
@@ -5127,6 +5160,73 @@ function PlasmicPregnancy__RenderFunc(props: {
                         typeof $steps["runCode2"].then === "function"
                       ) {
                         $steps["runCode2"] = await $steps["runCode2"];
+                      }
+
+                      $steps["invokeGlobalAction"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/service/log",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      userId: $ctx.query.userId.slice(
+                                        4,
+                                        $ctx.query.userId.length - 4
+                                      ),
+                                      pageName: "buy_banner",
+                                      action: "clickOpen",
+                                      extraData: {}
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                (() => {
+                                  try {
+                                    return {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization:
+                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
                       }
                     }}
                   >
