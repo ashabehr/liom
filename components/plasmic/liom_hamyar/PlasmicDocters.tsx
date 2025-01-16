@@ -825,29 +825,26 @@ function PlasmicDocters__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToClinic"] = true
+                $steps["runCode"] = true
                   ? (() => {
-                      const actionArgs = { destination: `/clinic` };
-                      return (({ destination }) => {
-                        if (
-                          typeof destination === "string" &&
-                          destination.startsWith("#")
-                        ) {
-                          document
-                            .getElementById(destination.substr(1))
-                            .scrollIntoView({ behavior: "smooth" });
-                        } else {
-                          __nextRouter?.push(destination);
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return `/clinic?gender=${new URLSearchParams(
+                            new URL(window.location.href).search
+                          ).get("gender")}`;
                         }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
                       })?.apply(null, [actionArgs]);
                     })()
                   : undefined;
                 if (
-                  $steps["goToClinic"] != null &&
-                  typeof $steps["goToClinic"] === "object" &&
-                  typeof $steps["goToClinic"].then === "function"
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
                 ) {
-                  $steps["goToClinic"] = await $steps["goToClinic"];
+                  $steps["runCode"] = await $steps["runCode"];
                 }
               }}
               role={"img"}
@@ -1536,7 +1533,11 @@ function PlasmicDocters__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=${currentItem.id}`;
+                                  return `/docter?id=${
+                                    currentItem.id
+                                  }&gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||

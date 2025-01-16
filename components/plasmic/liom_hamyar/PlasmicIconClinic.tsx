@@ -76,10 +76,12 @@ import MindSvgIcon from "./icons/PlasmicIcon__MindSvg"; // plasmic-import: g6Dmz
 createPlasmicElementProxy;
 
 export type PlasmicIconClinic__VariantMembers = {
-  unnamedGroupOfVariants: "_1" | "_2" | "_3" | "_4" | "_5";
+  unnamedGroupOfVariants: "_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7";
 };
 export type PlasmicIconClinic__VariantsArgs = {
-  unnamedGroupOfVariants?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5">;
+  unnamedGroupOfVariants?: SingleChoiceArg<
+    "_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7"
+  >;
 };
 type VariantPropType = keyof PlasmicIconClinic__VariantsArgs;
 export const PlasmicIconClinic__VariantProps = new Array<VariantPropType>(
@@ -95,7 +97,9 @@ export type PlasmicIconClinic__OverridesType = {
 };
 
 export interface DefaultIconClinicProps {
-  unnamedGroupOfVariants?: SingleChoiceArg<"_1" | "_2" | "_3" | "_4" | "_5">;
+  unnamedGroupOfVariants?: SingleChoiceArg<
+    "_1" | "_2" | "_3" | "_4" | "_5" | "_6" | "_7"
+  >;
   className?: string;
 }
 
@@ -165,7 +169,11 @@ function PlasmicIconClinic__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       PlasmicIconType={
-        hasVariant($state, "unnamedGroupOfVariants", "_5")
+        hasVariant($state, "unnamedGroupOfVariants", "_7")
+          ? Icon75Icon
+          : hasVariant($state, "unnamedGroupOfVariants", "_6")
+          ? MindSvgIcon
+          : hasVariant($state, "unnamedGroupOfVariants", "_5")
           ? Icon75Icon
           : hasVariant($state, "unnamedGroupOfVariants", "_4")
           ? BabyBlanketSvgIcon
@@ -211,6 +219,16 @@ function PlasmicIconClinic__RenderFunc(props: {
             $state,
             "unnamedGroupOfVariants",
             "_5"
+          ),
+          [sty.rootunnamedGroupOfVariants__6]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_6"
+          ),
+          [sty.rootunnamedGroupOfVariants__7]: hasVariant(
+            $state,
+            "unnamedGroupOfVariants",
+            "_7"
           )
         }
       )}

@@ -682,9 +682,25 @@ function PlasmicChat__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["goToChatviow"] = true
+                  $steps["goToPage"] = true
                     ? (() => {
-                        const actionArgs = { destination: `/chatviow` };
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return `/chatviow?gender=${new URLSearchParams(
+                                new URL(window.location.href).search
+                              ).get("gender")}`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return `/chatviow`;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
                         return (({ destination }) => {
                           if (
                             typeof destination === "string" &&
@@ -700,11 +716,11 @@ function PlasmicChat__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["goToChatviow"] != null &&
-                    typeof $steps["goToChatviow"] === "object" &&
-                    typeof $steps["goToChatviow"].then === "function"
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
                   ) {
-                    $steps["goToChatviow"] = await $steps["goToChatviow"];
+                    $steps["goToPage"] = await $steps["goToPage"];
                   }
                 }}
                 role={"img"}
@@ -789,7 +805,11 @@ function PlasmicChat__RenderFunc(props: {
                         const actionArgs = {
                           destination: (() => {
                             try {
-                              return `/Questionnaire?listID=${$ctx.query.listID}`;
+                              return `/Questionnaire?listID=${
+                                $ctx.query.listID
+                              }&gender=${new URLSearchParams(
+                                new URL(window.location.href).search
+                              ).get("gender")}`;
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -2967,9 +2987,25 @@ function PlasmicChat__RenderFunc(props: {
                     ];
                   }
 
-                  $steps["goToClinic"] = true
+                  $steps["goToPage"] = true
                     ? (() => {
-                        const actionArgs = { destination: `/clinic` };
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return `/clinic?gender=${new URLSearchParams(
+                                new URL(window.location.href).search
+                              ).get("gender")}`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return `/clinic`;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
                         return (({ destination }) => {
                           if (
                             typeof destination === "string" &&
@@ -2985,11 +3021,11 @@ function PlasmicChat__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["goToClinic"] != null &&
-                    typeof $steps["goToClinic"] === "object" &&
-                    typeof $steps["goToClinic"].then === "function"
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
                   ) {
-                    $steps["goToClinic"] = await $steps["goToClinic"];
+                    $steps["goToPage"] = await $steps["goToPage"];
                   }
 
                   $steps["updateTextAreaValue2"] = true

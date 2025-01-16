@@ -595,15 +595,29 @@ function PlasmicClinic__RenderFunc(props: {
                           localStorage.setItem("ClinicToken", app);
                         }
                         var status = urlParams.get("status");
-                        if (status == "false") return ($state.status = "false");
-                        else if (status == "true") {
+                        if (status == "false") {
                           var chatstart = JSON.parse(
                             localStorage.getItem("chatstart")
                           );
-                          return window.open(
-                            `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}`,
-                            "_self"
+                          if (chatstart.listID == 7 || chatstart.listID == 6) {
+                            $ctx.query.gender = "male";
+                          }
+                          return ($state.status = "false");
+                        } else if (status == "true") {
+                          var chatstart = JSON.parse(
+                            localStorage.getItem("chatstart")
                           );
+                          if (chatstart.listID == 7 || chatstart.listID == 6) {
+                            return window.open(
+                              `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}&gender=male`,
+                              "_self"
+                            );
+                          } else {
+                            return window.open(
+                              `/chat?listID=${chatstart.listID}&subList=${chatstart.sublist}&doctorID=${chatstart.docterID}&gender=female`,
+                              "_self"
+                            );
+                          }
                         }
                       })();
                     }
@@ -959,9 +973,25 @@ function PlasmicClinic__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["goToChatviow"] = true
+                  $steps["goToPage"] = true
                     ? (() => {
-                        const actionArgs = { destination: `/chatviow` };
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return `/chatviow?gender=${new URLSearchParams(
+                                new URL(window.location.href).search
+                              ).get("gender")}`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return `/chatviow`;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
                         return (({ destination }) => {
                           if (
                             typeof destination === "string" &&
@@ -977,11 +1007,11 @@ function PlasmicClinic__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["goToChatviow"] != null &&
-                    typeof $steps["goToChatviow"] === "object" &&
-                    typeof $steps["goToChatviow"].then === "function"
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
                   ) {
-                    $steps["goToChatviow"] = await $steps["goToChatviow"];
+                    $steps["goToPage"] = await $steps["goToPage"];
                   }
                 }}
               >
@@ -1106,7 +1136,11 @@ function PlasmicClinic__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return `/docter?id=${currentItem.id}`;
+                                    return `/docter?id=${
+                                      currentItem.id
+                                    }&gender=${new URLSearchParams(
+                                      new URL(window.location.href).search
+                                    ).get("gender")}`;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -1279,7 +1313,9 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5`;
+                                  return `/docter?id=5&gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1429,7 +1465,9 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5`;
+                                  return `/docter?id=5&gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1586,7 +1624,9 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5`;
+                                  return `/docter?id=5&gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1832,7 +1872,9 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5`;
+                                  return `/docter?id=5&gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1982,7 +2024,9 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5`;
+                                  return `/docter?id=5&gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2139,7 +2183,9 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=5`;
+                                  return `/docter?id=5&gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2388,7 +2434,9 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=2`;
+                                  return `/docter?id=2&gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2538,7 +2586,9 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=2`;
+                                  return `/docter?id=2&gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -2711,7 +2761,9 @@ function PlasmicClinic__RenderFunc(props: {
                             const actionArgs = {
                               destination: (() => {
                                 try {
-                                  return `/docter?id=2`;
+                                  return `/docter?id=2&gender=${new URLSearchParams(
+                                    new URL(window.location.href).search
+                                  ).get("gender")}`;
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -7275,9 +7327,25 @@ function PlasmicClinic__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["goToChatviow"] = true
+                  $steps["goToPage"] = true
                     ? (() => {
-                        const actionArgs = { destination: `/chatviow` };
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return `/chatviow?gender=${new URLSearchParams(
+                                new URL(window.location.href).search
+                              ).get("gender")}`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
                         return (({ destination }) => {
                           if (
                             typeof destination === "string" &&
@@ -7293,11 +7361,11 @@ function PlasmicClinic__RenderFunc(props: {
                       })()
                     : undefined;
                   if (
-                    $steps["goToChatviow"] != null &&
-                    typeof $steps["goToChatviow"] === "object" &&
-                    typeof $steps["goToChatviow"].then === "function"
+                    $steps["goToPage"] != null &&
+                    typeof $steps["goToPage"] === "object" &&
+                    typeof $steps["goToPage"].then === "function"
                   ) {
-                    $steps["goToChatviow"] = await $steps["goToChatviow"];
+                    $steps["goToPage"] = await $steps["goToPage"];
                   }
                 }}
                 onColorChange={async (...eventArgs: any) => {
