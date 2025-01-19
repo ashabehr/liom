@@ -48,6 +48,10 @@
   max-width: 100%;
   object-fit: cover;
 }
+.pullToRefresh:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .freeBox___34Wg {
   display: flex;
   flex-direction: column;
@@ -556,7 +560,7 @@
   max-width: 100%;
   background: var(--token-hBbVVSmAB0oc);
   border-radius: 8px;
-  padding: 0px 8px;
+  padding: 4px 8px 0px;
   border: 1px dashed var(--token-ADrp2mfNmuLA);
 }
 .switchbest:global(.__wab_instance) {

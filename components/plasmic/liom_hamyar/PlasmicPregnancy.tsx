@@ -67,6 +67,7 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
@@ -105,6 +106,7 @@ export type PlasmicPregnancy__OverridesType = {
   root?: Flex__<"div">;
   page?: Flex__<"section">;
   favIcone?: Flex__<typeof Embed>;
+  pullToRefresh?: Flex__<typeof PullToRefresh>;
   timer?: Flex__<typeof Timer>;
   getUserInfo?: Flex__<typeof ApiRequest>;
   embedHtml?: Flex__<typeof Embed>;
@@ -554,6 +556,36 @@ function PlasmicPregnancy__RenderFunc(props: {
               code={
                 "<script>\n(function() {\n    var link = document.querySelector(\"link[rel='icon']\");\n    if (!link) {\n        link = document.createElement('link');\n        link.rel = 'icon';\n        document.head.appendChild(link);\n    }\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\n})();\n</script>\n\n"
               }
+            />
+
+            <PullToRefresh
+              data-plasmic-name={"pullToRefresh"}
+              data-plasmic-override={overrides.pullToRefresh}
+              className={classNames("__wab_instance", sty.pullToRefresh)}
+              onRefresh={async () => {
+                const $steps = {};
+
+                $steps["refreshData"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        queryInvalidation: ["plasmic_refresh_all"]
+                      };
+                      return (async ({ queryInvalidation }) => {
+                        if (!queryInvalidation) {
+                          return;
+                        }
+                        await plasmicInvalidate(queryInvalidation);
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["refreshData"] != null &&
+                  typeof $steps["refreshData"] === "object" &&
+                  typeof $steps["refreshData"].then === "function"
+                ) {
+                  $steps["refreshData"] = await $steps["refreshData"];
+                }
+              }}
             />
 
             {(() => {
@@ -6085,6 +6117,7 @@ const PlasmicDescendants = {
     "root",
     "page",
     "favIcone",
+    "pullToRefresh",
     "timer",
     "getUserInfo",
     "embedHtml",
@@ -6095,6 +6128,7 @@ const PlasmicDescendants = {
   page: [
     "page",
     "favIcone",
+    "pullToRefresh",
     "timer",
     "getUserInfo",
     "embedHtml",
@@ -6103,6 +6137,7 @@ const PlasmicDescendants = {
     "todoList"
   ],
   favIcone: ["favIcone"],
+  pullToRefresh: ["pullToRefresh"],
   timer: ["timer"],
   getUserInfo: ["getUserInfo"],
   embedHtml: ["embedHtml"],
@@ -6117,6 +6152,7 @@ type NodeDefaultElementType = {
   root: "div";
   page: "section";
   favIcone: typeof Embed;
+  pullToRefresh: typeof PullToRefresh;
   timer: typeof Timer;
   getUserInfo: typeof ApiRequest;
   embedHtml: typeof Embed;
@@ -6212,6 +6248,7 @@ export const PlasmicPregnancy = Object.assign(
     // Helper components rendering sub-elements
     page: makeNodeComponent("page"),
     favIcone: makeNodeComponent("favIcone"),
+    pullToRefresh: makeNodeComponent("pullToRefresh"),
     timer: makeNodeComponent("timer"),
     getUserInfo: makeNodeComponent("getUserInfo"),
     embedHtml: makeNodeComponent("embedHtml"),
