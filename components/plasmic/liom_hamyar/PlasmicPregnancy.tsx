@@ -4231,8 +4231,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                             $ctx?.query?.inApp == "true" &&
                             $state.getUserInfo.data[0].result.allowance.find(
                               item => item.type === "husband_sms"
-                            ).active
-                            // &&  $ctx.query.userId.slice( 4 , $ctx.query.userId.length -4) == '4ddd1fab-100c-49f0-b843-e70bff8add34'
+                            ).active &&
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
                           );
                         } catch (e) {
                           if (
@@ -4344,7 +4347,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   )}
                                 >
                                   {
-                                    "\u0647\u0646\u0648\u0632 \u0647\u0645\u06cc\u0627\u0631\u062a\u0648 \u0627\u0636\u0627\u0641\u0647 \u0646\u06a9\u0631\u062f\u06cc\u061f"
+                                    "\u0647\u0645\u06cc\u0627\u0631\u062a\u0648 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646"
                                   }
                                 </div>
                                 <div
