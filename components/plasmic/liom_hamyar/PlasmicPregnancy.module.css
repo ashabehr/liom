@@ -416,10 +416,9 @@
   position: relative;
   align-items: stretch;
   justify-content: flex-start;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
-  min-width: 0;
   padding: 0px;
 }
 @media (max-width: 640px) {

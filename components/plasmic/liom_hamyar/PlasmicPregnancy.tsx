@@ -4290,11 +4290,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
-                                        return (() => {
-                                          return window.FlutterChannel.postMessage(
-                                            "#hamyarInfo"
-                                          );
-                                        })();
+                                        return window.FlutterChannel.postMessage(
+                                          "#hamyarInfo"
+                                        );
                                       }
                                     };
                                     return (({ customFunction }) => {
@@ -4317,11 +4315,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 ? (() => {
                                     const actionArgs = {
                                       customFunction: async () => {
-                                        return (() => {
-                                          return window.FlutterChannel.postMessage(
-                                            "#hamyarInfo"
-                                          );
-                                        })();
+                                        return window.FlutterChannel.postMessage(
+                                          "#hamyarInfo"
+                                        );
                                       }
                                     };
                                     return (({ customFunction }) => {
@@ -4335,6 +4331,26 @@ function PlasmicPregnancy__RenderFunc(props: {
                               typeof $steps["runCode2"].then === "function"
                             ) {
                               $steps["runCode2"] = await $steps["runCode2"];
+                            }
+
+                            $steps["invokeGlobalAction"] = true
+                              ? (() => {
+                                  const actionArgs = { args: ["POST"] };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["invokeGlobalAction"] != null &&
+                              typeof $steps["invokeGlobalAction"] ===
+                                "object" &&
+                              typeof $steps["invokeGlobalAction"].then ===
+                                "function"
+                            ) {
+                              $steps["invokeGlobalAction"] = await $steps[
+                                "invokeGlobalAction"
+                              ];
                             }
                           }}
                         >
