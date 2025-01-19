@@ -473,11 +473,14 @@
 }
 @media (max-width: 640px) {
   .freeBox__cqXfk {
-    padding: 4px 0px 4px 4px;
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
   }
 }
 @media (max-width: 640px) {
   .freeBox__cqXfk > :global(.__wab_flex-container) {
+    flex-direction: column;
     margin-left: calc(0px - 0px);
     width: calc(100% + 0px);
     margin-top: calc(0px - 0px);
@@ -534,6 +537,12 @@
   font-size: 13px;
   border-radius: 6px;
   padding: 4px 8px;
+}
+@media (max-width: 640px) {
+  .text__hJg0N {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
 }
 .freeBox__fuRwW {
   display: flex;
