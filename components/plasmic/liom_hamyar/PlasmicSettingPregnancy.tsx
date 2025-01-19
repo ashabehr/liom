@@ -407,96 +407,22 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
               }
             />
 
-            <div
-              className={classNames(projectcss.all, sty.freeBox__ytDOx, {
-                [sty.freeBoxdark__ytDOxbkz05]: hasVariant(
-                  $state,
-                  "dark",
-                  "dark"
-                )
-              })}
-            >
+            {(() => {
+              try {
+                return $ctx.query.inApp != "true";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return false;
+                }
+                throw e;
+              }
+            })() ? (
               <div
-                className={classNames(projectcss.all, sty.freeBox___3O4C8)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["goToPage"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          destination:
-                            "https://apps.liom.app/pregnancy/?token=" +
-                            $ctx.query.token +
-                            "&userId=" +
-                            $ctx.query.userId +
-                            "&theme=" +
-                            $ctx.query.theme
-                        };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["goToPage"] != null &&
-                    typeof $steps["goToPage"] === "object" &&
-                    typeof $steps["goToPage"].then === "function"
-                  ) {
-                    $steps["goToPage"] = await $steps["goToPage"];
-                  }
-                }}
-              >
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img, {
-                    [sty.imgdark]: hasVariant($state, "dark", "dark")
-                  })}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"20px"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image38.svg",
-                    fullWidth: 24,
-                    fullHeight: 24,
-                    aspectRatio: 1
-                  }}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pmZGg,
-                    {
-                      [sty.textdark__pmZGgbkz05]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
-                >
-                  {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a"}
-                </div>
-              </div>
-              <div
-                className={classNames(projectcss.all, sty.freeBox___4W6Wf, {
-                  [sty.freeBoxdark___4W6WFbkz05]: hasVariant(
+                className={classNames(projectcss.all, sty.freeBox__ytDOx, {
+                  [sty.freeBoxdark__ytDOxbkz05]: hasVariant(
                     $state,
                     "dark",
                     "dark"
@@ -504,554 +430,20 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___2Sx)}
+                  className={classNames(projectcss.all, sty.freeBox___3O4C8)}
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["invokeGlobalAction3"] = (() => {
-                      if (
-                        $state.duDate == "" ||
-                        $state.dateOfBirth == null ||
-                        $state.dateOfBirth == ""
-                      ) {
-                        return true;
-                      }
-                      var jy = $state.dateOfBirth.year;
-                      var jm = $state.dateOfBirth.month;
-                      var jd = $state.dateOfBirth.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return true;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays <= 280 ? false : true;
-                    })()
+                    $steps["goToPage"] = true
                       ? (() => {
                           const actionArgs = {
-                            args: [
-                              "error",
-                              (() => {
-                                try {
-                                  return (() => {
-                                    if ($state.duDate == "")
-                                      "لطفا اطلاعات درست وارد کنید";
-                                    if ($state.dateOfBirth == null)
-                                      "لطفا اطلاعات درست وارد کنید";
-                                    if ($state.dateOfBirth == "")
-                                      "لطفا اطلاعات درست وارد کنید";
-                                    var jy = $state.dateOfBirth.year;
-                                    var jm = $state.dateOfBirth.month;
-                                    var jd = $state.dateOfBirth.day;
-                                    var gy = jy <= 979 ? 621 : 1600;
-                                    jy -= jy <= 979 ? 0 : 979;
-                                    var days =
-                                      365 * jy +
-                                      parseInt(jy / 33) * 8 +
-                                      parseInt(((jy % 33) + 3) / 4) +
-                                      78 +
-                                      jd +
-                                      (jm < 7
-                                        ? (jm - 1) * 31
-                                        : (jm - 7) * 30 + 186);
-                                    gy += 400 * parseInt(days / 146097);
-                                    days %= 146097;
-                                    if (days > 36524) {
-                                      gy += 100 * parseInt(--days / 36524);
-                                      days %= 36524;
-                                      if (days >= 365) days++;
-                                    }
-                                    gy += 4 * parseInt(days / 1461);
-                                    days %= 1461;
-                                    gy += parseInt((days - 1) / 365);
-                                    if (days > 365) days = (days - 1) % 365;
-                                    var gd = days + 1;
-                                    var sal_a = [
-                                      0,
-                                      31,
-                                      (gy % 4 == 0 && gy % 100 != 0) ||
-                                      gy % 400 == 0
-                                        ? 29
-                                        : 28,
-                                      31,
-                                      30,
-                                      31,
-                                      30,
-                                      31,
-                                      31,
-                                      30,
-                                      31,
-                                      30,
-                                      31
-                                    ];
-
-                                    var gm;
-                                    for (gm = 0; gm < 13; gm++) {
-                                      var v = sal_a[gm];
-                                      if (gd <= v) break;
-                                      gd -= v;
-                                    }
-                                    const d =
-                                      gy +
-                                      "-" +
-                                      (gm <= 9 ? "0" : "") +
-                                      gm +
-                                      "-" +
-                                      (gd <= 9 ? "0" : "") +
-                                      gd +
-                                      "T10:10:10";
-                                    const specifiedDate = new Date(d);
-                                    const today = new Date();
-                                    if (today > specifiedDate) {
-                                      ("لطفا اطلاعات درست وارد کنید4");
-                                    }
-                                    const diffTime = Math.abs(
-                                      today - specifiedDate
-                                    );
-                                    const diffDays = Math.ceil(
-                                      diffTime / (1000 * 60 * 60 * 24)
-                                    );
-                                    return diffDays <= 280
-                                      ? "تاریخ زایمانی که وارد کردی برای قبل امروز است"
-                                      : $state.typeInterDate == "lastTime"
-                                      ? "تاریخ آخرین قاعدگی ای که وارد کردی برای بعد از امروز است"
-                                      : "تاریخ زایمانی که وارد کردی برای بیشتر از 9 ماه بعد است";
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              "bottom-center"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction3"] != null &&
-                      typeof $steps["invokeGlobalAction3"] === "object" &&
-                      typeof $steps["invokeGlobalAction3"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction3"] = await $steps[
-                        "invokeGlobalAction3"
-                      ];
-                    }
-
-                    $steps["invokeGlobalAction2"] = (() => {
-                      if (
-                        $state.duDate == "" ||
-                        $state.dateOfBirth == null ||
-                        $state.dateOfBirth == ""
-                      ) {
-                        return false;
-                      }
-                      var jy = $state.dateOfBirth.year;
-                      var jm = $state.dateOfBirth.month;
-                      var jd = $state.dateOfBirth.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              undefined,
-                              "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
-                              "bottom-center"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction2"] != null &&
-                      typeof $steps["invokeGlobalAction2"] === "object" &&
-                      typeof $steps["invokeGlobalAction2"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
-                    }
-
-                    $steps["invokeGlobalAction"] = (() => {
-                      if (
-                        $state.duDate == "" ||
-                        $state.dateOfBirth == null ||
-                        $state.dateOfBirth == ""
-                      ) {
-                        return false;
-                      }
-                      var jy = $state.dateOfBirth.year;
-                      var jm = $state.dateOfBirth.month;
-                      var jd = $state.dateOfBirth.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://n8n.staas.ir/webhook/status",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    area: "pregnancy",
-                                    duDate:
-                                      $state.duDate[0] +
-                                      "-" +
-                                      ($state.duDate[1] <= 9 ? "0" : "") +
-                                      $state.duDate[1] +
-                                      "-" +
-                                      ($state.duDate[2] <= 9 ? "0" : "") +
-                                      $state.duDate[2] +
-                                      " 10:10:10",
-                                    userId: $ctx.query.userId.slice(
-                                      4,
-                                      +$ctx.query.userId.length - 4
-                                    )
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              (() => {
-                                try {
-                                  return {
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization:
-                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                    }
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-
-                    $steps["goToPage"] = (() => {
-                      if (
-                        $state.duDate == "" ||
-                        $state.dateOfBirth == null ||
-                        $state.dateOfBirth == ""
-                      ) {
-                        return false;
-                      }
-                      var jy = $state.dateOfBirth.year;
-                      var jm = $state.dateOfBirth.month;
-                      var jd = $state.dateOfBirth.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return (
-                                  "https://apps.liom.app/pregnancy/?token=" +
-                                  $ctx.query.token +
-                                  "&userId=" +
-                                  $ctx.query.userId +
-                                  "&theme=" +
-                                  $ctx.query.theme +
-                                  "&inApp=false"
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
+                            destination:
+                              "https://apps.liom.app/pregnancy/?token=" +
+                              $ctx.query.token +
+                              "&userId=" +
+                              $ctx.query.userId +
+                              "&theme=" +
+                              $ctx.query.theme
                           };
                           return (({ destination }) => {
                             if (
@@ -1074,135 +466,595 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     ) {
                       $steps["goToPage"] = await $steps["goToPage"];
                     }
+                  }}
+                >
+                  <PlasmicImg__
+                    data-plasmic-name={"img"}
+                    data-plasmic-override={overrides.img}
+                    alt={""}
+                    className={classNames(sty.img, {
+                      [sty.imgdark]: hasVariant($state, "dark", "dark")
+                    })}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"20px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image38.svg",
+                      fullWidth: 24,
+                      fullHeight: 24,
+                      aspectRatio: 1
+                    }}
+                  />
 
-                    $steps["invokeGlobalAction4"] = (() => {
-                      if (
-                        $state.duDate == "" ||
-                        $state.dateOfBirth == null ||
-                        $state.dateOfBirth == ""
-                      ) {
-                        return false;
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__pmZGg,
+                      {
+                        [sty.textdark__pmZGgbkz05]: hasVariant(
+                          $state,
+                          "dark",
+                          "dark"
+                        )
                       }
-                      if (
-                        $ctx.query.userId.slice(
-                          4,
-                          $ctx.query.userId.length - 4
-                        ) == "314149"
-                      ) {
-                        return false;
-                      }
-                      var jy = $state.dateOfBirth.year;
-                      var jm = $state.dateOfBirth.month;
-                      var jd = $state.dateOfBirth.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
+                    )}
+                  >
+                    {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a"}
+                  </div>
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___4W6Wf, {
+                    [sty.freeBoxdark___4W6WFbkz05]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___2Sx)}
+                    onClick={async event => {
+                      const $steps = {};
 
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://api.liom.app/service/log",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    userId:
-                                      $ctx.query.userId?.length > 0
-                                        ? $ctx.query.userId.slice(
-                                            4,
-                                            $ctx.query.userId.length - 4
-                                          )
-                                        : "guest",
-                                    pageName: "settingPage",
-                                    action: "click-saveDate",
-                                    extraData: {}
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              (() => {
-                                try {
-                                  return {
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization:
-                                        "Bearer " +
-                                        $ctx.query.token.slice(
-                                          6,
-                                          $ctx.query.token.length - 3
-                                        )
+                      $steps["invokeGlobalAction3"] = (() => {
+                        if (
+                          $state.duDate == "" ||
+                          $state.dateOfBirth == null ||
+                          $state.dateOfBirth == ""
+                        ) {
+                          return true;
+                        }
+                        var jy = $state.dateOfBirth.year;
+                        var jm = $state.dateOfBirth.month;
+                        var jd = $state.dateOfBirth.day;
+                        var gy = jy <= 979 ? 621 : 1600;
+                        jy -= jy <= 979 ? 0 : 979;
+                        var days =
+                          365 * jy +
+                          parseInt(jy / 33) * 8 +
+                          parseInt(((jy % 33) + 3) / 4) +
+                          78 +
+                          jd +
+                          (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                        gy += 400 * parseInt(days / 146097);
+                        days %= 146097;
+                        if (days > 36524) {
+                          gy += 100 * parseInt(--days / 36524);
+                          days %= 36524;
+                          if (days >= 365) days++;
+                        }
+                        gy += 4 * parseInt(days / 1461);
+                        days %= 1461;
+                        gy += parseInt((days - 1) / 365);
+                        if (days > 365) days = (days - 1) % 365;
+                        var gd = days + 1;
+                        var sal_a = [
+                          0,
+                          31,
+                          (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                            ? 29
+                            : 28,
+                          31,
+                          30,
+                          31,
+                          30,
+                          31,
+                          31,
+                          30,
+                          31,
+                          30,
+                          31
+                        ];
+
+                        var gm;
+                        for (gm = 0; gm < 13; gm++) {
+                          var v = sal_a[gm];
+                          if (gd <= v) break;
+                          gd -= v;
+                        }
+                        const d =
+                          gy +
+                          "-" +
+                          (gm <= 9 ? "0" : "") +
+                          gm +
+                          "-" +
+                          (gd <= 9 ? "0" : "") +
+                          gd +
+                          "T10:10:10";
+                        const specifiedDate = new Date(d);
+                        const today = new Date();
+                        if (today > specifiedDate) {
+                          return true;
+                        }
+                        const diffTime = Math.abs(today - specifiedDate);
+                        const diffDays = Math.ceil(
+                          diffTime / (1000 * 60 * 60 * 24)
+                        );
+                        return diffDays <= 280 ? false : true;
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "error",
+                                (() => {
+                                  try {
+                                    return (() => {
+                                      if ($state.duDate == "")
+                                        "لطفا اطلاعات درست وارد کنید";
+                                      if ($state.dateOfBirth == null)
+                                        "لطفا اطلاعات درست وارد کنید";
+                                      if ($state.dateOfBirth == "")
+                                        "لطفا اطلاعات درست وارد کنید";
+                                      var jy = $state.dateOfBirth.year;
+                                      var jm = $state.dateOfBirth.month;
+                                      var jd = $state.dateOfBirth.day;
+                                      var gy = jy <= 979 ? 621 : 1600;
+                                      jy -= jy <= 979 ? 0 : 979;
+                                      var days =
+                                        365 * jy +
+                                        parseInt(jy / 33) * 8 +
+                                        parseInt(((jy % 33) + 3) / 4) +
+                                        78 +
+                                        jd +
+                                        (jm < 7
+                                          ? (jm - 1) * 31
+                                          : (jm - 7) * 30 + 186);
+                                      gy += 400 * parseInt(days / 146097);
+                                      days %= 146097;
+                                      if (days > 36524) {
+                                        gy += 100 * parseInt(--days / 36524);
+                                        days %= 36524;
+                                        if (days >= 365) days++;
+                                      }
+                                      gy += 4 * parseInt(days / 1461);
+                                      days %= 1461;
+                                      gy += parseInt((days - 1) / 365);
+                                      if (days > 365) days = (days - 1) % 365;
+                                      var gd = days + 1;
+                                      var sal_a = [
+                                        0,
+                                        31,
+                                        (gy % 4 == 0 && gy % 100 != 0) ||
+                                        gy % 400 == 0
+                                          ? 29
+                                          : 28,
+                                        31,
+                                        30,
+                                        31,
+                                        30,
+                                        31,
+                                        31,
+                                        30,
+                                        31,
+                                        30,
+                                        31
+                                      ];
+
+                                      var gm;
+                                      for (gm = 0; gm < 13; gm++) {
+                                        var v = sal_a[gm];
+                                        if (gd <= v) break;
+                                        gd -= v;
+                                      }
+                                      const d =
+                                        gy +
+                                        "-" +
+                                        (gm <= 9 ? "0" : "") +
+                                        gm +
+                                        "-" +
+                                        (gd <= 9 ? "0" : "") +
+                                        gd +
+                                        "T10:10:10";
+                                      const specifiedDate = new Date(d);
+                                      const today = new Date();
+                                      if (today > specifiedDate) {
+                                        ("لطفا اطلاعات درست وارد کنید4");
+                                      }
+                                      const diffTime = Math.abs(
+                                        today - specifiedDate
+                                      );
+                                      const diffDays = Math.ceil(
+                                        diffTime / (1000 * 60 * 60 * 24)
+                                      );
+                                      return diffDays <= 280
+                                        ? "تاریخ زایمانی که وارد کردی برای قبل امروز است"
+                                        : $state.typeInterDate == "lastTime"
+                                        ? "تاریخ آخرین قاعدگی ای که وارد کردی برای بعد از امروز است"
+                                        : "تاریخ زایمانی که وارد کردی برای بیشتر از 9 ماه بعد است";
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  };
+                                    throw e;
+                                  }
+                                })(),
+                                "bottom-center"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction3"] != null &&
+                        typeof $steps["invokeGlobalAction3"] === "object" &&
+                        typeof $steps["invokeGlobalAction3"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction3"] = await $steps[
+                          "invokeGlobalAction3"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction2"] = (() => {
+                        if (
+                          $state.duDate == "" ||
+                          $state.dateOfBirth == null ||
+                          $state.dateOfBirth == ""
+                        ) {
+                          return false;
+                        }
+                        var jy = $state.dateOfBirth.year;
+                        var jm = $state.dateOfBirth.month;
+                        var jd = $state.dateOfBirth.day;
+                        var gy = jy <= 979 ? 621 : 1600;
+                        jy -= jy <= 979 ? 0 : 979;
+                        var days =
+                          365 * jy +
+                          parseInt(jy / 33) * 8 +
+                          parseInt(((jy % 33) + 3) / 4) +
+                          78 +
+                          jd +
+                          (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                        gy += 400 * parseInt(days / 146097);
+                        days %= 146097;
+                        if (days > 36524) {
+                          gy += 100 * parseInt(--days / 36524);
+                          days %= 36524;
+                          if (days >= 365) days++;
+                        }
+                        gy += 4 * parseInt(days / 1461);
+                        days %= 1461;
+                        gy += parseInt((days - 1) / 365);
+                        if (days > 365) days = (days - 1) % 365;
+                        var gd = days + 1;
+                        var sal_a = [
+                          0,
+                          31,
+                          (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                            ? 29
+                            : 28,
+                          31,
+                          30,
+                          31,
+                          30,
+                          31,
+                          31,
+                          30,
+                          31,
+                          30,
+                          31
+                        ];
+
+                        var gm;
+                        for (gm = 0; gm < 13; gm++) {
+                          var v = sal_a[gm];
+                          if (gd <= v) break;
+                          gd -= v;
+                        }
+                        const d =
+                          gy +
+                          "-" +
+                          (gm <= 9 ? "0" : "") +
+                          gm +
+                          "-" +
+                          (gd <= 9 ? "0" : "") +
+                          gd +
+                          "T10:10:10";
+                        const specifiedDate = new Date(d);
+                        const today = new Date();
+                        if (today > specifiedDate) {
+                          return false;
+                        }
+                        const diffTime = Math.abs(today - specifiedDate);
+                        const diffDays = Math.ceil(
+                          diffTime / (1000 * 60 * 60 * 24)
+                        );
+                        return diffDays > 280 ? false : true;
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                undefined,
+                                "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
+                                "bottom-center"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] = (() => {
+                        if (
+                          $state.duDate == "" ||
+                          $state.dateOfBirth == null ||
+                          $state.dateOfBirth == ""
+                        ) {
+                          return false;
+                        }
+                        var jy = $state.dateOfBirth.year;
+                        var jm = $state.dateOfBirth.month;
+                        var jd = $state.dateOfBirth.day;
+                        var gy = jy <= 979 ? 621 : 1600;
+                        jy -= jy <= 979 ? 0 : 979;
+                        var days =
+                          365 * jy +
+                          parseInt(jy / 33) * 8 +
+                          parseInt(((jy % 33) + 3) / 4) +
+                          78 +
+                          jd +
+                          (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                        gy += 400 * parseInt(days / 146097);
+                        days %= 146097;
+                        if (days > 36524) {
+                          gy += 100 * parseInt(--days / 36524);
+                          days %= 36524;
+                          if (days >= 365) days++;
+                        }
+                        gy += 4 * parseInt(days / 1461);
+                        days %= 1461;
+                        gy += parseInt((days - 1) / 365);
+                        if (days > 365) days = (days - 1) % 365;
+                        var gd = days + 1;
+                        var sal_a = [
+                          0,
+                          31,
+                          (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                            ? 29
+                            : 28,
+                          31,
+                          30,
+                          31,
+                          30,
+                          31,
+                          31,
+                          30,
+                          31,
+                          30,
+                          31
+                        ];
+
+                        var gm;
+                        for (gm = 0; gm < 13; gm++) {
+                          var v = sal_a[gm];
+                          if (gd <= v) break;
+                          gd -= v;
+                        }
+                        const d =
+                          gy +
+                          "-" +
+                          (gm <= 9 ? "0" : "") +
+                          gm +
+                          "-" +
+                          (gd <= 9 ? "0" : "") +
+                          gd +
+                          "T10:10:10";
+                        const specifiedDate = new Date(d);
+                        const today = new Date();
+                        if (today > specifiedDate) {
+                          return false;
+                        }
+                        const diffTime = Math.abs(today - specifiedDate);
+                        const diffDays = Math.ceil(
+                          diffTime / (1000 * 60 * 60 * 24)
+                        );
+                        return diffDays > 280 ? false : true;
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/status",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      area: "pregnancy",
+                                      duDate:
+                                        $state.duDate[0] +
+                                        "-" +
+                                        ($state.duDate[1] <= 9 ? "0" : "") +
+                                        $state.duDate[1] +
+                                        "-" +
+                                        ($state.duDate[2] <= 9 ? "0" : "") +
+                                        $state.duDate[2] +
+                                        " 10:10:10",
+                                      userId: $ctx.query.userId.slice(
+                                        4,
+                                        +$ctx.query.userId.length - 4
+                                      )
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                (() => {
+                                  try {
+                                    return {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization:
+                                          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["goToPage"] = (() => {
+                        if (
+                          $state.duDate == "" ||
+                          $state.dateOfBirth == null ||
+                          $state.dateOfBirth == ""
+                        ) {
+                          return false;
+                        }
+                        var jy = $state.dateOfBirth.year;
+                        var jm = $state.dateOfBirth.month;
+                        var jd = $state.dateOfBirth.day;
+                        var gy = jy <= 979 ? 621 : 1600;
+                        jy -= jy <= 979 ? 0 : 979;
+                        var days =
+                          365 * jy +
+                          parseInt(jy / 33) * 8 +
+                          parseInt(((jy % 33) + 3) / 4) +
+                          78 +
+                          jd +
+                          (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                        gy += 400 * parseInt(days / 146097);
+                        days %= 146097;
+                        if (days > 36524) {
+                          gy += 100 * parseInt(--days / 36524);
+                          days %= 36524;
+                          if (days >= 365) days++;
+                        }
+                        gy += 4 * parseInt(days / 1461);
+                        days %= 1461;
+                        gy += parseInt((days - 1) / 365);
+                        if (days > 365) days = (days - 1) % 365;
+                        var gd = days + 1;
+                        var sal_a = [
+                          0,
+                          31,
+                          (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                            ? 29
+                            : 28,
+                          31,
+                          30,
+                          31,
+                          30,
+                          31,
+                          31,
+                          30,
+                          31,
+                          30,
+                          31
+                        ];
+
+                        var gm;
+                        for (gm = 0; gm < 13; gm++) {
+                          var v = sal_a[gm];
+                          if (gd <= v) break;
+                          gd -= v;
+                        }
+                        const d =
+                          gy +
+                          "-" +
+                          (gm <= 9 ? "0" : "") +
+                          gm +
+                          "-" +
+                          (gd <= 9 ? "0" : "") +
+                          gd +
+                          "T10:10:10";
+                        const specifiedDate = new Date(d);
+                        const today = new Date();
+                        if (today > specifiedDate) {
+                          return false;
+                        }
+                        const diffTime = Math.abs(today - specifiedDate);
+                        const diffDays = Math.ceil(
+                          diffTime / (1000 * 60 * 60 * 24)
+                        );
+                        return diffDays > 280 ? false : true;
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return (
+                                    "https://apps.liom.app/pregnancy/?token=" +
+                                    $ctx.query.token +
+                                    "&userId=" +
+                                    $ctx.query.userId +
+                                    "&theme=" +
+                                    $ctx.query.theme +
+                                    "&inApp=false"
+                                  );
                                 } catch (e) {
                                   if (
                                     e instanceof TypeError ||
@@ -1214,46 +1066,209 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                   throw e;
                                 }
                               })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction4"] != null &&
-                      typeof $steps["invokeGlobalAction4"] === "object" &&
-                      typeof $steps["invokeGlobalAction4"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction4"] = await $steps[
-                        "invokeGlobalAction4"
-                      ];
-                    }
-                  }}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nCwRl,
-                      {
-                        [sty.textdark__nCwRlbkz05]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
-                    )}
+
+                      $steps["invokeGlobalAction4"] = (() => {
+                        if (
+                          $state.duDate == "" ||
+                          $state.dateOfBirth == null ||
+                          $state.dateOfBirth == ""
+                        ) {
+                          return false;
+                        }
+                        if (
+                          $ctx.query.userId.slice(
+                            4,
+                            $ctx.query.userId.length - 4
+                          ) == "314149"
+                        ) {
+                          return false;
+                        }
+                        var jy = $state.dateOfBirth.year;
+                        var jm = $state.dateOfBirth.month;
+                        var jd = $state.dateOfBirth.day;
+                        var gy = jy <= 979 ? 621 : 1600;
+                        jy -= jy <= 979 ? 0 : 979;
+                        var days =
+                          365 * jy +
+                          parseInt(jy / 33) * 8 +
+                          parseInt(((jy % 33) + 3) / 4) +
+                          78 +
+                          jd +
+                          (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                        gy += 400 * parseInt(days / 146097);
+                        days %= 146097;
+                        if (days > 36524) {
+                          gy += 100 * parseInt(--days / 36524);
+                          days %= 36524;
+                          if (days >= 365) days++;
+                        }
+                        gy += 4 * parseInt(days / 1461);
+                        days %= 1461;
+                        gy += parseInt((days - 1) / 365);
+                        if (days > 365) days = (days - 1) % 365;
+                        var gd = days + 1;
+                        var sal_a = [
+                          0,
+                          31,
+                          (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                            ? 29
+                            : 28,
+                          31,
+                          30,
+                          31,
+                          30,
+                          31,
+                          31,
+                          30,
+                          31,
+                          30,
+                          31
+                        ];
+
+                        var gm;
+                        for (gm = 0; gm < 13; gm++) {
+                          var v = sal_a[gm];
+                          if (gd <= v) break;
+                          gd -= v;
+                        }
+                        const d =
+                          gy +
+                          "-" +
+                          (gm <= 9 ? "0" : "") +
+                          gm +
+                          "-" +
+                          (gd <= 9 ? "0" : "") +
+                          gd +
+                          "T10:10:10";
+                        const specifiedDate = new Date(d);
+                        const today = new Date();
+                        if (today > specifiedDate) {
+                          return false;
+                        }
+                        const diffTime = Math.abs(today - specifiedDate);
+                        const diffDays = Math.ceil(
+                          diffTime / (1000 * 60 * 60 * 24)
+                        );
+                        return diffDays > 280 ? false : true;
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://api.liom.app/service/log",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      userId:
+                                        $ctx.query.userId?.length > 0
+                                          ? $ctx.query.userId.slice(
+                                              4,
+                                              $ctx.query.userId.length - 4
+                                            )
+                                          : "guest",
+                                      pageName: "settingPage",
+                                      action: "click-saveDate",
+                                      extraData: {}
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })(),
+                                (() => {
+                                  try {
+                                    return {
+                                      headers: {
+                                        "Content-Type": "application/json",
+                                        Authorization:
+                                          "Bearer " +
+                                          $ctx.query.token.slice(
+                                            6,
+                                            $ctx.query.token.length - 3
+                                          )
+                                      }
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction4"] != null &&
+                        typeof $steps["invokeGlobalAction4"] === "object" &&
+                        typeof $steps["invokeGlobalAction4"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction4"] = await $steps[
+                          "invokeGlobalAction4"
+                        ];
+                      }
+                    }}
                   >
-                    {
-                      "\u0630\u062e\u06cc\u0631\u0647 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a"
-                    }
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__nCwRl,
+                        {
+                          [sty.textdark__nCwRlbkz05]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                    >
+                      {
+                        "\u0630\u062e\u06cc\u0631\u0647 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a"
+                      }
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            ) : null}
             <div className={classNames(projectcss.all, sty.freeBox__rckdR)}>
               <div
                 className={classNames(projectcss.all, sty.freeBox__xUcow, {

@@ -114,13 +114,13 @@
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
-  width: 100%;
-  height: 24px;
+  width: 35px;
+  height: 19px;
   transition-property: all;
   transition-duration: 0.5s;
   background: #b2b2b2;
   transition-timing-function: ease-in-out;
-  min-width: 0;
+  flex-shrink: 0;
   -webkit-transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
   -webkit-transition-duration: 0.5s;
@@ -146,15 +146,16 @@
   align-items: stretch;
   justify-content: flex-start;
   left: auto;
-  top: 6.3px;
-  width: 20px;
-  height: 20px;
+  top: 9px;
+  width: 15px;
+  height: 15px;
   transition-property: all;
   transition-duration: 0.3s;
   background: #ffffff;
-  right: 2px;
+  right: 4px;
   box-shadow: -1px 1px 5px 0px #00000038;
   transition-timing-function: ease-in-out;
+  padding-left: 0px;
   flex-shrink: 0;
   -webkit-transition-property: all;
   -webkit-transition-timing-function: ease-in-out;
@@ -166,7 +167,7 @@
   box-shadow: none;
 }
 .thumbisChecked {
-  right: 2px;
+  right: 3px;
   box-shadow: 1px 1px 5px 0px #00000038;
   left: auto;
   transform: translateX(-16px) translateY(0px) translateZ(0px);

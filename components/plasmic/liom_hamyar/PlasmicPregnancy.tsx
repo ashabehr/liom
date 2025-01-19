@@ -70,6 +70,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
@@ -107,6 +108,7 @@ export type PlasmicPregnancy__OverridesType = {
   timer?: Flex__<typeof Timer>;
   getUserInfo?: Flex__<typeof ApiRequest>;
   embedHtml?: Flex__<typeof Embed>;
+  switchbest?: Flex__<typeof Switchbest>;
   progress?: Flex__<typeof AntdProgress>;
   todoList?: Flex__<typeof TodoList>;
 };
@@ -489,6 +491,12 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "switchbest.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1241,7 +1249,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                               "&userId=" +
                               $ctx.query.userId +
                               "&theme=" +
-                              $ctx.query.theme
+                              $ctx.query.theme +
+                              "&inApp=" +
+                              $ctx.query.inApp
                             );
                           } catch (e) {
                             if (
@@ -4221,11 +4231,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                             $ctx?.query?.inApp == "true" &&
                             $state.getUserInfo.data[0].result.allowance.find(
                               item => item.type === "husband_sms"
-                            ).active &&
-                            $ctx.query.userId.slice(
-                              4,
-                              $ctx.query.userId.length - 4
-                            ) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                            ).active
+                            // &&  $ctx.query.userId.slice( 4 , $ctx.query.userId.length -4) == '4ddd1fab-100c-49f0-b843-e70bff8add34'
                           );
                         } catch (e) {
                           if (
@@ -4297,42 +4304,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                             ) {
                               $steps["runCode2"] = await $steps["runCode2"];
                             }
-
-                            $steps["updateToolsList"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["toolsList"]
-                                    },
-                                    operation: 0
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateToolsList"] != null &&
-                              typeof $steps["updateToolsList"] === "object" &&
-                              typeof $steps["updateToolsList"].then ===
-                                "function"
-                            ) {
-                              $steps["updateToolsList"] = await $steps[
-                                "updateToolsList"
-                              ];
-                            }
                           }}
                         >
                           <div
@@ -4357,17 +4328,44 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 throw e;
                               }
                             })() ? (
-                              <div
+                              <Stack__
+                                as={"div"}
+                                hasGap={true}
                                 className={classNames(
                                   projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__sNOiO
+                                  sty.freeBox__cqXfk
                                 )}
                               >
-                                {
-                                  "\u0627\u0641\u0632\u0648\u062f\u0646 \u0647\u0645\u06cc\u0627\u0631"
-                                }
-                              </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__sNOiO
+                                  )}
+                                >
+                                  {
+                                    "\u0647\u0646\u0648\u0632 \u0647\u0645\u06cc\u0627\u0631\u062a\u0648 \u0627\u0636\u0627\u0641\u0647 \u0646\u06a9\u0631\u062f\u06cc\u061f"
+                                  }
+                                </div>
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__vEmPt
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__hJg0N
+                                    )}
+                                  >
+                                    {
+                                      "\u0627\u0641\u0632\u0648\u062f\u0646 \u0647\u0645\u06cc\u0627\u0631"
+                                    }
+                                  </div>
+                                </div>
+                              </Stack__>
                             ) : null}
                             {(() => {
                               try {
@@ -4387,13 +4385,51 @@ function PlasmicPregnancy__RenderFunc(props: {
                               <div
                                 className={classNames(
                                   projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__esaJ
+                                  sty.freeBox__fuRwW
                                 )}
                               >
-                                {hasVariant(globalVariants, "screen", "mobile")
-                                  ? "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9"
-                                  : "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9"}
+                                <Switchbest
+                                  data-plasmic-name={"switchbest"}
+                                  data-plasmic-override={overrides.switchbest}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.switchbest
+                                  )}
+                                  isChecked={
+                                    generateStateValueProp($state, [
+                                      "switchbest",
+                                      "isChecked"
+                                    ]) ?? false
+                                  }
+                                  onChange={async (...eventArgs: any) => {
+                                    ((...eventArgs) => {
+                                      generateStateOnChangeProp($state, [
+                                        "switchbest",
+                                        "isChecked"
+                                      ])(eventArgs[0]);
+                                    }).apply(null, eventArgs);
+
+                                    if (
+                                      eventArgs.length > 1 &&
+                                      eventArgs[1] &&
+                                      eventArgs[1]._plasmic_state_init_
+                                    ) {
+                                      return;
+                                    }
+                                  }}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__e67NZ
+                                    )}
+                                  >
+                                    {
+                                      "\u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u0647\u0645\u06cc\u0627\u0631"
+                                    }
+                                  </div>
+                                </Switchbest>
                               </div>
                             ) : null}
                           </div>
@@ -6049,6 +6085,7 @@ const PlasmicDescendants = {
     "timer",
     "getUserInfo",
     "embedHtml",
+    "switchbest",
     "progress",
     "todoList"
   ],
@@ -6058,6 +6095,7 @@ const PlasmicDescendants = {
     "timer",
     "getUserInfo",
     "embedHtml",
+    "switchbest",
     "progress",
     "todoList"
   ],
@@ -6065,6 +6103,7 @@ const PlasmicDescendants = {
   timer: ["timer"],
   getUserInfo: ["getUserInfo"],
   embedHtml: ["embedHtml"],
+  switchbest: ["switchbest"],
   progress: ["progress"],
   todoList: ["todoList"]
 } as const;
@@ -6078,6 +6117,7 @@ type NodeDefaultElementType = {
   timer: typeof Timer;
   getUserInfo: typeof ApiRequest;
   embedHtml: typeof Embed;
+  switchbest: typeof Switchbest;
   progress: typeof AntdProgress;
   todoList: typeof TodoList;
 };
@@ -6172,6 +6212,7 @@ export const PlasmicPregnancy = Object.assign(
     timer: makeNodeComponent("timer"),
     getUserInfo: makeNodeComponent("getUserInfo"),
     embedHtml: makeNodeComponent("embedHtml"),
+    switchbest: makeNodeComponent("switchbest"),
     progress: makeNodeComponent("progress"),
     todoList: makeNodeComponent("todoList"),
 

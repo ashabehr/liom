@@ -177,7 +177,7 @@
   --plasmic-token-neutral-neutral-foreground: var(--token-UJjVC8bVZisx);
   --token-ux_iYB4XYqQ0: #e5e7eb;
   --plasmic-token-muted-muted-foreground: var(--token-ux_iYB4XYqQ0);
-  --token-7fkkqjqo9aea: #1e3a8a;
+  --token-7fkkqjqo9aea: var(--token-WlOzlXUQG5Z-);
   --plasmic-token-brand-brand-soft-foreground: var(--token-7fkkqjqo9aea);
   --token-QNU32zUTO31z: #422006;
   --plasmic-token-warning-warning-foreground: var(--token-QNU32zUTO31z);

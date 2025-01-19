@@ -286,7 +286,8 @@ function PlasmicSwitchbest__RenderFunc(props: {
               $state,
               "isDisabled",
               "isDisabled"
-            )
+            ),
+            [sty.thumbnoLabel]: hasVariant($state, "noLabel", "noLabel")
           })}
         />
       </div>
