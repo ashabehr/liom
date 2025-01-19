@@ -419,6 +419,7 @@
   width: auto;
   height: auto;
   max-width: 100%;
+  background: none;
   padding: 0px;
 }
 @media (max-width: 640px) {
