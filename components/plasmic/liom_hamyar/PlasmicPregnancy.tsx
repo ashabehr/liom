@@ -585,6 +585,82 @@ function PlasmicPregnancy__RenderFunc(props: {
                 ) {
                   $steps["refreshData"] = await $steps["refreshData"];
                 }
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            return window.location.reload();
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateToolsList"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["toolsList"]
+                        },
+                        operation: 0
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateToolsList"] != null &&
+                  typeof $steps["updateToolsList"] === "object" &&
+                  typeof $steps["updateToolsList"].then === "function"
+                ) {
+                  $steps["updateToolsList"] = await $steps["updateToolsList"];
+                }
+
+                $steps["updateToolsList2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          undefined,
+                          "\u062f\u0631 \u062d\u0627\u0644 \u0628\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc"
+                        ]
+                      };
+                      return $globalActions["Fragment.showToast"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateToolsList2"] != null &&
+                  typeof $steps["updateToolsList2"] === "object" &&
+                  typeof $steps["updateToolsList2"].then === "function"
+                ) {
+                  $steps["updateToolsList2"] = await $steps["updateToolsList2"];
+                }
               }}
             />
 
