@@ -565,27 +565,6 @@ function PlasmicPregnancy__RenderFunc(props: {
               onRefresh={async () => {
                 const $steps = {};
 
-                $steps["refreshData"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        queryInvalidation: ["plasmic_refresh_all"]
-                      };
-                      return (async ({ queryInvalidation }) => {
-                        if (!queryInvalidation) {
-                          return;
-                        }
-                        await plasmicInvalidate(queryInvalidation);
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["refreshData"] != null &&
-                  typeof $steps["refreshData"] === "object" &&
-                  typeof $steps["refreshData"].then === "function"
-                ) {
-                  $steps["refreshData"] = await $steps["refreshData"];
-                }
-
                 $steps["runCode"] = true
                   ? (() => {
                       const actionArgs = {
@@ -606,60 +585,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
-                }
-
-                $steps["updateToolsList"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["toolsList"]
-                        },
-                        operation: 0
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateToolsList"] != null &&
-                  typeof $steps["updateToolsList"] === "object" &&
-                  typeof $steps["updateToolsList"].then === "function"
-                ) {
-                  $steps["updateToolsList"] = await $steps["updateToolsList"];
-                }
-
-                $steps["updateToolsList2"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        args: [
-                          undefined,
-                          "\u062f\u0631 \u062d\u0627\u0644 \u0628\u0631\u0648\u0632\u0631\u0633\u0627\u0646\u06cc"
-                        ]
-                      };
-                      return $globalActions["Fragment.showToast"]?.apply(null, [
-                        ...actionArgs.args
-                      ]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateToolsList2"] != null &&
-                  typeof $steps["updateToolsList2"] === "object" &&
-                  typeof $steps["updateToolsList2"].then === "function"
-                ) {
-                  $steps["updateToolsList2"] = await $steps["updateToolsList2"];
                 }
               }}
             />
@@ -4339,11 +4264,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             $ctx?.query?.inApp == "true" &&
                             $state.getUserInfo.data[0].result.allowance.find(
                               item => item.type === "husband_sms"
-                            ).active &&
-                            $ctx.query.userId.slice(
-                              4,
-                              $ctx.query.userId.length - 4
-                            ) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                            ).active
                           );
                         } catch (e) {
                           if (
