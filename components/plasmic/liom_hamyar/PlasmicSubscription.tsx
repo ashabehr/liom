@@ -91,6 +91,7 @@ export type PlasmicSubscription__ArgsType = {
   onDiscountChange?: (val: string) => void;
   fullprice?: number;
   onFullpriceChange?: (val: string) => void;
+  children?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicSubscription__ArgsType;
 export const PlasmicSubscription__ArgProps = new Array<ArgPropType>(
@@ -104,7 +105,8 @@ export const PlasmicSubscription__ArgProps = new Array<ArgPropType>(
   "discount",
   "onDiscountChange",
   "fullprice",
-  "onFullpriceChange"
+  "onFullpriceChange",
+  "children"
 );
 
 export type PlasmicSubscription__OverridesType = {
@@ -123,6 +125,7 @@ export interface DefaultSubscriptionProps {
   onDiscountChange?: (val: string) => void;
   fullprice?: number;
   onFullpriceChange?: (val: string) => void;
+  children?: React.ReactNode;
   click?: SingleBooleanChoiceArg<"click">;
   className?: string;
 }
@@ -257,152 +260,64 @@ function PlasmicSubscription__RenderFunc(props: {
       )}
       onClick={args.onClick}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__mc1I3,
-          { [sty.textclick__mc1I3Rb9KL]: hasVariant($state, "click", "click") }
-        )}
-      >
-        <React.Fragment>
+      <div className={classNames(projectcss.all, sty.freeBox__gvUeM)}>
+        {renderPlasmicSlot({
+          defaultContents: null,
+          value: args.children
+        })}
+      </div>
+      <div className={classNames(projectcss.all, sty.freeBox___0KpyE)}>
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__mc1I3,
+            {
+              [sty.textclick__mc1I3Rb9KL]: hasVariant($state, "click", "click")
+            }
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.title;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "\u0627\u0634\u062a\u0631\u0627\u06a9";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </div>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__dvIp, {
+            [sty.freeBoxclick__dvIpRb9KL]: hasVariant($state, "click", "click")
+          })}
+        >
           {(() => {
             try {
-              return $state.title;
+              return $state.discount ? true : false;
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return "\u0627\u0634\u062a\u0631\u0627\u06a9";
+                return true;
               }
               throw e;
             }
-          })()}
-        </React.Fragment>
-      </div>
-      <div
-        className={classNames(projectcss.all, sty.freeBox__dvIp, {
-          [sty.freeBoxclick__dvIpRb9KL]: hasVariant($state, "click", "click")
-        })}
-      >
-        {(() => {
-          try {
-            return $state.discount ? true : false;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
-            }
-            throw e;
-          }
-        })() ? (
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__a63Et,
-              {
-                [sty.textclick__a63EtRb9KL]: hasVariant(
-                  $state,
-                  "click",
-                  "click"
-                )
-              }
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $state.fullprice;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "120000";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </div>
-        ) : null}
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__xfSxq,
-            {
-              [sty.textclick__xfSxqRb9KL]: hasVariant($state, "click", "click")
-            }
-          )}
-        >
-          {hasVariant($state, "click", "click") ? (
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $state.price + " تومان ";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "40000 \u062a\u0648\u0645\u0627\u0646";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $state.price + " تومان ";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "40000 \u062a\u0648\u0645\u0627\u0646";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          )}
-        </div>
-        {(() => {
-          try {
-            return $state.discount ? true : false;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return true;
-            }
-            throw e;
-          }
-        })() ? (
-          <div
-            className={classNames(projectcss.all, sty.freeBox__vwgAl, {
-              [sty.freeBoxclick__vwgAlRb9KL]: hasVariant(
-                $state,
-                "click",
-                "click"
-              )
-            })}
-          >
+          })() ? (
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text___68LQd,
+                sty.text__a63Et,
                 {
-                  [sty.textclick___68LQdRb9KL]: hasVariant(
+                  [sty.textclick__a63EtRb9KL]: hasVariant(
                     $state,
                     "click",
                     "click"
@@ -410,42 +325,144 @@ function PlasmicSubscription__RenderFunc(props: {
                 }
               )}
             >
-              {hasVariant($state, "click", "click") ? (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $state.discount;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "50%";
-                      }
-                      throw e;
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.fullprice;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "120000";
                     }
-                  })()}
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $state.discount;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "50%";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              )}
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
+          ) : null}
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__xfSxq,
+              {
+                [sty.textclick__xfSxqRb9KL]: hasVariant(
+                  $state,
+                  "click",
+                  "click"
+                )
+              }
+            )}
+          >
+            {hasVariant($state, "click", "click") ? (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.price + " تومان ";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "40000 \u062a\u0648\u0645\u0627\u0646";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $state.price + " تومان ";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "40000 \u062a\u0648\u0645\u0627\u0646";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            )}
           </div>
-        ) : null}
+          {(() => {
+            try {
+              return $state.discount ? true : false;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__vwgAl, {
+                [sty.freeBoxclick__vwgAlRb9KL]: hasVariant(
+                  $state,
+                  "click",
+                  "click"
+                )
+              })}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___68LQd,
+                  {
+                    [sty.textclick___68LQdRb9KL]: hasVariant(
+                      $state,
+                      "click",
+                      "click"
+                    )
+                  }
+                )}
+              >
+                {hasVariant($state, "click", "click") ? (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.discount;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "50%";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.discount;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "50%";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                )}
+              </div>
+            </div>
+          ) : null}
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;

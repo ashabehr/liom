@@ -1988,6 +1988,34 @@
     min-width: 0;
   }
 }
+.freeBox__ruOX {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: flex-start;
+  min-width: 0;
+  padding: 0px;
+}
+@media (max-width: 640px) {
+  .freeBox__ruOX {
+    padding: 0px 16px;
+  }
+}
+.img__vPzRa {
+  object-fit: cover;
+  max-width: 100%;
+  width: 100%;
+  align-self: flex-start;
+  min-width: 0;
+}
+.img__vPzRa > picture > img {
+  object-fit: cover;
+}
 .freeBox__hN0VM {
   display: flex;
   flex-direction: row;
@@ -3107,6 +3135,46 @@
   position: relative;
   align-self: stretch;
 }
+.freeBox__icjMp {
+  display: block;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  background: #7444bc33;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 3px 8px 2px;
+}
+@media (max-width: 640px) {
+  .freeBox__icjMp {
+    top: auto;
+    left: auto;
+    display: block;
+  }
+}
+.text___4ReU {
+  position: sticky;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+  text-align: center;
+  font-weight: 500;
+  z-index: 1;
+  min-width: 0;
+  min-height: 0;
+}
+@media (max-width: 640px) {
+  .text___4ReU {
+    font-size: 12px;
+  }
+}
 .button3:global(.__wab_instance) {
   max-width: 100%;
   width: 100%;
@@ -3755,7 +3823,7 @@
 }
 @media (max-width: 640px) {
   .freeBox___0Y0A8 {
-    padding: 8px;
+    padding: 24px 8px 8px;
   }
 }
 @media (max-width: 640px) {
@@ -3777,6 +3845,45 @@
     > img {
     margin-left: 0px;
     margin-top: 8px;
+  }
+}
+.freeBox___8IUt {
+  display: block;
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  background: #7444bc33;
+  left: auto;
+  top: -5px;
+  z-index: 1;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 3px 8px 2px;
+}
+@media (max-width: 640px) {
+  .freeBox___8IUt {
+    top: -8px;
+    display: block;
+  }
+}
+.text__cjm8E {
+  position: sticky;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+  text-align: center;
+  font-weight: 500;
+  z-index: 1;
+  min-width: 0;
+  min-height: 0;
+}
+@media (max-width: 640px) {
+  .text__cjm8E {
+    font-size: 12px;
   }
 }
 .freeBox__lsYky {
@@ -4300,6 +4407,45 @@
 .subscription2:global(.__wab_instance) {
   position: relative;
   align-self: stretch;
+}
+.freeBox__ceEg2 {
+  display: block;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  background: #7444bc33;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 3px 8px 2px;
+}
+@media (max-width: 640px) {
+  .freeBox__ceEg2 {
+    top: auto;
+    left: auto;
+    display: block;
+  }
+}
+.text__bktDe {
+  position: sticky;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+  text-align: center;
+  font-weight: 500;
+  z-index: 1;
+  min-height: 0;
+}
+@media (max-width: 640px) {
+  .text__bktDe {
+    font-size: 12px;
+  }
 }
 .button4:global(.__wab_instance) {
   max-width: 100%;
@@ -6205,6 +6351,46 @@
 }
 .subscription3:global(.__wab_instance) {
   max-width: 100%;
+}
+.freeBox__fybp9 {
+  display: block;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  background: #7444bc33;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 3px 8px 2px;
+}
+@media (max-width: 640px) {
+  .freeBox__fybp9 {
+    top: auto;
+    left: auto;
+    display: block;
+  }
+}
+.text__gBxhK {
+  position: sticky;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+  text-align: center;
+  font-weight: 500;
+  z-index: 1;
+  min-width: 0;
+  min-height: 0;
+}
+@media (max-width: 640px) {
+  .text__gBxhK {
+    font-size: 12px;
+  }
 }
 .button11:global(.__wab_instance) {
   max-width: 100%;
