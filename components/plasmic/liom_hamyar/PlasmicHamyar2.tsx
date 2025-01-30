@@ -5522,19 +5522,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       ) : null}
                       {(
                         hasVariant(globalVariants, "screen", "mobile")
-                          ? (() => {
-                              try {
-                                return $state.user.data.result.man.hamyarStatus;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return true;
-                                }
-                                throw e;
-                              }
-                            })()
+                          ? true
                           : (() => {
                               try {
                                 return $state.user.data.result.man.hamyarStatus;

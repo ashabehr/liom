@@ -1187,9 +1187,9 @@
 @media (max-width: 640px) {
   .freeBox___4OgnX {
     width: 100%;
-    display: flex;
     flex-direction: column;
     min-width: 0;
+    display: none;
     padding: 8px;
   }
 }
@@ -1679,7 +1679,7 @@
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: calc(0px + 8px) !important;
-    color: var(--token-4RAe7M2gInqR);
+    color: var(--token-47ovROB-Xr2C);
     flex-shrink: 0;
   }
 }
@@ -1699,7 +1699,7 @@
   .text__etExK {
     font-size: 16px;
     opacity: 0.8;
-    color: var(--token-4RAe7M2gInqR);
+    color: var(--token-47ovROB-Xr2C);
     text-align: justify;
     padding: 0px;
   }
