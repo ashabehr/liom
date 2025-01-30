@@ -1972,7 +1972,7 @@
   max-width: 100%;
   position: absolute;
   left: 0;
-  top: 45px;
+  top: 50px;
   right: 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -2219,13 +2219,18 @@
   white-space: pre-wrap;
   align-self: center;
 }
+@media (max-width: 640px) {
+  .text__lVDbt {
+    margin-left: calc(0px + 8px) !important;
+  }
+}
 .text__pDqt {
   width: auto;
   height: 2px;
   max-width: 100%;
   position: absolute;
   left: 0;
-  top: 45px;
+  top: 50px;
   right: 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -2242,7 +2247,7 @@
   z-index: 1;
   position: sticky;
   right: 0px;
-  padding: 0px 8px 8px 0px;
+  padding: 8px 8px 8px 0px;
 }
 .freeBox__v9Bij > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -2671,6 +2676,11 @@
   white-space: pre-wrap;
   align-self: flex-end;
 }
+@media (max-width: 640px) {
+  .text___1NEBk {
+    margin-left: calc(0px + 8px) !important;
+  }
+}
 .percentageBox___0I2Gj:global(.__wab_instance) {
   max-width: 100%;
 }
@@ -2694,7 +2704,7 @@
   max-width: 100%;
   position: absolute;
   left: 0;
-  top: 45px;
+  top: 50px;
   right: 0;
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -2758,7 +2768,7 @@
   .freeBox__imxav {
     height: 100%;
     min-height: 0;
-    padding: 0px 16px 0px 0px;
+    padding: 0px;
   }
 }
 @media (max-width: 640px) {
@@ -2872,15 +2882,18 @@
     top: auto;
     z-index: 5;
     position: relative;
-    width: auto;
+    width: 100%;
     overflow: auto;
     height: 100%;
+    transform: scaleX(1.15) scaleY(1.15) scaleZ(1);
+    min-width: 0;
     min-height: 0;
     padding: 8px 0px;
   }
 }
 @media (max-width: 640px) {
   .freeBox__ttgUv > :global(.__wab_flex-container) {
+    min-width: 0;
     min-height: 0;
     margin-left: calc(0px - 16px);
     width: calc(100% + 16px);
@@ -2969,7 +2982,8 @@
     height: 100%;
     width: auto;
     min-height: 0;
-    padding: 0px 16px 0px 0px;
+    display: flex;
+    padding: 0px;
   }
 }
 @media (max-width: 640px) {
@@ -3083,15 +3097,17 @@
     top: auto;
     z-index: 1;
     position: relative;
-    width: auto;
-    transform: none;
+    width: 100%;
+    transform: scaleX(1.15) scaleY(1.15) scaleZ(1);
     background: none;
     height: 100%;
+    min-width: 0;
     min-height: 0;
   }
 }
 @media (max-width: 640px) {
   .freeBox__vyvMu > :global(.__wab_flex-container) {
+    min-width: 0;
     min-height: 0;
     margin-left: calc(0px - 16px);
     width: calc(100% + 16px);

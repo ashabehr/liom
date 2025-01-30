@@ -6835,7 +6835,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                               )}
                             >
                               {
-                                "\u0628\u0627\u06cc\u062f\u0647\u0627 \u0648 \u0646\u0628\u0627\u06cc\u062f\u0647\u0627"
+                                "\u062f\u0648\u0631\u0647 \u0628\u0639\u062f\u06cc \u0634\u0645\u0627"
                               }
                             </div>
                           </Stack__>
@@ -7260,7 +7260,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                   )}
                                 >
                                   {
-                                    "\u062f\u0648\u0631\u0647 \u0628\u0639\u062f\u06cc \u0634\u0645\u0627"
+                                    "\u0628\u0627\u06cc\u062f \u0647\u0627 \u0648 \u0646\u0628\u0627\u06cc\u062f \u0647\u0627"
                                   }
                                 </div>
                                 <PercentageBox
@@ -7407,9 +7407,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                         try {
                                           return (
                                             !$state.user.data.result
-                                              .todoNotTodoLists.todo.length ==
-                                              0 &&
-                                            $state.cyclebox.cycle != "Pregnancy"
+                                              .todoNotTodoLists.todo.length == 0
                                           );
                                         } catch (e) {
                                           if (
@@ -8044,6 +8042,29 @@ function PlasmicHamyar2__RenderFunc(props: {
                                     "lackOfCourseInformation"
                                   )
                                     ? true
+                                    : hasVariant(
+                                        globalVariants,
+                                        "screen",
+                                        "mobile"
+                                      )
+                                    ? (() => {
+                                        try {
+                                          return (
+                                            !$state.user.data.result
+                                              .todoNotTodoLists.notToDo
+                                              .length == 0
+                                          );
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return true;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
                                     : (() => {
                                         try {
                                           return (
