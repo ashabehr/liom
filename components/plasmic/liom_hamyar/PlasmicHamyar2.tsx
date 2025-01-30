@@ -156,9 +156,7 @@ export type PlasmicHamyar2__OverridesType = {
   button17?: Flex__<typeof Button>;
   collapseMother2?: Flex__<typeof AntdSingleCollapse>;
   collapseMother3?: Flex__<typeof AntdSingleCollapse>;
-  useful2?: Flex__<typeof Useful>;
   useful?: Flex__<typeof Useful>;
-  harmful2?: Flex__<typeof Harmful>;
   harmful?: Flex__<typeof Harmful>;
   shopModalWeb?: Flex__<typeof AntdModal>;
   subscription?: Flex__<typeof Subscription>;
@@ -783,7 +781,7 @@ function PlasmicHamyar2__RenderFunc(props: {
         path: "variable",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) => "66"
       },
       {
         path: "guideShow",
@@ -1148,31 +1146,6 @@ function PlasmicHamyar2__RenderFunc(props: {
             ]
           }
         })
-      },
-      {
-        path: "useful2[].text",
-        type: "private",
-        variableType: "text"
-      },
-      {
-        path: "useful2[].icon",
-        type: "private",
-        variableType: "text"
-      },
-      {
-        path: "harmful2[].title",
-        type: "private",
-        variableType: "text"
-      },
-      {
-        path: "harmful2[].text",
-        type: "private",
-        variableType: "text"
-      },
-      {
-        path: "harmful2[].icon",
-        type: "private",
-        variableType: "text"
       },
       {
         path: "deleteDate",
@@ -1755,7 +1728,14 @@ function PlasmicHamyar2__RenderFunc(props: {
       </div>`
                     ].filter(Boolean);
                   case "pms":
-                    return [];
+                    return [
+                      `<div style="display: flex; align-items: center; gap: 8px;">
+        <span style="width: 10px; height: 10px; border-radius: 50%; background-color: #7444BC; display: inline-block;"></span>
+        <span>${
+          $state.user.data.result.userStatus.daysToEndPms + 1
+        } روز تا شروع خونریزی</span>
+      </div>`
+                    ];
                   case "blood":
                     return [
                       `<div style="display: flex; align-items: center; gap: 8px;">
@@ -7480,276 +7460,6 @@ function PlasmicHamyar2__RenderFunc(props: {
                                           : [_par])(
                                         (() => {
                                           try {
-                                            return $state.dosAndDonts[
-                                              $state.cyclebox.cycle
-                                            ].todo;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return [];
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      ).map(
-                                        (__plasmic_item_0, __plasmic_idx_0) => {
-                                          const currentItem = __plasmic_item_0;
-                                          const currentIndex = __plasmic_idx_0;
-                                          return (() => {
-                                            const child$Props = {
-                                              className: classNames(
-                                                "__wab_instance",
-                                                sty.useful2
-                                              ),
-                                              icon: generateStateValueProp(
-                                                $state,
-                                                [
-                                                  "useful2",
-                                                  __plasmic_idx_0,
-                                                  "icon"
-                                                ]
-                                              ),
-                                              key: currentIndex,
-                                              onClick: async event => {
-                                                const $steps = {};
-
-                                                $steps["updateModal2Open"] =
-                                                  true
-                                                    ? (() => {
-                                                        const actionArgs = {
-                                                          variable: {
-                                                            objRoot: $state,
-                                                            variablePath: [
-                                                              "modal2",
-                                                              "open"
-                                                            ]
-                                                          },
-                                                          operation: 0,
-                                                          value: true
-                                                        };
-                                                        return (({
-                                                          variable,
-                                                          value,
-                                                          startIndex,
-                                                          deleteCount
-                                                        }) => {
-                                                          if (!variable) {
-                                                            return;
-                                                          }
-                                                          const {
-                                                            objRoot,
-                                                            variablePath
-                                                          } = variable;
-
-                                                          $stateSet(
-                                                            objRoot,
-                                                            variablePath,
-                                                            value
-                                                          );
-                                                          return value;
-                                                        })?.apply(null, [
-                                                          actionArgs
-                                                        ]);
-                                                      })()
-                                                    : undefined;
-                                                if (
-                                                  $steps["updateModal2Open"] !=
-                                                    null &&
-                                                  typeof $steps[
-                                                    "updateModal2Open"
-                                                  ] === "object" &&
-                                                  typeof $steps[
-                                                    "updateModal2Open"
-                                                  ].then === "function"
-                                                ) {
-                                                  $steps["updateModal2Open"] =
-                                                    await $steps[
-                                                      "updateModal2Open"
-                                                    ];
-                                                }
-
-                                                $steps["updateIndexusefull"] =
-                                                  true
-                                                    ? (() => {
-                                                        const actionArgs = {
-                                                          variable: {
-                                                            objRoot: $state,
-                                                            variablePath: [
-                                                              "itemtodo"
-                                                            ]
-                                                          },
-                                                          operation: 0,
-                                                          value: currentItem
-                                                        };
-                                                        return (({
-                                                          variable,
-                                                          value,
-                                                          startIndex,
-                                                          deleteCount
-                                                        }) => {
-                                                          if (!variable) {
-                                                            return;
-                                                          }
-                                                          const {
-                                                            objRoot,
-                                                            variablePath
-                                                          } = variable;
-
-                                                          $stateSet(
-                                                            objRoot,
-                                                            variablePath,
-                                                            value
-                                                          );
-                                                          return value;
-                                                        })?.apply(null, [
-                                                          actionArgs
-                                                        ]);
-                                                      })()
-                                                    : undefined;
-                                                if (
-                                                  $steps[
-                                                    "updateIndexusefull"
-                                                  ] != null &&
-                                                  typeof $steps[
-                                                    "updateIndexusefull"
-                                                  ] === "object" &&
-                                                  typeof $steps[
-                                                    "updateIndexusefull"
-                                                  ].then === "function"
-                                                ) {
-                                                  $steps["updateIndexusefull"] =
-                                                    await $steps[
-                                                      "updateIndexusefull"
-                                                    ];
-                                                }
-                                              },
-                                              onIconChange: async (
-                                                ...eventArgs: any
-                                              ) => {
-                                                generateStateOnChangeProp(
-                                                  $state,
-                                                  [
-                                                    "useful2",
-                                                    __plasmic_idx_0,
-                                                    "icon"
-                                                  ]
-                                                ).apply(null, eventArgs);
-
-                                                if (
-                                                  eventArgs.length > 1 &&
-                                                  eventArgs[1] &&
-                                                  eventArgs[1]
-                                                    ._plasmic_state_init_
-                                                ) {
-                                                  return;
-                                                }
-                                              },
-                                              onTextChange: async (
-                                                ...eventArgs: any
-                                              ) => {
-                                                generateStateOnChangeProp(
-                                                  $state,
-                                                  [
-                                                    "useful2",
-                                                    __plasmic_idx_0,
-                                                    "text"
-                                                  ]
-                                                ).apply(null, eventArgs);
-
-                                                if (
-                                                  eventArgs.length > 1 &&
-                                                  eventArgs[1] &&
-                                                  eventArgs[1]
-                                                    ._plasmic_state_init_
-                                                ) {
-                                                  return;
-                                                }
-                                              },
-                                              text: generateStateValueProp(
-                                                $state,
-                                                [
-                                                  "useful2",
-                                                  __plasmic_idx_0,
-                                                  "text"
-                                                ]
-                                              )
-                                            };
-
-                                            initializePlasmicStates(
-                                              $state,
-                                              [
-                                                {
-                                                  name: "useful2[].text",
-                                                  initFunc: ({
-                                                    $props,
-                                                    $state,
-                                                    $queries
-                                                  }) =>
-                                                    (() => {
-                                                      try {
-                                                        return currentItem.title;
-                                                      } catch (e) {
-                                                        if (
-                                                          e instanceof
-                                                            TypeError ||
-                                                          e?.plasmicType ===
-                                                            "PlasmicUndefinedDataError"
-                                                        ) {
-                                                          return undefined;
-                                                        }
-                                                        throw e;
-                                                      }
-                                                    })()
-                                                },
-                                                {
-                                                  name: "useful2[].icon",
-                                                  initFunc: ({
-                                                    $props,
-                                                    $state,
-                                                    $queries
-                                                  }) =>
-                                                    (() => {
-                                                      try {
-                                                        return currentItem.icon;
-                                                      } catch (e) {
-                                                        if (
-                                                          e instanceof
-                                                            TypeError ||
-                                                          e?.plasmicType ===
-                                                            "PlasmicUndefinedDataError"
-                                                        ) {
-                                                          return undefined;
-                                                        }
-                                                        throw e;
-                                                      }
-                                                    })()
-                                                }
-                                              ],
-                                              [__plasmic_idx_0]
-                                            );
-                                            return (
-                                              <Useful
-                                                data-plasmic-name={"useful2"}
-                                                data-plasmic-override={
-                                                  overrides.useful2
-                                                }
-                                                {...child$Props}
-                                              />
-                                            );
-                                          })();
-                                        }
-                                      )}
-                                      {(_par =>
-                                        !_par
-                                          ? []
-                                          : Array.isArray(_par)
-                                          ? _par
-                                          : [_par])(
-                                        (() => {
-                                          try {
                                             return $state.user.data.result
                                               .todoNotTodoLists.todo;
                                           } catch (e) {
@@ -8035,31 +7745,13 @@ function PlasmicHamyar2__RenderFunc(props: {
                                         "screen",
                                         "mobile"
                                       )
-                                    ? (() => {
-                                        try {
-                                          return (
-                                            !$state.user.data.result
-                                              .todoNotTodoLists.notToDo
-                                              .length == 0
-                                          );
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return true;
-                                          }
-                                          throw e;
-                                        }
-                                      })()
+                                    ? true
                                     : (() => {
                                         try {
                                           return (
                                             !$state.user.data.result
                                               .todoNotTodoLists.notToDo
-                                              .length == 0 &&
-                                            $state.cyclebox.cycle != "Pregnancy"
+                                              .length == 0
                                           );
                                         } catch (e) {
                                           if (
@@ -8132,326 +7824,6 @@ function PlasmicHamyar2__RenderFunc(props: {
                                         sty.freeBox__vyvMu
                                       )}
                                     >
-                                      {(_par =>
-                                        !_par
-                                          ? []
-                                          : Array.isArray(_par)
-                                          ? _par
-                                          : [_par])(
-                                        (() => {
-                                          try {
-                                            return $state.dosAndDonts[
-                                              $state.cyclebox.cycle
-                                            ].notToDo;
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return [];
-                                            }
-                                            throw e;
-                                          }
-                                        })()
-                                      ).map(
-                                        (__plasmic_item_0, __plasmic_idx_0) => {
-                                          const currentItem = __plasmic_item_0;
-                                          const currentIndex = __plasmic_idx_0;
-                                          return (() => {
-                                            const child$Props = {
-                                              className: classNames(
-                                                "__wab_instance",
-                                                sty.harmful2
-                                              ),
-                                              icon: generateStateValueProp(
-                                                $state,
-                                                [
-                                                  "harmful2",
-                                                  __plasmic_idx_0,
-                                                  "icon"
-                                                ]
-                                              ),
-                                              key: currentIndex,
-                                              onClick: async event => {
-                                                const $steps = {};
-
-                                                $steps["updateItemtodo"] = true
-                                                  ? (() => {
-                                                      const actionArgs = {
-                                                        variable: {
-                                                          objRoot: $state,
-                                                          variablePath: [
-                                                            "itemtodo"
-                                                          ]
-                                                        },
-                                                        operation: 0,
-                                                        value: currentItem
-                                                      };
-                                                      return (({
-                                                        variable,
-                                                        value,
-                                                        startIndex,
-                                                        deleteCount
-                                                      }) => {
-                                                        if (!variable) {
-                                                          return;
-                                                        }
-                                                        const {
-                                                          objRoot,
-                                                          variablePath
-                                                        } = variable;
-
-                                                        $stateSet(
-                                                          objRoot,
-                                                          variablePath,
-                                                          value
-                                                        );
-                                                        return value;
-                                                      })?.apply(null, [
-                                                        actionArgs
-                                                      ]);
-                                                    })()
-                                                  : undefined;
-                                                if (
-                                                  $steps["updateItemtodo"] !=
-                                                    null &&
-                                                  typeof $steps[
-                                                    "updateItemtodo"
-                                                  ] === "object" &&
-                                                  typeof $steps[
-                                                    "updateItemtodo"
-                                                  ].then === "function"
-                                                ) {
-                                                  $steps["updateItemtodo"] =
-                                                    await $steps[
-                                                      "updateItemtodo"
-                                                    ];
-                                                }
-
-                                                $steps["updateModal2Open"] =
-                                                  true
-                                                    ? (() => {
-                                                        const actionArgs = {
-                                                          variable: {
-                                                            objRoot: $state,
-                                                            variablePath: [
-                                                              "modal2",
-                                                              "open"
-                                                            ]
-                                                          },
-                                                          operation: 0,
-                                                          value: true
-                                                        };
-                                                        return (({
-                                                          variable,
-                                                          value,
-                                                          startIndex,
-                                                          deleteCount
-                                                        }) => {
-                                                          if (!variable) {
-                                                            return;
-                                                          }
-                                                          const {
-                                                            objRoot,
-                                                            variablePath
-                                                          } = variable;
-
-                                                          $stateSet(
-                                                            objRoot,
-                                                            variablePath,
-                                                            value
-                                                          );
-                                                          return value;
-                                                        })?.apply(null, [
-                                                          actionArgs
-                                                        ]);
-                                                      })()
-                                                    : undefined;
-                                                if (
-                                                  $steps["updateModal2Open"] !=
-                                                    null &&
-                                                  typeof $steps[
-                                                    "updateModal2Open"
-                                                  ] === "object" &&
-                                                  typeof $steps[
-                                                    "updateModal2Open"
-                                                  ].then === "function"
-                                                ) {
-                                                  $steps["updateModal2Open"] =
-                                                    await $steps[
-                                                      "updateModal2Open"
-                                                    ];
-                                                }
-                                              },
-                                              onIconChange: async (
-                                                ...eventArgs: any
-                                              ) => {
-                                                generateStateOnChangeProp(
-                                                  $state,
-                                                  [
-                                                    "harmful2",
-                                                    __plasmic_idx_0,
-                                                    "icon"
-                                                  ]
-                                                ).apply(null, eventArgs);
-
-                                                if (
-                                                  eventArgs.length > 1 &&
-                                                  eventArgs[1] &&
-                                                  eventArgs[1]
-                                                    ._plasmic_state_init_
-                                                ) {
-                                                  return;
-                                                }
-                                              },
-                                              onTextChange: async (
-                                                ...eventArgs: any
-                                              ) => {
-                                                generateStateOnChangeProp(
-                                                  $state,
-                                                  [
-                                                    "harmful2",
-                                                    __plasmic_idx_0,
-                                                    "text"
-                                                  ]
-                                                ).apply(null, eventArgs);
-
-                                                if (
-                                                  eventArgs.length > 1 &&
-                                                  eventArgs[1] &&
-                                                  eventArgs[1]
-                                                    ._plasmic_state_init_
-                                                ) {
-                                                  return;
-                                                }
-                                              },
-                                              onTitleChange: async (
-                                                ...eventArgs: any
-                                              ) => {
-                                                generateStateOnChangeProp(
-                                                  $state,
-                                                  [
-                                                    "harmful2",
-                                                    __plasmic_idx_0,
-                                                    "title"
-                                                  ]
-                                                ).apply(null, eventArgs);
-
-                                                if (
-                                                  eventArgs.length > 1 &&
-                                                  eventArgs[1] &&
-                                                  eventArgs[1]
-                                                    ._plasmic_state_init_
-                                                ) {
-                                                  return;
-                                                }
-                                              },
-                                              text: generateStateValueProp(
-                                                $state,
-                                                [
-                                                  "harmful2",
-                                                  __plasmic_idx_0,
-                                                  "text"
-                                                ]
-                                              ),
-                                              title: generateStateValueProp(
-                                                $state,
-                                                [
-                                                  "harmful2",
-                                                  __plasmic_idx_0,
-                                                  "title"
-                                                ]
-                                              )
-                                            };
-
-                                            initializePlasmicStates(
-                                              $state,
-                                              [
-                                                {
-                                                  name: "harmful2[].title",
-                                                  initFunc: ({
-                                                    $props,
-                                                    $state,
-                                                    $queries
-                                                  }) =>
-                                                    (() => {
-                                                      try {
-                                                        return currentItem.title;
-                                                      } catch (e) {
-                                                        if (
-                                                          e instanceof
-                                                            TypeError ||
-                                                          e?.plasmicType ===
-                                                            "PlasmicUndefinedDataError"
-                                                        ) {
-                                                          return undefined;
-                                                        }
-                                                        throw e;
-                                                      }
-                                                    })()
-                                                },
-                                                {
-                                                  name: "harmful2[].text",
-                                                  initFunc: ({
-                                                    $props,
-                                                    $state,
-                                                    $queries
-                                                  }) =>
-                                                    (() => {
-                                                      try {
-                                                        return currentItem.desc;
-                                                      } catch (e) {
-                                                        if (
-                                                          e instanceof
-                                                            TypeError ||
-                                                          e?.plasmicType ===
-                                                            "PlasmicUndefinedDataError"
-                                                        ) {
-                                                          return undefined;
-                                                        }
-                                                        throw e;
-                                                      }
-                                                    })()
-                                                },
-                                                {
-                                                  name: "harmful2[].icon",
-                                                  initFunc: ({
-                                                    $props,
-                                                    $state,
-                                                    $queries
-                                                  }) =>
-                                                    (() => {
-                                                      try {
-                                                        return currentItem.icon;
-                                                      } catch (e) {
-                                                        if (
-                                                          e instanceof
-                                                            TypeError ||
-                                                          e?.plasmicType ===
-                                                            "PlasmicUndefinedDataError"
-                                                        ) {
-                                                          return undefined;
-                                                        }
-                                                        throw e;
-                                                      }
-                                                    })()
-                                                }
-                                              ],
-                                              [__plasmic_idx_0]
-                                            );
-                                            return (
-                                              <Harmful
-                                                data-plasmic-name={"harmful2"}
-                                                data-plasmic-override={
-                                                  overrides.harmful2
-                                                }
-                                                {...child$Props}
-                                              />
-                                            );
-                                          })();
-                                        }
-                                      )}
                                       {(_par =>
                                         !_par
                                           ? []
@@ -17944,9 +17316,7 @@ const PlasmicDescendants = {
     "button17",
     "collapseMother2",
     "collapseMother3",
-    "useful2",
     "useful",
-    "harmful2",
     "harmful",
     "shopModalWeb",
     "subscription",
@@ -18004,16 +17374,8 @@ const PlasmicDescendants = {
   collapseMother: ["collapseMother", "button17"],
   button17: ["button17"],
   collapseMother2: ["collapseMother2"],
-  collapseMother3: [
-    "collapseMother3",
-    "useful2",
-    "useful",
-    "harmful2",
-    "harmful"
-  ],
-  useful2: ["useful2"],
+  collapseMother3: ["collapseMother3", "useful", "harmful"],
   useful: ["useful"],
-  harmful2: ["harmful2"],
   harmful: ["harmful"],
   shopModalWeb: ["shopModalWeb", "subscription", "button3"],
   subscription: ["subscription"],
@@ -18098,9 +17460,7 @@ type NodeDefaultElementType = {
   button17: typeof Button;
   collapseMother2: typeof AntdSingleCollapse;
   collapseMother3: typeof AntdSingleCollapse;
-  useful2: typeof Useful;
   useful: typeof Useful;
-  harmful2: typeof Harmful;
   harmful: typeof Harmful;
   shopModalWeb: typeof AntdModal;
   subscription: typeof Subscription;
@@ -18245,9 +17605,7 @@ export const PlasmicHamyar2 = Object.assign(
     button17: makeNodeComponent("button17"),
     collapseMother2: makeNodeComponent("collapseMother2"),
     collapseMother3: makeNodeComponent("collapseMother3"),
-    useful2: makeNodeComponent("useful2"),
     useful: makeNodeComponent("useful"),
-    harmful2: makeNodeComponent("harmful2"),
     harmful: makeNodeComponent("harmful"),
     shopModalWeb: makeNodeComponent("shopModalWeb"),
     subscription: makeNodeComponent("subscription"),
