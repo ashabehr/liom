@@ -146,6 +146,7 @@ export type PlasmicHamyar2__OverridesType = {
   lineClomp?: Flex__<typeof LineClomp>;
   progress?: Flex__<typeof AntdProgress>;
   cyclebox2?: Flex__<typeof Cyclebox2>;
+  lineClomp2?: Flex__<typeof LineClomp>;
   button16?: Flex__<typeof Button>;
   button9?: Flex__<typeof Button>;
   button14?: Flex__<typeof Button>;
@@ -1791,6 +1792,12 @@ function PlasmicHamyar2__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "lineClomp2.line",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -2613,29 +2620,54 @@ function PlasmicHamyar2__RenderFunc(props: {
                           sty.freeBox__ww5Wh
                         )}
                       >
-                        <div
+                        <LineClomp
+                          data-plasmic-name={"lineClomp2"}
+                          data-plasmic-override={overrides.lineClomp2}
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__aLs4X
+                            "__wab_instance",
+                            sty.lineClomp2
                           )}
+                          numberOfLine={2}
+                          onLineChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "lineClomp2",
+                              "line"
+                            ]).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return `سلام ${$state.name} عزیز`;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "";
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__aLs4X
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return `سلام ${$state.name} عزیز`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "";
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </div>
+                              })()}
+                            </React.Fragment>
+                          </div>
+                        </LineClomp>
                         <LottieWrapper
                           animationData={{
                             nm: "Comp 2",
@@ -4305,492 +4337,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                             </div>
                           </Stack__>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__w89Oe
-                          )}
-                        >
-                          <LottieWrapper
-                            animationData={{
-                              v: "4.10.1",
-                              fr: 30,
-                              ip: 0,
-                              op: 40,
-                              w: 80,
-                              h: 80,
-                              nm: "Success Checkmark",
-                              ddd: 0,
-                              assets: [],
-                              layers: [
-                                {
-                                  ddd: 0,
-                                  ind: 1,
-                                  ty: 4,
-                                  nm: "Check Mark",
-                                  sr: 1,
-                                  ks: {
-                                    o: { a: 0, k: 100, ix: 11 },
-                                    r: { a: 0, k: 0, ix: 10 },
-                                    p: { a: 0, k: [40, 40, 0], ix: 2 },
-                                    a: { a: 0, k: [-1.312, 6, 0], ix: 1 },
-                                    s: { a: 0, k: [100, 100, 100], ix: 6 }
-                                  },
-                                  ao: 0,
-                                  shapes: [
-                                    {
-                                      ty: "gr",
-                                      it: [
-                                        {
-                                          ind: 0,
-                                          ty: "sh",
-                                          ix: 1,
-                                          ks: {
-                                            a: 0,
-                                            k: {
-                                              i: [
-                                                [0, 0],
-                                                [0, 0],
-                                                [0, 0]
-                                              ],
-                                              o: [
-                                                [0, 0],
-                                                [0, 0],
-                                                [0, 0]
-                                              ],
-                                              v: [
-                                                [-15.75, 8],
-                                                [-8, 16],
-                                                [13.125, -4]
-                                              ],
-                                              c: false
-                                            },
-                                            ix: 2
-                                          },
-                                          nm: "Path 1",
-                                          mn: "ADBE Vector Shape - Group",
-                                          hd: false
-                                        },
-                                        {
-                                          ty: "tm",
-                                          s: {
-                                            a: 1,
-                                            k: [
-                                              {
-                                                i: { x: [0.667], y: [1] },
-                                                o: { x: [0.333], y: [0] },
-                                                n: ["0p667_1_0p333_0"],
-                                                t: 25,
-                                                s: [0],
-                                                e: [100]
-                                              },
-                                              { t: 33 }
-                                            ],
-                                            ix: 1
-                                          },
-                                          e: { a: 0, k: 0, ix: 2 },
-                                          o: { a: 0, k: 0, ix: 3 },
-                                          m: 1,
-                                          ix: 2,
-                                          nm: "Trim Paths 1",
-                                          mn: "ADBE Vector Filter - Trim",
-                                          hd: false
-                                        },
-                                        {
-                                          ty: "st",
-                                          c: { a: 0, k: [1, 1, 1, 1], ix: 3 },
-                                          o: { a: 0, k: 100, ix: 4 },
-                                          w: { a: 0, k: 3, ix: 5 },
-                                          lc: 2,
-                                          lj: 2,
-                                          nm: "Stroke 1",
-                                          mn: "ADBE Vector Graphic - Stroke",
-                                          hd: false
-                                        },
-                                        {
-                                          ty: "tr",
-                                          p: { a: 0, k: [0, 0], ix: 2 },
-                                          a: { a: 0, k: [0, 0], ix: 1 },
-                                          s: { a: 0, k: [100, 100], ix: 3 },
-                                          r: { a: 0, k: 0, ix: 6 },
-                                          o: { a: 0, k: 100, ix: 7 },
-                                          sk: { a: 0, k: 0, ix: 4 },
-                                          sa: { a: 0, k: 0, ix: 5 },
-                                          nm: "Transform"
-                                        }
-                                      ],
-                                      nm: "Shape 1",
-                                      np: 3,
-                                      cix: 2,
-                                      ix: 1,
-                                      mn: "ADBE Vector Group",
-                                      hd: false
-                                    }
-                                  ],
-                                  ip: 0,
-                                  op: 40,
-                                  st: 0,
-                                  bm: 0
-                                },
-                                {
-                                  ddd: 0,
-                                  ind: 2,
-                                  ty: 4,
-                                  nm: "Circle Flash",
-                                  sr: 1,
-                                  ks: {
-                                    o: {
-                                      a: 1,
-                                      k: [
-                                        {
-                                          i: { x: [0.833], y: [0.833] },
-                                          o: { x: [0.167], y: [0.167] },
-                                          n: ["0p833_0p833_0p167_0p167"],
-                                          t: 25,
-                                          s: [0],
-                                          e: [98]
-                                        },
-                                        {
-                                          i: { x: [0.833], y: [0.833] },
-                                          o: { x: [0.167], y: [0.167] },
-                                          n: ["0p833_0p833_0p167_0p167"],
-                                          t: 30,
-                                          s: [98],
-                                          e: [0]
-                                        },
-                                        { t: 38 }
-                                      ],
-                                      ix: 11
-                                    },
-                                    r: { a: 0, k: 0, ix: 10 },
-                                    p: { a: 0, k: [40, 40, 0], ix: 2 },
-                                    a: { a: 0, k: [0, 0, 0], ix: 1 },
-                                    s: {
-                                      a: 1,
-                                      k: [
-                                        {
-                                          i: {
-                                            x: [0.667, 0.667, 0.667],
-                                            y: [1, 1, 1]
-                                          },
-                                          o: {
-                                            x: [0.333, 0.333, 0.333],
-                                            y: [0, 0, 0]
-                                          },
-                                          n: [
-                                            "0p667_1_0p333_0",
-                                            "0p667_1_0p333_0",
-                                            "0p667_1_0p333_0"
-                                          ],
-                                          t: 25,
-                                          s: [0, 0, 100],
-                                          e: [100, 100, 100]
-                                        },
-                                        { t: 30 }
-                                      ],
-                                      ix: 6
-                                    }
-                                  },
-                                  ao: 0,
-                                  shapes: [
-                                    {
-                                      d: 1,
-                                      ty: "el",
-                                      s: { a: 0, k: [64, 64], ix: 2 },
-                                      p: { a: 0, k: [0, 0], ix: 3 },
-                                      nm: "Ellipse Path 1",
-                                      mn: "ADBE Vector Shape - Ellipse",
-                                      hd: false
-                                    },
-                                    {
-                                      ty: "fl",
-                                      c: {
-                                        a: 0,
-                                        k: [
-                                          0.529866635799, 0.961458325386,
-                                          0.448091417551, 1
-                                        ],
-                                        ix: 4
-                                      },
-                                      o: { a: 0, k: 100, ix: 5 },
-                                      r: 1,
-                                      nm: "Fill 1",
-                                      mn: "ADBE Vector Graphic - Fill",
-                                      hd: false
-                                    }
-                                  ],
-                                  ip: 0,
-                                  op: 40,
-                                  st: 0,
-                                  bm: 0
-                                },
-                                {
-                                  ddd: 0,
-                                  ind: 3,
-                                  ty: 4,
-                                  nm: "Circle Stroke",
-                                  sr: 1,
-                                  ks: {
-                                    o: { a: 0, k: 100, ix: 11 },
-                                    r: { a: 0, k: 0, ix: 10 },
-                                    p: { a: 0, k: [39.022, 39.022, 0], ix: 2 },
-                                    a: { a: 0, k: [0, 0, 0], ix: 1 },
-                                    s: {
-                                      a: 1,
-                                      k: [
-                                        {
-                                          i: {
-                                            x: [0.667, 0.667, 0.667],
-                                            y: [1, 1, 1]
-                                          },
-                                          o: {
-                                            x: [0.333, 0.333, 0.333],
-                                            y: [0, 0, 0]
-                                          },
-                                          n: [
-                                            "0p667_1_0p333_0",
-                                            "0p667_1_0p333_0",
-                                            "0p667_1_0p333_0"
-                                          ],
-                                          t: 16,
-                                          s: [100, 100, 100],
-                                          e: [80, 80, 100]
-                                        },
-                                        {
-                                          i: {
-                                            x: [0.667, 0.667, 0.667],
-                                            y: [1, 1, 1]
-                                          },
-                                          o: {
-                                            x: [0.333, 0.333, 0.333],
-                                            y: [0, 0, 0]
-                                          },
-                                          n: [
-                                            "0p667_1_0p333_0",
-                                            "0p667_1_0p333_0",
-                                            "0p667_1_0p333_0"
-                                          ],
-                                          t: 22,
-                                          s: [80, 80, 100],
-                                          e: [120, 120, 100]
-                                        },
-                                        {
-                                          i: {
-                                            x: [0.667, 0.667, 0.667],
-                                            y: [1, 1, 1]
-                                          },
-                                          o: {
-                                            x: [0.333, 0.333, 0.333],
-                                            y: [0, 0, 0]
-                                          },
-                                          n: [
-                                            "0p667_1_0p333_0",
-                                            "0p667_1_0p333_0",
-                                            "0p667_1_0p333_0"
-                                          ],
-                                          t: 25,
-                                          s: [120, 120, 100],
-                                          e: [100, 100, 100]
-                                        },
-                                        { t: 29 }
-                                      ],
-                                      ix: 6
-                                    }
-                                  },
-                                  ao: 0,
-                                  shapes: [
-                                    {
-                                      ty: "gr",
-                                      it: [
-                                        {
-                                          d: 1,
-                                          ty: "el",
-                                          s: { a: 0, k: [60, 60], ix: 2 },
-                                          p: { a: 0, k: [0, 0], ix: 3 },
-                                          nm: "Ellipse Path 1",
-                                          mn: "ADBE Vector Shape - Ellipse",
-                                          hd: false
-                                        },
-                                        {
-                                          ty: "tm",
-                                          s: {
-                                            a: 1,
-                                            k: [
-                                              {
-                                                i: { x: [0.667], y: [1] },
-                                                o: { x: [0.333], y: [0] },
-                                                n: ["0p667_1_0p333_0"],
-                                                t: 0,
-                                                s: [0],
-                                                e: [100]
-                                              },
-                                              { t: 16 }
-                                            ],
-                                            ix: 1
-                                          },
-                                          e: { a: 0, k: 0, ix: 2 },
-                                          o: { a: 0, k: 0, ix: 3 },
-                                          m: 1,
-                                          ix: 2,
-                                          nm: "Trim Paths 1",
-                                          mn: "ADBE Vector Filter - Trim",
-                                          hd: false
-                                        },
-                                        {
-                                          ty: "st",
-                                          c: {
-                                            a: 0,
-                                            k: [
-                                              0.427450984716, 0.800000011921,
-                                              0.35686275363, 1
-                                            ],
-                                            ix: 3
-                                          },
-                                          o: { a: 0, k: 100, ix: 4 },
-                                          w: { a: 0, k: 3, ix: 5 },
-                                          lc: 2,
-                                          lj: 2,
-                                          nm: "Stroke 1",
-                                          mn: "ADBE Vector Graphic - Stroke",
-                                          hd: false
-                                        },
-                                        {
-                                          ty: "tr",
-                                          p: { a: 0, k: [0.978, 0.978], ix: 2 },
-                                          a: { a: 0, k: [0, 0], ix: 1 },
-                                          s: { a: 0, k: [100, 100], ix: 3 },
-                                          r: { a: 0, k: 0, ix: 6 },
-                                          o: { a: 0, k: 100, ix: 7 },
-                                          sk: { a: 0, k: 0, ix: 4 },
-                                          sa: { a: 0, k: 0, ix: 5 },
-                                          nm: "Transform"
-                                        }
-                                      ],
-                                      nm: "Ellipse 1",
-                                      np: 3,
-                                      cix: 2,
-                                      ix: 1,
-                                      mn: "ADBE Vector Group",
-                                      hd: false
-                                    }
-                                  ],
-                                  ip: 0,
-                                  op: 40,
-                                  st: 0,
-                                  bm: 0
-                                },
-                                {
-                                  ddd: 0,
-                                  ind: 4,
-                                  ty: 4,
-                                  nm: "Circle Green Fill",
-                                  sr: 1,
-                                  ks: {
-                                    o: {
-                                      a: 1,
-                                      k: [
-                                        {
-                                          i: { x: [0.833], y: [0.833] },
-                                          o: { x: [0.167], y: [0.167] },
-                                          n: ["0p833_0p833_0p167_0p167"],
-                                          t: 21,
-                                          s: [0],
-                                          e: [98]
-                                        },
-                                        { t: 28 }
-                                      ],
-                                      ix: 11
-                                    },
-                                    r: { a: 0, k: 0, ix: 10 },
-                                    p: { a: 0, k: [40, 40, 0], ix: 2 },
-                                    a: { a: 0, k: [0, 0, 0], ix: 1 },
-                                    s: {
-                                      a: 1,
-                                      k: [
-                                        {
-                                          i: {
-                                            x: [0.667, 0.667, 0.667],
-                                            y: [1, 1, 1]
-                                          },
-                                          o: {
-                                            x: [0.333, 0.333, 0.333],
-                                            y: [0, 0, 0]
-                                          },
-                                          n: [
-                                            "0p667_1_0p333_0",
-                                            "0p667_1_0p333_0",
-                                            "0p667_1_0p333_0"
-                                          ],
-                                          t: 21,
-                                          s: [0, 0, 100],
-                                          e: [100, 100, 100]
-                                        },
-                                        { t: 28 }
-                                      ],
-                                      ix: 6
-                                    }
-                                  },
-                                  ao: 0,
-                                  shapes: [
-                                    {
-                                      d: 1,
-                                      ty: "el",
-                                      s: { a: 0, k: [64, 64], ix: 2 },
-                                      p: { a: 0, k: [0, 0], ix: 3 },
-                                      nm: "Ellipse Path 1",
-                                      mn: "ADBE Vector Shape - Ellipse",
-                                      hd: false
-                                    },
-                                    {
-                                      ty: "fl",
-                                      c: {
-                                        a: 0,
-                                        k: [
-                                          0.427450984716, 0.800000011921,
-                                          0.35686275363, 1
-                                        ],
-                                        ix: 4
-                                      },
-                                      o: { a: 0, k: 100, ix: 5 },
-                                      r: 1,
-                                      nm: "Fill 1",
-                                      mn: "ADBE Vector Graphic - Fill",
-                                      hd: false
-                                    }
-                                  ],
-                                  ip: 0,
-                                  op: 40,
-                                  st: 0,
-                                  bm: 0
-                                }
-                              ]
-                            }}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.lottie__gSbNx
-                            )}
-                          />
-
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__anlKf
-                            )}
-                          >
-                            {
-                              "\u0627\u062a\u0645\u0627\u0645 \u0648\u0636\u0639\u06cc\u062a:"
-                            }
-                          </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__ge6A
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
+                        {(
+                          hasVariant(globalVariants, "screen", "mobile")
+                            ? (() => {
                                 try {
                                   return (() => {
                                     switch (
@@ -4800,43 +4349,13 @@ function PlasmicHamyar2__RenderFunc(props: {
                                       case null:
                                         return "";
                                       case "fertility":
-                                        if (
-                                          $state.user.data.result.userStatus
-                                            .daysToEndFertility == 0
-                                        )
-                                          return "تا پایان امروز";
-                                        return (
-                                          $state.user.data.result.userStatus
-                                            .daysToEndFertility +
-                                          " روز " +
-                                          "دیگر"
-                                        );
+                                        return true;
                                       case "pms":
-                                        if (
-                                          $state.user.data.result.userStatus
-                                            .daysToEndPms == 0
-                                        )
-                                          return "تا پایان امروز";
-                                        return (
-                                          $state.user.data.result.userStatus
-                                            .daysToEndPms +
-                                          " روز " +
-                                          "دیگر"
-                                        );
+                                        return true;
                                       case "blood":
-                                        if (
-                                          $state.user.data.result.userStatus
-                                            .daysToEndPeriod == 0
-                                        )
-                                          return "تا پایان امروز";
-                                        return (
-                                          $state.user.data.result.userStatus
-                                            .daysToEndPeriod +
-                                          " روز " +
-                                          "دیگر"
-                                        );
+                                        return true;
                                       default:
-                                        return "-";
+                                        return false;
                                     }
                                   })();
                                 } catch (e) {
@@ -4845,14 +4364,570 @@ function PlasmicHamyar2__RenderFunc(props: {
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return "";
+                                    return true;
                                   }
                                   throw e;
                                 }
-                              })()}
-                            </React.Fragment>
+                              })()
+                            : true
+                        ) ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__w89Oe
+                            )}
+                          >
+                            <LottieWrapper
+                              animationData={{
+                                v: "4.10.1",
+                                fr: 30,
+                                ip: 0,
+                                op: 40,
+                                w: 80,
+                                h: 80,
+                                nm: "Success Checkmark",
+                                ddd: 0,
+                                assets: [],
+                                layers: [
+                                  {
+                                    ddd: 0,
+                                    ind: 1,
+                                    ty: 4,
+                                    nm: "Check Mark",
+                                    sr: 1,
+                                    ks: {
+                                      o: { a: 0, k: 100, ix: 11 },
+                                      r: { a: 0, k: 0, ix: 10 },
+                                      p: { a: 0, k: [40, 40, 0], ix: 2 },
+                                      a: { a: 0, k: [-1.312, 6, 0], ix: 1 },
+                                      s: { a: 0, k: [100, 100, 100], ix: 6 }
+                                    },
+                                    ao: 0,
+                                    shapes: [
+                                      {
+                                        ty: "gr",
+                                        it: [
+                                          {
+                                            ind: 0,
+                                            ty: "sh",
+                                            ix: 1,
+                                            ks: {
+                                              a: 0,
+                                              k: {
+                                                i: [
+                                                  [0, 0],
+                                                  [0, 0],
+                                                  [0, 0]
+                                                ],
+                                                o: [
+                                                  [0, 0],
+                                                  [0, 0],
+                                                  [0, 0]
+                                                ],
+                                                v: [
+                                                  [-15.75, 8],
+                                                  [-8, 16],
+                                                  [13.125, -4]
+                                                ],
+                                                c: false
+                                              },
+                                              ix: 2
+                                            },
+                                            nm: "Path 1",
+                                            mn: "ADBE Vector Shape - Group",
+                                            hd: false
+                                          },
+                                          {
+                                            ty: "tm",
+                                            s: {
+                                              a: 1,
+                                              k: [
+                                                {
+                                                  i: { x: [0.667], y: [1] },
+                                                  o: { x: [0.333], y: [0] },
+                                                  n: ["0p667_1_0p333_0"],
+                                                  t: 25,
+                                                  s: [0],
+                                                  e: [100]
+                                                },
+                                                { t: 33 }
+                                              ],
+                                              ix: 1
+                                            },
+                                            e: { a: 0, k: 0, ix: 2 },
+                                            o: { a: 0, k: 0, ix: 3 },
+                                            m: 1,
+                                            ix: 2,
+                                            nm: "Trim Paths 1",
+                                            mn: "ADBE Vector Filter - Trim",
+                                            hd: false
+                                          },
+                                          {
+                                            ty: "st",
+                                            c: { a: 0, k: [1, 1, 1, 1], ix: 3 },
+                                            o: { a: 0, k: 100, ix: 4 },
+                                            w: { a: 0, k: 3, ix: 5 },
+                                            lc: 2,
+                                            lj: 2,
+                                            nm: "Stroke 1",
+                                            mn: "ADBE Vector Graphic - Stroke",
+                                            hd: false
+                                          },
+                                          {
+                                            ty: "tr",
+                                            p: { a: 0, k: [0, 0], ix: 2 },
+                                            a: { a: 0, k: [0, 0], ix: 1 },
+                                            s: { a: 0, k: [100, 100], ix: 3 },
+                                            r: { a: 0, k: 0, ix: 6 },
+                                            o: { a: 0, k: 100, ix: 7 },
+                                            sk: { a: 0, k: 0, ix: 4 },
+                                            sa: { a: 0, k: 0, ix: 5 },
+                                            nm: "Transform"
+                                          }
+                                        ],
+                                        nm: "Shape 1",
+                                        np: 3,
+                                        cix: 2,
+                                        ix: 1,
+                                        mn: "ADBE Vector Group",
+                                        hd: false
+                                      }
+                                    ],
+                                    ip: 0,
+                                    op: 40,
+                                    st: 0,
+                                    bm: 0
+                                  },
+                                  {
+                                    ddd: 0,
+                                    ind: 2,
+                                    ty: 4,
+                                    nm: "Circle Flash",
+                                    sr: 1,
+                                    ks: {
+                                      o: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            i: { x: [0.833], y: [0.833] },
+                                            o: { x: [0.167], y: [0.167] },
+                                            n: ["0p833_0p833_0p167_0p167"],
+                                            t: 25,
+                                            s: [0],
+                                            e: [98]
+                                          },
+                                          {
+                                            i: { x: [0.833], y: [0.833] },
+                                            o: { x: [0.167], y: [0.167] },
+                                            n: ["0p833_0p833_0p167_0p167"],
+                                            t: 30,
+                                            s: [98],
+                                            e: [0]
+                                          },
+                                          { t: 38 }
+                                        ],
+                                        ix: 11
+                                      },
+                                      r: { a: 0, k: 0, ix: 10 },
+                                      p: { a: 0, k: [40, 40, 0], ix: 2 },
+                                      a: { a: 0, k: [0, 0, 0], ix: 1 },
+                                      s: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            i: {
+                                              x: [0.667, 0.667, 0.667],
+                                              y: [1, 1, 1]
+                                            },
+                                            o: {
+                                              x: [0.333, 0.333, 0.333],
+                                              y: [0, 0, 0]
+                                            },
+                                            n: [
+                                              "0p667_1_0p333_0",
+                                              "0p667_1_0p333_0",
+                                              "0p667_1_0p333_0"
+                                            ],
+                                            t: 25,
+                                            s: [0, 0, 100],
+                                            e: [100, 100, 100]
+                                          },
+                                          { t: 30 }
+                                        ],
+                                        ix: 6
+                                      }
+                                    },
+                                    ao: 0,
+                                    shapes: [
+                                      {
+                                        d: 1,
+                                        ty: "el",
+                                        s: { a: 0, k: [64, 64], ix: 2 },
+                                        p: { a: 0, k: [0, 0], ix: 3 },
+                                        nm: "Ellipse Path 1",
+                                        mn: "ADBE Vector Shape - Ellipse",
+                                        hd: false
+                                      },
+                                      {
+                                        ty: "fl",
+                                        c: {
+                                          a: 0,
+                                          k: [
+                                            0.529866635799, 0.961458325386,
+                                            0.448091417551, 1
+                                          ],
+                                          ix: 4
+                                        },
+                                        o: { a: 0, k: 100, ix: 5 },
+                                        r: 1,
+                                        nm: "Fill 1",
+                                        mn: "ADBE Vector Graphic - Fill",
+                                        hd: false
+                                      }
+                                    ],
+                                    ip: 0,
+                                    op: 40,
+                                    st: 0,
+                                    bm: 0
+                                  },
+                                  {
+                                    ddd: 0,
+                                    ind: 3,
+                                    ty: 4,
+                                    nm: "Circle Stroke",
+                                    sr: 1,
+                                    ks: {
+                                      o: { a: 0, k: 100, ix: 11 },
+                                      r: { a: 0, k: 0, ix: 10 },
+                                      p: {
+                                        a: 0,
+                                        k: [39.022, 39.022, 0],
+                                        ix: 2
+                                      },
+                                      a: { a: 0, k: [0, 0, 0], ix: 1 },
+                                      s: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            i: {
+                                              x: [0.667, 0.667, 0.667],
+                                              y: [1, 1, 1]
+                                            },
+                                            o: {
+                                              x: [0.333, 0.333, 0.333],
+                                              y: [0, 0, 0]
+                                            },
+                                            n: [
+                                              "0p667_1_0p333_0",
+                                              "0p667_1_0p333_0",
+                                              "0p667_1_0p333_0"
+                                            ],
+                                            t: 16,
+                                            s: [100, 100, 100],
+                                            e: [80, 80, 100]
+                                          },
+                                          {
+                                            i: {
+                                              x: [0.667, 0.667, 0.667],
+                                              y: [1, 1, 1]
+                                            },
+                                            o: {
+                                              x: [0.333, 0.333, 0.333],
+                                              y: [0, 0, 0]
+                                            },
+                                            n: [
+                                              "0p667_1_0p333_0",
+                                              "0p667_1_0p333_0",
+                                              "0p667_1_0p333_0"
+                                            ],
+                                            t: 22,
+                                            s: [80, 80, 100],
+                                            e: [120, 120, 100]
+                                          },
+                                          {
+                                            i: {
+                                              x: [0.667, 0.667, 0.667],
+                                              y: [1, 1, 1]
+                                            },
+                                            o: {
+                                              x: [0.333, 0.333, 0.333],
+                                              y: [0, 0, 0]
+                                            },
+                                            n: [
+                                              "0p667_1_0p333_0",
+                                              "0p667_1_0p333_0",
+                                              "0p667_1_0p333_0"
+                                            ],
+                                            t: 25,
+                                            s: [120, 120, 100],
+                                            e: [100, 100, 100]
+                                          },
+                                          { t: 29 }
+                                        ],
+                                        ix: 6
+                                      }
+                                    },
+                                    ao: 0,
+                                    shapes: [
+                                      {
+                                        ty: "gr",
+                                        it: [
+                                          {
+                                            d: 1,
+                                            ty: "el",
+                                            s: { a: 0, k: [60, 60], ix: 2 },
+                                            p: { a: 0, k: [0, 0], ix: 3 },
+                                            nm: "Ellipse Path 1",
+                                            mn: "ADBE Vector Shape - Ellipse",
+                                            hd: false
+                                          },
+                                          {
+                                            ty: "tm",
+                                            s: {
+                                              a: 1,
+                                              k: [
+                                                {
+                                                  i: { x: [0.667], y: [1] },
+                                                  o: { x: [0.333], y: [0] },
+                                                  n: ["0p667_1_0p333_0"],
+                                                  t: 0,
+                                                  s: [0],
+                                                  e: [100]
+                                                },
+                                                { t: 16 }
+                                              ],
+                                              ix: 1
+                                            },
+                                            e: { a: 0, k: 0, ix: 2 },
+                                            o: { a: 0, k: 0, ix: 3 },
+                                            m: 1,
+                                            ix: 2,
+                                            nm: "Trim Paths 1",
+                                            mn: "ADBE Vector Filter - Trim",
+                                            hd: false
+                                          },
+                                          {
+                                            ty: "st",
+                                            c: {
+                                              a: 0,
+                                              k: [
+                                                0.427450984716, 0.800000011921,
+                                                0.35686275363, 1
+                                              ],
+                                              ix: 3
+                                            },
+                                            o: { a: 0, k: 100, ix: 4 },
+                                            w: { a: 0, k: 3, ix: 5 },
+                                            lc: 2,
+                                            lj: 2,
+                                            nm: "Stroke 1",
+                                            mn: "ADBE Vector Graphic - Stroke",
+                                            hd: false
+                                          },
+                                          {
+                                            ty: "tr",
+                                            p: {
+                                              a: 0,
+                                              k: [0.978, 0.978],
+                                              ix: 2
+                                            },
+                                            a: { a: 0, k: [0, 0], ix: 1 },
+                                            s: { a: 0, k: [100, 100], ix: 3 },
+                                            r: { a: 0, k: 0, ix: 6 },
+                                            o: { a: 0, k: 100, ix: 7 },
+                                            sk: { a: 0, k: 0, ix: 4 },
+                                            sa: { a: 0, k: 0, ix: 5 },
+                                            nm: "Transform"
+                                          }
+                                        ],
+                                        nm: "Ellipse 1",
+                                        np: 3,
+                                        cix: 2,
+                                        ix: 1,
+                                        mn: "ADBE Vector Group",
+                                        hd: false
+                                      }
+                                    ],
+                                    ip: 0,
+                                    op: 40,
+                                    st: 0,
+                                    bm: 0
+                                  },
+                                  {
+                                    ddd: 0,
+                                    ind: 4,
+                                    ty: 4,
+                                    nm: "Circle Green Fill",
+                                    sr: 1,
+                                    ks: {
+                                      o: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            i: { x: [0.833], y: [0.833] },
+                                            o: { x: [0.167], y: [0.167] },
+                                            n: ["0p833_0p833_0p167_0p167"],
+                                            t: 21,
+                                            s: [0],
+                                            e: [98]
+                                          },
+                                          { t: 28 }
+                                        ],
+                                        ix: 11
+                                      },
+                                      r: { a: 0, k: 0, ix: 10 },
+                                      p: { a: 0, k: [40, 40, 0], ix: 2 },
+                                      a: { a: 0, k: [0, 0, 0], ix: 1 },
+                                      s: {
+                                        a: 1,
+                                        k: [
+                                          {
+                                            i: {
+                                              x: [0.667, 0.667, 0.667],
+                                              y: [1, 1, 1]
+                                            },
+                                            o: {
+                                              x: [0.333, 0.333, 0.333],
+                                              y: [0, 0, 0]
+                                            },
+                                            n: [
+                                              "0p667_1_0p333_0",
+                                              "0p667_1_0p333_0",
+                                              "0p667_1_0p333_0"
+                                            ],
+                                            t: 21,
+                                            s: [0, 0, 100],
+                                            e: [100, 100, 100]
+                                          },
+                                          { t: 28 }
+                                        ],
+                                        ix: 6
+                                      }
+                                    },
+                                    ao: 0,
+                                    shapes: [
+                                      {
+                                        d: 1,
+                                        ty: "el",
+                                        s: { a: 0, k: [64, 64], ix: 2 },
+                                        p: { a: 0, k: [0, 0], ix: 3 },
+                                        nm: "Ellipse Path 1",
+                                        mn: "ADBE Vector Shape - Ellipse",
+                                        hd: false
+                                      },
+                                      {
+                                        ty: "fl",
+                                        c: {
+                                          a: 0,
+                                          k: [
+                                            0.427450984716, 0.800000011921,
+                                            0.35686275363, 1
+                                          ],
+                                          ix: 4
+                                        },
+                                        o: { a: 0, k: 100, ix: 5 },
+                                        r: 1,
+                                        nm: "Fill 1",
+                                        mn: "ADBE Vector Graphic - Fill",
+                                        hd: false
+                                      }
+                                    ],
+                                    ip: 0,
+                                    op: 40,
+                                    st: 0,
+                                    bm: 0
+                                  }
+                                ]
+                              }}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.lottie__gSbNx
+                              )}
+                            />
+
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__anlKf
+                              )}
+                            >
+                              {
+                                "\u0627\u062a\u0645\u0627\u0645 \u0648\u0636\u0639\u06cc\u062a:"
+                              }
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ge6A
+                              )}
+                            >
+                              <React.Fragment>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      switch (
+                                        $state.user.data.result.userStatus
+                                          .periodStatus
+                                      ) {
+                                        case null:
+                                          return "";
+                                        case "fertility":
+                                          if (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndFertility == 0
+                                          )
+                                            return "تا پایان امروز";
+                                          return (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndFertility +
+                                            " روز " +
+                                            "دیگر"
+                                          );
+                                        case "pms":
+                                          if (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms == 0
+                                          )
+                                            return "تا پایان امروز";
+                                          return (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPms +
+                                            " روز " +
+                                            "دیگر"
+                                          );
+                                        case "blood":
+                                          if (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPeriod == 0
+                                          )
+                                            return "تا پایان امروز";
+                                          return (
+                                            $state.user.data.result.userStatus
+                                              .daysToEndPeriod +
+                                            " روز " +
+                                            "دیگر"
+                                          );
+                                        default:
+                                          return "-";
+                                      }
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return "";
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              </React.Fragment>
+                            </div>
                           </div>
-                        </div>
+                        ) : null}
                         <div
                           className={classNames(
                             projectcss.all,
@@ -4938,19 +5013,24 @@ function PlasmicHamyar2__RenderFunc(props: {
                       hasGap={true}
                       className={classNames(projectcss.all, sty.freeBox__rm7Nm)}
                     >
-                      {(() => {
-                        try {
-                          return !$state.user.data.result.man.hamyarStatus;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
+                      {(
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? true
+                          : (() => {
+                              try {
+                                return !$state.user.data.result.man
+                                  .hamyarStatus;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return true;
+                                }
+                                throw e;
+                              }
+                            })()
+                      ) ? (
                         <div
                           className={classNames(
                             projectcss.all,
@@ -6280,7 +6360,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                             displayMaxWidth={"100%"}
                             displayMinHeight={"0"}
                             displayMinWidth={"0"}
-                            displayWidth={"150px"}
+                            displayWidth={"120px"}
                             loading={"lazy"}
                             src={{
                               src: "/plasmic/liom_hamyar/images/_72508101Png.png",
@@ -6398,7 +6478,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                       case "fertility":
                                         return "yellow";
                                       case "pms":
-                                        return "blue";
+                                        return "purple";
                                       case "blood":
                                         return "red";
                                       default:
@@ -7070,508 +7150,472 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })()}
                   </Stack__>
                 </div>
-                {(
-                  hasVariant(
-                    $state,
-                    "lackOfCourseInformation",
-                    "lackOfCourseInformation"
-                  )
-                    ? true
-                    : (() => {
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__imxav, {
+                    [sty.freeBoxlackOfCourseInformation__imxav75X41]:
+                      hasVariant(
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__yEeIg
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
                         try {
-                          return (
-                            !$state.user.data.result.todoNotTodoLists.todo
-                              .length == 0 &&
-                            $state.cyclebox.cycle != "Pregnancy"
-                          );
+                          return "✔ بهترین کارهایی که میتونی انجام بدی:";
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return true;
+                            return "\u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0645\u0631\u0648\u0632 \u0645\u0644\u06cc\u06a9\u0627 \u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 :";
                           }
                           throw e;
                         }
-                      })()
-                ) ? (
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__imxav, {
-                      [sty.freeBoxlackOfCourseInformation__imxav75X41]:
-                        hasVariant(
-                          $state,
-                          "lackOfCourseInformation",
-                          "lackOfCourseInformation"
-                        )
-                    })}
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__vGlHo
+                    )}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__yEeIg
-                      )}
+                    {hasVariant(globalVariants, "screen", "mobile")
+                      ? "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
+                      : "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."}
+                  </div>
+                  <Reveal
+                    data-plasmic-name={"reveal"}
+                    data-plasmic-override={overrides.reveal}
+                    className={classNames("__wab_instance", sty.reveal)}
+                    triggerOnce={true}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__ttgUv)}
                     >
-                      <React.Fragment>
-                        {(() => {
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
                           try {
-                            return (
-                              "کارهایی که باید برای " +
-                              $state.name +
-                              " انجام بدی:"
-                            );
+                            return $state.dosAndDonts[$state.cyclebox.cycle]
+                              .todo;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
                               e?.plasmicType === "PlasmicUndefinedDataError"
                             ) {
-                              return "\u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0627\u0645\u0631\u0648\u0632 \u0645\u0644\u06cc\u06a9\u0627 \u0628\u0627\u06cc\u062f \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u0647 :";
+                              return [];
                             }
                             throw e;
                           }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__vGlHo
-                      )}
-                    >
-                      {hasVariant(globalVariants, "screen", "mobile")
-                        ? "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
-                        : "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."}
-                    </div>
-                    <Reveal
-                      data-plasmic-name={"reveal"}
-                      data-plasmic-override={overrides.reveal}
-                      className={classNames("__wab_instance", sty.reveal)}
-                      triggerOnce={true}
-                    >
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (() => {
+                          const child$Props = {
+                            className: classNames(
+                              "__wab_instance",
+                              sty.useful2
+                            ),
+                            icon: generateStateValueProp($state, [
+                              "useful2",
+                              __plasmic_idx_0,
+                              "icon"
+                            ]),
+                            key: currentIndex,
+                            onClick: async event => {
+                              const $steps = {};
+
+                              $steps["updateModal2Open"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["modal2", "open"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateModal2Open"] != null &&
+                                typeof $steps["updateModal2Open"] ===
+                                  "object" &&
+                                typeof $steps["updateModal2Open"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateModal2Open"] = await $steps[
+                                  "updateModal2Open"
+                                ];
+                              }
+
+                              $steps["updateIndexusefull"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["itemtodo"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateIndexusefull"] != null &&
+                                typeof $steps["updateIndexusefull"] ===
+                                  "object" &&
+                                typeof $steps["updateIndexusefull"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateIndexusefull"] = await $steps[
+                                  "updateIndexusefull"
+                                ];
+                              }
+                            },
+                            onIconChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "useful2",
+                                __plasmic_idx_0,
+                                "icon"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            onTextChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "useful2",
+                                __plasmic_idx_0,
+                                "text"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            text: generateStateValueProp($state, [
+                              "useful2",
+                              __plasmic_idx_0,
+                              "text"
+                            ])
+                          };
+
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "useful2[].text",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.title;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              },
+                              {
+                                name: "useful2[].icon",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.icon;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              }
+                            ],
+                            [__plasmic_idx_0]
+                          );
+                          return (
+                            <Useful
+                              data-plasmic-name={"useful2"}
+                              data-plasmic-override={overrides.useful2}
+                              {...child$Props}
+                            />
+                          );
+                        })();
+                      })}
+                      {(_par =>
+                        !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                        (() => {
+                          try {
+                            return $state.user.data.result.todoNotTodoLists
+                              .todo;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()
+                      ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                        const currentItem = __plasmic_item_0;
+                        const currentIndex = __plasmic_idx_0;
+                        return (() => {
+                          const child$Props = {
+                            className: classNames("__wab_instance", sty.useful),
+                            icon: generateStateValueProp($state, [
+                              "useful",
+                              __plasmic_idx_0,
+                              "icon"
+                            ]),
+                            key: currentIndex,
+                            onClick: async event => {
+                              const $steps = {};
+
+                              $steps["updateModal2Open"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["modal2", "open"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateModal2Open"] != null &&
+                                typeof $steps["updateModal2Open"] ===
+                                  "object" &&
+                                typeof $steps["updateModal2Open"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateModal2Open"] = await $steps[
+                                  "updateModal2Open"
+                                ];
+                              }
+
+                              $steps["updateIndexusefull"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["itemtodo"]
+                                      },
+                                      operation: 0,
+                                      value: currentItem
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateIndexusefull"] != null &&
+                                typeof $steps["updateIndexusefull"] ===
+                                  "object" &&
+                                typeof $steps["updateIndexusefull"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateIndexusefull"] = await $steps[
+                                  "updateIndexusefull"
+                                ];
+                              }
+                            },
+                            onIconChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "useful",
+                                __plasmic_idx_0,
+                                "icon"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            onTextChange: async (...eventArgs: any) => {
+                              generateStateOnChangeProp($state, [
+                                "useful",
+                                __plasmic_idx_0,
+                                "text"
+                              ]).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            },
+                            text: generateStateValueProp($state, [
+                              "useful",
+                              __plasmic_idx_0,
+                              "text"
+                            ])
+                          };
+
+                          initializePlasmicStates(
+                            $state,
+                            [
+                              {
+                                name: "useful[].text",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.title;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              },
+                              {
+                                name: "useful[].icon",
+                                initFunc: ({ $props, $state, $queries }) =>
+                                  (() => {
+                                    try {
+                                      return currentItem.icon;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                              }
+                            ],
+                            [__plasmic_idx_0]
+                          );
+                          return (
+                            <Useful
+                              data-plasmic-name={"useful"}
+                              data-plasmic-override={overrides.useful}
+                              {...child$Props}
+                            />
+                          );
+                        })();
+                      })}
+                      <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__ttgUv
+                          projectcss.__wab_text,
+                          sty.text__q3JzA
                         )}
                       >
-                        {(_par =>
-                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                          (() => {
-                            try {
-                              return $state.dosAndDonts[$state.cyclebox.cycle]
-                                .todo;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                          const currentItem = __plasmic_item_0;
-                          const currentIndex = __plasmic_idx_0;
-                          return (() => {
-                            const child$Props = {
-                              className: classNames(
-                                "__wab_instance",
-                                sty.useful2
-                              ),
-                              icon: generateStateValueProp($state, [
-                                "useful2",
-                                __plasmic_idx_0,
-                                "icon"
-                              ]),
-                              key: currentIndex,
-                              onClick: async event => {
-                                const $steps = {};
-
-                                $steps["updateModal2Open"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["modal2", "open"]
-                                        },
-                                        operation: 0,
-                                        value: true
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["updateModal2Open"] != null &&
-                                  typeof $steps["updateModal2Open"] ===
-                                    "object" &&
-                                  typeof $steps["updateModal2Open"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateModal2Open"] = await $steps[
-                                    "updateModal2Open"
-                                  ];
-                                }
-
-                                $steps["updateIndexusefull"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["itemtodo"]
-                                        },
-                                        operation: 0,
-                                        value: currentItem
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["updateIndexusefull"] != null &&
-                                  typeof $steps["updateIndexusefull"] ===
-                                    "object" &&
-                                  typeof $steps["updateIndexusefull"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateIndexusefull"] = await $steps[
-                                    "updateIndexusefull"
-                                  ];
-                                }
-                              },
-                              onIconChange: async (...eventArgs: any) => {
-                                generateStateOnChangeProp($state, [
-                                  "useful2",
-                                  __plasmic_idx_0,
-                                  "icon"
-                                ]).apply(null, eventArgs);
-
-                                if (
-                                  eventArgs.length > 1 &&
-                                  eventArgs[1] &&
-                                  eventArgs[1]._plasmic_state_init_
-                                ) {
-                                  return;
-                                }
-                              },
-                              onTextChange: async (...eventArgs: any) => {
-                                generateStateOnChangeProp($state, [
-                                  "useful2",
-                                  __plasmic_idx_0,
-                                  "text"
-                                ]).apply(null, eventArgs);
-
-                                if (
-                                  eventArgs.length > 1 &&
-                                  eventArgs[1] &&
-                                  eventArgs[1]._plasmic_state_init_
-                                ) {
-                                  return;
-                                }
-                              },
-                              text: generateStateValueProp($state, [
-                                "useful2",
-                                __plasmic_idx_0,
-                                "text"
-                              ])
-                            };
-
-                            initializePlasmicStates(
-                              $state,
-                              [
-                                {
-                                  name: "useful2[].text",
-                                  initFunc: ({ $props, $state, $queries }) =>
-                                    (() => {
-                                      try {
-                                        return currentItem.title;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                },
-                                {
-                                  name: "useful2[].icon",
-                                  initFunc: ({ $props, $state, $queries }) =>
-                                    (() => {
-                                      try {
-                                        return currentItem.icon;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                }
-                              ],
-                              [__plasmic_idx_0]
-                            );
-                            return (
-                              <Useful
-                                data-plasmic-name={"useful2"}
-                                data-plasmic-override={overrides.useful2}
-                                {...child$Props}
-                              />
-                            );
-                          })();
-                        })}
-                        {(_par =>
-                          !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                          (() => {
-                            try {
-                              return $state.user.data.result.todoNotTodoLists
-                                .todo;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [];
-                              }
-                              throw e;
-                            }
-                          })()
-                        ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                          const currentItem = __plasmic_item_0;
-                          const currentIndex = __plasmic_idx_0;
-                          return (() => {
-                            const child$Props = {
-                              className: classNames(
-                                "__wab_instance",
-                                sty.useful
-                              ),
-                              icon: generateStateValueProp($state, [
-                                "useful",
-                                __plasmic_idx_0,
-                                "icon"
-                              ]),
-                              key: currentIndex,
-                              onClick: async event => {
-                                const $steps = {};
-
-                                $steps["updateModal2Open"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["modal2", "open"]
-                                        },
-                                        operation: 0,
-                                        value: true
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["updateModal2Open"] != null &&
-                                  typeof $steps["updateModal2Open"] ===
-                                    "object" &&
-                                  typeof $steps["updateModal2Open"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateModal2Open"] = await $steps[
-                                    "updateModal2Open"
-                                  ];
-                                }
-
-                                $steps["updateIndexusefull"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["itemtodo"]
-                                        },
-                                        operation: 0,
-                                        value: currentItem
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["updateIndexusefull"] != null &&
-                                  typeof $steps["updateIndexusefull"] ===
-                                    "object" &&
-                                  typeof $steps["updateIndexusefull"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateIndexusefull"] = await $steps[
-                                    "updateIndexusefull"
-                                  ];
-                                }
-                              },
-                              onIconChange: async (...eventArgs: any) => {
-                                generateStateOnChangeProp($state, [
-                                  "useful",
-                                  __plasmic_idx_0,
-                                  "icon"
-                                ]).apply(null, eventArgs);
-
-                                if (
-                                  eventArgs.length > 1 &&
-                                  eventArgs[1] &&
-                                  eventArgs[1]._plasmic_state_init_
-                                ) {
-                                  return;
-                                }
-                              },
-                              onTextChange: async (...eventArgs: any) => {
-                                generateStateOnChangeProp($state, [
-                                  "useful",
-                                  __plasmic_idx_0,
-                                  "text"
-                                ]).apply(null, eventArgs);
-
-                                if (
-                                  eventArgs.length > 1 &&
-                                  eventArgs[1] &&
-                                  eventArgs[1]._plasmic_state_init_
-                                ) {
-                                  return;
-                                }
-                              },
-                              text: generateStateValueProp($state, [
-                                "useful",
-                                __plasmic_idx_0,
-                                "text"
-                              ])
-                            };
-
-                            initializePlasmicStates(
-                              $state,
-                              [
-                                {
-                                  name: "useful[].text",
-                                  initFunc: ({ $props, $state, $queries }) =>
-                                    (() => {
-                                      try {
-                                        return currentItem.title;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                },
-                                {
-                                  name: "useful[].icon",
-                                  initFunc: ({ $props, $state, $queries }) =>
-                                    (() => {
-                                      try {
-                                        return currentItem.icon;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                }
-                              ],
-                              [__plasmic_idx_0]
-                            );
-                            return (
-                              <Useful
-                                data-plasmic-name={"useful"}
-                                data-plasmic-override={overrides.useful}
-                                {...child$Props}
-                              />
-                            );
-                          })();
-                        })}
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__q3JzA
-                          )}
-                        >
-                          {"Enter some text"}
-                        </div>
-                      </Stack__>
-                    </Reveal>
-                  </Stack__>
-                ) : null}
+                        {"Enter some text"}
+                      </div>
+                    </Stack__>
+                  </Reveal>
+                </Stack__>
                 {(
                   hasVariant(
                     $state,
@@ -7619,11 +7663,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return (
-                              "کارهایی که نباید برای " +
-                              $state.name +
-                              " انجام بدی:"
-                            );
+                            return "✖ کارهایی که نباید انجامشون بدی:";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -17281,6 +17321,7 @@ const PlasmicDescendants = {
     "lineClomp",
     "progress",
     "cyclebox2",
+    "lineClomp2",
     "button16",
     "button9",
     "button14",
@@ -17341,7 +17382,8 @@ const PlasmicDescendants = {
   cyclebox: ["cyclebox", "lineClomp", "progress"],
   lineClomp: ["lineClomp"],
   progress: ["progress"],
-  cyclebox2: ["cyclebox2", "button16"],
+  cyclebox2: ["cyclebox2", "lineClomp2", "button16"],
+  lineClomp2: ["lineClomp2"],
   button16: ["button16"],
   button9: ["button9"],
   button14: ["button14"],
@@ -17429,6 +17471,7 @@ type NodeDefaultElementType = {
   lineClomp: typeof LineClomp;
   progress: typeof AntdProgress;
   cyclebox2: typeof Cyclebox2;
+  lineClomp2: typeof LineClomp;
   button16: typeof Button;
   button9: typeof Button;
   button14: typeof Button;
@@ -17576,6 +17619,7 @@ export const PlasmicHamyar2 = Object.assign(
     lineClomp: makeNodeComponent("lineClomp"),
     progress: makeNodeComponent("progress"),
     cyclebox2: makeNodeComponent("cyclebox2"),
+    lineClomp2: makeNodeComponent("lineClomp2"),
     button16: makeNodeComponent("button16"),
     button9: makeNodeComponent("button9"),
     button14: makeNodeComponent("button14"),
