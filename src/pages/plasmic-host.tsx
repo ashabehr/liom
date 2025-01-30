@@ -19,7 +19,7 @@ import { Slider, sliderMeta } from "@/fragment/components/slider";
 import { Chart, chartMeta } from "@/fragment/components/chart";
 import { Textarea, textareaMeta } from "@/fragment/components/textarea";
 import {DatePickers,DatePickersMeta} from "@/components/DatePickers";
-import {Pickers,PickersMeta} from "@/components/Picker";
+import {Pickers,PickersMeta} from "@/components/Pickers";
 import {PullToRefresh,PullToRefreshMeta} from "@/components/PullToRefresh";
 
 
