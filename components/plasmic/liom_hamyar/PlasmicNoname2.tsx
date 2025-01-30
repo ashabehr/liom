@@ -64,6 +64,7 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
@@ -74,7 +75,10 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicNoname2.module.css"; // plasmic-import: p_QOiZPj_xQe/css
 
+import Icon132Icon from "./icons/PlasmicIcon__Icon132"; // plasmic-import: Ek3fk3jhKgEh/icon
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -96,6 +100,9 @@ export type PlasmicNoname2__OverridesType = {
   antdInput9?: Flex__<typeof Input>;
   textInput8?: Flex__<typeof TextInput>;
   antdInput8?: Flex__<typeof Input>;
+  section?: Flex__<"section">;
+  img?: Flex__<typeof PlasmicImg__>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultNoname2Props {}
@@ -234,6 +241,12 @@ function PlasmicNoname2__RenderFunc(props: {
         type: "private",
         variableType: "array",
         initFunc: ({ $props, $state, $queries, $ctx }) => []
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -283,6 +296,22 @@ function PlasmicNoname2__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.halamanUtama)}
           >
+            <Icon132Icon
+              className={classNames(projectcss.all, sty.svg__c8Tac)}
+              role={"img"}
+            />
+
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__qYbGf
+              )}
+            >
+              {
+                "\u062a\u06a9\u0645\u06cc\u0644 \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+              }
+            </div>
             <TextInput
               data-plasmic-name={"textInput7"}
               data-plasmic-override={overrides.textInput7}
@@ -691,6 +720,66 @@ function PlasmicNoname2__RenderFunc(props: {
               }
             />
           </Stack__>
+          <section
+            data-plasmic-name={"section"}
+            data-plasmic-override={overrides.section}
+            className={classNames(projectcss.all, sty.section)}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox___3TbEt)}>
+              <PlasmicImg__
+                data-plasmic-name={"img"}
+                data-plasmic-override={overrides.img}
+                alt={""}
+                className={classNames(sty.img)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"auto"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image75.png",
+                  fullWidth: 2912,
+                  fullHeight: 1922,
+                  aspectRatio: undefined
+                }}
+              />
+            </div>
+          </section>
+          <Button
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames("__wab_instance", sty.button)}
+            color={generateStateValueProp($state, ["button", "color"])}
+            onColorChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button", "color"])(
+                  eventArgs[0]
+                );
+              }).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__fDory
+              )}
+            >
+              {
+                "\u0628\u0631\u0631\u0633\u06cc \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+              }
+            </div>
+          </Button>
         </div>
       </div>
     </React.Fragment>
@@ -706,7 +795,10 @@ const PlasmicDescendants = {
     "textInput9",
     "antdInput9",
     "textInput8",
-    "antdInput8"
+    "antdInput8",
+    "section",
+    "img",
+    "button"
   ],
   halamanUtama: [
     "halamanUtama",
@@ -722,7 +814,10 @@ const PlasmicDescendants = {
   textInput9: ["textInput9", "antdInput9"],
   antdInput9: ["antdInput9"],
   textInput8: ["textInput8", "antdInput8"],
-  antdInput8: ["antdInput8"]
+  antdInput8: ["antdInput8"],
+  section: ["section", "img"],
+  img: ["img"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -736,6 +831,9 @@ type NodeDefaultElementType = {
   antdInput9: typeof Input;
   textInput8: typeof TextInput;
   antdInput8: typeof Input;
+  section: "section";
+  img: typeof PlasmicImg__;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -830,6 +928,9 @@ export const PlasmicNoname2 = Object.assign(
     antdInput9: makeNodeComponent("antdInput9"),
     textInput8: makeNodeComponent("textInput8"),
     antdInput8: makeNodeComponent("antdInput8"),
+    section: makeNodeComponent("section"),
+    img: makeNodeComponent("img"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicNoname2
     internalVariantProps: PlasmicNoname2__VariantProps,

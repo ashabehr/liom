@@ -1046,6 +1046,60 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/noname-2"
+        },
+        {
+          "id": "1kOlF8ZxmgdR",
+          "name": "Hamyar2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/hamyar-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/hamyar-2"
+        },
+        {
+          "id": "NW80jtwK9h1z",
+          "name": "Cyclebox2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCyclebox2.tsx",
+          "importSpec": {
+            "modulePath": "Cyclebox2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCyclebox2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "u0LyXWqR1nAi",
+          "name": "PercentageBox",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPercentageBox.tsx",
+          "importSpec": {
+            "modulePath": "PercentageBox.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicPercentageBox.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "x2UwC-mN2Vem",
+          "name": "SettingPregnancy2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSettingPregnancy2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/setting-pregnancy-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSettingPregnancy2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/setting-pregnancy-2"
         }
       ],
       "icons": [
@@ -1973,6 +2027,26 @@
           "id": "Jz65nAr3a4vL",
           "name": "Icon131Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon131.tsx"
+        },
+        {
+          "id": "Ek3fk3jhKgEh",
+          "name": "Icon132Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon132.tsx"
+        },
+        {
+          "id": "LLDyzwfYn9sj",
+          "name": "Icon133Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon133.tsx"
+        },
+        {
+          "id": "PSMkJFE0wRsu",
+          "name": "Icon134Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon134.tsx"
+        },
+        {
+          "id": "YzT3XF612FD4",
+          "name": "Icon135Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon135.tsx"
         }
       ],
       "images": [
@@ -2490,6 +2564,11 @@
           "id": "JfZIf29nKyIg",
           "name": "—Pngtree—ramadan illustration muslim family praying_7466838 1",
           "filePath": "../public/plasmic/liom_hamyar/images/pngtreeRamadanIllustrationMuslimFamilyPraying74668381.png"
+        },
+        {
+          "id": "uRlHu0b8lHez",
+          "name": "image 75",
+          "filePath": "../public/plasmic/liom_hamyar/images/image75.png"
         }
       ],
       "indirect": false,
