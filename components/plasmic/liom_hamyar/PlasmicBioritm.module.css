@@ -2321,6 +2321,18 @@
 .section > * {
   grid-column: 4;
 }
+@media (max-width: 640px) {
+  .section {
+    width: 100%;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
+  }
+}
+@media (max-width: 640px) {
+  .section > * {
+    grid-column: 4;
+  }
+}
 .freeBox__nexdh {
   display: flex;
   flex-direction: row;
@@ -2361,6 +2373,9 @@
     z-index: 100;
     padding-top: 5px;
     padding-bottom: 5px;
+    width: 100%;
+    grid-column-start: 1 !important;
+    grid-column-end: -1 !important;
   }
 }
 .freeBox__y2Vrr {
