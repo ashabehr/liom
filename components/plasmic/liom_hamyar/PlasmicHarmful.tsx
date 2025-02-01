@@ -83,6 +83,8 @@ export type PlasmicHarmful__ArgsType = {
   icon?: string;
   onIconChange?: (val: string) => void;
   onClick?: (event: any) => void;
+  cycle?: string;
+  onCycleChange?: (val: string) => void;
 };
 type ArgPropType = keyof PlasmicHarmful__ArgsType;
 export const PlasmicHarmful__ArgProps = new Array<ArgPropType>(
@@ -92,11 +94,14 @@ export const PlasmicHarmful__ArgProps = new Array<ArgPropType>(
   "onTextChange",
   "icon",
   "onIconChange",
-  "onClick"
+  "onClick",
+  "cycle",
+  "onCycleChange"
 );
 
 export type PlasmicHarmful__OverridesType = {
   root?: Flex__<"div">;
+  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultHarmfulProps {
@@ -107,6 +112,8 @@ export interface DefaultHarmfulProps {
   icon?: string;
   onIconChange?: (val: string) => void;
   onClick?: (event: any) => void;
+  cycle?: string;
+  onCycleChange?: (val: string) => void;
   className?: string;
 }
 
@@ -175,6 +182,14 @@ function PlasmicHarmful__RenderFunc(props: {
 
         valueProp: "icon",
         onChangeProp: "onIconChange"
+      },
+      {
+        path: "cycle",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "cycle",
+        onChangeProp: "onCycleChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -210,52 +225,60 @@ function PlasmicHarmful__RenderFunc(props: {
       )}
       onClick={args.onClick}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__iaPw6
-        )}
+      <Stack__
+        as={"div"}
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
+        hasGap={true}
+        className={classNames(projectcss.all, sty.freeBox)}
       >
-        <React.Fragment>
-          {(() => {
-            try {
-              return $state.icon;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "";
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__iaPw6
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.icon;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "";
+                }
+                throw e;
               }
-              throw e;
-            }
-          })()}
-        </React.Fragment>
-      </div>
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__wESlb
-        )}
-      >
-        <React.Fragment>
-          {(() => {
-            try {
-              return $state.title;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "\u062e\u0648\u0631\u062f\u0646 \u0634\u06a9\u0644\u0627\u062a";
+            })()}
+          </React.Fragment>
+        </div>
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__wESlb
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $state.title;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "\u062e\u0648\u0631\u062f\u0646 \u0634\u06a9\u0644\u0627\u062a";
+                }
+                throw e;
               }
-              throw e;
-            }
-          })()}
-        </React.Fragment>
-      </div>
+            })()}
+          </React.Fragment>
+        </div>
+      </Stack__>
       <div
         className={classNames(
           projectcss.all,
@@ -267,18 +290,43 @@ function PlasmicHarmful__RenderFunc(props: {
           "\u0645\u0634\u0627\u0647\u062f\u0647 \u062c\u0632\u06cc\u06cc\u0627\u062a >"
         }
       </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__iw08N
+        )}
+      >
+        <React.Fragment>
+          {(() => {
+            try {
+              return $state.cycle;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "\u0645\u0634\u0627\u0647\u062f\u0647 \u062c\u0632\u06cc\u06cc\u0627\u062a >";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
+      </div>
     </Stack__>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "freeBox"],
+  freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -341,6 +389,7 @@ export const PlasmicHarmful = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicHarmful
     internalVariantProps: PlasmicHarmful__VariantProps,

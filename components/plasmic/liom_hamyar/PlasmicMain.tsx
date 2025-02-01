@@ -1789,6 +1789,16 @@ function PlasmicMain__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "harmful[].cycle",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "useful[].cycle",
+        type: "private",
+        variableType: "text"
       }
     ],
     [$props, $ctx, $refs]
@@ -24262,6 +24272,14 @@ function PlasmicMain__RenderFunc(props: {
                                               "__wab_instance",
                                               sty.useful
                                             ),
+                                            cycle: generateStateValueProp(
+                                              $state,
+                                              [
+                                                "useful",
+                                                __plasmic_idx_0,
+                                                "cycle"
+                                              ]
+                                            ),
                                             icon: generateStateValueProp(
                                               $state,
                                               [
@@ -24382,6 +24400,27 @@ function PlasmicMain__RenderFunc(props: {
                                                   ];
                                               }
                                             },
+                                            onCycleChange: async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "useful",
+                                                  __plasmic_idx_0,
+                                                  "cycle"
+                                                ]
+                                              ).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1] &&
+                                                eventArgs[1]
+                                                  ._plasmic_state_init_
+                                              ) {
+                                                return;
+                                              }
+                                            },
                                             onIconChange: async (
                                               ...eventArgs: any
                                             ) => {
@@ -24470,6 +24509,55 @@ function PlasmicMain__RenderFunc(props: {
                                                   (() => {
                                                     try {
                                                       return currentItem.icon;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()
+                                              },
+                                              {
+                                                name: "useful[].cycle",
+                                                initFunc: ({
+                                                  $props,
+                                                  $state,
+                                                  $queries
+                                                }) =>
+                                                  (() => {
+                                                    try {
+                                                      return (
+                                                        "بر اساس دوره :" +
+                                                        ($state.cyclebox
+                                                          .cycle === "white"
+                                                          ? "عادی"
+                                                          : $state.cyclebox
+                                                              .cycle ===
+                                                            "fertility"
+                                                          ? "تخمک گذاری"
+                                                          : $state.cyclebox
+                                                              .cycle === "pms"
+                                                          ? "pms"
+                                                          : $state.cyclebox
+                                                              .cycle === "blood"
+                                                          ? "پریود"
+                                                          : $state.cyclebox
+                                                              .cycle ===
+                                                            "Pregnancy"
+                                                          ? " هفته " +
+                                                            $state
+                                                              .pregnancyData[
+                                                              $state.pregnancy
+                                                                .week - 1
+                                                            ].week +
+                                                            " بارداری"
+                                                          : "-")
+                                                      );
                                                     } catch (e) {
                                                       if (
                                                         e instanceof
@@ -24632,6 +24720,14 @@ function PlasmicMain__RenderFunc(props: {
                                               "__wab_instance",
                                               sty.harmful
                                             ),
+                                            cycle: generateStateValueProp(
+                                              $state,
+                                              [
+                                                "harmful",
+                                                __plasmic_idx_0,
+                                                "cycle"
+                                              ]
+                                            ),
                                             icon: generateStateValueProp(
                                               $state,
                                               [
@@ -24748,6 +24844,27 @@ function PlasmicMain__RenderFunc(props: {
                                                   await $steps[
                                                     "updateModal2Open"
                                                   ];
+                                              }
+                                            },
+                                            onCycleChange: async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              generateStateOnChangeProp(
+                                                $state,
+                                                [
+                                                  "harmful",
+                                                  __plasmic_idx_0,
+                                                  "cycle"
+                                                ]
+                                              ).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1] &&
+                                                eventArgs[1]
+                                                  ._plasmic_state_init_
+                                              ) {
+                                                return;
                                               }
                                             },
                                             onIconChange: async (
@@ -24890,6 +25007,55 @@ function PlasmicMain__RenderFunc(props: {
                                                   (() => {
                                                     try {
                                                       return currentItem.icon;
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return undefined;
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()
+                                              },
+                                              {
+                                                name: "harmful[].cycle",
+                                                initFunc: ({
+                                                  $props,
+                                                  $state,
+                                                  $queries
+                                                }) =>
+                                                  (() => {
+                                                    try {
+                                                      return (
+                                                        "بر اساس دوره :" +
+                                                        ($state.cyclebox
+                                                          .cycle === "white"
+                                                          ? "عادی"
+                                                          : $state.cyclebox
+                                                              .cycle ===
+                                                            "fertility"
+                                                          ? "تخمک گذاری"
+                                                          : $state.cyclebox
+                                                              .cycle === "pms"
+                                                          ? "pms"
+                                                          : $state.cyclebox
+                                                              .cycle === "blood"
+                                                          ? "پریود"
+                                                          : $state.cyclebox
+                                                              .cycle ===
+                                                            "Pregnancy"
+                                                          ? " هفته " +
+                                                            $state
+                                                              .pregnancyData[
+                                                              $state.pregnancy
+                                                                .week - 1
+                                                            ].week +
+                                                            " بارداری"
+                                                          : "-")
+                                                      );
                                                     } catch (e) {
                                                       if (
                                                         e instanceof
