@@ -1048,20 +1048,6 @@
           "path": "/noname-2"
         },
         {
-          "id": "1kOlF8ZxmgdR",
-          "name": "Hamyar2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/hamyar-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyar2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/hamyar-2"
-        },
-        {
           "id": "NW80jtwK9h1z",
           "name": "Cyclebox2",
           "type": "managed",
@@ -1088,18 +1074,46 @@
           "componentType": "component"
         },
         {
-          "id": "x2UwC-mN2Vem",
-          "name": "SettingPregnancy2",
+          "id": "1kOlF8ZxmgdR",
+          "name": "Main",
           "type": "managed",
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSettingPregnancy2.tsx",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMain.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/setting-pregnancy-2.tsx"
+            "modulePath": "../src/pages/main.tsx"
           },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSettingPregnancy2.module.css",
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicMain.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/setting-pregnancy-2"
+          "path": "/main"
+        },
+        {
+          "id": "x2UwC-mN2Vem",
+          "name": "SettingCycle",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSettingCycle.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/setting-cycle.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSettingCycle.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/setting-cycle"
+        },
+        {
+          "id": "asaCgPeO3i7V",
+          "name": "Bioritm2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicBioritm2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/Biorhythm.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicBioritm2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/Biorhythm"
         }
       ],
       "icons": [
@@ -2047,6 +2061,26 @@
           "id": "YzT3XF612FD4",
           "name": "Icon135Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon135.tsx"
+        },
+        {
+          "id": "CMLDsrl-Up37",
+          "name": "Icon136Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon136.tsx"
+        },
+        {
+          "id": "DXdLIMYRuTVZ",
+          "name": "Icon137Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon137.tsx"
+        },
+        {
+          "id": "_v0CaTT-8IBc",
+          "name": "Icon138Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon138.tsx"
+        },
+        {
+          "id": "_VRl9i2RQMu-",
+          "name": "Icon139Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon139.tsx"
         }
       ],
       "images": [
@@ -3159,7 +3193,8 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
@@ -3940,7 +3975,8 @@
           "componentImportPath": "@plasmicpkgs/radix-ui"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "6HBcNwr8dz9LuS1Qe36xa5",
