@@ -23876,7 +23876,24 @@ function PlasmicMain__RenderFunc(props: {
                 </div>
                 {(
                   hasVariant(globalVariants, "screen", "mobile")
-                    ? true
+                    ? (() => {
+                        try {
+                          return (
+                            !$state.user.data.result.todoNotTodoLists.todo
+                              .length == 0 ||
+                            !$state.user.data.result.todoNotTodoLists.notToDo
+                              .length == 0
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
                     : (() => {
                         try {
                           return (
