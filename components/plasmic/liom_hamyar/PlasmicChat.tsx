@@ -1645,7 +1645,7 @@ function PlasmicChat__RenderFunc(props: {
                               ? (() => {
                                   const actionArgs = {
                                     args: [
-                                      undefined,
+                                      "error",
                                       "\u062e\u0631\u06cc\u062f \u0634\u0645\u0627 \u0628\u0627 \u0645\u0634\u06a9\u0644 \u0645\u0648\u0627\u062c\u0647 \u0634\u062f. \u0644\u0637\u0641\u0627\u064b \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f."
                                     ]
                                   };
@@ -1663,6 +1663,28 @@ function PlasmicChat__RenderFunc(props: {
                           ) {
                             $steps["updateTextAreaValue9"] = await $steps[
                               "updateTextAreaValue9"
+                            ];
+                          }
+
+                          $steps["updateTextAreaValue10"] =
+                            $steps.sendstart?.data?.success == false
+                              ? (() => {
+                                  const actionArgs = { args: [5000] };
+                                  return $globalActions["Fragment.wait"]?.apply(
+                                    null,
+                                    [...actionArgs.args]
+                                  );
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateTextAreaValue10"] != null &&
+                            typeof $steps["updateTextAreaValue10"] ===
+                              "object" &&
+                            typeof $steps["updateTextAreaValue10"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextAreaValue10"] = await $steps[
+                              "updateTextAreaValue10"
                             ];
                           }
 
