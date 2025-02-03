@@ -1595,6 +1595,77 @@ function PlasmicChat__RenderFunc(props: {
                             ];
                           }
 
+                          $steps["updateTextAreaValue8"] =
+                            $steps.sendstart?.data?.success == false
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
+                                        return `/clinic?gender=${$ctx.query.gender}`;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateTextAreaValue8"] != null &&
+                            typeof $steps["updateTextAreaValue8"] ===
+                              "object" &&
+                            typeof $steps["updateTextAreaValue8"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextAreaValue8"] = await $steps[
+                              "updateTextAreaValue8"
+                            ];
+                          }
+
+                          $steps["updateTextAreaValue9"] =
+                            $steps.sendstart?.data?.success == false
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      undefined,
+                                      "\u062e\u0631\u06cc\u062f \u0634\u0645\u0627 \u0628\u0627 \u0645\u0634\u06a9\u0644 \u0645\u0648\u0627\u062c\u0647 \u0634\u062f. \u0644\u0637\u0641\u0627\u064b \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f."
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "plasmic-antd5-config-provider.showNotification"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["updateTextAreaValue9"] != null &&
+                            typeof $steps["updateTextAreaValue9"] ===
+                              "object" &&
+                            typeof $steps["updateTextAreaValue9"].then ===
+                              "function"
+                          ) {
+                            $steps["updateTextAreaValue9"] = await $steps[
+                              "updateTextAreaValue9"
+                            ];
+                          }
+
                           $steps["updateTextAreaValue6"] = true
                             ? (() => {
                                 const actionArgs = {

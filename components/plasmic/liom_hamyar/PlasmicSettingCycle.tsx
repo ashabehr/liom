@@ -404,6 +404,12 @@ function PlasmicSettingCycle__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({ data: "" })
+      },
+      {
+        path: "list",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       }
     ],
     [$props, $ctx, $refs]
@@ -1765,97 +1771,37 @@ function PlasmicSettingCycle__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["invokeGlobalAction2"] = (() => {
-                        var jy = $state.lengh.year;
-                        var jm = $state.lengh.month;
-                        var jd = $state.lengh.day;
-                        var gy = jy <= 979 ? 621 : 1600;
-                        jy -= jy <= 979 ? 0 : 979;
-                        var days =
-                          365 * jy +
-                          parseInt(jy / 33) * 8 +
-                          parseInt(((jy % 33) + 3) / 4) +
-                          78 +
-                          jd +
-                          (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                        gy += 400 * parseInt(days / 146097);
-                        days %= 146097;
-                        if (days > 36524) {
-                          gy += 100 * parseInt(--days / 36524);
-                          days %= 36524;
-                          if (days >= 365) days++;
-                        }
-                        gy += 4 * parseInt(days / 1461);
-                        days %= 1461;
-                        gy += parseInt((days - 1) / 365);
-                        if (days > 365) days = (days - 1) % 365;
-                        var gd = days + 1;
-                        var sal_a = [
-                          0,
-                          31,
-                          (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                            ? 29
-                            : 28,
-                          31,
-                          30,
-                          31,
-                          30,
-                          31,
-                          31,
-                          30,
-                          31,
-                          30,
-                          31
-                        ];
-
-                        var gm;
-                        for (gm = 0; gm < 13; gm++) {
-                          var v = sal_a[gm];
-                          if (gd <= v) break;
-                          gd -= v;
-                        }
-                        const d =
-                          gy +
-                          "-" +
-                          (gm <= 9 ? "0" : "") +
-                          gm +
-                          "-" +
-                          (gd <= 9 ? "0" : "") +
-                          gd +
-                          "T10:10:10";
-                        const specifiedDate = new Date(d);
-                        const today = new Date();
-                        if (today > specifiedDate) {
-                          return false;
-                        }
-                        const diffTime = Math.abs(today - specifiedDate);
-                        const diffDays = Math.ceil(
-                          diffTime / (1000 * 60 * 60 * 24)
-                        );
-                        return diffDays > 280 ? false : true;
-                      })()
+                      $steps["updateList"] = true
                         ? (() => {
                             const actionArgs = {
-                              args: [
-                                undefined,
-                                "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
-                                "top-center"
-                              ]
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["list"]
+                              },
+                              operation: 0
                             };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["invokeGlobalAction2"] != null &&
-                        typeof $steps["invokeGlobalAction2"] === "object" &&
-                        typeof $steps["invokeGlobalAction2"].then === "function"
+                        $steps["updateList"] != null &&
+                        typeof $steps["updateList"] === "object" &&
+                        typeof $steps["updateList"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction2"] = await $steps[
-                          "invokeGlobalAction2"
-                        ];
+                        $steps["updateList"] = await $steps["updateList"];
                       }
 
                       $steps["invokeGlobalAction"] = !(
@@ -1952,33 +1898,6 @@ function PlasmicSettingCycle__RenderFunc(props: {
                       ) {
                         $steps["invokeGlobalAction"] = await $steps[
                           "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction3"] =
-                        $state.lengh == 0 &&
-                        $state.cycle == 0 &&
-                        $state.lastTime.data == ""
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "error",
-                                  "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
-                                  "top-center"
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.showToast"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["invokeGlobalAction3"] != null &&
-                        typeof $steps["invokeGlobalAction3"] === "object" &&
-                        typeof $steps["invokeGlobalAction3"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction3"] = await $steps[
-                          "invokeGlobalAction3"
                         ];
                       }
 
@@ -2084,6 +2003,58 @@ function PlasmicSettingCycle__RenderFunc(props: {
                       ) {
                         $steps["invokeGlobalAction4"] = await $steps[
                           "invokeGlobalAction4"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction2"] = false
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                undefined,
+                                "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
+                                "top-center"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
+                      if (
+                        $steps["invokeGlobalAction2"] != null &&
+                        typeof $steps["invokeGlobalAction2"] === "object" &&
+                        typeof $steps["invokeGlobalAction2"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction2"] = await $steps[
+                          "invokeGlobalAction2"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction3"] =
+                        $state.lengh == 0 &&
+                        $state.cycle == 0 &&
+                        $state.lastTime.data == ""
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                                  "top-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction3"] != null &&
+                        typeof $steps["invokeGlobalAction3"] === "object" &&
+                        typeof $steps["invokeGlobalAction3"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction3"] = await $steps[
+                          "invokeGlobalAction3"
                         ];
                       }
                     }}
@@ -2224,6 +2195,17 @@ function PlasmicSettingCycle__RenderFunc(props: {
               "opendialog"
             ])}
           >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__fg5J
+              )}
+            >
+              {
+                "\u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632\u200c\u0647\u0627\u06cc \u062e\u0648\u0646 \u0631\u06cc\u0632\u06cc"
+              }
+            </div>
             <Pickers
               data-plasmic-name={"pickers"}
               data-plasmic-override={overrides.pickers}
@@ -2438,6 +2420,17 @@ function PlasmicSettingCycle__RenderFunc(props: {
               "opendialog"
             ])}
           >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__owU6
+              )}
+            >
+              {
+                "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.\n(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u062a(\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc) \u0631\u0648 \u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)"
+              }
+            </div>
             <Pickers
               data-plasmic-name={"pickers2"}
               data-plasmic-override={overrides.pickers2}
@@ -2652,6 +2645,17 @@ function PlasmicSettingCycle__RenderFunc(props: {
               "opendialog"
             ])}
           >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__rnd5N
+              )}
+            >
+              {
+                "\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a"
+              }
+            </div>
             <div
               className={classNames(
                 projectcss.all,

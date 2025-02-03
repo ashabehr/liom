@@ -2921,6 +2921,16 @@
       }
     },
     {
+      "name": "border",
+      "type": "color",
+      "value": "#E0E0E0",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "v6uqRA2o3QLf"
+      }
+    },
+    {
       "name": "border gray light",
       "type": "color",
       "value": "rgb(230,230,230)",

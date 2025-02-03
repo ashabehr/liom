@@ -705,6 +705,31 @@ function PlasmicClinic__RenderFunc(props: {
               $steps["updateGetData"] = await $steps["updateGetData"];
             }
 
+            $steps["runCode2"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        return localStorage.setItem(
+                          "userAllowance",
+                          $state.getData.userAllowance
+                        );
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode2"] != null &&
+              typeof $steps["runCode2"] === "object" &&
+              typeof $steps["runCode2"].then === "function"
+            ) {
+              $steps["runCode2"] = await $steps["runCode2"];
+            }
+
             $steps["invokeGlobalAction2"] = true
               ? (() => {
                   const actionArgs = { args: [2000] };

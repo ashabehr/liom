@@ -1,0 +1,48 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: #ffffff;
+  position: relative;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  min-width: 0;
+  padding: 8px 16px;
+}
+.freeBox__gpOb {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: 35px;
+  max-width: 100%;
+  padding: 0px 8px;
+}
+.img__jXXjY {
+  object-fit: fill;
+  max-width: 100%;
+  width: 20px;
+  flex-shrink: 0;
+}
+.img__jXXjY > picture > img {
+  object-fit: fill;
+}
+.text__q64IV {
+  position: relative;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--token-BIuTS8zmWD0f);
+  white-space: pre-wrap;
+  min-height: 0;
+  padding: 8px 8px 0px 16px;
+}

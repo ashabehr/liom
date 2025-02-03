@@ -454,6 +454,16 @@
 .dialog:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
 }
+.text__fg5J {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 0;
+}
 .pickers:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -539,6 +549,16 @@
 .dialog2:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
 }
+.text__owU6 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: justify;
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 0;
+}
 .pickers2:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -623,6 +643,16 @@
 }
 .dialog3:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
+}
+.text__rnd5N {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 0;
 }
 .freeBox__puGw5 {
   display: flex;

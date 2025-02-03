@@ -91,6 +91,7 @@ import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: n
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -119,6 +120,7 @@ import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKs
 import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLIMYRuTVZ/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
 import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
+import Icon140Icon from "./icons/PlasmicIcon__Icon140"; // plasmic-import: KzO15XHeI3j-/icon
 
 createPlasmicElementProxy;
 
@@ -197,6 +199,12 @@ export type PlasmicMain__OverridesType = {
   timer?: Flex__<typeof Timer>;
   dialog3?: Flex__<typeof Dialog>;
   button13?: Flex__<typeof Button>;
+  edit?: Flex__<typeof Dialog>;
+  button19?: Flex__<typeof Button>;
+  wrong?: Flex__<typeof Dialog>;
+  warning?: Flex__<typeof AntdModal>;
+  button20?: Flex__<typeof Button>;
+  button21?: Flex__<typeof Button>;
 };
 
 export interface DefaultMainProps {}
@@ -1799,6 +1807,80 @@ function PlasmicMain__RenderFunc(props: {
         path: "useful[].cycle",
         type: "private",
         variableType: "text"
+      },
+      {
+        path: "edit.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "editList",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return {
+                period: [
+                  {
+                    title: "هنوز پریود نشدم",
+                    text: "اگه پریودت با تاخیر مواجه شده و چرخه و تقویم قاعدگیت دارن اینو بهت نشون میدن که تو پریود شدی با این دکمه وضعیت فعلیت رو درست کن",
+                    action: "warning"
+                  },
+                  {
+                    title: "دوره کاملا اشتباه محاسبه شده",
+                    text: "احتمال داره که به دلیل نامنظمی یا فراموشی اطلاعاتت رو اشتباه وارد کرده باشی اینجا بزن تا از روش دیگه ای باهم مجدد محاسبه کنیم"
+                  },
+                  {
+                    title: "باردار شدم",
+                    text: "اگه به نظرت باردار شدی همین حالا ثبتش کن تا ببنیم کوچولت چند وقتشه :)"
+                  },
+                  {
+                    title: "ویرایش دوره",
+                    text: "اگر اطلاعات دوره ات رو اشتباه وارد کردی و اینطوری تقویم و چرخه ات متناسب محاسبه نشده اند میتونی به کمک این دکمه اطلاعات رو تصحیح کنی"
+                  }
+                ]
+              };
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "warning.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button20.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "button21.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "button19[].color",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "wrong.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -1932,7 +2014,22 @@ function PlasmicMain__RenderFunc(props: {
                       throw e;
                     }
                   })()
-                : undefined
+                : (() => {
+                    try {
+                      return {
+                        from: 0,
+                        authorization: localStorage.getItem("token")
+                      };
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
+                    }
+                  })()
             }
             className={classNames("__wab_instance", sty.user, {
               [sty.userlackOfCourseInformation]: hasVariant(
@@ -2076,7 +2173,7 @@ function PlasmicMain__RenderFunc(props: {
                 </Stack__>
               </div>
             }
-            method={"GET"}
+            method={"POST"}
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["user", "error"]).apply(
                 null,
@@ -2479,26 +2576,10 @@ function PlasmicMain__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
-            params={(() => {
-              try {
-                return {
-                  r: $state.r,
-                  m: $state.m
-                };
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
             url={
               hasVariant(globalVariants, "screen", "mobile")
                 ? "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"
-                : "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"
+                : "https://n8n.staas.ir/webhook/calendar/getData"
             }
           >
             <Stack__
@@ -13416,21 +13497,27 @@ function PlasmicMain__RenderFunc(props: {
                               $steps["goToSettingPregnancy2"] = true
                                 ? (() => {
                                     const actionArgs = {
-                                      destination: `/setting-cycle`
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["edit", "opendialog"]
+                                      },
+                                      operation: 0,
+                                      value: true
                                     };
-                                    return (({ destination }) => {
-                                      if (
-                                        typeof destination === "string" &&
-                                        destination.startsWith("#")
-                                      ) {
-                                        document
-                                          .getElementById(destination.substr(1))
-                                          .scrollIntoView({
-                                            behavior: "smooth"
-                                          });
-                                      } else {
-                                        __nextRouter?.push(destination);
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
                                       }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
                                     })?.apply(null, [actionArgs]);
                                   })()
                                 : undefined;
@@ -33611,6 +33698,541 @@ function PlasmicMain__RenderFunc(props: {
               </Button>
             </Stack__>
           </Dialog>
+          <Dialog
+            data-plasmic-name={"edit"}
+            data-plasmic-override={overrides.edit}
+            className={classNames("__wab_instance", sty.edit)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["edit", "opendialog"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, ["edit", "opendialog"])}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__wZFhc)}
+            >
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return $state.editList.period;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox___084Lx)}
+                    key={currentIndex}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__d9IFq)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xhvsz
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.title;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__rRfCy
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem.text;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___0Um68
+                      )}
+                    >
+                      {(() => {
+                        const child$Props = {
+                          className: classNames("__wab_instance", sty.button19),
+                          color: generateStateValueProp($state, [
+                            "button19",
+                            __plasmic_idx_0,
+                            "color"
+                          ]),
+                          onClick: async event => {
+                            const $steps = {};
+
+                            $steps["updateEditOpendialog"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["edit", "opendialog"]
+                                    },
+                                    operation: 0,
+                                    value: false
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateEditOpendialog"] != null &&
+                              typeof $steps["updateEditOpendialog"] ===
+                                "object" &&
+                              typeof $steps["updateEditOpendialog"].then ===
+                                "function"
+                            ) {
+                              $steps["updateEditOpendialog"] = await $steps[
+                                "updateEditOpendialog"
+                              ];
+                            }
+
+                            $steps["updateWarningOpen"] =
+                              currentItem.action == "warning"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["warning", "open"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["updateWarningOpen"] != null &&
+                              typeof $steps["updateWarningOpen"] === "object" &&
+                              typeof $steps["updateWarningOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateWarningOpen"] = await $steps[
+                                "updateWarningOpen"
+                              ];
+                            }
+                          },
+                          onColorChange: async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button19",
+                                __plasmic_idx_0,
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          },
+                          shape: "rounded"
+                        };
+
+                        initializePlasmicStates(
+                          $state,
+                          [
+                            {
+                              name: "button19[].color",
+                              initFunc: ({ $props, $state, $queries }) => "line"
+                            }
+                          ],
+                          [__plasmic_idx_0]
+                        );
+                        return (
+                          <Button
+                            data-plasmic-name={"button19"}
+                            data-plasmic-override={overrides.button19}
+                            {...child$Props}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__eEw
+                              )}
+                            >
+                              {"\u062b\u0628\u062a"}
+                            </div>
+                          </Button>
+                        );
+                      })()}
+                    </div>
+                  </Stack__>
+                );
+              })}
+            </Stack__>
+          </Dialog>
+          <Dialog
+            data-plasmic-name={"wrong"}
+            data-plasmic-override={overrides.wrong}
+            className={classNames("__wab_instance", sty.wrong)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["wrong", "opendialog"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, ["wrong", "opendialog"])}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__ebLAh)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__mLWir
+                )}
+              >
+                {
+                  "\u0645\u0627 \u062d\u062f\u0633 \u0645\u06cc\u0632\u0646\u06cc\u0645 \u06a9\u0647 \u0627\u06cc\u0646 \u0627\u0634\u062a\u0628\u0627\u0647 \u062f\u0631 \u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0627\u0632 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0642\u0628\u0644\u06cc \u0628\u0648\u062f\u0647 \u0627\u0633\u062a. \u0627\u06cc\u0646\u0628\u0627\u0631 \u0645\u06cc\u062a\u0648\u0646\u06cc \u0628\u0647\u0645 \u0628\u06af\u06cc \u06a9\u0647 \u062f\u0631 \u0686\u0647 \u0631\u0648\u0632\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u062a\u0645\u0627\u0645 \u0634\u062f\u061f"
+                }
+              </div>
+            </Stack__>
+          </Dialog>
+          <AntdModal
+            data-plasmic-name={"warning"}
+            data-plasmic-override={overrides.warning}
+            className={classNames("__wab_instance", sty.warning)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            hideFooter={true}
+            maskClosable={true}
+            modalContentClassName={classNames({
+              [sty["pcls_u8ELnmyXWtSa"]]: true
+            })}
+            modalScopeClassName={sty["warning__modal"]}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["warning", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["warning", "open"])}
+            title={
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___5FkEo)}
+              >
+                <Icon140Icon
+                  className={classNames(projectcss.all, sty.svg__y7Kw0)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___6COhR
+                  )}
+                >
+                  {
+                    "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                  }
+                </div>
+              </Stack__>
+            }
+            trigger={
+              <AntdButton
+                className={classNames("__wab_instance", sty.button___76Zu8)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__jtiSt
+                  )}
+                >
+                  {"Show modal"}
+                </div>
+              </AntdButton>
+            }
+            wrapClassName={classNames({ [sty["pcls_spYgz5jgHCow"]]: true })}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__rUvRc)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__kXaxG
+                )}
+              >
+                {
+                  "\u0637\u0628\u0642 \u0627\u0637\u0644\u0627\u0639\u0627\u062a\u06cc \u06a9\u0647 \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u06cc \u062a\u0648 \u0648\u0627\u0631\u062f \u062f\u0648\u0631\u0647 \u06cc \u0642\u0631\u0645\u0632 \u0634\u062f\u06cc \u0648 \u062e\u0648\u0646 \u0631\u06cc\u0632\u06cc \u062f\u0627\u0631\u06cc \u0628\u0627 \u062a\u0627\u06cc\u06cc\u062f \u0627\u06cc\u0646 \u062f\u06cc\u0627\u0644\u0648\u06af \u06cc\u0639\u0646\u06cc \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a \u0628\u0627 \u062a\u0627\u062e\u06cc\u0631 \u0645\u0648\u0627\u062c\u0647 \u0634\u062f\u0647"
+                }
+              </div>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___0N0HS)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__o5Xxs)}>
+                  <Button
+                    data-plasmic-name={"button20"}
+                    data-plasmic-override={overrides.button20}
+                    className={classNames("__wab_instance", sty.button20)}
+                    color={generateStateValueProp($state, [
+                      "button20",
+                      "color"
+                    ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateWarningOpen"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["warning", "open"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateWarningOpen"] != null &&
+                        typeof $steps["updateWarningOpen"] === "object" &&
+                        typeof $steps["updateWarningOpen"].then === "function"
+                      ) {
+                        $steps["updateWarningOpen"] = await $steps[
+                          "updateWarningOpen"
+                        ];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button20",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    size={"compact"}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return "بله";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return " ";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </Button>
+                </div>
+                <Button
+                  data-plasmic-name={"button21"}
+                  data-plasmic-override={overrides.button21}
+                  className={classNames("__wab_instance", sty.button21)}
+                  color={generateStateValueProp($state, ["button21", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateWarningOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["warning", "open"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateWarningOpen"] != null &&
+                      typeof $steps["updateWarningOpen"] === "object" &&
+                      typeof $steps["updateWarningOpen"].then === "function"
+                    ) {
+                      $steps["updateWarningOpen"] = await $steps[
+                        "updateWarningOpen"
+                      ];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button21", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  size={"compact"}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return "انصراف";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return " ";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </Button>
+              </Stack__>
+            </Stack__>
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -33677,7 +34299,13 @@ const PlasmicDescendants = {
     "button11",
     "timer",
     "dialog3",
-    "button13"
+    "button13",
+    "edit",
+    "button19",
+    "wrong",
+    "warning",
+    "button20",
+    "button21"
   ],
   favicon: ["favicon"],
   user: [
@@ -33796,7 +34424,13 @@ const PlasmicDescendants = {
   button11: ["button11"],
   timer: ["timer"],
   dialog3: ["dialog3", "button13"],
-  button13: ["button13"]
+  button13: ["button13"],
+  edit: ["edit", "button19"],
+  button19: ["button19"],
+  wrong: ["wrong"],
+  warning: ["warning", "button20", "button21"],
+  button20: ["button20"],
+  button21: ["button21"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -33861,6 +34495,12 @@ type NodeDefaultElementType = {
   timer: typeof Timer;
   dialog3: typeof Dialog;
   button13: typeof Button;
+  edit: typeof Dialog;
+  button19: typeof Button;
+  wrong: typeof Dialog;
+  warning: typeof AntdModal;
+  button20: typeof Button;
+  button21: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -34006,6 +34646,12 @@ export const PlasmicMain = Object.assign(
     timer: makeNodeComponent("timer"),
     dialog3: makeNodeComponent("dialog3"),
     button13: makeNodeComponent("button13"),
+    edit: makeNodeComponent("edit"),
+    button19: makeNodeComponent("button19"),
+    wrong: makeNodeComponent("wrong"),
+    warning: makeNodeComponent("warning"),
+    button20: makeNodeComponent("button20"),
+    button21: makeNodeComponent("button21"),
 
     // Metadata about props expected for PlasmicMain
     internalVariantProps: PlasmicMain__VariantProps,

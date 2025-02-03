@@ -719,6 +719,20 @@ function PlasmicNoname2__RenderFunc(props: {
                 generateStateValueProp($state, ["textInput8", "value"]) ?? ""
               }
             />
+
+            <div className={classNames(projectcss.all, sty.freeBox__z8Y8L)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__bxJ
+                )}
+              >
+                {
+                  "\u26a0\ufe0f \u062a\u0645\u0627\u0645\u06cc \u0627\u0633\u0627\u0645\u06cc \u0631\u0627 \u0641\u0642\u0637 \u0628\u0627 \u062d\u0631\u0648\u0641 \u0641\u0627\u0631\u0633\u06cc \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f \u0648 \u062c\u0647\u062a \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0628\u0631\u0648\u0632 \u0627\u062e\u062a\u0644\u0627\u0644 \u062f\u0631 \u0639\u0645\u0644\u06a9\u0631\u062f \u0628\u0631\u0646\u0627\u0645\u0647\u060c \u0641\u06cc\u0644\u062a\u0631 \u0634\u06a9\u0646 \u0631\u0627 \u062e\u0627\u0645\u0648\u0634 \u06a9\u0646\u06cc\u062f."
+                }
+              </div>
+            </div>
           </Stack__>
           <section
             data-plasmic-name={"section"}
@@ -747,39 +761,41 @@ function PlasmicNoname2__RenderFunc(props: {
               />
             </div>
           </section>
-          <Button
-            data-plasmic-name={"button"}
-            data-plasmic-override={overrides.button}
-            className={classNames("__wab_instance", sty.button)}
-            color={generateStateValueProp($state, ["button", "color"])}
-            onColorChange={async (...eventArgs: any) => {
-              ((...eventArgs) => {
-                generateStateOnChangeProp($state, ["button", "color"])(
-                  eventArgs[0]
-                );
-              }).apply(null, eventArgs);
+          <div className={classNames(projectcss.all, sty.freeBox__neX0C)}>
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button)}
+              color={generateStateValueProp($state, ["button", "color"])}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
 
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fDory
-              )}
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
             >
-              {
-                "\u0628\u0631\u0631\u0633\u06cc \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
-              }
-            </div>
-          </Button>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__fDory
+                )}
+              >
+                {
+                  "\u0628\u0631\u0631\u0633\u06cc \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+                }
+              </div>
+            </Button>
+          </div>
         </div>
       </div>
     </React.Fragment>
