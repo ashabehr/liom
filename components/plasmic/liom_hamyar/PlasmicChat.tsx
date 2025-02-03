@@ -1669,7 +1669,7 @@ function PlasmicChat__RenderFunc(props: {
                           $steps["updateTextAreaValue10"] =
                             $steps.sendstart?.data?.success == false
                               ? (() => {
-                                  const actionArgs = { args: [5000] };
+                                  const actionArgs = { args: [8000] };
                                   return $globalActions["Fragment.wait"]?.apply(
                                     null,
                                     [...actionArgs.args]

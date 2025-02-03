@@ -67,6 +67,8 @@ import Star from "../../Star"; // plasmic-import: i69c2Ujsm_H6/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -136,6 +138,8 @@ function PlasmicShop__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
+
+  const $globalActions = useGlobalActions?.();
 
   const currentUser = useCurrentUser?.() || {};
 
@@ -306,6 +310,18 @@ function PlasmicShop__RenderFunc(props: {
             text: "\u062e\u0648\u062f\u062a \u0645\u0631\u0627\u0642\u0628 \u062e\u0648\u062f\u062a \u0628\u0627\u0634 . \u0645\u0627 \u0647\u0631 \u0645\u0627\u0647 \u0628\u0647\u062a \u0634\u0631\u0648\u0639 \u062f\u0648\u0631\u0647 \u067e\u0631\u06cc\u0648\u062f \u0648 pms \u0648 \u062a\u062e\u0645\u06a9 \u06af\u0630\u0627\u0631\u06cc \u0631\u0648 \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u0627\u0637\u0644\u0627\u0639 \u0645\u06cc\u062f\u06cc\u0645 \u062a\u0627 \u0647\u06cc\u0686\u0648\u0642\u062a \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646\u06cc"
           }
         ]
+      },
+      {
+        path: "startX",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "timer",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -315,6 +331,10 @@ function PlasmicShop__RenderFunc(props: {
     $ctx,
     $queries: {},
     $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
   });
 
   return (
@@ -431,7 +451,7 @@ function PlasmicShop__RenderFunc(props: {
                     className={classNames(
                       projectcss.all,
                       projectcss.ul,
-                      sty.ul__n2TEt
+                      sty.ul__zqkb
                     )}
                   >
                     {(_par =>
@@ -457,7 +477,7 @@ function PlasmicShop__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.li,
-                            sty.li__slFfN
+                            sty.li__ypGpP
                           )}
                           key={currentIndex}
                         >
@@ -466,7 +486,7 @@ function PlasmicShop__RenderFunc(props: {
                             hasGap={true}
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__llvki
+                              sty.freeBox__qcQrj
                             )}
                             style={(() => {
                               try {
@@ -491,7 +511,7 @@ function PlasmicShop__RenderFunc(props: {
                               className={classNames(
                                 projectcss.all,
                                 projectcss.__wab_text,
-                                sty.text__otfMt
+                                sty.text__iCzTc
                               )}
                             >
                               {
@@ -501,7 +521,7 @@ function PlasmicShop__RenderFunc(props: {
                             <Icon142Icon
                               className={classNames(
                                 projectcss.all,
-                                sty.svg___6RjT
+                                sty.svg__iiaO
                               )}
                               role={"img"}
                             />
@@ -519,8 +539,194 @@ function PlasmicShop__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 sty.freeBox__wvtzn,
-                "parent"
+                "container"
               )}
+              onTouchEnd={async event => {
+                const $steps = {};
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            if (
+                              event.changedTouches[0].clientX - $state.startX >
+                              80
+                            ) {
+                              $state.timer = false;
+                              if ($state.index < $state.comments.length - 1) {
+                                run();
+                                $state.index++;
+                              } else {
+                                run();
+                                $state.index = 0;
+                              }
+                            } else if (
+                              $state.startX - event.changedTouches[0].clientX >
+                              80
+                            ) {
+                              $state.timer = false;
+                              if ($state.index > 0) {
+                                runReverse();
+                                $state.index--;
+                              } else {
+                                runReverse();
+                                $state.index = $state.comments.length - 1;
+                              }
+                            }
+                            function run() {
+                              var comments =
+                                document.getElementById("commentBox");
+                              comments.classList.remove(
+                                "slide-in",
+                                "slide-in-reverse",
+                                "slide-out-reverse"
+                              );
+                              void comments.offsetWidth;
+                              comments.classList.add("slide-out");
+                              setTimeout(function () {
+                                comments.classList.remove("slide-out");
+                                void comments.offsetWidth;
+                                comments.classList.add("slide-in");
+                              }, 400);
+                            }
+                            function runReverse() {
+                              var comments =
+                                document.getElementById("commentBox");
+                              comments.classList.remove(
+                                "slide-in",
+                                "slide-out",
+                                "slide-in-reverse"
+                              );
+                              void comments.offsetWidth;
+                              comments.classList.add("slide-out-reverse");
+                              setTimeout(function () {
+                                comments.classList.remove("slide-out-reverse");
+                                void comments.offsetWidth;
+                                comments.classList.add("slide-in-reverse");
+                              }, 400);
+                            }
+                            return function runReverse() {
+                              var comments =
+                                document.getElementById("commentBox");
+                              comments.classList.remove(
+                                "slide-in",
+                                "slide-out",
+                                "slide-in-reverse"
+                              );
+                              void comments.offsetWidth;
+                              comments.classList.add("slide-out-reverse");
+                              setTimeout(function () {
+                                comments.classList.remove("slide-out-reverse");
+                                void comments.offsetWidth;
+                                comments.classList.add("slide-in-reverse");
+                              }, 400);
+                            };
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = { args: [5000] };
+                      return $globalActions["Fragment.wait"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+
+                $steps["updateTimer"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["timer"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateTimer"] != null &&
+                  typeof $steps["updateTimer"] === "object" &&
+                  typeof $steps["updateTimer"].then === "function"
+                ) {
+                  $steps["updateTimer"] = await $steps["updateTimer"];
+                }
+              }}
+              onTouchStart={async event => {
+                const $steps = {};
+
+                $steps["updateStartX"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["startX"]
+                        },
+                        operation: 0,
+                        value: event.touches[0].clientX
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateStartX"] != null &&
+                  typeof $steps["updateStartX"] === "object" &&
+                  typeof $steps["updateStartX"].then === "function"
+                ) {
+                  $steps["updateStartX"] = await $steps["updateStartX"];
+                }
+              }}
               overflow={``}
               position={``}
             >
@@ -538,10 +744,70 @@ function PlasmicShop__RenderFunc(props: {
                   data-plasmic-name={"timer"}
                   data-plasmic-override={overrides.timer}
                   className={classNames("__wab_instance", sty.timer)}
-                  intervalSeconds={5}
-                  isRunning={true}
+                  intervalSeconds={6}
+                  isRunning={(() => {
+                    try {
+                      return $state.timer;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()}
                   onTick={async () => {
                     const $steps = {};
+
+                    $steps["runCode2"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                var comments =
+                                  document.getElementById("commentBox");
+                                comments.classList.remove(
+                                  "slide-in",
+                                  "slide-in-reverse",
+                                  "slide-out-reverse"
+                                );
+                                void comments.offsetWidth;
+                                return comments.classList.add("slide-out");
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode2"] != null &&
+                      typeof $steps["runCode2"] === "object" &&
+                      typeof $steps["runCode2"].then === "function"
+                    ) {
+                      $steps["runCode2"] = await $steps["runCode2"];
+                    }
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = { args: [400] };
+                          return $globalActions["Fragment.wait"]?.apply(null, [
+                            ...actionArgs.args
+                          ]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
 
                     $steps["runCode"] = true
                       ? (() => {
@@ -553,7 +819,7 @@ function PlasmicShop__RenderFunc(props: {
                                 else $state.index = 0;
                                 var comments =
                                   document.getElementById("commentBox");
-                                comments.classList.remove("slide-in");
+                                comments.classList.remove("slide-out");
                                 void comments.offsetWidth;
                                 return comments.classList.add("slide-in");
                               })();
@@ -633,7 +899,7 @@ function PlasmicShop__RenderFunc(props: {
                             data-plasmic-override={overrides.star}
                             action={(() => {
                               try {
-                                return currentItem <= commentItem.rate;
+                                return currentItem <= 5;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -900,7 +1166,7 @@ function PlasmicShop__RenderFunc(props: {
                             <PlasmicImg__
                               alt={""}
                               className={classNames(sty.img__eBsyD)}
-                              displayHeight={"auto"}
+                              displayHeight={"15px"}
                               displayMaxHeight={"none"}
                               displayMaxWidth={"100%"}
                               displayMinHeight={"0"}
@@ -949,6 +1215,7 @@ function PlasmicShop__RenderFunc(props: {
                         </React.Fragment>
                       ),
                       expandIconPosition: "end",
+                      forceRender: false,
                       ghost: true,
                       headerClass: classNames({
                         [sty["pcls_6gHfjq6Nj9km"]]: true
@@ -958,44 +1225,114 @@ function PlasmicShop__RenderFunc(props: {
                         <div
                           className={classNames(
                             projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__fd2Xz
+                            sty.freeBox__v0443
                           )}
-                          style={(() => {
-                            try {
-                              return {
-                                "border-bottom": $state.collapseMother[
-                                  currentIndex
-                                ].open
-                                  ? "none"
-                                  : "solid 1px #e0e0e0"
-                              };
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
                         >
-                          <React.Fragment>
-                            {(() => {
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__fd2Xz
+                            )}
+                            style={(() => {
                               try {
-                                return currentItem.title;
+                                return {
+                                  "border-bottom": $state.collapseMother[
+                                    currentIndex
+                                  ].open
+                                    ? "none"
+                                    : "solid 1px #e0e0e0"
+                                };
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "\u0635\u062d\u0628\u062a \u0628\u0627 \u0645\u0627\u062f\u0631";
+                                  return undefined;
                                 }
                                 throw e;
                               }
                             })()}
-                          </React.Fragment>
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.title;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "\u0635\u062d\u0628\u062a \u0628\u0627 \u0645\u0627\u062f\u0631";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </div>
+                          {(() => {
+                            try {
+                              return !$state.collapseMother[currentIndex].open;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__xhAvu)}
+                              displayHeight={"15px"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"15px"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/liom_hamyar/images/image32.svg",
+                                fullWidth: 16,
+                                fullHeight: 16,
+                                aspectRatio: 1
+                              }}
+                            />
+                          ) : null}
+                          {(() => {
+                            try {
+                              return $state.collapseMother[currentIndex].open;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <PlasmicImg__
+                              alt={""}
+                              className={classNames(sty.img__mRCxi)}
+                              displayHeight={"25px"}
+                              displayMaxHeight={"none"}
+                              displayMaxWidth={"100%"}
+                              displayMinHeight={"0"}
+                              displayMinWidth={"0"}
+                              displayWidth={"25px"}
+                              loading={"lazy"}
+                              src={{
+                                src: "/plasmic/liom_hamyar/images/image31.svg",
+                                fullWidth: 16,
+                                fullHeight: 16,
+                                aspectRatio: 1
+                              }}
+                            />
+                          ) : null}
                         </div>
                       ),
                       onChange: async (...eventArgs: any) => {
@@ -1011,7 +1348,7 @@ function PlasmicShop__RenderFunc(props: {
                         __plasmic_idx_0,
                         "open"
                       ]),
-                      showArrow: true,
+                      showArrow: false,
                       size: "small"
                     };
                     initializeCodeComponentStates(
