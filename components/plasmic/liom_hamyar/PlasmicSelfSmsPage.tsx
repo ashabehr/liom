@@ -270,17 +270,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               })()}
               className={classNames("__wab_instance", sty.getSub)}
               errorDisplay={null}
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mTyaj
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
+              loadingDisplay={null}
               method={"POST"}
               onError={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, ["getSub", "error"]).apply(
@@ -688,8 +678,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return window.FlutterChannel.postMessage(
-                                  "#inAppWebView**@@**ارسال پیامک به خود**@@**https://apps.liom.app/self-sms-page/?token=" +
-                                    $ctx.query.token
+                                  "#self_hamyar_sms"
                                 );
                               }
                             };
@@ -913,7 +902,6 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       return;
                     }
                   }}
-                  size={"compact"}
                 >
                   <div
                     className={classNames(
