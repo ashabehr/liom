@@ -482,6 +482,25 @@ function PlasmicSettingCycle__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return localStorage.getItem("token");
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1889,8 +1908,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
                                           $state.lastTime.gd
                                         ).padStart(2, "0")}`,
                                         type: $ctx.query.type,
-                                        authorization:
-                                          localStorage.getItem("token")
+                                        authorization: $state.token
                                       };
                                     } catch (e) {
                                       if (
@@ -1918,39 +1936,39 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         $steps["add"] = await $steps["add"];
                       }
 
-                      $steps["edit"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/calendar/getData",
-                                (() => {
-                                  try {
-                                    return {
-                                      type: $ctx.query.type,
-                                      authorization:
-                                        localStorage.getItem("token"),
-                                      calendar: $state.list
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
+                      $steps["edit"] =
+                        $ctx.query.type == "edit"
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/calendar/getData",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        type: $ctx.query.type,
+                                        authorization: $state.token,
+                                        calendar: $state.list
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                       if (
                         $steps["edit"] != null &&
                         typeof $steps["edit"] === "object" &&
@@ -1959,21 +1977,21 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         $steps["edit"] = await $steps["edit"];
                       }
 
-                      $steps["invokeGlobalAction2"] = $steps.add?.data?.success
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                undefined,
-                                "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
-                                "top-center"
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
+                      $steps["invokeGlobalAction2"] =
+                        $steps.add?.data?.success || $steps.edit?.data?.success
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
+                                  "top-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                       if (
                         $steps["invokeGlobalAction2"] != null &&
                         typeof $steps["invokeGlobalAction2"] === "object" &&
@@ -2015,44 +2033,56 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["goToPage"] = $steps.add?.data?.success
-                        ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return `/main`;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                      $steps["invokeGlobalAction"] =
+                        $steps.add?.data?.success == false ||
+                        $steps.edit?.data.success == false
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u062e\u0637\u0627 \u062f\u0631 \u0628\u0631\u0642\u0631\u0627\u0631\u06cc \u0627\u0631\u062a\u0628\u0627\u0637 ! \u0645\u062c\u062f\u062f\u0627 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                                  "top-left"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                       if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
                       ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["goToCalendar"] =
+                        $steps.add?.data?.success || $steps.edit?.data?.success
+                          ? (() => {
+                              const actionArgs = { destination: `/calendar` };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["goToCalendar"] != null &&
+                        typeof $steps["goToCalendar"] === "object" &&
+                        typeof $steps["goToCalendar"].then === "function"
+                      ) {
+                        $steps["goToCalendar"] = await $steps["goToCalendar"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
