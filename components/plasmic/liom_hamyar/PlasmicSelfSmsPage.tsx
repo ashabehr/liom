@@ -153,6 +153,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   $state?.getSub?.data?.[0]?.result?.active == false
                 )
                   return "green";
+                else if ($state?.getSub?.data?.[0]?.result?.activateNotif)
+                  return "red";
                 else return "null";
               })();
             } catch (e) {
@@ -247,7 +249,17 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               })()}
               className={classNames("__wab_instance", sty.getSub)}
               errorDisplay={null}
-              loadingDisplay={null}
+              loadingDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__mTyaj
+                  )}
+                >
+                  {"Loading..."}
+                </div>
+              }
               method={"POST"}
               onError={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, ["getSub", "error"]).apply(
@@ -629,6 +641,10 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                               $state?.getSub?.data?.[0]?.result?.active == false
                             )
                               return "خرید اشتراک ارسال پیامک به خود";
+                            else if (
+                              $state?.getSub?.data?.[0]?.result?.activateNotif
+                            )
+                              return "غیرفعالسازی پیام به خود";
                             else return "فعالسازی پیام به خود";
                           })();
                         } catch (e) {

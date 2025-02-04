@@ -1945,18 +1945,18 @@ function PlasmicCalendar__RenderFunc(props: {
           onLoad={async event => {
             const $steps = {};
 
-            $steps["runCode"] = false
+            $steps["runCode"] = true
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
-                        const urlParams = new URLSearchParams(
+                        var urlParams = new URLSearchParams(
                           window.location.search
                         );
-                        const r = urlParams.get("r");
-                        const m = urlParams.get("m");
-                        return (window.location.href =
-                          "https://apps.liom.app/intro/?r=" + r + "&m=" + m);
+                        if (!localStorage.getItem("token")) {
+                          var app = urlParams.get("token");
+                          return localStorage.setItem("token", app);
+                        }
                       })();
                     }
                   };
@@ -10169,7 +10169,21 @@ function PlasmicCalendar__RenderFunc(props: {
 
                   $steps["goToSettingPregnancy2"] = true
                     ? (() => {
-                        const actionArgs = { destination: `/setting-cycle` };
+                        const actionArgs = {
+                          destination: (() => {
+                            try {
+                              return `/setting-cycle?type=add`;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return `/setting-cycle`;
+                              }
+                              throw e;
+                            }
+                          })()
+                        };
                         return (({ destination }) => {
                           if (
                             typeof destination === "string" &&
@@ -12709,7 +12723,20 @@ function PlasmicCalendar__RenderFunc(props: {
                                   throw e;
                                 }
                               })()
-                            : true
+                            : (() => {
+                                try {
+                                  return $state.cyclebox.cycle != "white";
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })()
                         ) ? (
                           <div
                             className={classNames(
@@ -13288,7 +13315,7 @@ function PlasmicCalendar__RenderFunc(props: {
                             onClick={async event => {
                               const $steps = {};
 
-                              $steps["goToSettingPregnancy2"] = true
+                              $steps["goToSettingPregnancy2"] = false
                                 ? (() => {
                                     const actionArgs = {
                                       variable: {
@@ -13325,6 +13352,53 @@ function PlasmicCalendar__RenderFunc(props: {
                                 $steps["goToSettingPregnancy2"] = await $steps[
                                   "goToSettingPregnancy2"
                                 ];
+                              }
+
+                              $steps["goToPage"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      destination: (() => {
+                                        try {
+                                          return `/setting-cycle?type=edit&cycle=${
+                                            $state.user.data.result.userStatus
+                                              .cycle
+                                          }
+&length=${$state.user.data.result.userStatus.length}
+&last_time=${$state.user.data.result.userStatus.periodStart.split("T")[0]}`;
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    };
+                                    return (({ destination }) => {
+                                      if (
+                                        typeof destination === "string" &&
+                                        destination.startsWith("#")
+                                      ) {
+                                        document
+                                          .getElementById(destination.substr(1))
+                                          .scrollIntoView({
+                                            behavior: "smooth"
+                                          });
+                                      } else {
+                                        __nextRouter?.push(destination);
+                                      }
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["goToPage"] != null &&
+                                typeof $steps["goToPage"] === "object" &&
+                                typeof $steps["goToPage"].then === "function"
+                              ) {
+                                $steps["goToPage"] = await $steps["goToPage"];
                               }
                             }}
                             onColorChange={async (...eventArgs: any) => {

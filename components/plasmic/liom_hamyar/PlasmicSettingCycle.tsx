@@ -221,19 +221,65 @@ function PlasmicSettingCycle__RenderFunc(props: {
         path: "lastTime",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({ data: "" })
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                var a = $ctx.query.last_time.split("-");
+                return {
+                  gy: parseInt(a[0]),
+                  gm: parseInt(a[1]),
+                  gd: parseInt(a[2])
+                };
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return { data: "" };
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "lengh",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return parseInt($ctx.query.length);
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "cycle",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return parseInt($ctx.query.cycle);
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "dark",
@@ -403,13 +449,39 @@ function PlasmicSettingCycle__RenderFunc(props: {
         path: "lastTimeFa",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({ data: "" })
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                var a = $ctx.query.last_time.split("-");
+                var a = {
+                  gy: parseInt(a[0]),
+                  gm: parseInt(a[1]),
+                  gd: parseInt(a[2])
+                };
+                b = window.jalaali.toJalaali(a.gy, a.gm, a.gd);
+                return {
+                  gy: b.jy,
+                  gm: b.jm,
+                  gd: b.jd
+                };
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return { data: "" };
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "list",
         type: "private",
-        variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) => []
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1788,40 +1860,77 @@ function PlasmicSettingCycle__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["invokeGlobalAction"] = (() => {
-                        return (
-                          new Date(
-                            `${$state.lastTime.gy}-${String(
-                              $state.lastTime.gm
-                            ).padStart(2, "0")}-${String(
-                              $state.lastTime.gd
-                            ).padStart(2, "0")}`
-                          ) >= new Date()
-                        );
-                      })()
+                      $steps["add"] =
+                        $ctx.query.type == "add" &&
+                        new Date(
+                          `${$state.lastTime.gy}-${String(
+                            $state.lastTime.gm
+                          ).padStart(2, "0")}-${String(
+                            $state.lastTime.gd
+                          ).padStart(2, "0")}`
+                        ) >= new Date()
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/calendar/getData",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        cycle: $state.cycle,
+                                        length: $state.lengh,
+                                        last_time: `${
+                                          $state.lastTime.gy
+                                        }-${String($state.lastTime.gm).padStart(
+                                          2,
+                                          "0"
+                                        )}-${String(
+                                          $state.lastTime.gd
+                                        ).padStart(2, "0")}`,
+                                        type: $ctx.query.type,
+                                        authorization:
+                                          localStorage.getItem("token")
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["add"] != null &&
+                        typeof $steps["add"] === "object" &&
+                        typeof $steps["add"].then === "function"
+                      ) {
+                        $steps["add"] = await $steps["add"];
+                      }
+
+                      $steps["edit"] = true
                         ? (() => {
                             const actionArgs = {
                               args: [
                                 "POST",
                                 "https://n8n.staas.ir/webhook/calendar/getData",
-                                undefined,
                                 (() => {
                                   try {
                                     return {
-                                      cycle: $state.cycle,
-                                      length: $state.lengh,
-                                      last_time: `${
-                                        $state.lastTime.gy
-                                      }-${String($state.lastTime.gm).padStart(
-                                        2,
-                                        "0"
-                                      )}-${String($state.lastTime.gd).padStart(
-                                        2,
-                                        "0"
-                                      )}`,
                                       type: $ctx.query.type,
                                       authorization:
-                                        localStorage.getItem("token")
+                                        localStorage.getItem("token"),
+                                      calendar: $state.list
                                     };
                                   } catch (e) {
                                     if (
@@ -1843,17 +1952,14 @@ function PlasmicSettingCycle__RenderFunc(props: {
                           })()
                         : undefined;
                       if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
+                        $steps["edit"] != null &&
+                        typeof $steps["edit"] === "object" &&
+                        typeof $steps["edit"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
+                        $steps["edit"] = await $steps["edit"];
                       }
 
-                      $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction
-                        ?.data?.success
+                      $steps["invokeGlobalAction2"] = $steps.add?.data?.success
                         ? (() => {
                             const actionArgs = {
                               args: [
@@ -1878,31 +1984,27 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["invokeGlobalAction3"] = (() => {
-                        return (
-                          new Date(
-                            `${$state.lastTime.gy}-${String(
-                              $state.lastTime.gm
-                            ).padStart(2, "0")}-${String(
-                              $state.lastTime.gd
-                            ).padStart(2, "0")}`
-                          ) < new Date()
-                        );
-                      })()
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "error",
-                                "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
-                                "top-center"
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
+                      $steps["invokeGlobalAction3"] =
+                        new Date(
+                          `${$state.lastTime.gy}-${String(
+                            $state.lastTime.gm
+                          ).padStart(2, "0")}-${String(
+                            $state.lastTime.gd
+                          ).padStart(2, "0")}`
+                        ) < new Date()
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                                  "top-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                       if (
                         $steps["invokeGlobalAction3"] != null &&
                         typeof $steps["invokeGlobalAction3"] === "object" &&
@@ -1913,8 +2015,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["goToPage"] = $steps.invokeGlobalAction?.data
-                        ?.success
+                      $steps["goToPage"] = $steps.add?.data?.success
                         ? (() => {
                             const actionArgs = {
                               destination: (() => {
