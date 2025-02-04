@@ -49,20 +49,6 @@
   max-width: 100%;
   object-fit: cover;
 }
-.text__mTyaj {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.text__jd33 {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
 .freeBox___2HVpP {
   display: flex;
   flex-direction: row;
@@ -242,5 +228,5 @@
   object-fit: cover;
   width: 100%;
   min-width: 0;
-  margin: 16px;
+  margin: 16px 0px 0px;
 }

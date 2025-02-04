@@ -2192,63 +2192,6 @@ function PlasmicCalendar__RenderFunc(props: {
               (async data => {
                 const $steps = {};
 
-                $steps["invokeGlobalAction2"] =
-                  ($state.name == "" &&
-                    $ctx.query.r != "" &&
-                    $ctx.query.m != "") ||
-                  $ctx.query.m != "3ZjitMAEm"
-                    ? (() => {
-                        const actionArgs = {
-                          args: [
-                            "POST",
-                            "https://api.liom.app/service/log",
-                            undefined,
-                            (() => {
-                              try {
-                                return {
-                                  userId: $state.user.data.result.man.id,
-                                  pageName: "mainPage",
-                                  action: "loadePage",
-                                  extraData: {
-                                    refCode: $state.r,
-                                    mobile: $state.m
-                                  }
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })(),
-                            {
-                              headers: {
-                                "Content-Type": "application/json",
-                                Authorization:
-                                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiaGFteWFyIiwiaWQiOjF9.lnqUqAP4PBM0ygfBoBEcDPQz6owyyNXCreKqjjsYcAM"
-                              }
-                            }
-                          ]
-                        };
-                        return $globalActions["Fragment.apiRequest"]?.apply(
-                          null,
-                          [...actionArgs.args]
-                        );
-                      })()
-                    : undefined;
-                if (
-                  $steps["invokeGlobalAction2"] != null &&
-                  typeof $steps["invokeGlobalAction2"] === "object" &&
-                  typeof $steps["invokeGlobalAction2"].then === "function"
-                ) {
-                  $steps["invokeGlobalAction2"] = await $steps[
-                    "invokeGlobalAction2"
-                  ];
-                }
-
                 $steps["goToExpired"] =
                   $state.user?.data?.success == false
                     ? (() => {
@@ -2361,8 +2304,6 @@ function PlasmicCalendar__RenderFunc(props: {
                                 $state.user.data.result.man.birthDate
                               )
                             );
-                            $state.user.data.result["r"] = $state.r;
-                            $state.user.data.result["m"] = $state.m;
                             return localStorage.setItem(
                               "userinfo",
                               JSON.stringify($state.user.data.result)
@@ -2381,165 +2322,6 @@ function PlasmicCalendar__RenderFunc(props: {
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
-                }
-
-                $steps["updateDeleteDate"] = (
-                  $state.user.data?.result?.userStatus?.periodStatus
-                    ? true
-                    : false
-                )
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["deleteDate"]
-                        },
-                        operation: 0,
-                        value: (() => {
-                          switch (
-                            $state.user.data.result.userStatus.periodStatus
-                          ) {
-                            case null:
-                              return "";
-                            case "fertility":
-                              return $state.user.data.result.userStatus
-                                .fertilityEnd;
-                            case "pms":
-                              return $state.user.data.result.userStatus.pmsEnd;
-                            case "blood":
-                              return $state.user.data.result.userStatus
-                                .periodEnd;
-                            case "white":
-                              if (
-                                new Date(
-                                  $state.user.data.result.userStatus.fertilityStart
-                                ) > new Date()
-                              )
-                                return ($state.deleteDate =
-                                  $state.user.data.result.userStatus.fertilityStart);
-                              else
-                                return ($state.deleteDate =
-                                  $state.user.data.result.userStatus.pmsStart);
-                            default:
-                              return "-";
-                          }
-                        })()
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateDeleteDate"] != null &&
-                  typeof $steps["updateDeleteDate"] === "object" &&
-                  typeof $steps["updateDeleteDate"].then === "function"
-                ) {
-                  $steps["updateDeleteDate"] = await $steps["updateDeleteDate"];
-                }
-
-                $steps["refreshData"] =
-                  $state.user?.data?.refresh === "true"
-                    ? (() => {
-                        const actionArgs = {
-                          queryInvalidation: ["plasmic_refresh_all"]
-                        };
-                        return (async ({ queryInvalidation }) => {
-                          if (!queryInvalidation) {
-                            return;
-                          }
-                          await plasmicInvalidate(queryInvalidation);
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["refreshData"] != null &&
-                  typeof $steps["refreshData"] === "object" &&
-                  typeof $steps["refreshData"].then === "function"
-                ) {
-                  $steps["refreshData"] = await $steps["refreshData"];
-                }
-
-                $steps["runCode2"] =
-                  $state.user.data?.result?.user?.healthStatus?.toLowerCase() ===
-                  "pregnancy"
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              return fetch(
-                                `https://n8n.staas.ir/webhook/status/?userId=${$state.user.data.result.user.id}`,
-                                {
-                                  method: "GET",
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                  }
-                                }
-                              )
-                                .then(response => response.json())
-                                .then(data => {
-                                  const dueDate = data?.[0]?.dueDate;
-                                  if (dueDate) {
-                                    let initialDate = new Date(dueDate);
-                                    let daysToSubtract = 280;
-                                    let resultDate = new Date(initialDate);
-                                    resultDate.setDate(
-                                      resultDate.getDate() - daysToSubtract
-                                    );
-                                    let today = new Date();
-                                    let differenceInTime = today - resultDate;
-                                    let differenceInDays = Math.floor(
-                                      differenceInTime / (1000 * 60 * 60 * 24)
-                                    );
-                                    let daysRemaining =
-                                      parseInt(280 - differenceInDays) - 1;
-                                    let weeksPregnant =
-                                      parseInt((differenceInDays + 1) / 7) === 0
-                                        ? 1
-                                        : parseInt((differenceInDays + 1) / 7) +
-                                          1;
-                                    let monthsPregnant = parseInt(
-                                      (weeksPregnant / 4)
-                                        .toString()
-                                        .substring(0, 1)
-                                    );
-                                    $state.pregnancy = {
-                                      days: daysRemaining,
-                                      week: weeksPregnant,
-                                      months: monthsPregnant
-                                    };
-                                  } else {
-                                    console.log("تاریخ زایمان در دسترس نیست.");
-                                  }
-                                })
-                                .catch(error => console.error("Error:", error));
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["runCode2"] != null &&
-                  typeof $steps["runCode2"] === "object" &&
-                  typeof $steps["runCode2"].then === "function"
-                ) {
-                  $steps["runCode2"] = await $steps["runCode2"];
                 }
 
                 $steps["updateLackOfCourseInformation"] =
@@ -2575,7 +2357,9 @@ function PlasmicCalendar__RenderFunc(props: {
             }}
             params={(() => {
               try {
-                return undefined;
+                return {
+                  authorization: localStorage.getItem("token")
+                };
               } catch (e) {
                 if (
                   e instanceof TypeError ||

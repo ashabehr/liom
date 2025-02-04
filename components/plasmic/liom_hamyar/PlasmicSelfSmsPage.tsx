@@ -246,28 +246,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 }
               })()}
               className={classNames("__wab_instance", sty.getSub)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__jd33
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mTyaj
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
+              errorDisplay={null}
+              loadingDisplay={null}
               method={"POST"}
               onError={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, ["getSub", "error"]).apply(
@@ -287,7 +267,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   eventArgs
                 );
               }}
-              url={"https://n8n.staas.ir/webhook-test/sub"}
+              url={"https://n8n.staas.ir/webhook/sub"}
             />
 
             <div className={classNames(projectcss.all, sty.freeBox___2HVpP)}>
