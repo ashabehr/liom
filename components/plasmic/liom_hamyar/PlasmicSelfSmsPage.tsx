@@ -149,8 +149,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
             try {
               return (() => {
                 if (
-                  $state.getSub.data[0].result == null ||
-                  $state.getSub.data[0].result.active == false
+                  $state?.getSub?.data?.[0]?.result == null ||
+                  $state?.getSub?.data?.[0]?.result?.active == false
                 )
                   return "green";
                 else return "null";
@@ -578,6 +578,44 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   data-plasmic-override={overrides.button}
                   className={classNames("__wab_instance", sty.button)}
                   color={generateStateValueProp($state, ["button", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateButtonColor"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["button", "color"]
+                            },
+                            operation: 0
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateButtonColor"] != null &&
+                      typeof $steps["updateButtonColor"] === "object" &&
+                      typeof $steps["updateButtonColor"].then === "function"
+                    ) {
+                      $steps["updateButtonColor"] = await $steps[
+                        "updateButtonColor"
+                      ];
+                    }
+                  }}
                   onColorChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {
                       generateStateOnChangeProp($state, ["button", "color"])(
@@ -607,8 +645,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         try {
                           return (() => {
                             if (
-                              $state.getSub.data[0].result == null ||
-                              $state.getSub.data[0].result.active == false
+                              $state?.getSub?.data?.[0]?.result == null ||
+                              $state?.getSub?.data?.[0]?.result?.active == false
                             )
                               return "خرید اشتراک ارسال پیامک به خود";
                             else return "فعالسازی پیام به خود";

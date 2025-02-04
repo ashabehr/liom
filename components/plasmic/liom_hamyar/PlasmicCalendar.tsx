@@ -91,7 +91,6 @@ import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: n
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -119,7 +118,6 @@ import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzm
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
 import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLIMYRuTVZ/icon
 import Icon23Icon from "./icons/PlasmicIcon__Icon23"; // plasmic-import: 3iiTmpS-_IX-/icon
-import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
 import Icon140Icon from "./icons/PlasmicIcon__Icon140"; // plasmic-import: KzO15XHeI3j-/icon
 
 createPlasmicElementProxy;
@@ -2172,7 +2170,7 @@ function PlasmicCalendar__RenderFunc(props: {
                 </Stack__>
               </div>
             }
-            method={"POST"}
+            method={"GET"}
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["user", "error"]).apply(
                 null,
@@ -2575,6 +2573,19 @@ function PlasmicCalendar__RenderFunc(props: {
                 }
               }).apply(null, eventArgs);
             }}
+            params={(() => {
+              try {
+                return undefined;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
             url={
               hasVariant(globalVariants, "screen", "mobile")
                 ? "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"
@@ -30777,76 +30788,6 @@ function PlasmicCalendar__RenderFunc(props: {
                     {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
                   </div>
                 </div>
-                {(() => {
-                  try {
-                    return $ctx.query.m == "71ef2e";
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return true;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    aria-pressed={undefined}
-                    className={classNames(projectcss.all, sty.freeBox__b21Se)}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["goToFood"] =
-                        localStorage.getItem("token") != "undefined" ||
-                        localStorage.getItem("token") != null
-                          ? (() => {
-                              const actionArgs = { destination: `/food` };
-                              return (({ destination }) => {
-                                if (
-                                  typeof destination === "string" &&
-                                  destination.startsWith("#")
-                                ) {
-                                  document
-                                    .getElementById(destination.substr(1))
-                                    .scrollIntoView({ behavior: "smooth" });
-                                } else {
-                                  __nextRouter?.push(destination);
-                                }
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["goToFood"] != null &&
-                        typeof $steps["goToFood"] === "object" &&
-                        typeof $steps["goToFood"].then === "function"
-                      ) {
-                        $steps["goToFood"] = await $steps["goToFood"];
-                      }
-                    }}
-                  >
-                    <PlasmicIcon__
-                      PlasmicIconType={
-                        hasVariant(globalVariants, "screen", "mobile")
-                          ? Icon72Icon
-                          : Icon72Icon
-                      }
-                      className={classNames(projectcss.all, sty.svg__acuyn)}
-                      role={"img"}
-                    />
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___47BJb
-                      )}
-                    >
-                      {
-                        "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
-                      }
-                    </div>
-                  </div>
-                ) : null}
               </Stack__>
             </div>
           </section>
@@ -34031,21 +33972,7 @@ function PlasmicCalendar__RenderFunc(props: {
                 </div>
               </Stack__>
             }
-            trigger={
-              <AntdButton
-                className={classNames("__wab_instance", sty.button___76Zu8)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__jtiSt
-                  )}
-                >
-                  {"Show modal"}
-                </div>
-              </AntdButton>
-            }
+            trigger={null}
             wrapClassName={classNames({ [sty["pcls_spYgz5jgHCow"]]: true })}
           >
             <Stack__
