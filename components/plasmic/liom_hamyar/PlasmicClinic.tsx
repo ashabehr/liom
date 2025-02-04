@@ -799,6 +799,36 @@ function PlasmicClinic__RenderFunc(props: {
               )
             })}
           >
+            <div className={classNames(projectcss.all, sty.freeBox__pgzRx)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__rHxFn
+                )}
+              >
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return `<b> موجودی شما :</b>\n${
+                          $state.getData.userAllowance * 1000
+                        } تومان`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()
+                  }}
+                />
+              </div>
+            </div>
             <div
               data-plasmic-name={"bg"}
               data-plasmic-override={overrides.bg}
@@ -7428,36 +7458,6 @@ function PlasmicClinic__RenderFunc(props: {
                 }
               </Button>
             ) : null}
-            <div className={classNames(projectcss.all, sty.freeBox__pgzRx)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__rHxFn
-                )}
-              >
-                <div
-                  className={projectcss.__wab_expr_html_text}
-                  dangerouslySetInnerHTML={{
-                    __html: (() => {
-                      try {
-                        return `<b> موجودی شما :</b>\n${
-                          $state.getData.userAllowance * 1000
-                        } تومان`;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
-                        }
-                        throw e;
-                      }
-                    })()
-                  }}
-                />
-              </div>
-            </div>
           </Stack__>
           {(() => {
             try {
