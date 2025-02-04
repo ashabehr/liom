@@ -49,6 +49,13 @@
   max-width: 100%;
   object-fit: cover;
 }
+.text__va6Et {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
 .freeBox___2HVpP {
   display: flex;
   flex-direction: row;

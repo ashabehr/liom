@@ -197,7 +197,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
         path: "loading",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       },
       {
         path: "state",
@@ -328,11 +328,75 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   ) {
                     $steps["updateState"] = await $steps["updateState"];
                   }
+
+                  $steps["updateLoading"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loading"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoading"] != null &&
+                    typeof $steps["updateLoading"] === "object" &&
+                    typeof $steps["updateLoading"].then === "function"
+                  ) {
+                    $steps["updateLoading"] = await $steps["updateLoading"];
+                  }
                 }).apply(null, eventArgs);
               }}
               url={"https://n8n.staas.ir/webhook/sub"}
             />
 
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__va6Et
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return (
+                      "loading: " +
+                      $state.loading +
+                      "  state: " +
+                      $state.state +
+                      " loading server:" +
+                      $state.getSub.loading
+                    );
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox___2HVpP)}>
               <div className={classNames(projectcss.all, sty.freeBox__kbF6)}>
                 <div
