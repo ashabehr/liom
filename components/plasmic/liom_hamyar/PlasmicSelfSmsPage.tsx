@@ -742,7 +742,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return window.FlutterChannel.postMessage(
-                                  "#self_hamyar_sms"
+                                  "#directDialog-self_hamyar_sms"
                                 );
                               }
                             };
