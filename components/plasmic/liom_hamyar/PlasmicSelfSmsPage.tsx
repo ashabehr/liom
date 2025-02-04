@@ -750,8 +750,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["updateButtonColor3"] = !$state?.getSub?.data?.[0]
-                      ?.result?.activateNotif
+                    $steps["updateButtonColor3"] = !($state?.state ?? false)
                       ? (() => {
                           const actionArgs = {
                             args: [
@@ -828,7 +827,41 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       $steps["updateLoading2"] = await $steps["updateLoading2"];
                     }
 
-                    $steps["invokeGlobalAction2"] = true
+                    $steps["updateState"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["state"]
+                            },
+                            operation: 4
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            const oldValue = $stateGet(objRoot, variablePath);
+                            $stateSet(objRoot, variablePath, !oldValue);
+                            return !oldValue;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateState"] != null &&
+                      typeof $steps["updateState"] === "object" &&
+                      typeof $steps["updateState"].then === "function"
+                    ) {
+                      $steps["updateState"] = await $steps["updateState"];
+                    }
+
+                    $steps["wait"] = true
                       ? (() => {
                           const actionArgs = { args: [2000] };
                           return $globalActions["Fragment.wait"]?.apply(null, [
@@ -837,13 +870,11 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["invokeGlobalAction2"] != null &&
-                      typeof $steps["invokeGlobalAction2"] === "object" &&
-                      typeof $steps["invokeGlobalAction2"].then === "function"
+                      $steps["wait"] != null &&
+                      typeof $steps["wait"] === "object" &&
+                      typeof $steps["wait"].then === "function"
                     ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
+                      $steps["wait"] = await $steps["wait"];
                     }
 
                     $steps["refreshData"] = true
