@@ -1601,7 +1601,7 @@ function PlasmicChat__RenderFunc(props: {
                                   const actionArgs = {
                                     destination: (() => {
                                       try {
-                                        return `/clinic?gender=${$ctx.query.gender}`;
+                                        return `/clinic?gender=${$ctx.query.gender}&status=false`;
                                       } catch (e) {
                                         if (
                                           e instanceof TypeError ||

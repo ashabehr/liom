@@ -147,7 +147,14 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return null;
+              return (() => {
+                if (
+                  $state.getSub.data[0].result == null ||
+                  $state.getSub.data[0].result.active == false
+                )
+                  return "null";
+                else return "red";
+              })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
