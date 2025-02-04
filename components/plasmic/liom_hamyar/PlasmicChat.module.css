@@ -852,6 +852,33 @@
   width: 50px;
   flex-shrink: 0;
 }
+.freeBox__kpvrj {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 100vh;
+  max-width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  right: 0;
+  padding: 8px;
+}
+.text__b93F2 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  color: var(--token-DFwge94Hey3F);
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 0;
+  padding: 16px;
+}
 .pullToRefresh:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

@@ -60,6 +60,11 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
 
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -136,6 +141,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -148,7 +155,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if (
+                if ($state.getSub.loading) return "null";
+                else if (
                   $state?.getSub?.data?.[0]?.result == null ||
                   $state?.getSub?.data?.[0]?.result?.active == false
                 )
@@ -195,6 +203,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
     $queries: {},
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_6BytLjmha8VC()
@@ -278,6 +288,51 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   null,
                   eventArgs
                 );
+
+                (async data => {
+                  const $steps = {};
+
+                  $steps["refreshData"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          queryInvalidation: ["plasmic_refresh_all"]
+                        };
+                        return (async ({ queryInvalidation }) => {
+                          if (!queryInvalidation) {
+                            return;
+                          }
+                          await plasmicInvalidate(queryInvalidation);
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["refreshData"] != null &&
+                    typeof $steps["refreshData"] === "object" &&
+                    typeof $steps["refreshData"].then === "function"
+                  ) {
+                    $steps["refreshData"] = await $steps["refreshData"];
+                  }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return console.log($state.getSub);
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }).apply(null, eventArgs);
               }}
               url={"https://n8n.staas.ir/webhook/sub"}
             />
@@ -570,42 +625,154 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   data-plasmic-override={overrides.button}
                   className={classNames("__wab_instance", sty.button)}
                   color={generateStateValueProp($state, ["button", "color"])}
+                  loading={(() => {
+                    try {
+                      return $state.getSub.loading;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["updateButtonColor"] = true
+                    $steps["runCode"] =
+                      $state?.getSub?.data?.[0]?.result == null ||
+                      $state?.getSub?.data?.[0]?.result?.active == false
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return window.FlutterChannel.postMessage(
+                                  "#inAppWebView**@@**ارسال پیامک به خود**@@**https://apps.liom.app/self-sms-page/?token=" +
+                                    $ctx.query.token
+                                );
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+
+                    $steps["invokeGlobalAction"] = $state?.getSub?.data?.[0]
+                      ?.result?.activateNotif
                       ? (() => {
                           const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["button", "color"]
-                            },
-                            operation: 0
+                            args: [
+                              "POST",
+                              "https://n8n.staas.ir/webhook/setSub",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    Authorization: $ctx.query.token,
+                                    type: "selfHamyarSms",
+                                    data: false
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
                           };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+
+                    $steps["updateButtonColor3"] = !$state?.getSub?.data?.[0]
+                      ?.result?.activateNotif
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              "POST",
+                              "https://n8n.staas.ir/webhook/setSub",
+                              undefined,
+                              (() => {
+                                try {
+                                  return {
+                                    Authorization: $ctx.query.token,
+                                    type: "selfHamyarSms",
+                                    data: true
+                                  };
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateButtonColor3"] != null &&
+                      typeof $steps["updateButtonColor3"] === "object" &&
+                      typeof $steps["updateButtonColor3"].then === "function"
+                    ) {
+                      $steps["updateButtonColor3"] = await $steps[
+                        "updateButtonColor3"
+                      ];
+                    }
+
+                    $steps["refreshData"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            queryInvalidation: ["plasmic_refresh_all"]
+                          };
+                          return (async ({ queryInvalidation }) => {
+                            if (!queryInvalidation) {
                               return;
                             }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
+                            await plasmicInvalidate(queryInvalidation);
                           })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
-                      $steps["updateButtonColor"] != null &&
-                      typeof $steps["updateButtonColor"] === "object" &&
-                      typeof $steps["updateButtonColor"].then === "function"
+                      $steps["refreshData"] != null &&
+                      typeof $steps["refreshData"] === "object" &&
+                      typeof $steps["refreshData"].then === "function"
                     ) {
-                      $steps["updateButtonColor"] = await $steps[
-                        "updateButtonColor"
-                      ];
+                      $steps["refreshData"] = await $steps["refreshData"];
                     }
                   }}
                   onColorChange={async (...eventArgs: any) => {

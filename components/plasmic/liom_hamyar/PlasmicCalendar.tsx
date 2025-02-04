@@ -175,7 +175,6 @@ export type PlasmicCalendar__OverridesType = {
   input2?: Flex__<typeof AntdInput>;
   button5?: Flex__<typeof Button>;
   button6?: Flex__<typeof Button>;
-  todo?: Flex__<typeof ApiRequest>;
   tooltip?: Flex__<typeof AntdTooltip>;
   heart?: Flex__<typeof Heart>;
   shop?: Flex__<typeof ApiRequest>;
@@ -944,24 +943,6 @@ function PlasmicCalendar__RenderFunc(props: {
                   throw e;
                 }
               })()
-      },
-      {
-        path: "todo.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "todo.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "todo.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "payam",
@@ -30256,102 +30237,6 @@ function PlasmicCalendar__RenderFunc(props: {
                   </div>
                 </div>
               </AntdModal>
-              <ApiRequest
-                data-plasmic-name={"todo"}
-                data-plasmic-override={overrides.todo}
-                className={classNames("__wab_instance", sty.todo)}
-                errorDisplay={null}
-                loadingDisplay={null}
-                method={"GET"}
-                onError={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["todo", "error"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                onLoading={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["todo", "loading"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                onSuccess={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["todo", "data"]).apply(
-                    null,
-                    eventArgs
-                  );
-
-                  (async data => {
-                    const $steps = {};
-
-                    $steps["updateP"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["p"]
-                            },
-                            operation: 0,
-                            value: (() => {
-                              const whiteMessages =
-                                $state.payam.find(
-                                  item => item[$state.cyclebox.cycle]
-                                )?.[$state.cyclebox.cycle] || [];
-                              const randomMessage =
-                                whiteMessages.length > 0
-                                  ? whiteMessages[
-                                      Math.floor(
-                                        Math.random() * whiteMessages.length
-                                      )
-                                    ]
-                                  : "";
-                              return randomMessage;
-                            })()
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateP"] != null &&
-                      typeof $steps["updateP"] === "object" &&
-                      typeof $steps["updateP"].then === "function"
-                    ) {
-                      $steps["updateP"] = await $steps["updateP"];
-                    }
-                  }).apply(null, eventArgs);
-                }}
-                params={(() => {
-                  try {
-                    return {
-                      status: $state.cyclebox.cycle,
-                      userId: $state.user.data.result.man.id
-                    };
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return undefined;
-                    }
-                    throw e;
-                  }
-                })()}
-                url={"https://n8n.staas.ir/webhook/hamyar/todo"}
-              />
-
               <AntdTooltip
                 data-plasmic-name={"tooltip"}
                 data-plasmic-override={overrides.tooltip}
@@ -34062,7 +33947,6 @@ const PlasmicDescendants = {
     "input2",
     "button5",
     "button6",
-    "todo",
     "tooltip",
     "heart",
     "shop",
@@ -34128,7 +34012,6 @@ const PlasmicDescendants = {
     "input2",
     "button5",
     "button6",
-    "todo",
     "tooltip",
     "heart"
   ],
@@ -34166,7 +34049,6 @@ const PlasmicDescendants = {
   input2: ["input2"],
   button5: ["button5"],
   button6: ["button6"],
-  todo: ["todo"],
   tooltip: ["tooltip", "heart"],
   heart: ["heart"],
   shop: ["shop"],
@@ -34257,7 +34139,6 @@ type NodeDefaultElementType = {
   input2: typeof AntdInput;
   button5: typeof Button;
   button6: typeof Button;
-  todo: typeof ApiRequest;
   tooltip: typeof AntdTooltip;
   heart: typeof Heart;
   shop: typeof ApiRequest;
@@ -34408,7 +34289,6 @@ export const PlasmicCalendar = Object.assign(
     input2: makeNodeComponent("input2"),
     button5: makeNodeComponent("button5"),
     button6: makeNodeComponent("button6"),
-    todo: makeNodeComponent("todo"),
     tooltip: makeNodeComponent("tooltip"),
     heart: makeNodeComponent("heart"),
     shop: makeNodeComponent("shop"),

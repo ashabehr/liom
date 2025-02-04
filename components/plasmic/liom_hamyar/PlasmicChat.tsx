@@ -3217,6 +3217,33 @@ function PlasmicChat__RenderFunc(props: {
               />
             </div>
           ) : null}
+          {(() => {
+            try {
+              return !$state.loadingPage && $state.variable.length == 0;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__kpvrj)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__b93F2
+                )}
+              >
+                {
+                  "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u0645\u0634\u0627\u0648\u0631\u0647 \u0633\u0648\u0627\u0644 \u06cc\u0627 \u0645\u0634\u06a9\u0644 \u062e\u0648\u062f \u0631\u0627 \u062f\u0631 \u06a9\u0627\u062f\u0631 \u067e\u0627\u06cc\u06cc\u0646 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f ."
+                }
+              </div>
+            </div>
+          ) : null}
           <PullToRefresh
             data-plasmic-name={"pullToRefresh"}
             data-plasmic-override={overrides.pullToRefresh}

@@ -258,6 +258,10 @@
     font-size: 18px;
   }
 }
+.shop:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .apiRequest:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -1697,30 +1701,6 @@
 }
 .dialog:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
-}
-.shop:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.freeBox__gLl4C {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-  padding: 8px;
-}
-.svg___2WiWo {
-  object-fit: cover;
-  max-width: 100%;
-  color: var(--token-55cSeNPovQFh);
-  height: 40px;
-  width: 40px;
-  flex-shrink: 0;
 }
 .freeBox___2KkWm {
   display: flex;
