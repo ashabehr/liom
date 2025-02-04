@@ -1074,20 +1074,6 @@
           "componentType": "component"
         },
         {
-          "id": "1kOlF8ZxmgdR",
-          "name": "Main",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicMain.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/main.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicMain.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/main"
-        },
-        {
           "id": "x2UwC-mN2Vem",
           "name": "SettingCycle",
           "type": "managed",
@@ -1181,6 +1167,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/self-sms-page"
+        },
+        {
+          "id": "1kOlF8ZxmgdR",
+          "name": "Calendar",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicCalendar.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/calendar.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicCalendar.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/calendar"
         }
       ],
       "icons": [

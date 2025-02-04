@@ -5577,6 +5577,14 @@
     font-size: 18px;
   }
 }
+.text___2BZe {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  align-self: auto;
+  text-align: center;
+}
 .button2:global(.__wab_instance) {
   max-width: 100%;
 }
@@ -5606,12 +5614,6 @@
   right: auto;
   bottom: auto;
   display: none;
-}
-.text___2BZe {
-  position: relative;
-  width: auto;
-  height: auto;
-  max-width: 100%;
 }
 .freeBox___1Bk5A {
   display: flex;

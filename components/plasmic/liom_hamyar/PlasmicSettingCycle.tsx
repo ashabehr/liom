@@ -1768,10 +1768,37 @@ function PlasmicSettingCycle__RenderFunc(props: {
                     data-plasmic-override={overrides.button3}
                     className={classNames("__wab_instance", sty.button3)}
                     color={generateStateValueProp($state, ["button3", "color"])}
+                    isDisabled={(() => {
+                      try {
+                        return (
+                          $state.lengh == 0 &&
+                          $state.cycle == 0 &&
+                          $state.lastTime.data == ""
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["invokeGlobalAction"] = true
+                      $steps["invokeGlobalAction"] = (() => {
+                        return (
+                          new Date(
+                            `${$state.lastTime.gy}-${String(
+                              $state.lastTime.gm
+                            ).padStart(2, "0")}-${String(
+                              $state.lastTime.gd
+                            ).padStart(2, "0")}`
+                          ) >= new Date()
+                        );
+                      })()
                         ? (() => {
                             const actionArgs = {
                               args: [
@@ -1783,7 +1810,15 @@ function PlasmicSettingCycle__RenderFunc(props: {
                                     return {
                                       cycle: $state.cycle,
                                       length: $state.lengh,
-                                      last_time: $state.lastTime,
+                                      last_time: `${
+                                        $state.lastTime.gy
+                                      }-${String($state.lastTime.gm).padStart(
+                                        2,
+                                        "0"
+                                      )}-${String($state.lastTime.gd).padStart(
+                                        2,
+                                        "0"
+                                      )}`,
                                       type: $ctx.query.type,
                                       authorization:
                                         localStorage.getItem("token")
@@ -1817,7 +1852,8 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["invokeGlobalAction2"] = true
+                      $steps["invokeGlobalAction2"] = $steps.invokeGlobalAction
+                        ?.data?.success
                         ? (() => {
                             const actionArgs = {
                               args: [
@@ -1842,23 +1878,31 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["invokeGlobalAction3"] =
-                        $state.lengh == 0 &&
-                        $state.cycle == 0 &&
-                        $state.lastTime.data == ""
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "error",
-                                  "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
-                                  "top-center"
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.showToast"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                      $steps["invokeGlobalAction3"] = (() => {
+                        return (
+                          new Date(
+                            `${$state.lastTime.gy}-${String(
+                              $state.lastTime.gm
+                            ).padStart(2, "0")}-${String(
+                              $state.lastTime.gd
+                            ).padStart(2, "0")}`
+                          ) < new Date()
+                        );
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "error",
+                                "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                                "top-center"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                       if (
                         $steps["invokeGlobalAction3"] != null &&
                         typeof $steps["invokeGlobalAction3"] === "object" &&
@@ -1869,11 +1913,8 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["goToPage"] = !(
-                        $state.lengh == 0 &&
-                        $state.cycle == 0 &&
-                        $state.lastTime.data == ""
-                      )
+                      $steps["goToPage"] = $steps.invokeGlobalAction?.data
+                        ?.success
                         ? (() => {
                             const actionArgs = {
                               destination: (() => {

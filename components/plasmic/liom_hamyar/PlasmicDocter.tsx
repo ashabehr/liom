@@ -2220,12 +2220,97 @@ function PlasmicDocter__RenderFunc(props: {
                       null,
                       eventArgs
                     );
+
+                    (async error => {
+                      const $steps = {};
+
+                      $steps["goToPage"] =
+                        parseInt(localStorage.getItem("userAllowance")) >=
+                        $state.shop.data.item.price / 1000
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return `/chat?listID=${$ctx.query.id}&subList=${$state.sublist}&doctorID=${$state.getList.doctor.id}&gender=${$ctx.query.gender}`;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
+                      }
+                    }).apply(null, eventArgs);
                   }}
                   onLoading={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, [
                       "shop",
                       "loading"
                     ]).apply(null, eventArgs);
+
+                    (async loading => {
+                      const $steps = {};
+
+                      $steps["updateButtonColor"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["button", "color"]
+                              },
+                              operation: 0
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateButtonColor"] != null &&
+                        typeof $steps["updateButtonColor"] === "object" &&
+                        typeof $steps["updateButtonColor"].then === "function"
+                      ) {
+                        $steps["updateButtonColor"] = await $steps[
+                          "updateButtonColor"
+                        ];
+                      }
+                    }).apply(null, eventArgs);
                   }}
                   onSuccess={async (...eventArgs: any) => {
                     generateStateOnChangeProp($state, ["shop", "data"]).apply(

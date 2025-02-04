@@ -152,8 +152,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   $state.getSub.data[0].result == null ||
                   $state.getSub.data[0].result.active == false
                 )
-                  return "null";
-                else return "red";
+                  return "green";
+                else return "null";
               })();
             } catch (e) {
               if (
@@ -603,14 +603,26 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     )}
                   >
                     <React.Fragment>
-                      <span
-                        className={"plasmic_default__all plasmic_default__span"}
-                        style={{ fontWeight: 700 }}
-                      >
-                        {
-                          "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u067e\u06cc\u0627\u0645 \u0628\u0647 \u062e\u0648\u062f"
+                      {(() => {
+                        try {
+                          return (() => {
+                            if (
+                              $state.getSub.data[0].result == null ||
+                              $state.getSub.data[0].result.active == false
+                            )
+                              return "خرید اشتراک ارسال پیامک به خود";
+                            else return "فعالسازی پیام به خود";
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
                         }
-                      </span>
+                      })()}
                     </React.Fragment>
                   </div>
                 </Button>

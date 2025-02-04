@@ -7328,6 +7328,51 @@ function PlasmicClinic__RenderFunc(props: {
             >
               {"\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0644\u06cc\u0648\u0645"}
             </div>
+            {(() => {
+              try {
+                return (
+                  $state.getData.userAllowance != undefined &&
+                  $state.getData.userAllowance != 0
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___2BZe
+                )}
+              >
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return `<b> موجودی شما :</b>\n${
+                          $state.getData.userAllowance * 1000
+                        } تومان`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()
+                  }}
+                />
+              </div>
+            ) : null}
             {(
               hasVariant($state, "_1", "docter")
                 ? true
@@ -7427,46 +7472,6 @@ function PlasmicClinic__RenderFunc(props: {
                   "\u0648\u06cc\u0632\u06cc\u062a \u0647\u0627\u06cc \u0645\u0646"
                 }
               </Button>
-            ) : null}
-            {(() => {
-              try {
-                return (
-                  $state.getData.userAllowance != undefined &&
-                  $state.getData.userAllowance != 0
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return true;
-                }
-                throw e;
-              }
-            })() ? (
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___2BZe
-                )}
-              >
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return `موجودی شما :${$state.getData.userAllowance}`;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              </div>
             ) : null}
           </Stack__>
           {(() => {
