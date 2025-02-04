@@ -712,7 +712,7 @@ function PlasmicClinic__RenderFunc(props: {
                       return (() => {
                         return localStorage.setItem(
                           "userAllowance",
-                          $state.getData.userAllowance
+                          $state.getData?.userAllowance
                         );
                       })();
                     }
@@ -7427,6 +7427,46 @@ function PlasmicClinic__RenderFunc(props: {
                   "\u0648\u06cc\u0632\u06cc\u062a \u0647\u0627\u06cc \u0645\u0646"
                 }
               </Button>
+            ) : null}
+            {(() => {
+              try {
+                return (
+                  $state.getData.userAllowance != undefined &&
+                  $state.getData.userAllowance != 0
+                );
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return true;
+                }
+                throw e;
+              }
+            })() ? (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___2BZe
+                )}
+              >
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return `موجودی شما :${$state.getData.userAllowance}`;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              </div>
             ) : null}
           </Stack__>
           {(() => {

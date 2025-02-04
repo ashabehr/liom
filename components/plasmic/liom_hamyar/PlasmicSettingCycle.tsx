@@ -1771,100 +1771,23 @@ function PlasmicSettingCycle__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateList"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["list"]
-                              },
-                              operation: 0
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateList"] != null &&
-                        typeof $steps["updateList"] === "object" &&
-                        typeof $steps["updateList"].then === "function"
-                      ) {
-                        $steps["updateList"] = await $steps["updateList"];
-                      }
-
-                      $steps["invokeGlobalAction"] = !(
-                        $state.lengh == 0 &&
-                        $state.cycle == 0 &&
-                        $state.lastTime.data == ""
-                      )
+                      $steps["invokeGlobalAction"] = true
                         ? (() => {
                             const actionArgs = {
                               args: [
                                 "POST",
-                                "https://n8n.staas.ir/webhook/status",
+                                "https://n8n.staas.ir/webhook/calendar/getData",
                                 undefined,
                                 (() => {
                                   try {
-                                    return (() => {
-                                      let hamyarsData = { hamyarsData: [] };
-                                      for (
-                                        let i = 0;
-                                        i <
-                                        $state.getUserInfo.data[0].result
-                                          .hamyars.length;
-                                        i++
-                                      ) {
-                                        hamyarsData.hamyarsData.push({
-                                          name: $state.getUserInfo.data[0]
-                                            .result.hamyars[i].user.name,
-                                          active:
-                                            $state.getUserInfo.data[0].result
-                                              .hamyars[i].user.active,
-                                          hamyarStatus:
-                                            $state.getUserInfo.data[0].result
-                                              .hamyars[i].user.hamyarStatus,
-                                          mobile:
-                                            $state.getUserInfo.data[0].result
-                                              .hamyars[i].user.mobile
-                                        });
-                                      }
-                                      return {
-                                        area: "pregnancy",
-                                        duDate:
-                                          $state.cycle[0] +
-                                          "-" +
-                                          $state.cycle[1] +
-                                          "-" +
-                                          $state.cycle[2] +
-                                          " 10:10:10",
-                                        userId: $ctx.query.userId.slice(
-                                          4,
-                                          +$ctx.query.userId.length - 4
-                                        ),
-                                        name:
-                                          $state.getUserInfo.data[0].result.user
-                                            ?.name ?? "",
-                                        mobile:
-                                          $state.getUserInfo.data[0].result.user
-                                            ?.mobile ?? "",
-                                        email:
-                                          $state.getUserInfo.data[0].result.user
-                                            ?.email ?? "",
-                                        hamyarData: hamyarsData
-                                      };
-                                    })();
+                                    return {
+                                      cycle: $state.cycle,
+                                      length: $state.lengh,
+                                      last_time: $state.lastTime,
+                                      type: $ctx.query.type,
+                                      authorization:
+                                        localStorage.getItem("token")
+                                    };
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -1875,14 +1798,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
                                     }
                                     throw e;
                                   }
-                                })(),
-                                {
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                  }
-                                }
+                                })()
                               ]
                             };
                             return $globalActions["Fragment.apiRequest"]?.apply(
@@ -1901,112 +1817,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["goToPage"] = !(
-                        $state.lengh == 0 &&
-                        $state.cycle == 0 &&
-                        $state.lastTime.data == ""
-                      )
-                        ? (() => {
-                            const actionArgs = {
-                              destination: (() => {
-                                try {
-                                  return `/main`;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()
-                            };
-                            return (({ destination }) => {
-                              if (
-                                typeof destination === "string" &&
-                                destination.startsWith("#")
-                              ) {
-                                document
-                                  .getElementById(destination.substr(1))
-                                  .scrollIntoView({ behavior: "smooth" });
-                              } else {
-                                __nextRouter?.push(destination);
-                              }
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["goToPage"] != null &&
-                        typeof $steps["goToPage"] === "object" &&
-                        typeof $steps["goToPage"].then === "function"
-                      ) {
-                        $steps["goToPage"] = await $steps["goToPage"];
-                      }
-
-                      $steps["invokeGlobalAction4"] = !(
-                        $state.lengh == 0 &&
-                        $state.cycle == 0 &&
-                        $state.lastTime.data == ""
-                      )
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://api.liom.app/service/log",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      userId:
-                                        $ctx.query.userId?.length > 0
-                                          ? $ctx.query.userId.slice(
-                                              4,
-                                              $ctx.query.userId.length - 4
-                                            )
-                                          : "guest",
-                                      pageName: "settingPage",
-                                      action: "click-saveDate",
-                                      extraData: {}
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
-                                {
-                                  headers: {
-                                    "Content-Type": "application/json",
-                                    Authorization:
-                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                  }
-                                }
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction4"] != null &&
-                        typeof $steps["invokeGlobalAction4"] === "object" &&
-                        typeof $steps["invokeGlobalAction4"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction4"] = await $steps[
-                          "invokeGlobalAction4"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction2"] = false
+                      $steps["invokeGlobalAction2"] = true
                         ? (() => {
                             const actionArgs = {
                               args: [
@@ -2056,6 +1867,50 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         $steps["invokeGlobalAction3"] = await $steps[
                           "invokeGlobalAction3"
                         ];
+                      }
+
+                      $steps["goToPage"] = !(
+                        $state.lengh == 0 &&
+                        $state.cycle == 0 &&
+                        $state.lastTime.data == ""
+                      )
+                        ? (() => {
+                            const actionArgs = {
+                              destination: (() => {
+                                try {
+                                  return `/main`;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            };
+                            return (({ destination }) => {
+                              if (
+                                typeof destination === "string" &&
+                                destination.startsWith("#")
+                              ) {
+                                document
+                                  .getElementById(destination.substr(1))
+                                  .scrollIntoView({ behavior: "smooth" });
+                              } else {
+                                __nextRouter?.push(destination);
+                              }
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["goToPage"] != null &&
+                        typeof $steps["goToPage"] === "object" &&
+                        typeof $steps["goToPage"].then === "function"
+                      ) {
+                        $steps["goToPage"] = await $steps["goToPage"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {

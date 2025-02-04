@@ -1812,7 +1812,7 @@ function PlasmicMain__RenderFunc(props: {
         path: "edit.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "editList",
@@ -1880,7 +1880,7 @@ function PlasmicMain__RenderFunc(props: {
         path: "wrong.opendialog",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -2017,7 +2017,6 @@ function PlasmicMain__RenderFunc(props: {
                 : (() => {
                     try {
                       return {
-                        from: 0,
                         authorization: localStorage.getItem("token")
                       };
                     } catch (e) {

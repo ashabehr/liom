@@ -5607,6 +5607,12 @@
   bottom: auto;
   display: none;
 }
+.text___2BZe {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
 .freeBox___1Bk5A {
   display: flex;
   flex-direction: row;
