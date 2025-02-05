@@ -1610,7 +1610,12 @@ function PlasmicCalendar__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
-                        if (!localStorage.getItem("token")) {
+                        if (
+                          $ctx.query.token ||
+                          new URLSearchParams(window.location.search).get(
+                            "token"
+                          )
+                        ) {
                           var app =
                             $ctx.query.token ||
                             new URLSearchParams(window.location.search).get(
