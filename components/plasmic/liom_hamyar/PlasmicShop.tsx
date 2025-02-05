@@ -108,6 +108,7 @@ export type PlasmicShop__OverridesType = {
   input4?: Flex__<typeof AntdInput>;
   button12?: Flex__<typeof Button>;
   button8?: Flex__<typeof Button>;
+  button9?: Flex__<typeof Button>;
   p?: Flex__<"p">;
   dialog2?: Flex__<typeof Dialog>;
   subscription3?: Flex__<typeof Subscription>;
@@ -508,6 +509,12 @@ function PlasmicShop__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "button9.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
       }
     ],
     [$props, $ctx, $refs]
@@ -854,17 +861,6 @@ function PlasmicShop__RenderFunc(props: {
                             </div>
                           ) : null}
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__n7RtK
-                          )}
-                        >
-                          {
-                            "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
-                          }
-                        </div>
                         <Stack__
                           as={"div"}
                           hasGap={true}
@@ -1020,52 +1016,111 @@ function PlasmicShop__RenderFunc(props: {
                             </div>
                           </Button>
                         </Stack__>
-                        <Button
-                          data-plasmic-name={"button8"}
-                          data-plasmic-override={overrides.button8}
-                          className={classNames("__wab_instance", sty.button8)}
-                          color={generateStateValueProp($state, [
-                            "button8",
-                            "color"
-                          ])}
-                          endIcon={
-                            <Icon12Icon
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__hitW0
+                          )}
+                        >
+                          <Button
+                            data-plasmic-name={"button8"}
+                            data-plasmic-override={overrides.button8}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button8
+                            )}
+                            color={generateStateValueProp($state, [
+                              "button8",
+                              "color"
+                            ])}
+                            endIcon={
+                              <Icon12Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg___5DxXh
+                                )}
+                                role={"img"}
+                              />
+                            }
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button8",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                          >
+                            <div
                               className={classNames(
                                 projectcss.all,
-                                sty.svg___5DxXh
+                                projectcss.__wab_text,
+                                sty.text__mjQdy
                               )}
-                              role={"img"}
-                            />
-                          }
-                          onColorChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button8",
-                                "color"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                        >
-                          <div
+                            >
+                              {
+                                "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                              }
+                            </div>
+                          </Button>
+                          <Button
+                            data-plasmic-name={"button9"}
+                            data-plasmic-override={overrides.button9}
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__mjQdy
+                              "__wab_instance",
+                              sty.button9
                             )}
-                          >
-                            {
-                              "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                            color={generateStateValueProp($state, [
+                              "button9",
+                              "color"
+                            ])}
+                            endIcon={
+                              <Icon12Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__yuFqx
+                                )}
+                                role={"img"}
+                              />
                             }
-                          </div>
-                        </Button>
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button9",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__oqWiy
+                              )}
+                            >
+                              {
+                                "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u0645"
+                              }
+                            </div>
+                          </Button>
+                        </div>
                         {(() => {
                           try {
                             return (
@@ -2902,6 +2957,7 @@ const PlasmicDescendants = {
     "input4",
     "button12",
     "button8",
+    "button9",
     "p",
     "dialog2",
     "subscription3",
@@ -2918,6 +2974,7 @@ const PlasmicDescendants = {
     "input4",
     "button12",
     "button8",
+    "button9",
     "p",
     "dialog2",
     "subscription3",
@@ -2930,6 +2987,7 @@ const PlasmicDescendants = {
   input4: ["input4"],
   button12: ["button12"],
   button8: ["button8"],
+  button9: ["button9"],
   p: ["p"],
   dialog2: ["dialog2", "subscription3", "button11"],
   subscription3: ["subscription3"],
@@ -2950,6 +3008,7 @@ type NodeDefaultElementType = {
   input4: typeof AntdInput;
   button12: typeof Button;
   button8: typeof Button;
+  button9: typeof Button;
   p: "p";
   dialog2: typeof Dialog;
   subscription3: typeof Subscription;
@@ -3051,6 +3110,7 @@ export const PlasmicShop = Object.assign(
     input4: makeNodeComponent("input4"),
     button12: makeNodeComponent("button12"),
     button8: makeNodeComponent("button8"),
+    button9: makeNodeComponent("button9"),
     p: makeNodeComponent("p"),
     dialog2: makeNodeComponent("dialog2"),
     subscription3: makeNodeComponent("subscription3"),

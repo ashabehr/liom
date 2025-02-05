@@ -362,6 +362,28 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   ) {
                     $steps["updateLoading"] = await $steps["updateLoading"];
                   }
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return console.log($state.getSub.data);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
                 }).apply(null, eventArgs);
               }}
               url={"https://n8n.staas.ir/webhook/sub"}

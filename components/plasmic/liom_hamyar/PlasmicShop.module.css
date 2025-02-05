@@ -432,35 +432,6 @@
   text-overflow: clip;
   min-width: 0;
 }
-.text__n7RtK {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  text-align: right;
-  font-weight: 700;
-  cursor: pointer;
-  align-self: flex-start;
-  padding-right: 10px;
-  padding-left: 10px;
-  color: #8254c6;
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  text-transform: none;
-  line-height: 1.5;
-  letter-spacing: normal;
-  white-space: pre-wrap;
-  min-width: 0;
-}
-@media (max-width: 640px) {
-  .text__n7RtK {
-    text-align: right;
-    font-size: 14px;
-    text-decoration-line: underline;
-    padding: 0px 8px;
-  }
-}
 .freeBox__acAZy {
   display: flex;
   flex-direction: row;
@@ -592,12 +563,26 @@
   bottom: auto;
   display: none;
 }
+.freeBox__hitW0 {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-left: 8px;
+  margin-right: 8px;
+  min-width: 0;
+  padding: 8px;
+}
 .button8:global(.__wab_instance) {
   max-width: 100%;
-  margin-right: 8px;
-  margin-left: 8px;
+  width: 100%;
+  min-width: 0;
 }
-.svg__nU86 {
+.svg___7Igsz {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -624,6 +609,45 @@
   min-width: 0;
 }
 .svg___5DxXh {
+  object-fit: cover;
+  max-width: 100%;
+  width: 20px;
+  height: 20%;
+  color: var(--token-zy6xhYnWF8Y7);
+}
+.button9:global(.__wab_instance) {
+  max-width: 100%;
+  margin-right: 8px;
+  margin-left: 8px;
+  width: 30%;
+}
+.svg__p9XJf {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__oqWiy {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--token-55cSeNPovQFh);
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+  text-align: left;
+  text-transform: none;
+  line-height: 1.5;
+  letter-spacing: normal;
+  white-space: pre-wrap;
+  user-select: text;
+  text-decoration-line: none !important;
+  text-overflow: clip !important;
+  font-family: "Roboto", sans-serif;
+  min-width: 0;
+}
+.svg__yuFqx {
   object-fit: cover;
   max-width: 100%;
   width: 20px;

@@ -173,7 +173,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if ($state.lengh != 0) return `${$state.lengh} روز `;
+                if ($state.cycle != 0) return `${$state.cycle} روز `;
               })();
             } catch (e) {
               if (
@@ -202,7 +202,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if ($state.cycle != 0) return `${$state.cycle} روز`;
+                if ($state.lengh != 0) return `${$state.lengh} روز`;
               })();
             } catch (e) {
               if (
@@ -514,6 +514,12 @@ function PlasmicSettingCycle__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "loadbtn",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -1875,10 +1881,24 @@ function PlasmicSettingCycle__RenderFunc(props: {
                     isDisabled={(() => {
                       try {
                         return (
-                          $state.lengh == 0 &&
-                          $state.cycle == 0 &&
-                          $state.lastTime.data == ""
+                          ($state.lengh == 0 &&
+                            $state.cycle == 0 &&
+                            $state.lastTime.data == "") ||
+                          $state.loadbtn
                         );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return [];
+                        }
+                        throw e;
+                      }
+                    })()}
+                    loading={(() => {
+                      try {
+                        return $state.loadbtn;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -1891,6 +1911,40 @@ function PlasmicSettingCycle__RenderFunc(props: {
                     })()}
                     onClick={async event => {
                       const $steps = {};
+
+                      $steps["updateLoadbtn"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadbtn"]
+                              },
+                              operation: 0,
+                              value: true
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadbtn"] != null &&
+                        typeof $steps["updateLoadbtn"] === "object" &&
+                        typeof $steps["updateLoadbtn"].then === "function"
+                      ) {
+                        $steps["updateLoadbtn"] = await $steps["updateLoadbtn"];
+                      }
 
                       $steps["add"] =
                         $ctx.query.type == "add" &&
@@ -1959,11 +2013,20 @@ function PlasmicSettingCycle__RenderFunc(props: {
                                   undefined,
                                   (() => {
                                     try {
-                                      return {
-                                        type: $ctx.query.type,
-                                        authorization: $state.token,
-                                        calendar: $state.list
-                                      };
+                                      return (() => {
+                                        $state.list.addCycle = $state.cycle;
+                                        $state.list.addLength = $state.lengh;
+                                        $state.list.period.start = {
+                                          year: $state.lastTime.gy,
+                                          month: $state.lastTime.gm,
+                                          day: $state.lastTime.gd
+                                        };
+                                        return {
+                                          type: $ctx.query.type,
+                                          authorization: $state.token,
+                                          calendar: $state.list
+                                        };
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -2096,6 +2159,42 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         typeof $steps["goToCalendar"].then === "function"
                       ) {
                         $steps["goToCalendar"] = await $steps["goToCalendar"];
+                      }
+
+                      $steps["updateLoadbtn2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["loadbtn"]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateLoadbtn2"] != null &&
+                        typeof $steps["updateLoadbtn2"] === "object" &&
+                        typeof $steps["updateLoadbtn2"].then === "function"
+                      ) {
+                        $steps["updateLoadbtn2"] = await $steps[
+                          "updateLoadbtn2"
+                        ];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
@@ -2298,7 +2397,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         const actionArgs = {
                           variable: {
                             objRoot: $state,
-                            variablePath: ["lengh"]
+                            variablePath: ["cycle"]
                           },
                           operation: 0,
                           value: $state.pickers.value
@@ -2523,7 +2622,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         const actionArgs = {
                           variable: {
                             objRoot: $state,
-                            variablePath: ["cycle"]
+                            variablePath: ["lengh"]
                           },
                           operation: 0,
                           value: $state.pickers2.value
