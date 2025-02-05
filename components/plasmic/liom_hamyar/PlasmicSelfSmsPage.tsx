@@ -255,7 +255,9 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               body={(() => {
                 try {
                   return {
-                    Authorization: $ctx.query.token,
+                    Authorization:
+                      $ctx.query.token ||
+                      new URLSearchParams(window.location.search).get("token"),
                     sub: "selfHamyarSmsSubStatus"
                   };
                 } catch (e) {
@@ -293,6 +295,40 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 (async data => {
                   const $steps = {};
 
+                  $steps["updateLoading"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["loading"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLoading"] != null &&
+                    typeof $steps["updateLoading"] === "object" &&
+                    typeof $steps["updateLoading"].then === "function"
+                  ) {
+                    $steps["updateLoading"] = await $steps["updateLoading"];
+                  }
+
                   $steps["updateState"] = true
                     ? (() => {
                         const actionArgs = {
@@ -329,47 +365,11 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     $steps["updateState"] = await $steps["updateState"];
                   }
 
-                  $steps["updateLoading"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["loading"]
-                          },
-                          operation: 0,
-                          value: false
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateLoading"] != null &&
-                    typeof $steps["updateLoading"] === "object" &&
-                    typeof $steps["updateLoading"].then === "function"
-                  ) {
-                    $steps["updateLoading"] = await $steps["updateLoading"];
-                  }
-
                   $steps["runCode"] = true
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {
-                              return console.log($state.getSub.data);
-                            })();
+                            return console.log($state.getSub.data);
                           }
                         };
                         return (({ customFunction }) => {
@@ -384,41 +384,77 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   ) {
                     $steps["runCode"] = await $steps["runCode"];
                   }
+
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://api.liom.app/service/log",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  userId:
+                                    $ctx.query.userId ||
+                                    new URLSearchParams(
+                                      window.location.search
+                                    ).get("userId"),
+                                  pageName: "selfSmsPage",
+                                  action: "loadPage",
+                                  extraData: {}
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })(),
+                            (() => {
+                              try {
+                                return {
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                  }
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
                 }).apply(null, eventArgs);
               }}
               url={"https://n8n.staas.ir/webhook/sub"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__va6Et
-              )}
-            >
-              <React.Fragment>
-                {(() => {
-                  try {
-                    return (
-                      "loading: " +
-                      $state.loading +
-                      "  state: " +
-                      $state.state +
-                      " loading server:" +
-                      $state.getSub.loading
-                    );
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return "";
-                    }
-                    throw e;
-                  }
-                })()}
-              </React.Fragment>
-            </div>
             <div className={classNames(projectcss.all, sty.freeBox___2HVpP)}>
               <div className={classNames(projectcss.all, sty.freeBox__kbF6)}>
                 <div
