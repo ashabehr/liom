@@ -66,6 +66,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -82,7 +83,6 @@ import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { AntdTooltip } from "@plasmicpkgs/antd5/skinny/registerTooltip";
 import Heart from "../../Heart"; // plasmic-import: OuOhJXUpgiRr/component
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -132,6 +132,7 @@ export const PlasmicCalendar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicCalendar__OverridesType = {
   root?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
   user?: Flex__<typeof ApiRequest>;
   button18?: Flex__<typeof Button>;
   cyclebox?: Flex__<typeof Cyclebox>;
@@ -155,7 +156,6 @@ export type PlasmicCalendar__OverridesType = {
   heart?: Flex__<typeof Heart>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   section?: Flex__<"section">;
-  embedHtml?: Flex__<typeof Embed>;
   dialog?: Flex__<typeof Dialog>;
   shopDialog?: Flex__<typeof ApiRequest>;
   dialogTitle?: Flex__<typeof DialogTitle>;
@@ -1347,68 +1347,7 @@ function PlasmicCalendar__RenderFunc(props: {
         path: "next",
         type: "private",
         variableType: "array",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                function getFormattedDate(userData) {
-                  var miladiDateStr = userData;
-                  var miladiDate = new Date(miladiDateStr);
-                  miladiDate.setDate(
-                    miladiDate.getDate() +
-                      $state.user.data.result.userStatus.cycle
-                  );
-                  var jalaaliDate = window.jalaali.toJalaali(miladiDate);
-                  var daysOfWeek = [
-                    "یکشنبه",
-                    "دوشنبه",
-                    "سه‌شنبه",
-                    "چهارشنبه",
-                    "پنج‌شنبه",
-                    "جمعه",
-                    "شنبه"
-                  ];
-
-                  var dayOfWeek = daysOfWeek[miladiDate.getDay()];
-                  var today = new Date();
-                  var timeDifference = miladiDate - today;
-                  var daysRemaining = Math.ceil(
-                    timeDifference / (1000 * 60 * 60 * 24)
-                  );
-                  return `${dayOfWeek}    ${jalaaliDate.jy}/${jalaaliDate.jm}/${jalaaliDate.jd} B(${daysRemaining} روز باقی‌مانده)`;
-                }
-                var datesArray = [
-                  getFormattedDate(
-                    $state.user.data.result.userStatus.periodStart.split("T")[0]
-                  ),
-                  getFormattedDate(
-                    $state.user.data.result.userStatus.fertilityStart.split(
-                      "T"
-                    )[0]
-                  ),
-                  getFormattedDate(
-                    new Date(
-                      $state.user.data.result.userStatus.fertilityStart
-                    ).setDate(
-                      new Date(
-                        $state.user.data.result.userStatus.fertilityStart
-                      ).getDate() + 3
-                    )
-                  )
-                ];
-
-                return datesArray;
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
         path: "now",
@@ -1696,6 +1635,15 @@ function PlasmicCalendar__RenderFunc(props: {
             }
           }}
         >
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n"
+            }
+          />
+
           <ApiRequest
             data-plasmic-name={"user"}
             data-plasmic-override={overrides.user}
@@ -1993,6 +1941,91 @@ function PlasmicCalendar__RenderFunc(props: {
                   typeof $steps["updateName"].then === "function"
                 ) {
                   $steps["updateName"] = await $steps["updateName"];
+                }
+
+                $steps["updateNext"] = (
+                  $state.user.data?.success ? $state.user.data.success : false
+                )
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["next"]
+                        },
+                        operation: 0,
+                        value: (() => {
+                          function getFormattedDate(userData) {
+                            var miladiDateStr = userData;
+                            var miladiDate = new Date(miladiDateStr);
+                            miladiDate.setDate(
+                              miladiDate.getDate() +
+                                $state.user.data.result.userStatus.cycle
+                            );
+                            var jalaaliDate =
+                              window.jalaali.toJalaali(miladiDate);
+                            var daysOfWeek = [
+                              "یکشنبه",
+                              "دوشنبه",
+                              "سه‌شنبه",
+                              "چهارشنبه",
+                              "پنج‌شنبه",
+                              "جمعه",
+                              "شنبه"
+                            ];
+
+                            var dayOfWeek = daysOfWeek[miladiDate.getDay()];
+                            var today = new Date();
+                            var timeDifference = miladiDate - today;
+                            var daysRemaining = Math.ceil(
+                              timeDifference / (1000 * 60 * 60 * 24)
+                            );
+                            return `${dayOfWeek}    ${jalaaliDate.jy}/${jalaaliDate.jm}/${jalaaliDate.jd} B(${daysRemaining} روز باقی‌مانده)`;
+                          }
+                          return [
+                            getFormattedDate(
+                              $state.user.data.result.userStatus.periodStart.split(
+                                "T"
+                              )[0]
+                            ),
+                            getFormattedDate(
+                              $state.user.data.result.userStatus.fertilityStart.split(
+                                "T"
+                              )[0]
+                            ),
+                            getFormattedDate(
+                              new Date(
+                                $state.user.data.result.userStatus.fertilityStart
+                              ).setDate(
+                                new Date(
+                                  $state.user.data.result.userStatus.fertilityStart
+                                ).getDate() + 3
+                              )
+                            )
+                          ];
+                        })()
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateNext"] != null &&
+                  typeof $steps["updateNext"] === "object" &&
+                  typeof $steps["updateNext"].then === "function"
+                ) {
+                  $steps["updateNext"] = await $steps["updateNext"];
                 }
 
                 $steps["runCode"] = (
@@ -12694,9 +12727,14 @@ function PlasmicCalendar__RenderFunc(props: {
                                             return `/setting-cycle?type=edit&cycle=${
                                               $state.user.data.result.userStatus
                                                 .cycle
-                                            }
-&length=${$state.user.data.result.userStatus.length}
-&last_time=${$state.user.data.result.userStatus.periodStart.split("T")[0]}`;
+                                            }&length=${
+                                              $state.user.data.result.userStatus
+                                                .length
+                                            }&last_time=${
+                                              $state.user.data.result.userStatus.periodStart.split(
+                                                "T"
+                                              )[0]
+                                            }`;
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
@@ -12733,6 +12771,33 @@ function PlasmicCalendar__RenderFunc(props: {
                                   typeof $steps["goToPage"].then === "function"
                                 ) {
                                   $steps["goToPage"] = await $steps["goToPage"];
+                                }
+
+                                $steps["runCode"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        customFunction: async () => {
+                                          return (() => {
+                                            return localStorage.setItem(
+                                              "calender",
+                                              JSON.stringify(
+                                                $state.user.data.result.calender
+                                              )
+                                            );
+                                          })();
+                                        }
+                                      };
+                                      return (({ customFunction }) => {
+                                        return customFunction();
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["runCode"] != null &&
+                                  typeof $steps["runCode"] === "object" &&
+                                  typeof $steps["runCode"].then === "function"
+                                ) {
+                                  $steps["runCode"] = await $steps["runCode"];
                                 }
                               }}
                               onColorChange={async (...eventArgs: any) => {
@@ -22048,20 +22113,53 @@ function PlasmicCalendar__RenderFunc(props: {
                                 )}
                                 errorDisplay={null}
                                 loadingDisplay={
-                                  <div
+                                  <Stack__
+                                    as={"div"}
+                                    hasGap={true}
                                     className={classNames(
                                       projectcss.all,
-                                      sty.freeBox__vpDw
+                                      sty.freeBox___1SqS
                                     )}
                                   >
-                                    <Icon115Icon
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.svg__cupcO
-                                      )}
-                                      role={"img"}
-                                    />
-                                  </div>
+                                    {(_par =>
+                                      !_par
+                                        ? []
+                                        : Array.isArray(_par)
+                                        ? _par
+                                        : [_par])(
+                                      (() => {
+                                        try {
+                                          return [1, 2, 3, 4, 5];
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return [];
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ).map(
+                                      (__plasmic_item_0, __plasmic_idx_0) => {
+                                        const currentItem = __plasmic_item_0;
+                                        const currentIndex = __plasmic_idx_0;
+                                        return (
+                                          <Stack__
+                                            as={"div"}
+                                            hasGap={true}
+                                            className={classNames(
+                                              projectcss.all,
+                                              sty.freeBox__g4SHo,
+                                              "shimmer"
+                                            )}
+                                            key={currentIndex}
+                                          />
+                                        );
+                                      }
+                                    )}
+                                  </Stack__>
                                 }
                                 method={"GET"}
                                 onError={async (...eventArgs: any) => {
@@ -22105,106 +22203,61 @@ function PlasmicCalendar__RenderFunc(props: {
                                 })()}
                                 url={"https://n8n.staas.ir/webhook/advices"}
                               >
-                                {(_par =>
-                                  !_par
-                                    ? []
-                                    : Array.isArray(_par)
-                                    ? _par
-                                    : [_par])(
-                                  (() => {
-                                    try {
-                                      return $state.advice.data.data;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return [];
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox___6KEq7
+                                  )}
+                                >
+                                  {(_par =>
+                                    !_par
+                                      ? []
+                                      : Array.isArray(_par)
+                                      ? _par
+                                      : [_par])(
+                                    (() => {
+                                      try {
+                                        return $state.advice.data.data;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return [];
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
-                                    }
-                                  })()
-                                ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                                  const currentItem = __plasmic_item_0;
-                                  const currentIndex = __plasmic_idx_0;
-                                  return (
-                                    <Stack__
-                                      as={"div"}
-                                      hasGap={true}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.freeBox__hnWjx
-                                      )}
-                                      key={currentIndex}
-                                    >
-                                      <div
+                                    })()
+                                  ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                                    const currentItem = __plasmic_item_0;
+                                    const currentIndex = __plasmic_idx_0;
+                                    return (
+                                      <Stack__
+                                        as={"div"}
+                                        hasGap={true}
                                         className={classNames(
                                           projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__nsD3C
+                                          sty.freeBox__hnWjx
                                         )}
+                                        key={currentIndex}
                                       >
-                                        {hasVariant(
-                                          globalVariants,
-                                          "screen",
-                                          "mobile"
-                                        ) ? (
-                                          <React.Fragment>
-                                            {(() => {
-                                              try {
-                                                return currentItem.title;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
-                                              }
-                                            })()}
-                                          </React.Fragment>
-                                        ) : (
-                                          <React.Fragment>
-                                            {(() => {
-                                              try {
-                                                return currentItem.title;
-                                              } catch (e) {
-                                                if (
-                                                  e instanceof TypeError ||
-                                                  e?.plasmicType ===
-                                                    "PlasmicUndefinedDataError"
-                                                ) {
-                                                  return "";
-                                                }
-                                                throw e;
-                                              }
-                                            })()}
-                                          </React.Fragment>
-                                        )}
-                                      </div>
-                                      <div
-                                        className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
-                                          sty.text__pdu2Q
-                                        )}
-                                      >
-                                        {hasVariant(
-                                          globalVariants,
-                                          "screen",
-                                          "mobile"
-                                        ) ? (
-                                          <div
-                                            className={
-                                              projectcss.__wab_expr_html_text
-                                            }
-                                            dangerouslySetInnerHTML={{
-                                              __html: (() => {
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__nsD3C
+                                          )}
+                                        >
+                                          {hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "mobile"
+                                          ) ? (
+                                            <React.Fragment>
+                                              {(() => {
                                                 try {
-                                                  return currentItem.text;
+                                                  return currentItem.title;
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||
@@ -22215,18 +22268,13 @@ function PlasmicCalendar__RenderFunc(props: {
                                                   }
                                                   throw e;
                                                 }
-                                              })()
-                                            }}
-                                          />
-                                        ) : (
-                                          <div
-                                            className={
-                                              projectcss.__wab_expr_html_text
-                                            }
-                                            dangerouslySetInnerHTML={{
-                                              __html: (() => {
+                                              })()}
+                                            </React.Fragment>
+                                          ) : (
+                                            <React.Fragment>
+                                              {(() => {
                                                 try {
-                                                  return currentItem.text;
+                                                  return currentItem.title;
                                                 } catch (e) {
                                                   if (
                                                     e instanceof TypeError ||
@@ -22237,87 +22285,145 @@ function PlasmicCalendar__RenderFunc(props: {
                                                   }
                                                   throw e;
                                                 }
-                                              })()
-                                            }}
-                                          />
-                                        )}
-                                      </div>
-                                      {(() => {
-                                        const child$Props = {
-                                          className: classNames(
-                                            "__wab_instance",
-                                            sty.button17
-                                          ),
-                                          color: generateStateValueProp(
+                                              })()}
+                                            </React.Fragment>
+                                          )}
+                                        </div>
+                                        <div
+                                          className={classNames(
+                                            projectcss.all,
+                                            projectcss.__wab_text,
+                                            sty.text__pdu2Q
+                                          )}
+                                        >
+                                          {hasVariant(
+                                            globalVariants,
+                                            "screen",
+                                            "mobile"
+                                          ) ? (
+                                            <div
+                                              className={
+                                                projectcss.__wab_expr_html_text
+                                              }
+                                              dangerouslySetInnerHTML={{
+                                                __html: (() => {
+                                                  try {
+                                                    return currentItem.text;
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return "";
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()
+                                              }}
+                                            />
+                                          ) : (
+                                            <div
+                                              className={
+                                                projectcss.__wab_expr_html_text
+                                              }
+                                              dangerouslySetInnerHTML={{
+                                                __html: (() => {
+                                                  try {
+                                                    return currentItem.text;
+                                                  } catch (e) {
+                                                    if (
+                                                      e instanceof TypeError ||
+                                                      e?.plasmicType ===
+                                                        "PlasmicUndefinedDataError"
+                                                    ) {
+                                                      return "";
+                                                    }
+                                                    throw e;
+                                                  }
+                                                })()
+                                              }}
+                                            />
+                                          )}
+                                        </div>
+                                        {(() => {
+                                          const child$Props = {
+                                            className: classNames(
+                                              "__wab_instance",
+                                              sty.button17
+                                            ),
+                                            color: generateStateValueProp(
+                                              $state,
+                                              [
+                                                "button17",
+                                                __plasmic_idx_0,
+                                                "color"
+                                              ]
+                                            ),
+                                            onColorChange: async (
+                                              ...eventArgs: any
+                                            ) => {
+                                              ((...eventArgs) => {
+                                                generateStateOnChangeProp(
+                                                  $state,
+                                                  [
+                                                    "button17",
+                                                    __plasmic_idx_0,
+                                                    "color"
+                                                  ]
+                                                )(eventArgs[0]);
+                                              }).apply(null, eventArgs);
+
+                                              if (
+                                                eventArgs.length > 1 &&
+                                                eventArgs[1] &&
+                                                eventArgs[1]
+                                                  ._plasmic_state_init_
+                                              ) {
+                                                return;
+                                              }
+                                            },
+                                            size: "compact"
+                                          };
+
+                                          initializePlasmicStates(
                                             $state,
                                             [
-                                              "button17",
-                                              __plasmic_idx_0,
-                                              "color"
-                                            ]
-                                          ),
-                                          onColorChange: async (
-                                            ...eventArgs: any
-                                          ) => {
-                                            ((...eventArgs) => {
-                                              generateStateOnChangeProp(
-                                                $state,
-                                                [
-                                                  "button17",
-                                                  __plasmic_idx_0,
-                                                  "color"
-                                                ]
-                                              )(eventArgs[0]);
-                                            }).apply(null, eventArgs);
-
-                                            if (
-                                              eventArgs.length > 1 &&
-                                              eventArgs[1] &&
-                                              eventArgs[1]._plasmic_state_init_
-                                            ) {
-                                              return;
-                                            }
-                                          },
-                                          size: "compact"
-                                        };
-
-                                        initializePlasmicStates(
-                                          $state,
-                                          [
-                                            {
-                                              name: "button17[].color",
-                                              initFunc: ({
-                                                $props,
-                                                $state,
-                                                $queries
-                                              }) => undefined
-                                            }
-                                          ],
-                                          [__plasmic_idx_0]
-                                        );
-                                        return (
-                                          <Button
-                                            data-plasmic-name={"button17"}
-                                            data-plasmic-override={
-                                              overrides.button17
-                                            }
-                                            {...child$Props}
-                                          >
-                                            <div
-                                              className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
-                                                sty.text__vpgSz
-                                              )}
+                                              {
+                                                name: "button17[].color",
+                                                initFunc: ({
+                                                  $props,
+                                                  $state,
+                                                  $queries
+                                                }) => undefined
+                                              }
+                                            ],
+                                            [__plasmic_idx_0]
+                                          );
+                                          return (
+                                            <Button
+                                              data-plasmic-name={"button17"}
+                                              data-plasmic-override={
+                                                overrides.button17
+                                              }
+                                              {...child$Props}
                                             >
-                                              {" "}
-                                            </div>
-                                          </Button>
-                                        );
-                                      })()}
-                                    </Stack__>
-                                  );
-                                })}
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  projectcss.__wab_text,
+                                                  sty.text__vpgSz
+                                                )}
+                                              >
+                                                {" "}
+                                              </div>
+                                            </Button>
+                                          );
+                                        })()}
+                                      </Stack__>
+                                    );
+                                  })}
+                                </div>
                               </ApiRequest>
                             </div>
                           </AntdSingleCollapse>
@@ -25103,15 +25209,6 @@ function PlasmicCalendar__RenderFunc(props: {
               </Stack__>
             </div>
           </section>
-          <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
-            code={
-              "<!-- Hotjar Tracking Code for Site 5171830 (name missing) -->\r\n<script>\r\n    (function(h,o,t,j,a,r){\r\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\r\n        h._hjSettings={hjid:5171830,hjsv:6};\r\n        a=o.getElementsByTagName('head')[0];\r\n        r=o.createElement('script');r.async=1;\r\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\r\n        a.appendChild(r);\r\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\r\n</script>"
-            }
-          />
-
           <Dialog
             data-plasmic-name={"dialog"}
             data-plasmic-override={overrides.dialog}
@@ -27739,6 +27836,7 @@ function PlasmicCalendar__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "embedHtml",
     "user",
     "button18",
     "cyclebox",
@@ -27762,7 +27860,6 @@ const PlasmicDescendants = {
     "heart",
     "pullToRefresh",
     "section",
-    "embedHtml",
     "dialog",
     "shopDialog",
     "dialogTitle",
@@ -27780,6 +27877,7 @@ const PlasmicDescendants = {
     "button20",
     "button21"
   ],
+  embedHtml: ["embedHtml"],
   user: [
     "user",
     "button18",
@@ -27825,7 +27923,6 @@ const PlasmicDescendants = {
   heart: ["heart"],
   pullToRefresh: ["pullToRefresh"],
   section: ["section"],
-  embedHtml: ["embedHtml"],
   dialog: [
     "dialog",
     "shopDialog",
@@ -27865,6 +27962,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  embedHtml: typeof Embed;
   user: typeof ApiRequest;
   button18: typeof Button;
   cyclebox: typeof Cyclebox;
@@ -27888,7 +27986,6 @@ type NodeDefaultElementType = {
   heart: typeof Heart;
   pullToRefresh: typeof PullToRefresh;
   section: "section";
-  embedHtml: typeof Embed;
   dialog: typeof Dialog;
   shopDialog: typeof ApiRequest;
   dialogTitle: typeof DialogTitle;
@@ -27992,6 +28089,7 @@ export const PlasmicCalendar = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    embedHtml: makeNodeComponent("embedHtml"),
     user: makeNodeComponent("user"),
     button18: makeNodeComponent("button18"),
     cyclebox: makeNodeComponent("cyclebox"),
@@ -28015,7 +28113,6 @@ export const PlasmicCalendar = Object.assign(
     heart: makeNodeComponent("heart"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     section: makeNodeComponent("section"),
-    embedHtml: makeNodeComponent("embedHtml"),
     dialog: makeNodeComponent("dialog"),
     shopDialog: makeNodeComponent("shopDialog"),
     dialogTitle: makeNodeComponent("dialogTitle"),

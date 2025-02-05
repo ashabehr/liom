@@ -481,7 +481,20 @@ function PlasmicSettingCycle__RenderFunc(props: {
         path: "list",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return JSON.parse(localStorage.getItem("calender"))[0];
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "token",
@@ -586,9 +599,9 @@ function PlasmicSettingCycle__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["goToPage"] = true
+                    $steps["goToCalendar"] = true
                       ? (() => {
-                          const actionArgs = { destination: `/main` };
+                          const actionArgs = { destination: `/calendar` };
                           return (({ destination }) => {
                             if (
                               typeof destination === "string" &&
@@ -604,11 +617,11 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         })()
                       : undefined;
                     if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
+                      $steps["goToCalendar"] != null &&
+                      typeof $steps["goToCalendar"] === "object" &&
+                      typeof $steps["goToCalendar"].then === "function"
                     ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
+                      $steps["goToCalendar"] = await $steps["goToCalendar"];
                     }
                   }}
                 >

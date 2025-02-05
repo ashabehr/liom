@@ -841,6 +841,8 @@
 .img__vKrv {
   object-fit: cover;
   max-width: 100%;
+  width: 100%;
+  min-width: 0;
 }
 .img__vKrv > picture > img {
   object-fit: cover;
@@ -1055,10 +1057,11 @@
   flex-direction: column;
   position: relative;
   width: 100%;
-  height: auto;
+  height: 200px;
   max-width: 100%;
   background: var(--token-R_Rsn0nP9oIv);
   min-width: 0;
+  flex-shrink: 0;
   padding: 16px;
 }
 .freeBox__wvtzn > :global(.__wab_flex-container) {
@@ -1078,6 +1081,12 @@
   > picture
   > img {
   margin-top: 12px;
+}
+@media (max-width: 640px) {
+  .freeBox__wvtzn {
+    height: 180px;
+    flex-shrink: 0;
+  }
 }
 .freeBox__i1DH {
   display: flex;

@@ -1588,14 +1588,26 @@ function PlasmicShop__RenderFunc(props: {
                   displayMaxWidth={"100%"}
                   displayMinHeight={"0"}
                   displayMinWidth={"0"}
-                  displayWidth={"auto"}
+                  displayWidth={"100%"}
                   loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image70.svg",
-                    fullWidth: 457,
-                    fullHeight: 172,
-                    aspectRatio: 2.656977
-                  }}
+                  src={(() => {
+                    try {
+                      return $state.getData.data.result.infoBox.image;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return {
+                          src: "/plasmic/liom_hamyar/images/image70.svg",
+                          fullWidth: 457,
+                          fullHeight: 172,
+                          aspectRatio: 2.656977
+                        };
+                      }
+                      throw e;
+                    }
+                  })()}
                 />
 
                 <div className={classNames(projectcss.all, sty.freeBox__ugHiK)}>
@@ -1906,26 +1918,26 @@ function PlasmicShop__RenderFunc(props: {
                                 80
                               ) {
                                 $state.timer = false;
-                                if ($state.index < $state.comments.length - 1) {
-                                  run();
-                                  $state.index++;
-                                } else {
-                                  run();
-                                  $state.index = 0;
-                                }
+                                run();
+                                setTimeout(() => {
+                                  $state.index =
+                                    $state.index < $state.comments.length - 1
+                                      ? $state.index + 1
+                                      : 0;
+                                }, 400);
                               } else if (
                                 $state.startX -
                                   event.changedTouches[0].clientX >
                                 80
                               ) {
                                 $state.timer = false;
-                                if ($state.index > 0) {
-                                  runReverse();
-                                  $state.index--;
-                                } else {
-                                  runReverse();
-                                  $state.index = $state.comments.length - 1;
-                                }
+                                runReverse();
+                                setTimeout(() => {
+                                  $state.index =
+                                    $state.index > 0
+                                      ? $state.index - 1
+                                      : $state.comments.length - 1;
+                                }, 400);
                               }
                               function run() {
                                 var comments =
