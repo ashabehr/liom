@@ -515,6 +515,18 @@ function PlasmicShop__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "perper"
+      },
+      {
+        path: "variable2",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "takhfif",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -861,161 +873,187 @@ function PlasmicShop__RenderFunc(props: {
                             </div>
                           ) : null}
                         </div>
-                        <Stack__
-                          as={"div"}
-                          hasGap={true}
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__acAZy
-                          )}
-                        >
-                          <div
+                        {(() => {
+                          try {
+                            return $state.takhfif;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return true;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__xbsVz
+                              sty.freeBox__acAZy
                             )}
-                          >
-                            {(() => {
-                              const child$Props = {
-                                allowClear: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? false
-                                  : false,
-                                autoFocus: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? false
-                                  : false,
-                                bordered: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? false
-                                  : false,
-                                className: classNames(
-                                  "__wab_instance",
-                                  sty.input4
-                                ),
-                                disabled: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? false
-                                  : false,
-                                onChange: async (...eventArgs: any) => {
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "value",
-                                    ["input4", "value"],
-                                    AntdInput_Helpers
-                                  ).apply(null, eventArgs);
-                                },
-                                placeholder:
-                                  "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
-                                prefix: (
-                                  <Icon10Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg___1Nhl5
-                                    )}
-                                    role={"img"}
-                                  />
-                                ),
-
-                                readOnly: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? false
-                                  : false,
-                                size: hasVariant(
-                                  globalVariants,
-                                  "screen",
-                                  "mobile"
-                                )
-                                  ? "small"
-                                  : "small",
-                                suffix: null,
-                                value: generateStateValueProp($state, [
-                                  "input4",
-                                  "value"
-                                ])
-                              };
-                              initializeCodeComponentStates(
-                                $state,
-                                [
-                                  {
-                                    name: "value",
-                                    plasmicStateName: "input4.value"
-                                  }
-                                ],
-                                [],
-                                AntdInput_Helpers ?? {},
-                                child$Props
-                              );
-
-                              return (
-                                <AntdInput
-                                  data-plasmic-name={"input4"}
-                                  data-plasmic-override={overrides.input4}
-                                  {...child$Props}
-                                />
-                              );
-                            })()}
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__jwC0R
-                              )}
-                            />
-                          </div>
-                          <Button
-                            data-plasmic-name={"button12"}
-                            data-plasmic-override={overrides.button12}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.button12
-                            )}
-                            color={generateStateValueProp($state, [
-                              "button12",
-                              "color"
-                            ])}
-                            onColorChange={async (...eventArgs: any) => {
-                              ((...eventArgs) => {
-                                generateStateOnChangeProp($state, [
-                                  "button12",
-                                  "color"
-                                ])(eventArgs[0]);
-                              }).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }}
                           >
                             <div
                               className={classNames(
                                 projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__ehuQm
+                                sty.freeBox__xbsVz
                               )}
                             >
-                              {"\u062a\u0627\u06cc\u06cc\u062f"}
+                              {(() => {
+                                const child$Props = {
+                                  allowClear: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? false
+                                    : false,
+                                  autoFocus: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? false
+                                    : false,
+                                  bordered: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? false
+                                    : false,
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.input4
+                                  ),
+                                  disabled: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? false
+                                    : false,
+                                  onChange: async (...eventArgs: any) => {
+                                    generateStateOnChangePropForCodeComponents(
+                                      $state,
+                                      "value",
+                                      ["input4", "value"],
+                                      AntdInput_Helpers
+                                    ).apply(null, eventArgs);
+                                  },
+                                  placeholder:
+                                    "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
+                                  prefix: (
+                                    <Icon10Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg___1Nhl5
+                                      )}
+                                      role={"img"}
+                                    />
+                                  ),
+
+                                  readOnly: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? false
+                                    : false,
+                                  size: hasVariant(
+                                    globalVariants,
+                                    "screen",
+                                    "mobile"
+                                  )
+                                    ? "small"
+                                    : "small",
+                                  suffix: null,
+                                  value: generateStateValueProp($state, [
+                                    "input4",
+                                    "value"
+                                  ])
+                                };
+                                initializeCodeComponentStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "value",
+                                      plasmicStateName: "input4.value"
+                                    }
+                                  ],
+                                  [],
+                                  AntdInput_Helpers ?? {},
+                                  child$Props
+                                );
+
+                                return (
+                                  <AntdInput
+                                    data-plasmic-name={"input4"}
+                                    data-plasmic-override={overrides.input4}
+                                    {...child$Props}
+                                  />
+                                );
+                              })()}
                             </div>
-                          </Button>
-                        </Stack__>
+                            <Button
+                              data-plasmic-name={"button12"}
+                              data-plasmic-override={overrides.button12}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button12
+                              )}
+                              color={generateStateValueProp($state, [
+                                "button12",
+                                "color"
+                              ])}
+                              disabled={false}
+                              isDisabled={(() => {
+                                try {
+                                  return (
+                                    $state.input4.value == undefined ||
+                                    $state.input4.value == ""
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "isDisabled";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              onColorChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button12",
+                                    "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__ehuQm
+                                )}
+                              >
+                                {"\u062a\u0627\u06cc\u06cc\u062f"}
+                              </div>
+                            </Button>
+                          </Stack__>
+                        ) : null}
                         <div
                           className={classNames(
                             projectcss.all,
@@ -1071,55 +1109,69 @@ function PlasmicShop__RenderFunc(props: {
                               }
                             </div>
                           </Button>
-                          <Button
-                            data-plasmic-name={"button9"}
-                            data-plasmic-override={overrides.button9}
-                            className={classNames(
-                              "__wab_instance",
-                              sty.button9
-                            )}
-                            color={generateStateValueProp($state, [
-                              "button9",
-                              "color"
-                            ])}
-                            endIcon={
-                              <Icon12Icon
+                          {(() => {
+                            try {
+                              return !$state.shopSelected[0]?.badge;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <Button
+                              data-plasmic-name={"button9"}
+                              data-plasmic-override={overrides.button9}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.button9
+                              )}
+                              color={generateStateValueProp($state, [
+                                "button9",
+                                "color"
+                              ])}
+                              endIcon={
+                                <Icon12Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__yuFqx
+                                  )}
+                                  role={"img"}
+                                />
+                              }
+                              onColorChange={async (...eventArgs: any) => {
+                                ((...eventArgs) => {
+                                  generateStateOnChangeProp($state, [
+                                    "button9",
+                                    "color"
+                                  ])(eventArgs[0]);
+                                }).apply(null, eventArgs);
+
+                                if (
+                                  eventArgs.length > 1 &&
+                                  eventArgs[1] &&
+                                  eventArgs[1]._plasmic_state_init_
+                                ) {
+                                  return;
+                                }
+                              }}
+                            >
+                              <div
                                 className={classNames(
                                   projectcss.all,
-                                  sty.svg__yuFqx
+                                  projectcss.__wab_text,
+                                  sty.text__oqWiy
                                 )}
-                                role={"img"}
-                              />
-                            }
-                            onColorChange={async (...eventArgs: any) => {
-                              ((...eventArgs) => {
-                                generateStateOnChangeProp($state, [
-                                  "button9",
-                                  "color"
-                                ])(eventArgs[0]);
-                              }).apply(null, eventArgs);
-
-                              if (
-                                eventArgs.length > 1 &&
-                                eventArgs[1] &&
-                                eventArgs[1]._plasmic_state_init_
-                              ) {
-                                return;
-                              }
-                            }}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__oqWiy
-                              )}
-                            >
-                              {
-                                "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u0645"
-                              }
-                            </div>
-                          </Button>
+                              >
+                                {
+                                  "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u0645"
+                                }
+                              </div>
+                            </Button>
+                          ) : null}
                         </div>
                         {(() => {
                           try {

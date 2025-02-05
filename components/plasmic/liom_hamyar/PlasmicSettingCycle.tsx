@@ -250,7 +250,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return parseInt($ctx.query.length);
+              return parseInt($ctx.query.length || 0);
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -269,7 +269,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return parseInt($ctx.query.cycle);
+              return parseInt($ctx.query.cycle || 0);
             } catch (e) {
               if (
                 e instanceof TypeError ||
