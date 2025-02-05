@@ -111,6 +111,16 @@
       }
     },
     {
+      "name": "5",
+      "type": "spacing",
+      "value": "1.25rem",
+      "category": "spacing",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "1KusGK5GePTh"
+      }
+    },
+    {
       "name": "6",
       "type": "spacing",
       "value": "1.5rem",
@@ -2838,6 +2848,16 @@
       "meta": {
         "projectId": "6HBcNwr8dz9LuS1Qe36xa5",
         "id": "7E1YyiP6sAP9"
+      }
+    },
+    {
+      "name": "X Large",
+      "type": "fontsize",
+      "value": "1.25rem",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "JDv1HFq3SNmi"
       }
     },
     {

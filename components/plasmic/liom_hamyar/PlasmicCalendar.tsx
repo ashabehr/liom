@@ -68,8 +68,8 @@ import {
 
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
-import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 import Cyclebox from "../../Cyclebox"; // plasmic-import: 47YEdMGPo49m/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
@@ -99,6 +99,9 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicCalendar.module.css"; // plasmic-import: 1kOlF8ZxmgdR/css
 
+import Icon143Icon from "./icons/PlasmicIcon__Icon143"; // plasmic-import: 0Mqc9-aoNYUO/icon
+import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
+import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: boEzwrzcFMy4/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -134,6 +137,7 @@ export type PlasmicCalendar__OverridesType = {
   root?: Flex__<"div">;
   embedHtml?: Flex__<typeof Embed>;
   user?: Flex__<typeof ApiRequest>;
+  button?: Flex__<typeof Button>;
   button18?: Flex__<typeof Button>;
   cyclebox?: Flex__<typeof Cyclebox>;
   lineClomp?: Flex__<typeof LineClomp>;
@@ -1539,6 +1543,12 @@ function PlasmicCalendar__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ["softGreen", "line"]
       }
     ],
     [$props, $ctx, $refs]
@@ -1694,7 +1704,96 @@ function PlasmicCalendar__RenderFunc(props: {
               )
             })}
             config={{ headers: { "Content-Type": "application/json" } }}
-            errorDisplay={null}
+            errorDisplay={
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___4EuCj)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__gz1Y)}>
+                  <Icon143Icon
+                    className={classNames(projectcss.all, sty.svg__o1Nc)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xneyM
+                    )}
+                  >
+                    {
+                      "\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+                    }
+                  </div>
+                </div>
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
+                  color={generateStateValueProp($state, ["button", "color"])}
+                  endIcon={
+                    <Icon144Icon
+                      className={classNames(projectcss.all, sty.svg___7GWer)}
+                      role={"img"}
+                    />
+                  }
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["refreshData"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            queryInvalidation: ["plasmic_refresh_all"]
+                          };
+                          return (async ({ queryInvalidation }) => {
+                            if (!queryInvalidation) {
+                              return;
+                            }
+                            await plasmicInvalidate(queryInvalidation);
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["refreshData"] != null &&
+                      typeof $steps["refreshData"] === "object" &&
+                      typeof $steps["refreshData"].then === "function"
+                    ) {
+                      $steps["refreshData"] = await $steps["refreshData"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  shape={"rounded"}
+                  showEndIcon={true}
+                  size={"compact"}
+                  startIcon={
+                    <ChevronRightIcon
+                      className={classNames(projectcss.all, sty.svg__qt3Yv)}
+                      role={"img"}
+                    />
+                  }
+                >
+                  {
+                    "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
+                  }
+                </Button>
+              </Stack__>
+            }
             loadingDisplay={
               <div
                 className={classNames(projectcss.all, sty.freeBox__d6Bs2, {
@@ -1828,12 +1927,18 @@ function PlasmicCalendar__RenderFunc(props: {
                 </Stack__>
               </div>
             }
-            method={"GET"}
+            method={
+              hasVariant(globalVariants, "screen", "mobile") ? "GET" : "GET"
+            }
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["user", "error"]).apply(
                 null,
                 eventArgs
               );
+
+              (async error => {
+                const $steps = {};
+              }).apply(null, eventArgs);
             }}
             onLoading={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["user", "loading"]).apply(
@@ -1948,91 +2053,6 @@ function PlasmicCalendar__RenderFunc(props: {
                   $steps["updateName"] = await $steps["updateName"];
                 }
 
-                $steps["updateNext"] = (
-                  $state.user.data?.success ? $state.user.data.success : false
-                )
-                  ? (() => {
-                      const actionArgs = {
-                        variable: {
-                          objRoot: $state,
-                          variablePath: ["next"]
-                        },
-                        operation: 0,
-                        value: (() => {
-                          function getFormattedDate(userData) {
-                            var miladiDateStr = userData;
-                            var miladiDate = new Date(miladiDateStr);
-                            miladiDate.setDate(
-                              miladiDate.getDate() +
-                                $state.user.data.result.userStatus.cycle
-                            );
-                            var jalaaliDate =
-                              window.jalaali.toJalaali(miladiDate);
-                            var daysOfWeek = [
-                              "یکشنبه",
-                              "دوشنبه",
-                              "سه‌شنبه",
-                              "چهارشنبه",
-                              "پنج‌شنبه",
-                              "جمعه",
-                              "شنبه"
-                            ];
-
-                            var dayOfWeek = daysOfWeek[miladiDate.getDay()];
-                            var today = new Date();
-                            var timeDifference = miladiDate - today;
-                            var daysRemaining = Math.ceil(
-                              timeDifference / (1000 * 60 * 60 * 24)
-                            );
-                            return `${dayOfWeek}    ${jalaaliDate.jy}/${jalaaliDate.jm}/${jalaaliDate.jd} B(${daysRemaining} روز باقی‌مانده)`;
-                          }
-                          return [
-                            getFormattedDate(
-                              $state.user.data.result.userStatus.periodStart.split(
-                                "T"
-                              )[0]
-                            ),
-                            getFormattedDate(
-                              $state.user.data.result.userStatus.fertilityStart.split(
-                                "T"
-                              )[0]
-                            ),
-                            getFormattedDate(
-                              new Date(
-                                $state.user.data.result.userStatus.fertilityStart
-                              ).setDate(
-                                new Date(
-                                  $state.user.data.result.userStatus.fertilityStart
-                                ).getDate() + 3
-                              )
-                            )
-                          ];
-                        })()
-                      };
-                      return (({
-                        variable,
-                        value,
-                        startIndex,
-                        deleteCount
-                      }) => {
-                        if (!variable) {
-                          return;
-                        }
-                        const { objRoot, variablePath } = variable;
-
-                        $stateSet(objRoot, variablePath, value);
-                        return value;
-                      })?.apply(null, [actionArgs]);
-                    })()
-                  : undefined;
-                if (
-                  $steps["updateNext"] != null &&
-                  typeof $steps["updateNext"] === "object" &&
-                  typeof $steps["updateNext"].then === "function"
-                ) {
-                  $steps["updateNext"] = await $steps["updateNext"];
-                }
-
                 $steps["runCode"] = (
                   $state.user.data?.success ? $state.user.data.success : false
                 )
@@ -2064,6 +2084,91 @@ function PlasmicCalendar__RenderFunc(props: {
                   typeof $steps["runCode"].then === "function"
                 ) {
                   $steps["runCode"] = await $steps["runCode"];
+                }
+
+                $steps["updateNext"] =
+                  $state.user.data?.success &&
+                  $state.user?.data?.result?.userStatus != null
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["next"]
+                          },
+                          operation: 0,
+                          value: (() => {
+                            function getFormattedDate(userData) {
+                              var miladiDateStr = userData;
+                              var miladiDate = new Date(miladiDateStr);
+                              miladiDate.setDate(
+                                miladiDate.getDate() +
+                                  $state.user.data.result.userStatus.cycle
+                              );
+                              var jalaaliDate =
+                                window.jalaali.toJalaali(miladiDate);
+                              var daysOfWeek = [
+                                "یکشنبه",
+                                "دوشنبه",
+                                "سه‌شنبه",
+                                "چهارشنبه",
+                                "پنج‌شنبه",
+                                "جمعه",
+                                "شنبه"
+                              ];
+
+                              var dayOfWeek = daysOfWeek[miladiDate.getDay()];
+                              var today = new Date();
+                              var timeDifference = miladiDate - today;
+                              var daysRemaining = Math.ceil(
+                                timeDifference / (1000 * 60 * 60 * 24)
+                              );
+                              return `${dayOfWeek}    ${jalaaliDate.jy}/${jalaaliDate.jm}/${jalaaliDate.jd} B(${daysRemaining} روز باقی‌مانده)`;
+                            }
+                            return [
+                              getFormattedDate(
+                                $state.user.data.result.userStatus.periodStart.split(
+                                  "T"
+                                )[0]
+                              ),
+                              getFormattedDate(
+                                $state.user.data.result.userStatus.fertilityStart.split(
+                                  "T"
+                                )[0]
+                              ),
+                              getFormattedDate(
+                                new Date(
+                                  $state.user.data.result.userStatus.fertilityStart
+                                ).setDate(
+                                  new Date(
+                                    $state.user.data.result.userStatus.fertilityStart
+                                  ).getDate() + 3
+                                )
+                              )
+                            ];
+                          })()
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["updateNext"] != null &&
+                  typeof $steps["updateNext"] === "object" &&
+                  typeof $steps["updateNext"].then === "function"
+                ) {
+                  $steps["updateNext"] = await $steps["updateNext"];
                 }
 
                 $steps["updateLackOfCourseInformation"] =
@@ -2114,7 +2219,7 @@ function PlasmicCalendar__RenderFunc(props: {
             })()}
             url={
               hasVariant(globalVariants, "screen", "mobile")
-                ? "https://n8n.staas.ir/webhook/hamyar/privateCalenderV2"
+                ? "https://n8n.staas.ir/webhook/calendar/getData"
                 : "https://n8n.staas.ir/webhook/calendar/getData"
             }
           >
@@ -10045,7 +10150,19 @@ function PlasmicCalendar__RenderFunc(props: {
               )
                 ? true
                 : hasVariant(globalVariants, "screen", "mobile")
-                ? true
+                ? (() => {
+                    try {
+                      return $state.name != "";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
                 : (() => {
                     try {
                       return $state.name != "";
@@ -27843,6 +27960,7 @@ const PlasmicDescendants = {
     "root",
     "embedHtml",
     "user",
+    "button",
     "button18",
     "cyclebox",
     "lineClomp",
@@ -27885,6 +28003,7 @@ const PlasmicDescendants = {
   embedHtml: ["embedHtml"],
   user: [
     "user",
+    "button",
     "button18",
     "cyclebox",
     "lineClomp",
@@ -27906,6 +28025,7 @@ const PlasmicDescendants = {
     "tooltip",
     "heart"
   ],
+  button: ["button"],
   button18: ["button18"],
   cyclebox: ["cyclebox", "lineClomp", "progress"],
   lineClomp: ["lineClomp"],
@@ -27969,6 +28089,7 @@ type NodeDefaultElementType = {
   root: "div";
   embedHtml: typeof Embed;
   user: typeof ApiRequest;
+  button: typeof Button;
   button18: typeof Button;
   cyclebox: typeof Cyclebox;
   lineClomp: typeof LineClomp;
@@ -28096,6 +28217,7 @@ export const PlasmicCalendar = Object.assign(
     // Helper components rendering sub-elements
     embedHtml: makeNodeComponent("embedHtml"),
     user: makeNodeComponent("user"),
+    button: makeNodeComponent("button"),
     button18: makeNodeComponent("button18"),
     cyclebox: makeNodeComponent("cyclebox"),
     lineClomp: makeNodeComponent("lineClomp"),
