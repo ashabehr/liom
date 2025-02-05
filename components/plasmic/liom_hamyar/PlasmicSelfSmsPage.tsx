@@ -1424,45 +1424,67 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         </div>
                       </Button>
                     ) : null}
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___5ZwdQ
-                      )}
-                    >
-                      <React.Fragment>
+                    {(() => {
+                      try {
+                        return (() => {
+                          if (
+                            $state?.getSub?.data?.[0]?.result == null ||
+                            $state?.getSub?.data?.[0]?.result?.active == false
+                          )
+                            return false;
+                          else if ($state?.state == true) return true;
+                          else return false;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___5ZwdQ
+                        )}
+                      >
                         <React.Fragment>
-                          {
-                            "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 "
-                          }
+                          <React.Fragment>
+                            {
+                              "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u067e\u06cc\u0627\u0645\u06a9"}
+                          </span>
+                          <React.Fragment>
+                            {
+                              " \u0628\u0647\u062a \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0647  "
+                            }
+                          </React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"\u0641\u0639\u0627\u0644\u0634"}
+                          </span>
+                          <React.Fragment>
+                            {" \u06a9\u0646\ud83d\udc47"}
+                          </React.Fragment>
                         </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u067e\u06cc\u0627\u0645\u06a9"}
-                        </span>
-                        <React.Fragment>
-                          {
-                            " \u0628\u0647\u062a \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0647  "
-                          }
-                        </React.Fragment>
-                        <span
-                          className={
-                            "plasmic_default__all plasmic_default__span"
-                          }
-                          style={{ fontWeight: 700 }}
-                        >
-                          {"\u0641\u0639\u0627\u0644\u0634"}
-                        </span>
-                        <React.Fragment>
-                          {" \u06a9\u0646\ud83d\udc47"}
-                        </React.Fragment>
-                      </React.Fragment>
-                    </div>
+                      </div>
+                    ) : null}
                   </div>
                 ) : null}
                 {(() => {
