@@ -1432,15 +1432,15 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             $state?.getSub?.data?.[0]?.result?.active == false
                           )
                             return false;
-                          else if ($state?.state == true) return true;
-                          else return false;
+                          else if ($state?.state == true) return false;
+                          else return true;
                         })();
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return true;
+                          return false;
                         }
                         throw e;
                       }
