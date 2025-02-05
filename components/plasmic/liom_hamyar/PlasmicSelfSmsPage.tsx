@@ -67,6 +67,7 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import Countdown from "../../Countdown"; // plasmic-import: 1ruheQLCU5pc/component
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
 
@@ -96,9 +97,9 @@ export const PlasmicSelfSmsPage__ArgProps = new Array<ArgPropType>();
 export type PlasmicSelfSmsPage__OverridesType = {
   root?: Flex__<"div">;
   getSub?: Flex__<typeof ApiRequest>;
-  button?: Flex__<typeof Button>;
-  button3?: Flex__<typeof Button>;
+  countdown?: Flex__<typeof Countdown>;
   button2?: Flex__<typeof Button>;
+  button?: Flex__<typeof Button>;
   img?: Flex__<typeof PlasmicImg__>;
   lottie?: Flex__<typeof LottieWrapper>;
 };
@@ -214,31 +215,24 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => "red"
       },
       {
-        path: "button3.color",
+        path: "countdown.remainingSeconds",
         type: "private",
-        variableType: "text",
+        variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
-            try {
-              return (() => {
-                if ($state.getSub.loading) return "null";
-                else if (
-                  $state?.getSub?.data?.[0]?.result == null ||
-                  $state?.getSub?.data?.[0]?.result?.active == false
-                )
-                  return "green";
-                else if ($state.state == true) return "red";
-                else return "null";
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return [];
-              }
-              throw e;
-            }
+            let future_date = new Date(
+              $state.getSub.data[0].result.time.year,
+              $state.getSub.data[0].result.time.month - 1,
+              $state.getSub.data[0].result.time.day,
+              $state.getSub.data[0].result.time.hour,
+              $state.getSub.data[0].result.time.minute,
+              $state.getSub.data[0].result.time.second
+            );
+            let offset = 3.5 * 60 * 60 * 1000;
+            var expdate = future_date.setTime(future_date.getTime() + offset);
+            let current_date = new Date();
+            let delta = expdate - current_date;
+            return Math.floor(delta / 1000);
           })()
       }
     ],
@@ -777,6 +771,703 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                 {(() => {
                   try {
                     return (() => {
+                      if ($state.getSub.loading) return false;
+                      else if (
+                        $state?.getSub?.data?.[0]?.result == null ||
+                        $state?.getSub?.data?.[0]?.result?.active == false
+                      )
+                        return false;
+                      else if ($state.state == true) return true;
+                      else return true;
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__cm9TK)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__nDjGi)}
+                      style={(() => {
+                        try {
+                          return (() => {
+                            var thenDay;
+                            let future_date = new Date(
+                              $state.getSub.data[0].result.time.year,
+                              $state.getSub.data[0].result.time.month - 1,
+                              $state.getSub.data[0].result.time.day,
+                              $state.getSub.data[0].result.time.hour,
+                              $state.getSub.data[0].result.time.minute,
+                              $state.getSub.data[0].result.time.second
+                            );
+                            let offset = 3.5 * 60 * 60 * 1000;
+                            var expdate = future_date.setTime(
+                              future_date.getTime() + offset
+                            );
+                            let current_date = new Date();
+                            let delta = expdate - current_date;
+                            let tenDaysInMs = 10 * 24 * 60 * 60 * 1000;
+                            if (delta < tenDaysInMs) {
+                              thenDay = true;
+                            } else {
+                              thenDay = false;
+                            }
+                            return {
+                              boxShadow: `0 0px 4px 2px ${
+                                thenDay == false ? "#00C371" : "#EB464A"
+                              }`
+                            };
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    >
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__fyj3R
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__bTEuD
+                          )}
+                        />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__iEpf
+                          )}
+                        >
+                          {
+                            "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a."
+                          }
+                        </div>
+                      </Stack__>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__fX6Hp
+                        )}
+                      >
+                        {
+                          "\u0632\u0645\u0627\u0646 \u0627\u0639\u062a\u0628\u0627\u0631 \u0627\u0634\u062a\u0631\u0627\u06a9 :"
+                        }
+                      </div>
+                      {(() => {
+                        const child$Props = {
+                          className: classNames(
+                            "__wab_instance",
+                            sty.countdown
+                          ),
+                          color: (() => {
+                            try {
+                              return (() => {
+                                let future_date = new Date(
+                                  $state.getSub.data[0].result.time.year,
+                                  $state.getSub.data[0].result.time.month - 1,
+                                  $state.getSub.data[0].result.time.day,
+                                  $state.getSub.data[0].result.time.hour,
+                                  $state.getSub.data[0].result.time.minute,
+                                  $state.getSub.data[0].result.time.second
+                                );
+                                let offset = 3.5 * 60 * 60 * 1000;
+                                var expdate = future_date.setTime(
+                                  future_date.getTime() + offset
+                                );
+                                let current_date = new Date();
+                                let delta = expdate - current_date;
+                                let tenDaysInMs = 10 * 24 * 60 * 60 * 1000;
+                                if (delta < tenDaysInMs) {
+                                  return "red";
+                                } else {
+                                  return "green";
+                                }
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "green";
+                              }
+                              throw e;
+                            }
+                          })(),
+                          date: "dey",
+                          onRemainingSecondsChange: async (
+                            ...eventArgs: any
+                          ) => {
+                            generateStateOnChangeProp($state, [
+                              "countdown",
+                              "remainingSeconds"
+                            ]).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          },
+                          remainingSeconds: generateStateValueProp($state, [
+                            "countdown",
+                            "remainingSeconds"
+                          ])
+                        };
+
+                        initializePlasmicStates(
+                          $state,
+                          [
+                            {
+                              name: "countdown.remainingSeconds",
+                              initFunc: ({ $props, $state, $queries }) =>
+                                (() => {
+                                  let future_date = new Date(
+                                    $state.getSub.data[0].result.time.year,
+                                    $state.getSub.data[0].result.time.month - 1,
+                                    $state.getSub.data[0].result.time.day,
+                                    $state.getSub.data[0].result.time.hour,
+                                    $state.getSub.data[0].result.time.minute,
+                                    $state.getSub.data[0].result.time.second
+                                  );
+                                  let offset = 3.5 * 60 * 60 * 1000;
+                                  var expdate = future_date.setTime(
+                                    future_date.getTime() + offset
+                                  );
+                                  let current_date = new Date();
+                                  let delta = expdate - current_date;
+                                  return Math.floor(delta / 1000);
+                                })()
+                            }
+                          ],
+                          []
+                        );
+                        return (
+                          <Countdown
+                            data-plasmic-name={"countdown"}
+                            data-plasmic-override={overrides.countdown}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__uuqzz
+                      )}
+                    >
+                      {hasVariant(globalVariants, "screen", "mobile") ? (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                const today = new Date();
+                                let months =
+                                  today.getMonth() -
+                                  $state.getSub.data[0].result.time.month;
+                                let days =
+                                  today.getDate() -
+                                  $state.getSub.data[0].result.time.day;
+                                if (days < 0) {
+                                  months--;
+                                  const lastMonth = new Date(
+                                    today.getFullYear(),
+                                    today.getMonth(),
+                                    0
+                                  );
+                                  days += lastMonth.getDate();
+                                }
+                                if (months < 0) {
+                                  months += 12;
+                                }
+                                return (
+                                  "اشتراک شما تا " +
+                                  (months == 0 ? "" : months + " ماه") +
+                                  (days == 0 ? "" : days + " روز") +
+                                  " .آینده فعال است " +
+                                  "\n" +
+                                  "برای غیرفعال کردن پیامک به خود روی دکمه زیر کلیک کنید."
+                                );
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      ) : (
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                const today = new Date();
+                                let months =
+                                  today.getMonth() -
+                                  $state.getSub.data[0].result.time.month;
+                                let days =
+                                  today.getDate() -
+                                  $state.getSub.data[0].result.time.day;
+                                if (days < 0) {
+                                  months--;
+                                  const lastMonth = new Date(
+                                    today.getFullYear(),
+                                    today.getMonth(),
+                                    0
+                                  );
+                                  days += lastMonth.getDate();
+                                }
+                                if (months < 0) {
+                                  months += 12;
+                                }
+                                return (
+                                  "اشتراک شما تا " +
+                                  (months == 0 ? "" : months + " ماه") +
+                                  (days == 0 ? "" : days + " روز") +
+                                  " .آینده فعال است " +
+                                  "برای غیرفعال کردن پیامک به خود روی دکمه زیر کلیک کنید."
+                                );
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      )}
+                    </div>
+                    {(() => {
+                      try {
+                        return (() => {
+                          if ($state.getSub.loading) return false;
+                          else if (
+                            $state?.getSub?.data?.[0]?.result == null ||
+                            $state?.getSub?.data?.[0]?.result?.active == false
+                          )
+                            return false;
+                          else if ($state.state == true) return true;
+                          else return false;
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <Button
+                        data-plasmic-name={"button2"}
+                        data-plasmic-override={overrides.button2}
+                        className={classNames("__wab_instance", sty.button2)}
+                        color={generateStateValueProp($state, [
+                          "button2",
+                          "color"
+                        ])}
+                        loading={(() => {
+                          try {
+                            return $state.getSub.loading || $state.loading;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateLoading"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loading"]
+                                  },
+                                  operation: 4
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  const oldValue = $stateGet(
+                                    objRoot,
+                                    variablePath
+                                  );
+                                  $stateSet(objRoot, variablePath, !oldValue);
+                                  return !oldValue;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateLoading"] != null &&
+                            typeof $steps["updateLoading"] === "object" &&
+                            typeof $steps["updateLoading"].then === "function"
+                          ) {
+                            $steps["updateLoading"] = await $steps[
+                              "updateLoading"
+                            ];
+                          }
+
+                          $steps["runCode"] =
+                            $state?.getSub?.data?.[0]?.result == null ||
+                            $state?.getSub?.data?.[0]?.result?.active == false
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return window.FlutterChannel.postMessage(
+                                        "#directDialog-self_hamyar_sms"
+                                      );
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
+                          }
+
+                          $steps["invokeGlobalAction"] =
+                            $state?.state ?? false
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "POST",
+                                      "https://n8n.staas.ir/webhook/setSub",
+                                      undefined,
+                                      (() => {
+                                        try {
+                                          return {
+                                            Authorization: $ctx.query.token,
+                                            type: "selfHamyarSms",
+                                            data: false
+                                          };
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.apiRequest"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+
+                          $steps["updateButtonColor3"] = !(
+                            $state?.state ?? false
+                          )
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://n8n.staas.ir/webhook/setSub",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          Authorization: $ctx.query.token,
+                                          type: "selfHamyarSms",
+                                          data: true
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateButtonColor3"] != null &&
+                            typeof $steps["updateButtonColor3"] === "object" &&
+                            typeof $steps["updateButtonColor3"].then ===
+                              "function"
+                          ) {
+                            $steps["updateButtonColor3"] = await $steps[
+                              "updateButtonColor3"
+                            ];
+                          }
+
+                          $steps["updateLoading2"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loading"]
+                                  },
+                                  operation: 4
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  const oldValue = $stateGet(
+                                    objRoot,
+                                    variablePath
+                                  );
+                                  $stateSet(objRoot, variablePath, !oldValue);
+                                  return !oldValue;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateLoading2"] != null &&
+                            typeof $steps["updateLoading2"] === "object" &&
+                            typeof $steps["updateLoading2"].then === "function"
+                          ) {
+                            $steps["updateLoading2"] = await $steps[
+                              "updateLoading2"
+                            ];
+                          }
+
+                          $steps["updateState"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["state"]
+                                  },
+                                  operation: 4
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  const oldValue = $stateGet(
+                                    objRoot,
+                                    variablePath
+                                  );
+                                  $stateSet(objRoot, variablePath, !oldValue);
+                                  return !oldValue;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateState"] != null &&
+                            typeof $steps["updateState"] === "object" &&
+                            typeof $steps["updateState"].then === "function"
+                          ) {
+                            $steps["updateState"] = await $steps["updateState"];
+                          }
+
+                          $steps["wait"] = true
+                            ? (() => {
+                                const actionArgs = { args: [2000] };
+                                return $globalActions["Fragment.wait"]?.apply(
+                                  null,
+                                  [...actionArgs.args]
+                                );
+                              })()
+                            : undefined;
+                          if (
+                            $steps["wait"] != null &&
+                            typeof $steps["wait"] === "object" &&
+                            typeof $steps["wait"].then === "function"
+                          ) {
+                            $steps["wait"] = await $steps["wait"];
+                          }
+
+                          $steps["refreshData"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  queryInvalidation: ["plasmic_refresh_all"]
+                                };
+                                return (async ({ queryInvalidation }) => {
+                                  if (!queryInvalidation) {
+                                    return;
+                                  }
+                                  await plasmicInvalidate(queryInvalidation);
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["refreshData"] != null &&
+                            typeof $steps["refreshData"] === "object" &&
+                            typeof $steps["refreshData"].then === "function"
+                          ) {
+                            $steps["refreshData"] = await $steps["refreshData"];
+                          }
+                        }}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button2",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                        size={"minimal"}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__mO1E
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return " " + " غیرفعالسازی پیام به خود " + "  ";
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      </Button>
+                    ) : null}
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___5ZwdQ
+                      )}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>
+                          {
+                            "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u067e\u06cc\u0627\u0645\u06a9"}
+                        </span>
+                        <React.Fragment>
+                          {
+                            " \u0628\u0647\u062a \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0647  "
+                          }
+                        </React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ fontWeight: 700 }}
+                        >
+                          {"\u0641\u0639\u0627\u0644\u0634"}
+                        </span>
+                        <React.Fragment>
+                          {" \u06a9\u0646\ud83d\udc47"}
+                        </React.Fragment>
+                      </React.Fragment>
+                    </div>
+                  </div>
+                ) : null}
+                {(() => {
+                  try {
+                    return (() => {
                       if ($state.getSub.loading) return true;
                       else if (
                         $state?.getSub?.data?.[0]?.result == null ||
@@ -1119,736 +1810,6 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                   </Button>
-                ) : null}
-                {(() => {
-                  try {
-                    return (() => {
-                      if ($state.getSub.loading) return true;
-                      else if (
-                        $state?.getSub?.data?.[0]?.result == null ||
-                        $state?.getSub?.data?.[0]?.result?.active == false
-                      )
-                        return true;
-                      else if ($state.state == true) return false;
-                      else return true;
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <Button
-                    data-plasmic-name={"button3"}
-                    data-plasmic-override={overrides.button3}
-                    className={classNames("__wab_instance", sty.button3)}
-                    color={generateStateValueProp($state, ["button3", "color"])}
-                    loading={(() => {
-                      try {
-                        return $state.getSub.loading || $state.loading;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateLoading"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loading"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoading"] != null &&
-                        typeof $steps["updateLoading"] === "object" &&
-                        typeof $steps["updateLoading"].then === "function"
-                      ) {
-                        $steps["updateLoading"] = await $steps["updateLoading"];
-                      }
-
-                      $steps["runCode"] =
-                        $state?.getSub?.data?.[0]?.result == null ||
-                        $state?.getSub?.data?.[0]?.result?.active == false
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return window.FlutterChannel.postMessage(
-                                    "#directDialog-self_hamyar_sms"
-                                  );
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-
-                      $steps["invokeGlobalAction"] =
-                        $state?.state ?? false
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/setSub",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        Authorization: $ctx.query.token,
-                                        type: "selfHamyarSms",
-                                        data: false
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
-                        ];
-                      }
-
-                      $steps["updateButtonColor3"] = !($state?.state ?? false)
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/setSub",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      Authorization: $ctx.query.token,
-                                      type: "selfHamyarSms",
-                                      data: true
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateButtonColor3"] != null &&
-                        typeof $steps["updateButtonColor3"] === "object" &&
-                        typeof $steps["updateButtonColor3"].then === "function"
-                      ) {
-                        $steps["updateButtonColor3"] = await $steps[
-                          "updateButtonColor3"
-                        ];
-                      }
-
-                      $steps["updateLoading2"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["loading"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateLoading2"] != null &&
-                        typeof $steps["updateLoading2"] === "object" &&
-                        typeof $steps["updateLoading2"].then === "function"
-                      ) {
-                        $steps["updateLoading2"] = await $steps[
-                          "updateLoading2"
-                        ];
-                      }
-
-                      $steps["updateState"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["state"]
-                              },
-                              operation: 4
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              const oldValue = $stateGet(objRoot, variablePath);
-                              $stateSet(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateState"] != null &&
-                        typeof $steps["updateState"] === "object" &&
-                        typeof $steps["updateState"].then === "function"
-                      ) {
-                        $steps["updateState"] = await $steps["updateState"];
-                      }
-
-                      $steps["wait"] = true
-                        ? (() => {
-                            const actionArgs = { args: [2000] };
-                            return $globalActions["Fragment.wait"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["wait"] != null &&
-                        typeof $steps["wait"] === "object" &&
-                        typeof $steps["wait"].then === "function"
-                      ) {
-                        $steps["wait"] = await $steps["wait"];
-                      }
-
-                      $steps["refreshData"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              queryInvalidation: ["plasmic_refresh_all"]
-                            };
-                            return (async ({ queryInvalidation }) => {
-                              if (!queryInvalidation) {
-                                return;
-                              }
-                              await plasmicInvalidate(queryInvalidation);
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["refreshData"] != null &&
-                        typeof $steps["refreshData"] === "object" &&
-                        typeof $steps["refreshData"].then === "function"
-                      ) {
-                        $steps["refreshData"] = await $steps["refreshData"];
-                      }
-                    }}
-                    onColorChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, ["button3", "color"])(
-                          eventArgs[0]
-                        );
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___8Y3Cd
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (() => {
-                              if (
-                                $state?.getSub?.data?.[0]?.result == null ||
-                                $state?.getSub?.data?.[0]?.result?.active ==
-                                  false
-                              )
-                                return "خرید اشتراک ارسال پیامک به خود";
-                              else if ($state?.state == true)
-                                return "غیرفعالسازی پیام به خود";
-                              else return "فعالسازی پیام به خود";
-                            })();
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                  </Button>
-                ) : null}
-                {(() => {
-                  try {
-                    return (() => {
-                      if ($state.getSub.loading) return false;
-                      else if (
-                        $state?.getSub?.data?.[0]?.result == null ||
-                        $state?.getSub?.data?.[0]?.result?.active == false
-                      )
-                        return false;
-                      else if ($state.state == true) return true;
-                      else return false;
-                    })();
-                  } catch (e) {
-                    if (
-                      e instanceof TypeError ||
-                      e?.plasmicType === "PlasmicUndefinedDataError"
-                    ) {
-                      return false;
-                    }
-                    throw e;
-                  }
-                })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__cm9TK)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__uuqzz
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (
-                              "اشتراک شما تا " +
-                              $state.getSub.data[0].result.time +
-                              " فعال است"
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                    <Button
-                      data-plasmic-name={"button2"}
-                      data-plasmic-override={overrides.button2}
-                      className={classNames("__wab_instance", sty.button2)}
-                      color={generateStateValueProp($state, [
-                        "button2",
-                        "color"
-                      ])}
-                      loading={(() => {
-                        try {
-                          return $state.getSub.loading || $state.loading;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["updateLoading"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["loading"]
-                                },
-                                operation: 4
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                const oldValue = $stateGet(
-                                  objRoot,
-                                  variablePath
-                                );
-                                $stateSet(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateLoading"] != null &&
-                          typeof $steps["updateLoading"] === "object" &&
-                          typeof $steps["updateLoading"].then === "function"
-                        ) {
-                          $steps["updateLoading"] = await $steps[
-                            "updateLoading"
-                          ];
-                        }
-
-                        $steps["runCode"] =
-                          $state?.getSub?.data?.[0]?.result == null ||
-                          $state?.getSub?.data?.[0]?.result?.active == false
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return window.FlutterChannel.postMessage(
-                                      "#directDialog-self_hamyar_sms"
-                                    );
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
-                        }
-
-                        $steps["invokeGlobalAction"] =
-                          $state?.state ?? false
-                            ? (() => {
-                                const actionArgs = {
-                                  args: [
-                                    "POST",
-                                    "https://n8n.staas.ir/webhook/setSub",
-                                    undefined,
-                                    (() => {
-                                      try {
-                                        return {
-                                          Authorization: $ctx.query.token,
-                                          type: "selfHamyarSms",
-                                          data: false
-                                        };
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  ]
-                                };
-                                return $globalActions[
-                                  "Fragment.apiRequest"
-                                ]?.apply(null, [...actionArgs.args]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-
-                        $steps["updateButtonColor3"] = !($state?.state ?? false)
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/setSub",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        Authorization: $ctx.query.token,
-                                        type: "selfHamyarSms",
-                                        data: true
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateButtonColor3"] != null &&
-                          typeof $steps["updateButtonColor3"] === "object" &&
-                          typeof $steps["updateButtonColor3"].then ===
-                            "function"
-                        ) {
-                          $steps["updateButtonColor3"] = await $steps[
-                            "updateButtonColor3"
-                          ];
-                        }
-
-                        $steps["updateLoading2"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["loading"]
-                                },
-                                operation: 4
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                const oldValue = $stateGet(
-                                  objRoot,
-                                  variablePath
-                                );
-                                $stateSet(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateLoading2"] != null &&
-                          typeof $steps["updateLoading2"] === "object" &&
-                          typeof $steps["updateLoading2"].then === "function"
-                        ) {
-                          $steps["updateLoading2"] = await $steps[
-                            "updateLoading2"
-                          ];
-                        }
-
-                        $steps["updateState"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["state"]
-                                },
-                                operation: 4
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                const oldValue = $stateGet(
-                                  objRoot,
-                                  variablePath
-                                );
-                                $stateSet(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateState"] != null &&
-                          typeof $steps["updateState"] === "object" &&
-                          typeof $steps["updateState"].then === "function"
-                        ) {
-                          $steps["updateState"] = await $steps["updateState"];
-                        }
-
-                        $steps["wait"] = true
-                          ? (() => {
-                              const actionArgs = { args: [2000] };
-                              return $globalActions["Fragment.wait"]?.apply(
-                                null,
-                                [...actionArgs.args]
-                              );
-                            })()
-                          : undefined;
-                        if (
-                          $steps["wait"] != null &&
-                          typeof $steps["wait"] === "object" &&
-                          typeof $steps["wait"].then === "function"
-                        ) {
-                          $steps["wait"] = await $steps["wait"];
-                        }
-
-                        $steps["refreshData"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                queryInvalidation: ["plasmic_refresh_all"]
-                              };
-                              return (async ({ queryInvalidation }) => {
-                                if (!queryInvalidation) {
-                                  return;
-                                }
-                                await plasmicInvalidate(queryInvalidation);
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["refreshData"] != null &&
-                          typeof $steps["refreshData"] === "object" &&
-                          typeof $steps["refreshData"].then === "function"
-                        ) {
-                          $steps["refreshData"] = await $steps["refreshData"];
-                        }
-                      }}
-                      onColorChange={async (...eventArgs: any) => {
-                        ((...eventArgs) => {
-                          generateStateOnChangeProp($state, [
-                            "button2",
-                            "color"
-                          ])(eventArgs[0]);
-                        }).apply(null, eventArgs);
-
-                        if (
-                          eventArgs.length > 1 &&
-                          eventArgs[1] &&
-                          eventArgs[1]._plasmic_state_init_
-                        ) {
-                          return;
-                        }
-                      }}
-                      size={"minimal"}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__mO1E
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return " " + " غیرفعالسازی پیام به خود " + "  ";
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </Button>
-                  </div>
                 ) : null}
                 <PlasmicImg__
                   data-plasmic-name={"img"}
@@ -35836,11 +35797,11 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "getSub", "button", "button3", "button2", "img", "lottie"],
+  root: ["root", "getSub", "countdown", "button2", "button", "img", "lottie"],
   getSub: ["getSub"],
-  button: ["button"],
-  button3: ["button3"],
+  countdown: ["countdown"],
   button2: ["button2"],
+  button: ["button"],
   img: ["img"],
   lottie: ["lottie"]
 } as const;
@@ -35850,9 +35811,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   getSub: typeof ApiRequest;
-  button: typeof Button;
-  button3: typeof Button;
+  countdown: typeof Countdown;
   button2: typeof Button;
+  button: typeof Button;
   img: typeof PlasmicImg__;
   lottie: typeof LottieWrapper;
 };
@@ -35943,9 +35904,9 @@ export const PlasmicSelfSmsPage = Object.assign(
   {
     // Helper components rendering sub-elements
     getSub: makeNodeComponent("getSub"),
-    button: makeNodeComponent("button"),
-    button3: makeNodeComponent("button3"),
+    countdown: makeNodeComponent("countdown"),
     button2: makeNodeComponent("button2"),
+    button: makeNodeComponent("button"),
     img: makeNodeComponent("img"),
     lottie: makeNodeComponent("lottie"),
 
