@@ -104,6 +104,7 @@ export type PlasmicSettingCycle__OverridesType = {
   img?: Flex__<typeof PlasmicImg__>;
   dateOfBirthBox?: Flex__<typeof AntdInput>;
   lastTimeBox?: Flex__<typeof AntdInput>;
+  lastTimeBox3?: Flex__<typeof AntdInput>;
   lastTimeBox2?: Flex__<typeof AntdInput>;
   section?: Flex__<"section">;
   button3?: Flex__<typeof Button>;
@@ -117,6 +118,9 @@ export type PlasmicSettingCycle__OverridesType = {
   dialog3?: Flex__<typeof Dialog>;
   datePickers2?: Flex__<typeof DatePickers>;
   button5?: Flex__<typeof Button>;
+  dialog4?: Flex__<typeof Dialog>;
+  datePickers3?: Flex__<typeof DatePickers>;
+  button6?: Flex__<typeof Button>;
 };
 
 export interface DefaultSettingCycleProps {}
@@ -520,6 +524,75 @@ function PlasmicSettingCycle__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "nex",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "lastTimeBox3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if ($state.nex) {
+                  return "یادم نیست";
+                }
+                if ($state.lastTimeFa.data != "") {
+                  var gy = parseInt($state.lastTimeFa.gy);
+                  var gm = parseInt($state.lastTimeFa.gm);
+                  var gd = parseInt($state.lastTimeFa.gd);
+                  let months = new Array(
+                    "فروردين",
+                    "ارديبهشت",
+                    "خرداد",
+                    "تير",
+                    "مرداد",
+                    "شهريور",
+                    "مهر",
+                    "آبان",
+                    "آذر",
+                    "دي",
+                    "بهمن",
+                    "اسفند"
+                  );
+                  return gd + " " + months[gm - 1] + " " + gy;
+                }
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "dialog4.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "datePickers3.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "button6.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1762,6 +1835,139 @@ function PlasmicSettingCycle__RenderFunc(props: {
                 <div
                   className={classNames(
                     projectcss.all,
+                    sty.freeBox__vmKxn,
+                    hasVariant($state, "dark", "dark") ? "input-dark" : ``,
+                    {
+                      [sty.freeBoxdark__vmKxnO7WO5]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    }
+                  )}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateSlideinModalClick"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dialog3", "opendialog"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSlideinModalClick"] != null &&
+                      typeof $steps["updateSlideinModalClick"] === "object" &&
+                      typeof $steps["updateSlideinModalClick"].then ===
+                        "function"
+                    ) {
+                      $steps["updateSlideinModalClick"] = await $steps[
+                        "updateSlideinModalClick"
+                      ];
+                    }
+                  }}
+                >
+                  {(() => {
+                    const child$Props = {
+                      className: classNames(
+                        "__wab_instance",
+                        sty.lastTimeBox3,
+                        {
+                          [sty.lastTimeBox3dark]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      ),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["lastTimeBox3", "value"],
+                          AntdInput_Helpers
+                        ).apply(null, eventArgs);
+                      },
+                      placeholder:
+                        "\u0645\u062b\u0644\u0627   3 \u0627\u0633\u0641\u0646\u062f 1403",
+                      readOnly: true,
+                      value: generateStateValueProp($state, [
+                        "lastTimeBox3",
+                        "value"
+                      ])
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "value",
+                          plasmicStateName: "lastTimeBox3.value"
+                        }
+                      ],
+                      [],
+                      AntdInput_Helpers ?? {},
+                      child$Props
+                    );
+
+                    return (
+                      <AntdInput
+                        data-plasmic-name={"lastTimeBox3"}
+                        data-plasmic-override={overrides.lastTimeBox3}
+                        {...child$Props}
+                      />
+                    );
+                  })()}
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__g6Vq5, {
+                    [sty.freeBoxdark__g6Vq5O7WO5]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__iTRqe,
+                    {
+                      [sty.textdark__iTRqeO7WO5]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    }
+                  )}
+                >
+                  {
+                    "\u062d\u0627\u0644\u0627 \u06a9\u0647 \u06cc\u0627\u062f\u062a \u0646\u0645\u06cc\u0627\u062f \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0645\u06cc\u0634\u06cc\u060c \u0645\u06cc\u062f\u0648\u0646\u06cc \u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u06cc\u061f"
+                  }
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
                     sty.freeBox__znoYo,
                     hasVariant($state, "dark", "dark") ? "input-dark" : ``,
                     {
@@ -1780,7 +1986,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
                           const actionArgs = {
                             variable: {
                               objRoot: $state,
-                              variablePath: ["dialog3", "opendialog"]
+                              variablePath: ["dialog4", "opendialog"]
                             },
                             operation: 0,
                             value: true
@@ -1946,73 +2152,48 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         $steps["updateLoadbtn"] = await $steps["updateLoadbtn"];
                       }
 
-                      $steps["add"] = (() => {
-                        const lastDate = new Date(
-                          `${$state.lastTime.gy}-${String(
-                            $state.lastTime.gm
-                          ).padStart(2, "0")}-${String(
-                            $state.lastTime.gd
-                          ).padStart(2, "0")}`
-                        );
-                        const currentDate = new Date();
-                        const startOfCurrentMonth = new Date(
-                          currentDate.getFullYear(),
-                          currentDate.getMonth(),
-                          1
-                        );
-                        const endOfCurrentMonth = new Date(
-                          currentDate.getFullYear(),
-                          currentDate.getMonth() + 1,
-                          0
-                        );
-                        return (
-                          $ctx.query.type == "add" &&
-                          lastDate >= startOfCurrentMonth &&
-                          lastDate <= endOfCurrentMonth
-                        );
-                      })()
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/calendar/getData",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return {
-                                      cycle: $state.cycle,
-                                      length: $state.lengh,
-                                      last_time: `${
-                                        $state.lastTime.gy
-                                      }-${String($state.lastTime.gm).padStart(
-                                        2,
-                                        "0"
-                                      )}-${String($state.lastTime.gd).padStart(
-                                        2,
-                                        "0"
-                                      )}`,
-                                      type: $ctx.query.type,
-                                      authorization: $state.token
-                                    };
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
+                      $steps["add"] =
+                        $ctx.query.type == "add"
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/calendar/getData",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        cycle: $state.cycle,
+                                        length: $state.lengh,
+                                        last_time: `${
+                                          $state.lastTime.gy
+                                        }-${String($state.lastTime.gm).padStart(
+                                          2,
+                                          "0"
+                                        )}-${String(
+                                          $state.lastTime.gd
+                                        ).padStart(2, "0")}`,
+                                        type: $ctx.query.type,
+                                        authorization: $state.token
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                       if (
                         $steps["add"] != null &&
                         typeof $steps["add"] === "object" &&
@@ -2021,72 +2202,48 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         $steps["add"] = await $steps["add"];
                       }
 
-                      $steps["edit"] = (() => {
-                        const lastDate = new Date(
-                          `${$state.lastTime.gy}-${String(
-                            $state.lastTime.gm
-                          ).padStart(2, "0")}-${String(
-                            $state.lastTime.gd
-                          ).padStart(2, "0")}`
-                        );
-                        const currentDate = new Date();
-                        const startOfCurrentMonth = new Date(
-                          currentDate.getFullYear(),
-                          currentDate.getMonth(),
-                          1
-                        );
-                        const endOfCurrentMonth = new Date(
-                          currentDate.getFullYear(),
-                          currentDate.getMonth() + 1,
-                          0
-                        );
-                        return (
-                          $ctx.query.type == "edit" &&
-                          lastDate >= startOfCurrentMonth &&
-                          lastDate <= endOfCurrentMonth
-                        );
-                      })()
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "POST",
-                                "https://n8n.staas.ir/webhook/calendar/getData",
-                                undefined,
-                                (() => {
-                                  try {
-                                    return (() => {
-                                      $state.list.addCycle = $state.cycle;
-                                      $state.list.addLength = $state.lengh;
-                                      $state.list.period.start = {
-                                        year: $state.lastTime.gy,
-                                        month: $state.lastTime.gm,
-                                        day: $state.lastTime.gd
-                                      };
-                                      return {
-                                        type: $ctx.query.type,
-                                        authorization: $state.token,
-                                        calendar: $state.list
-                                      };
-                                    })();
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
+                      $steps["edit"] =
+                        $ctx.query.type == "edit"
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/calendar/getData",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return (() => {
+                                        $state.list.addCycle = $state.cycle;
+                                        $state.list.addLength = $state.lengh;
+                                        $state.list.period.start = {
+                                          year: $state.lastTime.gy,
+                                          month: $state.lastTime.gm,
+                                          day: $state.lastTime.gd
+                                        };
+                                        return {
+                                          type: $ctx.query.type,
+                                          authorization: $state.token,
+                                          calendar: $state.list
+                                        };
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
                                     }
-                                    throw e;
-                                  }
-                                })()
-                              ]
-                            };
-                            return $globalActions["Fragment.apiRequest"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
                       if (
                         $steps["edit"] != null &&
                         typeof $steps["edit"] === "object" &&
@@ -2117,54 +2274,6 @@ function PlasmicSettingCycle__RenderFunc(props: {
                       ) {
                         $steps["invokeGlobalAction2"] = await $steps[
                           "invokeGlobalAction2"
-                        ];
-                      }
-
-                      $steps["invokeGlobalAction3"] = (() => {
-                        const lastDate = new Date(
-                          `${$state.lastTime.gy}-${String(
-                            $state.lastTime.gm
-                          ).padStart(2, "0")}-${String(
-                            $state.lastTime.gd
-                          ).padStart(2, "0")}`
-                        );
-                        const currentDate = new Date();
-                        const startOfCurrentMonth = new Date(
-                          currentDate.getFullYear(),
-                          currentDate.getMonth(),
-                          1
-                        );
-                        const endOfCurrentMonth = new Date(
-                          currentDate.getFullYear(),
-                          currentDate.getMonth() + 1,
-                          0
-                        );
-                        return !(
-                          lastDate >= startOfCurrentMonth &&
-                          lastDate <= endOfCurrentMonth
-                        );
-                      })()
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "error",
-                                "\u062a\u0627\u0631\u06cc\u062e \u0631 \u0627 \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
-                                "top-center"
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["invokeGlobalAction3"] != null &&
-                        typeof $steps["invokeGlobalAction3"] === "object" &&
-                        typeof $steps["invokeGlobalAction3"].then === "function"
-                      ) {
-                        $steps["invokeGlobalAction3"] = await $steps[
-                          "invokeGlobalAction3"
                         ];
                       }
 
@@ -2868,23 +2977,57 @@ function PlasmicSettingCycle__RenderFunc(props: {
                 }
               )}
             >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__woo76
+                )}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              $state.nex = true;
+                              return ($state.dialog3.opendialog = false);
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+              >
+                {
+                  "\u0646\u0645\u06cc\u062f\u0648\u0646\u0645 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0645\u06cc\u0634\u0645\u060c \u062f\u0648\u0631\u0647 \u0642\u0628\u0644\u06cc \u0648 \u0648\u0627\u0631\u062f \u0645\u06cc\u06a9\u0646\u0645."
+                }
+              </div>
               <DatePickers
                 data-plasmic-name={"datePickers2"}
                 data-plasmic-override={overrides.datePickers2}
                 SelectedDay={(() => {
-                  if ($state.typeInterDate == "lastTime")
-                    return $state.lastTime.day;
-                  else return $state.lengh.day;
+                  const today = new Date();
+                  return window.jalaali.toJalaali(today).jd;
                 })()}
                 SelectedMonth={(() => {
-                  if ($state.typeInterDate == "lastTime")
-                    return $state.lastTime.month;
-                  else return $state.lengh.month;
+                  const today = new Date();
+                  return window.jalaali.toJalaali(today).jm;
                 })()}
                 SelectedYear={(() => {
-                  if ($state.typeInterDate == "lastTime")
-                    return $state.lastTime.year;
-                  else return $state.lengh.year;
+                  const today = new Date();
+                  return window.jalaali.toJalaali(today).jy;
                 })()}
                 className={classNames("__wab_instance", sty.datePickers2)}
                 customYears={[
@@ -2912,7 +3055,70 @@ function PlasmicSettingCycle__RenderFunc(props: {
                 onClick={async event => {
                   const $steps = {};
 
-                  $steps["updateLastTime"] = true
+                  $steps["invokeGlobalAction"] = (() => {
+                    const { year, month, day } = $state.datePickers2.value;
+                    const gregorianDate = window.jalaali.toGregorian(
+                      year,
+                      month,
+                      day
+                    );
+                    const lastDate = new Date(
+                      gregorianDate.gy,
+                      gregorianDate.gm - 1,
+                      gregorianDate.gd
+                    );
+                    const currentDate = new Date();
+                    const yesterday = new Date();
+                    yesterday.setDate(currentDate.getDate() - 1);
+                    const oneMonthLater = new Date();
+                    oneMonthLater.setMonth(currentDate.getMonth() + 1);
+                    return !(
+                      lastDate >= yesterday && lastDate <= oneMonthLater
+                    );
+                  })()
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "error",
+                            "\u062a\u0627\u0631\u06cc\u062e \u0631\u0627 \u062f\u0631 \u0628\u0627\u0632\u0647 \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
+                            "top-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
+                  $steps["updateLastTime"] = (() => {
+                    const { year, month, day } = $state.datePickers2.value;
+                    const gregorianDate = window.jalaali.toGregorian(
+                      year,
+                      month,
+                      day
+                    );
+                    const lastDate = new Date(
+                      gregorianDate.gy,
+                      gregorianDate.gm - 1,
+                      gregorianDate.gd
+                    );
+                    const currentDate = new Date();
+                    const yesterday = new Date();
+                    yesterday.setDate(currentDate.getDate() - 1);
+                    const oneMonthLater = new Date();
+                    oneMonthLater.setMonth(currentDate.getMonth() + 1);
+                    return lastDate >= yesterday && lastDate <= oneMonthLater;
+                  })()
                     ? (() => {
                         const actionArgs = {
                           variable: {
@@ -2950,7 +3156,25 @@ function PlasmicSettingCycle__RenderFunc(props: {
                     $steps["updateLastTime"] = await $steps["updateLastTime"];
                   }
 
-                  $steps["updateLastTimeFa"] = true
+                  $steps["updateLastTimeFa"] = (() => {
+                    const { year, month, day } = $state.datePickers2.value;
+                    const gregorianDate = window.jalaali.toGregorian(
+                      year,
+                      month,
+                      day
+                    );
+                    const lastDate = new Date(
+                      gregorianDate.gy,
+                      gregorianDate.gm - 1,
+                      gregorianDate.gd
+                    );
+                    const currentDate = new Date();
+                    const yesterday = new Date();
+                    yesterday.setDate(currentDate.getDate() - 1);
+                    const oneMonthLater = new Date();
+                    oneMonthLater.setMonth(currentDate.getMonth() + 1);
+                    return lastDate >= yesterday && lastDate <= oneMonthLater;
+                  })()
                     ? (() => {
                         const actionArgs = {
                           variable: {
@@ -2990,7 +3214,25 @@ function PlasmicSettingCycle__RenderFunc(props: {
                     ];
                   }
 
-                  $steps["updateSlideinModalClick"] = true
+                  $steps["updateSlideinModalClick"] = (() => {
+                    const { year, month, day } = $state.datePickers2.value;
+                    const gregorianDate = window.jalaali.toGregorian(
+                      year,
+                      month,
+                      day
+                    );
+                    const lastDate = new Date(
+                      gregorianDate.gy,
+                      gregorianDate.gm - 1,
+                      gregorianDate.gd
+                    );
+                    const currentDate = new Date();
+                    const yesterday = new Date();
+                    yesterday.setDate(currentDate.getDate() - 1);
+                    const oneMonthLater = new Date();
+                    oneMonthLater.setMonth(currentDate.getMonth() + 1);
+                    return lastDate >= yesterday && lastDate <= oneMonthLater;
+                  })()
                     ? (() => {
                         const actionArgs = {
                           variable: {
@@ -3098,6 +3340,372 @@ function PlasmicSettingCycle__RenderFunc(props: {
               </div>
             </div>
           </Dialog>
+          <Dialog
+            data-plasmic-name={"dialog4"}
+            data-plasmic-override={overrides.dialog4}
+            className={classNames("__wab_instance", sty.dialog4)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "dialog4",
+                "opendialog"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, [
+              "dialog4",
+              "opendialog"
+            ])}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__hPdI
+              )}
+            >
+              {
+                "\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639 \u0622\u062e\u0631\u06cc\u0646 \u062f\u0648\u0631\u0647 \u067e\u0631\u06cc\u0648\u062f\u06cc"
+              }
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                sty.freeBox__t3Rdj,
+                hasVariant($state, "dark", "dark") ? "picker-dark" : ``,
+                {
+                  [sty.freeBoxdark__t3RdjO7WO5]: hasVariant(
+                    $state,
+                    "dark",
+                    "dark"
+                  )
+                }
+              )}
+            >
+              <DatePickers
+                data-plasmic-name={"datePickers3"}
+                data-plasmic-override={overrides.datePickers3}
+                SelectedDay={(() => {
+                  const today = new Date();
+                  return window.jalaali.toJalaali(today).jd;
+                })()}
+                SelectedMonth={(() => {
+                  const today = new Date();
+                  return window.jalaali.toJalaali(today).jm;
+                })()}
+                SelectedYear={(() => {
+                  const today = new Date();
+                  return window.jalaali.toJalaali(today).jy;
+                })()}
+                className={classNames("__wab_instance", sty.datePickers3)}
+                customYears={[
+                  { value: 1403, label: "1403" },
+                  { value: 1404, label: "1404" }
+                ]}
+                onChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "datePickers3",
+                    "value"
+                  ]).apply(null, eventArgs);
+                }}
+                selectedValues={generateStateValueProp($state, [
+                  "datePickers3",
+                  "value"
+                ])}
+              />
+            </div>
+            <div className={classNames(projectcss.all, sty.freeBox__uzYEx)}>
+              <Button
+                data-plasmic-name={"button6"}
+                data-plasmic-override={overrides.button6}
+                className={classNames("__wab_instance", sty.button6)}
+                color={generateStateValueProp($state, ["button6", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["invokeGlobalAction"] = (() => {
+                    const { year, month, day } = $state.datePickers3.value;
+                    const gregorianDate = window.jalaali.toGregorian(
+                      year,
+                      month,
+                      day
+                    );
+                    const lastDate = new Date(
+                      gregorianDate.gy,
+                      gregorianDate.gm - 1,
+                      gregorianDate.gd
+                    );
+                    const currentDate = new Date();
+                    const oneMonthAgo = new Date();
+                    oneMonthAgo.setMonth(currentDate.getMonth() - 1);
+                    return !(
+                      lastDate >= oneMonthAgo && lastDate <= currentDate
+                    );
+                  })()
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            undefined,
+                            "\u062a\u0627\u0631\u06cc\u062e \u0631\u0627 \u062f\u0631 \u0628\u0627\u0632\u0647 \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
+                            "top-center"
+                          ]
+                        };
+                        return $globalActions["Fragment.showToast"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
+                  if (
+                    $steps["invokeGlobalAction"] != null &&
+                    typeof $steps["invokeGlobalAction"] === "object" &&
+                    typeof $steps["invokeGlobalAction"].then === "function"
+                  ) {
+                    $steps["invokeGlobalAction"] = await $steps[
+                      "invokeGlobalAction"
+                    ];
+                  }
+
+                  $steps["updateLastTime"] = (() => {
+                    const { year, month, day } = $state.datePickers3.value;
+                    const gregorianDate = window.jalaali.toGregorian(
+                      year,
+                      month,
+                      day
+                    );
+                    const lastDate = new Date(
+                      gregorianDate.gy,
+                      gregorianDate.gm - 1,
+                      gregorianDate.gd
+                    );
+                    const currentDate = new Date();
+                    const oneMonthAgo = new Date();
+                    oneMonthAgo.setMonth(currentDate.getMonth() - 1);
+                    return lastDate >= oneMonthAgo && lastDate <= currentDate;
+                  })()
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["lastTime"]
+                          },
+                          operation: 0,
+                          value: window.jalaali.toGregorian(
+                            $state.datePickers3.value.year,
+                            $state.datePickers3.value.month,
+                            $state.datePickers3.value.day
+                          )
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLastTime"] != null &&
+                    typeof $steps["updateLastTime"] === "object" &&
+                    typeof $steps["updateLastTime"].then === "function"
+                  ) {
+                    $steps["updateLastTime"] = await $steps["updateLastTime"];
+                  }
+
+                  $steps["updateLastTimeFa"] = (() => {
+                    const { year, month, day } = $state.datePickers3.value;
+                    const gregorianDate = window.jalaali.toGregorian(
+                      year,
+                      month,
+                      day
+                    );
+                    const lastDate = new Date(
+                      gregorianDate.gy,
+                      gregorianDate.gm - 1,
+                      gregorianDate.gd
+                    );
+                    const currentDate = new Date();
+                    const oneMonthAgo = new Date();
+                    oneMonthAgo.setMonth(currentDate.getMonth() - 1);
+                    return lastDate >= oneMonthAgo && lastDate <= currentDate;
+                  })()
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["lastTimeFa"]
+                          },
+                          operation: 0,
+                          value: {
+                            gd: $state.datePickers3.value.day,
+                            gm: $state.datePickers3.value.month,
+                            gy: $state.datePickers3.value.year
+                          }
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateLastTimeFa"] != null &&
+                    typeof $steps["updateLastTimeFa"] === "object" &&
+                    typeof $steps["updateLastTimeFa"].then === "function"
+                  ) {
+                    $steps["updateLastTimeFa"] = await $steps[
+                      "updateLastTimeFa"
+                    ];
+                  }
+
+                  $steps["updateSlideinModalClick"] = (() => {
+                    const { year, month, day } = $state.datePickers3.value;
+                    const gregorianDate = window.jalaali.toGregorian(
+                      year,
+                      month,
+                      day
+                    );
+                    const lastDate = new Date(
+                      gregorianDate.gy,
+                      gregorianDate.gm - 1,
+                      gregorianDate.gd
+                    );
+                    const currentDate = new Date();
+                    const oneMonthAgo = new Date();
+                    oneMonthAgo.setMonth(currentDate.getMonth() - 1);
+                    return lastDate >= oneMonthAgo && lastDate <= currentDate;
+                  })()
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dialog4", "opendialog"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSlideinModalClick"] != null &&
+                    typeof $steps["updateSlideinModalClick"] === "object" &&
+                    typeof $steps["updateSlideinModalClick"].then === "function"
+                  ) {
+                    $steps["updateSlideinModalClick"] = await $steps[
+                      "updateSlideinModalClick"
+                    ];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button6", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              >
+                {"\u062a\u0627\u06cc\u06cc\u062f"}
+              </Button>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__e9Rhy)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateSlideinModalClick"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dialog4", "opendialog"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateSlideinModalClick"] != null &&
+                    typeof $steps["updateSlideinModalClick"] === "object" &&
+                    typeof $steps["updateSlideinModalClick"].then === "function"
+                  ) {
+                    $steps["updateSlideinModalClick"] = await $steps[
+                      "updateSlideinModalClick"
+                    ];
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__kLyCw
+                  )}
+                >
+                  {"\u0628\u0633\u062a\u0646"}
+                </div>
+              </div>
+            </div>
+          </Dialog>
         </div>
       </div>
     </React.Fragment>
@@ -3110,6 +3718,7 @@ const PlasmicDescendants = {
     "img",
     "dateOfBirthBox",
     "lastTimeBox",
+    "lastTimeBox3",
     "lastTimeBox2",
     "section",
     "button3",
@@ -3122,11 +3731,15 @@ const PlasmicDescendants = {
     "button4",
     "dialog3",
     "datePickers2",
-    "button5"
+    "button5",
+    "dialog4",
+    "datePickers3",
+    "button6"
   ],
   img: ["img"],
   dateOfBirthBox: ["dateOfBirthBox"],
   lastTimeBox: ["lastTimeBox"],
+  lastTimeBox3: ["lastTimeBox3"],
   lastTimeBox2: ["lastTimeBox2"],
   section: ["section", "button3"],
   button3: ["button3"],
@@ -3139,7 +3752,10 @@ const PlasmicDescendants = {
   button4: ["button4"],
   dialog3: ["dialog3", "datePickers2", "button5"],
   datePickers2: ["datePickers2"],
-  button5: ["button5"]
+  button5: ["button5"],
+  dialog4: ["dialog4", "datePickers3", "button6"],
+  datePickers3: ["datePickers3"],
+  button6: ["button6"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -3149,6 +3765,7 @@ type NodeDefaultElementType = {
   img: typeof PlasmicImg__;
   dateOfBirthBox: typeof AntdInput;
   lastTimeBox: typeof AntdInput;
+  lastTimeBox3: typeof AntdInput;
   lastTimeBox2: typeof AntdInput;
   section: "section";
   button3: typeof Button;
@@ -3162,6 +3779,9 @@ type NodeDefaultElementType = {
   dialog3: typeof Dialog;
   datePickers2: typeof DatePickers;
   button5: typeof Button;
+  dialog4: typeof Dialog;
+  datePickers3: typeof DatePickers;
+  button6: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3252,6 +3872,7 @@ export const PlasmicSettingCycle = Object.assign(
     img: makeNodeComponent("img"),
     dateOfBirthBox: makeNodeComponent("dateOfBirthBox"),
     lastTimeBox: makeNodeComponent("lastTimeBox"),
+    lastTimeBox3: makeNodeComponent("lastTimeBox3"),
     lastTimeBox2: makeNodeComponent("lastTimeBox2"),
     section: makeNodeComponent("section"),
     button3: makeNodeComponent("button3"),
@@ -3265,6 +3886,9 @@ export const PlasmicSettingCycle = Object.assign(
     dialog3: makeNodeComponent("dialog3"),
     datePickers2: makeNodeComponent("datePickers2"),
     button5: makeNodeComponent("button5"),
+    dialog4: makeNodeComponent("dialog4"),
+    datePickers3: makeNodeComponent("datePickers3"),
+    button6: makeNodeComponent("button6"),
 
     // Metadata about props expected for PlasmicSettingCycle
     internalVariantProps: PlasmicSettingCycle__VariantProps,

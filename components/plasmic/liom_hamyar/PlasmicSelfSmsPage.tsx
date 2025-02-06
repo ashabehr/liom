@@ -1556,56 +1556,18 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         $steps["updateLoading"] = await $steps["updateLoading"];
                       }
 
-                      $steps["updateNeedToRefresh"] =
-                        $state?.getSub?.data?.[0]?.result == null ||
-                        $state?.getSub?.data?.[0]?.result?.active == false
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["needToRefresh"]
-                                },
-                                operation: 4
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                const oldValue = $stateGet(
-                                  objRoot,
-                                  variablePath
-                                );
-                                $stateSet(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                      if (
-                        $steps["updateNeedToRefresh"] != null &&
-                        typeof $steps["updateNeedToRefresh"] === "object" &&
-                        typeof $steps["updateNeedToRefresh"].then === "function"
-                      ) {
-                        $steps["updateNeedToRefresh"] = await $steps[
-                          "updateNeedToRefresh"
-                        ];
-                      }
-
                       $steps["runCode"] =
                         $state?.getSub?.data?.[0]?.result == null ||
                         $state?.getSub?.data?.[0]?.result?.active == false
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return window.FlutterChannel.postMessage(
-                                    "#directDialog-self_hamyar_sms"
-                                  );
+                                  return (() => {
+                                    $state.needToRefresh = true;
+                                    return window.FlutterChannel.postMessage(
+                                      "#directDialog-self_hamyar_sms"
+                                    );
+                                  })();
                                 }
                               };
                               return (({ customFunction }) => {
@@ -1850,7 +1812,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
 
                 {(() => {
                   try {
-                    return $state.needToRefresh && $ctx.query.test == "true";
+                    return $state.needToRefresh;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||

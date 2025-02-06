@@ -4385,17 +4385,27 @@ function PlasmicLogin__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return (
-                                      $ctx.query.redirect_url +
-                                      "?token=" +
-                                      $$.uuid.v4().slice(0, 6) +
-                                      $state.loginData.result.token +
-                                      $$.uuid.v4().slice(10, 13) +
-                                      "&userId=" +
-                                      $$.uuid.v4().slice(0, 4) +
-                                      $state.loginData.result.userId +
-                                      $$.uuid.v4().slice(0, 4)
-                                    );
+                                    return (() => {
+                                      var baseUrl =
+                                        window.location.href.split(
+                                          "redirect_url="
+                                        )[1] || "";
+                                      var separator = baseUrl.includes("?")
+                                        ? "&token="
+                                        : "?token=";
+                                      var redirectUrl =
+                                        baseUrl +
+                                        separator +
+                                        $$.uuid.v4().slice(0, 6) +
+                                        ($state.loginData.result.token || "") +
+                                        $$.uuid.v4().slice(10, 13) +
+                                        "&userId=" +
+                                        $$.uuid.v4().slice(0, 4) +
+                                        ($state.loginData.result.userId || "") +
+                                        $$.uuid.v4().slice(0, 4);
+                                      console.log(redirectUrl);
+                                      return window.open(redirectUrl, "_self");
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -8788,17 +8798,32 @@ function PlasmicLogin__RenderFunc(props: {
                                 const actionArgs = {
                                   destination: (() => {
                                     try {
-                                      return (
-                                        $ctx.query.redirect_url +
-                                        "?token=" +
-                                        $$.uuid.v4().slice(0, 6) +
-                                        $state.loginData.result.token +
-                                        $$.uuid.v4().slice(10, 13) +
-                                        "&userId=" +
-                                        $$.uuid.v4().slice(0, 4) +
-                                        $state.loginData.result.userId +
-                                        $$.uuid.v4().slice(0, 4)
-                                      );
+                                      return (() => {
+                                        var baseUrl =
+                                          window.location.href.split(
+                                            "redirect_url="
+                                          )[1] || "";
+                                        var separator = baseUrl.includes("?")
+                                          ? "&token="
+                                          : "?token=";
+                                        var redirectUrl =
+                                          baseUrl +
+                                          separator +
+                                          $$.uuid.v4().slice(0, 6) +
+                                          ($state.loginData.result.token ||
+                                            "") +
+                                          $$.uuid.v4().slice(10, 13) +
+                                          "&userId=" +
+                                          $$.uuid.v4().slice(0, 4) +
+                                          ($state.loginData.result.userId ||
+                                            "") +
+                                          $$.uuid.v4().slice(0, 4);
+                                        console.log(redirectUrl);
+                                        return window.open(
+                                          redirectUrl,
+                                          "_self"
+                                        );
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -11013,17 +11038,27 @@ function PlasmicLogin__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return (
-                                      $ctx.query.redirect_url +
-                                      "?token=" +
-                                      $$.uuid.v4().slice(0, 6) +
-                                      $state.loginData.result.token +
-                                      $$.uuid.v4().slice(10, 13) +
-                                      "&userId=" +
-                                      $$.uuid.v4().slice(0, 4) +
-                                      $state.loginData.result.userId +
-                                      $$.uuid.v4().slice(0, 4)
-                                    );
+                                    return (() => {
+                                      var baseUrl =
+                                        window.location.href.split(
+                                          "redirect_url="
+                                        )[1] || "";
+                                      var separator = baseUrl.includes("?")
+                                        ? "&token="
+                                        : "?token=";
+                                      var redirectUrl =
+                                        baseUrl +
+                                        separator +
+                                        $$.uuid.v4().slice(0, 6) +
+                                        ($state.loginData.result.token || "") +
+                                        $$.uuid.v4().slice(10, 13) +
+                                        "&userId=" +
+                                        $$.uuid.v4().slice(0, 4) +
+                                        ($state.loginData.result.userId || "") +
+                                        $$.uuid.v4().slice(0, 4);
+                                      console.log(redirectUrl);
+                                      return window.open(redirectUrl, "_self");
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -12940,17 +12975,27 @@ function PlasmicLogin__RenderFunc(props: {
                               const actionArgs = {
                                 destination: (() => {
                                   try {
-                                    return (
-                                      $ctx.query.redirect_url +
-                                      "?token=" +
-                                      $$.uuid.v4().slice(0, 6) +
-                                      $state.loginData.result.token +
-                                      $$.uuid.v4().slice(10, 13) +
-                                      "&userId=" +
-                                      $$.uuid.v4().slice(0, 4) +
-                                      $state.loginData.result.userId +
-                                      $$.uuid.v4().slice(0, 4)
-                                    );
+                                    return (() => {
+                                      var baseUrl =
+                                        window.location.href.split(
+                                          "redirect_url="
+                                        )[1] || "";
+                                      var separator = baseUrl.includes("?")
+                                        ? "&token="
+                                        : "?token=";
+                                      var redirectUrl =
+                                        baseUrl +
+                                        separator +
+                                        $$.uuid.v4().slice(0, 6) +
+                                        ($state.loginData.result.token || "") +
+                                        $$.uuid.v4().slice(10, 13) +
+                                        "&userId=" +
+                                        $$.uuid.v4().slice(0, 4) +
+                                        ($state.loginData.result.userId || "") +
+                                        $$.uuid.v4().slice(0, 4);
+                                      console.log(redirectUrl);
+                                      return window.open(redirectUrl, "_self");
+                                    })();
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -14647,9 +14692,15 @@ function PlasmicLogin__RenderFunc(props: {
                       const actionArgs = {
                         customFunction: async () => {
                           return (() => {
+                            var baseUrl =
+                              window.location.href.split("redirect_url=")[1] ||
+                              "";
+                            var separator = baseUrl.includes("?")
+                              ? "&token="
+                              : "?token=";
                             var redirectUrl =
-                              $ctx.query.redirect_url +
-                              "?token=" +
+                              baseUrl +
+                              separator +
                               $$.uuid.v4().slice(0, 6) +
                               ($state.loginData.result.token || "") +
                               $$.uuid.v4().slice(10, 13) +
