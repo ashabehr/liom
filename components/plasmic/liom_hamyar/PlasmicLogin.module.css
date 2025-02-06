@@ -15627,7 +15627,8 @@
 .svg__uPqGf {
   object-fit: cover;
   max-width: 100%;
-  height: 1em;
+  width: 0px;
+  height: 0px;
   display: none;
 }
 .svgloginPage_name__uPqGfhUiKy {
