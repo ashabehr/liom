@@ -459,7 +459,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
                   gm: parseInt(a[1]),
                   gd: parseInt(a[2])
                 };
-                b = window.jalaali.toJalaali(a.gy, a.gm, a.gd);
+                var b = window.jalaali.toJalaali(a.gy, a.gm, a.gd);
                 return {
                   gy: b.jy,
                   gm: b.jm,
@@ -1946,55 +1946,73 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         $steps["updateLoadbtn"] = await $steps["updateLoadbtn"];
                       }
 
-                      $steps["add"] =
-                        $ctx.query.type == "add" &&
-                        new Date(
+                      $steps["add"] = (() => {
+                        const lastDate = new Date(
                           `${$state.lastTime.gy}-${String(
                             $state.lastTime.gm
                           ).padStart(2, "0")}-${String(
                             $state.lastTime.gd
                           ).padStart(2, "0")}`
-                        ) >= new Date()
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/calendar/getData",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        cycle: $state.cycle,
-                                        length: $state.lengh,
-                                        last_time: `${
-                                          $state.lastTime.gy
-                                        }-${String($state.lastTime.gm).padStart(
-                                          2,
-                                          "0"
-                                        )}-${String(
-                                          $state.lastTime.gd
-                                        ).padStart(2, "0")}`,
-                                        type: $ctx.query.type,
-                                        authorization: $state.token
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
+                        );
+                        const currentDate = new Date();
+                        const startOfCurrentMonth = new Date(
+                          currentDate.getFullYear(),
+                          currentDate.getMonth(),
+                          1
+                        );
+                        const endOfCurrentMonth = new Date(
+                          currentDate.getFullYear(),
+                          currentDate.getMonth() + 1,
+                          0
+                        );
+                        return (
+                          $ctx.query.type == "add" &&
+                          lastDate >= startOfCurrentMonth &&
+                          lastDate <= endOfCurrentMonth
+                        );
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/calendar/getData",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      cycle: $state.cycle,
+                                      length: $state.lengh,
+                                      last_time: `${
+                                        $state.lastTime.gy
+                                      }-${String($state.lastTime.gm).padStart(
+                                        2,
+                                        "0"
+                                      )}-${String($state.lastTime.gd).padStart(
+                                        2,
+                                        "0"
+                                      )}`,
+                                      type: $ctx.query.type,
+                                      authorization: $state.token
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                       if (
                         $steps["add"] != null &&
                         typeof $steps["add"] === "object" &&
@@ -2003,48 +2021,72 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         $steps["add"] = await $steps["add"];
                       }
 
-                      $steps["edit"] =
-                        $ctx.query.type == "edit"
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/calendar/getData",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return (() => {
-                                        $state.list.addCycle = $state.cycle;
-                                        $state.list.addLength = $state.lengh;
-                                        $state.list.period.start = {
-                                          year: $state.lastTime.gy,
-                                          month: $state.lastTime.gm,
-                                          day: $state.lastTime.gd
-                                        };
-                                        return {
-                                          type: $ctx.query.type,
-                                          authorization: $state.token,
-                                          calendar: $state.list
-                                        };
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
+                      $steps["edit"] = (() => {
+                        const lastDate = new Date(
+                          `${$state.lastTime.gy}-${String(
+                            $state.lastTime.gm
+                          ).padStart(2, "0")}-${String(
+                            $state.lastTime.gd
+                          ).padStart(2, "0")}`
+                        );
+                        const currentDate = new Date();
+                        const startOfCurrentMonth = new Date(
+                          currentDate.getFullYear(),
+                          currentDate.getMonth(),
+                          1
+                        );
+                        const endOfCurrentMonth = new Date(
+                          currentDate.getFullYear(),
+                          currentDate.getMonth() + 1,
+                          0
+                        );
+                        return (
+                          $ctx.query.type == "edit" &&
+                          lastDate >= startOfCurrentMonth &&
+                          lastDate <= endOfCurrentMonth
+                        );
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/calendar/getData",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return (() => {
+                                      $state.list.addCycle = $state.cycle;
+                                      $state.list.addLength = $state.lengh;
+                                      $state.list.period.start = {
+                                        year: $state.lastTime.gy,
+                                        month: $state.lastTime.gm,
+                                        day: $state.lastTime.gd
+                                      };
+                                      return {
+                                        type: $ctx.query.type,
+                                        authorization: $state.token,
+                                        calendar: $state.list
+                                      };
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                       if (
                         $steps["edit"] != null &&
                         typeof $steps["edit"] === "object" &&
@@ -2078,27 +2120,44 @@ function PlasmicSettingCycle__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["invokeGlobalAction3"] =
-                        new Date(
+                      $steps["invokeGlobalAction3"] = (() => {
+                        const lastDate = new Date(
                           `${$state.lastTime.gy}-${String(
                             $state.lastTime.gm
                           ).padStart(2, "0")}-${String(
                             $state.lastTime.gd
                           ).padStart(2, "0")}`
-                        ) < new Date()
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "error",
-                                  "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
-                                  "top-center"
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.showToast"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                        );
+                        const currentDate = new Date();
+                        const startOfCurrentMonth = new Date(
+                          currentDate.getFullYear(),
+                          currentDate.getMonth(),
+                          1
+                        );
+                        const endOfCurrentMonth = new Date(
+                          currentDate.getFullYear(),
+                          currentDate.getMonth() + 1,
+                          0
+                        );
+                        return !(
+                          lastDate >= startOfCurrentMonth &&
+                          lastDate <= endOfCurrentMonth
+                        );
+                      })()
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "error",
+                                "\u062a\u0627\u0631\u06cc\u062e \u0631 \u0627 \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
+                                "top-center"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                       if (
                         $steps["invokeGlobalAction3"] != null &&
                         typeof $steps["invokeGlobalAction3"] === "object" &&

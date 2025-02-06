@@ -234,6 +234,18 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
             let delta = expdate - current_date;
             return Math.floor(delta / 1000);
           })()
+      },
+      {
+        path: "variable",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "needToRefresh",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -393,26 +405,6 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     typeof $steps["updateState"].then === "function"
                   ) {
                     $steps["updateState"] = await $steps["updateState"];
-                  }
-
-                  $steps["runCode"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return console.log($state.getSub.data);
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode"] != null &&
-                    typeof $steps["runCode"] === "object" &&
-                    typeof $steps["runCode"].then === "function"
-                  ) {
-                    $steps["runCode"] = await $steps["runCode"];
                   }
 
                   $steps["invokeGlobalAction"] = true
@@ -1564,6 +1556,47 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         $steps["updateLoading"] = await $steps["updateLoading"];
                       }
 
+                      $steps["updateNeedToRefresh"] =
+                        $state?.getSub?.data?.[0]?.result == null ||
+                        $state?.getSub?.data?.[0]?.result?.active == false
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["needToRefresh"]
+                                },
+                                operation: 4
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                const oldValue = $stateGet(
+                                  objRoot,
+                                  variablePath
+                                );
+                                $stateSet(objRoot, variablePath, !oldValue);
+                                return !oldValue;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["updateNeedToRefresh"] != null &&
+                        typeof $steps["updateNeedToRefresh"] === "object" &&
+                        typeof $steps["updateNeedToRefresh"].then === "function"
+                      ) {
+                        $steps["updateNeedToRefresh"] = await $steps[
+                          "updateNeedToRefresh"
+                        ];
+                      }
+
                       $steps["runCode"] =
                         $state?.getSub?.data?.[0]?.result == null ||
                         $state?.getSub?.data?.[0]?.result?.active == false
@@ -1852,6 +1885,108 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     aspectRatio: 1
                   }}
                 />
+
+                {(() => {
+                  try {
+                    return $state.needToRefresh && $ctx.query.test == "true";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
+                    }
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__e7S9C
+                    )}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["runCode"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              customFunction: async () => {
+                                return (() => {
+                                  return fetch(
+                                    "https://n8n.staas.ir/webhook/sub",
+                                    {
+                                      method: "POST",
+                                      headers: {},
+                                      body: JSON.stringify({
+                                        Authorization:
+                                          $ctx.query.token ||
+                                          new URLSearchParams(
+                                            window.location.search
+                                          ).get("token"),
+                                        sub: "selfHamyarSmsSubStatus"
+                                      })
+                                    }
+                                  )
+                                    .then(response => {
+                                      $state.loading = false;
+                                      $state.state =
+                                        $state?.getSub?.data?.[0]?.result
+                                          ?.activateNotif ?? false;
+                                      return response.json();
+                                    })
+                                    .then(data => {
+                                      console.log("get sub");
+                                    })
+                                    .catch(error => {
+                                      console.error("Error3333:", error);
+                                    });
+                                })();
+                              }
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
+                      ) {
+                        $steps["runCode"] = await $steps["runCode"];
+                      }
+                    }}
+                  >
+                    <React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "var(--token-55cSeNPovQFh)" }}
+                      >
+                        {
+                          "\u0628\u0631\u0627\u06cc \u062f\u06cc\u062f\u0646 \u0646\u062a\u06cc\u062d\u0647 \u062e\u0631\u06cc\u062f "
+                        }
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{
+                          color: "var(--token-55cSeNPovQFh)",
+                          fontWeight: 700
+                        }}
+                      >
+                        {"\u0627\u06cc\u0646\u062c\u0627"}
+                      </span>
+                      <React.Fragment>{""}</React.Fragment>
+                      <span
+                        className={"plasmic_default__all plasmic_default__span"}
+                        style={{ color: "var(--token-55cSeNPovQFh)" }}
+                      >
+                        {" \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f >"}
+                      </span>
+                    </React.Fragment>
+                  </div>
+                ) : null}
               </div>
             </div>
             <LottieWrapper

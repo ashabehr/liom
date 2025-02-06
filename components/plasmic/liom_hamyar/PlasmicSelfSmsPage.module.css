@@ -415,6 +415,15 @@
 .img > picture > img {
   object-fit: cover;
 }
+.text__e7S9C {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  text-align: center;
+  padding-top: 12px;
+  text-decoration-line: none;
+}
 .lottie:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
