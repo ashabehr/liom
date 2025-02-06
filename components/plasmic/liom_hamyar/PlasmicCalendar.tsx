@@ -1631,6 +1631,7 @@ function PlasmicCalendar__RenderFunc(props: {
                             new URLSearchParams(window.location.search).get(
                               "token"
                             );
+                          app = app.slice(6, app.length - 3);
                           return localStorage.setItem("token", app);
                         }
                       })();
@@ -1955,32 +1956,6 @@ function PlasmicCalendar__RenderFunc(props: {
               (async data => {
                 const $steps = {};
 
-                $steps["goToExpired"] =
-                  $state.user?.data?.success == false
-                    ? (() => {
-                        const actionArgs = { destination: `/expired` };
-                        return (({ destination }) => {
-                          if (
-                            typeof destination === "string" &&
-                            destination.startsWith("#")
-                          ) {
-                            document
-                              .getElementById(destination.substr(1))
-                              .scrollIntoView({ behavior: "smooth" });
-                          } else {
-                            __nextRouter?.push(destination);
-                          }
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                if (
-                  $steps["goToExpired"] != null &&
-                  typeof $steps["goToExpired"] === "object" &&
-                  typeof $steps["goToExpired"].then === "function"
-                ) {
-                  $steps["goToExpired"] = await $steps["goToExpired"];
-                }
-
                 $steps["updateTokenUser"] = (
                   $state.user.data?.success ? $state.user.data.success : false
                 )
@@ -2199,6 +2174,32 @@ function PlasmicCalendar__RenderFunc(props: {
                   $steps["updateLackOfCourseInformation"] = await $steps[
                     "updateLackOfCourseInformation"
                   ];
+                }
+
+                $steps["goToExpired"] =
+                  $state.user?.data?.success == false
+                    ? (() => {
+                        const actionArgs = { destination: `/expired` };
+                        return (({ destination }) => {
+                          if (
+                            typeof destination === "string" &&
+                            destination.startsWith("#")
+                          ) {
+                            document
+                              .getElementById(destination.substr(1))
+                              .scrollIntoView({ behavior: "smooth" });
+                          } else {
+                            __nextRouter?.push(destination);
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                if (
+                  $steps["goToExpired"] != null &&
+                  typeof $steps["goToExpired"] === "object" &&
+                  typeof $steps["goToExpired"].then === "function"
+                ) {
+                  $steps["goToExpired"] = await $steps["goToExpired"];
                 }
               }).apply(null, eventArgs);
             }}
