@@ -1937,139 +1937,162 @@ function PlasmicSettingCycle__RenderFunc(props: {
                     );
                   })()}
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__g6Vq5, {
-                    [sty.freeBoxdark__g6Vq5O7WO5]: hasVariant(
-                      $state,
-                      "dark",
-                      "dark"
-                    )
-                  })}
-                />
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__iTRqe,
-                    {
-                      [sty.textdark__iTRqeO7WO5]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
-                >
-                  {
-                    "\u062d\u0627\u0644\u0627 \u06a9\u0647 \u06cc\u0627\u062f\u062a \u0646\u0645\u06cc\u0627\u062f \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0645\u06cc\u0634\u06cc\u060c \u0645\u06cc\u062f\u0648\u0646\u06cc \u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u06cc\u061f"
-                  }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__znoYo,
-                    hasVariant($state, "dark", "dark") ? "input-dark" : ``,
-                    {
-                      [sty.freeBoxdark__znoYoo7WO5]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateSlideinModalClick"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dialog4", "opendialog"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
+                {(() => {
+                  try {
+                    return $state.nex;
+                  } catch (e) {
                     if (
-                      $steps["updateSlideinModalClick"] != null &&
-                      typeof $steps["updateSlideinModalClick"] === "object" &&
-                      typeof $steps["updateSlideinModalClick"].then ===
-                        "function"
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
                     ) {
-                      $steps["updateSlideinModalClick"] = await $steps[
-                        "updateSlideinModalClick"
-                      ];
+                      return true;
                     }
-                  }}
-                >
-                  {(() => {
-                    const child$Props = {
-                      className: classNames(
-                        "__wab_instance",
-                        sty.lastTimeBox2,
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__qpfJr)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__g6Vq5,
                         {
-                          [sty.lastTimeBox2dark]: hasVariant(
+                          [sty.freeBoxdark__g6Vq5O7WO5]: hasVariant(
                             $state,
                             "dark",
                             "dark"
                           )
                         }
-                      ),
-                      onChange: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "value",
-                          ["lastTimeBox2", "value"],
-                          AntdInput_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      placeholder:
-                        "\u0645\u062b\u0644\u0627   3 \u0627\u0633\u0641\u0646\u062f 1403",
-                      readOnly: true,
-                      value: generateStateValueProp($state, [
-                        "lastTimeBox2",
-                        "value"
-                      ])
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "value",
-                          plasmicStateName: "lastTimeBox2.value"
-                        }
-                      ],
-                      [],
-                      AntdInput_Helpers ?? {},
-                      child$Props
-                    );
+                      )}
+                    />
 
-                    return (
-                      <AntdInput
-                        data-plasmic-name={"lastTimeBox2"}
-                        data-plasmic-override={overrides.lastTimeBox2}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
-                </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__iTRqe,
+                        {
+                          [sty.textdark__iTRqeO7WO5]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                    >
+                      {
+                        "\u062d\u0627\u0644\u0627 \u06a9\u0647 \u06cc\u0627\u062f\u062a \u0646\u0645\u06cc\u0627\u062f \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0645\u06cc\u0634\u06cc\u060c \u0645\u06cc\u062f\u0648\u0646\u06cc \u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u06cc\u061f"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__znoYo,
+                        hasVariant($state, "dark", "dark") ? "input-dark" : ``,
+                        {
+                          [sty.freeBoxdark__znoYoo7WO5]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateSlideinModalClick"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dialog4", "opendialog"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateSlideinModalClick"] != null &&
+                          typeof $steps["updateSlideinModalClick"] ===
+                            "object" &&
+                          typeof $steps["updateSlideinModalClick"].then ===
+                            "function"
+                        ) {
+                          $steps["updateSlideinModalClick"] = await $steps[
+                            "updateSlideinModalClick"
+                          ];
+                        }
+                      }}
+                    >
+                      {(() => {
+                        const child$Props = {
+                          className: classNames(
+                            "__wab_instance",
+                            sty.lastTimeBox2,
+                            {
+                              [sty.lastTimeBox2dark]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
+                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["lastTimeBox2", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+                          },
+                          placeholder:
+                            "\u0645\u062b\u0644\u0627   3 \u0627\u0633\u0641\u0646\u062f 1403",
+                          readOnly: true,
+                          value: generateStateValueProp($state, [
+                            "lastTimeBox2",
+                            "value"
+                          ])
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "lastTimeBox2.value"
+                            }
+                          ],
+                          [],
+                          AntdInput_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <AntdInput
+                            data-plasmic-name={"lastTimeBox2"}
+                            data-plasmic-override={overrides.lastTimeBox2}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__tkulK)}>
@@ -3267,6 +3290,40 @@ function PlasmicSettingCycle__RenderFunc(props: {
                       "updateSlideinModalClick"
                     ];
                   }
+
+                  $steps["updateNex"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["nex"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateNex"] != null &&
+                    typeof $steps["updateNex"] === "object" &&
+                    typeof $steps["updateNex"].then === "function"
+                  ) {
+                    $steps["updateNex"] = await $steps["updateNex"];
+                  }
                 }}
                 onColorChange={async (...eventArgs: any) => {
                   ((...eventArgs) => {
@@ -3451,7 +3508,7 @@ function PlasmicSettingCycle__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           args: [
-                            undefined,
+                            "error",
                             "\u062a\u0627\u0631\u06cc\u062e \u0631\u0627 \u062f\u0631 \u0628\u0627\u0632\u0647 \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f.",
                             "top-center"
                           ]

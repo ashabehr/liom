@@ -42,7 +42,6 @@
   width: 100%;
   height: 100vh;
   max-width: 100%;
-  overflow: auto;
   background: none;
   min-width: 0;
   padding: 0px 0px 8px;
@@ -352,19 +351,30 @@
   max-width: 100%;
   object-fit: cover;
 }
+.freeBox__qpfJr {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+  margin: 0px;
+}
 .freeBox__g6Vq5 {
   display: flex;
   flex-direction: row;
-  position: relative;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: auto;
   max-width: 100%;
-  margin-top: 8px;
-  margin-bottom: 8px;
   min-width: 0;
   padding: 0px;
+  margin: 8px;
 }
 .text__iTRqe {
   position: relative;
