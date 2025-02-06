@@ -1776,44 +1776,6 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       ) {
                         $steps["updateState"] = await $steps["updateState"];
                       }
-
-                      $steps["wait"] = true
-                        ? (() => {
-                            const actionArgs = { args: [2000] };
-                            return $globalActions["Fragment.wait"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                      if (
-                        $steps["wait"] != null &&
-                        typeof $steps["wait"] === "object" &&
-                        typeof $steps["wait"].then === "function"
-                      ) {
-                        $steps["wait"] = await $steps["wait"];
-                      }
-
-                      $steps["refreshData"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              queryInvalidation: ["plasmic_refresh_all"]
-                            };
-                            return (async ({ queryInvalidation }) => {
-                              if (!queryInvalidation) {
-                                return;
-                              }
-                              await plasmicInvalidate(queryInvalidation);
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["refreshData"] != null &&
-                        typeof $steps["refreshData"] === "object" &&
-                        typeof $steps["refreshData"].then === "function"
-                      ) {
-                        $steps["refreshData"] = await $steps["refreshData"];
-                      }
                     }}
                     onColorChange={async (...eventArgs: any) => {
                       ((...eventArgs) => {
