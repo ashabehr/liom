@@ -14374,6 +14374,43 @@ function PlasmicLogin__RenderFunc(props: {
                     "name"
                   )
                 })}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateRulesOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["rules", "open"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateRulesOpen"] != null &&
+                    typeof $steps["updateRulesOpen"] === "object" &&
+                    typeof $steps["updateRulesOpen"].then === "function"
+                  ) {
+                    $steps["updateRulesOpen"] = await $steps["updateRulesOpen"];
+                  }
+                }}
                 role={"img"}
               />
             }

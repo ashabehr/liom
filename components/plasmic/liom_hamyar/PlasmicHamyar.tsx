@@ -12281,8 +12281,14 @@ function PlasmicHamyar__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  r: $state.r,
-                  m: $state.m
+                  r: $state.r || "",
+                  m: $state.m || "",
+                  userId:
+                    $ctx?.query?.userId ?? "" == ""
+                      ? new URLSearchParams(window.location.search).get(
+                          "userId"
+                        )
+                      : $ctx.query.userId
                 };
               } catch (e) {
                 if (
