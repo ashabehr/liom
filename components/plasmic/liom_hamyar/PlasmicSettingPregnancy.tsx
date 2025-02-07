@@ -967,6 +967,44 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               ];
                             }
 
+                            $steps["updateSlideinModalClick"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["dateModal", "click"]
+                                    },
+                                    operation: 0,
+                                    value: false
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateSlideinModalClick"] != null &&
+                              typeof $steps["updateSlideinModalClick"] ===
+                                "object" &&
+                              typeof $steps["updateSlideinModalClick"].then ===
+                                "function"
+                            ) {
+                              $steps["updateSlideinModalClick"] = await $steps[
+                                "updateSlideinModalClick"
+                              ];
+                            }
+
                             $steps["updateDuDate"] = true
                               ? (() => {
                                   const actionArgs = {
@@ -1054,73 +1092,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               $steps["updateDuDate"] = await $steps[
                                 "updateDuDate"
                               ];
-                            }
-
-                            $steps["updateSlideinModalClick"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["dateModal", "click"]
-                                    },
-                                    operation: 0,
-                                    value: false
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateSlideinModalClick"] != null &&
-                              typeof $steps["updateSlideinModalClick"] ===
-                                "object" &&
-                              typeof $steps["updateSlideinModalClick"].then ===
-                                "function"
-                            ) {
-                              $steps["updateSlideinModalClick"] = await $steps[
-                                "updateSlideinModalClick"
-                              ];
-                            }
-
-                            $steps["runCode"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        return console.log(
-                                          $state.duDate[0] +
-                                            "-" +
-                                            $state.duDate[1] +
-                                            "-" +
-                                            $state.duDate[2] +
-                                            " 10:10:10"
-                                        );
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["runCode"] != null &&
-                              typeof $steps["runCode"] === "object" &&
-                              typeof $steps["runCode"].then === "function"
-                            ) {
-                              $steps["runCode"] = await $steps["runCode"];
                             }
                           }}
                           onColorChange={async (...eventArgs: any) => {
@@ -1691,140 +1662,165 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["runCode2"] = true
+                        $steps["invokeGlobalAction"] = (() => {
+                          var jy = $state.dateOfBirth.year;
+                          var jm = $state.dateOfBirth.month;
+                          var jd = $state.dateOfBirth.day;
+                          var gy = jy <= 979 ? 621 : 1600;
+                          jy -= jy <= 979 ? 0 : 979;
+                          var days =
+                            365 * jy +
+                            parseInt(jy / 33) * 8 +
+                            parseInt(((jy % 33) + 3) / 4) +
+                            78 +
+                            jd +
+                            (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                          gy += 400 * parseInt(days / 146097);
+                          days %= 146097;
+                          if (days > 36524) {
+                            gy += 100 * parseInt(--days / 36524);
+                            days %= 36524;
+                            if (days >= 365) days++;
+                          }
+                          gy += 4 * parseInt(days / 1461);
+                          days %= 1461;
+                          gy += parseInt((days - 1) / 365);
+                          if (days > 365) days = (days - 1) % 365;
+                          var gd = days + 1;
+                          var sal_a = [
+                            0,
+                            31,
+                            (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                              ? 29
+                              : 28,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31
+                          ];
+
+                          var gm;
+                          for (gm = 0; gm < 13; gm++) {
+                            var v = sal_a[gm];
+                            if (gd <= v) break;
+                            gd -= v;
+                          }
+                          const d =
+                            gy +
+                            "-" +
+                            (gm <= 9 ? "0" : "") +
+                            gm +
+                            "-" +
+                            (gd <= 9 ? "0" : "") +
+                            gd +
+                            "T10:10:10";
+                          const specifiedDate = new Date(d);
+                          const today = new Date();
+                          if (today > specifiedDate) {
+                            return false;
+                          }
+                          const diffTime = Math.abs(today - specifiedDate);
+                          const diffDays = Math.ceil(
+                            diffTime / (1000 * 60 * 60 * 24)
+                          );
+                          return diffDays > 280 ? false : true;
+                        })()
                           ? (() => {
                               const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    var name =
-                                      $state.getUserInfo.data?.[0]?.result?.user
-                                        ?.name ?? "";
-                                    var mobile =
-                                      $state.getUserInfo.data?.[0]?.result?.user
-                                        ?.mobile ?? "";
-                                    var email =
-                                      $state.getUserInfo.data?.[0]?.result?.user
-                                        ?.email ?? "";
-                                    if (typeof mobile == "undefined") {
-                                      mobile = "";
-                                    }
-                                    if (typeof email == "undefined") {
-                                      email = "";
-                                    }
-                                    if (typeof name == "undefined") {
-                                      name = "";
-                                    }
-                                    if (
-                                      typeof $state.getUserInfo.data[0].result
-                                        .hamyars == "undefined"
-                                    ) {
-                                      $state.getUserInfo.data[0].result.hamyars =
-                                        [];
-                                    }
-                                    if (
-                                      typeof $state.getUserInfo.data[0].result
-                                        .allowance == "undefined"
-                                    ) {
-                                      $state.getUserInfo.data[0].result.allowance =
-                                        [];
-                                    }
-                                    let hamyarsData = [];
-                                    for (
-                                      let i = 0;
-                                      i <
-                                      $state.getUserInfo.data[0].result.hamyars
-                                        .length;
-                                      i++
-                                    ) {
-                                      hamyarsData.push({
-                                        name: $state.getUserInfo.data[0].result
-                                          .hamyars[i].user.name,
-                                        id: $state.getUserInfo.data[0].result
-                                          .hamyars[i].user.id,
-                                        mobile:
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/status",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return (() => {
+                                        let hamyarsData = { hamyarsData: [] };
+                                        for (
+                                          let i = 0;
+                                          i <
                                           $state.getUserInfo.data[0].result
-                                            .hamyars[i].user.mobile,
-                                        statusSms:
-                                          $state.getUserInfo.data[0].result
-                                            .hamyars[i].rel.statusSms,
-                                        hamyarStatus:
-                                          $state.getUserInfo.data[0].result
-                                            .hamyars[i].user.hamyarStatus,
-                                        hamyarTime:
-                                          $state.getUserInfo.data[0].result
-                                            .hamyars[i].user.hamyarTime,
-                                        email:
-                                          $state.getUserInfo.data[0].result
-                                            .hamyars[i].user.email
-                                      });
-                                    }
-                                    let allowance = [];
-                                    for (
-                                      let i = 0;
-                                      i <
-                                      $state.getUserInfo.data[0].result
-                                        .allowance.length;
-                                      i++
-                                    ) {
-                                      allowance.push(
-                                        $state.getUserInfo.data[0].result
-                                          .allowance[i]
-                                      );
-                                    }
-                                    var date =
-                                      $state.duDate[0] +
-                                      "-" +
-                                      $state.duDate[1] +
-                                      "-" +
-                                      $state.duDate[2] +
-                                      " 10:10:10";
-                                    return fetch(
-                                      "https://n8n.staas.ir/webhook/status",
-                                      {
-                                        method: "POST",
-                                        headers: {
-                                          "Content-Type": "application/json",
-                                          Authorization:
-                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                        },
-                                        body: JSON.stringify({
+                                            .hamyars.length;
+                                          i++
+                                        ) {
+                                          hamyarsData.hamyarsData.push({
+                                            name: $state.getUserInfo.data[0]
+                                              .result.hamyars[i].user.name,
+                                            active:
+                                              $state.getUserInfo.data[0].result
+                                                .hamyars[i].user.active,
+                                            hamyarStatus:
+                                              $state.getUserInfo.data[0].result
+                                                .hamyars[i].user.hamyarStatus,
+                                            mobile:
+                                              $state.getUserInfo.data[0].result
+                                                .hamyars[i].user.mobile
+                                          });
+                                        }
+                                        return {
                                           area: "pregnancy",
-                                          duDate: date,
+                                          duDate:
+                                            $state.duDate[0] +
+                                            "-" +
+                                            $state.duDate[1] +
+                                            "-" +
+                                            $state.duDate[2] +
+                                            " 10:10:10",
                                           userId: $ctx.query.userId.slice(
                                             4,
                                             +$ctx.query.userId.length - 4
                                           ),
-                                          name: name,
-                                          mobile: mobile,
-                                          email: email,
-                                          hamyarData: { hamyarsData },
-                                          allowance: { allowance }
-                                        })
+                                          name:
+                                            $state.getUserInfo.data[0].result
+                                              .user?.name ?? "",
+                                          mobile:
+                                            $state.getUserInfo.data[0].result
+                                              .user?.mobile ?? "",
+                                          email:
+                                            $state.getUserInfo.data[0].result
+                                              .user?.email ?? "",
+                                          hamyarData: hamyarsData
+                                        };
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
                                       }
-                                    )
-                                      .then(response => {
-                                        return response.json();
-                                      })
-                                      .then(data => {
-                                        console.log("user send");
-                                      })
-                                      .catch(error => {
-                                        console.error("Error3333:", error);
-                                      });
-                                  })();
-                                }
+                                      throw e;
+                                    }
+                                  })(),
+                                  {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                    }
+                                  }
+                                ]
                               };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
                             })()
                           : undefined;
                         if (
-                          $steps["runCode2"] != null &&
-                          typeof $steps["runCode2"] === "object" &&
-                          typeof $steps["runCode2"].then === "function"
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
                         ) {
-                          $steps["runCode2"] = await $steps["runCode2"];
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
                         }
 
                         $steps["invokeGlobalAction3"] = (() => {
@@ -2178,6 +2174,35 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           $steps["invokeGlobalAction4"] = await $steps[
                             "invokeGlobalAction4"
                           ];
+                        }
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return console.log(
+                                      $state.duDate[0] +
+                                        "-" +
+                                        $state.duDate[1] +
+                                        "-" +
+                                        $state.duDate[2] +
+                                        " 10:10:10"
+                                    );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
