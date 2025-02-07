@@ -2235,7 +2235,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
               params={(() => {
                 try {
                   return {
-                    token: $ctx.query.token
+                    token:
+                      $ctx.query.token ||
+                      new URLSearchParams(window.location.search).get("token")
                   };
                 } catch (e) {
                   if (
