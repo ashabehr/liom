@@ -727,7 +727,31 @@ function PlasmicSettingCycle3__RenderFunc(props: {
         path: "nextTime",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 100
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if (!$ctx.query.last_time) {
+                  return 100;
+                }
+                const date = new Date($ctx.query.last_time);
+                const date2 = new Date();
+                const differenceInMilliseconds = date - date2;
+                const differenceInDays = Math.floor(
+                  differenceInMilliseconds / (1000 * 60 * 60 * 24) + 1
+                );
+                return differenceInDays;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 100;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]

@@ -392,537 +392,837 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
             { [sty.rootdark]: hasVariant($state, "dark", "dark") }
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__ikTgu)}>
-            <Embed
-              className={classNames("__wab_instance", sty.embedHtml__yX7Lg)}
-              code={
-                "<!-- Hotjar Tracking Code for setting-pregnancy -->\n<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5226515,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>"
+          {(() => {
+            try {
+              return !$state.getUserInfo.loading;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
               }
-            />
-
-            <Embed
-              className={classNames("__wab_instance", sty.embedHtml__cayoB)}
-              code={
-                "<script>\n  let isBlocked = false; // \u0645\u062a\u063a\u06cc\u0631 \u0628\u0631\u0627\u06cc \u06a9\u0646\u062a\u0631\u0644 \u0645\u0633\u062f\u0648\u062f \u0634\u062f\u0646 \u062f\u06a9\u0645\u0647\n  let shouldBlockBackButton; // \u0645\u062a\u063a\u06cc\u0631 \u0628\u0631\u0627\u06cc \u0648\u0636\u0639\u06cc\u062a \u0628\u0644\u0648\u06a9\u0647 \u0628\u0648\u062f\u0646 \u062f\u06a9\u0645\u0647\n\n  document.addEventListener('DOMContentLoaded', function() {\n    // \u0628\u0631\u0631\u0633\u06cc \u0627\u06cc\u0646\u06a9\u0647 window.plasmicParent \u0648 window.plasmicParent.state \u0645\u0648\u062c\u0648\u062f \u0647\u0633\u062a\u0646\u062f\n    if (window.plasmicParent && window.plasmicParent.state) {\n      // \u0645\u0642\u062f\u0627\u0631\u062f\u0647\u06cc \u0628\u0647 \u0645\u062a\u063a\u06cc\u0631 \u0641\u0642\u0637 \u0627\u06af\u0631 \u0645\u0642\u062f\u0627\u0631\u062f\u0647\u06cc \u0646\u0634\u062f\u0647 \u0628\u0627\u0634\u062f\n      // if (shouldBlockBackButton === undefined) {\n        shouldBlockBackButton = window.plasmicParent.state.shouldBlockBackButton;\n        console.log(\"value\u06f2: \" + shouldBlockBackButton);\n      // }\n    } else {\n      console.log(\"window.plasmicParent \u06cc\u0627 state \u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a.\");\n    }\n  });\n\n  window.addEventListener('popstate', function(event) {\n    // \u0627\u06af\u0631 \u0642\u0628\u0644\u0627\u064b \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0634\u062f\u0647 \u0628\u0627\u0634\u062f\u060c \u0627\u062c\u0627\u0632\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u06cc\u200c\u062f\u0647\u06cc\u0645\n    if (isBlocked) {\n      console.log('\u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u062f\u0648\u0628\u0627\u0631\u0647 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a.');\n      isBlocked = false; // \u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u062d\u0627\u0644\u062a \u0639\u0627\u062f\u06cc\n      return; // \u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0639\u0642\u0628\n    }\n\n    // \u0627\u06af\u0631 \u0628\u0627\u06cc\u062f \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0634\u0648\u062f\n    if (shouldBlockBackButton) {\n      console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a! \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0645\u06cc\u200c\u0634\u0648\u062f.');\n      event.preventDefault(); // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0628\u0627\u0632\u06af\u0634\u062a\n      isBlocked = true; // \u0645\u0633\u062f\u0648\u062f \u06a9\u0631\u062f\u0646 \u062f\u06a9\u0645\u0647 \u0628\u0631\u0627\u06cc \u06cc\u06a9 \u0628\u0627\u0631\n    } else {\n      console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a\u060c \u0628\u0627\u0632\u06af\u0634\u062a \u0627\u0646\u062c\u0627\u0645 \u0645\u06cc\u200c\u0634\u0648\u062f.');\n    }\n  });\n</script>\n"
-              }
-            />
-
-            {(() => {
-              try {
-                return $ctx.query.inApp != "true";
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return false;
+              throw e;
+            }
+          })() ? (
+            <div className={classNames(projectcss.all, sty.freeBox__ikTgu)}>
+              <Embed
+                className={classNames("__wab_instance", sty.embedHtml__yX7Lg)}
+                code={
+                  "<!-- Hotjar Tracking Code for setting-pregnancy -->\n<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5226515,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>"
                 }
-                throw e;
-              }
-            })() ? (
-              <div
-                className={classNames(projectcss.all, sty.freeBox__ytDOx, {
-                  [sty.freeBoxdark__ytDOxbkz05]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___3O4C8)}
-                >
-                  <PlasmicImg__
-                    data-plasmic-name={"img"}
-                    data-plasmic-override={overrides.img}
-                    alt={""}
-                    className={classNames(sty.img, {
-                      [sty.imgdark]: hasVariant($state, "dark", "dark")
-                    })}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"20px"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image38.svg",
-                      fullWidth: 24,
-                      fullHeight: 24,
-                      aspectRatio: 1
-                    }}
-                  />
+              />
 
+              <Embed
+                className={classNames("__wab_instance", sty.embedHtml__cayoB)}
+                code={
+                  "<script>\n  let isBlocked = false; // \u0645\u062a\u063a\u06cc\u0631 \u0628\u0631\u0627\u06cc \u06a9\u0646\u062a\u0631\u0644 \u0645\u0633\u062f\u0648\u062f \u0634\u062f\u0646 \u062f\u06a9\u0645\u0647\n  let shouldBlockBackButton; // \u0645\u062a\u063a\u06cc\u0631 \u0628\u0631\u0627\u06cc \u0648\u0636\u0639\u06cc\u062a \u0628\u0644\u0648\u06a9\u0647 \u0628\u0648\u062f\u0646 \u062f\u06a9\u0645\u0647\n\n  document.addEventListener('DOMContentLoaded', function() {\n    // \u0628\u0631\u0631\u0633\u06cc \u0627\u06cc\u0646\u06a9\u0647 window.plasmicParent \u0648 window.plasmicParent.state \u0645\u0648\u062c\u0648\u062f \u0647\u0633\u062a\u0646\u062f\n    if (window.plasmicParent && window.plasmicParent.state) {\n      // \u0645\u0642\u062f\u0627\u0631\u062f\u0647\u06cc \u0628\u0647 \u0645\u062a\u063a\u06cc\u0631 \u0641\u0642\u0637 \u0627\u06af\u0631 \u0645\u0642\u062f\u0627\u0631\u062f\u0647\u06cc \u0646\u0634\u062f\u0647 \u0628\u0627\u0634\u062f\n      // if (shouldBlockBackButton === undefined) {\n        shouldBlockBackButton = window.plasmicParent.state.shouldBlockBackButton;\n        console.log(\"value\u06f2: \" + shouldBlockBackButton);\n      // }\n    } else {\n      console.log(\"window.plasmicParent \u06cc\u0627 state \u0645\u0648\u062c\u0648\u062f \u0646\u06cc\u0633\u062a.\");\n    }\n  });\n\n  window.addEventListener('popstate', function(event) {\n    // \u0627\u06af\u0631 \u0642\u0628\u0644\u0627\u064b \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0634\u062f\u0647 \u0628\u0627\u0634\u062f\u060c \u0627\u062c\u0627\u0632\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u06cc\u200c\u062f\u0647\u06cc\u0645\n    if (isBlocked) {\n      console.log('\u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u062f\u0648\u0628\u0627\u0631\u0647 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a.');\n      isBlocked = false; // \u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u062d\u0627\u0644\u062a \u0639\u0627\u062f\u06cc\n      return; // \u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 \u0639\u0642\u0628\n    }\n\n    // \u0627\u06af\u0631 \u0628\u0627\u06cc\u062f \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0634\u0648\u062f\n    if (shouldBlockBackButton) {\n      console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a! \u062f\u06a9\u0645\u0647 \u0628\u0627\u0632\u06af\u0634\u062a \u0645\u0633\u062f\u0648\u062f \u0645\u06cc\u200c\u0634\u0648\u062f.');\n      event.preventDefault(); // \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0628\u0627\u0632\u06af\u0634\u062a\n      isBlocked = true; // \u0645\u0633\u062f\u0648\u062f \u06a9\u0631\u062f\u0646 \u062f\u06a9\u0645\u0647 \u0628\u0631\u0627\u06cc \u06cc\u06a9 \u0628\u0627\u0631\n    } else {\n      console.log('\u0634\u0631\u0637 \u0628\u0631\u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a\u060c \u0628\u0627\u0632\u06af\u0634\u062a \u0627\u0646\u062c\u0627\u0645 \u0645\u06cc\u200c\u0634\u0648\u062f.');\n    }\n  });\n</script>\n"
+                }
+              />
+
+              {(() => {
+                try {
+                  return $ctx.query.inApp != "true";
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })() ? (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__ytDOx, {
+                    [sty.freeBoxdark__ytDOxbkz05]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
+                >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__pmZGg,
-                      {
-                        [sty.textdark__pmZGgbkz05]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }
-                    )}
+                    className={classNames(projectcss.all, sty.freeBox___3O4C8)}
                   >
-                    {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a"}
+                    <PlasmicImg__
+                      data-plasmic-name={"img"}
+                      data-plasmic-override={overrides.img}
+                      alt={""}
+                      className={classNames(sty.img, {
+                        [sty.imgdark]: hasVariant($state, "dark", "dark")
+                      })}
+                      displayHeight={"auto"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"20px"}
+                      loading={"lazy"}
+                      src={{
+                        src: "/plasmic/liom_hamyar/images/image38.svg",
+                        fullWidth: 24,
+                        fullHeight: 24,
+                        aspectRatio: 1
+                      }}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pmZGg,
+                        {
+                          [sty.textdark__pmZGgbkz05]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                    >
+                      {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a"}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ) : null}
-            <div className={classNames(projectcss.all, sty.freeBox__rckdR)}>
-              <div
-                className={classNames(projectcss.all, sty.freeBox__xUcow, {
-                  [sty.freeBoxdark__xUcowbkz05]: hasVariant(
-                    $state,
-                    "dark",
-                    "dark"
-                  )
-                })}
-              >
-                <SlideinModal
-                  data-plasmic-name={"dateModal"}
-                  data-plasmic-override={overrides.dateModal}
-                  className={classNames("__wab_instance", sty.dateModal, {
-                    [sty.dateModaldark]: hasVariant($state, "dark", "dark")
-                  })}
-                  click={generateStateValueProp($state, ["dateModal", "click"])}
-                  dark={(() => {
-                    try {
-                      return $ctx.query.theme == "dark";
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return false;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  onClickChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "dateModal",
-                      "click"
-                    ]).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                >
+              ) : null}
+              <div className={classNames(projectcss.all, sty.freeBox__iW6Ev)}>
+                <div className={classNames(projectcss.all, sty.freeBox__rckdR)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__epUv4,
-                      hasVariant($state, "dark", "dark") ? "picker-dark" : ``,
-                      {
-                        [sty.freeBoxdark__epUv4Bkz05]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }
-                    )}
+                    className={classNames(projectcss.all, sty.freeBox__xUcow, {
+                      [sty.freeBoxdark__xUcowbkz05]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    })}
                   >
-                    <DatePickers
-                      data-plasmic-name={"datePickers"}
-                      data-plasmic-override={overrides.datePickers}
-                      SelectedDay={(() => {
-                        if ($state.typeInterDate == "lastTime")
-                          return $state.lastTime.day;
-                        else return $state.dateOfBirth.day;
+                    <SlideinModal
+                      data-plasmic-name={"dateModal"}
+                      data-plasmic-override={overrides.dateModal}
+                      className={classNames("__wab_instance", sty.dateModal, {
+                        [sty.dateModaldark]: hasVariant($state, "dark", "dark")
+                      })}
+                      click={generateStateValueProp($state, [
+                        "dateModal",
+                        "click"
+                      ])}
+                      dark={(() => {
+                        try {
+                          return $ctx.query.theme == "dark";
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return false;
+                          }
+                          throw e;
+                        }
                       })()}
-                      SelectedMonth={(() => {
-                        if ($state.typeInterDate == "lastTime")
-                          return $state.lastTime.month;
-                        else return $state.dateOfBirth.month;
-                      })()}
-                      SelectedYear={(() => {
-                        if ($state.typeInterDate == "lastTime")
-                          return $state.lastTime.year;
-                        else return $state.dateOfBirth.year;
-                      })()}
-                      className={classNames("__wab_instance", sty.datePickers)}
-                      customYears={[
-                        { value: 1403, label: "1403" },
-                        { value: 1404, label: "1404" }
-                      ]}
-                      onChange={async (...eventArgs: any) => {
+                      onClickChange={async (...eventArgs: any) => {
                         generateStateOnChangeProp($state, [
-                          "datePickers",
-                          "value"
+                          "dateModal",
+                          "click"
                         ]).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
                       }}
-                      selectedValues={generateStateValueProp($state, [
-                        "datePickers",
-                        "value"
-                      ])}
-                    />
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__r4OB)}
-                  >
-                    <Button
-                      data-plasmic-name={"button"}
-                      data-plasmic-override={overrides.button}
-                      className={classNames("__wab_instance", sty.button)}
-                      color={generateStateValueProp($state, [
-                        "button",
-                        "color"
-                      ])}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__epUv4,
+                          hasVariant($state, "dark", "dark")
+                            ? "picker-dark"
+                            : ``,
+                          {
+                            [sty.freeBoxdark__epUv4Bkz05]: hasVariant(
+                              $state,
+                              "dark",
+                              "dark"
+                            )
+                          }
+                        )}
+                      >
+                        <DatePickers
+                          data-plasmic-name={"datePickers"}
+                          data-plasmic-override={overrides.datePickers}
+                          SelectedDay={(() => {
+                            if ($state.typeInterDate == "lastTime")
+                              return $state.lastTime.day;
+                            else return $state.dateOfBirth.day;
+                          })()}
+                          SelectedMonth={(() => {
+                            if ($state.typeInterDate == "lastTime")
+                              return $state.lastTime.month;
+                            else return $state.dateOfBirth.month;
+                          })()}
+                          SelectedYear={(() => {
+                            if ($state.typeInterDate == "lastTime")
+                              return $state.lastTime.year;
+                            else return $state.dateOfBirth.year;
+                          })()}
+                          className={classNames(
+                            "__wab_instance",
+                            sty.datePickers
+                          )}
+                          customYears={[
+                            { value: 1403, label: "1403" },
+                            { value: 1404, label: "1404" }
+                          ]}
+                          onChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "datePickers",
+                              "value"
+                            ]).apply(null, eventArgs);
+                          }}
+                          selectedValues={generateStateValueProp($state, [
+                            "datePickers",
+                            "value"
+                          ])}
+                        />
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__r4OB
+                        )}
+                      >
+                        <Button
+                          data-plasmic-name={"button"}
+                          data-plasmic-override={overrides.button}
+                          className={classNames("__wab_instance", sty.button)}
+                          color={generateStateValueProp($state, [
+                            "button",
+                            "color"
+                          ])}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateDateOfBirth"] =
+                              $state.typeInterDate == "dateOfBirth"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["dateOfBirth"]
+                                      },
+                                      operation: 0,
+                                      value: $state.datePickers.value
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["updateDateOfBirth"] != null &&
+                              typeof $steps["updateDateOfBirth"] === "object" &&
+                              typeof $steps["updateDateOfBirth"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDateOfBirth"] = await $steps[
+                                "updateDateOfBirth"
+                              ];
+                            }
+
+                            $steps["updateLastTime2"] =
+                              $state.typeInterDate == "lastTime"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["lastTime"]
+                                      },
+                                      operation: 0,
+                                      value: $state.datePickers.value
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["updateLastTime2"] != null &&
+                              typeof $steps["updateLastTime2"] === "object" &&
+                              typeof $steps["updateLastTime2"].then ===
+                                "function"
+                            ) {
+                              $steps["updateLastTime2"] = await $steps[
+                                "updateLastTime2"
+                              ];
+                            }
+
+                            $steps["updateLastTime"] =
+                              $state.typeInterDate == "dateOfBirth"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["lastTime"]
+                                      },
+                                      operation: 0,
+                                      value: (() => {
+                                        var jy = $state.datePickers.value.year;
+                                        var jm = $state.datePickers.value.month;
+                                        var jd = $state.datePickers.value.day;
+                                        var gy = jy <= 979 ? 621 : 1600;
+                                        jy -= jy <= 979 ? 0 : 979;
+                                        var days =
+                                          365 * jy +
+                                          parseInt(jy / 33) * 8 +
+                                          parseInt(((jy % 33) + 3) / 4) +
+                                          78 +
+                                          jd +
+                                          (jm < 7
+                                            ? (jm - 1) * 31
+                                            : (jm - 7) * 30 + 186);
+                                        gy += 400 * parseInt(days / 146097);
+                                        days %= 146097;
+                                        if (days > 36524) {
+                                          gy += 100 * parseInt(--days / 36524);
+                                          days %= 36524;
+                                          if (days >= 365) days++;
+                                        }
+                                        gy += 4 * parseInt(days / 1461);
+                                        days %= 1461;
+                                        gy += parseInt((days - 1) / 365);
+                                        if (days > 365) days = (days - 1) % 365;
+                                        var gd = days + 1;
+                                        var sal_a = [
+                                          0,
+                                          31,
+                                          (gy % 4 == 0 && gy % 100 != 0) ||
+                                          gy % 400 == 0
+                                            ? 29
+                                            : 28,
+                                          31,
+                                          30,
+                                          31,
+                                          30,
+                                          31,
+                                          31,
+                                          30,
+                                          31,
+                                          30,
+                                          31
+                                        ];
+
+                                        var gm;
+                                        for (gm = 0; gm < 13; gm++) {
+                                          var v = sal_a[gm];
+                                          if (gd <= v) break;
+                                          gd -= v;
+                                        }
+                                        const [year, month, day] = [gy, gm, gd];
+
+                                        var date = new Date(
+                                          year,
+                                          month - 1,
+                                          day
+                                        );
+                                        date.setDate(date.getDate() - 280);
+                                        var gyNew = date.getFullYear();
+                                        var gmNew = date.getMonth() + 1;
+                                        var gdNew = date.getDate();
+                                        var g_d_m = [
+                                          0, 31, 59, 90, 120, 151, 181, 212,
+                                          243, 273, 304, 334
+                                        ];
+
+                                        var jyNew = gyNew <= 1600 ? 0 : 979;
+                                        gyNew =
+                                          gyNew - (gyNew <= 1600 ? 621 : 1600);
+                                        var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
+                                        var daysNew =
+                                          365 * gyNew +
+                                          parseInt((gy2 + 3) / 4) -
+                                          parseInt((gy2 + 99) / 100) +
+                                          parseInt((gy2 + 399) / 400) -
+                                          80 +
+                                          gdNew +
+                                          g_d_m[gmNew - 1];
+                                        jyNew += 33 * parseInt(daysNew / 12053);
+                                        daysNew %= 12053;
+                                        jyNew += 4 * parseInt(daysNew / 1461);
+                                        daysNew %= 1461;
+                                        jyNew += parseInt((daysNew - 1) / 365);
+                                        if (daysNew > 365)
+                                          daysNew = (daysNew - 1) % 365;
+                                        var jmNew =
+                                          daysNew < 186
+                                            ? 1 + parseInt(daysNew / 31)
+                                            : 7 +
+                                              parseInt((daysNew - 186) / 30);
+                                        var jdNew =
+                                          1 +
+                                          (daysNew < 186
+                                            ? daysNew % 31
+                                            : (daysNew - 186) % 30);
+                                        return {
+                                          day: jdNew,
+                                          month: jmNew,
+                                          year: jyNew
+                                        };
+                                      })()
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["updateLastTime"] != null &&
+                              typeof $steps["updateLastTime"] === "object" &&
+                              typeof $steps["updateLastTime"].then ===
+                                "function"
+                            ) {
+                              $steps["updateLastTime"] = await $steps[
+                                "updateLastTime"
+                              ];
+                            }
+
+                            $steps["updateDateOfBirth2"] =
+                              $state.typeInterDate == "lastTime"
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["dateOfBirth"]
+                                      },
+                                      operation: 0,
+                                      value: (() => {
+                                        var jy = $state.datePickers.value.year;
+                                        var jm = $state.datePickers.value.month;
+                                        var jd = $state.datePickers.value.day;
+                                        var gy = jy <= 979 ? 621 : 1600;
+                                        jy -= jy <= 979 ? 0 : 979;
+                                        var days =
+                                          365 * jy +
+                                          parseInt(jy / 33) * 8 +
+                                          parseInt(((jy % 33) + 3) / 4) +
+                                          78 +
+                                          jd +
+                                          (jm < 7
+                                            ? (jm - 1) * 31
+                                            : (jm - 7) * 30 + 186);
+                                        gy += 400 * parseInt(days / 146097);
+                                        days %= 146097;
+                                        if (days > 36524) {
+                                          gy += 100 * parseInt(--days / 36524);
+                                          days %= 36524;
+                                          if (days >= 365) days++;
+                                        }
+                                        gy += 4 * parseInt(days / 1461);
+                                        days %= 1461;
+                                        gy += parseInt((days - 1) / 365);
+                                        if (days > 365) days = (days - 1) % 365;
+                                        var gd = days + 1;
+                                        var sal_a = [
+                                          0,
+                                          31,
+                                          (gy % 4 == 0 && gy % 100 != 0) ||
+                                          gy % 400 == 0
+                                            ? 29
+                                            : 28,
+                                          31,
+                                          30,
+                                          31,
+                                          30,
+                                          31,
+                                          31,
+                                          30,
+                                          31,
+                                          30,
+                                          31
+                                        ];
+
+                                        var gm;
+                                        for (gm = 0; gm < 13; gm++) {
+                                          var v = sal_a[gm];
+                                          if (gd <= v) break;
+                                          gd -= v;
+                                        }
+                                        const [year, month, day] = [gy, gm, gd];
+
+                                        var date = new Date(
+                                          year,
+                                          month - 1,
+                                          day
+                                        );
+                                        date.setDate(date.getDate() + 280);
+                                        var gyNew = date.getFullYear();
+                                        var gmNew = date.getMonth() + 1;
+                                        var gdNew = date.getDate();
+                                        var g_d_m = [
+                                          0, 31, 59, 90, 120, 151, 181, 212,
+                                          243, 273, 304, 334
+                                        ];
+
+                                        var jyNew = gyNew <= 1600 ? 0 : 979;
+                                        gyNew =
+                                          gyNew - (gyNew <= 1600 ? 621 : 1600);
+                                        var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
+                                        var daysNew =
+                                          365 * gyNew +
+                                          parseInt((gy2 + 3) / 4) -
+                                          parseInt((gy2 + 99) / 100) +
+                                          parseInt((gy2 + 399) / 400) -
+                                          80 +
+                                          gdNew +
+                                          g_d_m[gmNew - 1];
+                                        jyNew += 33 * parseInt(daysNew / 12053);
+                                        daysNew %= 12053;
+                                        jyNew += 4 * parseInt(daysNew / 1461);
+                                        daysNew %= 1461;
+                                        jyNew += parseInt((daysNew - 1) / 365);
+                                        if (daysNew > 365)
+                                          daysNew = (daysNew - 1) % 365;
+                                        var jmNew =
+                                          daysNew < 186
+                                            ? 1 + parseInt(daysNew / 31)
+                                            : 7 +
+                                              parseInt((daysNew - 186) / 30);
+                                        var jdNew =
+                                          1 +
+                                          (daysNew < 186
+                                            ? daysNew % 31
+                                            : (daysNew - 186) % 30);
+                                        return {
+                                          day: jdNew,
+                                          month: jmNew,
+                                          year: jyNew
+                                        };
+                                      })()
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                            if (
+                              $steps["updateDateOfBirth2"] != null &&
+                              typeof $steps["updateDateOfBirth2"] ===
+                                "object" &&
+                              typeof $steps["updateDateOfBirth2"].then ===
+                                "function"
+                            ) {
+                              $steps["updateDateOfBirth2"] = await $steps[
+                                "updateDateOfBirth2"
+                              ];
+                            }
+
+                            $steps["updateSlideinModalClick"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["dateModal", "click"]
+                                    },
+                                    operation: 0,
+                                    value: false
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateSlideinModalClick"] != null &&
+                              typeof $steps["updateSlideinModalClick"] ===
+                                "object" &&
+                              typeof $steps["updateSlideinModalClick"].then ===
+                                "function"
+                            ) {
+                              $steps["updateSlideinModalClick"] = await $steps[
+                                "updateSlideinModalClick"
+                              ];
+                            }
+
+                            $steps["updateDuDate"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["duDate"]
+                                    },
+                                    operation: 0,
+                                    value: (() => {
+                                      var jy = $state.dateOfBirth.year;
+                                      var jm = $state.dateOfBirth.month;
+                                      var jd = $state.dateOfBirth.day;
+                                      var gy = jy <= 979 ? 621 : 1600;
+                                      jy -= jy <= 979 ? 0 : 979;
+                                      var days =
+                                        365 * jy +
+                                        parseInt(jy / 33) * 8 +
+                                        parseInt(((jy % 33) + 3) / 4) +
+                                        78 +
+                                        jd +
+                                        (jm < 7
+                                          ? (jm - 1) * 31
+                                          : (jm - 7) * 30 + 186);
+                                      gy += 400 * parseInt(days / 146097);
+                                      days %= 146097;
+                                      if (days > 36524) {
+                                        gy += 100 * parseInt(--days / 36524);
+                                        days %= 36524;
+                                        if (days >= 365) days++;
+                                      }
+                                      gy += 4 * parseInt(days / 1461);
+                                      days %= 1461;
+                                      gy += parseInt((days - 1) / 365);
+                                      if (days > 365) days = (days - 1) % 365;
+                                      var gd = days + 1;
+                                      var sal_a = [
+                                        0,
+                                        31,
+                                        (gy % 4 == 0 && gy % 100 != 0) ||
+                                        gy % 400 == 0
+                                          ? 29
+                                          : 28,
+                                        31,
+                                        30,
+                                        31,
+                                        30,
+                                        31,
+                                        31,
+                                        30,
+                                        31,
+                                        30,
+                                        31
+                                      ];
+
+                                      var gm;
+                                      for (gm = 0; gm < 13; gm++) {
+                                        var v = sal_a[gm];
+                                        if (gd <= v) break;
+                                        gd -= v;
+                                      }
+                                      return [gy, gm, gd];
+                                    })()
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateDuDate"] != null &&
+                              typeof $steps["updateDuDate"] === "object" &&
+                              typeof $steps["updateDuDate"].then === "function"
+                            ) {
+                              $steps["updateDuDate"] = await $steps[
+                                "updateDuDate"
+                              ];
+                            }
+                          }}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                        >
+                          {"\u062a\u0627\u06cc\u06cc\u062f"}
+                        </Button>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__z4LTn
+                          )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateSlideinModalClick"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["dateModal", "click"]
+                                    },
+                                    operation: 0,
+                                    value: false
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateSlideinModalClick"] != null &&
+                              typeof $steps["updateSlideinModalClick"] ===
+                                "object" &&
+                              typeof $steps["updateSlideinModalClick"].then ===
+                                "function"
+                            ) {
+                              $steps["updateSlideinModalClick"] = await $steps[
+                                "updateSlideinModalClick"
+                              ];
+                            }
+                          }}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__xQvCh
+                            )}
+                          >
+                            {"\u0628\u0633\u062a\u0646"}
+                          </div>
+                        </div>
+                      </div>
+                    </SlideinModal>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__pd8Nv,
+                        {
+                          [sty.textdark__pd8Nvbkz05]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                    >
+                      {
+                        "\u0628\u0627 \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u06cc\u06a9\u06cc \u0627\u0632 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0632\u06cc\u0631 \u0628\u0647 \u0645\u0627 \u062a\u0648\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0628\u0647\u062a \u0628\u06af\u06cc\u0645 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0627\u0644\u0627\u0646 \u0686\u0646\u062f \u0647\u0641\u062a\u0634\u0647 :)"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__jhTi,
+                        {
+                          [sty.textdark__jhTibkz05]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                    >
+                      {
+                        "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u061f"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___1FrZr,
+                        hasVariant($state, "dark", "dark") ? "input-dark" : ``,
+                        {
+                          [sty.freeBoxdark___1FrZrbkz05]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
                       onClick={async event => {
                         const $steps = {};
-
-                        $steps["updateDateOfBirth"] =
-                          $state.typeInterDate == "dateOfBirth"
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["dateOfBirth"]
-                                  },
-                                  operation: 0,
-                                  value: $state.datePickers.value
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateDateOfBirth"] != null &&
-                          typeof $steps["updateDateOfBirth"] === "object" &&
-                          typeof $steps["updateDateOfBirth"].then === "function"
-                        ) {
-                          $steps["updateDateOfBirth"] = await $steps[
-                            "updateDateOfBirth"
-                          ];
-                        }
-
-                        $steps["updateLastTime2"] =
-                          $state.typeInterDate == "lastTime"
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["lastTime"]
-                                  },
-                                  operation: 0,
-                                  value: $state.datePickers.value
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateLastTime2"] != null &&
-                          typeof $steps["updateLastTime2"] === "object" &&
-                          typeof $steps["updateLastTime2"].then === "function"
-                        ) {
-                          $steps["updateLastTime2"] = await $steps[
-                            "updateLastTime2"
-                          ];
-                        }
-
-                        $steps["updateLastTime"] =
-                          $state.typeInterDate == "dateOfBirth"
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["lastTime"]
-                                  },
-                                  operation: 0,
-                                  value: (() => {
-                                    var jy = $state.datePickers.value.year;
-                                    var jm = $state.datePickers.value.month;
-                                    var jd = $state.datePickers.value.day;
-                                    var gy = jy <= 979 ? 621 : 1600;
-                                    jy -= jy <= 979 ? 0 : 979;
-                                    var days =
-                                      365 * jy +
-                                      parseInt(jy / 33) * 8 +
-                                      parseInt(((jy % 33) + 3) / 4) +
-                                      78 +
-                                      jd +
-                                      (jm < 7
-                                        ? (jm - 1) * 31
-                                        : (jm - 7) * 30 + 186);
-                                    gy += 400 * parseInt(days / 146097);
-                                    days %= 146097;
-                                    if (days > 36524) {
-                                      gy += 100 * parseInt(--days / 36524);
-                                      days %= 36524;
-                                      if (days >= 365) days++;
-                                    }
-                                    gy += 4 * parseInt(days / 1461);
-                                    days %= 1461;
-                                    gy += parseInt((days - 1) / 365);
-                                    if (days > 365) days = (days - 1) % 365;
-                                    var gd = days + 1;
-                                    var sal_a = [
-                                      0,
-                                      31,
-                                      (gy % 4 == 0 && gy % 100 != 0) ||
-                                      gy % 400 == 0
-                                        ? 29
-                                        : 28,
-                                      31,
-                                      30,
-                                      31,
-                                      30,
-                                      31,
-                                      31,
-                                      30,
-                                      31,
-                                      30,
-                                      31
-                                    ];
-
-                                    var gm;
-                                    for (gm = 0; gm < 13; gm++) {
-                                      var v = sal_a[gm];
-                                      if (gd <= v) break;
-                                      gd -= v;
-                                    }
-                                    const [year, month, day] = [gy, gm, gd];
-
-                                    var date = new Date(year, month - 1, day);
-                                    date.setDate(date.getDate() - 280);
-                                    var gyNew = date.getFullYear();
-                                    var gmNew = date.getMonth() + 1;
-                                    var gdNew = date.getDate();
-                                    var g_d_m = [
-                                      0, 31, 59, 90, 120, 151, 181, 212, 243,
-                                      273, 304, 334
-                                    ];
-
-                                    var jyNew = gyNew <= 1600 ? 0 : 979;
-                                    gyNew =
-                                      gyNew - (gyNew <= 1600 ? 621 : 1600);
-                                    var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
-                                    var daysNew =
-                                      365 * gyNew +
-                                      parseInt((gy2 + 3) / 4) -
-                                      parseInt((gy2 + 99) / 100) +
-                                      parseInt((gy2 + 399) / 400) -
-                                      80 +
-                                      gdNew +
-                                      g_d_m[gmNew - 1];
-                                    jyNew += 33 * parseInt(daysNew / 12053);
-                                    daysNew %= 12053;
-                                    jyNew += 4 * parseInt(daysNew / 1461);
-                                    daysNew %= 1461;
-                                    jyNew += parseInt((daysNew - 1) / 365);
-                                    if (daysNew > 365)
-                                      daysNew = (daysNew - 1) % 365;
-                                    var jmNew =
-                                      daysNew < 186
-                                        ? 1 + parseInt(daysNew / 31)
-                                        : 7 + parseInt((daysNew - 186) / 30);
-                                    var jdNew =
-                                      1 +
-                                      (daysNew < 186
-                                        ? daysNew % 31
-                                        : (daysNew - 186) % 30);
-                                    return {
-                                      day: jdNew,
-                                      month: jmNew,
-                                      year: jyNew
-                                    };
-                                  })()
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateLastTime"] != null &&
-                          typeof $steps["updateLastTime"] === "object" &&
-                          typeof $steps["updateLastTime"].then === "function"
-                        ) {
-                          $steps["updateLastTime"] = await $steps[
-                            "updateLastTime"
-                          ];
-                        }
-
-                        $steps["updateDateOfBirth2"] =
-                          $state.typeInterDate == "lastTime"
-                            ? (() => {
-                                const actionArgs = {
-                                  variable: {
-                                    objRoot: $state,
-                                    variablePath: ["dateOfBirth"]
-                                  },
-                                  operation: 0,
-                                  value: (() => {
-                                    var jy = $state.datePickers.value.year;
-                                    var jm = $state.datePickers.value.month;
-                                    var jd = $state.datePickers.value.day;
-                                    var gy = jy <= 979 ? 621 : 1600;
-                                    jy -= jy <= 979 ? 0 : 979;
-                                    var days =
-                                      365 * jy +
-                                      parseInt(jy / 33) * 8 +
-                                      parseInt(((jy % 33) + 3) / 4) +
-                                      78 +
-                                      jd +
-                                      (jm < 7
-                                        ? (jm - 1) * 31
-                                        : (jm - 7) * 30 + 186);
-                                    gy += 400 * parseInt(days / 146097);
-                                    days %= 146097;
-                                    if (days > 36524) {
-                                      gy += 100 * parseInt(--days / 36524);
-                                      days %= 36524;
-                                      if (days >= 365) days++;
-                                    }
-                                    gy += 4 * parseInt(days / 1461);
-                                    days %= 1461;
-                                    gy += parseInt((days - 1) / 365);
-                                    if (days > 365) days = (days - 1) % 365;
-                                    var gd = days + 1;
-                                    var sal_a = [
-                                      0,
-                                      31,
-                                      (gy % 4 == 0 && gy % 100 != 0) ||
-                                      gy % 400 == 0
-                                        ? 29
-                                        : 28,
-                                      31,
-                                      30,
-                                      31,
-                                      30,
-                                      31,
-                                      31,
-                                      30,
-                                      31,
-                                      30,
-                                      31
-                                    ];
-
-                                    var gm;
-                                    for (gm = 0; gm < 13; gm++) {
-                                      var v = sal_a[gm];
-                                      if (gd <= v) break;
-                                      gd -= v;
-                                    }
-                                    const [year, month, day] = [gy, gm, gd];
-
-                                    var date = new Date(year, month - 1, day);
-                                    date.setDate(date.getDate() + 280);
-                                    var gyNew = date.getFullYear();
-                                    var gmNew = date.getMonth() + 1;
-                                    var gdNew = date.getDate();
-                                    var g_d_m = [
-                                      0, 31, 59, 90, 120, 151, 181, 212, 243,
-                                      273, 304, 334
-                                    ];
-
-                                    var jyNew = gyNew <= 1600 ? 0 : 979;
-                                    gyNew =
-                                      gyNew - (gyNew <= 1600 ? 621 : 1600);
-                                    var gy2 = gmNew > 2 ? gyNew + 1 : gyNew;
-                                    var daysNew =
-                                      365 * gyNew +
-                                      parseInt((gy2 + 3) / 4) -
-                                      parseInt((gy2 + 99) / 100) +
-                                      parseInt((gy2 + 399) / 400) -
-                                      80 +
-                                      gdNew +
-                                      g_d_m[gmNew - 1];
-                                    jyNew += 33 * parseInt(daysNew / 12053);
-                                    daysNew %= 12053;
-                                    jyNew += 4 * parseInt(daysNew / 1461);
-                                    daysNew %= 1461;
-                                    jyNew += parseInt((daysNew - 1) / 365);
-                                    if (daysNew > 365)
-                                      daysNew = (daysNew - 1) % 365;
-                                    var jmNew =
-                                      daysNew < 186
-                                        ? 1 + parseInt(daysNew / 31)
-                                        : 7 + parseInt((daysNew - 186) / 30);
-                                    var jdNew =
-                                      1 +
-                                      (daysNew < 186
-                                        ? daysNew % 31
-                                        : (daysNew - 186) % 30);
-                                    return {
-                                      day: jdNew,
-                                      month: jmNew,
-                                      year: jyNew
-                                    };
-                                  })()
-                                };
-                                return (({
-                                  variable,
-                                  value,
-                                  startIndex,
-                                  deleteCount
-                                }) => {
-                                  if (!variable) {
-                                    return;
-                                  }
-                                  const { objRoot, variablePath } = variable;
-
-                                  $stateSet(objRoot, variablePath, value);
-                                  return value;
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
-                        if (
-                          $steps["updateDateOfBirth2"] != null &&
-                          typeof $steps["updateDateOfBirth2"] === "object" &&
-                          typeof $steps["updateDateOfBirth2"].then ===
-                            "function"
-                        ) {
-                          $steps["updateDateOfBirth2"] = await $steps[
-                            "updateDateOfBirth2"
-                          ];
-                        }
 
                         $steps["updateSlideinModalClick"] = true
                           ? (() => {
@@ -932,7 +1232,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                   variablePath: ["dateModal", "click"]
                                 },
                                 operation: 0,
-                                value: false
+                                value: true
                               };
                               return (({
                                 variable,
@@ -962,68 +1262,15 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           ];
                         }
 
-                        $steps["updateDuDate"] = true
+                        $steps["updateTypeDate"] = true
                           ? (() => {
                               const actionArgs = {
                                 variable: {
                                   objRoot: $state,
-                                  variablePath: ["duDate"]
+                                  variablePath: ["typeInterDate"]
                                 },
                                 operation: 0,
-                                value: (() => {
-                                  var jy = $state.dateOfBirth.year;
-                                  var jm = $state.dateOfBirth.month;
-                                  var jd = $state.dateOfBirth.day;
-                                  var gy = jy <= 979 ? 621 : 1600;
-                                  jy -= jy <= 979 ? 0 : 979;
-                                  var days =
-                                    365 * jy +
-                                    parseInt(jy / 33) * 8 +
-                                    parseInt(((jy % 33) + 3) / 4) +
-                                    78 +
-                                    jd +
-                                    (jm < 7
-                                      ? (jm - 1) * 31
-                                      : (jm - 7) * 30 + 186);
-                                  gy += 400 * parseInt(days / 146097);
-                                  days %= 146097;
-                                  if (days > 36524) {
-                                    gy += 100 * parseInt(--days / 36524);
-                                    days %= 36524;
-                                    if (days >= 365) days++;
-                                  }
-                                  gy += 4 * parseInt(days / 1461);
-                                  days %= 1461;
-                                  gy += parseInt((days - 1) / 365);
-                                  if (days > 365) days = (days - 1) % 365;
-                                  var gd = days + 1;
-                                  var sal_a = [
-                                    0,
-                                    31,
-                                    (gy % 4 == 0 && gy % 100 != 0) ||
-                                    gy % 400 == 0
-                                      ? 29
-                                      : 28,
-                                    31,
-                                    30,
-                                    31,
-                                    30,
-                                    31,
-                                    31,
-                                    30,
-                                    31,
-                                    30,
-                                    31
-                                  ];
-
-                                  var gm;
-                                  for (gm = 0; gm < 13; gm++) {
-                                    var v = sal_a[gm];
-                                    if (gd <= v) break;
-                                    gd -= v;
-                                  }
-                                  return [gy, gm, gd];
-                                })()
+                                value: "dateOfBirth"
                               };
                               return (({
                                 variable,
@@ -1042,17 +1289,926 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             })()
                           : undefined;
                         if (
-                          $steps["updateDuDate"] != null &&
-                          typeof $steps["updateDuDate"] === "object" &&
-                          typeof $steps["updateDuDate"].then === "function"
+                          $steps["updateTypeDate"] != null &&
+                          typeof $steps["updateTypeDate"] === "object" &&
+                          typeof $steps["updateTypeDate"].then === "function"
                         ) {
-                          $steps["updateDuDate"] = await $steps["updateDuDate"];
+                          $steps["updateTypeDate"] = await $steps[
+                            "updateTypeDate"
+                          ];
+                        }
+                      }}
+                    >
+                      {(() => {
+                        const child$Props = {
+                          bordered: true,
+                          className: classNames(
+                            "__wab_instance",
+                            sty.dateOfBirthBox,
+                            {
+                              [sty.dateOfBirthBoxdark]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
+                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["dateOfBirthBox", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+                          },
+                          placeholder:
+                            "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
+                          readOnly: true,
+                          value: generateStateValueProp($state, [
+                            "dateOfBirthBox",
+                            "value"
+                          ])
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "dateOfBirthBox.value"
+                            }
+                          ],
+                          [],
+                          AntdInput_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <AntdInput
+                            data-plasmic-name={"dateOfBirthBox"}
+                            data-plasmic-override={overrides.dateOfBirthBox}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__t0Jql,
+                        {
+                          [sty.freeBoxdark__t0JqLbkz05]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__tThr
+                        )}
+                      >
+                        {""}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__iKyjT
+                        )}
+                      >
+                        {"\u06cc\u0627"}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__lp1Bw
+                        )}
+                      >
+                        {""}
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__hxpdj,
+                        {
+                          [sty.textdark__hxpdJbkz05]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                    >
+                      {
+                        "\u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u06cc\u061f"
+                      }
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__lChI,
+                        hasVariant($state, "dark", "dark") ? "input-dark" : ``,
+                        {
+                          [sty.freeBoxdark__lChIbkz05]: hasVariant(
+                            $state,
+                            "dark",
+                            "dark"
+                          )
+                        }
+                      )}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateSlideinModalClick"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dateModal", "click"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateSlideinModalClick"] != null &&
+                          typeof $steps["updateSlideinModalClick"] ===
+                            "object" &&
+                          typeof $steps["updateSlideinModalClick"].then ===
+                            "function"
+                        ) {
+                          $steps["updateSlideinModalClick"] = await $steps[
+                            "updateSlideinModalClick"
+                          ];
+                        }
+
+                        $steps["updateTypeDate"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["typeInterDate"]
+                                },
+                                operation: 0,
+                                value: "lastTime"
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateTypeDate"] != null &&
+                          typeof $steps["updateTypeDate"] === "object" &&
+                          typeof $steps["updateTypeDate"].then === "function"
+                        ) {
+                          $steps["updateTypeDate"] = await $steps[
+                            "updateTypeDate"
+                          ];
+                        }
+                      }}
+                    >
+                      {(() => {
+                        const child$Props = {
+                          className: classNames(
+                            "__wab_instance",
+                            sty.lastTimeBox,
+                            {
+                              [sty.lastTimeBoxdark]: hasVariant(
+                                $state,
+                                "dark",
+                                "dark"
+                              )
+                            }
+                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "value",
+                              ["lastTimeBox", "value"],
+                              AntdInput_Helpers
+                            ).apply(null, eventArgs);
+                          },
+                          placeholder:
+                            "\u0645\u062b\u0644\u0627 3 \u0627\u0633\u0641\u0646\u062f 1403",
+                          readOnly: true,
+                          value: generateStateValueProp($state, [
+                            "lastTimeBox",
+                            "value"
+                          ])
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "value",
+                              plasmicStateName: "lastTimeBox.value"
+                            }
+                          ],
+                          [],
+                          AntdInput_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <AntdInput
+                            data-plasmic-name={"lastTimeBox"}
+                            data-plasmic-override={overrides.lastTimeBox}
+                            {...child$Props}
+                          />
+                        );
+                      })()}
+                    </div>
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox___8T2M)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__q9EfV)}
+                  >
+                    <Button
+                      data-plasmic-name={"button3"}
+                      data-plasmic-override={overrides.button3}
+                      className={classNames("__wab_instance", sty.button3)}
+                      color={generateStateValueProp($state, [
+                        "button3",
+                        "color"
+                      ])}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["invokeGlobalAction2"] = (() => {
+                          var jy = $state.dateOfBirth.year;
+                          var jm = $state.dateOfBirth.month;
+                          var jd = $state.dateOfBirth.day;
+                          var gy = jy <= 979 ? 621 : 1600;
+                          jy -= jy <= 979 ? 0 : 979;
+                          var days =
+                            365 * jy +
+                            parseInt(jy / 33) * 8 +
+                            parseInt(((jy % 33) + 3) / 4) +
+                            78 +
+                            jd +
+                            (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                          gy += 400 * parseInt(days / 146097);
+                          days %= 146097;
+                          if (days > 36524) {
+                            gy += 100 * parseInt(--days / 36524);
+                            days %= 36524;
+                            if (days >= 365) days++;
+                          }
+                          gy += 4 * parseInt(days / 1461);
+                          days %= 1461;
+                          gy += parseInt((days - 1) / 365);
+                          if (days > 365) days = (days - 1) % 365;
+                          var gd = days + 1;
+                          var sal_a = [
+                            0,
+                            31,
+                            (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                              ? 29
+                              : 28,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31
+                          ];
+
+                          var gm;
+                          for (gm = 0; gm < 13; gm++) {
+                            var v = sal_a[gm];
+                            if (gd <= v) break;
+                            gd -= v;
+                          }
+                          const d =
+                            gy +
+                            "-" +
+                            (gm <= 9 ? "0" : "") +
+                            gm +
+                            "-" +
+                            (gd <= 9 ? "0" : "") +
+                            gd +
+                            "T10:10:10";
+                          const specifiedDate = new Date(d);
+                          const today = new Date();
+                          if (today > specifiedDate) {
+                            return false;
+                          }
+                          const diffTime = Math.abs(today - specifiedDate);
+                          const diffDays = Math.ceil(
+                            diffTime / (1000 * 60 * 60 * 24)
+                          );
+                          return diffDays > 280 ? false : true;
+                        })()
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
+                                  "top-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction2"] != null &&
+                          typeof $steps["invokeGlobalAction2"] === "object" &&
+                          typeof $steps["invokeGlobalAction2"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction2"] = await $steps[
+                            "invokeGlobalAction2"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction"] = (() => {
+                          var jy = $state.dateOfBirth.year;
+                          var jm = $state.dateOfBirth.month;
+                          var jd = $state.dateOfBirth.day;
+                          var gy = jy <= 979 ? 621 : 1600;
+                          jy -= jy <= 979 ? 0 : 979;
+                          var days =
+                            365 * jy +
+                            parseInt(jy / 33) * 8 +
+                            parseInt(((jy % 33) + 3) / 4) +
+                            78 +
+                            jd +
+                            (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                          gy += 400 * parseInt(days / 146097);
+                          days %= 146097;
+                          if (days > 36524) {
+                            gy += 100 * parseInt(--days / 36524);
+                            days %= 36524;
+                            if (days >= 365) days++;
+                          }
+                          gy += 4 * parseInt(days / 1461);
+                          days %= 1461;
+                          gy += parseInt((days - 1) / 365);
+                          if (days > 365) days = (days - 1) % 365;
+                          var gd = days + 1;
+                          var sal_a = [
+                            0,
+                            31,
+                            (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                              ? 29
+                              : 28,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31
+                          ];
+
+                          var gm;
+                          for (gm = 0; gm < 13; gm++) {
+                            var v = sal_a[gm];
+                            if (gd <= v) break;
+                            gd -= v;
+                          }
+                          const d =
+                            gy +
+                            "-" +
+                            (gm <= 9 ? "0" : "") +
+                            gm +
+                            "-" +
+                            (gd <= 9 ? "0" : "") +
+                            gd +
+                            "T10:10:10";
+                          const specifiedDate = new Date(d);
+                          const today = new Date();
+                          if (today > specifiedDate) {
+                            return false;
+                          }
+                          const diffTime = Math.abs(today - specifiedDate);
+                          const diffDays = Math.ceil(
+                            diffTime / (1000 * 60 * 60 * 24)
+                          );
+                          return diffDays > 280 ? false : true;
+                        })()
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://n8n.staas.ir/webhook/status",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return (() => {
+                                        let hamyarsData = { hamyarsData: [] };
+                                        for (
+                                          let i = 0;
+                                          i <
+                                          $state.getUserInfo.data[0].result
+                                            .hamyars.length;
+                                          i++
+                                        ) {
+                                          hamyarsData.hamyarsData.push({
+                                            name: $state.getUserInfo.data[0]
+                                              .result.hamyars[i].user.name,
+                                            active:
+                                              $state.getUserInfo.data[0].result
+                                                .hamyars[i].user.active,
+                                            hamyarStatus:
+                                              $state.getUserInfo.data[0].result
+                                                .hamyars[i].user.hamyarStatus,
+                                            mobile:
+                                              $state.getUserInfo.data[0].result
+                                                .hamyars[i].user.mobile
+                                          });
+                                        }
+                                        return {
+                                          area: "pregnancy",
+                                          duDate:
+                                            $state.duDate[0] +
+                                            "-" +
+                                            $state.duDate[1] +
+                                            "-" +
+                                            $state.duDate[2] +
+                                            " 10:10:10",
+                                          userId: $ctx.query.userId.slice(
+                                            4,
+                                            +$ctx.query.userId.length - 4
+                                          ),
+                                          name:
+                                            $state.getUserInfo.data[0].result
+                                              .user?.name ?? "",
+                                          mobile:
+                                            $state.getUserInfo.data[0].result
+                                              .user?.mobile ?? "",
+                                          email:
+                                            $state.getUserInfo.data[0].result
+                                              .user?.email ?? "",
+                                          hamyarData: hamyarsData
+                                        };
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                    }
+                                  }
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction3"] = (() => {
+                          var jy = $state.dateOfBirth.year;
+                          var jm = $state.dateOfBirth.month;
+                          var jd = $state.dateOfBirth.day;
+                          var gy = jy <= 979 ? 621 : 1600;
+                          jy -= jy <= 979 ? 0 : 979;
+                          var days =
+                            365 * jy +
+                            parseInt(jy / 33) * 8 +
+                            parseInt(((jy % 33) + 3) / 4) +
+                            78 +
+                            jd +
+                            (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                          gy += 400 * parseInt(days / 146097);
+                          days %= 146097;
+                          if (days > 36524) {
+                            gy += 100 * parseInt(--days / 36524);
+                            days %= 36524;
+                            if (days >= 365) days++;
+                          }
+                          gy += 4 * parseInt(days / 1461);
+                          days %= 1461;
+                          gy += parseInt((days - 1) / 365);
+                          if (days > 365) days = (days - 1) % 365;
+                          var gd = days + 1;
+                          var sal_a = [
+                            0,
+                            31,
+                            (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                              ? 29
+                              : 28,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31
+                          ];
+
+                          var gm;
+                          for (gm = 0; gm < 13; gm++) {
+                            var v = sal_a[gm];
+                            if (gd <= v) break;
+                            gd -= v;
+                          }
+                          const d =
+                            gy +
+                            "-" +
+                            (gm <= 9 ? "0" : "") +
+                            gm +
+                            "-" +
+                            (gd <= 9 ? "0" : "") +
+                            gd +
+                            "T10:10:10";
+                          const specifiedDate = new Date(d);
+                          const today = new Date();
+                          if (today > specifiedDate) {
+                            return true;
+                          }
+                          const diffTime = Math.abs(today - specifiedDate);
+                          const diffDays = Math.ceil(
+                            diffTime / (1000 * 60 * 60 * 24)
+                          );
+                          return diffDays <= 280 ? false : true;
+                        })()
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "error",
+                                  "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                                  "top-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction3"] != null &&
+                          typeof $steps["invokeGlobalAction3"] === "object" &&
+                          typeof $steps["invokeGlobalAction3"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction3"] = await $steps[
+                            "invokeGlobalAction3"
+                          ];
+                        }
+
+                        $steps["goToPage"] = (() => {
+                          if (
+                            $state.duDate == "" ||
+                            $state.dateOfBirth == null ||
+                            $state.dateOfBirth == ""
+                          ) {
+                            return false;
+                          }
+                          var jy = $state.dateOfBirth.year;
+                          var jm = $state.dateOfBirth.month;
+                          var jd = $state.dateOfBirth.day;
+                          var gy = jy <= 979 ? 621 : 1600;
+                          jy -= jy <= 979 ? 0 : 979;
+                          var days =
+                            365 * jy +
+                            parseInt(jy / 33) * 8 +
+                            parseInt(((jy % 33) + 3) / 4) +
+                            78 +
+                            jd +
+                            (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                          gy += 400 * parseInt(days / 146097);
+                          days %= 146097;
+                          if (days > 36524) {
+                            gy += 100 * parseInt(--days / 36524);
+                            days %= 36524;
+                            if (days >= 365) days++;
+                          }
+                          gy += 4 * parseInt(days / 1461);
+                          days %= 1461;
+                          gy += parseInt((days - 1) / 365);
+                          if (days > 365) days = (days - 1) % 365;
+                          var gd = days + 1;
+                          var sal_a = [
+                            0,
+                            31,
+                            (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                              ? 29
+                              : 28,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31
+                          ];
+
+                          var gm;
+                          for (gm = 0; gm < 13; gm++) {
+                            var v = sal_a[gm];
+                            if (gd <= v) break;
+                            gd -= v;
+                          }
+                          const d =
+                            gy +
+                            "-" +
+                            (gm <= 9 ? "0" : "") +
+                            gm +
+                            "-" +
+                            (gd <= 9 ? "0" : "") +
+                            gd +
+                            "T10:10:10";
+                          const specifiedDate = new Date(d);
+                          const today = new Date();
+                          if (today > specifiedDate) {
+                            return false;
+                          }
+                          const diffTime = Math.abs(today - specifiedDate);
+                          const diffDays = Math.ceil(
+                            diffTime / (1000 * 60 * 60 * 24)
+                          );
+                          return diffDays > 280 ? false : true;
+                        })()
+                          ? (() => {
+                              const actionArgs = {
+                                destination: (() => {
+                                  try {
+                                    return (
+                                      "https://apps.liom.app/pregnancy/?token=" +
+                                      $ctx.query.token +
+                                      "&userId=" +
+                                      $ctx.query.userId +
+                                      "&theme=" +
+                                      $ctx.query.theme +
+                                      "&inApp=false"
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
+                                    }
+                                    throw e;
+                                  }
+                                })()
+                              };
+                              return (({ destination }) => {
+                                if (
+                                  typeof destination === "string" &&
+                                  destination.startsWith("#")
+                                ) {
+                                  document
+                                    .getElementById(destination.substr(1))
+                                    .scrollIntoView({ behavior: "smooth" });
+                                } else {
+                                  __nextRouter?.push(destination);
+                                }
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+
+                        $steps["invokeGlobalAction4"] = (() => {
+                          if (
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) == "314149" ||
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) == "1"
+                          ) {
+                            return false;
+                          }
+                          var jy = $state.dateOfBirth.year;
+                          var jm = $state.dateOfBirth.month;
+                          var jd = $state.dateOfBirth.day;
+                          var gy = jy <= 979 ? 621 : 1600;
+                          jy -= jy <= 979 ? 0 : 979;
+                          var days =
+                            365 * jy +
+                            parseInt(jy / 33) * 8 +
+                            parseInt(((jy % 33) + 3) / 4) +
+                            78 +
+                            jd +
+                            (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
+                          gy += 400 * parseInt(days / 146097);
+                          days %= 146097;
+                          if (days > 36524) {
+                            gy += 100 * parseInt(--days / 36524);
+                            days %= 36524;
+                            if (days >= 365) days++;
+                          }
+                          gy += 4 * parseInt(days / 1461);
+                          days %= 1461;
+                          gy += parseInt((days - 1) / 365);
+                          if (days > 365) days = (days - 1) % 365;
+                          var gd = days + 1;
+                          var sal_a = [
+                            0,
+                            31,
+                            (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
+                              ? 29
+                              : 28,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31,
+                            31,
+                            30,
+                            31,
+                            30,
+                            31
+                          ];
+
+                          var gm;
+                          for (gm = 0; gm < 13; gm++) {
+                            var v = sal_a[gm];
+                            if (gd <= v) break;
+                            gd -= v;
+                          }
+                          const d =
+                            gy +
+                            "-" +
+                            (gm <= 9 ? "0" : "") +
+                            gm +
+                            "-" +
+                            (gd <= 9 ? "0" : "") +
+                            gd +
+                            "T10:10:10";
+                          const specifiedDate = new Date(d);
+                          const today = new Date();
+                          if (today > specifiedDate) {
+                            return false;
+                          }
+                          const diffTime = Math.abs(today - specifiedDate);
+                          const diffDays = Math.ceil(
+                            diffTime / (1000 * 60 * 60 * 24)
+                          );
+                          return diffDays > 280 ? false : true;
+                        })()
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/service/log",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        userId:
+                                          $ctx.query.userId?.length > 0
+                                            ? $ctx.query.userId.slice(
+                                                4,
+                                                $ctx.query.userId.length - 4
+                                              )
+                                            : "guest",
+                                        pageName: "settingPage",
+                                        action: "click-saveDate",
+                                        extraData: {}
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  {
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                    }
+                                  }
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction4"] != null &&
+                          typeof $steps["invokeGlobalAction4"] === "object" &&
+                          typeof $steps["invokeGlobalAction4"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction4"] = await $steps[
+                            "invokeGlobalAction4"
+                          ];
+                        }
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    return console.log(
+                                      $state.duDate[0] +
+                                        "-" +
+                                        $state.duDate[1] +
+                                        "-" +
+                                        $state.duDate[2] +
+                                        " 10:10:10"
+                                    );
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
                         ((...eventArgs) => {
                           generateStateOnChangeProp($state, [
-                            "button",
+                            "button3",
                             "color"
                           ])(eventArgs[0]);
                         }).apply(null, eventArgs);
@@ -1066,1192 +2222,97 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         }
                       }}
                     >
-                      {"\u062a\u0627\u06cc\u06cc\u062f"}
+                      {
+                        "\u0630\u062e\u06cc\u0631\u0647 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a"
+                      }
                     </Button>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__z4LTn)}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["updateSlideinModalClick"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["dateModal", "click"]
-                                },
-                                operation: 0,
-                                value: false
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateSlideinModalClick"] != null &&
-                          typeof $steps["updateSlideinModalClick"] ===
-                            "object" &&
-                          typeof $steps["updateSlideinModalClick"].then ===
-                            "function"
-                        ) {
-                          $steps["updateSlideinModalClick"] = await $steps[
-                            "updateSlideinModalClick"
-                          ];
-                        }
-                      }}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__xQvCh
-                        )}
-                      >
-                        {"\u0628\u0633\u062a\u0646"}
-                      </div>
-                    </div>
                   </div>
-                </SlideinModal>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pd8Nv,
-                    {
-                      [sty.textdark__pd8Nvbkz05]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
-                >
-                  {
-                    "\u0628\u0627 \u0648\u0627\u0631\u062f \u06a9\u0631\u062f\u0646 \u06cc\u06a9\u06cc \u0627\u0632 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0632\u06cc\u0631 \u0628\u0647 \u0645\u0627 \u062a\u0648\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u0647\u0641\u062a\u0647 \u062c\u0627\u0631\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u06a9\u0645\u06a9 \u06a9\u0646 \u062a\u0627 \u0628\u062a\u0648\u0646\u06cc\u0645 \u0628\u0647\u062a \u0628\u06af\u06cc\u0645 \u06a9\u0648\u0686\u0648\u0644\u0648\u062a \u0627\u0644\u0627\u0646 \u0686\u0646\u062f \u0647\u0641\u062a\u0634\u0647 :)"
-                  }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__jhTi,
-                    {
-                      [sty.textdark__jhTibkz05]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
-                >
-                  {
-                    "\u062a\u0627\u0631\u06cc\u062e \u0632\u0627\u06cc\u0645\u0627\u0646\u061f"
-                  }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox___1FrZr,
-                    hasVariant($state, "dark", "dark") ? "input-dark" : ``,
-                    {
-                      [sty.freeBoxdark___1FrZrbkz05]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateSlideinModalClick"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dateModal", "click"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateSlideinModalClick"] != null &&
-                      typeof $steps["updateSlideinModalClick"] === "object" &&
-                      typeof $steps["updateSlideinModalClick"].then ===
-                        "function"
-                    ) {
-                      $steps["updateSlideinModalClick"] = await $steps[
-                        "updateSlideinModalClick"
-                      ];
-                    }
-
-                    $steps["updateTypeDate"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["typeInterDate"]
-                            },
-                            operation: 0,
-                            value: "dateOfBirth"
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateTypeDate"] != null &&
-                      typeof $steps["updateTypeDate"] === "object" &&
-                      typeof $steps["updateTypeDate"].then === "function"
-                    ) {
-                      $steps["updateTypeDate"] = await $steps["updateTypeDate"];
-                    }
-                  }}
-                >
-                  {(() => {
-                    const child$Props = {
-                      bordered: true,
-                      className: classNames(
-                        "__wab_instance",
-                        sty.dateOfBirthBox,
-                        {
-                          [sty.dateOfBirthBoxdark]: hasVariant(
-                            $state,
-                            "dark",
-                            "dark"
-                          )
-                        }
-                      ),
-                      onChange: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "value",
-                          ["dateOfBirthBox", "value"],
-                          AntdInput_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      placeholder:
-                        "\u0645\u062b\u0644\u0627 7 \u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a 1381",
-                      readOnly: true,
-                      value: generateStateValueProp($state, [
-                        "dateOfBirthBox",
-                        "value"
-                      ])
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "value",
-                          plasmicStateName: "dateOfBirthBox.value"
-                        }
-                      ],
-                      [],
-                      AntdInput_Helpers ?? {},
-                      child$Props
-                    );
-
-                    return (
-                      <AntdInput
-                        data-plasmic-name={"dateOfBirthBox"}
-                        data-plasmic-override={overrides.dateOfBirthBox}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
-                </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__t0Jql, {
-                    [sty.freeBoxdark__t0JqLbkz05]: hasVariant(
-                      $state,
-                      "dark",
-                      "dark"
-                    )
-                  })}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__tThr
-                    )}
-                  >
-                    {""}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__iKyjT
-                    )}
-                  >
-                    {"\u06cc\u0627"}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__lp1Bw
-                    )}
-                  >
-                    {""}
-                  </div>
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__hxpdj,
-                    {
-                      [sty.textdark__hxpdJbkz05]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
-                >
-                  {
-                    "\u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0631 \u06a9\u06cc \u067e\u0631\u06cc\u0648\u062f \u0634\u062f\u06cc\u061f"
-                  }
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__lChI,
-                    hasVariant($state, "dark", "dark") ? "input-dark" : ``,
-                    {
-                      [sty.freeBoxdark__lChIbkz05]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
-                  onClick={async event => {
-                    const $steps = {};
-
-                    $steps["updateSlideinModalClick"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["dateModal", "click"]
-                            },
-                            operation: 0,
-                            value: true
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateSlideinModalClick"] != null &&
-                      typeof $steps["updateSlideinModalClick"] === "object" &&
-                      typeof $steps["updateSlideinModalClick"].then ===
-                        "function"
-                    ) {
-                      $steps["updateSlideinModalClick"] = await $steps[
-                        "updateSlideinModalClick"
-                      ];
-                    }
-
-                    $steps["updateTypeDate"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            variable: {
-                              objRoot: $state,
-                              variablePath: ["typeInterDate"]
-                            },
-                            operation: 0,
-                            value: "lastTime"
-                          };
-                          return (({
-                            variable,
-                            value,
-                            startIndex,
-                            deleteCount
-                          }) => {
-                            if (!variable) {
-                              return;
-                            }
-                            const { objRoot, variablePath } = variable;
-
-                            $stateSet(objRoot, variablePath, value);
-                            return value;
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["updateTypeDate"] != null &&
-                      typeof $steps["updateTypeDate"] === "object" &&
-                      typeof $steps["updateTypeDate"].then === "function"
-                    ) {
-                      $steps["updateTypeDate"] = await $steps["updateTypeDate"];
-                    }
-                  }}
-                >
-                  {(() => {
-                    const child$Props = {
-                      className: classNames("__wab_instance", sty.lastTimeBox, {
-                        [sty.lastTimeBoxdark]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }),
-                      onChange: async (...eventArgs: any) => {
-                        generateStateOnChangePropForCodeComponents(
-                          $state,
-                          "value",
-                          ["lastTimeBox", "value"],
-                          AntdInput_Helpers
-                        ).apply(null, eventArgs);
-                      },
-                      placeholder:
-                        "\u0645\u062b\u0644\u0627 3 \u0627\u0633\u0641\u0646\u062f 1403",
-                      readOnly: true,
-                      value: generateStateValueProp($state, [
-                        "lastTimeBox",
-                        "value"
-                      ])
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "value",
-                          plasmicStateName: "lastTimeBox.value"
-                        }
-                      ],
-                      [],
-                      AntdInput_Helpers ?? {},
-                      child$Props
-                    );
-
-                    return (
-                      <AntdInput
-                        data-plasmic-name={"lastTimeBox"}
-                        data-plasmic-override={overrides.lastTimeBox}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox___8T2M)}>
-              <div className={classNames(projectcss.all, sty.freeBox__q9EfV)}>
-                <Button
-                  data-plasmic-name={"button3"}
-                  data-plasmic-override={overrides.button3}
-                  className={classNames("__wab_instance", sty.button3)}
-                  color={generateStateValueProp($state, ["button3", "color"])}
-                  onClick={async event => {
-                    const $steps = {};
+          ) : null}
+          <ApiRequest
+            data-plasmic-name={"getUserInfo"}
+            data-plasmic-override={overrides.getUserInfo}
+            className={classNames("__wab_instance", sty.getUserInfo)}
+            errorDisplay={null}
+            loadingDisplay={null}
+            method={"GET"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getUserInfo", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "getUserInfo",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["getUserInfo", "data"]).apply(
+                null,
+                eventArgs
+              );
 
-                    $steps["invokeGlobalAction2"] = (() => {
-                      var jy = $state.dateOfBirth.year;
-                      var jm = $state.dateOfBirth.month;
-                      var jd = $state.dateOfBirth.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
+              (async data => {
+                const $steps = {};
 
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
+                $steps["updateIsGetInfo"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["isGetInfo"]
+                        },
+                        operation: 0,
+                        value: true
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
                     })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              undefined,
-                              "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f",
-                              "top-center"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction2"] != null &&
-                      typeof $steps["invokeGlobalAction2"] === "object" &&
-                      typeof $steps["invokeGlobalAction2"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction2"] = await $steps[
-                        "invokeGlobalAction2"
-                      ];
-                    }
-
-                    $steps["invokeGlobalAction"] = (() => {
-                      var jy = $state.dateOfBirth.year;
-                      var jm = $state.dateOfBirth.month;
-                      var jd = $state.dateOfBirth.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://n8n.staas.ir/webhook/status",
-                              undefined,
-                              (() => {
-                                try {
-                                  return (() => {
-                                    let hamyarsData = { hamyarsData: [] };
-                                    for (
-                                      let i = 0;
-                                      i <
-                                      $state.getUserInfo.data[0].result.hamyars
-                                        .length;
-                                      i++
-                                    ) {
-                                      hamyarsData.hamyarsData.push({
-                                        name: $state.getUserInfo.data[0].result
-                                          .hamyars[i].user.name,
-                                        active:
-                                          $state.getUserInfo.data[0].result
-                                            .hamyars[i].user.active,
-                                        hamyarStatus:
-                                          $state.getUserInfo.data[0].result
-                                            .hamyars[i].user.hamyarStatus,
-                                        mobile:
-                                          $state.getUserInfo.data[0].result
-                                            .hamyars[i].user.mobile
-                                      });
-                                    }
-                                    return {
-                                      area: "pregnancy",
-                                      duDate:
-                                        $state.duDate[0] +
-                                        "-" +
-                                        $state.duDate[1] +
-                                        "-" +
-                                        $state.duDate[2] +
-                                        " 10:10:10",
-                                      userId: $ctx.query.userId.slice(
-                                        4,
-                                        +$ctx.query.userId.length - 4
-                                      ),
-                                      name:
-                                        $state.getUserInfo.data[0].result.user
-                                          ?.name ?? "",
-                                      mobile:
-                                        $state.getUserInfo.data[0].result.user
-                                          ?.mobile ?? "",
-                                      email:
-                                        $state.getUserInfo.data[0].result.user
-                                          ?.email ?? "",
-                                      hamyarData: hamyarsData
-                                    };
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              {
-                                headers: {
-                                  "Content-Type": "application/json",
-                                  Authorization:
-                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                }
-                              }
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction"] != null &&
-                      typeof $steps["invokeGlobalAction"] === "object" &&
-                      typeof $steps["invokeGlobalAction"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction"] = await $steps[
-                        "invokeGlobalAction"
-                      ];
-                    }
-
-                    $steps["invokeGlobalAction3"] = (() => {
-                      var jy = $state.dateOfBirth.year;
-                      var jm = $state.dateOfBirth.month;
-                      var jd = $state.dateOfBirth.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return true;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays <= 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "error",
-                              "\u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u062f\u0631\u0633\u062a \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
-                              "top-center"
-                            ]
-                          };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction3"] != null &&
-                      typeof $steps["invokeGlobalAction3"] === "object" &&
-                      typeof $steps["invokeGlobalAction3"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction3"] = await $steps[
-                        "invokeGlobalAction3"
-                      ];
-                    }
-
-                    $steps["goToPage"] = (() => {
-                      if (
-                        $state.duDate == "" ||
-                        $state.dateOfBirth == null ||
-                        $state.dateOfBirth == ""
-                      ) {
-                        return false;
-                      }
-                      var jy = $state.dateOfBirth.year;
-                      var jm = $state.dateOfBirth.month;
-                      var jd = $state.dateOfBirth.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            destination: (() => {
-                              try {
-                                return (
-                                  "https://apps.liom.app/pregnancy/?token=" +
-                                  $ctx.query.token +
-                                  "&userId=" +
-                                  $ctx.query.userId +
-                                  "&theme=" +
-                                  $ctx.query.theme +
-                                  "&inApp=false"
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()
-                          };
-                          return (({ destination }) => {
-                            if (
-                              typeof destination === "string" &&
-                              destination.startsWith("#")
-                            ) {
-                              document
-                                .getElementById(destination.substr(1))
-                                .scrollIntoView({ behavior: "smooth" });
-                            } else {
-                              __nextRouter?.push(destination);
-                            }
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["goToPage"] != null &&
-                      typeof $steps["goToPage"] === "object" &&
-                      typeof $steps["goToPage"].then === "function"
-                    ) {
-                      $steps["goToPage"] = await $steps["goToPage"];
-                    }
-
-                    $steps["invokeGlobalAction4"] = (() => {
-                      if (
-                        $ctx.query.userId.slice(
-                          4,
-                          $ctx.query.userId.length - 4
-                        ) == "314149" ||
-                        $ctx.query.userId.slice(
-                          4,
-                          $ctx.query.userId.length - 4
-                        ) == "1"
-                      ) {
-                        return false;
-                      }
-                      var jy = $state.dateOfBirth.year;
-                      var jm = $state.dateOfBirth.month;
-                      var jd = $state.dateOfBirth.day;
-                      var gy = jy <= 979 ? 621 : 1600;
-                      jy -= jy <= 979 ? 0 : 979;
-                      var days =
-                        365 * jy +
-                        parseInt(jy / 33) * 8 +
-                        parseInt(((jy % 33) + 3) / 4) +
-                        78 +
-                        jd +
-                        (jm < 7 ? (jm - 1) * 31 : (jm - 7) * 30 + 186);
-                      gy += 400 * parseInt(days / 146097);
-                      days %= 146097;
-                      if (days > 36524) {
-                        gy += 100 * parseInt(--days / 36524);
-                        days %= 36524;
-                        if (days >= 365) days++;
-                      }
-                      gy += 4 * parseInt(days / 1461);
-                      days %= 1461;
-                      gy += parseInt((days - 1) / 365);
-                      if (days > 365) days = (days - 1) % 365;
-                      var gd = days + 1;
-                      var sal_a = [
-                        0,
-                        31,
-                        (gy % 4 == 0 && gy % 100 != 0) || gy % 400 == 0
-                          ? 29
-                          : 28,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31,
-                        31,
-                        30,
-                        31,
-                        30,
-                        31
-                      ];
-
-                      var gm;
-                      for (gm = 0; gm < 13; gm++) {
-                        var v = sal_a[gm];
-                        if (gd <= v) break;
-                        gd -= v;
-                      }
-                      const d =
-                        gy +
-                        "-" +
-                        (gm <= 9 ? "0" : "") +
-                        gm +
-                        "-" +
-                        (gd <= 9 ? "0" : "") +
-                        gd +
-                        "T10:10:10";
-                      const specifiedDate = new Date(d);
-                      const today = new Date();
-                      if (today > specifiedDate) {
-                        return false;
-                      }
-                      const diffTime = Math.abs(today - specifiedDate);
-                      const diffDays = Math.ceil(
-                        diffTime / (1000 * 60 * 60 * 24)
-                      );
-                      return diffDays > 280 ? false : true;
-                    })()
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://api.liom.app/service/log",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    userId:
-                                      $ctx.query.userId?.length > 0
-                                        ? $ctx.query.userId.slice(
-                                            4,
-                                            $ctx.query.userId.length - 4
-                                          )
-                                        : "guest",
-                                    pageName: "settingPage",
-                                    action: "click-saveDate",
-                                    extraData: {}
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })(),
-                              {
-                                headers: {
-                                  "Content-Type": "application/json",
-                                  Authorization:
-                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                }
-                              }
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
-                    if (
-                      $steps["invokeGlobalAction4"] != null &&
-                      typeof $steps["invokeGlobalAction4"] === "object" &&
-                      typeof $steps["invokeGlobalAction4"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction4"] = await $steps[
-                        "invokeGlobalAction4"
-                      ];
-                    }
-
-                    $steps["runCode"] = true
-                      ? (() => {
-                          const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                return console.log(
-                                  $state.duDate[0] +
-                                    "-" +
-                                    $state.duDate[1] +
-                                    "-" +
-                                    $state.duDate[2] +
-                                    " 10:10:10"
-                                );
-                              })();
-                            }
-                          };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
-                        })()
-                      : undefined;
-                    if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
-                    ) {
-                      $steps["runCode"] = await $steps["runCode"];
-                    }
-                  }}
-                  onColorChange={async (...eventArgs: any) => {
-                    ((...eventArgs) => {
-                      generateStateOnChangeProp($state, ["button3", "color"])(
-                        eventArgs[0]
-                      );
-                    }).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                >
-                  {
-                    "\u0630\u062e\u06cc\u0631\u0647 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a"
-                  }
-                </Button>
-              </div>
-            </div>
-            <ApiRequest
-              data-plasmic-name={"getUserInfo"}
-              data-plasmic-override={overrides.getUserInfo}
-              className={classNames("__wab_instance", sty.getUserInfo)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kgCrk
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={null}
-              method={"GET"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "getUserInfo",
-                  "error"
-                ]).apply(null, eventArgs);
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "getUserInfo",
-                  "loading"
-                ]).apply(null, eventArgs);
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "getUserInfo",
-                  "data"
-                ]).apply(null, eventArgs);
-
-                (async data => {
-                  const $steps = {};
-
-                  $steps["updateIsGetInfo"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["isGetInfo"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateIsGetInfo"] != null &&
-                    typeof $steps["updateIsGetInfo"] === "object" &&
-                    typeof $steps["updateIsGetInfo"].then === "function"
-                  ) {
-                    $steps["updateIsGetInfo"] = await $steps["updateIsGetInfo"];
-                  }
-                }).apply(null, eventArgs);
-              }}
-              params={(() => {
-                try {
-                  return {
-                    token:
-                      $ctx.query.token ||
-                      new URLSearchParams(window.location.search).get("token")
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
+                  : undefined;
+                if (
+                  $steps["updateIsGetInfo"] != null &&
+                  typeof $steps["updateIsGetInfo"] === "object" &&
+                  typeof $steps["updateIsGetInfo"].then === "function"
+                ) {
+                  $steps["updateIsGetInfo"] = await $steps["updateIsGetInfo"];
                 }
-              })()}
-              url={"https://n8n.staas.ir/webhook-test/userInfo"}
-            />
-          </div>
+              }).apply(null, eventArgs);
+            }}
+            params={(() => {
+              try {
+                return {
+                  token:
+                    $ctx.query.token ||
+                    new URLSearchParams(window.location.search).get("token")
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return undefined;
+                }
+                throw e;
+              }
+            })()}
+            url={"https://n8n.staas.ir/webhook/userInfo"}
+          />
         </div>
       </div>
     </React.Fragment>
