@@ -2406,6 +2406,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                                   (() => {
                                     try {
                                       return (() => {
+                                        $state.list.addCycle = 0;
+                                        $state.list.addLength = 0;
                                         $state.list.period.start = {
                                           year: $state.lastTime.gy,
                                           month: $state.lastTime.gm,
