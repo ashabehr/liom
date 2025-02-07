@@ -624,7 +624,7 @@ function PlasmicBioritm2__RenderFunc(props: {
             hasVariant($state, "ferstTimepage", "ferstTimepage")
               ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n"
               : hasVariant(globalVariants, "screen", "mobile")
-              ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n"
+              ? "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n"
               : "<script>\r\n(function() {\r\n    var link = document.querySelector(\"link[rel='icon']\");\r\n    if (!link) {\r\n        link = document.createElement('link');\r\n        link.rel = 'icon';\r\n        document.head.appendChild(link);\r\n    }\r\n    link.href = 'https://site-assets.plasmic.app/1efb20da13dc901df2ae2f3b7a43de6e.ico';\r\n})();\r\n</script>\r\n<script src=\"https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js\"></script>\r\n"
           }
         />
@@ -5596,7 +5596,14 @@ function PlasmicBioritm2__RenderFunc(props: {
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__eegmp
+                sty.text__eegmp,
+                {
+                  [sty.textferstTimepage__eegmpGb6Kk]: hasVariant(
+                    $state,
+                    "ferstTimepage",
+                    "ferstTimepage"
+                  )
+                }
               )}
             >
               {
@@ -6105,23 +6112,9 @@ function PlasmicBioritm2__RenderFunc(props: {
               onClick={async event => {
                 const $steps = {};
 
-                $steps["goToPage"] = true
+                $steps["goToCalendar"] = true
                   ? (() => {
-                      const actionArgs = {
-                        destination: (() => {
-                          try {
-                            return `/main`;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()
-                      };
+                      const actionArgs = { destination: `/calendar` };
                       return (({ destination }) => {
                         if (
                           typeof destination === "string" &&
@@ -6137,11 +6130,11 @@ function PlasmicBioritm2__RenderFunc(props: {
                     })()
                   : undefined;
                 if (
-                  $steps["goToPage"] != null &&
-                  typeof $steps["goToPage"] === "object" &&
-                  typeof $steps["goToPage"].then === "function"
+                  $steps["goToCalendar"] != null &&
+                  typeof $steps["goToCalendar"] === "object" &&
+                  typeof $steps["goToCalendar"].then === "function"
                 ) {
-                  $steps["goToPage"] = await $steps["goToPage"];
+                  $steps["goToCalendar"] = await $steps["goToCalendar"];
                 }
               }}
             >
