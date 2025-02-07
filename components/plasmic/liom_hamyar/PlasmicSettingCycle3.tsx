@@ -834,41 +834,28 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     }
                   }}
                 >
-                  {(() => {
-                    try {
-                      return $ctx.query.type === "add";
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })() ? (
-                    <PlasmicImg__
-                      data-plasmic-name={"img"}
-                      data-plasmic-override={overrides.img}
-                      alt={""}
-                      className={classNames(sty.img, {
-                        [sty.imgdark]: hasVariant($state, "dark", "dark")
-                      })}
-                      displayHeight={"auto"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"20px"}
-                      loading={"lazy"}
-                      src={{
-                        src: "/plasmic/liom_hamyar/images/image38.svg",
-                        fullWidth: 24,
-                        fullHeight: 24,
-                        aspectRatio: 1
-                      }}
-                    />
-                  ) : null}
+                  <PlasmicImg__
+                    data-plasmic-name={"img"}
+                    data-plasmic-override={overrides.img}
+                    alt={""}
+                    className={classNames(sty.img, {
+                      [sty.imgdark]: hasVariant($state, "dark", "dark")
+                    })}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"20px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image38.svg",
+                      fullWidth: 24,
+                      fullHeight: 24,
+                      aspectRatio: 1
+                    }}
+                  />
+
                   <div
                     className={classNames(
                       projectcss.all,
@@ -3153,72 +3140,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 hasVariant(globalVariants, "screen", "mobile")
                   ? (() => {
                       try {
-                        return (() => {
-                          const today = new Date();
-                          const daysOfWeek = [
-                            "یکشنبه",
-                            "دوشنبه",
-                            "سه‌شنبه",
-                            "چهارشنبه",
-                            "پنج‌شنبه",
-                            "جمعه",
-                            "شنبه"
-                          ];
-
-                          const monthNames = [
-                            "فروردین",
-                            "اردیبهشت",
-                            "خرداد",
-                            "تیر",
-                            "مرداد",
-                            "شهریور",
-                            "مهر",
-                            "آبان",
-                            "آذر",
-                            "دی",
-                            "بهمن",
-                            "اسفند"
-                          ];
-
-                          const updatedPeriods = [
-                            {
-                              label:
-                                "نمیدونم کی پریود میشم\u060C دوره قبلی و وارد میکنم.",
-                              value: 1
-                            },
-                            (() => {
-                              const dayOfWeek = daysOfWeek[today.getDay()];
-                              const jalaaliDate = window.jalaali.toJalaali(
-                                today.getFullYear(),
-                                today.getMonth() + 1,
-                                today.getDate()
-                              );
-                              const monthName = monthNames[jalaaliDate.jm - 1];
-                              return {
-                                label: `${dayOfWeek} ${jalaaliDate.jd} ${monthName} `,
-                                value: 0
-                              };
-                            })(),
-                            ...Array.from({ length: 30 }, (_, i) => {
-                              const date = new Date(today);
-                              date.setDate(today.getDate() - (i + 1));
-                              const dayOfWeek = daysOfWeek[date.getDay()];
-                              const jalaaliDate = window.jalaali.toJalaali(
-                                date.getFullYear(),
-                                date.getMonth() + 1,
-                                date.getDate()
-                              );
-                              const monthName = monthNames[jalaaliDate.jm - 1];
-                              const label = `${dayOfWeek}   ${jalaaliDate.jd}   ${monthName} `;
-                              return {
-                                label,
-                                value: -(i + 1)
-                              };
-                            })
-                          ];
-
-                          return updatedPeriods;
-                        })();
+                        return $state.datenex;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -3573,72 +3495,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 hasVariant(globalVariants, "screen", "mobile")
                   ? (() => {
                       try {
-                        return (() => {
-                          const today = new Date();
-                          const daysOfWeek = [
-                            "یکشنبه",
-                            "دوشنبه",
-                            "سه‌شنبه",
-                            "چهارشنبه",
-                            "پنج‌شنبه",
-                            "جمعه",
-                            "شنبه"
-                          ];
-
-                          const monthNames = [
-                            "فروردین",
-                            "اردیبهشت",
-                            "خرداد",
-                            "تیر",
-                            "مرداد",
-                            "شهریور",
-                            "مهر",
-                            "آبان",
-                            "آذر",
-                            "دی",
-                            "بهمن",
-                            "اسفند"
-                          ];
-
-                          const updatedPeriods = [
-                            {
-                              label:
-                                "نمیدونم کی پریود میشم\u060C دوره قبلی و وارد میکنم.",
-                              value: 1
-                            },
-                            (() => {
-                              const dayOfWeek = daysOfWeek[today.getDay()];
-                              const jalaaliDate = window.jalaali.toJalaali(
-                                today.getFullYear(),
-                                today.getMonth() + 1,
-                                today.getDate()
-                              );
-                              const monthName = monthNames[jalaaliDate.jm - 1];
-                              return {
-                                label: `${dayOfWeek} ${jalaaliDate.jd} ${monthName} `,
-                                value: 0
-                              };
-                            })(),
-                            ...Array.from({ length: 30 }, (_, i) => {
-                              const date = new Date(today);
-                              date.setDate(today.getDate() - (i + 1));
-                              const dayOfWeek = daysOfWeek[date.getDay()];
-                              const jalaaliDate = window.jalaali.toJalaali(
-                                date.getFullYear(),
-                                date.getMonth() + 1,
-                                date.getDate()
-                              );
-                              const monthName = monthNames[jalaaliDate.jm - 1];
-                              const label = `${dayOfWeek}   ${jalaaliDate.jd}   ${monthName} `;
-                              return {
-                                label,
-                                value: -(i + 1)
-                              };
-                            })
-                          ];
-
-                          return updatedPeriods;
-                        })();
+                        return $state.datepas;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
