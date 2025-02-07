@@ -1666,7 +1666,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           ? (() => {
                               const actionArgs = {
                                 customFunction: async () => {
-                                  return setTimeout(() => {
+                                  return (() => {
                                     var name =
                                       $state.getUserInfo.data?.[0]?.result?.user
                                         ?.name ?? "";
@@ -1699,7 +1699,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                       $state.getUserInfo.data[0].result.allowance =
                                         [];
                                     }
-
                                     let hamyarsData = [];
                                     for (
                                       let i = 0;
@@ -1730,7 +1729,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                             .hamyars[i].user.email
                                       });
                                     }
-
                                     let allowance = [];
                                     for (
                                       let i = 0;
@@ -1744,8 +1742,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                           .allowance[i]
                                       );
                                     }
-
-                                    fetch(
+                                    return fetch(
                                       "https://n8n.staas.ir/webhook/status",
                                       {
                                         method: "POST",
@@ -1770,12 +1767,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                           name: name,
                                           mobile: mobile,
                                           email: email,
-                                          hamyarData: {
-                                            hamyarsData
-                                          },
-                                          allowance: {
-                                            allowance
-                                          }
+                                          hamyarData: { hamyarsData },
+                                          allowance: { allowance }
                                         })
                                       }
                                     )
@@ -1788,7 +1781,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                       .catch(error => {
                                         console.error("Error3333:", error);
                                       });
-                                  }, 3000);
+                                  })();
                                 }
                               };
                               return (({ customFunction }) => {
