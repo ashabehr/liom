@@ -1627,7 +1627,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                         {(() => {
                           try {
                             return (
-                              $state.biorhythm.data.result.intellectual + "%"
+                              $state.userInfo.user.biorhythm.intellectual + "%"
                             );
                           } catch (e) {
                             if (
@@ -1649,7 +1649,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       percent={(() => {
                         try {
                           return Math.abs(
-                            $state.biorhythm.data.result.intellectual
+                            $state.userInfo.user.biorhythm.intellectual
                           );
                         } catch (e) {
                           if (
@@ -1724,7 +1724,9 @@ function PlasmicBioritm2__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.biorhythm.data.result.physical + "%";
+                            return (
+                              $state.userInfo.user.biorhythm.physical + "%"
+                            );
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1745,7 +1747,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       percent={(() => {
                         try {
                           return Math.abs(
-                            $state.biorhythm.data.result.physical
+                            $state.userInfo.user.biorhythm.physical
                           );
                         } catch (e) {
                           if (
@@ -1819,7 +1821,9 @@ function PlasmicBioritm2__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.biorhythm.data.result.emotional + "%";
+                            return (
+                              $state.userInfo.user.biorhythm.emotional + "%"
+                            );
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1842,7 +1846,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                           ? (() => {
                               try {
                                 return Math.abs(
-                                  $state.biorhythm.data.result.emotional
+                                  $state.userInfo.user.biorhythm.emotional
                                 );
                               } catch (e) {
                                 if (
@@ -1857,7 +1861,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                           : (() => {
                               try {
                                 return Math.abs(
-                                  $state.biorhythm.data.result.emotional
+                                  $state.userInfo.user.biorhythm.emotional
                                 );
                               } catch (e) {
                                 if (
@@ -1876,7 +1880,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                               try {
                                 return (() => {
                                   if (
-                                    $state.biorhythm.data.result.emotional > 0
+                                    $state.userInfo.user.biorhythm.emotional > 0
                                   ) {
                                     return "#00C371AA";
                                   } else {
@@ -1964,7 +1968,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.biorhythm.data.result.avg + "%";
+                            return $state.userInfo.user.biorhythm.avg + "%";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1980,7 +1984,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.biorhythm.data.result.avg + "%";
+                            return $state.userInfo.user.biorhythm.avg + "%";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -2253,7 +2257,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
                         try {
-                          return $state.biorhythm.data.result.advice
+                          return $state.userInfo.user.biorhythm.advice
                             .split("\n")
                             .filter(item => item.trim() !== "")
                             .map(item => item.replace(/^- /, ""));

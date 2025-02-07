@@ -1628,6 +1628,112 @@
     margin-top: 5px;
   }
 }
+.freeBox__ccwhj {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 16px 16px 8px;
+}
+.freeBox__ccwhj > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-left: calc(0px - 8px);
+  width: calc(100% + 8px);
+}
+.freeBox__ccwhj > :global(.__wab_flex-container) > *,
+.freeBox__ccwhj > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__ccwhj > :global(.__wab_flex-container) > picture > img,
+.freeBox__ccwhj
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 8px;
+}
+@media (max-width: 640px) {
+  .freeBox__ccwhj {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    flex-direction: row;
+    min-width: 0;
+    padding: 8px 8px 0px;
+  }
+}
+@media (max-width: 640px) {
+  .freeBox__ccwhj > :global(.__wab_flex-container) {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    min-width: 0;
+    margin-top: calc(0px - 0px);
+    height: calc(100% + 0px);
+  }
+}
+@media (max-width: 640px) {
+  .freeBox__ccwhj > :global(.__wab_flex-container) > *,
+  .freeBox__ccwhj > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+  .freeBox__ccwhj > :global(.__wab_flex-container) > picture > img,
+  .freeBox__ccwhj
+    > :global(.__wab_flex-container)
+    > :global(.__wab_slot)
+    > picture
+    > img {
+    margin-top: 0px;
+  }
+}
+.svg__r1DW {
+  object-fit: cover;
+  max-width: 100%;
+  width: 25px;
+  height: 25px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: calc(0px + 8px) !important;
+  color: var(--token-47ovROB-Xr2C);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .svg__r1DW {
+    width: 20px;
+    height: 20px;
+    max-width: 100%;
+    margin-top: calc(0px + 0px) !important;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: calc(0px + 8px) !important;
+    color: var(--token-47ovROB-Xr2C);
+    flex-shrink: 0;
+  }
+}
+.text__xz55 {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  align-self: center;
+  text-align: right;
+  font-size: 18px;
+  font-weight: 700;
+  color: #faad14;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .text__xz55 {
+    font-size: 16px;
+    opacity: 0.8;
+    color: var(--token-47ovROB-Xr2C);
+    text-align: justify;
+    padding: 0px;
+  }
+}
 .freeBox__dvJRh {
   display: flex;
   flex-direction: column;

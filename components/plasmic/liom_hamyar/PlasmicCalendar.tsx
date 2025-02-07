@@ -16553,8 +16553,79 @@ function PlasmicCalendar__RenderFunc(props: {
                           projectcss.all,
                           sty.freeBox__rm7Nm
                         )}
-                      />
+                      >
+                        <Stack__
+                          as={"div"}
+                          hasGap={true}
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ccwhj
+                          )}
+                        >
+                          <PlasmicIcon__
+                            PlasmicIconType={
+                              hasVariant(globalVariants, "screen", "mobile")
+                                ? Icon38Icon
+                                : Icon38Icon
+                            }
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__r1DW
+                            )}
+                            role={"img"}
+                          />
 
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__xz55
+                            )}
+                          >
+                            {hasVariant(globalVariants, "screen", "mobile") ? (
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return "روز شمار";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                }}
+                              />
+                            ) : (
+                              <div
+                                className={projectcss.__wab_expr_html_text}
+                                dangerouslySetInnerHTML={{
+                                  __html: (() => {
+                                    try {
+                                      return "دوره جاری در یک نگاه";
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u062a\u0648\u0635\u06cc\u0647 \u0627\u0645\u0631\u0648\u0632";
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                }}
+                              />
+                            )}
+                          </div>
+                        </Stack__>
+                      </Stack__>
                       <Stack__
                         as={"div"}
                         hasGap={true}
