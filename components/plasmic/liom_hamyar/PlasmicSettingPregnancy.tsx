@@ -967,44 +967,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               ];
                             }
 
-                            $steps["updateSlideinModalClick"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["dateModal", "click"]
-                                    },
-                                    operation: 0,
-                                    value: false
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateSlideinModalClick"] != null &&
-                              typeof $steps["updateSlideinModalClick"] ===
-                                "object" &&
-                              typeof $steps["updateSlideinModalClick"].then ===
-                                "function"
-                            ) {
-                              $steps["updateSlideinModalClick"] = await $steps[
-                                "updateSlideinModalClick"
-                              ];
-                            }
-
                             $steps["updateDuDate"] = true
                               ? (() => {
                                   const actionArgs = {
@@ -1092,6 +1054,73 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               $steps["updateDuDate"] = await $steps[
                                 "updateDuDate"
                               ];
+                            }
+
+                            $steps["updateSlideinModalClick"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["dateModal", "click"]
+                                    },
+                                    operation: 0,
+                                    value: false
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateSlideinModalClick"] != null &&
+                              typeof $steps["updateSlideinModalClick"] ===
+                                "object" &&
+                              typeof $steps["updateSlideinModalClick"].then ===
+                                "function"
+                            ) {
+                              $steps["updateSlideinModalClick"] = await $steps[
+                                "updateSlideinModalClick"
+                              ];
+                            }
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        return console.log(
+                                          $state.duDate[0] +
+                                            "-" +
+                                            $state.duDate[1] +
+                                            "-" +
+                                            $state.duDate[2] +
+                                            " 10:10:10"
+                                        );
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
                             }
                           }}
                           onColorChange={async (...eventArgs: any) => {
@@ -1742,6 +1771,13 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                           .allowance[i]
                                       );
                                     }
+                                    var date =
+                                      $state.duDate[0] +
+                                      "-" +
+                                      $state.duDate[1] +
+                                      "-" +
+                                      $state.duDate[2] +
+                                      " 10:10:10";
                                     return fetch(
                                       "https://n8n.staas.ir/webhook/status",
                                       {
@@ -1753,13 +1789,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                         },
                                         body: JSON.stringify({
                                           area: "pregnancy",
-                                          duDate:
-                                            $state.duDate[0] +
-                                            "-" +
-                                            $state.duDate[1] +
-                                            "-" +
-                                            $state.duDate[2] +
-                                            " 10:10:10",
+                                          duDate: date,
                                           userId: $ctx.query.userId.slice(
                                             4,
                                             +$ctx.query.userId.length - 4
@@ -2148,33 +2178,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           $steps["invokeGlobalAction4"] = await $steps[
                             "invokeGlobalAction4"
                           ];
-                        }
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return console.log(
-                                    $state.duDate[0] +
-                                      "-" +
-                                      $state.duDate[1] +
-                                      "-" +
-                                      $state.duDate[2] +
-                                      " 10:10:10"
-                                  );
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
