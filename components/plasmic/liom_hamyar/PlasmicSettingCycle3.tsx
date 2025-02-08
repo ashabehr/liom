@@ -2431,7 +2431,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                                         2,
                                         "0"
                                       )}`,
-                                      type: $ctx.query.type,
+                                      type: "add",
                                       authorization: $state.token
                                     };
                                   } catch (e) {

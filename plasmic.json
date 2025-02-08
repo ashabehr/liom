@@ -1195,6 +1195,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/setting-cycle"
+        },
+        {
+          "id": "3hQjSi0RgPGv",
+          "name": "EditProfile",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicEditProfile.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/edit-profile.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicEditProfile.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/edit-profile"
         }
       ],
       "icons": [

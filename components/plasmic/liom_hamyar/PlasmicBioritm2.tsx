@@ -548,22 +548,63 @@ function PlasmicBioritm2__RenderFunc(props: {
         <ApiRequest
           data-plasmic-name={"biorhythm"}
           data-plasmic-override={overrides.biorhythm}
-          body={(() => {
-            try {
-              return {
-                birthDate: "2002-01-01"
-              };
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}
-          className={classNames("__wab_instance", sty.biorhythm)}
+          body={
+            hasVariant($state, "ferstTimepage", "ferstTimepage") &&
+            hasVariant(globalVariants, "screen", "mobile")
+              ? (() => {
+                  try {
+                    return {
+                      birthDate: $state.bday
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
+              : hasVariant(globalVariants, "screen", "mobile")
+              ? (() => {
+                  try {
+                    return {
+                      birthDate: $state.bday
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
+              : (() => {
+                  try {
+                    return {
+                      birthDate: $state.bday
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()
+          }
+          className={classNames("__wab_instance", sty.biorhythm, {
+            [sty.biorhythmferstTimepage]: hasVariant(
+              $state,
+              "ferstTimepage",
+              "ferstTimepage"
+            )
+          })}
           config={
             hasVariant(globalVariants, "screen", "mobile")
               ? {
