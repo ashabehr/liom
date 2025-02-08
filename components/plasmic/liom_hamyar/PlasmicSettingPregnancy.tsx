@@ -1208,50 +1208,36 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         </div>
                       </div>
                     </SlideinModal>
-                    {(() => {
-                      try {
-                        return $ctx.query.inBot == "true";
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
-                      }
-                    })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__v6Pad
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return (
-                                $state.duDate[0] +
-                                "-" +
-                                $state.duDate[1] +
-                                "-" +
-                                $state.duDate[2] +
-                                " 10:10:10"
-                              );
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__v6Pad
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              $state.duDate[0] +
+                              "-" +
+                              $state.duDate[1] +
+                              "-" +
+                              $state.duDate[2] +
+                              " 10:10:10"
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
                             }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    ) : null}
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
                     <div
                       className={classNames(
                         projectcss.all,
