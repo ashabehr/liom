@@ -25844,7 +25844,13 @@ function PlasmicCalendar__RenderFunc(props: {
                                   try {
                                     return {
                                       gender: "female",
-                                      status: $state.cyclebox.cycle,
+                                      status:
+                                        $state.cyclebox.cycle === "blood"
+                                          ? "period"
+                                          : $state.cyclebox.cycle ===
+                                            "fertility"
+                                          ? "pregnancy"
+                                          : $state.cyclebox.cycle,
                                       maritalStatus: "singel",
                                       education: "",
                                       job: "",
