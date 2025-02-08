@@ -2070,32 +2070,33 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     onClick={async event => {
                       const $steps = {};
 
-                      $steps["updateSlideinModalClick"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["dialog3", "opendialog"]
-                              },
-                              operation: 0,
-                              value: true
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
+                      $steps["updateSlideinModalClick"] =
+                        $state.lengh != 0 && $state.cycle != 0
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["dialog3", "opendialog"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
 
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
                       if (
                         $steps["updateSlideinModalClick"] != null &&
                         typeof $steps["updateSlideinModalClick"] === "object" &&
@@ -2104,6 +2105,33 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                       ) {
                         $steps["updateSlideinModalClick"] = await $steps[
                           "updateSlideinModalClick"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction"] =
+                        $state.lengh == 0 || $state.cycle == 0
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "warning",
+                                  "\u0627\u0648\u0644 \u0637\u0648\u0644 \u062f\u0648\u0631\u0647 \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646.",
+                                  undefined,
+                                  undefined,
+                                  "bottomRight"
+                                ]
+                              };
+                              return $globalActions[
+                                "plasmic-antd5-config-provider.showNotification"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
                         ];
                       }
                     }}
@@ -2223,32 +2251,33 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                       onClick={async event => {
                         const $steps = {};
 
-                        $steps["updateSlideinModalClick"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["dialog4", "opendialog"]
-                                },
-                                operation: 0,
-                                value: true
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                        $steps["updateSlideinModalClick"] =
+                          $state.lengh != 0 && $state.cycle != 0
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["dialog4", "opendialog"]
+                                  },
+                                  operation: 0,
+                                  value: true
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
 
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
                         if (
                           $steps["updateSlideinModalClick"] != null &&
                           typeof $steps["updateSlideinModalClick"] ===
@@ -2258,6 +2287,34 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         ) {
                           $steps["updateSlideinModalClick"] = await $steps[
                             "updateSlideinModalClick"
+                          ];
+                        }
+
+                        $steps["invokeGlobalAction"] =
+                          $state.lengh == 0 || $state.cycle == 0
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "warning",
+                                    "\u0627\u0648\u0644 \u0637\u0648\u0644 \u062f\u0648\u0631\u0647 \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646.",
+                                    undefined,
+                                    undefined,
+                                    "bottomRight"
+                                  ]
+                                };
+                                return $globalActions[
+                                  "plasmic-antd5-config-provider.showNotification"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
                           ];
                         }
                       }}
@@ -3516,6 +3573,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                             if ($state.nextTime != -1) {
                               const date = new Date();
                               date.setDate(date.getDate() + $state.nextTime);
+                              date.setDate(date.getDate() - $state.cycle);
                               const gy = date.getFullYear();
                               const gm = date.getMonth() + 1;
                               const gd = date.getDate();
@@ -3794,7 +3852,6 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                           value: (() => {
                             const date = new Date();
                             date.setDate(date.getDate() + $state.lasttime);
-                            date.setDate(date.getDate() + $state.lengh);
                             const gy = date.getFullYear();
                             const gm = date.getMonth() + 1;
                             const gd = date.getDate();

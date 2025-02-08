@@ -61,12 +61,34 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
+import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
+import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
+import Modal2 from "../../Modal2"; // plasmic-import: rxR90NraexCK/component
+import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import Button3 from "../../Button3"; // plasmic-import: pr_Y7BIaL4VF/component
+import SelectionChoise from "../../SelectionChoise"; // plasmic-import: kjK-J97SUWLJ/component
+import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
+import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicEditProfile.module.css"; // plasmic-import: 3hQjSi0RgPGv/css
+
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import CalenderOutlinedIcSvgIcon from "./icons/PlasmicIcon__CalenderOutlinedIcSvg"; // plasmic-import: JKRqNBk8_QEL/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: PH6a1Mes3Ebj/icon
+import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-import: vefs_9-4aiux/icon
+import Icon67Icon from "./icons/PlasmicIcon__Icon67"; // plasmic-import: hIAuvrXigDnk/icon
+import Icon26Icon from "./icons/PlasmicIcon__Icon26"; // plasmic-import: MKSedampsAFw/icon
+import RulerIcSvgIcon from "./icons/PlasmicIcon__RulerIcSvg"; // plasmic-import: 9iZxfHzH83kz/icon
+import WeightmeterIcSvgIcon from "./icons/PlasmicIcon__WeightmeterIcSvg"; // plasmic-import: _rOaaxGTo0Hj/icon
 
 createPlasmicElementProxy;
 
@@ -81,6 +103,39 @@ export const PlasmicEditProfile__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicEditProfile__OverridesType = {
   root?: Flex__<"div">;
+  verticalIdentity?: Flex__<"div">;
+  verticalForNameInput?: Flex__<"div">;
+  nameInput?: Flex__<typeof TextInput>;
+  antdInput3?: Flex__<typeof Input>;
+  verticalForIdInput?: Flex__<"div">;
+  idInput?: Flex__<typeof TextInput>;
+  antdInput?: Flex__<typeof Input>;
+  verticalForDateInput?: Flex__<"div">;
+  modalForDateOfBirth?: Flex__<typeof Modal2>;
+  datePickers4?: Flex__<typeof DatePickers>;
+  button2?: Flex__<typeof Button>;
+  verticalForSelection?: Flex__<"div">;
+  horizontalForButton?: Flex__<"div">;
+  horizontalForButton2?: Flex__<"div">;
+  horizontalForButton3?: Flex__<"div">;
+  verticalForProbabilityOfGettingPregnant?: Flex__<"div">;
+  switchbest?: Flex__<typeof Switchbest>;
+  verticalForMenstrualCycle?: Flex__<"div">;
+  modal?: Flex__<typeof Modal2>;
+  pickers?: Flex__<typeof Pickers>;
+  button3?: Flex__<typeof Button>;
+  modal5?: Flex__<typeof Modal2>;
+  pickers5?: Flex__<typeof Pickers>;
+  button6?: Flex__<typeof Button>;
+  heightAndWeight?: Flex__<"div">;
+  modal4?: Flex__<typeof Modal2>;
+  pickers3?: Flex__<typeof Pickers>;
+  button5?: Flex__<typeof Button>;
+  weight?: Flex__<"div">;
+  weight2?: Flex__<"div">;
+  modal2?: Flex__<typeof Modal2>;
+  pickers2?: Flex__<typeof Pickers>;
+  button4?: Flex__<typeof Button>;
 };
 
 export interface DefaultEditProfileProps {}
@@ -125,6 +180,142 @@ function PlasmicEditProfile__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "nameInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "antdInput3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
+      },
+      {
+        path: "idInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "antdInput.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", Input_Helpers)
+      },
+      {
+        path: "modalForDateOfBirth.isOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "datePickers4.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "switchbest.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "modal.isOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "pickers.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "modal5.isOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "pickers5.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "button6.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "modal4.isOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "pickers3.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "button5.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "modal2.isOpen",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "pickers2.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -151,20 +342,1467 @@ function PlasmicEditProfile__RenderFunc(props: {
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root
           )}
-        />
+        >
+          <div
+            data-plasmic-name={"verticalIdentity"}
+            data-plasmic-override={overrides.verticalIdentity}
+            className={classNames(projectcss.all, sty.verticalIdentity)}
+          >
+            <div
+              data-plasmic-name={"verticalForNameInput"}
+              data-plasmic-override={overrides.verticalForNameInput}
+              className={classNames(projectcss.all, sty.verticalForNameInput)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__z2Vt
+                )}
+              >
+                {"\u0646\u0627\u0645"}
+              </div>
+              <TextInput
+                data-plasmic-name={"nameInput"}
+                data-plasmic-override={overrides.nameInput}
+                antdInput2={(() => {
+                  const child$Props = {
+                    "aria-label": ``,
+                    bordered: false,
+                    className: classNames("__wab_instance", sty.antdInput3),
+                    onChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "value",
+                        ["antdInput3", "value"],
+                        Input_Helpers
+                      ).apply(null, eventArgs);
+                    },
+                    placeholder:
+                      "\u0646\u0627\u0645 \u062e\u0648\u062f \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                    size: "large",
+                    value: generateStateValueProp($state, [
+                      "antdInput3",
+                      "value"
+                    ])
+                  };
+                  initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "value",
+                        plasmicStateName: "antdInput3.value"
+                      }
+                    ],
+                    [],
+                    Input_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <Input
+                      data-plasmic-name={"antdInput3"}
+                      data-plasmic-override={overrides.antdInput3}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+                className={classNames("__wab_instance", sty.nameInput)}
+                endIcon={
+                  <CheckSvgIcon
+                    className={classNames(projectcss.all, sty.svg__xIaVv)}
+                    role={"img"}
+                  />
+                }
+                onChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["nameInput", "value"])(
+                      (e => e.target?.value).apply(null, eventArgs)
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                placeholder={"9123456789"}
+                showEndIcon={true}
+                startIcon={
+                  <SearchSvgIcon
+                    className={classNames(projectcss.all, sty.svg__k5G2)}
+                    role={"img"}
+                  />
+                }
+                type={"tel"}
+                value={
+                  generateStateValueProp($state, ["nameInput", "value"]) ?? ""
+                }
+              />
+            </div>
+            <div
+              data-plasmic-name={"verticalForIdInput"}
+              data-plasmic-override={overrides.verticalForIdInput}
+              className={classNames(projectcss.all, sty.verticalForIdInput)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___53Vhi
+                )}
+              >
+                {"\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"}
+              </div>
+              <TextInput
+                data-plasmic-name={"idInput"}
+                data-plasmic-override={overrides.idInput}
+                antdInput2={(() => {
+                  const child$Props = {
+                    "aria-label": ``,
+                    bordered: false,
+                    className: classNames("__wab_instance", sty.antdInput),
+                    onChange: async (...eventArgs: any) => {
+                      generateStateOnChangePropForCodeComponents(
+                        $state,
+                        "value",
+                        ["antdInput", "value"],
+                        Input_Helpers
+                      ).apply(null, eventArgs);
+                    },
+                    placeholder:
+                      "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
+                    size: "large",
+                    value: generateStateValueProp($state, [
+                      "antdInput",
+                      "value"
+                    ])
+                  };
+                  initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "value",
+                        plasmicStateName: "antdInput.value"
+                      }
+                    ],
+                    [],
+                    Input_Helpers ?? {},
+                    child$Props
+                  );
+
+                  return (
+                    <Input
+                      data-plasmic-name={"antdInput"}
+                      data-plasmic-override={overrides.antdInput}
+                      {...child$Props}
+                    />
+                  );
+                })()}
+                className={classNames("__wab_instance", sty.idInput)}
+                onChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["idInput", "value"])(
+                      (e => e.target?.value).apply(null, eventArgs)
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                value={
+                  generateStateValueProp($state, ["idInput", "value"]) ?? ""
+                }
+              />
+            </div>
+            <div
+              data-plasmic-name={"verticalForDateInput"}
+              data-plasmic-override={overrides.verticalForDateInput}
+              className={classNames(projectcss.all, sty.verticalForDateInput)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__af68V
+                )}
+              >
+                {"\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f "}
+              </div>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__jK8)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateModalForDateOfBirthIsOpen"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["modalForDateOfBirth", "isOpen"]
+                          },
+                          operation: 0
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateModalForDateOfBirthIsOpen"] != null &&
+                    typeof $steps["updateModalForDateOfBirthIsOpen"] ===
+                      "object" &&
+                    typeof $steps["updateModalForDateOfBirthIsOpen"].then ===
+                      "function"
+                  ) {
+                    $steps["updateModalForDateOfBirthIsOpen"] = await $steps[
+                      "updateModalForDateOfBirthIsOpen"
+                    ];
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___8WE
+                  )}
+                >
+                  {""}
+                </div>
+                <Modal2
+                  data-plasmic-name={"modalForDateOfBirth"}
+                  data-plasmic-override={overrides.modalForDateOfBirth}
+                  className={classNames(
+                    "__wab_instance",
+                    sty.modalForDateOfBirth
+                  )}
+                  content={
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__t3OP2)}
+                    >
+                      <DatePickers
+                        data-plasmic-name={"datePickers4"}
+                        data-plasmic-override={overrides.datePickers4}
+                        SelectedDay={10}
+                        SelectedMonth={10}
+                        SelectedYear={1379}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.datePickers4
+                        )}
+                        customYears={[]}
+                        onChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "datePickers4",
+                            "value"
+                          ]).apply(null, eventArgs);
+                        }}
+                        selectedValues={generateStateValueProp($state, [
+                          "datePickers4",
+                          "value"
+                        ])}
+                      />
+                    </div>
+                  }
+                  footer={
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___1X4K9
+                      )}
+                    >
+                      <Button
+                        data-plasmic-name={"button2"}
+                        data-plasmic-override={overrides.button2}
+                        className={classNames("__wab_instance", sty.button2)}
+                        color={generateStateValueProp($state, [
+                          "button2",
+                          "color"
+                        ])}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button2",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__fbz6J
+                          )}
+                        >
+                          {"\u0627\u0646\u062a\u062e\u0627\u0628"}
+                        </div>
+                      </Button>
+                      <Button3
+                        className={classNames(
+                          "__wab_instance",
+                          sty.button3__xr1QY
+                        )}
+                        color={"muted"}
+                        label={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__qJigw
+                            )}
+                          >
+                            {"\u0628\u0631\u06af\u0634\u062a"}
+                          </div>
+                        }
+                        type={"soft"}
+                      />
+                    </Stack__>
+                  }
+                  heading={
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___3Qdk2
+                      )}
+                    >
+                      {
+                        "\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
+                      }
+                    </div>
+                  }
+                  isOpen={generateStateValueProp($state, [
+                    "modalForDateOfBirth",
+                    "isOpen"
+                  ])}
+                  onOpenChange={async (...eventArgs: any) => {
+                    generateStateOnChangeProp($state, [
+                      "modalForDateOfBirth",
+                      "isOpen"
+                    ]).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  trigger={
+                    <CalenderOutlinedIcSvgIcon
+                      className={classNames(projectcss.all, sty.svg___8Ygdc)}
+                      role={"img"}
+                    />
+                  }
+                />
+              </div>
+            </div>
+            <div
+              data-plasmic-name={"verticalForSelection"}
+              data-plasmic-override={overrides.verticalForSelection}
+              className={classNames(projectcss.all, sty.verticalForSelection)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__cGqYj
+                )}
+              >
+                {"\u0634\u063a\u0644"}
+              </div>
+              <div
+                data-plasmic-name={"horizontalForButton"}
+                data-plasmic-override={overrides.horizontalForButton}
+                className={classNames(projectcss.all, sty.horizontalForButton)}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return undefined;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <SelectionChoise
+                      className={classNames(
+                        "__wab_instance",
+                        sty.selectionChoise__f1GNw
+                      )}
+                      key={currentIndex}
+                    />
+                  );
+                })}
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return ["شاغلم", "شاغل نیستم"];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <SelectionChoise
+                      className={classNames(
+                        "__wab_instance",
+                        sty.selectionChoise__ob42H
+                      )}
+                      key={currentIndex}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__dL2Ka
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </SelectionChoise>
+                  );
+                })}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__f5Ovx
+                )}
+              >
+                {"\u0648\u0636\u0639\u06cc\u062a \u062a\u0627\u0647\u0644"}
+              </div>
+              <div
+                data-plasmic-name={"horizontalForButton2"}
+                data-plasmic-override={overrides.horizontalForButton2}
+                className={classNames(projectcss.all, sty.horizontalForButton2)}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return ["مجرد", "متاهل"];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <SelectionChoise
+                      className={classNames(
+                        "__wab_instance",
+                        sty.selectionChoise__sSjP
+                      )}
+                      key={currentIndex}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___7ChhP
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </SelectionChoise>
+                  );
+                })}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__zlDnL
+                )}
+              >
+                {"\u062a\u062d\u0635\u06cc\u0644\u0627\u062a "}
+              </div>
+              <div
+                data-plasmic-name={"horizontalForButton3"}
+                data-plasmic-override={overrides.horizontalForButton3}
+                className={classNames(projectcss.all, sty.horizontalForButton3)}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return ["درحال تحصیل", "فارغ تحصیل"];
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <SelectionChoise
+                      className={classNames(
+                        "__wab_instance",
+                        sty.selectionChoise___5XjO
+                      )}
+                      key={currentIndex}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ffiFm
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return currentItem;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </SelectionChoise>
+                  );
+                })}
+              </div>
+            </div>
+            <div
+              data-plasmic-name={"verticalForProbabilityOfGettingPregnant"}
+              data-plasmic-override={
+                overrides.verticalForProbabilityOfGettingPregnant
+              }
+              className={classNames(
+                projectcss.all,
+                sty.verticalForProbabilityOfGettingPregnant
+              )}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__dYr8N)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__nFiv)}
+                >
+                  <Icon67Icon
+                    className={classNames(projectcss.all, sty.svg__lW4M)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__x4Ezn
+                    )}
+                  >
+                    {
+                      "\u0646\u0645\u0627\u06cc\u0634 \u0627\u062d\u062a\u0645\u0627\u0644 \u0628\u0627\u0631\u062f\u0627\u0631 \u0634\u062f\u0646 \u062f\u0631  \u0647\u0631 \u0631\u0648\u0632 "
+                    }
+                  </div>
+                  <Switchbest
+                    data-plasmic-name={"switchbest"}
+                    data-plasmic-override={overrides.switchbest}
+                    children={null}
+                    className={classNames("__wab_instance", sty.switchbest)}
+                    isChecked={
+                      generateStateValueProp($state, [
+                        "switchbest",
+                        "isChecked"
+                      ]) ?? false
+                    }
+                    onChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "switchbest",
+                          "isChecked"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  />
+                </Stack__>
+                <div className={classNames(projectcss.all, sty.freeBox__kqKzh)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___0Q61M
+                    )}
+                  >
+                    {
+                      '\u0627\u06cc\u0646 \u062f\u0631\u0635\u062f \u062f\u0631 \u0637\u0631\u0627\u062d\u06cc  \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0628\u062e\u0634 \u0642\u0627\u0639\u062f\u06af\u06cc \u062f\u0631 \u0642\u0633\u0645\u062a "\u062f\u0648\u0631\u0647 \u062c\u0627\u0631\u06cc \u062f\u0631\u06cc\u06a9 \u0646\u06af\u0627\u0647"\u0646\u0645\u0627\u06cc\u0634 \u062f\u0627\u062f\u0647 \u0645\u06cc\u0634\u0648\u062f'
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-plasmic-name={"verticalForMenstrualCycle"}
+              data-plasmic-override={overrides.verticalForMenstrualCycle}
+              className={classNames(
+                projectcss.all,
+                sty.verticalForMenstrualCycle
+              )}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ka4AS
+                )}
+              >
+                {
+                  "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
+                }
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__kWgc)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__k37BQ
+                  )}
+                >
+                  {
+                    "\u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"
+                  }
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__hchdI)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__lsJfk
+                    )}
+                  >
+                    {""}
+                  </div>
+                  <Modal2
+                    data-plasmic-name={"modal"}
+                    data-plasmic-override={overrides.modal}
+                    className={classNames("__wab_instance", sty.modal)}
+                    content={
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__eIgvJ
+                        )}
+                      >
+                        <Pickers
+                          data-plasmic-name={"pickers"}
+                          data-plasmic-override={overrides.pickers}
+                          className={classNames("__wab_instance", sty.pickers)}
+                          data={[]}
+                          initialValue={generateStateValueProp($state, [
+                            "pickers",
+                            "value"
+                          ])}
+                          onChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "pickers",
+                              "value"
+                            ]).apply(null, eventArgs);
+                          }}
+                        />
+                      </Stack__>
+                    }
+                    footer={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___7DfVn
+                        )}
+                      >
+                        <Button
+                          data-plasmic-name={"button3"}
+                          data-plasmic-override={overrides.button3}
+                          className={classNames("__wab_instance", sty.button3)}
+                          color={generateStateValueProp($state, [
+                            "button3",
+                            "color"
+                          ])}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button3",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__wmjQk
+                            )}
+                          >
+                            {"\u0627\u0646\u062a\u062e\u0627\u0628"}
+                          </div>
+                        </Button>
+                      </div>
+                    }
+                    heading={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ibRzb
+                        )}
+                      >
+                        {
+                          "\u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u0647\u0627\u06cc \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"
+                        }
+                      </div>
+                    }
+                    isOpen={generateStateValueProp($state, ["modal", "isOpen"])}
+                    onOpenChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "modal",
+                        "isOpen"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    trigger={
+                      <Icon26Icon
+                        className={classNames(projectcss.all, sty.svg__diJn)}
+                        role={"img"}
+                      />
+                    }
+                  />
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__rribl)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__gmUae
+                  )}
+                >
+                  {
+                    "\u0637\u0648\u0644 \u0633\u06cc\u06a9\u0644 \u067e\u0631\u06cc\u0648\u062f"
+                  }
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___9PFte)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__jxvgb
+                    )}
+                  >
+                    {""}
+                  </div>
+                  <Modal2
+                    data-plasmic-name={"modal5"}
+                    data-plasmic-override={overrides.modal5}
+                    className={classNames("__wab_instance", sty.modal5)}
+                    content={
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__weOYv
+                        )}
+                      >
+                        <Pickers
+                          data-plasmic-name={"pickers5"}
+                          data-plasmic-override={overrides.pickers5}
+                          className={classNames("__wab_instance", sty.pickers5)}
+                          data={[]}
+                          initialValue={generateStateValueProp($state, [
+                            "pickers5",
+                            "value"
+                          ])}
+                          onChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "pickers5",
+                              "value"
+                            ]).apply(null, eventArgs);
+                          }}
+                        />
+                      </Stack__>
+                    }
+                    footer={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__q8Bhi
+                        )}
+                      >
+                        <Button
+                          data-plasmic-name={"button6"}
+                          data-plasmic-override={overrides.button6}
+                          className={classNames("__wab_instance", sty.button6)}
+                          color={generateStateValueProp($state, [
+                            "button6",
+                            "color"
+                          ])}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button6",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__dT8EZ
+                            )}
+                          >
+                            {"\u0627\u0646\u062a\u062e\u0627\u0628"}
+                          </div>
+                        </Button>
+                      </div>
+                    }
+                    heading={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__lyACm
+                        )}
+                      >
+                        {
+                          "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a .(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u062a(\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc)\u0631\u0648\u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)"
+                        }
+                      </div>
+                    }
+                    isOpen={generateStateValueProp($state, [
+                      "modal5",
+                      "isOpen"
+                    ])}
+                    onOpenChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "modal5",
+                        "isOpen"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    trigger={
+                      <Icon26Icon
+                        className={classNames(projectcss.all, sty.svg__oy9Cb)}
+                        role={"img"}
+                      />
+                    }
+                  />
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___03Fx9
+                  )}
+                >
+                  {
+                    "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632  \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a (\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc)  \u0631\u0648 \u0647\u0645  \u062c\u0633\u0627\u0628 \u06a9\u0646\u06cc."
+                  }
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__xSZgy)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__zr4Gx
+                  )}
+                >
+                  {
+                    "\u062a\u0627\u0631\u06cc\u062e \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0627\u0632 \u0627\u062e\u0631\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc \u0634\u0645\u0627"
+                  }
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__xNeYo)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__cL78D
+                    )}
+                  >
+                    {"Enter some text"}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-plasmic-name={"heightAndWeight"}
+              data-plasmic-override={overrides.heightAndWeight}
+              className={classNames(projectcss.all, sty.heightAndWeight)}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__kzzDw)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__oBGcV
+                  )}
+                >
+                  {"\u0642\u062f"}
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__gzQ2U)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ha2B1
+                    )}
+                  >
+                    {""}
+                  </div>
+                  <Modal2
+                    data-plasmic-name={"modal4"}
+                    data-plasmic-override={overrides.modal4}
+                    className={classNames("__wab_instance", sty.modal4)}
+                    content={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___40AjS
+                        )}
+                      >
+                        <Pickers
+                          data-plasmic-name={"pickers3"}
+                          data-plasmic-override={overrides.pickers3}
+                          className={classNames("__wab_instance", sty.pickers3)}
+                          data={[]}
+                          initialValue={generateStateValueProp($state, [
+                            "pickers3",
+                            "value"
+                          ])}
+                          onChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "pickers3",
+                              "value"
+                            ]).apply(null, eventArgs);
+                          }}
+                        />
+                      </div>
+                    }
+                    footer={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__dbQS
+                        )}
+                      >
+                        <Button
+                          data-plasmic-name={"button5"}
+                          data-plasmic-override={overrides.button5}
+                          className={classNames("__wab_instance", sty.button5)}
+                          color={generateStateValueProp($state, [
+                            "button5",
+                            "color"
+                          ])}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button5",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__d4TbH
+                            )}
+                          >
+                            {"\u0627\u0646\u062a\u062e\u0627\u0628 "}
+                          </div>
+                        </Button>
+                      </div>
+                    }
+                    heading={null}
+                    isOpen={generateStateValueProp($state, [
+                      "modal4",
+                      "isOpen"
+                    ])}
+                    onOpenChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "modal4",
+                        "isOpen"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    trigger={
+                      <RulerIcSvgIcon
+                        className={classNames(projectcss.all, sty.svg__jv8Gn)}
+                        role={"img"}
+                      />
+                    }
+                  />
+                </div>
+              </div>
+              <div
+                data-plasmic-name={"weight"}
+                data-plasmic-override={overrides.weight}
+                className={classNames(projectcss.all, sty.weight)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___3YH8O
+                  )}
+                >
+                  {"\u0648\u0632\u0646"}
+                </div>
+                <div
+                  data-plasmic-name={"weight2"}
+                  data-plasmic-override={overrides.weight2}
+                  className={classNames(projectcss.all, sty.weight2)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__i1Bra
+                    )}
+                  >
+                    {""}
+                  </div>
+                  <Modal2
+                    data-plasmic-name={"modal2"}
+                    data-plasmic-override={overrides.modal2}
+                    className={classNames("__wab_instance", sty.modal2)}
+                    content={
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__oh2Gv
+                        )}
+                      >
+                        <Pickers
+                          data-plasmic-name={"pickers2"}
+                          data-plasmic-override={overrides.pickers2}
+                          className={classNames("__wab_instance", sty.pickers2)}
+                          data={[]}
+                          initialValue={generateStateValueProp($state, [
+                            "pickers2",
+                            "value"
+                          ])}
+                          onChange={async (...eventArgs: any) => {
+                            generateStateOnChangeProp($state, [
+                              "pickers2",
+                              "value"
+                            ]).apply(null, eventArgs);
+                          }}
+                        />
+                      </Stack__>
+                    }
+                    footer={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__rUSp
+                        )}
+                      >
+                        <Button
+                          data-plasmic-name={"button4"}
+                          data-plasmic-override={overrides.button4}
+                          className={classNames("__wab_instance", sty.button4)}
+                          color={generateStateValueProp($state, [
+                            "button4",
+                            "color"
+                          ])}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button4",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__uwlj
+                            )}
+                          >
+                            {"\u0627\u0646\u062a\u062e\u0627\u0628"}
+                          </div>
+                        </Button>
+                      </div>
+                    }
+                    heading={null}
+                    isOpen={generateStateValueProp($state, [
+                      "modal2",
+                      "isOpen"
+                    ])}
+                    onOpenChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "modal2",
+                        "isOpen"
+                      ]).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                    trigger={
+                      <WeightmeterIcSvgIcon
+                        className={classNames(projectcss.all, sty.svg__m9D1)}
+                        role={"img"}
+                      />
+                    }
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </React.Fragment>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: [
+    "root",
+    "verticalIdentity",
+    "verticalForNameInput",
+    "nameInput",
+    "antdInput3",
+    "verticalForIdInput",
+    "idInput",
+    "antdInput",
+    "verticalForDateInput",
+    "modalForDateOfBirth",
+    "datePickers4",
+    "button2",
+    "verticalForSelection",
+    "horizontalForButton",
+    "horizontalForButton2",
+    "horizontalForButton3",
+    "verticalForProbabilityOfGettingPregnant",
+    "switchbest",
+    "verticalForMenstrualCycle",
+    "modal",
+    "pickers",
+    "button3",
+    "modal5",
+    "pickers5",
+    "button6",
+    "heightAndWeight",
+    "modal4",
+    "pickers3",
+    "button5",
+    "weight",
+    "weight2",
+    "modal2",
+    "pickers2",
+    "button4"
+  ],
+  verticalIdentity: [
+    "verticalIdentity",
+    "verticalForNameInput",
+    "nameInput",
+    "antdInput3",
+    "verticalForIdInput",
+    "idInput",
+    "antdInput",
+    "verticalForDateInput",
+    "modalForDateOfBirth",
+    "datePickers4",
+    "button2",
+    "verticalForSelection",
+    "horizontalForButton",
+    "horizontalForButton2",
+    "horizontalForButton3",
+    "verticalForProbabilityOfGettingPregnant",
+    "switchbest",
+    "verticalForMenstrualCycle",
+    "modal",
+    "pickers",
+    "button3",
+    "modal5",
+    "pickers5",
+    "button6",
+    "heightAndWeight",
+    "modal4",
+    "pickers3",
+    "button5",
+    "weight",
+    "weight2",
+    "modal2",
+    "pickers2",
+    "button4"
+  ],
+  verticalForNameInput: ["verticalForNameInput", "nameInput", "antdInput3"],
+  nameInput: ["nameInput", "antdInput3"],
+  antdInput3: ["antdInput3"],
+  verticalForIdInput: ["verticalForIdInput", "idInput", "antdInput"],
+  idInput: ["idInput", "antdInput"],
+  antdInput: ["antdInput"],
+  verticalForDateInput: [
+    "verticalForDateInput",
+    "modalForDateOfBirth",
+    "datePickers4",
+    "button2"
+  ],
+  modalForDateOfBirth: ["modalForDateOfBirth", "datePickers4", "button2"],
+  datePickers4: ["datePickers4"],
+  button2: ["button2"],
+  verticalForSelection: [
+    "verticalForSelection",
+    "horizontalForButton",
+    "horizontalForButton2",
+    "horizontalForButton3"
+  ],
+  horizontalForButton: ["horizontalForButton"],
+  horizontalForButton2: ["horizontalForButton2"],
+  horizontalForButton3: ["horizontalForButton3"],
+  verticalForProbabilityOfGettingPregnant: [
+    "verticalForProbabilityOfGettingPregnant",
+    "switchbest"
+  ],
+  switchbest: ["switchbest"],
+  verticalForMenstrualCycle: [
+    "verticalForMenstrualCycle",
+    "modal",
+    "pickers",
+    "button3",
+    "modal5",
+    "pickers5",
+    "button6"
+  ],
+  modal: ["modal", "pickers", "button3"],
+  pickers: ["pickers"],
+  button3: ["button3"],
+  modal5: ["modal5", "pickers5", "button6"],
+  pickers5: ["pickers5"],
+  button6: ["button6"],
+  heightAndWeight: [
+    "heightAndWeight",
+    "modal4",
+    "pickers3",
+    "button5",
+    "weight",
+    "weight2",
+    "modal2",
+    "pickers2",
+    "button4"
+  ],
+  modal4: ["modal4", "pickers3", "button5"],
+  pickers3: ["pickers3"],
+  button5: ["button5"],
+  weight: ["weight", "weight2", "modal2", "pickers2", "button4"],
+  weight2: ["weight2", "modal2", "pickers2", "button4"],
+  modal2: ["modal2", "pickers2", "button4"],
+  pickers2: ["pickers2"],
+  button4: ["button4"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  verticalIdentity: "div";
+  verticalForNameInput: "div";
+  nameInput: typeof TextInput;
+  antdInput3: typeof Input;
+  verticalForIdInput: "div";
+  idInput: typeof TextInput;
+  antdInput: typeof Input;
+  verticalForDateInput: "div";
+  modalForDateOfBirth: typeof Modal2;
+  datePickers4: typeof DatePickers;
+  button2: typeof Button;
+  verticalForSelection: "div";
+  horizontalForButton: "div";
+  horizontalForButton2: "div";
+  horizontalForButton3: "div";
+  verticalForProbabilityOfGettingPregnant: "div";
+  switchbest: typeof Switchbest;
+  verticalForMenstrualCycle: "div";
+  modal: typeof Modal2;
+  pickers: typeof Pickers;
+  button3: typeof Button;
+  modal5: typeof Modal2;
+  pickers5: typeof Pickers;
+  button6: typeof Button;
+  heightAndWeight: "div";
+  modal4: typeof Modal2;
+  pickers3: typeof Pickers;
+  button5: typeof Button;
+  weight: "div";
+  weight2: "div";
+  modal2: typeof Modal2;
+  pickers2: typeof Pickers;
+  button4: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -252,6 +1890,41 @@ export const PlasmicEditProfile = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    verticalIdentity: makeNodeComponent("verticalIdentity"),
+    verticalForNameInput: makeNodeComponent("verticalForNameInput"),
+    nameInput: makeNodeComponent("nameInput"),
+    antdInput3: makeNodeComponent("antdInput3"),
+    verticalForIdInput: makeNodeComponent("verticalForIdInput"),
+    idInput: makeNodeComponent("idInput"),
+    antdInput: makeNodeComponent("antdInput"),
+    verticalForDateInput: makeNodeComponent("verticalForDateInput"),
+    modalForDateOfBirth: makeNodeComponent("modalForDateOfBirth"),
+    datePickers4: makeNodeComponent("datePickers4"),
+    button2: makeNodeComponent("button2"),
+    verticalForSelection: makeNodeComponent("verticalForSelection"),
+    horizontalForButton: makeNodeComponent("horizontalForButton"),
+    horizontalForButton2: makeNodeComponent("horizontalForButton2"),
+    horizontalForButton3: makeNodeComponent("horizontalForButton3"),
+    verticalForProbabilityOfGettingPregnant: makeNodeComponent(
+      "verticalForProbabilityOfGettingPregnant"
+    ),
+    switchbest: makeNodeComponent("switchbest"),
+    verticalForMenstrualCycle: makeNodeComponent("verticalForMenstrualCycle"),
+    modal: makeNodeComponent("modal"),
+    pickers: makeNodeComponent("pickers"),
+    button3: makeNodeComponent("button3"),
+    modal5: makeNodeComponent("modal5"),
+    pickers5: makeNodeComponent("pickers5"),
+    button6: makeNodeComponent("button6"),
+    heightAndWeight: makeNodeComponent("heightAndWeight"),
+    modal4: makeNodeComponent("modal4"),
+    pickers3: makeNodeComponent("pickers3"),
+    button5: makeNodeComponent("button5"),
+    weight: makeNodeComponent("weight"),
+    weight2: makeNodeComponent("weight2"),
+    modal2: makeNodeComponent("modal2"),
+    pickers2: makeNodeComponent("pickers2"),
+    button4: makeNodeComponent("button4"),
 
     // Metadata about props expected for PlasmicEditProfile
     internalVariantProps: PlasmicEditProfile__VariantProps,

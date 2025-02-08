@@ -1209,6 +1209,45 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/edit-profile"
+        },
+        {
+          "id": "pr_Y7BIaL4VF",
+          "name": "Button3",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicButton3.tsx",
+          "importSpec": {
+            "modulePath": "Button3.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicButton3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "rxR90NraexCK",
+          "name": "Modal2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicModal2.tsx",
+          "importSpec": {
+            "modulePath": "Modal2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicModal2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "kjK-J97SUWLJ",
+          "name": "SelectionChoise",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSelectionChoise.tsx",
+          "importSpec": {
+            "modulePath": "SelectionChoise.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSelectionChoise.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2201,6 +2240,21 @@
           "id": "1DQk0pCQHybZ",
           "name": "Icon144Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon144.tsx"
+        },
+        {
+          "id": "JKRqNBk8_QEL",
+          "name": "CalenderOutlinedIcSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__CalenderOutlinedIcSvg.tsx"
+        },
+        {
+          "id": "9iZxfHzH83kz",
+          "name": "RulerIcSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__RulerIcSvg.tsx"
+        },
+        {
+          "id": "_rOaaxGTo0Hj",
+          "name": "WeightmeterIcSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__WeightmeterIcSvg.tsx"
         }
       ],
       "images": [
