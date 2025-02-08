@@ -635,7 +635,7 @@ function PlasmicBioritm2__RenderFunc(props: {
           body={(() => {
             try {
               return {
-                birthDate: $state.bday
+                birthDate: "2002-01-01"
               };
             } catch (e) {
               if (
@@ -661,7 +661,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                     return {
                       headers: {
                         "Content-Type": "application/json",
-                        Authorization: $state.token
+                        Authorization:
+                          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyYWRlNjBlLWYyZTEtNDIwNi05NzNiLTIwNDYzYjhlM2FmNCIsImlhdCI6MTczODgzNzg3Nn0.iaZlGzwVEN5P0kQMgdTy2sNsBIbJai8WAG1sSDhqpL4BUw&userId=u184ee975e9c-19dd-42fc-b7d7-8822f621b4f87"
                       }
                     };
                   } catch (e) {

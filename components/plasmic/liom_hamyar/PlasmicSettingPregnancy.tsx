@@ -1212,62 +1212,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__v6Pad
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (
-                              $state.duDate[0] +
-                              "-" +
-                              $state.duDate[1] +
-                              "-" +
-                              $state.duDate[2] +
-                              " 10:10:10 "
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___7BPbu
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return (
-                              $state?.getUserInfo?.data?.[0]?.result?.user
-                                ?.name ?? "aaa"
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
-                    </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
                         sty.text__pd8Nv,
                         {
                           [sty.textdark__pd8Nvbkz05]: hasVariant(
@@ -1831,61 +1775,20 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                   undefined,
                                   (() => {
                                     try {
-                                      return (() => {
-                                        let hamyarsData = { hamyarsData: [] };
-                                        if (
-                                          ($state?.getUserInfo?.data?.[0]
-                                            ?.success ?? false) == true
-                                        ) {
-                                          for (
-                                            let i = 0;
-                                            i <
-                                            $state.getUserInfo.data[0].result
-                                              .hamyars.length;
-                                            i++
-                                          ) {
-                                            hamyarsData.hamyarsData.push({
-                                              name: $state.getUserInfo.data[0]
-                                                .result.hamyars[i].user.name,
-                                              active:
-                                                $state.getUserInfo.data[0]
-                                                  .result.hamyars[i].user
-                                                  .active,
-                                              hamyarStatus:
-                                                $state.getUserInfo.data[0]
-                                                  .result.hamyars[i].user
-                                                  .hamyarStatus,
-                                              mobile:
-                                                $state.getUserInfo.data[0]
-                                                  .result.hamyars[i].user.mobile
-                                            });
-                                          }
-                                        }
-                                        return {
-                                          area: "pregnancy",
-                                          duDate:
-                                            $state.duDate[0] +
-                                            "-" +
-                                            $state.duDate[1] +
-                                            "-" +
-                                            $state.duDate[2] +
-                                            " 10:10:10",
-                                          userId: $ctx.query.userId.slice(
-                                            4,
-                                            +$ctx.query.userId.length - 4
-                                          ),
-                                          name:
-                                            $state.getUserInfo.data[0].result
-                                              .user?.name || "",
-                                          mobile:
-                                            $state.getUserInfo.data[0].result
-                                              .user?.mobile || "",
-                                          email:
-                                            $state.getUserInfo.data[0].result
-                                              .user?.email || "",
-                                          hamyarData: hamyarsData || {}
-                                        };
-                                      })();
+                                      return {
+                                        area: "pregnancy",
+                                        duDate:
+                                          $state.duDate[0] +
+                                          "-" +
+                                          $state.duDate[1] +
+                                          "-" +
+                                          $state.duDate[2] +
+                                          " 10:10:10",
+                                        userId: $ctx.query.userId.slice(
+                                          4,
+                                          +$ctx.query.userId.length - 4
+                                        )
+                                      };
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
