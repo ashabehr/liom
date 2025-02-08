@@ -1224,7 +1224,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               $state.duDate[1] +
                               "-" +
                               $state.duDate[2] +
-                              " 10:10:10"
+                              " 10:10:10 " +
+                              $state.getUserInfo.data[0].result.user.name
                             );
                           } catch (e) {
                             if (
