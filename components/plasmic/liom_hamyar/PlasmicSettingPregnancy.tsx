@@ -1224,8 +1224,33 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               $state.duDate[1] +
                               "-" +
                               $state.duDate[2] +
-                              " 10:10:10 " +
-                              $state.getUserInfo.data[0].result.user.name
+                              " 10:10:10 "
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___7BPbu
+                      )}
+                    >
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return (
+                              $state?.getUserInfo?.data?.[0]?.result?.user
+                                ?.name ?? "aaa"
                             );
                           } catch (e) {
                             if (
@@ -1808,26 +1833,33 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                     try {
                                       return (() => {
                                         let hamyarsData = { hamyarsData: [] };
-                                        for (
-                                          let i = 0;
-                                          i <
-                                          $state.getUserInfo.data[0].result
-                                            .hamyars.length;
-                                          i++
+                                        if (
+                                          ($state?.getUserInfo?.data?.[0]
+                                            ?.success ?? false) == true
                                         ) {
-                                          hamyarsData.hamyarsData.push({
-                                            name: $state.getUserInfo.data[0]
-                                              .result.hamyars[i].user.name,
-                                            active:
-                                              $state.getUserInfo.data[0].result
-                                                .hamyars[i].user.active,
-                                            hamyarStatus:
-                                              $state.getUserInfo.data[0].result
-                                                .hamyars[i].user.hamyarStatus,
-                                            mobile:
-                                              $state.getUserInfo.data[0].result
-                                                .hamyars[i].user.mobile
-                                          });
+                                          for (
+                                            let i = 0;
+                                            i <
+                                            $state.getUserInfo.data[0].result
+                                              .hamyars.length;
+                                            i++
+                                          ) {
+                                            hamyarsData.hamyarsData.push({
+                                              name: $state.getUserInfo.data[0]
+                                                .result.hamyars[i].user.name,
+                                              active:
+                                                $state.getUserInfo.data[0]
+                                                  .result.hamyars[i].user
+                                                  .active,
+                                              hamyarStatus:
+                                                $state.getUserInfo.data[0]
+                                                  .result.hamyars[i].user
+                                                  .hamyarStatus,
+                                              mobile:
+                                                $state.getUserInfo.data[0]
+                                                  .result.hamyars[i].user.mobile
+                                            });
+                                          }
                                         }
                                         return {
                                           area: "pregnancy",
@@ -1844,14 +1876,14 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                           ),
                                           name:
                                             $state.getUserInfo.data[0].result
-                                              .user?.name ?? "",
+                                              .user?.name || "",
                                           mobile:
                                             $state.getUserInfo.data[0].result
-                                              .user?.mobile ?? "",
+                                              .user?.mobile || "",
                                           email:
                                             $state.getUserInfo.data[0].result
-                                              .user?.email ?? "",
-                                          hamyarData: hamyarsData
+                                              .user?.email || "",
+                                          hamyarData: hamyarsData || {}
                                         };
                                       })();
                                     } catch (e) {
