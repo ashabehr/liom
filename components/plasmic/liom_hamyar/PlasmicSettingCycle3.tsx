@@ -624,7 +624,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     };
                   })(),
                   ...Array.from(
-                    { length: $state.lengh != 0 ? $state.lengh : 30 },
+                    { length: $state.cycle != 0 ? $state.cycle : 30 },
                     (_, i) => {
                       const date = new Date(today);
                       date.setDate(today.getDate() - (i + 1));
@@ -717,7 +717,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     };
                   })(),
                   ...Array.from(
-                    { length: $state.lengh != 0 ? $state.lengh : 30 },
+                    { length: $state.cycle != 0 ? $state.cycle : 30 },
                     (_, i) => {
                       const date = new Date(today);
                       date.setDate(today.getDate() + (i + 1));

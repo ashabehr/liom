@@ -1211,19 +1211,6 @@
           "path": "/edit-profile"
         },
         {
-          "id": "pr_Y7BIaL4VF",
-          "name": "Button3",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicButton3.tsx",
-          "importSpec": {
-            "modulePath": "Button3.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicButton3.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "kjK-J97SUWLJ",
           "name": "SelectionChoise",
           "type": "managed",

@@ -2091,12 +2091,12 @@ function PlasmicBioritm2__RenderFunc(props: {
                                     }
                                     let biorythmText = `وضعیت بیوریتم:\n${emothionalTxt}\n${phisycalTxt}\n${intellectualTxt}`;
                                     return navigator.share({
-                                      title: "لیوم",
+                                      title: "لیوم| تقویم قاعدگی",
                                       text:
                                         "لیوم \n" +
                                         biorythmText +
                                         "\n برای دانلود رایگان لیوم و بررسی بیوریتم خود به لینک زیر مراجعه کنید :\n",
-                                      url: "https://liom.app/link/man"
+                                      url: "https://liom.app/link"
                                     });
                                   }
                                 })();
