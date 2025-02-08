@@ -1224,19 +1224,6 @@
           "componentType": "component"
         },
         {
-          "id": "rxR90NraexCK",
-          "name": "Modal2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicModal2.tsx",
-          "importSpec": {
-            "modulePath": "Modal2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicModal2.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "kjK-J97SUWLJ",
           "name": "SelectionChoise",
           "type": "managed",

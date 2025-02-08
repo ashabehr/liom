@@ -64,13 +64,8 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
-import Modal2 from "../../Modal2"; // plasmic-import: rxR90NraexCK/component
-import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
-import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-import Button3 from "../../Button3"; // plasmic-import: pr_Y7BIaL4VF/component
 import SelectionChoise from "../../SelectionChoise"; // plasmic-import: kjK-J97SUWLJ/component
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
-import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -81,14 +76,7 @@ import sty from "./PlasmicEditProfile.module.css"; // plasmic-import: 3hQjSi0RgP
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import CalenderOutlinedIcSvgIcon from "./icons/PlasmicIcon__CalenderOutlinedIcSvg"; // plasmic-import: JKRqNBk8_QEL/icon
-import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
-import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: PH6a1Mes3Ebj/icon
-import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-import: vefs_9-4aiux/icon
 import Icon67Icon from "./icons/PlasmicIcon__Icon67"; // plasmic-import: hIAuvrXigDnk/icon
-import Icon26Icon from "./icons/PlasmicIcon__Icon26"; // plasmic-import: MKSedampsAFw/icon
-import RulerIcSvgIcon from "./icons/PlasmicIcon__RulerIcSvg"; // plasmic-import: 9iZxfHzH83kz/icon
-import WeightmeterIcSvgIcon from "./icons/PlasmicIcon__WeightmeterIcSvg"; // plasmic-import: _rOaaxGTo0Hj/icon
 
 createPlasmicElementProxy;
 
@@ -111,9 +99,6 @@ export type PlasmicEditProfile__OverridesType = {
   idInput?: Flex__<typeof TextInput>;
   antdInput?: Flex__<typeof Input>;
   verticalForDateInput?: Flex__<"div">;
-  modalForDateOfBirth?: Flex__<typeof Modal2>;
-  datePickers4?: Flex__<typeof DatePickers>;
-  button2?: Flex__<typeof Button>;
   verticalForSelection?: Flex__<"div">;
   horizontalForButton?: Flex__<"div">;
   horizontalForButton2?: Flex__<"div">;
@@ -121,21 +106,9 @@ export type PlasmicEditProfile__OverridesType = {
   verticalForProbabilityOfGettingPregnant?: Flex__<"div">;
   switchbest?: Flex__<typeof Switchbest>;
   verticalForMenstrualCycle?: Flex__<"div">;
-  modal?: Flex__<typeof Modal2>;
-  pickers?: Flex__<typeof Pickers>;
-  button3?: Flex__<typeof Button>;
-  modal5?: Flex__<typeof Modal2>;
-  pickers5?: Flex__<typeof Pickers>;
-  button6?: Flex__<typeof Button>;
   heightAndWeight?: Flex__<"div">;
-  modal4?: Flex__<typeof Modal2>;
-  pickers3?: Flex__<typeof Pickers>;
-  button5?: Flex__<typeof Button>;
   weight?: Flex__<"div">;
   weight2?: Flex__<"div">;
-  modal2?: Flex__<typeof Modal2>;
-  pickers2?: Flex__<typeof Pickers>;
-  button4?: Flex__<typeof Button>;
 };
 
 export interface DefaultEditProfileProps {}
@@ -211,99 +184,9 @@ function PlasmicEditProfile__RenderFunc(props: {
         onMutate: generateOnMutateForSpec("value", Input_Helpers)
       },
       {
-        path: "modalForDateOfBirth.isOpen",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "datePickers4.value",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
-      },
-      {
-        path: "button2.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "switchbest.isChecked",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "modal.isOpen",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "pickers.value",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
-      },
-      {
-        path: "button3.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "modal5.isOpen",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "pickers5.value",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
-      },
-      {
-        path: "button6.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "modal4.isOpen",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "pickers3.value",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
-      },
-      {
-        path: "button5.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "modal2.isOpen",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "pickers2.value",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
-      },
-      {
-        path: "button4.color",
-        type: "private",
-        variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -537,49 +420,7 @@ function PlasmicEditProfile__RenderFunc(props: {
               >
                 {"\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f "}
               </div>
-              <div
-                className={classNames(projectcss.all, sty.freeBox__jK8)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateModalForDateOfBirthIsOpen"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["modalForDateOfBirth", "isOpen"]
-                          },
-                          operation: 0
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateModalForDateOfBirthIsOpen"] != null &&
-                    typeof $steps["updateModalForDateOfBirthIsOpen"] ===
-                      "object" &&
-                    typeof $steps["updateModalForDateOfBirthIsOpen"].then ===
-                      "function"
-                  ) {
-                    $steps["updateModalForDateOfBirthIsOpen"] = await $steps[
-                      "updateModalForDateOfBirthIsOpen"
-                    ];
-                  }
-                }}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__jK8)}>
                 <div
                   className={classNames(
                     projectcss.all,
@@ -589,144 +430,6 @@ function PlasmicEditProfile__RenderFunc(props: {
                 >
                   {""}
                 </div>
-                <Modal2
-                  data-plasmic-name={"modalForDateOfBirth"}
-                  data-plasmic-override={overrides.modalForDateOfBirth}
-                  className={classNames(
-                    "__wab_instance",
-                    sty.modalForDateOfBirth
-                  )}
-                  content={
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__t3OP2)}
-                    >
-                      <DatePickers
-                        data-plasmic-name={"datePickers4"}
-                        data-plasmic-override={overrides.datePickers4}
-                        SelectedDay={10}
-                        SelectedMonth={10}
-                        SelectedYear={1379}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.datePickers4
-                        )}
-                        customYears={[]}
-                        onChange={async (...eventArgs: any) => {
-                          generateStateOnChangeProp($state, [
-                            "datePickers4",
-                            "value"
-                          ]).apply(null, eventArgs);
-                        }}
-                        selectedValues={generateStateValueProp($state, [
-                          "datePickers4",
-                          "value"
-                        ])}
-                      />
-                    </div>
-                  }
-                  footer={
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___1X4K9
-                      )}
-                    >
-                      <Button
-                        data-plasmic-name={"button2"}
-                        data-plasmic-override={overrides.button2}
-                        className={classNames("__wab_instance", sty.button2)}
-                        color={generateStateValueProp($state, [
-                          "button2",
-                          "color"
-                        ])}
-                        onColorChange={async (...eventArgs: any) => {
-                          ((...eventArgs) => {
-                            generateStateOnChangeProp($state, [
-                              "button2",
-                              "color"
-                            ])(eventArgs[0]);
-                          }).apply(null, eventArgs);
-
-                          if (
-                            eventArgs.length > 1 &&
-                            eventArgs[1] &&
-                            eventArgs[1]._plasmic_state_init_
-                          ) {
-                            return;
-                          }
-                        }}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__fbz6J
-                          )}
-                        >
-                          {"\u0627\u0646\u062a\u062e\u0627\u0628"}
-                        </div>
-                      </Button>
-                      <Button3
-                        className={classNames(
-                          "__wab_instance",
-                          sty.button3__xr1QY
-                        )}
-                        color={"muted"}
-                        label={
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__qJigw
-                            )}
-                          >
-                            {"\u0628\u0631\u06af\u0634\u062a"}
-                          </div>
-                        }
-                        type={"soft"}
-                      />
-                    </Stack__>
-                  }
-                  heading={
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___3Qdk2
-                      )}
-                    >
-                      {
-                        "\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
-                      }
-                    </div>
-                  }
-                  isOpen={generateStateValueProp($state, [
-                    "modalForDateOfBirth",
-                    "isOpen"
-                  ])}
-                  onOpenChange={async (...eventArgs: any) => {
-                    generateStateOnChangeProp($state, [
-                      "modalForDateOfBirth",
-                      "isOpen"
-                    ]).apply(null, eventArgs);
-
-                    if (
-                      eventArgs.length > 1 &&
-                      eventArgs[1] &&
-                      eventArgs[1]._plasmic_state_init_
-                    ) {
-                      return;
-                    }
-                  }}
-                  trigger={
-                    <CalenderOutlinedIcSvgIcon
-                      className={classNames(projectcss.all, sty.svg___8Ygdc)}
-                      role={"img"}
-                    />
-                  }
-                />
               </div>
             </div>
             <div
@@ -1077,116 +780,6 @@ function PlasmicEditProfile__RenderFunc(props: {
                   >
                     {""}
                   </div>
-                  <Modal2
-                    data-plasmic-name={"modal"}
-                    data-plasmic-override={overrides.modal}
-                    className={classNames("__wab_instance", sty.modal)}
-                    content={
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__eIgvJ
-                        )}
-                      >
-                        <Pickers
-                          data-plasmic-name={"pickers"}
-                          data-plasmic-override={overrides.pickers}
-                          className={classNames("__wab_instance", sty.pickers)}
-                          data={[]}
-                          initialValue={generateStateValueProp($state, [
-                            "pickers",
-                            "value"
-                          ])}
-                          onChange={async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "pickers",
-                              "value"
-                            ]).apply(null, eventArgs);
-                          }}
-                        />
-                      </Stack__>
-                    }
-                    footer={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___7DfVn
-                        )}
-                      >
-                        <Button
-                          data-plasmic-name={"button3"}
-                          data-plasmic-override={overrides.button3}
-                          className={classNames("__wab_instance", sty.button3)}
-                          color={generateStateValueProp($state, [
-                            "button3",
-                            "color"
-                          ])}
-                          onColorChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button3",
-                                "color"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__wmjQk
-                            )}
-                          >
-                            {"\u0627\u0646\u062a\u062e\u0627\u0628"}
-                          </div>
-                        </Button>
-                      </div>
-                    }
-                    heading={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__ibRzb
-                        )}
-                      >
-                        {
-                          "\u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u0647\u0627\u06cc \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"
-                        }
-                      </div>
-                    }
-                    isOpen={generateStateValueProp($state, ["modal", "isOpen"])}
-                    onOpenChange={async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "modal",
-                        "isOpen"
-                      ]).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    trigger={
-                      <Icon26Icon
-                        className={classNames(projectcss.all, sty.svg__diJn)}
-                        role={"img"}
-                      />
-                    }
-                  />
                 </div>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__rribl)}>
@@ -1213,119 +806,6 @@ function PlasmicEditProfile__RenderFunc(props: {
                   >
                     {""}
                   </div>
-                  <Modal2
-                    data-plasmic-name={"modal5"}
-                    data-plasmic-override={overrides.modal5}
-                    className={classNames("__wab_instance", sty.modal5)}
-                    content={
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__weOYv
-                        )}
-                      >
-                        <Pickers
-                          data-plasmic-name={"pickers5"}
-                          data-plasmic-override={overrides.pickers5}
-                          className={classNames("__wab_instance", sty.pickers5)}
-                          data={[]}
-                          initialValue={generateStateValueProp($state, [
-                            "pickers5",
-                            "value"
-                          ])}
-                          onChange={async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "pickers5",
-                              "value"
-                            ]).apply(null, eventArgs);
-                          }}
-                        />
-                      </Stack__>
-                    }
-                    footer={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__q8Bhi
-                        )}
-                      >
-                        <Button
-                          data-plasmic-name={"button6"}
-                          data-plasmic-override={overrides.button6}
-                          className={classNames("__wab_instance", sty.button6)}
-                          color={generateStateValueProp($state, [
-                            "button6",
-                            "color"
-                          ])}
-                          onColorChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button6",
-                                "color"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__dT8EZ
-                            )}
-                          >
-                            {"\u0627\u0646\u062a\u062e\u0627\u0628"}
-                          </div>
-                        </Button>
-                      </div>
-                    }
-                    heading={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__lyACm
-                        )}
-                      >
-                        {
-                          "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a .(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u062a(\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc)\u0631\u0648\u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)"
-                        }
-                      </div>
-                    }
-                    isOpen={generateStateValueProp($state, [
-                      "modal5",
-                      "isOpen"
-                    ])}
-                    onOpenChange={async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "modal5",
-                        "isOpen"
-                      ]).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    trigger={
-                      <Icon26Icon
-                        className={classNames(projectcss.all, sty.svg__oy9Cb)}
-                        role={"img"}
-                      />
-                    }
-                  />
                 </div>
                 <div
                   className={classNames(
@@ -1389,105 +869,6 @@ function PlasmicEditProfile__RenderFunc(props: {
                   >
                     {""}
                   </div>
-                  <Modal2
-                    data-plasmic-name={"modal4"}
-                    data-plasmic-override={overrides.modal4}
-                    className={classNames("__wab_instance", sty.modal4)}
-                    content={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___40AjS
-                        )}
-                      >
-                        <Pickers
-                          data-plasmic-name={"pickers3"}
-                          data-plasmic-override={overrides.pickers3}
-                          className={classNames("__wab_instance", sty.pickers3)}
-                          data={[]}
-                          initialValue={generateStateValueProp($state, [
-                            "pickers3",
-                            "value"
-                          ])}
-                          onChange={async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "pickers3",
-                              "value"
-                            ]).apply(null, eventArgs);
-                          }}
-                        />
-                      </div>
-                    }
-                    footer={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__dbQS
-                        )}
-                      >
-                        <Button
-                          data-plasmic-name={"button5"}
-                          data-plasmic-override={overrides.button5}
-                          className={classNames("__wab_instance", sty.button5)}
-                          color={generateStateValueProp($state, [
-                            "button5",
-                            "color"
-                          ])}
-                          onColorChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button5",
-                                "color"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__d4TbH
-                            )}
-                          >
-                            {"\u0627\u0646\u062a\u062e\u0627\u0628 "}
-                          </div>
-                        </Button>
-                      </div>
-                    }
-                    heading={null}
-                    isOpen={generateStateValueProp($state, [
-                      "modal4",
-                      "isOpen"
-                    ])}
-                    onOpenChange={async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "modal4",
-                        "isOpen"
-                      ]).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    trigger={
-                      <RulerIcSvgIcon
-                        className={classNames(projectcss.all, sty.svg__jv8Gn)}
-                        role={"img"}
-                      />
-                    }
-                  />
                 </div>
               </div>
               <div
@@ -1518,107 +899,6 @@ function PlasmicEditProfile__RenderFunc(props: {
                   >
                     {""}
                   </div>
-                  <Modal2
-                    data-plasmic-name={"modal2"}
-                    data-plasmic-override={overrides.modal2}
-                    className={classNames("__wab_instance", sty.modal2)}
-                    content={
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__oh2Gv
-                        )}
-                      >
-                        <Pickers
-                          data-plasmic-name={"pickers2"}
-                          data-plasmic-override={overrides.pickers2}
-                          className={classNames("__wab_instance", sty.pickers2)}
-                          data={[]}
-                          initialValue={generateStateValueProp($state, [
-                            "pickers2",
-                            "value"
-                          ])}
-                          onChange={async (...eventArgs: any) => {
-                            generateStateOnChangeProp($state, [
-                              "pickers2",
-                              "value"
-                            ]).apply(null, eventArgs);
-                          }}
-                        />
-                      </Stack__>
-                    }
-                    footer={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__rUSp
-                        )}
-                      >
-                        <Button
-                          data-plasmic-name={"button4"}
-                          data-plasmic-override={overrides.button4}
-                          className={classNames("__wab_instance", sty.button4)}
-                          color={generateStateValueProp($state, [
-                            "button4",
-                            "color"
-                          ])}
-                          onColorChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button4",
-                                "color"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__uwlj
-                            )}
-                          >
-                            {"\u0627\u0646\u062a\u062e\u0627\u0628"}
-                          </div>
-                        </Button>
-                      </div>
-                    }
-                    heading={null}
-                    isOpen={generateStateValueProp($state, [
-                      "modal2",
-                      "isOpen"
-                    ])}
-                    onOpenChange={async (...eventArgs: any) => {
-                      generateStateOnChangeProp($state, [
-                        "modal2",
-                        "isOpen"
-                      ]).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-                    }}
-                    trigger={
-                      <WeightmeterIcSvgIcon
-                        className={classNames(projectcss.all, sty.svg__m9D1)}
-                        role={"img"}
-                      />
-                    }
-                  />
                 </div>
               </div>
             </div>
@@ -1640,9 +920,6 @@ const PlasmicDescendants = {
     "idInput",
     "antdInput",
     "verticalForDateInput",
-    "modalForDateOfBirth",
-    "datePickers4",
-    "button2",
     "verticalForSelection",
     "horizontalForButton",
     "horizontalForButton2",
@@ -1650,21 +927,9 @@ const PlasmicDescendants = {
     "verticalForProbabilityOfGettingPregnant",
     "switchbest",
     "verticalForMenstrualCycle",
-    "modal",
-    "pickers",
-    "button3",
-    "modal5",
-    "pickers5",
-    "button6",
     "heightAndWeight",
-    "modal4",
-    "pickers3",
-    "button5",
     "weight",
-    "weight2",
-    "modal2",
-    "pickers2",
-    "button4"
+    "weight2"
   ],
   verticalIdentity: [
     "verticalIdentity",
@@ -1675,9 +940,6 @@ const PlasmicDescendants = {
     "idInput",
     "antdInput",
     "verticalForDateInput",
-    "modalForDateOfBirth",
-    "datePickers4",
-    "button2",
     "verticalForSelection",
     "horizontalForButton",
     "horizontalForButton2",
@@ -1685,21 +947,9 @@ const PlasmicDescendants = {
     "verticalForProbabilityOfGettingPregnant",
     "switchbest",
     "verticalForMenstrualCycle",
-    "modal",
-    "pickers",
-    "button3",
-    "modal5",
-    "pickers5",
-    "button6",
     "heightAndWeight",
-    "modal4",
-    "pickers3",
-    "button5",
     "weight",
-    "weight2",
-    "modal2",
-    "pickers2",
-    "button4"
+    "weight2"
   ],
   verticalForNameInput: ["verticalForNameInput", "nameInput", "antdInput3"],
   nameInput: ["nameInput", "antdInput3"],
@@ -1707,15 +957,7 @@ const PlasmicDescendants = {
   verticalForIdInput: ["verticalForIdInput", "idInput", "antdInput"],
   idInput: ["idInput", "antdInput"],
   antdInput: ["antdInput"],
-  verticalForDateInput: [
-    "verticalForDateInput",
-    "modalForDateOfBirth",
-    "datePickers4",
-    "button2"
-  ],
-  modalForDateOfBirth: ["modalForDateOfBirth", "datePickers4", "button2"],
-  datePickers4: ["datePickers4"],
-  button2: ["button2"],
+  verticalForDateInput: ["verticalForDateInput"],
   verticalForSelection: [
     "verticalForSelection",
     "horizontalForButton",
@@ -1730,40 +972,10 @@ const PlasmicDescendants = {
     "switchbest"
   ],
   switchbest: ["switchbest"],
-  verticalForMenstrualCycle: [
-    "verticalForMenstrualCycle",
-    "modal",
-    "pickers",
-    "button3",
-    "modal5",
-    "pickers5",
-    "button6"
-  ],
-  modal: ["modal", "pickers", "button3"],
-  pickers: ["pickers"],
-  button3: ["button3"],
-  modal5: ["modal5", "pickers5", "button6"],
-  pickers5: ["pickers5"],
-  button6: ["button6"],
-  heightAndWeight: [
-    "heightAndWeight",
-    "modal4",
-    "pickers3",
-    "button5",
-    "weight",
-    "weight2",
-    "modal2",
-    "pickers2",
-    "button4"
-  ],
-  modal4: ["modal4", "pickers3", "button5"],
-  pickers3: ["pickers3"],
-  button5: ["button5"],
-  weight: ["weight", "weight2", "modal2", "pickers2", "button4"],
-  weight2: ["weight2", "modal2", "pickers2", "button4"],
-  modal2: ["modal2", "pickers2", "button4"],
-  pickers2: ["pickers2"],
-  button4: ["button4"]
+  verticalForMenstrualCycle: ["verticalForMenstrualCycle"],
+  heightAndWeight: ["heightAndWeight", "weight", "weight2"],
+  weight: ["weight", "weight2"],
+  weight2: ["weight2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1778,9 +990,6 @@ type NodeDefaultElementType = {
   idInput: typeof TextInput;
   antdInput: typeof Input;
   verticalForDateInput: "div";
-  modalForDateOfBirth: typeof Modal2;
-  datePickers4: typeof DatePickers;
-  button2: typeof Button;
   verticalForSelection: "div";
   horizontalForButton: "div";
   horizontalForButton2: "div";
@@ -1788,21 +997,9 @@ type NodeDefaultElementType = {
   verticalForProbabilityOfGettingPregnant: "div";
   switchbest: typeof Switchbest;
   verticalForMenstrualCycle: "div";
-  modal: typeof Modal2;
-  pickers: typeof Pickers;
-  button3: typeof Button;
-  modal5: typeof Modal2;
-  pickers5: typeof Pickers;
-  button6: typeof Button;
   heightAndWeight: "div";
-  modal4: typeof Modal2;
-  pickers3: typeof Pickers;
-  button5: typeof Button;
   weight: "div";
   weight2: "div";
-  modal2: typeof Modal2;
-  pickers2: typeof Pickers;
-  button4: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1898,9 +1095,6 @@ export const PlasmicEditProfile = Object.assign(
     idInput: makeNodeComponent("idInput"),
     antdInput: makeNodeComponent("antdInput"),
     verticalForDateInput: makeNodeComponent("verticalForDateInput"),
-    modalForDateOfBirth: makeNodeComponent("modalForDateOfBirth"),
-    datePickers4: makeNodeComponent("datePickers4"),
-    button2: makeNodeComponent("button2"),
     verticalForSelection: makeNodeComponent("verticalForSelection"),
     horizontalForButton: makeNodeComponent("horizontalForButton"),
     horizontalForButton2: makeNodeComponent("horizontalForButton2"),
@@ -1910,21 +1104,9 @@ export const PlasmicEditProfile = Object.assign(
     ),
     switchbest: makeNodeComponent("switchbest"),
     verticalForMenstrualCycle: makeNodeComponent("verticalForMenstrualCycle"),
-    modal: makeNodeComponent("modal"),
-    pickers: makeNodeComponent("pickers"),
-    button3: makeNodeComponent("button3"),
-    modal5: makeNodeComponent("modal5"),
-    pickers5: makeNodeComponent("pickers5"),
-    button6: makeNodeComponent("button6"),
     heightAndWeight: makeNodeComponent("heightAndWeight"),
-    modal4: makeNodeComponent("modal4"),
-    pickers3: makeNodeComponent("pickers3"),
-    button5: makeNodeComponent("button5"),
     weight: makeNodeComponent("weight"),
     weight2: makeNodeComponent("weight2"),
-    modal2: makeNodeComponent("modal2"),
-    pickers2: makeNodeComponent("pickers2"),
-    button4: makeNodeComponent("button4"),
 
     // Metadata about props expected for PlasmicEditProfile
     internalVariantProps: PlasmicEditProfile__VariantProps,
