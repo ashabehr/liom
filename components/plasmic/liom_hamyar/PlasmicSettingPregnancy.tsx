@@ -430,7 +430,43 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 )
               })}
             >
-              <div className={classNames(projectcss.all, sty.freeBox___3O4C8)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox___3O4C8)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (
+                              "https://apps.liom.app/pregnancy/?token=+ " +
+                              $ctx.query.token +
+                              "&userId=" +
+                              $ctx.query.userId +
+                              "&theme=" +
+                              $ctx.query.theme +
+                              "&inAp=" +
+                              $ctx.query.inApp +
+                              "&inBot" +
+                              $ctx.query.inBot
+                            );
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+              >
                 <PlasmicImg__
                   data-plasmic-name={"img"}
                   data-plasmic-override={overrides.img}
@@ -1172,6 +1208,50 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         </div>
                       </div>
                     </SlideinModal>
+                    {(() => {
+                      try {
+                        return $ctx.query.inBot == "true";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return false;
+                        }
+                        throw e;
+                      }
+                    })() ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__v6Pad
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (
+                                $state.duDate[0] +
+                                "-" +
+                                $state.duDate[1] +
+                                "-" +
+                                $state.duDate[2] +
+                                " 10:10:10"
+                              );
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    ) : null}
                     <div
                       className={classNames(
                         projectcss.all,

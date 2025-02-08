@@ -1284,7 +1284,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                               "&theme=" +
                               $ctx.query.theme +
                               "&inApp=" +
-                              $ctx.query.inApp
+                              $ctx.query.inApp +
+                              "&inBo=t" +
+                              $ctx.query.inBot
                             );
                           } catch (e) {
                             if (
