@@ -343,7 +343,7 @@ function PlasmicBioritm2__RenderFunc(props: {
           (() => {
             try {
               return (
-                localStorage.getItem("birthDate") == "undefined" ||
+                localStorage.getItem("birthDate") == "" ||
                 localStorage.getItem("birthDate") == null
               );
             } catch (e) {
@@ -418,90 +418,6 @@ function PlasmicBioritm2__RenderFunc(props: {
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
                 return undefined;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "birthday2",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                let birthDate =
-                  $state.userInfo.user.biorhythm.date.split("T")[0];
-                if (birthDate == "undefined" || birthDate == null) {
-                  return {
-                    day: 7,
-                    month: 7,
-                    year: 1377
-                  };
-                } else {
-                  let gy = parseInt(birthDate.split("-")[0]);
-                  let gm = parseInt(birthDate.split("-")[1]);
-                  let gd = parseInt(birthDate.split("-")[2]);
-                  let shamsiMonthDays = [
-                    31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29
-                  ];
-
-                  let miladiDaysInMonth = [
-                    31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-                  ];
-
-                  let isLeapYear =
-                    gy % 4 === 0 && (gy % 100 !== 0 || gy % 400 === 0);
-                  if (isLeapYear) {
-                    miladiDaysInMonth[1] = 29;
-                  }
-                  let daysPassedMiladi = gd;
-                  for (let i = 0; i < gm - 1; i++) {
-                    daysPassedMiladi += miladiDaysInMonth[i];
-                  }
-                  let shamsiNewYearDay = new Date(gy, 2, 21);
-                  let shamsiStartDayInMiladi =
-                    (shamsiNewYearDay - new Date(gy, 0, 1)) /
-                    (1000 * 60 * 60 * 24);
-                  let daysPassedInShamsiYear =
-                    daysPassedMiladi - shamsiStartDayInMiladi;
-                  if (daysPassedInShamsiYear < 0) {
-                    gy--;
-                    shamsiNewYearDay = new Date(gy, 2, 21);
-                    shamsiStartDayInMiladi =
-                      (shamsiNewYearDay - new Date(gy, 0, 1)) /
-                      (1000 * 60 * 60 * 24);
-                    daysPassedInShamsiYear =
-                      daysPassedMiladi + (365 - shamsiStartDayInMiladi);
-                    if (isLeapYear) {
-                      daysPassedInShamsiYear++;
-                    }
-                  }
-                  let jy = gy - 621;
-                  let jm = 0;
-                  let jd = daysPassedInShamsiYear;
-                  for (let i = 0; i < shamsiMonthDays.length; i++) {
-                    if (jd <= shamsiMonthDays[i]) {
-                      jm = i + 1;
-                      break;
-                    } else {
-                      jd -= shamsiMonthDays[i];
-                    }
-                  }
-                  return {
-                    day: jd,
-                    month: jm,
-                    year: jy
-                  };
-                }
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return {};
               }
               throw e;
             }
@@ -661,8 +577,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                     return {
                       headers: {
                         "Content-Type": "application/json",
-                        Authorization:
-                          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjkyYWRlNjBlLWYyZTEtNDIwNi05NzNiLTIwNDYzYjhlM2FmNCIsImlhdCI6MTczODgzNzg3Nn0.iaZlGzwVEN5P0kQMgdTy2sNsBIbJai8WAG1sSDhqpL4BUw&userId=u184ee975e9c-19dd-42fc-b7d7-8822f621b4f87"
+                        Authorization: localStorage.getItem("token")
                       }
                     };
                   } catch (e) {
@@ -1628,7 +1543,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                         {(() => {
                           try {
                             return (
-                              $state.userInfo.user.biorhythm.intellectual + "%"
+                              $state.biorhythm.data.result.intellectual + "%"
                             );
                           } catch (e) {
                             if (
@@ -1650,7 +1565,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       percent={(() => {
                         try {
                           return Math.abs(
-                            $state.userInfo.user.biorhythm.intellectual
+                            $state.biorhythm.data.result.intellectual
                           );
                         } catch (e) {
                           if (
@@ -1725,9 +1640,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return (
-                              $state.userInfo.user.biorhythm.physical + "%"
-                            );
+                            return $state.biorhythm.data.result.physical + "%";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1748,7 +1661,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       percent={(() => {
                         try {
                           return Math.abs(
-                            $state.userInfo.user.biorhythm.physical
+                            $state.biorhythm.data.result.physical
                           );
                         } catch (e) {
                           if (
@@ -1822,9 +1735,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return (
-                              $state.userInfo.user.biorhythm.emotional + "%"
-                            );
+                            return $state.biorhythm.data.result.emotional + "%";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1847,7 +1758,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                           ? (() => {
                               try {
                                 return Math.abs(
-                                  $state.userInfo.user.biorhythm.emotional
+                                  $state.biorhythm.data.result.emotional
                                 );
                               } catch (e) {
                                 if (
@@ -1862,14 +1773,14 @@ function PlasmicBioritm2__RenderFunc(props: {
                           : (() => {
                               try {
                                 return Math.abs(
-                                  $state.userInfo.user.biorhythm.emotional
+                                  $state.biorhythm.data.result.emotional
                                 );
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return 20;
+                                  return 0;
                                 }
                                 throw e;
                               }
@@ -1881,7 +1792,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                               try {
                                 return (() => {
                                   if (
-                                    $state.userInfo.user.biorhythm.emotional > 0
+                                    $state.biorhythm.data.result.emotional > 0
                                   ) {
                                     return "#00C371AA";
                                   } else {
@@ -1904,9 +1815,9 @@ function PlasmicBioritm2__RenderFunc(props: {
                                   if (
                                     $state.biorhythm.data.result.emotional > 0
                                   ) {
-                                    return "#00C371";
+                                    return "#00C371AA";
                                   } else {
-                                    return "#EB464A";
+                                    return "#EB464AAA";
                                   }
                                 })();
                               } catch (e) {
@@ -1969,7 +1880,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.userInfo.user.biorhythm.avg + "%";
+                            return $state.biorhythm.data.result.avg + "%";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1985,7 +1896,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       <React.Fragment>
                         {(() => {
                           try {
-                            return $state.userInfo.user.biorhythm.avg + "%";
+                            return $state.biorhythm.data.result.avg + "%";
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -2258,7 +2169,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
                         try {
-                          return $state.userInfo.user.biorhythm.advice
+                          return $state.biorhythm.data.result.advice
                             .split("\n")
                             .filter(item => item.trim() !== "")
                             .map(item => item.replace(/^- /, ""));
@@ -2283,7 +2194,14 @@ function PlasmicBioritm2__RenderFunc(props: {
                             projectcss.all,
                             projectcss.li,
                             projectcss.__wab_text,
-                            sty.li
+                            sty.li,
+                            {
+                              [sty.liferstTimepage]: hasVariant(
+                                $state,
+                                "ferstTimepage",
+                                "ferstTimepage"
+                              )
+                            }
                           )}
                           key={currentIndex}
                         >

@@ -2034,18 +2034,10 @@ function PlasmicCalendar__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
-                          return (() => {
-                            localStorage.setItem(
-                              "birthDate",
-                              JSON.stringify(
-                                $state.user.data.result?.man?.birthDate
-                              )
-                            );
-                            return localStorage.setItem(
-                              "userinfo",
-                              JSON.stringify($state.user.data.result)
-                            );
-                          })();
+                          return localStorage.setItem(
+                            "userinfo",
+                            JSON.stringify($state.user.data.result)
+                          );
                         }
                       };
                       return (({ customFunction }) => {

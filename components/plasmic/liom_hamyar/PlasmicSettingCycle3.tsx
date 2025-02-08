@@ -177,7 +177,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if ($state.cycle != 0) return `${$state.cycle} روز `;
+                if ($state.lengh != 0) return `${$state.lengh} روز `;
               })();
             } catch (e) {
               if (
@@ -206,7 +206,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                if ($state.lengh != 0) return `${$state.lengh} روز`;
+                if ($state.cycle != 0) return `${$state.cycle} روز`;
               })();
             } catch (e) {
               if (
@@ -399,7 +399,20 @@ function PlasmicSettingCycle3__RenderFunc(props: {
         path: "pickers.value",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 9
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return parseInt($ctx.query.length || 5);
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 5;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "button2.color",
@@ -417,7 +430,20 @@ function PlasmicSettingCycle3__RenderFunc(props: {
         path: "pickers2.value",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 9
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return parseInt($ctx.query.cycle || 19);
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 9;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "button4.color",
@@ -473,7 +499,20 @@ function PlasmicSettingCycle3__RenderFunc(props: {
         path: "nex",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.nextTime == -1;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "lastTimeBox3.value",
@@ -721,7 +760,32 @@ function PlasmicSettingCycle3__RenderFunc(props: {
         path: "lasttime",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 100
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                if (!$ctx.query.last_time) {
+                  return 100;
+                }
+                const date = new Date($ctx.query.last_time);
+                const date2 = new Date();
+                const differenceInMilliseconds = date - date2;
+                const differenceInDays = Math.floor(
+                  differenceInMilliseconds / (1000 * 60 * 60 * 24) + 1
+                );
+                if (differenceInDays < 0) return differenceInDays;
+                return 100;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 100;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "nextTime",
@@ -740,7 +804,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 const differenceInDays = Math.floor(
                   differenceInMilliseconds / (1000 * 60 * 60 * 24) + 1
                 );
-                return differenceInDays;
+                if (differenceInDays >= 0) return differenceInDays;
+                return -1;
               })();
             } catch (e) {
               if (
@@ -2345,48 +2410,49 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         $steps["updateLoadbtn"] = await $steps["updateLoadbtn"];
                       }
 
-                      $steps["add"] =
-                        $ctx.query.type == "add"
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/calendar/getData",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return {
-                                        cycle: $state.cycle,
-                                        length: $state.lengh,
-                                        last_time: `${
-                                          $state.lastTime.gy
-                                        }-${String($state.lastTime.gm).padStart(
-                                          2,
-                                          "0"
-                                        )}-${String(
-                                          $state.lastTime.gd
-                                        ).padStart(2, "0")}`,
-                                        type: $ctx.query.type,
-                                        authorization: $state.token
-                                      };
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
+                      $steps["add"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/calendar/getData",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return {
+                                      cycle: $state.cycle,
+                                      length: $state.lengh,
+                                      last_time: `${
+                                        $state.lastTime.gy
+                                      }-${String($state.lastTime.gm).padStart(
+                                        2,
+                                        "0"
+                                      )}-${String($state.lastTime.gd).padStart(
+                                        2,
+                                        "0"
+                                      )}`,
+                                      type: $ctx.query.type,
+                                      authorization: $state.token
+                                    };
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                       if (
                         $steps["add"] != null &&
                         typeof $steps["add"] === "object" &&
@@ -2395,50 +2461,48 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         $steps["add"] = await $steps["add"];
                       }
 
-                      $steps["edit"] =
-                        $ctx.query.type == "edit"
-                          ? (() => {
-                              const actionArgs = {
-                                args: [
-                                  "POST",
-                                  "https://n8n.staas.ir/webhook/calendar/getData",
-                                  undefined,
-                                  (() => {
-                                    try {
-                                      return (() => {
-                                        $state.list.addCycle = 0;
-                                        $state.list.addLength = 0;
-                                        $state.list.period.start = {
-                                          year: $state.lastTime.gy,
-                                          month: $state.lastTime.gm,
-                                          day: $state.lastTime.gd
-                                        };
-                                        return {
-                                          cycle: $state.cycle,
-                                          length: $state.lengh,
-                                          type: $ctx.query.type,
-                                          authorization: $state.token,
-                                          calendar: $state.list
-                                        };
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
+                      $steps["edit"] = false
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "POST",
+                                "https://n8n.staas.ir/webhook/calendar/getData",
+                                undefined,
+                                (() => {
+                                  try {
+                                    return (() => {
+                                      $state.list.period.start = {
+                                        year: $state.lastTime.gy,
+                                        month: $state.lastTime.gm,
+                                        day: $state.lastTime.gd
+                                      };
+                                      return {
+                                        cycle: $state.cycle,
+                                        length: $state.lengh,
+                                        type: $ctx.query.type,
+                                        authorization: $state.token,
+                                        calendar: $state.list
+                                      };
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return undefined;
                                     }
-                                  })()
-                                ]
-                              };
-                              return $globalActions[
-                                "Fragment.apiRequest"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
+                                    throw e;
+                                  }
+                                })()
+                              ]
+                            };
+                            return $globalActions["Fragment.apiRequest"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                       if (
                         $steps["edit"] != null &&
                         typeof $steps["edit"] === "object" &&
@@ -2708,40 +2772,81 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 "\u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632\u200c\u0647\u0627\u06cc \u062e\u0648\u0646 \u0631\u06cc\u0632\u06cc"
               }
             </div>
-            <Pickers
-              data-plasmic-name={"pickers"}
-              data-plasmic-override={overrides.pickers}
-              className={classNames("__wab_instance", sty.pickers)}
-              data={(() => {
-                try {
-                  return (() => {
-                    return Array.from({ length: 9 }, (_, i) => ({
-                      label: `${i + 2} روز`,
-                      value: i + 2
-                    }));
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
+            {(() => {
+              const child$Props = {
+                className: classNames("__wab_instance", sty.pickers),
+                data: (() => {
+                  try {
+                    return (() => {
+                      return Array.from({ length: 9 }, (_, i) => ({
+                        label: `${i + 2} روز`,
+                        value: i + 2
+                      }));
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
                   }
-                  throw e;
+                })(),
+                initialValue: generateStateValueProp($state, [
+                  "pickers",
+                  "value"
+                ]),
+                onChange: async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["pickers", "value"]).apply(
+                    null,
+                    eventArgs
+                  );
                 }
-              })()}
-              initialValue={generateStateValueProp($state, [
-                "pickers",
-                "value"
-              ])}
-              onChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["pickers", "value"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-            />
-
+              };
+              initializeCodeComponentStates(
+                $state,
+                [
+                  {
+                    name: "value",
+                    plasmicStateName: "pickers.value"
+                  }
+                ],
+                [],
+                undefined ?? {},
+                child$Props
+              );
+              initializePlasmicStates(
+                $state,
+                [
+                  {
+                    name: "pickers.value",
+                    initFunc: ({ $props, $state, $queries }) =>
+                      (() => {
+                        try {
+                          return parseInt($ctx.query.length || 5);
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return 5;
+                          }
+                          throw e;
+                        }
+                      })()
+                  }
+                ],
+                []
+              );
+              return (
+                <Pickers
+                  data-plasmic-name={"pickers"}
+                  data-plasmic-override={overrides.pickers}
+                  {...child$Props}
+                />
+              );
+            })()}
             <Stack__
               as={"div"}
               hasGap={true}
@@ -2760,7 +2865,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         const actionArgs = {
                           variable: {
                             objRoot: $state,
-                            variablePath: ["cycle"]
+                            variablePath: ["lengh"]
                           },
                           operation: 0,
                           value: $state.pickers.value
@@ -2933,40 +3038,81 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.\n(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u062a(\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc) \u0631\u0648 \u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)"
               }
             </div>
-            <Pickers
-              data-plasmic-name={"pickers2"}
-              data-plasmic-override={overrides.pickers2}
-              className={classNames("__wab_instance", sty.pickers2)}
-              data={(() => {
-                try {
-                  return (() => {
-                    return Array.from({ length: 64 - 15 }, (_, i) => ({
-                      label: `${i + 17} روز`,
-                      value: i + 17
-                    }));
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return [];
+            {(() => {
+              const child$Props = {
+                className: classNames("__wab_instance", sty.pickers2),
+                data: (() => {
+                  try {
+                    return (() => {
+                      return Array.from({ length: 64 - 15 }, (_, i) => ({
+                        label: `${i + 17} روز`,
+                        value: i + 17
+                      }));
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
                   }
-                  throw e;
+                })(),
+                initialValue: generateStateValueProp($state, [
+                  "pickers2",
+                  "value"
+                ]),
+                onChange: async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "pickers2",
+                    "value"
+                  ]).apply(null, eventArgs);
                 }
-              })()}
-              initialValue={generateStateValueProp($state, [
-                "pickers2",
-                "value"
-              ])}
-              onChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["pickers2", "value"]).apply(
-                  null,
-                  eventArgs
-                );
-              }}
-            />
-
+              };
+              initializeCodeComponentStates(
+                $state,
+                [
+                  {
+                    name: "value",
+                    plasmicStateName: "pickers2.value"
+                  }
+                ],
+                [],
+                undefined ?? {},
+                child$Props
+              );
+              initializePlasmicStates(
+                $state,
+                [
+                  {
+                    name: "pickers2.value",
+                    initFunc: ({ $props, $state, $queries }) =>
+                      (() => {
+                        try {
+                          return parseInt($ctx.query.cycle || 19);
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return 9;
+                          }
+                          throw e;
+                        }
+                      })()
+                  }
+                ],
+                []
+              );
+              return (
+                <Pickers
+                  data-plasmic-name={"pickers2"}
+                  data-plasmic-override={overrides.pickers2}
+                  {...child$Props}
+                />
+              );
+            })()}
             <Stack__
               as={"div"}
               hasGap={true}
@@ -2985,7 +3131,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                         const actionArgs = {
                           variable: {
                             objRoot: $state,
-                            variablePath: ["lengh"]
+                            variablePath: ["cycle"]
                           },
                           operation: 0,
                           value: $state.pickers2.value
