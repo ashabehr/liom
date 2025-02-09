@@ -649,7 +649,20 @@ function PlasmicEditProfile__RenderFunc(props: {
         path: "variableForLastPeriod",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "token",
@@ -657,12 +670,6 @@ function PlasmicEditProfile__RenderFunc(props: {
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJpYXQiOjE3MTY0NDYwMjB9.lqQ0-BMpH_aQlm4qm4cUpNA2Y90wjV_Jw42rmGjjoZw"
-      },
-      {
-        path: "_for",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       },
       {
         path: "variableForTheDateOfTheFirstDayOfYourLastPeriod",
@@ -709,7 +716,13 @@ function PlasmicEditProfile__RenderFunc(props: {
                     const monthName = monthNames[jalaaliDate.jm - 1];
                     return {
                       label: `${dayOfWeek} ${jalaaliDate.jd} ${monthName}`,
-                      value: 0
+                      value: 0,
+                      date:
+                        today.getFullYear() +
+                        "-" +
+                        (today.getMonth() + 1) +
+                        "-" +
+                        today.getDate()
                     };
                   })(),
                   ...Array.from(
@@ -732,7 +745,13 @@ function PlasmicEditProfile__RenderFunc(props: {
                       const label = `${dayOfWeek} ${jalaaliDate.jd} ${monthName}`;
                       return {
                         label,
-                        value: -(i + 1)
+                        value: -(i + 1),
+                        date:
+                          date.getFullYear() +
+                          "-" +
+                          (date.getMonth() + 1) +
+                          "-" +
+                          date.getDate()
                       };
                     }
                   )

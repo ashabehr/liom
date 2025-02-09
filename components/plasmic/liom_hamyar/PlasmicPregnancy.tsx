@@ -5972,7 +5972,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     destination: (() => {
                                       try {
                                         return (
-                                          "https://tools.liom.app/self-medication/?type=danger&inApp=false&token=" +
+                                          "https://tools.liom.app/self-medication/?type=danger&inApp=" +
+                                          $ctx.query.inApp +
+                                          "&token=" +
                                           $ctx.query.token.slice(
                                             6,
                                             $ctx.query.token.length - 3

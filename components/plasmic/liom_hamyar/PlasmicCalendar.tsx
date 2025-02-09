@@ -1585,7 +1585,10 @@ function PlasmicCalendar__RenderFunc(props: {
         path: "button2.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile")
+            ? ["link", "line"]
+            : undefined
       },
       {
         path: "lineClomp3.line",
@@ -16601,72 +16604,50 @@ function PlasmicCalendar__RenderFunc(props: {
                             sty.freeBox__u4AL
                           )}
                         >
-                          <div
+                          <Embed
                             className={classNames(
-                              projectcss.all,
-                              sty.freeBox__qlGoj
+                              "__wab_instance",
+                              sty.embedHtml__bAips
                             )}
-                            style={(() => {
-                              try {
-                                return {
-                                  "background-color":
-                                    $state.toolAdvertising[0].color
-                                };
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
-                          >
-                            <Embed
-                              className={classNames(
-                                "__wab_instance",
-                                sty.embedHtml__bAips
-                              )}
-                              code={
-                                hasVariant(globalVariants, "screen", "mobile")
-                                  ? (() => {
-                                      try {
-                                        return `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            code={
+                              hasVariant(globalVariants, "screen", "mobile")
+                                ? (() => {
+                                    try {
+                                      return `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d='${$state.toolAdvertising[0].icon}' fill='${$state.toolAdvertising[0].coloricon}'/>
 </svg>
 `;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "<div>Paste your embed code via the right sidebar</div>";
-                                        }
-                                        throw e;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "<div>Paste your embed code via the right sidebar</div>";
                                       }
-                                    })()
-                                  : (() => {
-                                      try {
-                                        return `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      throw e;
+                                    }
+                                  })()
+                                : (() => {
+                                    try {
+                                      return `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d='${$state.toolAdvertising[0].icon}' fill='${$state.toolAdvertising[0].coloricon}'/>
 </svg>
 `;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "<div>Paste your embed code via the right sidebar</div>";
-                                        }
-                                        throw e;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "<div>Paste your embed code via the right sidebar</div>";
                                       }
-                                    })()
-                              }
-                            />
-                          </div>
+                                      throw e;
+                                    }
+                                  })()
+                            }
+                          />
+
                           <LineClomp
                             data-plasmic-name={"lineClomp3"}
                             data-plasmic-override={overrides.lineClomp3}
@@ -16768,64 +16749,100 @@ function PlasmicCalendar__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </LineClomp>
-                        <Button
-                          data-plasmic-name={"button2"}
-                          data-plasmic-override={overrides.button2}
-                          className={classNames("__wab_instance", sty.button2)}
-                          color={generateStateValueProp($state, [
-                            "button2",
-                            "color"
-                          ])}
-                          onColorChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button2",
-                                "color"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                          size={
-                            hasVariant(globalVariants, "screen", "mobile")
-                              ? "compact"
-                              : "compact"
-                          }
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__xr1Gy
+                          )}
                         >
-                          <div
+                          <Button
+                            data-plasmic-name={"button2"}
+                            data-plasmic-override={overrides.button2}
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__ioHdO
+                              "__wab_instance",
+                              sty.button2
                             )}
+                            color={generateStateValueProp($state, [
+                              "button2",
+                              "color"
+                            ])}
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button2",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                            size={
+                              hasVariant(globalVariants, "screen", "mobile")
+                                ? "compact"
+                                : "compact"
+                            }
                           >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return (
-                                    " فعالسازی " +
-                                    $state.toolAdvertising[0].bigTitle
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "\u0648\u0631\u0648\u062f \u0628\u0647 \u0627\u0628\u0632\u0627\u0631 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </div>
-                        </Button>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ioHdO,
+                                hasVariant(globalVariants, "screen", "mobile")
+                                  ? "animashen"
+                                  : undefined
+                              )}
+                            >
+                              {hasVariant(
+                                globalVariants,
+                                "screen",
+                                "mobile"
+                              ) ? (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.toolAdvertising[0].btnText;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u0648\u0631\u0648\u062f \u0628\u0647 \u0627\u0628\u0632\u0627\u0631 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              ) : (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        " فعالسازی " +
+                                        $state.toolAdvertising[0].bigTitle
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "\u0648\u0631\u0648\u062f \u0628\u0647 \u0627\u0628\u0632\u0627\u0631 \u067e\u06cc\u0627\u0645\u06a9 \u0628\u0647 \u062e\u0648\u062f";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              )}
+                            </div>
+                          </Button>
+                        </div>
                       </Stack__>
                       <Stack__
                         as={"div"}
