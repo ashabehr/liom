@@ -6023,25 +6023,48 @@ function PlasmicPregnancy__RenderFunc(props: {
                             sty.text__oKaxs
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return (
-                                  "چه چیزهایی در هفته " +
-                                  $state.textWeek[$state.weeksPregnant] +
-                                  " برای من و فرزندم خطرناک است؟ "
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "--";
+                          {hasVariant(globalVariants, "screen", "mobile") ? (
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    "چه چیزهایی توی این هفته " +
+                                    "برای من و فرزندم خطرناکه؟"
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "--";
+                                  }
+                                  throw e;
                                 }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
+                              })()}
+                            </React.Fragment>
+                          ) : (
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return (
+                                    "چه چیزهایی در هفته " +
+                                    $state.textWeek[$state.weeksPregnant] +
+                                    " برای من و فرزندم خطرناک است؟ "
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "--";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          )}
                         </div>
                         <div
                           className={classNames(
@@ -6050,7 +6073,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             sty.text___2Shyc
                           )}
                         >
-                          {"\u0645\u0634\u0627\u0647\u062f\u0647"}
+                          {"\u0645\u0634\u0627\u0647\u062f\u0647\u0647"}
                         </div>
                       </Stack__>
                     ) : null}
