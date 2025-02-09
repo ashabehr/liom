@@ -89,6 +89,8 @@ import Icon139Icon from "./icons/PlasmicIcon__Icon139"; // plasmic-import: _VRl9
 import Icon24Icon from "./icons/PlasmicIcon__Icon24"; // plasmic-import: 3dtEf5Pd9666/icon
 import Icon72Icon from "./icons/PlasmicIcon__Icon72"; // plasmic-import: QcYt9c3IQDGk/icon
 
+import __lib_copyToClipboard from "copy-to-clipboard";
+
 createPlasmicElementProxy;
 
 export type PlasmicBioritm2__VariantMembers = {
@@ -135,7 +137,9 @@ export type PlasmicBioritm2__OverridesType = {
 
 export interface DefaultBioritm2Props {}
 
-const $$ = {};
+const $$ = {
+  copyToClipboard: __lib_copyToClipboard
+};
 
 function useNextRouter() {
   try {
@@ -2052,52 +2056,79 @@ function PlasmicBioritm2__RenderFunc(props: {
                             const actionArgs = {
                               customFunction: async () => {
                                 return (() => {
+                                  let emothional =
+                                    $state.biorhythm.data.result.emotional;
+                                  let phisycal =
+                                    $state.biorhythm.data.result.physical;
+                                  let intellectual =
+                                    $state.biorhythm.data.result.intellectual;
+                                  let emothionalTxt = "",
+                                    phisycalTxt = "",
+                                    intellectualTxt = "";
+                                  if (emothional < 0) {
+                                    emothionalTxt = `امروز از نظر روحی خیلی پایین هستی. سطح شما: ${emothional}`;
+                                  } else if (emothional < 50) {
+                                    emothionalTxt = `امروز از نظر روحی نسبتا متعادل هستی اما لطفا باز هم هوای خودت رو داشته باش. سطح شما: ${emothional}`;
+                                  } else if (emothional < 70) {
+                                    emothionalTxt = `امروز از نظر روحی در وضعیت خوبی به سر میبری و همه چیز خوبه. سطح شما: ${emothional}`;
+                                  } else if (emothional > 70) {
+                                    emothionalTxt = `امروز از نظر روحی فوق العاده ای. سطح شما: ${emothional}`;
+                                  }
+                                  if (phisycal < 0) {
+                                    phisycalTxt = `امروز از نظر فیزیکی خیلی کم انرژی و خسته ای به خودت سخت نگیر. سطح شما: ${phisycal}`;
+                                  } else if (phisycal < 50) {
+                                    phisycalTxt = `امروز از نظر فیزیکی سرحالی. سطح شما: ${phisycal}`;
+                                  } else if (phisycal < 70) {
+                                    phisycalTxt = `امروز روز خوبی برای انجام فعالیت های فیزیکی هست ازشون غافل نشو. سطح شما: ${phisycal}`;
+                                  } else if (phisycal > 70) {
+                                    phisycalTxt = `امروز از نظر فیزیکی در بهترین وضعیت خودت هستی. سطح شما: ${phisycal}`;
+                                  }
+                                  if (intellectual < 0) {
+                                    intellectualTxt = `امروز از نظر فکری خیلی کم تمرکز به نظر میای. سطح شما: ${intellectual}`;
+                                  } else if (intellectual < 50) {
+                                    intellectualTxt = `امروز از نظر آمادگی ذهنی در وضعیت تقریبا خوبی به سر میبری. سطح شما: ${intellectual}`;
+                                  } else if (intellectual < 70) {
+                                    intellectualTxt = `امروز از نظر فکری عالی هستی وقتشه کارایی که نیاز به تمرکز دارن رو بذاری تو اولویت. سطح شما: ${intellectual}`;
+                                  } else if (intellectual > 70) {
+                                    intellectualTxt = `امروز از نظر ذهنی بهترین خودت هستی٬ بهترین موقع برای انجام کارای سخته!. سطح شما: ${intellectual}`;
+                                  }
+                                  let biorythmText = `وضعیت بیوریتم:\n${emothionalTxt}\n${phisycalTxt}\n${intellectualTxt}`;
+                                  let shareText = `لیوم | تقویم قاعدگی\n${biorythmText}\nبرای دانلود رایگان لیوم و بررسی بیوریتم خود به لینک زیر مراجعه کنید:\nhttps://liom.app/link`;
                                   if (navigator.share) {
-                                    let emothional =
-                                      $state.biorhythm.data.result.emotional;
-                                    let phisycal =
-                                      $state.biorhythm.data.result.physical;
-                                    let intellectual =
-                                      $state.biorhythm.data.result.intellectual;
-                                    let emothionalTxt = "",
-                                      phisycalTxt = "",
-                                      intellectualTxt = "";
-                                    if (emothional < 0) {
-                                      emothionalTxt = `امروز از نظر روحی خیلی پایین هستی. سطح شما: ${emothional}`;
-                                    } else if (emothional < 50) {
-                                      emothionalTxt = `امروز از نظر روحی نسبتا متعادل هستی اما لطفا باز هم هوای خودت رو داشته باش. سطح شما: ${emothional}`;
-                                    } else if (emothional < 70) {
-                                      emothionalTxt = `امروز از نظر روحی در وضعیت خوبی به سر میبری و همه چیز خوبه. سطح شما: ${emothional}`;
-                                    } else if (emothional > 70) {
-                                      emothionalTxt = `امروز از نظر روحی فوق العاده ای. سطح شما: ${emothional}`;
-                                    }
-                                    if (phisycal < 0) {
-                                      phisycalTxt = `امروز از نظر فیزیکی خیلی کم انرژی و خسته ای به خودت سخت نگیر. سطح شما: ${phisycal}`;
-                                    } else if (phisycal < 50) {
-                                      phisycalTxt = `امروز از نظر فیزیکی سرحالی. سطح شما: ${phisycal}`;
-                                    } else if (phisycal < 70) {
-                                      phisycalTxt = `امروز روز خوبی برای انجام فعالیت های فیزیکی هست ازشون غافل نشو. سطح شما: ${phisycal}`;
-                                    } else if (phisycal > 70) {
-                                      phisycalTxt = `امروز از نظر فیزیکی در بهترین وضعیت خودت هستی. سطح شما: ${phisycal}`;
-                                    }
-                                    if (intellectual < 0) {
-                                      intellectualTxt = `امروز از نظر فکری خیلی کم تمرکز به نظر میای. سطح شما: ${intellectual}`;
-                                    } else if (intellectual < 50) {
-                                      intellectualTxt = `امروز از نظر آمادگی ذهنی در وضعیت تقریبا خوبی به سر میبری. سطح شما: ${intellectual}`;
-                                    } else if (intellectual < 70) {
-                                      intellectualTxt = `امروز از نظر فکری عالی هستی وقتشه کارایی که نیاز به تمرکز دارن رو بذاری تو اولویت. سطح شما: ${intellectual}`;
-                                    } else if (intellectual > 70) {
-                                      intellectualTxt = `امروز از نظر ذهنی بهترین خودت هستی٬ بهترین موقع برای انجام کارای سخته!. سطح شما: ${intellectual}`;
-                                    }
-                                    let biorythmText = `وضعیت بیوریتم:\n${emothionalTxt}\n${phisycalTxt}\n${intellectualTxt}`;
-                                    return navigator.share({
-                                      title: "لیوم| تقویم قاعدگی",
-                                      text:
-                                        "لیوم \n" +
-                                        biorythmText +
-                                        "\n برای دانلود رایگان لیوم و بررسی بیوریتم خود به لینک زیر مراجعه کنید :\n",
-                                      url: "https://liom.app/link"
-                                    });
+                                    return navigator
+                                      .share({
+                                        title: "لیوم | تقویم قاعدگی",
+                                        text: shareText,
+                                        url: "https://liom.app/link"
+                                      })
+                                      .catch(error =>
+                                        console.log(
+                                          "خطا در اشتراک‌گذاری:",
+                                          error
+                                        )
+                                      );
+                                  } else if (
+                                    /android/i.test(navigator.userAgent)
+                                  ) {
+                                    return (window.location.href = `intent://send/#Intent;scheme=https;S.android.intent.extra.TEXT=${encodeURIComponent(
+                                      shareText
+                                    )};end`);
+                                  } else if (
+                                    /iPhone|iPad|iPod/i.test(
+                                      navigator.userAgent
+                                    )
+                                  ) {
+                                    return window.open(
+                                      `https://api.whatsapp.com/send?text=${encodeURIComponent(
+                                        shareText
+                                      )}`,
+                                      "_blank"
+                                    );
+                                  } else {
+                                    $$.copyToClipboard(shareText);
+                                    return alert(
+                                      "مرورگر شما از قابلیت اشتراک‌گذاری پشتیبانی نمی‌کند.\nمتن در کلیپ‌بورد کپی شد. حالا می‌توانید آن را در برنامه‌های دیگر به اشتراک بگذارید."
+                                    );
                                   }
                                 })();
                               }
