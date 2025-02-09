@@ -2095,35 +2095,11 @@ function PlasmicBioritm2__RenderFunc(props: {
                                   let biorythmText = `وضعیت بیوریتم:\n${emothionalTxt}\n${phisycalTxt}\n${intellectualTxt}`;
                                   let shareText = `لیوم | تقویم قاعدگی\n${biorythmText}\nبرای دانلود رایگان لیوم و بررسی بیوریتم خود به لینک زیر مراجعه کنید:\nhttps://liom.app/link`;
                                   if (navigator.share) {
-                                    return navigator
-                                      .share({
-                                        title: "لیوم | تقویم قاعدگی",
-                                        text: shareText,
-                                        url: "https://liom.app/link"
-                                      })
-                                      .catch(error =>
-                                        console.log(
-                                          "خطا در اشتراک‌گذاری:",
-                                          error
-                                        )
-                                      );
-                                  } else if (
-                                    /android/i.test(navigator.userAgent)
-                                  ) {
-                                    return (window.location.href = `intent://send/#Intent;scheme=https;S.android.intent.extra.TEXT=${encodeURIComponent(
-                                      shareText
-                                    )};end`);
-                                  } else if (
-                                    /iPhone|iPad|iPod/i.test(
-                                      navigator.userAgent
-                                    )
-                                  ) {
-                                    return window.open(
-                                      `https://api.whatsapp.com/send?text=${encodeURIComponent(
-                                        shareText
-                                      )}`,
-                                      "_blank"
-                                    );
+                                    return navigator.share({
+                                      title: "لیوم | تقویم قاعدگی",
+                                      text: shareText,
+                                      url: "https://liom.app/link"
+                                    });
                                   } else {
                                     $$.copyToClipboard(shareText);
                                     return alert(

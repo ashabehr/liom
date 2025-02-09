@@ -61,6 +61,13 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { DatePickers } from "@/components/DatePickers"; // plasmic-import: Pxh5xTWczGDl/codeComponent
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import { DialogTitle } from "@plasmicpkgs/radix-ui";
+import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
 import { Input } from "@plasmicpkgs/antd/skinny/registerInput";
 import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/registerInput";
@@ -74,8 +81,11 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicEditProfile.module.css"; // plasmic-import: 3hQjSi0RgPGv/css
 
-import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
+import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
+import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon67Icon from "./icons/PlasmicIcon__Icon67"; // plasmic-import: hIAuvrXigDnk/icon
 
 createPlasmicElementProxy;
@@ -91,6 +101,15 @@ export const PlasmicEditProfile__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicEditProfile__OverridesType = {
   root?: Flex__<"div">;
+  dialogDateOfBrith?: Flex__<typeof Dialog>;
+  apiRequest?: Flex__<typeof ApiRequest>;
+  datePickersBirthDay?: Flex__<typeof DatePickers>;
+  button3?: Flex__<typeof Button>;
+  dialogTitle?: Flex__<typeof DialogTitle>;
+  h5?: Flex__<"h5">;
+  input?: Flex__<typeof AntdInput>;
+  button?: Flex__<typeof Button>;
+  button2?: Flex__<typeof Button>;
   verticalIdentity?: Flex__<"div">;
   verticalForNameInput?: Flex__<"div">;
   nameInput?: Flex__<typeof TextInput>;
@@ -188,6 +207,68 @@ function PlasmicEditProfile__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "dialogDateOfBrith.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "datePickersBirthDay.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "button3.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "dateOfBrith",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -226,6 +307,543 @@ function PlasmicEditProfile__RenderFunc(props: {
             sty.root
           )}
         >
+          <Dialog
+            data-plasmic-name={"dialogDateOfBrith"}
+            data-plasmic-override={overrides.dialogDateOfBrith}
+            className={classNames("__wab_instance", sty.dialogDateOfBrith)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "dialogDateOfBrith",
+                "opendialog"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, [
+              "dialogDateOfBrith",
+              "opendialog"
+            ])}
+          >
+            <ApiRequest
+              data-plasmic-name={"apiRequest"}
+              data-plasmic-override={overrides.apiRequest}
+              className={classNames("__wab_instance", sty.apiRequest)}
+              errorDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__rxAqv
+                  )}
+                >
+                  {"Error fetching data"}
+                </div>
+              }
+              loadingDisplay={
+                <div className={classNames(projectcss.all, sty.freeBox__qEmx0)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__arbg7)}
+                  >
+                    <DatePickers
+                      data-plasmic-name={"datePickersBirthDay"}
+                      data-plasmic-override={overrides.datePickersBirthDay}
+                      SelectedDay={10}
+                      SelectedMonth={10}
+                      SelectedYear={1379}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.datePickersBirthDay
+                      )}
+                      customYears={[]}
+                      onChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "datePickersBirthDay",
+                          "value"
+                        ]).apply(null, eventArgs);
+                      }}
+                      selectedValues={generateStateValueProp($state, [
+                        "datePickersBirthDay",
+                        "value"
+                      ])}
+                    />
+                  </div>
+                  <Button
+                    data-plasmic-name={"button3"}
+                    data-plasmic-override={overrides.button3}
+                    className={classNames("__wab_instance", sty.button3)}
+                    color={generateStateValueProp($state, ["button3", "color"])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateDatePickersValue"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["datePickersBirthDay", "value"]
+                              },
+                              operation: 0,
+                              value: $state.dateOfBrith
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDatePickersValue"] != null &&
+                        typeof $steps["updateDatePickersValue"] === "object" &&
+                        typeof $steps["updateDatePickersValue"].then ===
+                          "function"
+                      ) {
+                        $steps["updateDatePickersValue"] = await $steps[
+                          "updateDatePickersValue"
+                        ];
+                      }
+
+                      $steps["updateDialogDateOfBrithOpendialog"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: [
+                                  "dialogDateOfBrith",
+                                  "opendialog"
+                                ]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateDialogDateOfBrithOpendialog"] != null &&
+                        typeof $steps["updateDialogDateOfBrithOpendialog"] ===
+                          "object" &&
+                        typeof $steps["updateDialogDateOfBrithOpendialog"]
+                          .then === "function"
+                      ) {
+                        $steps["updateDialogDateOfBrithOpendialog"] =
+                          await $steps["updateDialogDateOfBrithOpendialog"];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button3", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__eeeB
+                      )}
+                    >
+                      {"\u0627\u0646\u062a\u062e\u0627\u0628"}
+                    </div>
+                  </Button>
+                </div>
+              }
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest",
+                  "error"
+                ]).apply(null, eventArgs);
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest",
+                  "loading"
+                ]).apply(null, eventArgs);
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                  null,
+                  eventArgs
+                );
+              }}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__mZgCg)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__nPLeM)}
+                  dir={"rtl"}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__vjGim)}
+                  />
+
+                  <DialogTitle
+                    data-plasmic-name={"dialogTitle"}
+                    data-plasmic-override={overrides.dialogTitle}
+                    className={classNames("__wab_instance", sty.dialogTitle)}
+                  >
+                    <h5
+                      data-plasmic-name={"h5"}
+                      data-plasmic-override={overrides.h5}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        sty.h5
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__d99T
+                        )}
+                      >
+                        {"Dialog title"}
+                      </div>
+                    </h5>
+                  </DialogTitle>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__iKquv)}
+                  dir={"rtl"}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__wQwvi
+                    )}
+                  >
+                    {"You can insert dialog body content here in this slot."}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__lqd6V)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__ovkVx)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__gzo1P
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__u08J0
+                          )}
+                        >
+                          {
+                            "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39"
+                          }
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__pZmd
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__ifpGr
+                          )}
+                        >
+                          {"Enter some text"}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__gXrl4
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__bHtX
+                            )}
+                          >
+                            {"Enter some text"}
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__rK9Mn
+                            )}
+                          >
+                            {"Enter some text"}
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__tKuIg
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text___94Nhk
+                            )}
+                          >
+                            {"1"}
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xa3Im
+                        )}
+                      >
+                        {
+                          "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
+                        }
+                      </div>
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___93SeD
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__ntLmi
+                          )}
+                        >
+                          {(() => {
+                            const child$Props = {
+                              allowClear: false,
+                              autoFocus: false,
+                              bordered: false,
+                              className: classNames(
+                                "__wab_instance",
+                                sty.input
+                              ),
+                              disabled: false,
+                              onChange: async (...eventArgs: any) => {
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "value",
+                                  ["input", "value"],
+                                  AntdInput_Helpers
+                                ).apply(null, eventArgs);
+                              },
+                              placeholder:
+                                "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
+                              prefix: (
+                                <Icon10Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__k2Itj
+                                  )}
+                                  role={"img"}
+                                />
+                              ),
+
+                              readOnly: false,
+                              size: "small",
+                              suffix: null,
+                              value: generateStateValueProp($state, [
+                                "input",
+                                "value"
+                              ])
+                            };
+                            initializeCodeComponentStates(
+                              $state,
+                              [
+                                {
+                                  name: "value",
+                                  plasmicStateName: "input.value"
+                                }
+                              ],
+                              [],
+                              AntdInput_Helpers ?? {},
+                              child$Props
+                            );
+
+                            return (
+                              <AntdInput
+                                data-plasmic-name={"input"}
+                                data-plasmic-override={overrides.input}
+                                {...child$Props}
+                              />
+                            );
+                          })()}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__fCasG
+                            )}
+                          />
+                        </div>
+                        <Button
+                          data-plasmic-name={"button"}
+                          data-plasmic-override={overrides.button}
+                          className={classNames("__wab_instance", sty.button)}
+                          color={generateStateValueProp($state, [
+                            "button",
+                            "color"
+                          ])}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__dasOk
+                            )}
+                          >
+                            {"\u062a\u0627\u06cc\u06cc\u062f"}
+                          </div>
+                        </Button>
+                      </Stack__>
+                      <Button
+                        data-plasmic-name={"button2"}
+                        data-plasmic-override={overrides.button2}
+                        className={classNames("__wab_instance", sty.button2)}
+                        color={generateStateValueProp($state, [
+                          "button2",
+                          "color"
+                        ])}
+                        endIcon={
+                          <Icon12Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__fcScr
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button2",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__fRbIs
+                          )}
+                        >
+                          {
+                            "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                          }
+                        </div>
+                      </Button>
+                      <p
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.p,
+                          projectcss.__wab_text,
+                          sty.p__bgv0A
+                        )}
+                      >
+                        {
+                          "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                        }
+                      </p>
+                      <p
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.p,
+                          projectcss.__wab_text,
+                          sty.p___5HxjK
+                        )}
+                      >
+                        {
+                          "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                        }
+                      </p>
+                    </Stack__>
+                  </div>
+                </Stack__>
+              </div>
+            </ApiRequest>
+          </Dialog>
           <div
             data-plasmic-name={"verticalIdentity"}
             data-plasmic-override={overrides.verticalIdentity}
@@ -420,15 +1038,70 @@ function PlasmicEditProfile__RenderFunc(props: {
               >
                 {"\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f "}
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__jK8)}>
+              <div
+                className={classNames(projectcss.all, sty.freeBox__jK8)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateDialogOpendialog"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["dialogDateOfBrith", "opendialog"]
+                          },
+                          operation: 0,
+                          value: true
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateDialogOpendialog"] != null &&
+                    typeof $steps["updateDialogOpendialog"] === "object" &&
+                    typeof $steps["updateDialogOpendialog"].then === "function"
+                  ) {
+                    $steps["updateDialogOpendialog"] = await $steps[
+                      "updateDialogOpendialog"
+                    ];
+                  }
+                }}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text___8WE
+                    sty.text__oDt3
                   )}
                 >
-                  {""}
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return $state.dateOfBrith;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
                 </div>
               </div>
             </div>
@@ -912,6 +1585,15 @@ function PlasmicEditProfile__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "dialogDateOfBrith",
+    "apiRequest",
+    "datePickersBirthDay",
+    "button3",
+    "dialogTitle",
+    "h5",
+    "input",
+    "button",
+    "button2",
     "verticalIdentity",
     "verticalForNameInput",
     "nameInput",
@@ -931,6 +1613,34 @@ const PlasmicDescendants = {
     "weight",
     "weight2"
   ],
+  dialogDateOfBrith: [
+    "dialogDateOfBrith",
+    "apiRequest",
+    "datePickersBirthDay",
+    "button3",
+    "dialogTitle",
+    "h5",
+    "input",
+    "button",
+    "button2"
+  ],
+  apiRequest: [
+    "apiRequest",
+    "datePickersBirthDay",
+    "button3",
+    "dialogTitle",
+    "h5",
+    "input",
+    "button",
+    "button2"
+  ],
+  datePickersBirthDay: ["datePickersBirthDay"],
+  button3: ["button3"],
+  dialogTitle: ["dialogTitle", "h5"],
+  h5: ["h5"],
+  input: ["input"],
+  button: ["button"],
+  button2: ["button2"],
   verticalIdentity: [
     "verticalIdentity",
     "verticalForNameInput",
@@ -982,6 +1692,15 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  dialogDateOfBrith: typeof Dialog;
+  apiRequest: typeof ApiRequest;
+  datePickersBirthDay: typeof DatePickers;
+  button3: typeof Button;
+  dialogTitle: typeof DialogTitle;
+  h5: "h5";
+  input: typeof AntdInput;
+  button: typeof Button;
+  button2: typeof Button;
   verticalIdentity: "div";
   verticalForNameInput: "div";
   nameInput: typeof TextInput;
@@ -1087,6 +1806,15 @@ export const PlasmicEditProfile = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    dialogDateOfBrith: makeNodeComponent("dialogDateOfBrith"),
+    apiRequest: makeNodeComponent("apiRequest"),
+    datePickersBirthDay: makeNodeComponent("datePickersBirthDay"),
+    button3: makeNodeComponent("button3"),
+    dialogTitle: makeNodeComponent("dialogTitle"),
+    h5: makeNodeComponent("h5"),
+    input: makeNodeComponent("input"),
+    button: makeNodeComponent("button"),
+    button2: makeNodeComponent("button2"),
     verticalIdentity: makeNodeComponent("verticalIdentity"),
     verticalForNameInput: makeNodeComponent("verticalForNameInput"),
     nameInput: makeNodeComponent("nameInput"),

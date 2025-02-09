@@ -1619,28 +1619,8 @@ function PlasmicPregnancy__RenderFunc(props: {
               data-plasmic-name={"getUserInfo"}
               data-plasmic-override={overrides.getUserInfo}
               className={classNames("__wab_instance", sty.getUserInfo)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___2GR22
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pjl9V
-                  )}
-                >
-                  {"Loading..."}
-                </div>
-              }
+              errorDisplay={null}
+              loadingDisplay={null}
               method={"GET"}
               onError={async (...eventArgs: any) => {
                 generateStateOnChangeProp($state, [
