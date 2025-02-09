@@ -16723,7 +16723,11 @@ function PlasmicCalendar__RenderFunc(props: {
                             "__wab_instance",
                             sty.lineClomp4
                           )}
-                          numberOfLine={2}
+                          numberOfLine={
+                            hasVariant(globalVariants, "screen", "mobile")
+                              ? 1
+                              : 2
+                          }
                           onLineChange={async (...eventArgs: any) => {
                             generateStateOnChangeProp($state, [
                               "lineClomp4",
@@ -16790,7 +16794,7 @@ function PlasmicCalendar__RenderFunc(props: {
                           }}
                           size={
                             hasVariant(globalVariants, "screen", "mobile")
-                              ? "minimal"
+                              ? "compact"
                               : "compact"
                           }
                         >

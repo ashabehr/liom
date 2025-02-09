@@ -5151,7 +5151,9 @@ function PlasmicEditProfile__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $state.variableForLastPeriod;
+                          return $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.filter(
+                            a => a.value == $state.variableForLastPeriod
+                          )[0].label;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
