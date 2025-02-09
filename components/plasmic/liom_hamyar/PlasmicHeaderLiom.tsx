@@ -75,16 +75,22 @@ export const PlasmicHeaderLiom__VariantProps = new Array<VariantPropType>();
 
 export type PlasmicHeaderLiom__ArgsType = {
   children?: React.ReactNode;
+  slot?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicHeaderLiom__ArgsType;
-export const PlasmicHeaderLiom__ArgProps = new Array<ArgPropType>("children");
+export const PlasmicHeaderLiom__ArgProps = new Array<ArgPropType>(
+  "children",
+  "slot"
+);
 
 export type PlasmicHeaderLiom__OverridesType = {
   root?: Flex__<"div">;
+  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultHeaderLiomProps {
   children?: React.ReactNode;
+  slot?: React.ReactNode;
   className?: string;
 }
 
@@ -181,18 +187,32 @@ function PlasmicHeaderLiom__RenderFunc(props: {
         ),
         value: args.children
       })}
+      <Stack__
+        as={"div"}
+        data-plasmic-name={"freeBox"}
+        data-plasmic-override={overrides.freeBox}
+        hasGap={true}
+        className={classNames(projectcss.all, sty.freeBox)}
+      >
+        {renderPlasmicSlot({
+          defaultContents: null,
+          value: args.slot
+        })}
+      </Stack__>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "freeBox"],
+  freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -255,6 +275,7 @@ export const PlasmicHeaderLiom = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicHeaderLiom
     internalVariantProps: PlasmicHeaderLiom__VariantProps,

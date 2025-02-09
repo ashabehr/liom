@@ -386,10 +386,10 @@ function PlasmicEditProfile__RenderFunc(props: {
                             const actionArgs = {
                               variable: {
                                 objRoot: $state,
-                                variablePath: ["datePickersBirthDay", "value"]
+                                variablePath: ["dateOfBrith"]
                               },
                               operation: 0,
-                              value: $state.dateOfBrith
+                              value: $state.datePickersBirthDay.value
                             };
                             return (({
                               variable,
@@ -1090,7 +1090,13 @@ function PlasmicEditProfile__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return $state.dateOfBrith;
+                        return (
+                          $state.dateOfBrith.day +
+                          "/" +
+                          $state.dateOfBrith.month +
+                          "/" +
+                          $state.dateOfBrith.year
+                        );
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
