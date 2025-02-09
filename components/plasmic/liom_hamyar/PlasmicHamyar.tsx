@@ -4160,7 +4160,15 @@ function PlasmicHamyar__RenderFunc(props: {
                     </Stack__>
                   </Stack__>
                 </Stack__>
-                <div className={classNames(projectcss.all, sty.freeBox__ruOX)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__ruOX, {
+                    [sty.freeBoxlackOfCourseInformation__ruOX07Srs]: hasVariant(
+                      $state,
+                      "lackOfCourseInformation",
+                      "lackOfCourseInformation"
+                    )
+                  })}
+                >
                   <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__vPzRa)}
@@ -4214,7 +4222,16 @@ function PlasmicHamyar__RenderFunc(props: {
                     src={"https://liom.storage.c2.liara.space/off3.png"}
                   />
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__hN0VM)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__hN0VM, {
+                    [sty.freeBoxlackOfCourseInformation__hN0VM07Srs]:
+                      hasVariant(
+                        $state,
+                        "lackOfCourseInformation",
+                        "lackOfCourseInformation"
+                      )
+                  })}
+                >
                   <Stack__
                     as={"div"}
                     hasGap={true}
@@ -4902,7 +4919,15 @@ function PlasmicHamyar__RenderFunc(props: {
                     </Stack__>
                   </div>
                 ) : null}
-                <div className={classNames(projectcss.all, sty.freeBox__rzAf)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__rzAf, {
+                    [sty.freeBoxlackOfCourseInformation__rzAf07Srs]: hasVariant(
+                      $state,
+                      "lackOfCourseInformation",
+                      "lackOfCourseInformation"
+                    )
+                  })}
+                >
                   <Stack__
                     as={"div"}
                     hasGap={true}
@@ -4911,14 +4936,30 @@ function PlasmicHamyar__RenderFunc(props: {
                     <div
                       className={classNames(
                         projectcss.all,
-                        sty.freeBox___5W8Zw
+                        sty.freeBox___5W8Zw,
+                        {
+                          [sty.freeBoxlackOfCourseInformation___5W8Zw07Srs]:
+                            hasVariant(
+                              $state,
+                              "lackOfCourseInformation",
+                              "lackOfCourseInformation"
+                            )
+                        }
                       )}
                     >
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__z49Pw
+                          sty.text__z49Pw,
+                          {
+                            [sty.textlackOfCourseInformation__z49Pw07Srs]:
+                              hasVariant(
+                                $state,
+                                "lackOfCourseInformation",
+                                "lackOfCourseInformation"
+                              )
+                          }
                         )}
                       >
                         {hasVariant(globalVariants, "screen", "mobile")

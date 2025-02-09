@@ -184,6 +184,9 @@
     margin-top: 0px;
   }
 }
+.freeBoxlackOfCourseInformation__d2GZw07Srs {
+  display: none;
+}
 .freeBox__vjsSc {
   display: flex;
   flex-direction: column;
@@ -2003,8 +2006,12 @@
 }
 @media (max-width: 640px) {
   .freeBox__ruOX {
+    display: flex;
     padding: 0px 12px;
   }
+}
+.freeBoxlackOfCourseInformation__ruOX07Srs {
+  display: none;
 }
 .img__vPzRa {
   object-fit: cover;
@@ -2031,8 +2038,12 @@
 }
 @media (max-width: 640px) {
   .freeBox__hN0VM {
+    display: flex;
     padding: 0px 12px;
   }
+}
+.freeBoxlackOfCourseInformation__hN0VM07Srs {
+  display: none;
 }
 .freeBox__mf5Ow {
   display: flex;
@@ -2645,6 +2656,9 @@
   max-width: 100%;
   min-width: 0;
   padding: 0px;
+}
+.freeBoxlackOfCourseInformation__rzAf07Srs {
+  display: none;
 }
 .freeBox__x2TPa {
   display: flex;

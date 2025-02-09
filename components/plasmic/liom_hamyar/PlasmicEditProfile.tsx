@@ -86,6 +86,7 @@ import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld
 import Icon10Icon from "./icons/PlasmicIcon__Icon10"; // plasmic-import: V1QgQzmgWP2T/icon
 import Icon12Icon from "./icons/PlasmicIcon__Icon12"; // plasmic-import: H9d2pdUvXD_1/icon
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
+import CalenderOutlinedIcSvgIcon from "./icons/PlasmicIcon__CalenderOutlinedIcSvg"; // plasmic-import: JKRqNBk8_QEL/icon
 import Icon67Icon from "./icons/PlasmicIcon__Icon67"; // plasmic-import: hIAuvrXigDnk/icon
 
 createPlasmicElementProxy;
@@ -128,6 +129,7 @@ export type PlasmicEditProfile__OverridesType = {
   heightAndWeight?: Flex__<"div">;
   weight?: Flex__<"div">;
   weight2?: Flex__<"div">;
+  dialog?: Flex__<typeof Dialog>;
 };
 
 export interface DefaultEditProfileProps {}
@@ -269,6 +271,50 @@ function PlasmicEditProfile__RenderFunc(props: {
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "dialog.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest2.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest2.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest2.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "button4.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button5.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -1091,11 +1137,11 @@ function PlasmicEditProfile__RenderFunc(props: {
                     {(() => {
                       try {
                         return (
-                          $state.dateOfBrith.day +
+                          $state.dateOfBrith.year +
                           "/" +
                           $state.dateOfBrith.month +
                           "/" +
-                          $state.dateOfBrith.year
+                          $state.dateOfBrith.day
                         );
                       } catch (e) {
                         if (
@@ -1109,6 +1155,10 @@ function PlasmicEditProfile__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
+                <CalenderOutlinedIcSvgIcon
+                  className={classNames(projectcss.all, sty.svg__gvofr)}
+                  role={"img"}
+                />
               </div>
             </div>
             <div
@@ -1582,6 +1632,29 @@ function PlasmicEditProfile__RenderFunc(props: {
               </div>
             </div>
           </div>
+          <Dialog
+            data-plasmic-name={"dialog"}
+            data-plasmic-override={overrides.dialog}
+            className={classNames("__wab_instance", sty.dialog)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["dialog", "opendialog"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, [
+              "dialog",
+              "opendialog"
+            ])}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -1617,7 +1690,8 @@ const PlasmicDescendants = {
     "verticalForMenstrualCycle",
     "heightAndWeight",
     "weight",
-    "weight2"
+    "weight2",
+    "dialog"
   ],
   dialogDateOfBrith: [
     "dialogDateOfBrith",
@@ -1691,7 +1765,8 @@ const PlasmicDescendants = {
   verticalForMenstrualCycle: ["verticalForMenstrualCycle"],
   heightAndWeight: ["heightAndWeight", "weight", "weight2"],
   weight: ["weight", "weight2"],
-  weight2: ["weight2"]
+  weight2: ["weight2"],
+  dialog: ["dialog"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1725,6 +1800,7 @@ type NodeDefaultElementType = {
   heightAndWeight: "div";
   weight: "div";
   weight2: "div";
+  dialog: typeof Dialog;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1841,6 +1917,7 @@ export const PlasmicEditProfile = Object.assign(
     heightAndWeight: makeNodeComponent("heightAndWeight"),
     weight: makeNodeComponent("weight"),
     weight2: makeNodeComponent("weight2"),
+    dialog: makeNodeComponent("dialog"),
 
     // Metadata about props expected for PlasmicEditProfile
     internalVariantProps: PlasmicEditProfile__VariantProps,
