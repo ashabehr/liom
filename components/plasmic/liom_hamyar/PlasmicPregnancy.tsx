@@ -5957,8 +5957,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                     {(() => {
                       try {
                         return (
-                          ($ctx?.query?.userId ?? "") ==
-                          "44e1d5fb-dd61-4aa5-84e2-31ff327f0446"
+                          ($ctx?.query?.userId ?? "").slice(
+                            6,
+                            ($ctx?.query?.userId ?? "").length - 3
+                          ) == "44e1d5fb-dd61-4aa5-84e2-31ff327f0446"
                         );
                       } catch (e) {
                         if (
