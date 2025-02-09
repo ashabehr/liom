@@ -100,7 +100,6 @@ export type PlasmicSelfSmsPage__OverridesType = {
   countdown?: Flex__<typeof Countdown>;
   button2?: Flex__<typeof Button>;
   button?: Flex__<typeof Button>;
-  img?: Flex__<typeof PlasmicImg__>;
   lottie?: Flex__<typeof LottieWrapper>;
 };
 
@@ -1790,26 +1789,6 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     </div>
                   </Button>
                 ) : null}
-                <PlasmicImg__
-                  data-plasmic-name={"img"}
-                  data-plasmic-override={overrides.img}
-                  alt={""}
-                  className={classNames(sty.img)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"auto"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image78.svg",
-                    fullWidth: 720,
-                    fullHeight: 720,
-                    aspectRatio: 1
-                  }}
-                />
-
                 {(() => {
                   try {
                     return $state.needToRefresh;
@@ -35878,12 +35857,11 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "getSub", "countdown", "button2", "button", "img", "lottie"],
+  root: ["root", "getSub", "countdown", "button2", "button", "lottie"],
   getSub: ["getSub"],
   countdown: ["countdown"],
   button2: ["button2"],
   button: ["button"],
-  img: ["img"],
   lottie: ["lottie"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -35895,7 +35873,6 @@ type NodeDefaultElementType = {
   countdown: typeof Countdown;
   button2: typeof Button;
   button: typeof Button;
-  img: typeof PlasmicImg__;
   lottie: typeof LottieWrapper;
 };
 
@@ -35988,7 +35965,6 @@ export const PlasmicSelfSmsPage = Object.assign(
     countdown: makeNodeComponent("countdown"),
     button2: makeNodeComponent("button2"),
     button: makeNodeComponent("button"),
-    img: makeNodeComponent("img"),
     lottie: makeNodeComponent("lottie"),
 
     // Metadata about props expected for PlasmicSelfSmsPage

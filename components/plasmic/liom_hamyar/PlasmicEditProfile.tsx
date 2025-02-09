@@ -61,6 +61,7 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
@@ -106,6 +107,7 @@ export const PlasmicEditProfile__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicEditProfile__OverridesType = {
   root?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
   numberOfDaysOfBleeding?: Flex__<typeof Dialog>;
   apiRequest2?: Flex__<typeof ApiRequest>;
   pickersForNumberOfDaysOfBleeding?: Flex__<typeof Pickers>;
@@ -141,13 +143,17 @@ export type PlasmicEditProfile__OverridesType = {
   input5?: Flex__<typeof AntdInput>;
   button13?: Flex__<typeof Button>;
   button14?: Flex__<typeof Button>;
+  dialogForTheDateOfTheFirstDayOfYourLastPeriod?: Flex__<typeof Dialog>;
+  apiRequest6?: Flex__<typeof ApiRequest>;
+  pickersForTheDateOfTheFirstDayOfYourLastPeriod?: Flex__<typeof Pickers>;
+  button18?: Flex__<typeof Button>;
+  input6?: Flex__<typeof AntdInput>;
+  button16?: Flex__<typeof Button>;
+  button17?: Flex__<typeof Button>;
   verticalIdentity?: Flex__<"div">;
   verticalForNameInput?: Flex__<"div">;
   nameInput?: Flex__<typeof TextInput>;
   antdInput3?: Flex__<typeof Input>;
-  verticalForIdInput?: Flex__<"div">;
-  idInput?: Flex__<typeof TextInput>;
-  antdInput?: Flex__<typeof Input>;
   verticalForDateInput?: Flex__<"div">;
   verticalForSelection?: Flex__<"div">;
   horizontalForButton?: Flex__<"div">;
@@ -222,33 +228,6 @@ function PlasmicEditProfile__RenderFunc(props: {
           (() => {
             try {
               return $state.getInfo.data.result.user.name;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })(),
-
-        onMutate: generateOnMutateForSpec("value", Input_Helpers)
-      },
-      {
-        path: "idInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
-      },
-      {
-        path: "antdInput.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.getInfo.data.result.user.username;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -387,7 +366,7 @@ function PlasmicEditProfile__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return $state.getInfo.data.result.user.length;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -453,7 +432,20 @@ function PlasmicEditProfile__RenderFunc(props: {
         path: "periodCycleLength",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getInfo.data.result.user.cycle;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "pickersForPeriodCycleLength.value",
@@ -471,7 +463,20 @@ function PlasmicEditProfile__RenderFunc(props: {
         path: "height",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "dialogForHeight.opendialog",
@@ -577,7 +582,20 @@ function PlasmicEditProfile__RenderFunc(props: {
         path: "weight3",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "pickersForWeight.value",
@@ -628,7 +646,7 @@ function PlasmicEditProfile__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "variable",
+        path: "variableForLastPeriod",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
@@ -639,6 +657,155 @@ function PlasmicEditProfile__RenderFunc(props: {
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJpYXQiOjE3MTY0NDYwMjB9.lqQ0-BMpH_aQlm4qm4cUpNA2Y90wjV_Jw42rmGjjoZw"
+      },
+      {
+        path: "_for",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "variableForTheDateOfTheFirstDayOfYourLastPeriod",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const today = new Date();
+                const daysOfWeek = [
+                  "یکشنبه",
+                  "دوشنبه",
+                  "سه‌شنبه",
+                  "چهارشنبه",
+                  "پنج‌شنبه",
+                  "جمعه",
+                  "شنبه"
+                ];
+
+                const monthNames = [
+                  "فروردین",
+                  "اردیبهشت",
+                  "خرداد",
+                  "تیر",
+                  "مرداد",
+                  "شهریور",
+                  "مهر",
+                  "آبان",
+                  "آذر",
+                  "دی",
+                  "بهمن",
+                  "اسفند"
+                ];
+
+                const updatedPeriods = [
+                  (() => {
+                    const dayOfWeek = daysOfWeek[today.getDay()];
+                    const jalaaliDate = window.jalaali.toJalaali(
+                      today.getFullYear(),
+                      today.getMonth() + 1,
+                      today.getDate()
+                    );
+                    const monthName = monthNames[jalaaliDate.jm - 1];
+                    return {
+                      label: `${dayOfWeek} ${jalaaliDate.jd} ${monthName}`,
+                      value: 0
+                    };
+                  })(),
+                  ...Array.from(
+                    {
+                      length:
+                        $state.periodCycleLength != 0
+                          ? $state.periodCycleLength
+                          : 30
+                    },
+                    (_, i) => {
+                      const date = new Date(today);
+                      date.setDate(today.getDate() - (i + 1));
+                      const dayOfWeek = daysOfWeek[date.getDay()];
+                      const jalaaliDate = window.jalaali.toJalaali(
+                        date.getFullYear(),
+                        date.getMonth() + 1,
+                        date.getDate()
+                      );
+                      const monthName = monthNames[jalaaliDate.jm - 1];
+                      const label = `${dayOfWeek} ${jalaaliDate.jd} ${monthName}`;
+                      return {
+                        label,
+                        value: -(i + 1)
+                      };
+                    }
+                  )
+                ];
+
+                return updatedPeriods;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "dialogForTheDateOfTheFirstDayOfYourLastPeriod.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest6.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest6.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest6.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input6.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "button16.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button17.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "pickersForTheDateOfTheFirstDayOfYourLastPeriod.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+      },
+      {
+        path: "button18.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -677,6 +844,15 @@ function PlasmicEditProfile__RenderFunc(props: {
             sty.root
           )}
         >
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>\r\n'
+            }
+          />
+
           <Dialog
             data-plasmic-name={"numberOfDaysOfBleeding"}
             data-plasmic-override={overrides.numberOfDaysOfBleeding}
@@ -3454,6 +3630,569 @@ function PlasmicEditProfile__RenderFunc(props: {
               </div>
             </ApiRequest>
           </Dialog>
+          <Dialog
+            data-plasmic-name={"dialogForTheDateOfTheFirstDayOfYourLastPeriod"}
+            data-plasmic-override={
+              overrides.dialogForTheDateOfTheFirstDayOfYourLastPeriod
+            }
+            className={classNames(
+              "__wab_instance",
+              sty.dialogForTheDateOfTheFirstDayOfYourLastPeriod
+            )}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "dialogForTheDateOfTheFirstDayOfYourLastPeriod",
+                "opendialog"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, [
+              "dialogForTheDateOfTheFirstDayOfYourLastPeriod",
+              "opendialog"
+            ])}
+          >
+            <ApiRequest
+              data-plasmic-name={"apiRequest6"}
+              data-plasmic-override={overrides.apiRequest6}
+              className={classNames("__wab_instance", sty.apiRequest6)}
+              errorDisplay={
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ztKxP
+                  )}
+                >
+                  {"Error fetching data"}
+                </div>
+              }
+              loadingDisplay={
+                <div className={classNames(projectcss.all, sty.freeBox__cgJee)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__bz5P1)}
+                  >
+                    <Pickers
+                      data-plasmic-name={
+                        "pickersForTheDateOfTheFirstDayOfYourLastPeriod"
+                      }
+                      data-plasmic-override={
+                        overrides.pickersForTheDateOfTheFirstDayOfYourLastPeriod
+                      }
+                      className={classNames(
+                        "__wab_instance",
+                        sty.pickersForTheDateOfTheFirstDayOfYourLastPeriod
+                      )}
+                      data={(() => {
+                        try {
+                          return $state.variableForTheDateOfTheFirstDayOfYourLastPeriod;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      initialValue={generateStateValueProp($state, [
+                        "pickersForTheDateOfTheFirstDayOfYourLastPeriod",
+                        "value"
+                      ])}
+                      onChange={async (...eventArgs: any) => {
+                        generateStateOnChangeProp($state, [
+                          "pickersForTheDateOfTheFirstDayOfYourLastPeriod",
+                          "value"
+                        ]).apply(null, eventArgs);
+                      }}
+                    />
+                  </div>
+                  <Button
+                    data-plasmic-name={"button18"}
+                    data-plasmic-override={overrides.button18}
+                    className={classNames("__wab_instance", sty.button18)}
+                    color={generateStateValueProp($state, [
+                      "button18",
+                      "color"
+                    ])}
+                    onClick={async event => {
+                      const $steps = {};
+
+                      $steps["updateVariable"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["variableForLastPeriod"]
+                              },
+                              operation: 0,
+                              value:
+                                $state
+                                  .pickersForTheDateOfTheFirstDayOfYourLastPeriod
+                                  .value
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateVariable"] != null &&
+                        typeof $steps["updateVariable"] === "object" &&
+                        typeof $steps["updateVariable"].then === "function"
+                      ) {
+                        $steps["updateVariable"] = await $steps[
+                          "updateVariable"
+                        ];
+                      }
+
+                      $steps["updateNameInputValue2"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: [
+                                  "dialogForTheDateOfTheFirstDayOfYourLastPeriod",
+                                  "opendialog"
+                                ]
+                              },
+                              operation: 0,
+                              value: false
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateNameInputValue2"] != null &&
+                        typeof $steps["updateNameInputValue2"] === "object" &&
+                        typeof $steps["updateNameInputValue2"].then ===
+                          "function"
+                      ) {
+                        $steps["updateNameInputValue2"] = await $steps[
+                          "updateNameInputValue2"
+                        ];
+                      }
+                    }}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, [
+                          "button18",
+                          "color"
+                        ])(eventArgs[0]);
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___5S2J
+                      )}
+                    >
+                      {"\u0627\u0646\u062a\u062e\u0627\u0628"}
+                    </div>
+                  </Button>
+                </div>
+              }
+              method={"GET"}
+              onError={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest6",
+                  "error"
+                ]).apply(null, eventArgs);
+              }}
+              onLoading={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest6",
+                  "loading"
+                ]).apply(null, eventArgs);
+              }}
+              onSuccess={async (...eventArgs: any) => {
+                generateStateOnChangeProp($state, [
+                  "apiRequest6",
+                  "data"
+                ]).apply(null, eventArgs);
+              }}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__bg3M6)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox___9WjtR)}
+                  dir={"rtl"}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___1NFf)}
+                  />
+
+                  <DialogTitle
+                    className={classNames(
+                      "__wab_instance",
+                      sty.dialogTitle___1OrQg
+                    )}
+                  >
+                    <h5
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h5,
+                        sty.h5__jzrdQ
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___3CaFf
+                        )}
+                      >
+                        {"Dialog title"}
+                      </div>
+                    </h5>
+                  </DialogTitle>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__rNaK)}
+                  dir={"rtl"}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__vbepp
+                    )}
+                  >
+                    {"You can insert dialog body content here in this slot."}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__favCl)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___7Kzgg
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ic9B7
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__vtvKo
+                          )}
+                        >
+                          {
+                            "\ud83c\udf39 \u0628\u0647 \u0635\u0631\u0641\u0647 \u062a\u0631\u06cc\u0646 \ud83c\udf39"
+                          }
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__nAbb2
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___0AEJo
+                          )}
+                        >
+                          {"Enter some text"}
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__hl2G
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__lunkV
+                            )}
+                          >
+                            {"Enter some text"}
+                          </div>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__ti8Vz
+                            )}
+                          >
+                            {"Enter some text"}
+                          </div>
+                        </div>
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__lp9Fk
+                          )}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__dzIhB
+                            )}
+                          >
+                            {"1"}
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__jK05B
+                        )}
+                      >
+                        {
+                          "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
+                        }
+                      </div>
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__btj9P
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__eeiIq
+                          )}
+                        >
+                          {(() => {
+                            const child$Props = {
+                              allowClear: false,
+                              autoFocus: false,
+                              bordered: false,
+                              className: classNames(
+                                "__wab_instance",
+                                sty.input6
+                              ),
+                              disabled: false,
+                              onChange: async (...eventArgs: any) => {
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "value",
+                                  ["input6", "value"],
+                                  AntdInput_Helpers
+                                ).apply(null, eventArgs);
+                              },
+                              placeholder:
+                                "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
+                              prefix: (
+                                <Icon10Icon
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.svg__ilfeq
+                                  )}
+                                  role={"img"}
+                                />
+                              ),
+
+                              readOnly: false,
+                              size: "small",
+                              suffix: null,
+                              value: generateStateValueProp($state, [
+                                "input6",
+                                "value"
+                              ])
+                            };
+                            initializeCodeComponentStates(
+                              $state,
+                              [
+                                {
+                                  name: "value",
+                                  plasmicStateName: "input6.value"
+                                }
+                              ],
+                              [],
+                              AntdInput_Helpers ?? {},
+                              child$Props
+                            );
+
+                            return (
+                              <AntdInput
+                                data-plasmic-name={"input6"}
+                                data-plasmic-override={overrides.input6}
+                                {...child$Props}
+                              />
+                            );
+                          })()}
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__kH7Wx
+                            )}
+                          />
+                        </div>
+                        <Button
+                          data-plasmic-name={"button16"}
+                          data-plasmic-override={overrides.button16}
+                          className={classNames("__wab_instance", sty.button16)}
+                          color={generateStateValueProp($state, [
+                            "button16",
+                            "color"
+                          ])}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button16",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__fcxZg
+                            )}
+                          >
+                            {"\u062a\u0627\u06cc\u06cc\u062f"}
+                          </div>
+                        </Button>
+                      </Stack__>
+                      <Button
+                        data-plasmic-name={"button17"}
+                        data-plasmic-override={overrides.button17}
+                        className={classNames("__wab_instance", sty.button17)}
+                        color={generateStateValueProp($state, [
+                          "button17",
+                          "color"
+                        ])}
+                        endIcon={
+                          <Icon12Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__oMCxJ
+                            )}
+                            role={"img"}
+                          />
+                        }
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button17",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text___8Ejtw
+                          )}
+                        >
+                          {
+                            "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
+                          }
+                        </div>
+                      </Button>
+                      <p
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.p,
+                          projectcss.__wab_text,
+                          sty.p__w48J8
+                        )}
+                      >
+                        {
+                          "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                        }
+                      </p>
+                      <p
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.p,
+                          projectcss.__wab_text,
+                          sty.p__mh8Jm
+                        )}
+                      >
+                        {
+                          "\u0646\u0645\u0627\u06cc\u0634 \u0628\u0633\u062a\u0647 \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
+                        }
+                      </p>
+                    </Stack__>
+                  </div>
+                </Stack__>
+              </div>
+            </ApiRequest>
+          </Dialog>
           <div
             data-plasmic-name={"verticalIdentity"}
             data-plasmic-override={overrides.verticalIdentity}
@@ -3478,7 +4217,6 @@ function PlasmicEditProfile__RenderFunc(props: {
                 data-plasmic-override={overrides.nameInput}
                 antdInput2={(() => {
                   const child$Props = {
-                    "aria-label": ``,
                     bordered: false,
                     className: classNames("__wab_instance", sty.antdInput3),
                     onChange: async (...eventArgs: any) => {
@@ -3551,86 +4289,6 @@ function PlasmicEditProfile__RenderFunc(props: {
                 type={"tel"}
                 value={
                   generateStateValueProp($state, ["nameInput", "value"]) ?? ""
-                }
-              />
-            </div>
-            <div
-              data-plasmic-name={"verticalForIdInput"}
-              data-plasmic-override={overrides.verticalForIdInput}
-              className={classNames(projectcss.all, sty.verticalForIdInput)}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___53Vhi
-                )}
-              >
-                {"\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc"}
-              </div>
-              <TextInput
-                data-plasmic-name={"idInput"}
-                data-plasmic-override={overrides.idInput}
-                antdInput2={(() => {
-                  const child$Props = {
-                    "aria-label": ``,
-                    bordered: false,
-                    className: classNames("__wab_instance", sty.antdInput),
-                    onChange: async (...eventArgs: any) => {
-                      generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "value",
-                        ["antdInput", "value"],
-                        Input_Helpers
-                      ).apply(null, eventArgs);
-                    },
-                    placeholder:
-                      "\u0646\u0627\u0645 \u06a9\u0627\u0631\u0628\u0631\u06cc \u0631\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f",
-                    size: "large",
-                    value: generateStateValueProp($state, [
-                      "antdInput",
-                      "value"
-                    ])
-                  };
-                  initializeCodeComponentStates(
-                    $state,
-                    [
-                      {
-                        name: "value",
-                        plasmicStateName: "antdInput.value"
-                      }
-                    ],
-                    [],
-                    Input_Helpers ?? {},
-                    child$Props
-                  );
-
-                  return (
-                    <Input
-                      data-plasmic-name={"antdInput"}
-                      data-plasmic-override={overrides.antdInput}
-                      {...child$Props}
-                    />
-                  );
-                })()}
-                className={classNames("__wab_instance", sty.idInput)}
-                onChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["idInput", "value"])(
-                      (e => e.target?.value).apply(null, eventArgs)
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-                value={
-                  generateStateValueProp($state, ["idInput", "value"]) ?? ""
                 }
               />
             </div>
@@ -4428,7 +5086,61 @@ function PlasmicEditProfile__RenderFunc(props: {
                     "\u062a\u0627\u0631\u06cc\u062e \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0627\u0632 \u0627\u062e\u0631\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc \u0634\u0645\u0627"
                   }
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__xNeYo)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__xNeYo)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps[
+                      "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                    ] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: [
+                                "dialogForTheDateOfTheFirstDayOfYourLastPeriod",
+                                "opendialog"
+                              ]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps[
+                        "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                      ] != null &&
+                      typeof $steps[
+                        "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                      ] === "object" &&
+                      typeof $steps[
+                        "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                      ].then === "function"
+                    ) {
+                      $steps[
+                        "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                      ] = await $steps[
+                        "updateDialogForTheDateOfTheFirstDayOfYourLastPeriodOpendialog"
+                      ];
+                    }
+                  }}
+                >
                   <div
                     className={classNames(
                       projectcss.all,
@@ -4436,7 +5148,21 @@ function PlasmicEditProfile__RenderFunc(props: {
                       sty.text__cL78D
                     )}
                   >
-                    {"Enter some text"}
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.variableForLastPeriod;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
                   </div>
                 </div>
               </div>
@@ -4694,6 +5420,7 @@ function PlasmicEditProfile__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "embedHtml",
     "numberOfDaysOfBleeding",
     "apiRequest2",
     "pickersForNumberOfDaysOfBleeding",
@@ -4729,13 +5456,17 @@ const PlasmicDescendants = {
     "input5",
     "button13",
     "button14",
+    "dialogForTheDateOfTheFirstDayOfYourLastPeriod",
+    "apiRequest6",
+    "pickersForTheDateOfTheFirstDayOfYourLastPeriod",
+    "button18",
+    "input6",
+    "button16",
+    "button17",
     "verticalIdentity",
     "verticalForNameInput",
     "nameInput",
     "antdInput3",
-    "verticalForIdInput",
-    "idInput",
-    "antdInput",
     "verticalForDateInput",
     "verticalForSelection",
     "horizontalForButton",
@@ -4751,6 +5482,7 @@ const PlasmicDescendants = {
     "weight2",
     "getInfo"
   ],
+  embedHtml: ["embedHtml"],
   numberOfDaysOfBleeding: [
     "numberOfDaysOfBleeding",
     "apiRequest2",
@@ -4861,14 +5593,35 @@ const PlasmicDescendants = {
   input5: ["input5"],
   button13: ["button13"],
   button14: ["button14"],
+  dialogForTheDateOfTheFirstDayOfYourLastPeriod: [
+    "dialogForTheDateOfTheFirstDayOfYourLastPeriod",
+    "apiRequest6",
+    "pickersForTheDateOfTheFirstDayOfYourLastPeriod",
+    "button18",
+    "input6",
+    "button16",
+    "button17"
+  ],
+  apiRequest6: [
+    "apiRequest6",
+    "pickersForTheDateOfTheFirstDayOfYourLastPeriod",
+    "button18",
+    "input6",
+    "button16",
+    "button17"
+  ],
+  pickersForTheDateOfTheFirstDayOfYourLastPeriod: [
+    "pickersForTheDateOfTheFirstDayOfYourLastPeriod"
+  ],
+  button18: ["button18"],
+  input6: ["input6"],
+  button16: ["button16"],
+  button17: ["button17"],
   verticalIdentity: [
     "verticalIdentity",
     "verticalForNameInput",
     "nameInput",
     "antdInput3",
-    "verticalForIdInput",
-    "idInput",
-    "antdInput",
     "verticalForDateInput",
     "verticalForSelection",
     "horizontalForButton",
@@ -4883,9 +5636,6 @@ const PlasmicDescendants = {
   verticalForNameInput: ["verticalForNameInput", "nameInput", "antdInput3"],
   nameInput: ["nameInput", "antdInput3"],
   antdInput3: ["antdInput3"],
-  verticalForIdInput: ["verticalForIdInput", "idInput", "antdInput"],
-  idInput: ["idInput", "antdInput"],
-  antdInput: ["antdInput"],
   verticalForDateInput: ["verticalForDateInput"],
   verticalForSelection: [
     "verticalForSelection",
@@ -4921,6 +5671,7 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  embedHtml: typeof Embed;
   numberOfDaysOfBleeding: typeof Dialog;
   apiRequest2: typeof ApiRequest;
   pickersForNumberOfDaysOfBleeding: typeof Pickers;
@@ -4956,13 +5707,17 @@ type NodeDefaultElementType = {
   input5: typeof AntdInput;
   button13: typeof Button;
   button14: typeof Button;
+  dialogForTheDateOfTheFirstDayOfYourLastPeriod: typeof Dialog;
+  apiRequest6: typeof ApiRequest;
+  pickersForTheDateOfTheFirstDayOfYourLastPeriod: typeof Pickers;
+  button18: typeof Button;
+  input6: typeof AntdInput;
+  button16: typeof Button;
+  button17: typeof Button;
   verticalIdentity: "div";
   verticalForNameInput: "div";
   nameInput: typeof TextInput;
   antdInput3: typeof Input;
-  verticalForIdInput: "div";
-  idInput: typeof TextInput;
-  antdInput: typeof Input;
   verticalForDateInput: "div";
   verticalForSelection: "div";
   horizontalForButton: "div";
@@ -5064,6 +5819,7 @@ export const PlasmicEditProfile = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    embedHtml: makeNodeComponent("embedHtml"),
     numberOfDaysOfBleeding: makeNodeComponent("numberOfDaysOfBleeding"),
     apiRequest2: makeNodeComponent("apiRequest2"),
     pickersForNumberOfDaysOfBleeding: makeNodeComponent(
@@ -5103,13 +5859,21 @@ export const PlasmicEditProfile = Object.assign(
     input5: makeNodeComponent("input5"),
     button13: makeNodeComponent("button13"),
     button14: makeNodeComponent("button14"),
+    dialogForTheDateOfTheFirstDayOfYourLastPeriod: makeNodeComponent(
+      "dialogForTheDateOfTheFirstDayOfYourLastPeriod"
+    ),
+    apiRequest6: makeNodeComponent("apiRequest6"),
+    pickersForTheDateOfTheFirstDayOfYourLastPeriod: makeNodeComponent(
+      "pickersForTheDateOfTheFirstDayOfYourLastPeriod"
+    ),
+    button18: makeNodeComponent("button18"),
+    input6: makeNodeComponent("input6"),
+    button16: makeNodeComponent("button16"),
+    button17: makeNodeComponent("button17"),
     verticalIdentity: makeNodeComponent("verticalIdentity"),
     verticalForNameInput: makeNodeComponent("verticalForNameInput"),
     nameInput: makeNodeComponent("nameInput"),
     antdInput3: makeNodeComponent("antdInput3"),
-    verticalForIdInput: makeNodeComponent("verticalForIdInput"),
-    idInput: makeNodeComponent("idInput"),
-    antdInput: makeNodeComponent("antdInput"),
     verticalForDateInput: makeNodeComponent("verticalForDateInput"),
     verticalForSelection: makeNodeComponent("verticalForSelection"),
     horizontalForButton: makeNodeComponent("horizontalForButton"),

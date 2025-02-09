@@ -5965,12 +5965,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["goToPage"] = true
-                            ? (() => {
-                                const actionArgs = {
-                                  destination: (() => {
-                                    try {
-                                      return (() => {
+                          $steps["goToPage"] =
+                            $ctx.query.inApp == "false"
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
                                         return (
                                           "https://tools.liom.app/self-medication/?type=danger&inApp=false&token=" +
                                           $ctx.query.token.slice(
@@ -5980,39 +5980,72 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           "&selectStep=" +
                                           ($state.weeksPregnant - 1)
                                         );
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
                                     }
-                                  })()
-                                };
-                                return (({ destination }) => {
-                                  if (
-                                    typeof destination === "string" &&
-                                    destination.startsWith("#")
-                                  ) {
-                                    document
-                                      .getElementById(destination.substr(1))
-                                      .scrollIntoView({ behavior: "smooth" });
-                                  } else {
-                                    __nextRouter?.push(destination);
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                           if (
                             $steps["goToPage"] != null &&
                             typeof $steps["goToPage"] === "object" &&
                             typeof $steps["goToPage"].then === "function"
                           ) {
                             $steps["goToPage"] = await $steps["goToPage"];
+                          }
+
+                          $steps["runCode"] =
+                            $ctx.query.inApp == "true"
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        var link =
+                                          "https://tools.liom.app/self-medication/?type=danger&inApp=false&token=" +
+                                          $ctx.query.token.slice(
+                                            6,
+                                            $ctx.query.token.length - 3
+                                          ) +
+                                          "&selectStep=" +
+                                          ($state.weeksPregnant - 1);
+                                        return window.FlutterChannel.postMessage(
+                                          "#inAppWebView**@@**ابزار خطرناکه یانه **@@**" +
+                                            link
+                                        );
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["runCode"] != null &&
+                            typeof $steps["runCode"] === "object" &&
+                            typeof $steps["runCode"].then === "function"
+                          ) {
+                            $steps["runCode"] = await $steps["runCode"];
                           }
                         }}
                       >

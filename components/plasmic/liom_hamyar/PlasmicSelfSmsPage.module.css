@@ -407,14 +407,6 @@
   bottom: auto;
   display: none;
 }
-.img {
-  object-fit: cover;
-  max-width: 100%;
-  display: none !important;
-}
-.img > picture > img {
-  object-fit: cover;
-}
 .text__e7S9C {
   position: relative;
   width: auto;
