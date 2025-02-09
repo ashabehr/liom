@@ -1667,7 +1667,10 @@ function PlasmicPregnancy__RenderFunc(props: {
               params={(() => {
                 try {
                   return {
-                    token: $ctx.query.token
+                    token: $ctx.query.token.slice(
+                      6,
+                      $ctx.query.token.length - 3
+                    )
                   };
                 } catch (e) {
                   if (
@@ -5958,8 +5961,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                       try {
                         return (
                           ($ctx?.query?.userId ?? "").slice(
-                            6,
-                            ($ctx?.query?.userId ?? "").length - 3
+                            4,
+                            ($ctx?.query?.userId ?? "").length - 4
                           ) == "44e1d5fb-dd61-4aa5-84e2-31ff327f0446"
                         );
                       } catch (e) {
