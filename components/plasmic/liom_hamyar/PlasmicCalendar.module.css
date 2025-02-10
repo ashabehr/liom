@@ -1642,8 +1642,8 @@
   justify-content: center;
   align-items: flex-start;
   min-width: 0;
-  margin-left: calc(0px - 0px);
-  width: calc(100% + 0px);
+  margin-left: calc(0px - 8px);
+  width: calc(100% + 8px);
 }
 .freeBox__u4AL > :global(.__wab_flex-container) > *,
 .freeBox__u4AL > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -1653,7 +1653,7 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-left: 0px;
+  margin-left: 8px;
 }
 @media (max-width: 640px) {
   .freeBox__u4AL {
@@ -1701,7 +1701,7 @@
   height: auto;
   max-width: 100%;
   text-align: right;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   min-width: 0;
 }
