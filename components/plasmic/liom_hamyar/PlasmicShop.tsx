@@ -111,7 +111,7 @@ export type PlasmicShop__OverridesType = {
   p?: Flex__<"p">;
   dialog2?: Flex__<typeof Dialog>;
   subscription3?: Flex__<typeof Subscription>;
-  button11?: Flex__<typeof Button>;
+  button14?: Flex__<typeof Button>;
   button10?: Flex__<typeof Button>;
   input5?: Flex__<typeof AntdInput>;
   button13?: Flex__<typeof Button>;
@@ -459,12 +459,6 @@ function PlasmicShop__RenderFunc(props: {
         variableType: "number"
       },
       {
-        path: "button11.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
         path: "shopSelected",
         type: "private",
         variableType: "object",
@@ -561,6 +555,24 @@ function PlasmicShop__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "redirectUrl",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "loadingBtn",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button14.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -632,27 +644,29 @@ function PlasmicShop__RenderFunc(props: {
             data-plasmic-name={"getData"}
             data-plasmic-override={overrides.getData}
             className={classNames("__wab_instance", sty.getData)}
-            errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__nfTuh
-                )}
-              >
-                {"Error fetching data"}
-              </div>
-            }
+            errorDisplay={null}
             loadingDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__rpvCv
-                )}
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__zUBrg)}
               >
-                {"Loading..."}
-              </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__vGaeM,
+                    "shimmer"
+                  )}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    sty.freeBox__ofWr,
+                    "shimmer"
+                  )}
+                />
+              </Stack__>
             }
             method={"GET"}
             onError={async (...eventArgs: any) => {
@@ -1149,19 +1163,90 @@ function PlasmicShop__RenderFunc(props: {
                                 role={"img"}
                               />
                             }
+                            isDisabled={(() => {
+                              try {
+                                return $state.loadingBtn;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()}
+                            loading={(() => {
+                              try {
+                                return $state.loadingBtn;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return [];
+                                }
+                                throw e;
+                              }
+                            })()}
                             onClick={async event => {
                               const $steps = {};
+
+                              $steps["updateLoadingBtn"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["loadingBtn"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateLoadingBtn"] != null &&
+                                typeof $steps["updateLoadingBtn"] ===
+                                  "object" &&
+                                typeof $steps["updateLoadingBtn"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateLoadingBtn"] = await $steps[
+                                  "updateLoadingBtn"
+                                ];
+                              }
 
                               $steps["invokeGlobalAction"] = true
                                 ? (() => {
                                     const actionArgs = {
                                       args: [
                                         "POST",
-                                        "https://n8n.staas.ir/webhook/hamyar/shopBuy",
+                                        "https://n8n.staas.ir/webhook/rest/shop/list",
                                         undefined,
                                         (() => {
                                           try {
-                                            return undefined;
+                                            return {
+                                              id: $state.shopSelected[0].id,
+                                              offCode: $state.discountCode,
+                                              redirectUrl: $state.redirectUrl,
+                                              authorization:
+                                                localStorage.getItem("token")
+                                            };
                                           } catch (e) {
                                             if (
                                               e instanceof TypeError ||
@@ -1189,6 +1274,122 @@ function PlasmicShop__RenderFunc(props: {
                               ) {
                                 $steps["invokeGlobalAction"] = await $steps[
                                   "invokeGlobalAction"
+                                ];
+                              }
+
+                              $steps["goToPage"] =
+                                $steps.invokeGlobalAction?.data?.success ==
+                                  true &&
+                                $steps.invokeGlobalAction?.data?.result != false
+                                  ? (() => {
+                                      const actionArgs = {
+                                        destination: (() => {
+                                          try {
+                                            return $steps.invokeGlobalAction
+                                              .data.result;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return undefined;
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      };
+                                      return (({ destination }) => {
+                                        if (
+                                          typeof destination === "string" &&
+                                          destination.startsWith("#")
+                                        ) {
+                                          document
+                                            .getElementById(
+                                              destination.substr(1)
+                                            )
+                                            .scrollIntoView({
+                                              behavior: "smooth"
+                                            });
+                                        } else {
+                                          __nextRouter?.push(destination);
+                                        }
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["goToPage"] != null &&
+                                typeof $steps["goToPage"] === "object" &&
+                                typeof $steps["goToPage"].then === "function"
+                              ) {
+                                $steps["goToPage"] = await $steps["goToPage"];
+                              }
+
+                              $steps["invokeGlobalAction2"] =
+                                $steps.invokeGlobalAction?.data?.success ==
+                                  false ||
+                                $steps.invokeGlobalAction?.data?.result == false
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "error",
+                                          "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                                          "top-left"
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.showToast"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["invokeGlobalAction2"] != null &&
+                                typeof $steps["invokeGlobalAction2"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction2"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction2"] = await $steps[
+                                  "invokeGlobalAction2"
+                                ];
+                              }
+
+                              $steps["updateLoadingBtn2"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["loadingBtn"]
+                                      },
+                                      operation: 0,
+                                      value: false
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateLoadingBtn2"] != null &&
+                                typeof $steps["updateLoadingBtn2"] ===
+                                  "object" &&
+                                typeof $steps["updateLoadingBtn2"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateLoadingBtn2"] = await $steps[
+                                  "updateLoadingBtn2"
                                 ];
                               }
                             }}
@@ -1221,111 +1422,96 @@ function PlasmicShop__RenderFunc(props: {
                               }
                             </div>
                           </Button>
-                          {(() => {
-                            try {
-                              return !$state.shopSelected[0]?.badge;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <Button
-                              data-plasmic-name={"button9"}
-                              data-plasmic-override={overrides.button9}
-                              className={classNames(
-                                "__wab_instance",
-                                sty.button9
-                              )}
-                              color={generateStateValueProp($state, [
-                                "button9",
-                                "color"
-                              ])}
-                              endIcon={
-                                <Icon12Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__yuFqx
-                                  )}
-                                  role={"img"}
-                                />
-                              }
-                              onClick={async event => {
-                                const $steps = {};
-
-                                $steps["updateDiscount"] = true
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["discount"]
-                                        },
-                                        operation: 0,
-                                        value: true
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                                if (
-                                  $steps["updateDiscount"] != null &&
-                                  typeof $steps["updateDiscount"] ===
-                                    "object" &&
-                                  typeof $steps["updateDiscount"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateDiscount"] = await $steps[
-                                    "updateDiscount"
-                                  ];
-                                }
-                              }}
-                              onColorChange={async (...eventArgs: any) => {
-                                ((...eventArgs) => {
-                                  generateStateOnChangeProp($state, [
-                                    "button9",
-                                    "color"
-                                  ])(eventArgs[0]);
-                                }).apply(null, eventArgs);
-
-                                if (
-                                  eventArgs.length > 1 &&
-                                  eventArgs[1] &&
-                                  eventArgs[1]._plasmic_state_init_
-                                ) {
-                                  return;
-                                }
-                              }}
-                            >
-                              <div
+                          <Button
+                            data-plasmic-name={"button9"}
+                            data-plasmic-override={overrides.button9}
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button9
+                            )}
+                            color={generateStateValueProp($state, [
+                              "button9",
+                              "color"
+                            ])}
+                            endIcon={
+                              <Icon12Icon
                                 className={classNames(
                                   projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__oqWiy
+                                  sty.svg__yuFqx
                                 )}
-                              >
-                                {
-                                  "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u0645"
-                                }
-                              </div>
-                            </Button>
-                          ) : null}
+                                role={"img"}
+                              />
+                            }
+                            onClick={async event => {
+                              const $steps = {};
+
+                              $steps["updateDiscount"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["discount"]
+                                      },
+                                      operation: 0,
+                                      value: true
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateDiscount"] != null &&
+                                typeof $steps["updateDiscount"] === "object" &&
+                                typeof $steps["updateDiscount"].then ===
+                                  "function"
+                              ) {
+                                $steps["updateDiscount"] = await $steps[
+                                  "updateDiscount"
+                                ];
+                              }
+                            }}
+                            onColorChange={async (...eventArgs: any) => {
+                              ((...eventArgs) => {
+                                generateStateOnChangeProp($state, [
+                                  "button9",
+                                  "color"
+                                ])(eventArgs[0]);
+                              }).apply(null, eventArgs);
+
+                              if (
+                                eventArgs.length > 1 &&
+                                eventArgs[1] &&
+                                eventArgs[1]._plasmic_state_init_
+                              ) {
+                                return;
+                              }
+                            }}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__oqWiy
+                              )}
+                            >
+                              {
+                                "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u0645"
+                              }
+                            </div>
+                          </Button>
                         </Stack__>
                         {(() => {
                           try {
@@ -1786,26 +1972,244 @@ function PlasmicShop__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.freeBox__weRwe)}
                     >
                       <Button
-                        data-plasmic-name={"button11"}
-                        data-plasmic-override={overrides.button11}
-                        className={classNames("__wab_instance", sty.button11)}
+                        data-plasmic-name={"button14"}
+                        data-plasmic-override={overrides.button14}
+                        className={classNames("__wab_instance", sty.button14)}
                         color={generateStateValueProp($state, [
-                          "button11",
+                          "button14",
                           "color"
                         ])}
                         endIcon={
                           <Icon12Icon
                             className={classNames(
                               projectcss.all,
-                              sty.svg__ndfnR
+                              sty.svg__gwTbF
                             )}
                             role={"img"}
                           />
                         }
+                        isDisabled={(() => {
+                          try {
+                            return $state.loadingBtn;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        loading={(() => {
+                          try {
+                            return $state.loadingBtn;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateLoadingBtn"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loadingBtn"]
+                                  },
+                                  operation: 0,
+                                  value: true
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateLoadingBtn"] != null &&
+                            typeof $steps["updateLoadingBtn"] === "object" &&
+                            typeof $steps["updateLoadingBtn"].then ===
+                              "function"
+                          ) {
+                            $steps["updateLoadingBtn"] = await $steps[
+                              "updateLoadingBtn"
+                            ];
+                          }
+
+                          $steps["invokeGlobalAction"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  args: [
+                                    "POST",
+                                    "https://n8n.staas.ir/webhook/rest/shop/list",
+                                    undefined,
+                                    (() => {
+                                      try {
+                                        return {
+                                          id: $state.selectShop.id,
+                                          offCode: $state.discountCode,
+                                          redirectUrl: $state.redirectUrl,
+                                          authorization:
+                                            localStorage.getItem("token")
+                                        };
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  ]
+                                };
+                                return $globalActions[
+                                  "Fragment.apiRequest"
+                                ]?.apply(null, [...actionArgs.args]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["invokeGlobalAction"] != null &&
+                            typeof $steps["invokeGlobalAction"] === "object" &&
+                            typeof $steps["invokeGlobalAction"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction"] = await $steps[
+                              "invokeGlobalAction"
+                            ];
+                          }
+
+                          $steps["goToPage"] =
+                            $steps.invokeGlobalAction?.data?.success == true &&
+                            $steps.invokeGlobalAction?.data?.result != false
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
+                                        return $steps.invokeGlobalAction.data
+                                          .result;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
+                                    }
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["goToPage"] != null &&
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await $steps["goToPage"];
+                          }
+
+                          $steps["invokeGlobalAction2"] =
+                            $steps.invokeGlobalAction?.data?.success == false ||
+                            $steps.invokeGlobalAction?.data?.result == false
+                              ? (() => {
+                                  const actionArgs = {
+                                    args: [
+                                      "error",
+                                      "\u0645\u062a\u0623\u0633\u0641\u0627\u0646\u0647 \u062e\u0637\u0627\u06cc\u06cc \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627\u064b \u0645\u062c\u062f\u062f\u0627\u064b \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f.",
+                                      "top-left"
+                                    ]
+                                  };
+                                  return $globalActions[
+                                    "Fragment.showToast"
+                                  ]?.apply(null, [...actionArgs.args]);
+                                })()
+                              : undefined;
+                          if (
+                            $steps["invokeGlobalAction2"] != null &&
+                            typeof $steps["invokeGlobalAction2"] === "object" &&
+                            typeof $steps["invokeGlobalAction2"].then ===
+                              "function"
+                          ) {
+                            $steps["invokeGlobalAction2"] = await $steps[
+                              "invokeGlobalAction2"
+                            ];
+                          }
+
+                          $steps["updateLoadingBtn2"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["loadingBtn"]
+                                  },
+                                  operation: 0,
+                                  value: false
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateLoadingBtn2"] != null &&
+                            typeof $steps["updateLoadingBtn2"] === "object" &&
+                            typeof $steps["updateLoadingBtn2"].then ===
+                              "function"
+                          ) {
+                            $steps["updateLoadingBtn2"] = await $steps[
+                              "updateLoadingBtn2"
+                            ];
+                          }
+                        }}
                         onColorChange={async (...eventArgs: any) => {
                           ((...eventArgs) => {
                             generateStateOnChangeProp($state, [
-                              "button11",
+                              "button14",
                               "color"
                             ])(eventArgs[0]);
                           }).apply(null, eventArgs);
@@ -1823,7 +2227,7 @@ function PlasmicShop__RenderFunc(props: {
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__lr76S
+                            sty.text__n7Er9
                           )}
                         >
                           <React.Fragment>
@@ -1835,7 +2239,7 @@ function PlasmicShop__RenderFunc(props: {
                                   e instanceof TypeError ||
                                   e?.plasmicType === "PlasmicUndefinedDataError"
                                 ) {
-                                  return "";
+                                  return "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647";
                                 }
                                 throw e;
                               }
@@ -1843,106 +2247,91 @@ function PlasmicShop__RenderFunc(props: {
                           </React.Fragment>
                         </div>
                       </Button>
-                      {(() => {
-                        try {
-                          return !$state.selectShop.badge;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <Button
-                          data-plasmic-name={"button10"}
-                          data-plasmic-override={overrides.button10}
-                          className={classNames("__wab_instance", sty.button10)}
-                          color={generateStateValueProp($state, [
-                            "button10",
-                            "color"
-                          ])}
-                          endIcon={
-                            <Icon12Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__fdeE
-                              )}
-                              role={"img"}
-                            />
-                          }
-                          onClick={async event => {
-                            const $steps = {};
-
-                            $steps["updateDiscount"] = true
-                              ? (() => {
-                                  const actionArgs = {
-                                    variable: {
-                                      objRoot: $state,
-                                      variablePath: ["discount"]
-                                    },
-                                    operation: 0,
-                                    value: true
-                                  };
-                                  return (({
-                                    variable,
-                                    value,
-                                    startIndex,
-                                    deleteCount
-                                  }) => {
-                                    if (!variable) {
-                                      return;
-                                    }
-                                    const { objRoot, variablePath } = variable;
-
-                                    $stateSet(objRoot, variablePath, value);
-                                    return value;
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                            if (
-                              $steps["updateDiscount"] != null &&
-                              typeof $steps["updateDiscount"] === "object" &&
-                              typeof $steps["updateDiscount"].then ===
-                                "function"
-                            ) {
-                              $steps["updateDiscount"] = await $steps[
-                                "updateDiscount"
-                              ];
-                            }
-                          }}
-                          onColorChange={async (...eventArgs: any) => {
-                            ((...eventArgs) => {
-                              generateStateOnChangeProp($state, [
-                                "button10",
-                                "color"
-                              ])(eventArgs[0]);
-                            }).apply(null, eventArgs);
-
-                            if (
-                              eventArgs.length > 1 &&
-                              eventArgs[1] &&
-                              eventArgs[1]._plasmic_state_init_
-                            ) {
-                              return;
-                            }
-                          }}
-                        >
-                          <div
+                      <Button
+                        data-plasmic-name={"button10"}
+                        data-plasmic-override={overrides.button10}
+                        className={classNames("__wab_instance", sty.button10)}
+                        color={generateStateValueProp($state, [
+                          "button10",
+                          "color"
+                        ])}
+                        endIcon={
+                          <Icon12Icon
                             className={classNames(
                               projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__jWmyY
+                              sty.svg__fdeE
                             )}
-                          >
-                            {
-                              "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u0645"
-                            }
-                          </div>
-                        </Button>
-                      ) : null}
+                            role={"img"}
+                          />
+                        }
+                        onClick={async event => {
+                          const $steps = {};
+
+                          $steps["updateDiscount"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["discount"]
+                                  },
+                                  operation: 0,
+                                  value: true
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateDiscount"] != null &&
+                            typeof $steps["updateDiscount"] === "object" &&
+                            typeof $steps["updateDiscount"].then === "function"
+                          ) {
+                            $steps["updateDiscount"] = await $steps[
+                              "updateDiscount"
+                            ];
+                          }
+                        }}
+                        onColorChange={async (...eventArgs: any) => {
+                          ((...eventArgs) => {
+                            generateStateOnChangeProp($state, [
+                              "button10",
+                              "color"
+                            ])(eventArgs[0]);
+                          }).apply(null, eventArgs);
+
+                          if (
+                            eventArgs.length > 1 &&
+                            eventArgs[1] &&
+                            eventArgs[1]._plasmic_state_init_
+                          ) {
+                            return;
+                          }
+                        }}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__jWmyY
+                          )}
+                        >
+                          {
+                            "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u0645"
+                          }
+                        </div>
+                      </Button>
                     </Stack__>
                     {(() => {
                       try {
@@ -3446,14 +3835,7 @@ function PlasmicShop__RenderFunc(props: {
                 {"Error fetching data"}
               </div>
             }
-            loadingDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__juPq)}>
-                <Icon115Icon
-                  className={classNames(projectcss.all, sty.svg__ntT2G)}
-                  role={"img"}
-                />
-              </div>
-            }
+            loadingDisplay={null}
             method={"POST"}
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["shopDialog", "error"]).apply(
@@ -3493,7 +3875,7 @@ const PlasmicDescendants = {
     "p",
     "dialog2",
     "subscription3",
-    "button11",
+    "button14",
     "button10",
     "input5",
     "button13",
@@ -3513,7 +3895,7 @@ const PlasmicDescendants = {
     "p",
     "dialog2",
     "subscription3",
-    "button11",
+    "button14",
     "button10",
     "input5",
     "button13",
@@ -3530,13 +3912,13 @@ const PlasmicDescendants = {
   dialog2: [
     "dialog2",
     "subscription3",
-    "button11",
+    "button14",
     "button10",
     "input5",
     "button13"
   ],
   subscription3: ["subscription3"],
-  button11: ["button11"],
+  button14: ["button14"],
   button10: ["button10"],
   input5: ["input5"],
   button13: ["button13"],
@@ -3560,7 +3942,7 @@ type NodeDefaultElementType = {
   p: "p";
   dialog2: typeof Dialog;
   subscription3: typeof Subscription;
-  button11: typeof Button;
+  button14: typeof Button;
   button10: typeof Button;
   input5: typeof AntdInput;
   button13: typeof Button;
@@ -3665,7 +4047,7 @@ export const PlasmicShop = Object.assign(
     p: makeNodeComponent("p"),
     dialog2: makeNodeComponent("dialog2"),
     subscription3: makeNodeComponent("subscription3"),
-    button11: makeNodeComponent("button11"),
+    button14: makeNodeComponent("button14"),
     button10: makeNodeComponent("button10"),
     input5: makeNodeComponent("input5"),
     button13: makeNodeComponent("button13"),

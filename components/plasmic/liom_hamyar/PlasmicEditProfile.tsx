@@ -245,7 +245,20 @@ function PlasmicEditProfile__RenderFunc(props: {
         path: "switchbest.isChecked",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.variableSwichForProbility;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return [];
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "dialogDateOfBrith.opendialog",
@@ -825,6 +838,12 @@ function PlasmicEditProfile__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "variableSwichForProbility",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -4724,7 +4743,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                                   ]
                                 },
                                 operation: 0,
-                                value: currentitem
+                                value: currentItem
                               };
                               return (({
                                 variable,
@@ -4767,7 +4786,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return "select";
+                            return [];
                           }
                           throw e;
                         }
@@ -4859,6 +4878,47 @@ function PlasmicEditProfile__RenderFunc(props: {
                       ) {
                         return;
                       }
+
+                      (async isChecked => {
+                        const $steps = {};
+
+                        $steps["updateVariableSwichForProbility"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["variableSwichForProbility"]
+                                },
+                                operation: 0,
+                                value: $state.switchbest.isChecked
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateVariableSwichForProbility"] != null &&
+                          typeof $steps["updateVariableSwichForProbility"] ===
+                            "object" &&
+                          typeof $steps["updateVariableSwichForProbility"]
+                            .then === "function"
+                        ) {
+                          $steps["updateVariableSwichForProbility"] =
+                            await $steps["updateVariableSwichForProbility"];
+                        }
+                      }).apply(null, eventArgs);
                     }}
                   />
                 </Stack__>
@@ -5169,9 +5229,9 @@ function PlasmicEditProfile__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.filter(
-                            a => a.value == $state.variableForLastPeriod
-                          )[0].label;
+                          return $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
+                            a => a.value === $state.variableForLastPeriod
+                          ).label;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||

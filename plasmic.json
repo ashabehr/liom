@@ -1222,6 +1222,20 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSelectionChoise.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "iNHFQ5RIM3Tb",
+          "name": "SocialPage",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocialPage.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/new-page-2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page-2"
         }
       ],
       "icons": [
@@ -2229,6 +2243,11 @@
           "id": "_rOaaxGTo0Hj",
           "name": "WeightmeterIcSvgIcon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__WeightmeterIcSvg.tsx"
+        },
+        {
+          "id": "oU89VK0kN-fN",
+          "name": "Icon145Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon145.tsx"
         }
       ],
       "images": [
@@ -2766,6 +2785,11 @@
           "id": "YcjOGSjPqAER",
           "name": "image 78",
           "filePath": "../public/plasmic/liom_hamyar/images/image78.svg"
+        },
+        {
+          "id": "ZYk1hGXZQkx4",
+          "name": "image 79",
+          "filePath": "../public/plasmic/liom_hamyar/images/image79.svg"
         }
       ],
       "indirect": false,

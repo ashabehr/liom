@@ -1992,7 +1992,6 @@
   }
 }
 .freeBox__ruOX {
-  display: flex;
   flex-direction: row;
   position: relative;
   align-items: stretch;
@@ -2002,6 +2001,7 @@
   max-width: 100%;
   align-self: flex-start;
   min-width: 0;
+  display: none;
   padding: 0px;
 }
 @media (max-width: 640px) {
@@ -2019,6 +2019,7 @@
   width: 100%;
   align-self: flex-start;
   min-width: 0;
+  display: none !important;
 }
 .img__vPzRa > picture > img {
   object-fit: cover;

@@ -4248,9 +4248,25 @@ function PlasmicPregnancy__RenderFunc(props: {
                         try {
                           return (
                             $ctx?.query?.inApp == "true" &&
-                            $state.getUserInfo.data[0].result.allowance.find(
-                              item => item.type === "husband_sms"
-                            ).active
+                            (JSON.parse(
+                              $state.user[0].allowance
+                            ).allowance.find(
+                              item => item.type == "pregnancy_sub_become_father"
+                            ).active ??
+                              false) &&
+                            (JSON.parse(
+                              $state.user[0].allowance
+                            ).allowance.find(
+                              item => item.type == "pregnancy_sub_baby_growth"
+                            ).active ??
+                              false) &&
+                            (JSON.parse(
+                              $state.user[0].allowance
+                            ).allowance.find(
+                              item =>
+                                item.type == "pregnancy_sub_better_relation"
+                            ).active ??
+                              false)
                           );
                         } catch (e) {
                           if (
@@ -4404,10 +4420,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                           >
                             {(() => {
                               try {
-                                return (
-                                  $state.getUserInfo.data[0].result.hamyars
-                                    .length == 0
-                                );
+                                return (() => {
+                                  if ($state.user[0].hamyarData == "{}")
+                                    return true;
+                                  else
+                                    return (
+                                      JSON.parse($state.user[0].hamyarData)
+                                        .hamyarsData.length == 0
+                                    );
+                                })();
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -4459,9 +4480,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                             ) : null}
                             {(() => {
                               try {
-                                return $state.getUserInfo.data[0].result.hamyars.some(
-                                  item => !item.rel.statusSms
-                                );
+                                return !JSON.parse($state.user[0].hamyarData)
+                                  .hamyarsData[0].statusSms;
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -5220,9 +5240,18 @@ function PlasmicPregnancy__RenderFunc(props: {
                     return (
                       $ctx?.query?.inApp == "true" &&
                       !(
-                        $state.getUserInfo?.data?.[0]?.result?.allowance?.find(
-                          item => item.type === "husband_sms"
-                        )?.active ?? false
+                        (JSON.parse($state.user[0].allowance).allowance.find(
+                          item => item.type == "pregnancy_sub_become_father"
+                        ).active ??
+                          false) &&
+                        (JSON.parse($state.user[0].allowance).allowance.find(
+                          item => item.type == "pregnancy_sub_baby_growth"
+                        ).active ??
+                          false) &&
+                        (JSON.parse($state.user[0].allowance).allowance.find(
+                          item => item.type == "pregnancy_sub_better_relation"
+                        ).active ??
+                          false)
                       )
                     );
                   } catch (e) {
