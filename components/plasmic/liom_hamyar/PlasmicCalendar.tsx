@@ -540,20 +540,7 @@ function PlasmicCalendar__RenderFunc(props: {
         path: "name",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return `${$state.user.data.result.user.name}`;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "loadingshop",
@@ -1580,7 +1567,7 @@ function PlasmicCalendar__RenderFunc(props: {
                   color: "#FFDAD6",
                   bigTitle: "کلینیک",
                   btnText: "ورود به کلینیک",
-                  title: "کلینیک",
+                  title: "کلینیک لیوم",
                   text: "به طور محرمانه با کارشناس مشورت کن",
                   action: `https://apps.liom.app/clinic/?token=${localStorage.getItem(
                     "token"
@@ -2105,10 +2092,14 @@ function PlasmicCalendar__RenderFunc(props: {
                   ? (() => {
                       const actionArgs = {
                         customFunction: async () => {
-                          return localStorage.setItem(
-                            "userinfo",
-                            JSON.stringify($state.user.data.result)
-                          );
+                          return (() => {
+                            localStorage.setItem(
+                              "userinfo",
+                              JSON.stringify($state.user.data.result)
+                            );
+                            return ($state.name =
+                              $state.user.data.result.user.name);
+                          })();
                         }
                       };
                       return (({ customFunction }) => {
@@ -2237,6 +2228,77 @@ function PlasmicCalendar__RenderFunc(props: {
                   $steps["updateLackOfCourseInformation"] = await $steps[
                     "updateLackOfCourseInformation"
                   ];
+                }
+
+                $steps["updateIndextool"] = $state.user.data?.result?.userStatus
+                  ?.periodStatus
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["indextool"]
+                        },
+                        operation: 0,
+                        value: (() => {
+                          if (
+                            $state.user.data.result.userStatus.periodStatus ==
+                            "blood"
+                          )
+                            return 0;
+                          else return 1;
+                        })()
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateIndextool"] != null &&
+                  typeof $steps["updateIndextool"] === "object" &&
+                  typeof $steps["updateIndextool"].then === "function"
+                ) {
+                  $steps["updateIndextool"] = await $steps["updateIndextool"];
+                }
+
+                $steps["goToExpired"] = (
+                  $state.user.data?.success
+                    ? $state.user.data.success
+                    : false && localStorag.getItem("token")
+                )
+                  ? (() => {
+                      const actionArgs = { destination: `/expired` };
+                      return (({ destination }) => {
+                        if (
+                          typeof destination === "string" &&
+                          destination.startsWith("#")
+                        ) {
+                          document
+                            .getElementById(destination.substr(1))
+                            .scrollIntoView({ behavior: "smooth" });
+                        } else {
+                          __nextRouter?.push(destination);
+                        }
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["goToExpired"] != null &&
+                  typeof $steps["goToExpired"] === "object" &&
+                  typeof $steps["goToExpired"].then === "function"
+                ) {
+                  $steps["goToExpired"] = await $steps["goToExpired"];
                 }
               }).apply(null, eventArgs);
             }}
@@ -16909,10 +16971,9 @@ function PlasmicCalendar__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return (
-                                        " فعالسازی " +
-                                        $state.toolAdvertising[0].bigTitle
-                                      );
+                                      return $state.toolAdvertising[
+                                        $state.indextool
+                                      ].btnText;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -32015,15 +32076,6 @@ function PlasmicCalendar__RenderFunc(props: {
               </Stack__>
             </Stack__>
           </AntdModal>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__h7VUp
-            )}
-          >
-            {"Enter some text"}
-          </div>
         </div>
       </div>
     </React.Fragment>
