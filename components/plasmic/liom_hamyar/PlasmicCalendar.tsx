@@ -2272,7 +2272,7 @@ function PlasmicCalendar__RenderFunc(props: {
                 }
 
                 $steps["goToExpired"] = (
-                  $state.user.data?.success
+                  $state.user.data?.success == false
                     ? $state.user.data.success
                     : false && localStorag.getItem("token")
                 )
