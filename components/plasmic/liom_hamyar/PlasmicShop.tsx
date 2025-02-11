@@ -693,6 +693,31 @@ function PlasmicShop__RenderFunc(props: {
                 data-plasmic-name={"headerLiom"}
                 data-plasmic-override={overrides.headerLiom}
                 className={classNames("__wab_instance", sty.headerLiom)}
+                slot={
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__jqPFu
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return document.referrer;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                }
               />
             ) : null}
           </section>
@@ -1446,6 +1471,42 @@ function PlasmicShop__RenderFunc(props: {
                               ) {
                                 $steps["updateLoadingBtn2"] = await $steps[
                                   "updateLoadingBtn2"
+                                ];
+                              }
+
+                              $steps["updateName"] = true
+                                ? (() => {
+                                    const actionArgs = {
+                                      variable: {
+                                        objRoot: $state,
+                                        variablePath: ["name"]
+                                      },
+                                      operation: 0
+                                    };
+                                    return (({
+                                      variable,
+                                      value,
+                                      startIndex,
+                                      deleteCount
+                                    }) => {
+                                      if (!variable) {
+                                        return;
+                                      }
+                                      const { objRoot, variablePath } =
+                                        variable;
+
+                                      $stateSet(objRoot, variablePath, value);
+                                      return value;
+                                    })?.apply(null, [actionArgs]);
+                                  })()
+                                : undefined;
+                              if (
+                                $steps["updateName"] != null &&
+                                typeof $steps["updateName"] === "object" &&
+                                typeof $steps["updateName"].then === "function"
+                              ) {
+                                $steps["updateName"] = await $steps[
+                                  "updateName"
                                 ];
                               }
                             }}
