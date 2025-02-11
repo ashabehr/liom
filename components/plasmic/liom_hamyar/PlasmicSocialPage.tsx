@@ -61,6 +61,11 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import SelectionChoise from "../../SelectionChoise"; // plasmic-import: kjK-J97SUWLJ/component
+import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -81,7 +86,9 @@ export const PlasmicSocialPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSocialPage__OverridesType = {
   root?: Flex__<"div">;
-  img?: Flex__<typeof PlasmicImg__>;
+  headerLiom?: Flex__<typeof HeaderLiom>;
+  selectionChoise?: Flex__<typeof SelectionChoise>;
+  textArea?: Flex__<typeof AntdTextArea>;
 };
 
 export interface DefaultSocialPageProps {}
@@ -126,6 +133,26 @@ function PlasmicSocialPage__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "textArea.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -153,43 +180,184 @@ function PlasmicSocialPage__RenderFunc(props: {
             sty.root
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__f0Ap)}>
-            <div className={classNames(projectcss.all, sty.freeBox__oUuo3)}>
+          <HeaderLiom
+            data-plasmic-name={"headerLiom"}
+            data-plasmic-override={overrides.headerLiom}
+            className={classNames("__wab_instance", sty.headerLiom)}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__fnC1S)}>
               <PlasmicImg__
-                data-plasmic-name={"img"}
-                data-plasmic-override={overrides.img}
                 alt={""}
-                className={classNames(sty.img)}
+                className={classNames(sty.img__rWa8Z)}
                 displayHeight={"auto"}
                 displayMaxHeight={"none"}
                 displayMaxWidth={"100%"}
                 displayMinHeight={"0"}
                 displayMinWidth={"0"}
-                displayWidth={"auto"}
+                displayWidth={"20px"}
                 loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image38.svg",
+                  fullWidth: 24,
+                  fullHeight: 24,
+                  aspectRatio: 1
+                }}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__iV3Z6)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__zv2Av
-                  )}
-                >
-                  {"\u0631\u06cc\u0634\u0647"}
-                </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__zdN81
-                  )}
-                >
-                  {"username"}
-                </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ppytu
+                )}
+              >
+                {""}
               </div>
             </div>
+          </HeaderLiom>
+          <div className={classNames(projectcss.all, sty.freeBox__f0Ap)}>
+            <div className={classNames(projectcss.all, sty.freeBox__utoeo)}>
+              <div className={classNames(projectcss.all, sty.freeBox__oUuo3)}>
+                <PlasmicImg__
+                  alt={""}
+                  className={classNames(sty.img__jZmxt)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"auto"}
+                  loading={"lazy"}
+                />
+
+                <div className={classNames(projectcss.all, sty.freeBox__iV3Z6)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zv2Av
+                    )}
+                  >
+                    {"name"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zdN81
+                    )}
+                  >
+                    {"username"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__qtk4Z)}>
+                  <SelectionChoise
+                    data-plasmic-name={"selectionChoise"}
+                    data-plasmic-override={overrides.selectionChoise}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.selectionChoise
+                    )}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__t9Tok
+                      )}
+                    >
+                      {
+                        "\u062f\u0646\u0628\u0627\u0644 \u06a9\u0631\u062f\u0646 "
+                      }
+                    </div>
+                  </SelectionChoise>
+                </div>
+              </div>
+              <div className={classNames(projectcss.all, sty.freeBox__uC3N)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__tfdqU)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___0ZQha
+                    )}
+                  >
+                    {
+                      "\u0632\u0645\u0627\u0646 \u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc "
+                    }
+                  </div>
+                  <svg
+                    className={classNames(projectcss.all, sty.svg__jVevt)}
+                    role={"img"}
+                  />
+                </Stack__>
+                <svg
+                  className={classNames(projectcss.all, sty.svg___2Yunl)}
+                  role={"img"}
+                />
+              </div>
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__kwkzd
+              )}
+            >
+              {"c"}
+            </div>
+          </div>
+          <div className={classNames(projectcss.all, sty.freeBox__dnSli)}>
+            <svg
+              className={classNames(projectcss.all, sty.svg__vNfKk)}
+              role={"img"}
+            />
+
+            {(() => {
+              const child$Props = {
+                autoSize: true,
+                className: classNames("__wab_instance", sty.textArea),
+                onChange: async (...eventArgs: any) => {
+                  generateStateOnChangePropForCodeComponents(
+                    $state,
+                    "value",
+                    ["textArea", "value"],
+                    AntdTextArea_Helpers
+                  ).apply(null, eventArgs);
+                },
+                placeholder:
+                  "\u06a9\u0627\u0645\u0646\u062a \u0631\u0648 \u0628\u0646\u0648\u06cc\u0633",
+                value: generateStateValueProp($state, ["textArea", "value"])
+              };
+              initializeCodeComponentStates(
+                $state,
+                [
+                  {
+                    name: "value",
+                    plasmicStateName: "textArea.value"
+                  }
+                ],
+                [],
+                AntdTextArea_Helpers ?? {},
+                child$Props
+              );
+
+              return (
+                <AntdTextArea
+                  data-plasmic-name={"textArea"}
+                  data-plasmic-override={overrides.textArea}
+                  {...child$Props}
+                />
+              );
+            })()}
+            <svg
+              className={classNames(projectcss.all, sty.svg__o8F2W)}
+              role={"img"}
+            />
           </div>
         </div>
       </div>
@@ -198,15 +366,19 @@ function PlasmicSocialPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img"],
-  img: ["img"]
+  root: ["root", "headerLiom", "selectionChoise", "textArea"],
+  headerLiom: ["headerLiom"],
+  selectionChoise: ["selectionChoise"],
+  textArea: ["textArea"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  img: typeof PlasmicImg__;
+  headerLiom: typeof HeaderLiom;
+  selectionChoise: typeof SelectionChoise;
+  textArea: typeof AntdTextArea;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -294,7 +466,9 @@ export const PlasmicSocialPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    img: makeNodeComponent("img"),
+    headerLiom: makeNodeComponent("headerLiom"),
+    selectionChoise: makeNodeComponent("selectionChoise"),
+    textArea: makeNodeComponent("textArea"),
 
     // Metadata about props expected for PlasmicSocialPage
     internalVariantProps: PlasmicSocialPage__VariantProps,

@@ -560,7 +560,26 @@ function PlasmicShop__RenderFunc(props: {
         path: "redirectUrl",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return `https://apps.liom.app/shopResult?buyId=${
+                $state.selectShop.id
+              }&?offCode=${
+                $state.discountCode
+              }&token=hjk812${localStorage.getItem("token")}jkp&redirectUrl=${
+                document.referrer
+              }`;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "loadingBtn",
@@ -614,6 +633,43 @@ function PlasmicShop__RenderFunc(props: {
             plasmic_plasmic_rich_components_css.plasmic_tokens,
             sty.root
           )}
+          onLoad={async event => {
+            const $steps = {};
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        if (
+                          $ctx.query.token ||
+                          new URLSearchParams(window.location.search).get(
+                            "token"
+                          )
+                        ) {
+                          var app =
+                            $ctx.query.token ||
+                            new URLSearchParams(window.location.search).get(
+                              "token"
+                            );
+                          return localStorage.setItem("token", app);
+                        }
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
         >
           <section className={classNames(projectcss.all, sty.section__hlw7Y)}>
             {(

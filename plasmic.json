@@ -1236,6 +1236,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/new-page-2"
+        },
+        {
+          "id": "nEoiheI66Xy-",
+          "name": "ShopResult2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicShopResult2.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/shopResult.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicShopResult2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/shopResult"
         }
       ],
       "icons": [

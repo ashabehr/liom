@@ -60,14 +60,8 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
-import {
-  executePlasmicDataOp,
-  usePlasmicDataOp,
-  usePlasmicInvalidate
-} from "@plasmicapp/react-web/lib/data-sources";
 
-import { Iframe } from "@plasmicpkgs/plasmic-basic-components";
-import { Timer } from "@plasmicpkgs/plasmic-basic-components";
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -75,6 +69,9 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicTest.module.css"; // plasmic-import: sfemSfmG6qsw/css
+
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -89,8 +86,7 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
-  iframe?: Flex__<typeof Iframe>;
-  timer?: Flex__<typeof Timer>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultTestProps {}
@@ -155,6 +151,12 @@ function PlasmicTest__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -165,8 +167,6 @@ function PlasmicTest__RenderFunc(props: {
     $queries: {},
     $refs
   });
-  const dataSourcesCtx = usePlasmicDataSourceContext();
-  const plasmicInvalidate = usePlasmicInvalidate();
 
   return (
     <React.Fragment>
@@ -195,96 +195,69 @@ function PlasmicTest__RenderFunc(props: {
             sty.root
           )}
         >
-          <Iframe
-            data-plasmic-name={"iframe"}
-            data-plasmic-override={overrides.iframe}
-            className={classNames("__wab_instance", sty.iframe)}
-            onLoad={async event => {
+          <Button
+            data-plasmic-name={"button"}
+            data-plasmic-override={overrides.button}
+            className={classNames("__wab_instance", sty.button)}
+            color={generateStateValueProp($state, ["button", "color"])}
+            onClick={async event => {
               const $steps = {};
 
-              $steps["refreshData"] = true
+              $steps[
+                "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
+              ] = true
                 ? (() => {
                     const actionArgs = {
-                      queryInvalidation: ["plasmic_refresh_all"]
+                      destination:
+                        "http://apps.liom.app/shop?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1NGVmZTViLWI2NGUtNGI1ZS1iZjZkLTlkNjg5MDk0NjllOCIsImlhdCI6MTczMjc5MDEyM30.kzKz130Ds0Std_DaouZymp-vunz7nZI4I3cv4l3HAGk"
                     };
-                    return (async ({ queryInvalidation }) => {
-                      if (!queryInvalidation) {
-                        return;
+                    return (({ destination }) => {
+                      if (
+                        typeof destination === "string" &&
+                        destination.startsWith("#")
+                      ) {
+                        document
+                          .getElementById(destination.substr(1))
+                          .scrollIntoView({ behavior: "smooth" });
+                      } else {
+                        __nextRouter?.push(destination);
                       }
-                      await plasmicInvalidate(queryInvalidation);
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
               if (
-                $steps["refreshData"] != null &&
-                typeof $steps["refreshData"] === "object" &&
-                typeof $steps["refreshData"].then === "function"
+                $steps[
+                  "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
+                ] != null &&
+                typeof $steps[
+                  "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
+                ] === "object" &&
+                typeof $steps[
+                  "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
+                ].then === "function"
               ) {
-                $steps["refreshData"] = await $steps["refreshData"];
+                $steps[
+                  "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
+                ] = await $steps[
+                  "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
+                ];
               }
             }}
-            preview={true}
-            src={(() => {
-              try {
-                return (
-                  "https://apps.liom.app/intro/?r=" +
-                  $ctx.query.r +
-                  "&m=" +
-                  $ctx.query.m
+            onColorChange={async (...eventArgs: any) => {
+              ((...eventArgs) => {
+                generateStateOnChangeProp($state, ["button", "color"])(
+                  eventArgs[0]
                 );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return undefined;
-                }
-                throw e;
-              }
-            })()}
-          />
+              }).apply(null, eventArgs);
 
-          <Timer
-            data-plasmic-name={"timer"}
-            data-plasmic-override={overrides.timer}
-            className={classNames("__wab_instance", sty.timer)}
-            intervalSeconds={1}
-            isRunning={true}
-            onTick={async () => {
-              const $steps = {};
-
-              $steps["updateIntro"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: {
-                        objRoot: $state,
-                        variablePath: ["intro"]
-                      },
-                      operation: 0,
-                      value: localStorage.getItem("liomHamyar_intro")
-                        ? false
-                        : true
-                    };
-                    return (({ variable, value, startIndex, deleteCount }) => {
-                      if (!variable) {
-                        return;
-                      }
-                      const { objRoot, variablePath } = variable;
-
-                      $stateSet(objRoot, variablePath, value);
-                      return value;
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
               if (
-                $steps["updateIntro"] != null &&
-                typeof $steps["updateIntro"] === "object" &&
-                typeof $steps["updateIntro"].then === "function"
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
               ) {
-                $steps["updateIntro"] = await $steps["updateIntro"];
+                return;
               }
             }}
-            runWhileEditing={false}
           />
         </div>
       </div>
@@ -293,17 +266,15 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "iframe", "timer"],
-  iframe: ["iframe"],
-  timer: ["timer"]
+  root: ["root", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  iframe: typeof Iframe;
-  timer: typeof Timer;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -391,8 +362,7 @@ export const PlasmicTest = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    iframe: makeNodeComponent("iframe"),
-    timer: makeNodeComponent("timer"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,
