@@ -1250,6 +1250,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/shopResult"
+        },
+        {
+          "id": "ghwXD1CqaWYi",
+          "name": "HamyarAdd",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicHamyarAdd.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/hamyar-add.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicHamyarAdd.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/hamyar-add"
         }
       ],
       "icons": [
