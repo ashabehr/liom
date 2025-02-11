@@ -99,7 +99,6 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicCalendar.module.css"; // plasmic-import: 1kOlF8ZxmgdR/css
 
-import Icon143Icon from "./icons/PlasmicIcon__Icon143"; // plasmic-import: 0Mqc9-aoNYUO/icon
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
 import Icon144Icon from "./icons/PlasmicIcon__Icon144"; // plasmic-import: 1DQk0pCQHybZ/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
@@ -1537,7 +1536,7 @@ function PlasmicCalendar__RenderFunc(props: {
         path: "button.color",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ["softGreen", "line"]
+        initFunc: ({ $props, $state, $queries, $ctx }) => []
       },
       {
         path: "toolAdvertising",
@@ -1770,20 +1769,15 @@ function PlasmicCalendar__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.freeBox___4EuCj)}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__gz1Y)}>
-                  <Icon143Icon
-                    className={classNames(projectcss.all, sty.svg__o1Nc)}
-                    role={"img"}
-                  />
-
                   <div
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__xneyM
+                      sty.text__dQkJv
                     )}
                   >
                     {
-                      "\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
+                      "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
                     }
                   </div>
                 </div>
@@ -1837,9 +1831,6 @@ function PlasmicCalendar__RenderFunc(props: {
                       return;
                     }
                   }}
-                  shape={"rounded"}
-                  showEndIcon={true}
-                  size={"compact"}
                   startIcon={
                     <ChevronRightIcon
                       className={classNames(projectcss.all, sty.svg__qt3Yv)}
@@ -1847,9 +1838,17 @@ function PlasmicCalendar__RenderFunc(props: {
                     />
                   }
                 >
-                  {
-                    "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
-                  }
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xh7F4
+                    )}
+                  >
+                    {
+                      "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
+                    }
+                  </div>
                 </Button>
               </Stack__>
             }
