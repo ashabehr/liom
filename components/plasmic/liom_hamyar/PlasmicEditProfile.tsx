@@ -4297,7 +4297,6 @@ function PlasmicEditProfile__RenderFunc(props: {
                     return;
                   }
                 }}
-                placeholder={"9123456789"}
                 showEndIcon={true}
                 startIcon={
                   <SearchSvgIcon

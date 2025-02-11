@@ -4280,16 +4280,17 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   min-width: 0;
+  min-height: 0;
   border-radius: 8px;
   padding: 8px;
   border-width: 1px;
 }
 .text__cL78D {
   position: relative;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   text-align: right;
   font-family: "Roboto", sans-serif;
@@ -4298,11 +4299,11 @@
   font-style: normal;
   color: var(--token-ODBUExjR6VEF);
   text-transform: none;
-  line-height: 1.5;
   letter-spacing: normal;
   white-space: pre-wrap;
   width: 100%;
   min-width: 0;
+  min-height: 0;
 }
 .heightAndWeight {
   display: flex;
