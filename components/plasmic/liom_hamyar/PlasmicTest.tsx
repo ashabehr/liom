@@ -203,44 +203,27 @@ function PlasmicTest__RenderFunc(props: {
             onClick={async event => {
               const $steps = {};
 
-              $steps[
-                "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
-              ] = true
+              $steps["runCode"] = true
                 ? (() => {
                     const actionArgs = {
-                      destination:
-                        "http://apps.liom.app/shop?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1NGVmZTViLWI2NGUtNGI1ZS1iZjZkLTlkNjg5MDk0NjllOCIsImlhdCI6MTczMjc5MDEyM30.kzKz130Ds0Std_DaouZymp-vunz7nZI4I3cv4l3HAGk"
-                    };
-                    return (({ destination }) => {
-                      if (
-                        typeof destination === "string" &&
-                        destination.startsWith("#")
-                      ) {
-                        document
-                          .getElementById(destination.substr(1))
-                          .scrollIntoView({ behavior: "smooth" });
-                      } else {
-                        __nextRouter?.push(destination);
+                      customFunction: async () => {
+                        return window.open(
+                          "https://studio.plasmic.app/projects/suVPi77vb6vv9K5rYJwyxC/preview-full/shop?r=cd5bba&t=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1NGVmZTViLWI2NGUtNGI1ZS1iZjZkLTlkNjg5MDk0NjllOCIsImlhdCI6MTczMjc5MDEyM30.kzKz130Ds0Std_DaouZymp-vunz7nZI4I3cv4l3HAGk",
+                          "_self"
+                        );
                       }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
                     })?.apply(null, [actionArgs]);
                   })()
                 : undefined;
               if (
-                $steps[
-                  "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
-                ] != null &&
-                typeof $steps[
-                  "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
-                ] === "object" &&
-                typeof $steps[
-                  "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
-                ].then === "function"
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
               ) {
-                $steps[
-                  "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
-                ] = await $steps[
-                  "goToHttpAppsLiomAppShopTokenEyJhbGciOiJiUzI1NiIsInR5CCi6IkpXvcj9EyJpZci6IjE1NgVmZtViLwi2NgUtNgi1Zs1IZjZkLTlkNjg5MDk0NjllOcIsImlhdCi6MTczMjc5MdEyM30KzKz130Ds0StdDaouZympVunz7NZi4I3Cv4L3HaGk"
-                ];
+                $steps["runCode"] = await $steps["runCode"];
               }
             }}
             onColorChange={async (...eventArgs: any) => {
