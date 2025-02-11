@@ -61,6 +61,7 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
@@ -107,6 +108,8 @@ export const PlasmicEditProfile__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicEditProfile__OverridesType = {
   root?: Flex__<"div">;
+  headerLiom?: Flex__<typeof HeaderLiom>;
+  img?: Flex__<typeof PlasmicImg__>;
   embedHtml?: Flex__<typeof Embed>;
   numberOfDaysOfBleeding?: Flex__<typeof Dialog>;
   apiRequest2?: Flex__<typeof ApiRequest>;
@@ -167,6 +170,7 @@ export type PlasmicEditProfile__OverridesType = {
   heightAndWeight?: Flex__<"div">;
   weight?: Flex__<"div">;
   weight2?: Flex__<"div">;
+  button19?: Flex__<typeof Button>;
   getInfo?: Flex__<typeof ApiRequest>;
 };
 
@@ -844,6 +848,12 @@ function PlasmicEditProfile__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button19.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -882,6 +892,45 @@ function PlasmicEditProfile__RenderFunc(props: {
             sty.root
           )}
         >
+          <HeaderLiom
+            data-plasmic-name={"headerLiom"}
+            data-plasmic-override={overrides.headerLiom}
+            className={classNames("__wab_instance", sty.headerLiom)}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__iiKPg)}>
+              <PlasmicImg__
+                data-plasmic-name={"img"}
+                data-plasmic-override={overrides.img}
+                alt={""}
+                className={classNames(sty.img)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"20px"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image38.svg",
+                  fullWidth: 24,
+                  fullHeight: 24,
+                  aspectRatio: 1
+                }}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xfz84
+                )}
+              >
+                {
+                  "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u067e\u0631\u0648\u0641\u0627\u06cc\u0644\n"
+                }
+              </div>
+            </div>
+          </HeaderLiom>
           <Embed
             data-plasmic-name={"embedHtml"}
             data-plasmic-override={overrides.embedHtml}
@@ -5247,184 +5296,253 @@ function PlasmicEditProfile__RenderFunc(props: {
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            data-plasmic-name={"heightAndWeight"}
-            data-plasmic-override={overrides.heightAndWeight}
-            className={classNames(projectcss.all, sty.heightAndWeight)}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__kzzDw)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oBGcV
-                )}
-              >
-                {"\u0642\u062f"}
+            <div
+              data-plasmic-name={"heightAndWeight"}
+              data-plasmic-override={overrides.heightAndWeight}
+              className={classNames(projectcss.all, sty.heightAndWeight)}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__kzzDw)}>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__oBGcV
+                  )}
+                >
+                  {"\u0642\u062f"}
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__gzQ2U)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDialogForHeightOpendialog"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dialogForHeight", "opendialog"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDialogForHeightOpendialog"] != null &&
+                      typeof $steps["updateDialogForHeightOpendialog"] ===
+                        "object" &&
+                      typeof $steps["updateDialogForHeightOpendialog"].then ===
+                        "function"
+                    ) {
+                      $steps["updateDialogForHeightOpendialog"] = await $steps[
+                        "updateDialogForHeightOpendialog"
+                      ];
+                    }
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___4ZXj
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.height;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <RulerIcSvgIcon
+                    className={classNames(projectcss.all, sty.svg__y2YdS)}
+                    role={"img"}
+                  />
+                </div>
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox__gzQ2U)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateDialogForHeightOpendialog"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["dialogForHeight", "opendialog"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateDialogForHeightOpendialog"] != null &&
-                    typeof $steps["updateDialogForHeightOpendialog"] ===
-                      "object" &&
-                    typeof $steps["updateDialogForHeightOpendialog"].then ===
-                      "function"
-                  ) {
-                    $steps["updateDialogForHeightOpendialog"] = await $steps[
-                      "updateDialogForHeightOpendialog"
-                    ];
-                  }
-                }}
+                data-plasmic-name={"weight"}
+                data-plasmic-override={overrides.weight}
+                className={classNames(projectcss.all, sty.weight)}
               >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text___4ZXj
+                    sty.text___3YH8O
                   )}
                 >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $state.height;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
+                  {"\u0648\u0632\u0646"}
                 </div>
-                <RulerIcSvgIcon
-                  className={classNames(projectcss.all, sty.svg__y2YdS)}
-                  role={"img"}
-                />
+                <div
+                  data-plasmic-name={"weight2"}
+                  data-plasmic-override={overrides.weight2}
+                  className={classNames(projectcss.all, sty.weight2)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDialogForWeightOpendialog"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dialogForWeight", "opendialog"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDialogForWeightOpendialog"] != null &&
+                      typeof $steps["updateDialogForWeightOpendialog"] ===
+                        "object" &&
+                      typeof $steps["updateDialogForWeightOpendialog"].then ===
+                        "function"
+                    ) {
+                      $steps["updateDialogForWeightOpendialog"] = await $steps[
+                        "updateDialogForWeightOpendialog"
+                      ];
+                    }
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__aGUm
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.weight3;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                  <WeightmeterIcSvgIcon
+                    className={classNames(projectcss.all, sty.svg__bjFcY)}
+                    role={"img"}
+                  />
+                </div>
               </div>
             </div>
-            <div
-              data-plasmic-name={"weight"}
-              data-plasmic-override={overrides.weight}
-              className={classNames(projectcss.all, sty.weight)}
+            <Button
+              data-plasmic-name={"button19"}
+              data-plasmic-override={overrides.button19}
+              className={classNames("__wab_instance", sty.button19)}
+              color={generateStateValueProp($state, ["button19", "color"])}
+              onClick={async event => {
+                const $steps = {};
+
+                $steps["updateNameInputValue"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["nameInput", "value"]
+                        },
+                        operation: 0
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateNameInputValue"] != null &&
+                  typeof $steps["updateNameInputValue"] === "object" &&
+                  typeof $steps["updateNameInputValue"].then === "function"
+                ) {
+                  $steps["updateNameInputValue"] = await $steps[
+                    "updateNameInputValue"
+                  ];
+                }
+              }}
+              onColorChange={async (...eventArgs: any) => {
+                ((...eventArgs) => {
+                  generateStateOnChangeProp($state, ["button19", "color"])(
+                    eventArgs[0]
+                  );
+                }).apply(null, eventArgs);
+
+                if (
+                  eventArgs.length > 1 &&
+                  eventArgs[1] &&
+                  eventArgs[1]._plasmic_state_init_
+                ) {
+                  return;
+                }
+              }}
             >
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text___3YH8O
+                  sty.text__h50Wb
                 )}
               >
-                {"\u0648\u0632\u0646"}
+                {"\u0630\u062e\u06cc\u0631\u0647"}
               </div>
-              <div
-                data-plasmic-name={"weight2"}
-                data-plasmic-override={overrides.weight2}
-                className={classNames(projectcss.all, sty.weight2)}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateDialogForWeightOpendialog"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["dialogForWeight", "opendialog"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateDialogForWeightOpendialog"] != null &&
-                    typeof $steps["updateDialogForWeightOpendialog"] ===
-                      "object" &&
-                    typeof $steps["updateDialogForWeightOpendialog"].then ===
-                      "function"
-                  ) {
-                    $steps["updateDialogForWeightOpendialog"] = await $steps[
-                      "updateDialogForWeightOpendialog"
-                    ];
-                  }
-                }}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__aGUm
-                  )}
-                >
-                  <React.Fragment>
-                    {(() => {
-                      try {
-                        return $state.weight3;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return "";
-                        }
-                        throw e;
-                      }
-                    })()}
-                  </React.Fragment>
-                </div>
-                <WeightmeterIcSvgIcon
-                  className={classNames(projectcss.all, sty.svg__bjFcY)}
-                  role={"img"}
-                />
-              </div>
-            </div>
+            </Button>
           </div>
           <ApiRequest
             data-plasmic-name={"getInfo"}
@@ -5500,6 +5618,8 @@ function PlasmicEditProfile__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "headerLiom",
+    "img",
     "embedHtml",
     "numberOfDaysOfBleeding",
     "apiRequest2",
@@ -5560,8 +5680,11 @@ const PlasmicDescendants = {
     "heightAndWeight",
     "weight",
     "weight2",
+    "button19",
     "getInfo"
   ],
+  headerLiom: ["headerLiom", "img"],
+  img: ["img"],
   embedHtml: ["embedHtml"],
   numberOfDaysOfBleeding: [
     "numberOfDaysOfBleeding",
@@ -5711,7 +5834,11 @@ const PlasmicDescendants = {
     "switchbest",
     "verticalForMenstrualCycle",
     "numberOfDaysOfBleeding2",
-    "numberOfDaysOfBleeding3"
+    "numberOfDaysOfBleeding3",
+    "heightAndWeight",
+    "weight",
+    "weight2",
+    "button19"
   ],
   verticalForNameInput: ["verticalForNameInput", "nameInput", "antdInput3"],
   nameInput: ["nameInput", "antdInput3"],
@@ -5744,6 +5871,7 @@ const PlasmicDescendants = {
   heightAndWeight: ["heightAndWeight", "weight", "weight2"],
   weight: ["weight", "weight2"],
   weight2: ["weight2"],
+  button19: ["button19"],
   getInfo: ["getInfo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -5751,6 +5879,8 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  headerLiom: typeof HeaderLiom;
+  img: typeof PlasmicImg__;
   embedHtml: typeof Embed;
   numberOfDaysOfBleeding: typeof Dialog;
   apiRequest2: typeof ApiRequest;
@@ -5811,6 +5941,7 @@ type NodeDefaultElementType = {
   heightAndWeight: "div";
   weight: "div";
   weight2: "div";
+  button19: typeof Button;
   getInfo: typeof ApiRequest;
 };
 
@@ -5899,6 +6030,8 @@ export const PlasmicEditProfile = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    headerLiom: makeNodeComponent("headerLiom"),
+    img: makeNodeComponent("img"),
     embedHtml: makeNodeComponent("embedHtml"),
     numberOfDaysOfBleeding: makeNodeComponent("numberOfDaysOfBleeding"),
     apiRequest2: makeNodeComponent("apiRequest2"),
@@ -5969,6 +6102,7 @@ export const PlasmicEditProfile = Object.assign(
     heightAndWeight: makeNodeComponent("heightAndWeight"),
     weight: makeNodeComponent("weight"),
     weight2: makeNodeComponent("weight2"),
+    button19: makeNodeComponent("button19"),
     getInfo: makeNodeComponent("getInfo"),
 
     // Metadata about props expected for PlasmicEditProfile

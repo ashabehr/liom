@@ -6001,15 +6001,20 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     destination: (() => {
                                       try {
                                         return (
-                                          "https://tools.liom.app/self-medication/?type=danger&inApp=" +
-                                          $ctx.query.inApp +
+                                          "https://tools.liom.app/self-medication/?type=danger&inApp=false" +
                                           "&token=" +
                                           $ctx.query.token.slice(
                                             6,
                                             $ctx.query.token.length - 3
                                           ) +
                                           "&selectStep=" +
-                                          ($state.weeksPregnant - 1)
+                                          ($state.weeksPregnant - 1) +
+                                          "&userId=" +
+                                          ($ctx?.query?.userId ?? "").slice(
+                                            4,
+                                            ($ctx?.query?.userId ?? "").length -
+                                              4
+                                          )
                                         );
                                       } catch (e) {
                                         if (
@@ -6052,13 +6057,19 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     customFunction: async () => {
                                       return (() => {
                                         var link =
-                                          "https://tools.liom.app/self-medication/?type=danger&inApp=false&token=" +
+                                          "https://tools.liom.app/self-medication/?type=danger&inApp=true&token=" +
                                           $ctx.query.token.slice(
                                             6,
                                             $ctx.query.token.length - 3
                                           ) +
                                           "&selectStep=" +
-                                          ($state.weeksPregnant - 1);
+                                          ($state.weeksPregnant - 1) +
+                                          "&userId=" +
+                                          ($ctx?.query?.userId ?? "").slice(
+                                            4,
+                                            ($ctx?.query?.userId ?? "").length -
+                                              4
+                                          );
                                         return window.FlutterChannel.postMessage(
                                           "#inAppWebView**@@**ابزار خطرناکه یانه **@@**" +
                                             link
