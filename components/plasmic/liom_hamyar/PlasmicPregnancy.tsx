@@ -6081,7 +6081,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           $ctx.query.token.length - 3
                                         ) +
                                         "&selectStep=" +
-                                        ($state.weeksPregnant - 1) +
+                                        //($state.weeksPregnant - 1)
+                                        "0" +
                                         "&userId=" +
                                         ($ctx?.query?.userId ?? "").slice(
                                           4,
@@ -6135,7 +6136,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           $ctx.query.token.length - 3
                                         ) +
                                         "&selectStep=" +
-                                        ($state.weeksPregnant - 1) +
+                                        "0" +
                                         "&userId=" +
                                         ($ctx?.query?.userId ?? "").slice(
                                           4,

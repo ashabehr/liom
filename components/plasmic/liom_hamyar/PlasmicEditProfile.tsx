@@ -5324,16 +5324,9 @@ function PlasmicEditProfile__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return (() => {
-                            const firstPeriodDate =
-                              $state
-                                .variableForTheDateOfTheFirstDayOfYourLastPeriod[0];
-                            if (firstPeriodDate) {
-                              return "", firstPeriodDate.label;
-                            } else {
-                              return console.log("هیچ نتیجه‌ای پیدا نشد.");
-                            }
-                          })();
+                          return $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
+                            a => a.value === $state.variableForLastPeriod
+                          ).label;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -5581,13 +5574,14 @@ function PlasmicEditProfile__RenderFunc(props: {
                             try {
                               return {
                                 authorization: $state.token,
-                                name: $state.name,
+                                name: $state.name || "",
                                 birthDate: $state.dateOfBrith,
                                 height: $state.height || "",
                                 weight: $state.weight3 || "",
                                 cycle: $state.periodCycleLength,
                                 length: $state.numberOfDaysOfBleedingPicker,
-                                last_time: $state.variableForLastPeriod,
+                                last_time:
+                                  $state.variableForLastPeriod.date || "",
                                 job: $state.variableForJob,
                                 education:
                                   $state.variableForGraduateAndStudying,
