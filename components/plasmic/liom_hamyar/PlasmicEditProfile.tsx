@@ -214,6 +214,8 @@ function PlasmicEditProfile__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -629,36 +631,23 @@ function PlasmicEditProfile__RenderFunc(props: {
       {
         path: "variableForJob",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "variableForMarrideStutuse",
         type: "private",
-        variableType: "text",
+        variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getInfo.data.result.user.married;
+              return $state.getInfo.data.result.user.married ? "متاهل" : "مجرد";
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return undefined;
+                return false;
               }
               throw e;
             }
@@ -4470,13 +4459,22 @@ function PlasmicEditProfile__RenderFunc(props: {
                   <React.Fragment>
                     {(() => {
                       try {
-                        return (
-                          $state.dateOfBrith.year +
-                          "/" +
-                          $state.dateOfBrith.month +
-                          "/" +
-                          $state.dateOfBrith.day
-                        );
+                        return (() => {
+                          const birthDateObject =
+                            $state.getInfo.data.result.user.birthDate;
+                          const jalaaliDate = window.jalaali.toJalaali(
+                            birthDateObject.year,
+                            birthDateObject.month,
+                            birthDateObject.day
+                          );
+                          return (
+                            `${jalaaliDate.jy}` +
+                            "/" +
+                            `${jalaaliDate.jm}` +
+                            "/" +
+                            `${jalaaliDate.jd}`
+                          );
+                        })();
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -5304,9 +5302,16 @@ function PlasmicEditProfile__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
-                            a => a.value === $state.variableForLastPeriod
-                          ).label;
+                          return (() => {
+                            const firstPeriodDate =
+                              $state
+                                .variableForTheDateOfTheFirstDayOfYourLastPeriod[0];
+                            if (firstPeriodDate) {
+                              return "", firstPeriodDate.label;
+                            } else {
+                              return console.log("هیچ نتیجه‌ای پیدا نشد.");
+                            }
+                          })();
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -5540,6 +5545,44 @@ function PlasmicEditProfile__RenderFunc(props: {
                 ) {
                   $steps["updateNameInputValue"] = await $steps[
                     "updateNameInputValue"
+                  ];
+                }
+
+                $steps["updateNameInputValue2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        args: [
+                          "POST",
+                          "https://n8n.staas.ir/webhook/calendar/rest/user/profile/edit",
+                          undefined,
+                          (() => {
+                            try {
+                              return undefined;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()
+                        ]
+                      };
+                      return $globalActions["Fragment.apiRequest"]?.apply(
+                        null,
+                        [...actionArgs.args]
+                      );
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateNameInputValue2"] != null &&
+                  typeof $steps["updateNameInputValue2"] === "object" &&
+                  typeof $steps["updateNameInputValue2"].then === "function"
+                ) {
+                  $steps["updateNameInputValue2"] = await $steps[
+                    "updateNameInputValue2"
                   ];
                 }
               }}

@@ -3847,12 +3847,13 @@
 .text__oDt3 {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
   text-align: right;
   color: var(--token-ODBUExjR6VEF);
   font-size: 16px;
   min-width: 0;
+  min-height: 0;
 }
 .svg__gvofr {
   object-fit: cover;

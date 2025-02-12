@@ -61,12 +61,22 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+
+import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHamyarAdd.module.css"; // plasmic-import: ghwXD1CqaWYi/css
+
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -81,7 +91,10 @@ export const PlasmicHamyarAdd__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHamyarAdd__OverridesType = {
   root?: Flex__<"div">;
-  img?: Flex__<typeof PlasmicImg__>;
+  button?: Flex__<typeof Button>;
+  section?: Flex__<"section">;
+  headerLiom?: Flex__<typeof HeaderLiom>;
+  modal?: Flex__<typeof AntdModal>;
 };
 
 export interface DefaultHamyarAddProps {}
@@ -126,6 +139,34 @@ function PlasmicHamyarAdd__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
+  const globalVariants = ensureGlobalVariants({
+    screen: useScreenVariants_6BytLjmha8VC()
+  });
+
   return (
     <React.Fragment>
       <Head></Head>
@@ -153,25 +194,213 @@ function PlasmicHamyarAdd__RenderFunc(props: {
             sty.root
           )}
         >
-          <PlasmicImg__
-            data-plasmic-name={"img"}
-            data-plasmic-override={overrides.img}
-            alt={""}
-            className={classNames(sty.img)}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"70%"}
-            loading={"lazy"}
-            src={{
-              src: "/plasmic/liom_hamyar/images/image80.png",
-              fullWidth: 852,
-              fullHeight: 879,
-              aspectRatio: undefined
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox___4B9Em)}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__kHgoE)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___0Cs0C
+                )}
+              >
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return `<p>
+    با اضافه کردن <b>همیار قاعدگی</b> می‌تونی به هر کسی که شماره‌شو وارد می‌کنی دسترسی بدی تا 
+    <b>دوره‌های قاعدگیت</b> رو ببینه و تو لحظات سخت کنارت باشه و <b>بهتر درکت کنه ❤️</b>.
+    اگه قابلیت <b>اطلاع‌رسانی با پیامک</b> رو فعال کنی، ما به طور خودکار وقتی تو دوران 
+    <b>PMS، تخمک‌گذاری یا پریود</b> باشی، برای شخصی که انتخاب کردی <b>پیامک</b> می‌فرستیم.
+    <br>
+    تو این پیام‌ها نکاتی بهش می‌گیم که بتونه <b>بهتر درکت کنه و همراهت باشه</b>.
+</p>
+`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "<p>\r\n    \u0628\u0627 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0631\u062f\u0646 <b>\u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc</b> \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0628\u0647 \u0647\u0631 \u06a9\u0633\u06cc \u06a9\u0647 \u0634\u0645\u0627\u0631\u0647\u200c\u0634\u0648 \u0648\u0627\u0631\u062f \u0645\u06cc\u200c\u06a9\u0646\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0628\u062f\u06cc \u062a\u0627 \r\n    <b>\u062f\u0648\u0631\u0647\u200c\u0647\u0627\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc\u062a</b> \u0631\u0648 \u0628\u0628\u06cc\u0646\u0647 \u0648 \u062a\u0648 \u0644\u062d\u0638\u0627\u062a \u0633\u062e\u062a \u06a9\u0646\u0627\u0631\u062a \u0628\u0627\u0634\u0647 \u0648 <b>\u0628\u0647\u062a\u0631 \u062f\u0631\u06a9\u062a \u06a9\u0646\u0647 \u2764\ufe0f</b>.\r\n    \u0627\u06af\u0647 \u0642\u0627\u0628\u0644\u06cc\u062a <b>\u0627\u0637\u0644\u0627\u0639\u200c\u0631\u0633\u0627\u0646\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9</b> \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646\u06cc\u060c \u0645\u0627 \u0628\u0647 \u0637\u0648\u0631 \u062e\u0648\u062f\u06a9\u0627\u0631 \u0648\u0642\u062a\u06cc \u062a\u0648 \u062f\u0648\u0631\u0627\u0646 \r\n    <b>PMS\u060c \u062a\u062e\u0645\u06a9\u200c\u06af\u0630\u0627\u0631\u06cc \u06cc\u0627 \u067e\u0631\u06cc\u0648\u062f</b> \u0628\u0627\u0634\u06cc\u060c \u0628\u0631\u0627\u06cc \u0634\u062e\u0635\u06cc \u06a9\u0647 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0631\u062f\u06cc <b>\u067e\u06cc\u0627\u0645\u06a9</b> \u0645\u06cc\u200c\u0641\u0631\u0633\u062a\u06cc\u0645.\r\n</p>\r";
+                        }
+                        throw e;
+                      }
+                    })()
+                  }}
+                />
+              </div>
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={generateStateValueProp($state, ["button", "color"])}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__wAY
+                  )}
+                >
+                  {
+                    "\u0627\u0641\u0632\u0648\u062f\u0646 \u0647\u0645\u06cc\u0627\u0631"
+                  }
+                </div>
+              </Button>
+            </Stack__>
+            <PlasmicImg__
+              alt={""}
+              className={classNames(sty.img__uuxvo)}
+              displayHeight={"auto"}
+              displayMaxHeight={"none"}
+              displayMaxWidth={"100%"}
+              displayMinHeight={"0"}
+              displayMinWidth={"0"}
+              displayWidth={
+                hasVariant(globalVariants, "screen", "mobile") ? "100%" : "50%"
+              }
+              loading={"lazy"}
+              src={{
+                src: "/plasmic/liom_hamyar/images/image80.png",
+                fullWidth: 852,
+                fullHeight: 879,
+                aspectRatio: undefined
+              }}
+            />
+          </Stack__>
+          <section
+            data-plasmic-name={"section"}
+            data-plasmic-override={overrides.section}
+            className={classNames(projectcss.all, sty.section)}
+          >
+            {(
+              hasVariant(globalVariants, "screen", "mobile")
+                ? true
+                : (() => {
+                    try {
+                      return true;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return true;
+                      }
+                      throw e;
+                    }
+                  })()
+            ) ? (
+              <HeaderLiom
+                data-plasmic-name={"headerLiom"}
+                data-plasmic-override={overrides.headerLiom}
+                className={classNames("__wab_instance", sty.headerLiom)}
+                slot={null}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__chxS)}>
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__zbS9K)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"20px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image38.svg",
+                      fullWidth: 24,
+                      fullHeight: 24,
+                      aspectRatio: 1
+                    }}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__aBaQl
+                    )}
+                  >
+                    {"\u0647\u0645\u06cc\u0627\u0631"}
+                  </div>
+                </div>
+              </HeaderLiom>
+            ) : null}
+          </section>
+          <AntdModal
+            data-plasmic-name={"modal"}
+            data-plasmic-override={overrides.modal}
+            className={classNames("__wab_instance", sty.modal)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            modalScopeClassName={sty["modal__modal"]}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["modal", "open"]).apply(
+                null,
+                eventArgs
+              );
             }}
-          />
+            open={generateStateValueProp($state, ["modal", "open"])}
+            title={"Modal title"}
+            trigger={
+              <AntdButton
+                className={classNames("__wab_instance", sty.button__bxQaz)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__oyGbF
+                  )}
+                >
+                  {"Show modal"}
+                </div>
+              </AntdButton>
+            }
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__mnTo6)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__b6FeN
+                )}
+              >
+                {"Modal content"}
+              </div>
+            </div>
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -179,15 +408,21 @@ function PlasmicHamyarAdd__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img"],
-  img: ["img"]
+  root: ["root", "button", "section", "headerLiom", "modal"],
+  button: ["button"],
+  section: ["section", "headerLiom"],
+  headerLiom: ["headerLiom"],
+  modal: ["modal"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  img: typeof PlasmicImg__;
+  button: typeof Button;
+  section: "section";
+  headerLiom: typeof HeaderLiom;
+  modal: typeof AntdModal;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -275,7 +510,10 @@ export const PlasmicHamyarAdd = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    img: makeNodeComponent("img"),
+    button: makeNodeComponent("button"),
+    section: makeNodeComponent("section"),
+    headerLiom: makeNodeComponent("headerLiom"),
+    modal: makeNodeComponent("modal"),
 
     // Metadata about props expected for PlasmicHamyarAdd
     internalVariantProps: PlasmicHamyarAdd__VariantProps,

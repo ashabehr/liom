@@ -567,7 +567,9 @@ function PlasmicShop__RenderFunc(props: {
                 $state.selectShop.id
               }&?offCode=${
                 $state.discountCode
-              }&token=hjk812${localStorage.getItem("token")}jkp&redirectUrl=`;
+              }&token=hjk812${localStorage.getItem("token")}jkp&redirectUrl=${
+                document.referrer
+              }`;
             } catch (e) {
               if (
                 e instanceof TypeError ||
