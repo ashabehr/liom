@@ -5581,7 +5581,10 @@ function PlasmicEditProfile__RenderFunc(props: {
                                 cycle: $state.periodCycleLength,
                                 length: $state.numberOfDaysOfBleedingPicker,
                                 last_time:
-                                  $state.variableForLastPeriod.date || "",
+                                  $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
+                                    a =>
+                                      a.value === $state.variableForLastPeriod
+                                  ).date || "",
                                 job: $state.variableForJob,
                                 education:
                                   $state.variableForGraduateAndStudying,
