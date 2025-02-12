@@ -8,6 +8,7 @@
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
+  background: #f8f8f8;
   min-width: 0;
   min-height: 0;
   grid-template-columns:
@@ -24,6 +25,8 @@
 .img {
   object-fit: cover;
   max-width: 100%;
+  width: 70%;
+  opacity: 0.6;
 }
 .img > picture > img {
   object-fit: cover;

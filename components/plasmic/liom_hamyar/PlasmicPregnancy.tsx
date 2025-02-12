@@ -5966,193 +5966,188 @@ function PlasmicPregnancy__RenderFunc(props: {
                         />
                       </div>
                     </div>
-                    {(() => {
-                      try {
-                        return (
-                          ($ctx?.query?.userId ?? "").slice(
-                            4,
-                            ($ctx?.query?.userId ?? "").length - 4
-                          ) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return false;
-                        }
-                        throw e;
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__ytpw0)}>
+                  {(() => {
+                    try {
+                      return (
+                        ($ctx?.query?.userId ?? "").slice(
+                          4,
+                          ($ctx?.query?.userId ?? "").length - 4
+                        ) == "4ddd1fab-100c-49f0-b843-e70bff8add34" || true
+                      );
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return false;
                       }
-                    })() ? (
-                      <Stack__
-                        as={"div"}
-                        hasGap={true}
+                      throw e;
+                    }
+                  })() ? (
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__ev9TG)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["goToPage"] =
+                          $ctx.query.inApp == "false"
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: (() => {
+                                    try {
+                                      return (
+                                        "https://tools.liom.app/self-medication/?type=danger&inApp=false" +
+                                        "&token=" +
+                                        $ctx.query.token.slice(
+                                          6,
+                                          $ctx.query.token.length - 3
+                                        ) +
+                                        "&selectStep=" +
+                                        ($state.weeksPregnant - 1) +
+                                        "&userId=" +
+                                        ($ctx?.query?.userId ?? "").slice(
+                                          4,
+                                          ($ctx?.query?.userId ?? "").length - 4
+                                        )
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                };
+                                return (({ destination }) => {
+                                  if (
+                                    typeof destination === "string" &&
+                                    destination.startsWith("#")
+                                  ) {
+                                    document
+                                      .getElementById(destination.substr(1))
+                                      .scrollIntoView({ behavior: "smooth" });
+                                  } else {
+                                    __nextRouter?.push(destination);
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["goToPage"] != null &&
+                          typeof $steps["goToPage"] === "object" &&
+                          typeof $steps["goToPage"].then === "function"
+                        ) {
+                          $steps["goToPage"] = await $steps["goToPage"];
+                        }
+
+                        $steps["runCode"] =
+                          $ctx.query.inApp == "true"
+                            ? (() => {
+                                const actionArgs = {
+                                  customFunction: async () => {
+                                    return (() => {
+                                      var link =
+                                        "https://tools.liom.app/self-medication/?type=danger&inApp=true&token=" +
+                                        $ctx.query.token.slice(
+                                          6,
+                                          $ctx.query.token.length - 3
+                                        ) +
+                                        "&selectStep=" +
+                                        ($state.weeksPregnant - 1) +
+                                        "&userId=" +
+                                        ($ctx?.query?.userId ?? "").slice(
+                                          4,
+                                          ($ctx?.query?.userId ?? "").length - 4
+                                        );
+                                      return window.FlutterChannel.postMessage(
+                                        "#inAppWebView**@@**ابزار خطرناکه یانه **@@**" +
+                                          link
+                                      );
+                                    })();
+                                  }
+                                };
+                                return (({ customFunction }) => {
+                                  return customFunction();
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+                      }}
+                    >
+                      <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__ev9TG
+                          projectcss.__wab_text,
+                          sty.text__oKaxs
                         )}
-                        onClick={async event => {
-                          const $steps = {};
-
-                          $steps["goToPage"] =
-                            $ctx.query.inApp == "false"
-                              ? (() => {
-                                  const actionArgs = {
-                                    destination: (() => {
-                                      try {
-                                        return (
-                                          "https://tools.liom.app/self-medication/?type=danger&inApp=false" +
-                                          "&token=" +
-                                          $ctx.query.token.slice(
-                                            6,
-                                            $ctx.query.token.length - 3
-                                          ) +
-                                          "&selectStep=" +
-                                          ($state.weeksPregnant - 1) +
-                                          "&userId=" +
-                                          ($ctx?.query?.userId ?? "").slice(
-                                            4,
-                                            ($ctx?.query?.userId ?? "").length -
-                                              4
-                                          )
-                                        );
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()
-                                  };
-                                  return (({ destination }) => {
-                                    if (
-                                      typeof destination === "string" &&
-                                      destination.startsWith("#")
-                                    ) {
-                                      document
-                                        .getElementById(destination.substr(1))
-                                        .scrollIntoView({ behavior: "smooth" });
-                                    } else {
-                                      __nextRouter?.push(destination);
-                                    }
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["goToPage"] != null &&
-                            typeof $steps["goToPage"] === "object" &&
-                            typeof $steps["goToPage"].then === "function"
-                          ) {
-                            $steps["goToPage"] = await $steps["goToPage"];
-                          }
-
-                          $steps["runCode"] =
-                            $ctx.query.inApp == "true"
-                              ? (() => {
-                                  const actionArgs = {
-                                    customFunction: async () => {
-                                      return (() => {
-                                        var link =
-                                          "https://tools.liom.app/self-medication/?type=danger&inApp=true&token=" +
-                                          $ctx.query.token.slice(
-                                            6,
-                                            $ctx.query.token.length - 3
-                                          ) +
-                                          "&selectStep=" +
-                                          ($state.weeksPregnant - 1) +
-                                          "&userId=" +
-                                          ($ctx?.query?.userId ?? "").slice(
-                                            4,
-                                            ($ctx?.query?.userId ?? "").length -
-                                              4
-                                          );
-                                        return window.FlutterChannel.postMessage(
-                                          "#inAppWebView**@@**ابزار خطرناکه یانه **@@**" +
-                                            link
-                                        );
-                                      })();
-                                    }
-                                  };
-                                  return (({ customFunction }) => {
-                                    return customFunction();
-                                  })?.apply(null, [actionArgs]);
-                                })()
-                              : undefined;
-                          if (
-                            $steps["runCode"] != null &&
-                            typeof $steps["runCode"] === "object" &&
-                            typeof $steps["runCode"].then === "function"
-                          ) {
-                            $steps["runCode"] = await $steps["runCode"];
-                          }
-                        }}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__oKaxs
-                          )}
-                        >
-                          {hasVariant(globalVariants, "screen", "mobile") ? (
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return (
-                                    "چه چیزهایی توی این هفته " +
-                                    "برای من و فرزندم خطرناکه؟"
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "--";
-                                  }
-                                  throw e;
+                        {hasVariant(globalVariants, "screen", "mobile") ? (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (
+                                  "چه چیزهایی در این هفته " +
+                                  "برای من و فرزندم خطرناکه؟"
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "--";
                                 }
-                              })()}
-                            </React.Fragment>
-                          ) : (
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return (
-                                    "چه چیزهایی در هفته " +
-                                    $state.textWeek[$state.weeksPregnant] +
-                                    " برای من و فرزندم خطرناک است؟ "
-                                  );
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "--";
-                                  }
-                                  throw e;
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        ) : (
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (
+                                  "چه چیزهایی در هفته " +
+                                  $state.textWeek[$state.weeksPregnant] +
+                                  " برای من و فرزندم خطرناک است؟ "
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "--";
                                 }
-                              })()}
-                            </React.Fragment>
-                          )}
-                        </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___2Shyc
-                          )}
-                        >
-                          {"\u0645\u0634\u0627\u0647\u062f\u0647\u0647"}
-                        </div>
-                      </Stack__>
-                    ) : null}
-                  </div>
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        )}
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___2Shyc
+                        )}
+                      >
+                        {"\u0645\u0634\u0627\u0647\u062f\u0647"}
+                      </div>
+                    </Stack__>
+                  ) : null}
                 </div>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__wxfFc, {

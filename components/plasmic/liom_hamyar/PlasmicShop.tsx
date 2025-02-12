@@ -567,9 +567,7 @@ function PlasmicShop__RenderFunc(props: {
                 $state.selectShop.id
               }&?offCode=${
                 $state.discountCode
-              }&token=hjk812${localStorage.getItem("token")}jkp&redirectUrl=${
-                document.referrer
-              }`;
+              }&token=hjk812${localStorage.getItem("token")}jkp&redirectUrl=`;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -693,31 +691,7 @@ function PlasmicShop__RenderFunc(props: {
                 data-plasmic-name={"headerLiom"}
                 data-plasmic-override={overrides.headerLiom}
                 className={classNames("__wab_instance", sty.headerLiom)}
-                slot={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__jqPFu
-                    )}
-                  >
-                    <React.Fragment>
-                      {(() => {
-                        try {
-                          return document.referrer + "hdgdr";
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "";
-                          }
-                          throw e;
-                        }
-                      })()}
-                    </React.Fragment>
-                  </div>
-                }
+                slot={null}
               />
             ) : null}
           </section>

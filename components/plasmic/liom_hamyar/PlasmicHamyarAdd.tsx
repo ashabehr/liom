@@ -163,8 +163,14 @@ function PlasmicHamyarAdd__RenderFunc(props: {
             displayMaxWidth={"100%"}
             displayMinHeight={"0"}
             displayMinWidth={"0"}
-            displayWidth={"auto"}
+            displayWidth={"70%"}
             loading={"lazy"}
+            src={{
+              src: "/plasmic/liom_hamyar/images/image80.png",
+              fullWidth: 852,
+              fullHeight: 879,
+              aspectRatio: undefined
+            }}
           />
         </div>
       </div>

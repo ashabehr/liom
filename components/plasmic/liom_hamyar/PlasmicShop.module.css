@@ -115,13 +115,6 @@
   min-height: 0;
   padding: 8px 8px 0px 16px;
 }
-.text__jqPFu {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
 .getData:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -284,7 +277,7 @@
   height: auto;
   max-width: 100%;
   background: #ffffff;
-  box-shadow: none;
+  box-shadow: 0px -4px 16px 0px #0000001a;
   left: auto;
   top: auto;
   min-width: 0;

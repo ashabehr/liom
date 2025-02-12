@@ -989,28 +989,53 @@
     margin: 0px 10px;
   }
 }
-.freeBox__ev9TG {
+.freeBox__ytpw0 {
   display: flex;
+  flex-direction: row;
   position: relative;
-  width: auto;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
   height: auto;
   max-width: 100%;
   top: auto;
   left: auto;
-  z-index: 1;
-  margin-top: 0px;
-  margin-right: 8px;
-  flex-direction: row;
-  right: auto;
   bottom: auto;
-  padding: 0px;
+  right: auto;
+  z-index: 1;
+  min-width: 0;
+  padding: 0px 16px;
+  margin: 8px 0px 0px;
+}
+@media (max-width: 640px) {
+  .freeBox__ytpw0 {
+    top: auto;
+    left: auto;
+    bottom: auto;
+    right: auto;
+    margin-top: 8px;
+  }
+}
+.freeBox__ev9TG {
+  display: flex;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  flex-direction: row;
+  background: var(--token-_Tqr-iwbEpLO);
+  box-shadow: 0px 4px 16px 0px #12121214;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px dashed var(--token-55cSeNPovQFh);
 }
 .freeBox__ev9TG > :global(.__wab_flex-container) {
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   flex-direction: row;
-  margin-left: calc(0px - 8px);
-  width: calc(100% + 8px);
+  min-width: 0;
+  margin-left: calc(0px - 0px);
+  width: calc(100% + 0px);
 }
 .freeBox__ev9TG > :global(.__wab_flex-container) > *,
 .freeBox__ev9TG > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
@@ -1020,19 +1045,14 @@
   > :global(.__wab_slot)
   > picture
   > img {
-  margin-left: 8px;
-}
-@media (max-width: 640px) {
-  .freeBox__ev9TG {
-    margin-top: 8px;
-  }
+  margin-left: 0px;
 }
 .text__oKaxs {
   width: auto;
   height: auto;
   max-width: 100%;
   text-align: right;
-  color: #a082cb;
+  color: var(--token-55cSeNPovQFh);
   font-size: 16px;
   font-weight: 700;
   white-space: pre-wrap;
@@ -1055,10 +1075,10 @@
   width: auto;
   height: auto;
   max-width: 100%;
-  background: var(--token-mjj-ONNCZx4S);
+  background: var(--token-55cSeNPovQFh);
   color: var(--token-R_Rsn0nP9oIv);
   border-radius: 8px;
-  padding: 4px 8px 2px;
+  padding: 4px 16px 2px;
 }
 @media (max-width: 640px) {
   .text___2Shyc {
