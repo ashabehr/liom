@@ -1209,6 +1209,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         customFunction: async () => {
                           return fetch(
                             "https://n8n.staas.ir/webhook/status/?userId=" +
+                              // "4ddd1fab-100c-49f0-b843-e70bff8add34"
                               $ctx.query.userId.slice(
                                 4,
                                 $ctx.query.userId.length - 4
@@ -1647,10 +1648,7 @@ function PlasmicPregnancy__RenderFunc(props: {
               params={(() => {
                 try {
                   return {
-                    token: $ctx.query.token.slice(
-                      6,
-                      $ctx.query.token.length - 3
-                    )
+                    token: $ctx.query.token
                   };
                 } catch (e) {
                   if (
@@ -1662,7 +1660,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                   throw e;
                 }
               })()}
-              url={"https://n8n.staas.ir/webhook/userInfo"}
+              url={"https://n8n.staas.ir/webhook-test/userInfo"}
             />
 
             {(

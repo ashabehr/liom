@@ -5,10 +5,10 @@
   height: auto;
   align-items: center;
   justify-content: flex-start;
-  background: none;
+  background: var(--token-R_Rsn0nP9oIv);
   position: sticky;
   min-width: 0;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 7px 8px;
   border: 1px solid #c8c7c1;
 }

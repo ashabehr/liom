@@ -111,7 +111,7 @@ export type PlasmicEditProfile__OverridesType = {
   headerLiom?: Flex__<typeof HeaderLiom>;
   img?: Flex__<typeof PlasmicImg__>;
   embedHtml?: Flex__<typeof Embed>;
-  numberOfDaysOfBleeding?: Flex__<typeof Dialog>;
+  dialogNumberOfDaysOfBleeding?: Flex__<typeof Dialog>;
   apiRequest2?: Flex__<typeof ApiRequest>;
   pickersForNumberOfDaysOfBleeding?: Flex__<typeof Pickers>;
   button6?: Flex__<typeof Button>;
@@ -233,7 +233,7 @@ function PlasmicEditProfile__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getInfo.data.result.user.name;
+              return $state.name;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -329,7 +329,7 @@ function PlasmicEditProfile__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       },
       {
-        path: "numberOfDaysOfBleeding.opendialog",
+        path: "dialogNumberOfDaysOfBleeding.opendialog",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
@@ -656,8 +656,8 @@ function PlasmicEditProfile__RenderFunc(props: {
       {
         path: "variableForGraduateAndStudying",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "getInfo.data",
@@ -869,6 +869,25 @@ function PlasmicEditProfile__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "name",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.getInfo.data.result.user.name;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -956,12 +975,15 @@ function PlasmicEditProfile__RenderFunc(props: {
           />
 
           <Dialog
-            data-plasmic-name={"numberOfDaysOfBleeding"}
-            data-plasmic-override={overrides.numberOfDaysOfBleeding}
-            className={classNames("__wab_instance", sty.numberOfDaysOfBleeding)}
+            data-plasmic-name={"dialogNumberOfDaysOfBleeding"}
+            data-plasmic-override={overrides.dialogNumberOfDaysOfBleeding}
+            className={classNames(
+              "__wab_instance",
+              sty.dialogNumberOfDaysOfBleeding
+            )}
             onOpendialogChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, [
-                "numberOfDaysOfBleeding",
+                "dialogNumberOfDaysOfBleeding",
                 "opendialog"
               ]).apply(null, eventArgs);
 
@@ -974,7 +996,7 @@ function PlasmicEditProfile__RenderFunc(props: {
               }
             }}
             opendialog={generateStateValueProp($state, [
-              "numberOfDaysOfBleeding",
+              "dialogNumberOfDaysOfBleeding",
               "opendialog"
             ])}
           >
@@ -1097,7 +1119,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                               variable: {
                                 objRoot: $state,
                                 variablePath: [
-                                  "numberOfDaysOfBleeding",
+                                  "dialogNumberOfDaysOfBleeding",
                                   "opendialog"
                                 ]
                               },
@@ -5064,7 +5086,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                             variable: {
                               objRoot: $state,
                               variablePath: [
-                                "numberOfDaysOfBleeding",
+                                "dialogNumberOfDaysOfBleeding",
                                 "opendialog"
                               ]
                             },
@@ -5557,7 +5579,20 @@ function PlasmicEditProfile__RenderFunc(props: {
                           undefined,
                           (() => {
                             try {
-                              return undefined;
+                              return {
+                                authorization: $state.token,
+                                name: $state.name,
+                                birthDate: $state.dateOfBrith,
+                                height: $state.height || "",
+                                weight: $state.weight3 || "",
+                                cycle: $state.periodCycleLength,
+                                length: $state.numberOfDaysOfBleedingPicker,
+                                last_time: $state.variableForLastPeriod,
+                                job: $state.variableForJob,
+                                education:
+                                  $state.variableForGraduateAndStudying,
+                                married: $state.variableForMarrideStutuse
+                              };
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -5690,7 +5725,7 @@ const PlasmicDescendants = {
     "headerLiom",
     "img",
     "embedHtml",
-    "numberOfDaysOfBleeding",
+    "dialogNumberOfDaysOfBleeding",
     "apiRequest2",
     "pickersForNumberOfDaysOfBleeding",
     "button6",
@@ -5755,8 +5790,8 @@ const PlasmicDescendants = {
   headerLiom: ["headerLiom", "img"],
   img: ["img"],
   embedHtml: ["embedHtml"],
-  numberOfDaysOfBleeding: [
-    "numberOfDaysOfBleeding",
+  dialogNumberOfDaysOfBleeding: [
+    "dialogNumberOfDaysOfBleeding",
     "apiRequest2",
     "pickersForNumberOfDaysOfBleeding",
     "button6",
@@ -5951,7 +5986,7 @@ type NodeDefaultElementType = {
   headerLiom: typeof HeaderLiom;
   img: typeof PlasmicImg__;
   embedHtml: typeof Embed;
-  numberOfDaysOfBleeding: typeof Dialog;
+  dialogNumberOfDaysOfBleeding: typeof Dialog;
   apiRequest2: typeof ApiRequest;
   pickersForNumberOfDaysOfBleeding: typeof Pickers;
   button6: typeof Button;
@@ -6102,7 +6137,9 @@ export const PlasmicEditProfile = Object.assign(
     headerLiom: makeNodeComponent("headerLiom"),
     img: makeNodeComponent("img"),
     embedHtml: makeNodeComponent("embedHtml"),
-    numberOfDaysOfBleeding: makeNodeComponent("numberOfDaysOfBleeding"),
+    dialogNumberOfDaysOfBleeding: makeNodeComponent(
+      "dialogNumberOfDaysOfBleeding"
+    ),
     apiRequest2: makeNodeComponent("apiRequest2"),
     pickersForNumberOfDaysOfBleeding: makeNodeComponent(
       "pickersForNumberOfDaysOfBleeding"

@@ -71,7 +71,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.numberOfDaysOfBleeding:global(.__wab_instance):global(.__wab_instance) {
+.dialogNumberOfDaysOfBleeding:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
 }
 .apiRequest2:global(.__wab_instance) {
@@ -3842,7 +3842,7 @@
   min-height: 0;
   border-radius: 8px;
   padding: 8px;
-  border-width: 1px;
+  border: 1px solid var(--token-LNIzKl5AGPPT);
 }
 .text__oDt3 {
   position: relative;
