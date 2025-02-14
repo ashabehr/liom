@@ -163,7 +163,7 @@
     {
       "name": "Basic/Container-Background",
       "type": "color",
-      "value": "#FFFFFF",
+      "value": "#E5E7EB",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
@@ -3003,7 +3003,7 @@
     {
       "name": "footer-text",
       "type": "color",
-      "value": "rgb(119,119,119)",
+      "value": "#777777",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",
@@ -3363,7 +3363,7 @@
     {
       "name": "task-text",
       "type": "color",
-      "value": "rgb(119,119,119)",
+      "value": "#777777",
       "category": "color",
       "meta": {
         "projectId": "suVPi77vb6vv9K5rYJwyxC",

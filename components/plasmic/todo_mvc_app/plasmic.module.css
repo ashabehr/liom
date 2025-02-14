@@ -11,7 +11,7 @@
   --plasmic-token-unselected-chevron: var(--token-R96bVFQ-7pJj);
   --token-xZSjH46lB6C3: rgb(230, 230, 230);
   --plasmic-token-input-placeholder: var(--token-xZSjH46lB6C3);
-  --token-aPMgnD4sVFAM: rgb(119, 119, 119);
+  --token-aPMgnD4sVFAM: #777777;
   --plasmic-token-footer-text: var(--token-aPMgnD4sVFAM);
   --token-_wos1hXSjLbY: rgb(34, 34, 34);
   --plasmic-token-app-bg-dark: var(--token-_wos1hXSjLbY);
@@ -107,7 +107,7 @@
   --plasmic-token-size-6: var(--token-3VFsPoJwdkXP);
   --token-ZuffvoxgS-gS: 0.875rem;
   --plasmic-token-small: var(--token-ZuffvoxgS-gS);
-  --token-R_Rsn0nP9oIv: #ffffff;
+  --token-R_Rsn0nP9oIv: #e5e7eb;
   --plasmic-token-basic-container-background: var(--token-R_Rsn0nP9oIv);
   --token-zSh3nOEaBBWl: 1rem;
   --plasmic-token-size-16: var(--token-zSh3nOEaBBWl);

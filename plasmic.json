@@ -1264,6 +1264,32 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/hamyar-add"
+        },
+        {
+          "id": "4BabvpvQ8lyP",
+          "name": "ReactionBar",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicReactionBar.tsx",
+          "importSpec": {
+            "modulePath": "ReactionBar.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicReactionBar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Ww7_RchUYDdQ",
+          "name": "BuyComponenct",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicBuyComponenct.tsx",
+          "importSpec": {
+            "modulePath": "BuyComponenct.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicBuyComponenct.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2276,6 +2302,41 @@
           "id": "oU89VK0kN-fN",
           "name": "Icon145Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon145.tsx"
+        },
+        {
+          "id": "oL3Gq5u9-MHL",
+          "name": "Icon146Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon146.tsx"
+        },
+        {
+          "id": "2SO3BEHlRKXI",
+          "name": "Icon147Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon147.tsx"
+        },
+        {
+          "id": "YYRtcISwKaqe",
+          "name": "Icon148Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon148.tsx"
+        },
+        {
+          "id": "bJ7kVZQK3ovZ",
+          "name": "Icon149Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon149.tsx"
+        },
+        {
+          "id": "4NJq6NYKqIPu",
+          "name": "Icon150Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon150.tsx"
+        },
+        {
+          "id": "3HyiqRgrcuoH",
+          "name": "Icon151Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon151.tsx"
+        },
+        {
+          "id": "qr8jQCU8QOqy",
+          "name": "Icon152Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon152.tsx"
         }
       ],
       "images": [

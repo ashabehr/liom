@@ -528,6 +528,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       return (() => {
                         const list = document.querySelector(".my-scroll-list");
                         const fourthItem = list.children[$state.selectedWeek];
+                        console.log(list);
                         if (fourthItem) {
                           const itemPosition =
                             fourthItem.offsetLeft -

@@ -449,7 +449,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                               "&inAp=" +
                               $ctx.query.inApp +
                               "&inBot" +
-                              $ctx.query.inBot
+                              $ctx.query.inBot +
+                              "&version=" +
+                              $ctx.query.versio
                             );
                           }
                         };
@@ -2005,7 +2007,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                                       $ctx.query.userId +
                                       "&theme=" +
                                       $ctx.query.theme +
-                                      "&inApp=false"
+                                      "&inApp=false" +
+                                      "&version=" +
+                                      $ctx.query.version
                                     );
                                   } catch (e) {
                                     if (
@@ -2176,35 +2180,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           $steps["invokeGlobalAction4"] = await $steps[
                             "invokeGlobalAction4"
                           ];
-                        }
-
-                        $steps["runCode"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                customFunction: async () => {
-                                  return (() => {
-                                    return console.log(
-                                      $state.duDate[0] +
-                                        "-" +
-                                        $state.duDate[1] +
-                                        "-" +
-                                        $state.duDate[2] +
-                                        " 10:10:10"
-                                    );
-                                  })();
-                                }
-                              };
-                              return (({ customFunction }) => {
-                                return customFunction();
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["runCode"] != null &&
-                          typeof $steps["runCode"] === "object" &&
-                          typeof $steps["runCode"].then === "function"
-                        ) {
-                          $steps["runCode"] = await $steps["runCode"];
                         }
                       }}
                       onColorChange={async (...eventArgs: any) => {
