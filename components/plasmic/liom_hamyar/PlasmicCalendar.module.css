@@ -1256,7 +1256,7 @@
 }
 .freeBox__ww5Wh > :global(.__wab_flex-container) {
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   min-width: 0;
   min-height: 0;

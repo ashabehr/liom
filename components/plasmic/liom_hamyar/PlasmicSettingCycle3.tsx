@@ -65,7 +65,6 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
-import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 
@@ -108,7 +107,6 @@ export type PlasmicSettingCycle3__OverridesType = {
   lastTimeBox2?: Flex__<typeof AntdInput>;
   section?: Flex__<"section">;
   button3?: Flex__<typeof Button>;
-  getUserInfo?: Flex__<typeof ApiRequest>;
   dialog?: Flex__<typeof Dialog>;
   pickers?: Flex__<typeof Pickers>;
   button2?: Flex__<typeof Button>;
@@ -331,24 +329,6 @@ function PlasmicSettingCycle3__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "getUserInfo.data",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "getUserInfo.error",
-        type: "private",
-        variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "getUserInfo.loading",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "isGetInfo",
@@ -2704,96 +2684,6 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 </div>
               </section>
             </div>
-            <ApiRequest
-              data-plasmic-name={"getUserInfo"}
-              data-plasmic-override={overrides.getUserInfo}
-              className={classNames("__wab_instance", sty.getUserInfo)}
-              errorDisplay={
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___8FXnU
-                  )}
-                >
-                  {"Error fetching data"}
-                </div>
-              }
-              loadingDisplay={null}
-              method={"GET"}
-              onError={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "getUserInfo",
-                  "error"
-                ]).apply(null, eventArgs);
-              }}
-              onLoading={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "getUserInfo",
-                  "loading"
-                ]).apply(null, eventArgs);
-              }}
-              onSuccess={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, [
-                  "getUserInfo",
-                  "data"
-                ]).apply(null, eventArgs);
-
-                (async data => {
-                  const $steps = {};
-
-                  $steps["updateIsGetInfo"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["isGetInfo"]
-                          },
-                          operation: 0,
-                          value: true
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateIsGetInfo"] != null &&
-                    typeof $steps["updateIsGetInfo"] === "object" &&
-                    typeof $steps["updateIsGetInfo"].then === "function"
-                  ) {
-                    $steps["updateIsGetInfo"] = await $steps["updateIsGetInfo"];
-                  }
-                }).apply(null, eventArgs);
-              }}
-              params={(() => {
-                try {
-                  return {
-                    token: $ctx.query.token
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-              url={"https://n8n.staas.ir/webhook/userInfo"}
-            />
           </div>
           <Dialog
             data-plasmic-name={"dialog"}
@@ -3975,7 +3865,6 @@ const PlasmicDescendants = {
     "lastTimeBox2",
     "section",
     "button3",
-    "getUserInfo",
     "dialog",
     "pickers",
     "button2",
@@ -3997,7 +3886,6 @@ const PlasmicDescendants = {
   lastTimeBox2: ["lastTimeBox2"],
   section: ["section", "button3"],
   button3: ["button3"],
-  getUserInfo: ["getUserInfo"],
   dialog: ["dialog", "pickers", "button2"],
   pickers: ["pickers"],
   button2: ["button2"],
@@ -4024,7 +3912,6 @@ type NodeDefaultElementType = {
   lastTimeBox2: typeof AntdInput;
   section: "section";
   button3: typeof Button;
-  getUserInfo: typeof ApiRequest;
   dialog: typeof Dialog;
   pickers: typeof Pickers;
   button2: typeof Button;
@@ -4132,7 +4019,6 @@ export const PlasmicSettingCycle3 = Object.assign(
     lastTimeBox2: makeNodeComponent("lastTimeBox2"),
     section: makeNodeComponent("section"),
     button3: makeNodeComponent("button3"),
-    getUserInfo: makeNodeComponent("getUserInfo"),
     dialog: makeNodeComponent("dialog"),
     pickers: makeNodeComponent("pickers"),
     button2: makeNodeComponent("button2"),

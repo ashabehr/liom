@@ -6214,7 +6214,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                           const $steps = {};
 
                           $steps["updateBuySubIsOpen"] =
-                            $state.collapseAdvice.open &&
                             $state.weeksPregnant >= 12
                               ? (() => {
                                   const actionArgs = {
@@ -7194,7 +7193,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                           }
 
                           $steps["invokeGlobalAction2"] =
-                            $state.collapseBaby.open &&
                             $state.weeksPregnant >= 12
                               ? (() => {
                                   const actionArgs = {
@@ -7535,7 +7533,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                           }
 
                           $steps["invokeGlobalAction2"] =
-                            $state.collapseMother.open &&
                             $state.weeksPregnant >= 12
                               ? (() => {
                                   const actionArgs = {
@@ -7863,7 +7860,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                           }
 
                           $steps["invokeGlobalAction2"] =
-                            $state.collapseHealth.open &&
                             $state.weeksPregnant >= 12
                               ? (() => {
                                   const actionArgs = {
@@ -7999,6 +7995,38 @@ function PlasmicPregnancy__RenderFunc(props: {
             data-plasmic-name={"buySub"}
             data-plasmic-override={overrides.buySub}
             className={classNames("__wab_instance", sty.buySub)}
+            content={
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__hwUm8)}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__u6Ygw
+                  )}
+                >
+                  {
+                    "You can put anything here!\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                  }
+                </div>
+              </Stack__>
+            }
+            heading={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ddguj
+                )}
+              >
+                {
+                  "\u0627\u0634\u0631\u0627\u062a\u06a9 \u0648\u06cc\u0698\u0647 \u0644\u06cc\u0648\u0645"
+                }
+              </div>
+            }
             isOpen={generateStateValueProp($state, ["buySub", "isOpen"])}
             onOpenChange={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["buySub", "isOpen"]).apply(

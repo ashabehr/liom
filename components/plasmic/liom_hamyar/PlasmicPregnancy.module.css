@@ -1755,6 +1755,13 @@
 .buySub:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
 }
+.text__ddguj {
+  width: 100%;
+  text-align: right;
+  font-size: 19px;
+  font-weight: 700;
+  min-width: 0;
+}
 .freeBox__hwUm8 {
   display: flex;
   flex-direction: column;
