@@ -1277,6 +1277,25 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                         "invokeGlobalAction"
                       ];
                     }
+
+                    $steps["invokeGlobalAction2"] = true
+                      ? (() => {
+                          const actionArgs = { args: ["error"] };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction2"] != null &&
+                      typeof $steps["invokeGlobalAction2"] === "object" &&
+                      typeof $steps["invokeGlobalAction2"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction2"] = await $steps[
+                        "invokeGlobalAction2"
+                      ];
+                    }
                   }}
                   onColorChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {

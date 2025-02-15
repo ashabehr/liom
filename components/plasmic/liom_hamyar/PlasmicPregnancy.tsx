@@ -732,7 +732,20 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "selectedWeek",
         type: "private",
         variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.weeksPregnant;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -1482,8 +1495,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                         return (() => {
                           const list =
                             document.getElementById("my-scroll-list");
+                          const list2 = list.children[0];
                           const fourthItem =
-                            list.children[$state.weeksPregnant];
+                            list2.children[$state.selectedWeek];
+                          console.log(list);
+                          console.log(list2);
+                          console.log(fourthItem);
                           if (fourthItem) {
                             const itemPosition =
                               fourthItem.offsetLeft -
