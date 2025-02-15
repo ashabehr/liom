@@ -2322,7 +2322,8 @@ function PlasmicCalendar__RenderFunc(props: {
                 return (() => {
                   let urlParams = new URLSearchParams(window.location.search);
                   let token =
-                    urlParams.get("token") || localStorage.getItem("token");
+                    urlParams.get("token").slice(6, app.length - 3) ||
+                    localStorage.getItem("token");
                   return { authorization: token };
                 })();
               } catch (e) {

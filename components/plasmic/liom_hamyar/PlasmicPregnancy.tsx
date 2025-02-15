@@ -727,6 +727,12 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "selectedWeek",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       }
     ],
     [$props, $ctx, $refs]
@@ -1451,6 +1457,59 @@ function PlasmicPregnancy__RenderFunc(props: {
                 $steps["runCode"] = await $steps["runCode"];
               }
 
+              $steps["invokeGlobalAction2"] = true
+                ? (() => {
+                    const actionArgs = { args: [500] };
+                    return $globalActions["Fragment.wait"]?.apply(null, [
+                      ...actionArgs.args
+                    ]);
+                  })()
+                : undefined;
+              if (
+                $steps["invokeGlobalAction2"] != null &&
+                typeof $steps["invokeGlobalAction2"] === "object" &&
+                typeof $steps["invokeGlobalAction2"].then === "function"
+              ) {
+                $steps["invokeGlobalAction2"] = await $steps[
+                  "invokeGlobalAction2"
+                ];
+              }
+
+              $steps["runCode5"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const list =
+                            document.getElementById("my-scroll-list");
+                          const fourthItem =
+                            list.children[$state.weeksPregnant];
+                          if (fourthItem) {
+                            const itemPosition =
+                              fourthItem.offsetLeft -
+                              list.offsetWidth * 0.35 +
+                              fourthItem.offsetWidth / 2;
+                            return list.scrollTo({
+                              left: itemPosition,
+                              behavior: "smooth"
+                            });
+                          }
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode5"] != null &&
+                typeof $steps["runCode5"] === "object" &&
+                typeof $steps["runCode5"].then === "function"
+              ) {
+                $steps["runCode5"] = await $steps["runCode5"];
+              }
+
               $steps["showToast"] = $state.isNoData
                 ? (() => {
                     const actionArgs = {
@@ -1803,43 +1862,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                 typeof $steps["runCode4"].then === "function"
               ) {
                 $steps["runCode4"] = await $steps["runCode4"];
-              }
-
-              $steps["runCode5"] = true
-                ? (() => {
-                    const actionArgs = {
-                      customFunction: async () => {
-                        return (() => {
-                          console.log("aa");
-                          const list =
-                            document.querySelector(".my-scroll-list");
-                          const fourthItem =
-                            list.children[0][$state.weeksPregnant];
-                          console.log(list);
-                          if (fourthItem) {
-                            const itemPosition =
-                              fourthItem.offsetLeft -
-                              list.offsetWidth * 0.35 +
-                              fourthItem.offsetWidth / 2;
-                            return list.scrollTo({
-                              left: itemPosition,
-                              behavior: "smooth"
-                            });
-                          }
-                        })();
-                      }
-                    };
-                    return (({ customFunction }) => {
-                      return customFunction();
-                    })?.apply(null, [actionArgs]);
-                  })()
-                : undefined;
-              if (
-                $steps["runCode5"] != null &&
-                typeof $steps["runCode5"] === "object" &&
-                typeof $steps["runCode5"].then === "function"
-              ) {
-                $steps["runCode5"] = await $steps["runCode5"];
               }
             }}
             runWhileEditing={true}
@@ -5225,15 +5247,82 @@ function PlasmicPregnancy__RenderFunc(props: {
               ) : null}
               <div className={classNames(projectcss.all, sty.freeBox__d784V)}>
                 <div className={classNames(projectcss.all, sty.freeBox__a7SOc)}>
-                  <div
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__brt1W)}
+                    id={"my-scroll-list"}
                   >
-                    <TabWeek
-                      data-plasmic-name={"tabWeek"}
-                      data-plasmic-override={overrides.tabWeek}
-                      className={classNames("__wab_instance", sty.tabWeek)}
-                    />
-                  </div>
+                    {(_par =>
+                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                      (() => {
+                        try {
+                          return Array.from(
+                            { length: 40 },
+                            (_, index) => index + 1
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                      const currentItem = __plasmic_item_0;
+                      const currentIndex = __plasmic_idx_0;
+                      return (
+                        <TabWeek
+                          data-plasmic-name={"tabWeek"}
+                          data-plasmic-override={overrides.tabWeek}
+                          className={classNames("__wab_instance", sty.tabWeek)}
+                          currentItem={(() => {
+                            try {
+                              return currentItem;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })()}
+                          dark={(() => {
+                            try {
+                              return false;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()}
+                          key={currentIndex}
+                          selected={(() => {
+                            try {
+                              return currentItem == $state.selectedWeek;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [];
+                              }
+                              throw e;
+                            }
+                          })()}
+                        />
+                      );
+                    })}
+                  </Stack__>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__j56U7)}>
                   <div
