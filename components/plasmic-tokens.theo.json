@@ -3141,6 +3141,16 @@
       }
     },
     {
+      "name": "pastil yellow",
+      "type": "color",
+      "value": "#FFFCDB",
+      "category": "color",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "7tIJuaQ820ys"
+      }
+    },
+    {
       "name": "placeholder",
       "type": "color",
       "value": "rgb(230,230,230)",

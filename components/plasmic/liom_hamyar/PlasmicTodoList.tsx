@@ -181,7 +181,7 @@ function PlasmicTodoList__RenderFunc(props: {
         path: "collapse.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) => true,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       }
@@ -226,6 +226,7 @@ function PlasmicTodoList__RenderFunc(props: {
           const child$Props = {
             bordered: true,
             className: classNames("__wab_instance", sty.collapse),
+            defaultOpen: true,
             expandIcon: (
               <React.Fragment>
                 {(() => {

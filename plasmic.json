@@ -1169,20 +1169,6 @@
           "path": "/calendar"
         },
         {
-          "id": "BRoz8vSxW2iK",
-          "name": "SettingCycle2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSettingCycle2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/setting-cycle-3.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSettingCycle2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/setting-cycle-3"
-        },
-        {
           "id": "BH6xU50P1m4G",
           "name": "SettingCycle3",
           "type": "managed",
@@ -2884,6 +2870,16 @@
           "id": "cQ405Yb6cNMm",
           "name": "image 80",
           "filePath": "../public/plasmic/liom_hamyar/images/image80.png"
+        },
+        {
+          "id": "hEQKSv9CnIzi",
+          "name": "image 81",
+          "filePath": "../public/plasmic/liom_hamyar/images/image81.svg"
+        },
+        {
+          "id": "fLYtk6c6iYai",
+          "name": "image 82",
+          "filePath": "../public/plasmic/liom_hamyar/images/image82.svg"
         }
       ],
       "indirect": false,

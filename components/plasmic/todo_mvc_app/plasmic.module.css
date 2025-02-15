@@ -213,6 +213,8 @@
   --plasmic-token-5: var(--token-1KusGK5GePTh);
   --token-JDv1HFq3SNmi: 1.25rem;
   --plasmic-token-x-large: var(--token-JDv1HFq3SNmi);
+  --token-7tIJuaQ820ys: #fffcdb;
+  --plasmic-token-pastil-yellow: var(--token-7tIJuaQ820ys);
 }
 
 @media (max-width: 640px) {
