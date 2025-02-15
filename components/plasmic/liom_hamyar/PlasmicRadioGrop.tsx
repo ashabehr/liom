@@ -70,13 +70,19 @@ createPlasmicElementProxy;
 
 export type PlasmicRadioGrop__VariantMembers = {
   selected: "selected";
+  selectedLine: "selectedLine";
+  disable: "disable";
 };
 export type PlasmicRadioGrop__VariantsArgs = {
   selected?: SingleBooleanChoiceArg<"selected">;
+  selectedLine?: SingleBooleanChoiceArg<"selectedLine">;
+  disable?: SingleBooleanChoiceArg<"disable">;
 };
 type VariantPropType = keyof PlasmicRadioGrop__VariantsArgs;
 export const PlasmicRadioGrop__VariantProps = new Array<VariantPropType>(
-  "selected"
+  "selected",
+  "selectedLine",
+  "disable"
 );
 
 export type PlasmicRadioGrop__ArgsType = {
@@ -98,6 +104,8 @@ export interface DefaultRadioGropProps {
   onClick?: (event: any) => void;
   children?: React.ReactNode;
   selected?: SingleBooleanChoiceArg<"selected">;
+  selectedLine?: SingleBooleanChoiceArg<"selectedLine">;
+  disable?: SingleBooleanChoiceArg<"disable">;
   className?: string;
 }
 
@@ -148,6 +156,18 @@ function PlasmicRadioGrop__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.selected
+      },
+      {
+        path: "selectedLine",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.selectedLine
+      },
+      {
+        path: "disable",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.disable
       }
     ],
     [$props, $ctx, $refs]
@@ -174,7 +194,15 @@ function PlasmicRadioGrop__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
-        { [sty.rootselected]: hasVariant($state, "selected", "selected") }
+        {
+          [sty.rootdisable]: hasVariant($state, "disable", "disable"),
+          [sty.rootselectedLine]: hasVariant(
+            $state,
+            "selectedLine",
+            "selectedLine"
+          ),
+          [sty.rootselected]: hasVariant($state, "selected", "selected")
+        }
       )}
       onClick={args.onClick}
     >

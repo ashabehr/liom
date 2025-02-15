@@ -16,6 +16,12 @@
   background: #7444bcb3;
   border-width: 0px;
 }
+.rootselectedLine {
+  border-color: var(--token-55cSeNPovQFh);
+}
+.rootdisable {
+  background: var(--token-7kGpohB21SKn);
+}
 .freeBox {
   width: 100%;
   height: auto;

@@ -73,12 +73,12 @@ import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import { AntdProgress } from "@plasmicpkgs/antd5/skinny/registerProgress";
+import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ/component
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
-import Modal from "../../Modal"; // plasmic-import: QbRTw0YJhCri/component
-import Button2 from "../../Button2"; // plasmic-import: 1nEX6muyZgg5/component
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -89,9 +89,6 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPregnancy.module.css"; // plasmic-import: PDbEkiKHzqMX/css
-
-import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: PH6a1Mes3Ebj/icon
-import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-import: vefs_9-4aiux/icon
 
 createPlasmicElementProxy;
 
@@ -119,12 +116,13 @@ export type PlasmicPregnancy__OverridesType = {
   embedHtml?: Flex__<typeof Embed>;
   switchbest?: Flex__<typeof Switchbest>;
   progress?: Flex__<typeof AntdProgress>;
+  tabWeek?: Flex__<typeof TabWeek>;
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   todoList?: Flex__<typeof TodoList>;
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
-  buySub?: Flex__<typeof Modal>;
+  buySub2?: Flex__<typeof AntdModal>;
 };
 
 export interface DefaultPregnancyProps {}
@@ -725,7 +723,7 @@ function PlasmicPregnancy__RenderFunc(props: {
           })()
       },
       {
-        path: "buySub.isOpen",
+        path: "buySub2.open",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -3978,91 +3976,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                       >
                         {(() => {
                           try {
-                            return (
-                              $ctx?.query?.inApp == "true" &&
-                              (JSON.parse(
-                                $state.user[0].allowance
-                              ).allowance.find(
-                                item =>
-                                  item.type != "pregnancy_sub_become_father"
-                              ).active ??
-                                false) &&
-                              (JSON.parse(
-                                $state.user[0].allowance
-                              ).allowance.find(
-                                item => item.type != "pregnancy_sub_baby_growth"
-                              ).active ??
-                                false) &&
-                              (JSON.parse(
-                                $state.user[0].allowance
-                              ).allowance.find(
-                                item =>
-                                  item.type != "pregnancy_sub_better_relation"
-                              ).active ??
-                                false)
-                            );
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return false;
-                            }
-                            throw e;
-                          }
-                        })() ? (
-                          <Stack__
-                            as={"div"}
-                            hasGap={true}
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__cqXfk
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__sNOiO
-                              )}
-                            >
-                              {
-                                "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 "
-                              }
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__nczyH
-                              )}
-                            >
-                              {
-                                "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0628\u0631\u0646\u0627\u0645\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
-                              }
-                            </div>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__vEmPt
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__hJg0N
-                                )}
-                              >
-                                {
-                                  "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0644\u06cc\u0648\u0645"
-                                }
-                              </div>
-                            </div>
-                          </Stack__>
-                        ) : null}
-                        {(() => {
-                          try {
                             return (() => {
                               if ($state.user[0].hamyarData == "{}")
                                 return true;
@@ -4267,6 +4180,194 @@ function PlasmicPregnancy__RenderFunc(props: {
                               />
                             </Stack__>
                           </div>
+                        ) : null}
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__bcQKk)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return window.FlutterChannel.postMessage(
+                                    "#hamyarInfo"
+                                  );
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
+                        }
+
+                        $steps["invokeGlobalAction"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  "POST",
+                                  "https://api.liom.app/service/log",
+                                  undefined,
+                                  (() => {
+                                    try {
+                                      return {
+                                        userId: $ctx.query.userId.slice(
+                                          4,
+                                          $ctx.query.userId.length - 4
+                                        ),
+                                        pageName: "mainPage_pregnancy",
+                                        action: "click_buy_sub",
+                                        extraData: {}
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  (() => {
+                                    try {
+                                      return {
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization:
+                                            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                        }
+                                      };
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })()
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.apiRequest"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["invokeGlobalAction"] != null &&
+                          typeof $steps["invokeGlobalAction"] === "object" &&
+                          typeof $steps["invokeGlobalAction"].then ===
+                            "function"
+                        ) {
+                          $steps["invokeGlobalAction"] = await $steps[
+                            "invokeGlobalAction"
+                          ];
+                        }
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__eGaBd
+                        )}
+                      >
+                        {(() => {
+                          try {
+                            return (
+                              $ctx?.query?.inApp == "true" &&
+                              (JSON.parse(
+                                $state.user[0].allowance
+                              ).allowance.find(
+                                item =>
+                                  item.type != "pregnancy_sub_become_father"
+                              ).active ??
+                                false) &&
+                              (JSON.parse(
+                                $state.user[0].allowance
+                              ).allowance.find(
+                                item => item.type != "pregnancy_sub_baby_growth"
+                              ).active ??
+                                false) &&
+                              (JSON.parse(
+                                $state.user[0].allowance
+                              ).allowance.find(
+                                item =>
+                                  item.type != "pregnancy_sub_better_relation"
+                              ).active ??
+                                false)
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return false;
+                            }
+                            throw e;
+                          }
+                        })() ? (
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__ekpIz
+                            )}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text___3J0TA
+                              )}
+                            >
+                              {
+                                "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 "
+                              }
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__gxMd
+                              )}
+                            >
+                              {
+                                "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u06a9\u0627\u0645\u0644 \u0628\u0647 \u0628\u0631\u0646\u0627\u0645\u0647 \u0645\u06cc\u062a\u0648\u0646\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f"
+                              }
+                            </div>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__bcFt
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__putVl
+                                )}
+                              >
+                                {
+                                  "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0644\u06cc\u0648\u0645"
+                                }
+                              </div>
+                            </div>
+                          </Stack__>
                         ) : null}
                       </div>
                     </div>
@@ -5123,6 +5224,17 @@ function PlasmicPregnancy__RenderFunc(props: {
                 </div>
               ) : null}
               <div className={classNames(projectcss.all, sty.freeBox__d784V)}>
+                <div className={classNames(projectcss.all, sty.freeBox__a7SOc)}>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__brt1W)}
+                  >
+                    <TabWeek
+                      data-plasmic-name={"tabWeek"}
+                      data-plasmic-override={overrides.tabWeek}
+                      className={classNames("__wab_instance", sty.tabWeek)}
+                    />
+                  </div>
+                </div>
                 <div className={classNames(projectcss.all, sty.freeBox__j56U7)}>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__hrMgY, {
@@ -6213,13 +6325,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                         (async activeIds => {
                           const $steps = {};
 
-                          $steps["updateBuySubIsOpen"] =
+                          $steps["updateBuySub2Open"] =
                             $state.weeksPregnant >= 12
                               ? (() => {
                                   const actionArgs = {
                                     variable: {
                                       objRoot: $state,
-                                      variablePath: ["buySub", "isOpen"]
+                                      variablePath: ["buySub2", "open"]
                                     },
                                     operation: 0,
                                     value: true
@@ -6241,13 +6353,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 })()
                               : undefined;
                           if (
-                            $steps["updateBuySubIsOpen"] != null &&
-                            typeof $steps["updateBuySubIsOpen"] === "object" &&
-                            typeof $steps["updateBuySubIsOpen"].then ===
+                            $steps["updateBuySub2Open"] != null &&
+                            typeof $steps["updateBuySub2Open"] === "object" &&
+                            typeof $steps["updateBuySub2Open"].then ===
                               "function"
                           ) {
-                            $steps["updateBuySubIsOpen"] = await $steps[
-                              "updateBuySubIsOpen"
+                            $steps["updateBuySub2Open"] = await $steps[
+                              "updateBuySub2Open"
                             ];
                           }
                         }).apply(null, eventArgs);
@@ -7198,7 +7310,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   const actionArgs = {
                                     variable: {
                                       objRoot: $state,
-                                      variablePath: ["buySub", "isOpen"]
+                                      variablePath: ["buySub2", "open"]
                                     },
                                     operation: 0,
                                     value: true
@@ -7538,7 +7650,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   const actionArgs = {
                                     variable: {
                                       objRoot: $state,
-                                      variablePath: ["buySub", "isOpen"]
+                                      variablePath: ["buySub2", "open"]
                                     },
                                     operation: 0,
                                     value: true
@@ -7865,7 +7977,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   const actionArgs = {
                                     variable: {
                                       objRoot: $state,
-                                      variablePath: ["buySub", "isOpen"]
+                                      variablePath: ["buySub2", "open"]
                                     },
                                     operation: 0,
                                     value: true
@@ -7991,30 +8103,130 @@ function PlasmicPregnancy__RenderFunc(props: {
               </div>
             </div>
           ) : null}
-          <Modal
-            data-plasmic-name={"buySub"}
-            data-plasmic-override={overrides.buySub}
-            className={classNames("__wab_instance", sty.buySub)}
-            content={
+          <AntdModal
+            data-plasmic-name={"buySub2"}
+            data-plasmic-override={overrides.buySub2}
+            className={classNames("__wab_instance", sty.buySub2)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            footer={
               <Stack__
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__hwUm8)}
+                className={classNames(projectcss.all, sty.freeBox__j7VXe)}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateBuySub2Open"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["buySub2", "open"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateBuySub2Open"] != null &&
+                    typeof $steps["updateBuySub2Open"] === "object" &&
+                    typeof $steps["updateBuySub2Open"].then === "function"
+                  ) {
+                    $steps["updateBuySub2Open"] = await $steps[
+                      "updateBuySub2Open"
+                    ];
+                  }
+                }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__u6Ygw
-                  )}
+                  className={classNames(projectcss.all, sty.freeBox__bwPmw)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["invokeGlobalAction"] = true
+                      ? (() => {
+                          const actionArgs = { args: [undefined, "vxcvxcvxc"] };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction"] != null &&
+                      typeof $steps["invokeGlobalAction"] === "object" &&
+                      typeof $steps["invokeGlobalAction"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction"] = await $steps[
+                        "invokeGlobalAction"
+                      ];
+                    }
+                  }}
                 >
-                  {
-                    "You can put anything here!\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                  }
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__jhFg
+                    )}
+                  >
+                    {
+                      "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
+                    }
+                  </div>
+                </div>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__rgiNn)}
+                  onClick={async event => {
+                    const $steps = {};
+                  }}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__by2N
+                    )}
+                  >
+                    {"\u0628\u0633\u062a\u0646"}
+                  </div>
                 </div>
               </Stack__>
             }
-            heading={
+            modalContentClassName={classNames({
+              [sty["pcls_1y2RaEpOQI8d"]]: true
+            })}
+            modalScopeClassName={sty["buySub2__modal"]}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["buySub2", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["buySub2", "open"])}
+            title={
               <div
                 className={classNames(
                   projectcss.all,
@@ -8023,27 +8235,48 @@ function PlasmicPregnancy__RenderFunc(props: {
                 )}
               >
                 {
-                  "\u0627\u0634\u0631\u0627\u062a\u06a9 \u0648\u06cc\u0698\u0647 \u0644\u06cc\u0648\u0645"
+                  "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0644\u06cc\u0648\u0645"
                 }
               </div>
             }
-            isOpen={generateStateValueProp($state, ["buySub", "isOpen"])}
-            onOpenChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["buySub", "isOpen"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
             trigger={null}
-          />
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__hwUm8)}
+            >
+              <PlasmicImg__
+                alt={""}
+                className={classNames(sty.img__jgTS)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"auto"}
+                loading={"lazy"}
+                src={{
+                  src: "/plasmic/liom_hamyar/images/image34.png",
+                  fullWidth: 566,
+                  fullHeight: 450,
+                  aspectRatio: undefined
+                }}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___9U8Mq
+                )}
+              >
+                {
+                  "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0646\u0627\u0645\u062d\u062f\u0648\u062f \u0628\u0647 \u062a\u0645\u0627\u0645\u06cc \u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648 \u0645\u062d\u062a\u0648\u0627\u06cc \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u062a\u0647\u06cc\u0647 \u0646\u0645\u0627\u06cc\u06cc\u062f."
+                }
+              </div>
+            </Stack__>
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -8060,12 +8293,13 @@ const PlasmicDescendants = {
     "embedHtml",
     "switchbest",
     "progress",
+    "tabWeek",
     "collapseAdvice",
     "todoList",
     "collapseBaby",
     "collapseMother",
     "collapseHealth",
-    "buySub"
+    "buySub2"
   ],
   favIcone: ["favIcone"],
   pullToRefresh: ["pullToRefresh"],
@@ -8074,12 +8308,13 @@ const PlasmicDescendants = {
   embedHtml: ["embedHtml"],
   switchbest: ["switchbest"],
   progress: ["progress"],
+  tabWeek: ["tabWeek"],
   collapseAdvice: ["collapseAdvice"],
   todoList: ["todoList"],
   collapseBaby: ["collapseBaby"],
   collapseMother: ["collapseMother"],
   collapseHealth: ["collapseHealth"],
-  buySub: ["buySub"]
+  buySub2: ["buySub2"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -8093,12 +8328,13 @@ type NodeDefaultElementType = {
   embedHtml: typeof Embed;
   switchbest: typeof Switchbest;
   progress: typeof AntdProgress;
+  tabWeek: typeof TabWeek;
   collapseAdvice: typeof AntdSingleCollapse;
   todoList: typeof TodoList;
   collapseBaby: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
   collapseHealth: typeof AntdSingleCollapse;
-  buySub: typeof Modal;
+  buySub2: typeof AntdModal;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -8193,12 +8429,13 @@ export const PlasmicPregnancy = Object.assign(
     embedHtml: makeNodeComponent("embedHtml"),
     switchbest: makeNodeComponent("switchbest"),
     progress: makeNodeComponent("progress"),
+    tabWeek: makeNodeComponent("tabWeek"),
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     todoList: makeNodeComponent("todoList"),
     collapseBaby: makeNodeComponent("collapseBaby"),
     collapseMother: makeNodeComponent("collapseMother"),
     collapseHealth: makeNodeComponent("collapseHealth"),
-    buySub: makeNodeComponent("buySub"),
+    buySub2: makeNodeComponent("buySub2"),
 
     // Metadata about props expected for PlasmicPregnancy
     internalVariantProps: PlasmicPregnancy__VariantProps,
