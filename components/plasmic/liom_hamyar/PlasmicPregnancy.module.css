@@ -12,6 +12,11 @@
   min-height: 0;
   padding: 8px;
 }
+@media (max-width: 640px) {
+  .root {
+    padding: 0px;
+  }
+}
 .freeBox__uy8D7 {
   display: flex;
   height: 100%;
