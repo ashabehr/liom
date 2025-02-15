@@ -245,6 +245,18 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "hamyar"
+      },
+      {
+        path: "masseg",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "errror",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -1278,15 +1290,22 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       ];
                     }
 
-                    $steps["invokeGlobalAction2"] = true
-                      ? (() => {
-                          const actionArgs = { args: ["error"] };
-                          return $globalActions["Fragment.showToast"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
+                    $steps["invokeGlobalAction2"] =
+                      $steps.invokeGlobalAction?.data?.success == true
+                        ? (() => {
+                            const actionArgs = {
+                              args: [
+                                "success",
+                                "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u062b\u0628\u062a \u0634\u062f.",
+                                "top-left"
+                              ]
+                            };
+                            return $globalActions["Fragment.showToast"]?.apply(
+                              null,
+                              [...actionArgs.args]
+                            );
+                          })()
+                        : undefined;
                     if (
                       $steps["invokeGlobalAction2"] != null &&
                       typeof $steps["invokeGlobalAction2"] === "object" &&
@@ -1294,6 +1313,113 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                     ) {
                       $steps["invokeGlobalAction2"] = await $steps[
                         "invokeGlobalAction2"
+                      ];
+                    }
+
+                    $steps["updateMasseg"] =
+                      $steps.invokeGlobalAction?.data?.success == true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["masseg"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction.data.result
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["updateMasseg"] != null &&
+                      typeof $steps["updateMasseg"] === "object" &&
+                      typeof $steps["updateMasseg"].then === "function"
+                    ) {
+                      $steps["updateMasseg"] = await $steps["updateMasseg"];
+                    }
+
+                    $steps["updateErrror"] =
+                      $steps.invokeGlobalAction?.data?.success == false
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["errror"]
+                              },
+                              operation: 0,
+                              value: $steps.invokeGlobalAction.data.error
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["updateErrror"] != null &&
+                      typeof $steps["updateErrror"] === "object" &&
+                      typeof $steps["updateErrror"].then === "function"
+                    ) {
+                      $steps["updateErrror"] = await $steps["updateErrror"];
+                    }
+
+                    $steps["invokeGlobalAction3"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            args: [
+                              undefined,
+                              (() => {
+                                try {
+                                  return undefined;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()
+                            ]
+                          };
+                          return $globalActions["Fragment.showToast"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
+                        })()
+                      : undefined;
+                    if (
+                      $steps["invokeGlobalAction3"] != null &&
+                      typeof $steps["invokeGlobalAction3"] === "object" &&
+                      typeof $steps["invokeGlobalAction3"].then === "function"
+                    ) {
+                      $steps["invokeGlobalAction3"] = await $steps[
+                        "invokeGlobalAction3"
                       ];
                     }
                   }}

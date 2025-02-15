@@ -192,6 +192,7 @@
 }
 .buyComponenct:global(.__wab_instance) {
   max-width: 100%;
+  display: none;
 }
 .img___6Hv {
   object-fit: cover;

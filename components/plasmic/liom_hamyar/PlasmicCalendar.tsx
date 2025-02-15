@@ -1387,7 +1387,7 @@ function PlasmicCalendar__RenderFunc(props: {
                   case "pms":
                     return [
                       `<div style="display: flex; align-items: center; gap: 8px;">
-        <span style="width: 10px; height: 10px; border-radius: 50%; background-color: #7444BC; display: inline-block;"></span>
+        <span style="width: 10px; height: 10px; border-radius: 50%; background-color: #EB464A; display: inline-block;"></span>
         <span>${
           $state.user.data.result.userStatus.daysToEndPms + 1
         } روز تا شروع خونریزی</span>

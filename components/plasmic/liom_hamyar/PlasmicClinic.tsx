@@ -7261,16 +7261,27 @@ function PlasmicClinic__RenderFunc(props: {
               )
             })}
           >
-            {(
-              hasVariant($state, "_1", "docter")
-                ? true
-                : hasVariant($state, "_1", "docters") &&
-                  hasVariant(globalVariants, "screen", "mobile")
-                ? true
-                : hasVariant($state, "_1", "docters")
-                ? true
-                : false
-            ) ? (
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__cJh7K, {
+                [sty.freeBox_1_chatviow__cJh7KaYJmT]: hasVariant(
+                  $state,
+                  "_1",
+                  "chatviow"
+                ),
+                [sty.freeBox_1_docter__cJh7K8Ddm8]: hasVariant(
+                  $state,
+                  "_1",
+                  "docter"
+                ),
+                [sty.freeBox_1_docters__cJh7Kpv2Kd]: hasVariant(
+                  $state,
+                  "_1",
+                  "docters"
+                )
+              })}
+            >
               <PlasmicIcon__
                 PlasmicIconType={
                   hasVariant($state, "_1", "chatviow")
@@ -7331,33 +7342,36 @@ function PlasmicClinic__RenderFunc(props: {
                 }}
                 role={"img"}
               />
-            ) : null}
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__qMam7,
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__qMam7,
+                  {
+                    [sty.text_1_chatviow__qMam7AYJmT]: hasVariant(
+                      $state,
+                      "_1",
+                      "chatviow"
+                    ),
+                    [sty.text_1_docter__qMam78Ddm8]: hasVariant(
+                      $state,
+                      "_1",
+                      "docter"
+                    ),
+                    [sty.text_1_docters__qMam7Pv2Kd]: hasVariant(
+                      $state,
+                      "_1",
+                      "docters"
+                    )
+                  }
+                )}
+              >
                 {
-                  [sty.text_1_chatviow__qMam7AYJmT]: hasVariant(
-                    $state,
-                    "_1",
-                    "chatviow"
-                  ),
-                  [sty.text_1_docter__qMam78Ddm8]: hasVariant(
-                    $state,
-                    "_1",
-                    "docter"
-                  ),
-                  [sty.text_1_docters__qMam7Pv2Kd]: hasVariant(
-                    $state,
-                    "_1",
-                    "docters"
-                  )
+                  "\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0644\u06cc\u0648\u0645"
                 }
-              )}
-            >
-              {"\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0644\u06cc\u0648\u0645"}
-            </div>
+              </div>
+            </Stack__>
             {(
               hasVariant($state, "_1", "docter")
                 ? true
