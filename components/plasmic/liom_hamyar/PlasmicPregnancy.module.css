@@ -1,20 +1,38 @@
 .root {
   display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
+  height: 100%;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: #f8f8f8;
+  min-width: 0;
+  min-height: 0;
+  padding: 8px;
+}
+.freeBox__uy8D7 {
+  display: flex;
   height: 100%;
   background: #f8f8f8;
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  min-width: 0;
+  width: 60%;
   min-height: 0;
 }
-.rootdarkMod {
+@media (max-width: 640px) {
+  .freeBox__uy8D7 {
+    width: 100%;
+    min-width: 0;
+  }
+}
+.freeBoxdarkMod__uy8D7OQOo {
   background: #0f0f0f;
 }
 @media (max-width: 640px) {
-  .rootdarkMod {
+  .freeBoxdarkMod__uy8D7OQOo {
     background: #0f0f0f;
   }
 }
