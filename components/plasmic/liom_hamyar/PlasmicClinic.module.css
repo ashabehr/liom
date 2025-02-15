@@ -5605,12 +5605,14 @@
   width: 25px;
   height: 25px;
   flex-shrink: 0;
+  display: block;
 }
 @media (max-width: 640px) {
   .svg_1_docters__no9YVpv2Kd {
     width: 25px;
     height: 25px;
     flex-shrink: 0;
+    display: block;
   }
 }
 .svg_1_docter__no9Yv8Ddm8 {

@@ -7282,67 +7282,87 @@ function PlasmicClinic__RenderFunc(props: {
                 )
               })}
             >
-              <PlasmicIcon__
-                PlasmicIconType={
-                  hasVariant($state, "_1", "chatviow")
-                    ? ChevronRightIcon
-                    : hasVariant($state, "_1", "docter")
-                    ? ChevronRightIcon
-                    : hasVariant($state, "_1", "docters") &&
-                      hasVariant(globalVariants, "screen", "mobile")
-                    ? ChevronRightIcon
-                    : hasVariant($state, "_1", "docters")
-                    ? ChevronRightIcon
-                    : Icon22Icon
-                }
-                className={classNames(projectcss.all, sty.svg__no9Yv, {
-                  [sty.svg_1_chatviow__no9YVaYJmT]: hasVariant(
-                    $state,
-                    "_1",
-                    "chatviow"
-                  ),
-                  [sty.svg_1_docter__no9Yv8Ddm8]: hasVariant(
-                    $state,
-                    "_1",
-                    "docter"
-                  ),
-                  [sty.svg_1_docters__no9YVpv2Kd]: hasVariant(
-                    $state,
-                    "_1",
-                    "docters"
-                  )
-                })}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["update1"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          vgroup: "_1",
-                          operation: 1,
-                          value: "docters"
-                        };
-                        return (({ vgroup, value }) => {
-                          if (typeof value === "string") {
-                            value = [value];
-                          }
-
-                          $stateSet($state, vgroup, undefined);
-                          return undefined;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["update1"] != null &&
-                    typeof $steps["update1"] === "object" &&
-                    typeof $steps["update1"].then === "function"
-                  ) {
-                    $steps["update1"] = await $steps["update1"];
+              {(
+                hasVariant($state, "_1", "docter")
+                  ? true
+                  : hasVariant($state, "_1", "docters") &&
+                    hasVariant(globalVariants, "screen", "mobile")
+                  ? true
+                  : hasVariant($state, "_1", "docters")
+                  ? true
+                  : (() => {
+                      try {
+                        return window.history.length > 1;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
+                      }
+                    })()
+              ) ? (
+                <PlasmicIcon__
+                  PlasmicIconType={
+                    hasVariant($state, "_1", "chatviow")
+                      ? ChevronRightIcon
+                      : hasVariant($state, "_1", "docter")
+                      ? ChevronRightIcon
+                      : hasVariant($state, "_1", "docters") &&
+                        hasVariant(globalVariants, "screen", "mobile")
+                      ? ChevronRightIcon
+                      : hasVariant($state, "_1", "docters")
+                      ? ChevronRightIcon
+                      : Icon22Icon
                   }
-                }}
-                role={"img"}
-              />
+                  className={classNames(projectcss.all, sty.svg__no9Yv, {
+                    [sty.svg_1_chatviow__no9YVaYJmT]: hasVariant(
+                      $state,
+                      "_1",
+                      "chatviow"
+                    ),
+                    [sty.svg_1_docter__no9Yv8Ddm8]: hasVariant(
+                      $state,
+                      "_1",
+                      "docter"
+                    ),
+                    [sty.svg_1_docters__no9YVpv2Kd]: hasVariant(
+                      $state,
+                      "_1",
+                      "docters"
+                    )
+                  })}
+                  onClick={async event => {
+                    const $steps = {};
 
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                if (window.history.length > 1)
+                                  return window.history.back();
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                  role={"img"}
+                />
+              ) : null}
               <div
                 className={classNames(
                   projectcss.all,
