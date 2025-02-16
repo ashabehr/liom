@@ -511,7 +511,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       sty.text__ryj9
                     )}
                   >
-                    {"\u0639\u0644\u06cc\u0631\u0636\u0627"}
+                    {"\u0639\u0644\u06cc"}
                   </div>
                   <div
                     className={classNames(
