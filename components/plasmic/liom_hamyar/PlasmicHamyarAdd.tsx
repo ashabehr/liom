@@ -62,6 +62,10 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import VigetLiom from "../../VigetLiom"; // plasmic-import: BIrjMygSfTRI/component
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
+import Switchbest from "../../Switchbest"; // plasmic-import: ofUp1AS5glz5/component
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
@@ -80,6 +84,9 @@ import sty from "./PlasmicHamyarAdd.module.css"; // plasmic-import: ghwXD1CqaWYi
 
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+import Icon153Icon from "./icons/PlasmicIcon__Icon153"; // plasmic-import: P9oglo5LEXFz/icon
+import Icon156Icon from "./icons/PlasmicIcon__Icon156"; // plasmic-import: 1jjGssoVHwzo/icon
+import Icon155Icon from "./icons/PlasmicIcon__Icon155"; // plasmic-import: 23a494aT3I5j/icon
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ2D4OoXB/icon
 
@@ -99,11 +106,16 @@ export const PlasmicHamyarAdd__ArgProps = new Array<ArgPropType>();
 export type PlasmicHamyarAdd__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
+  vigetLiom?: Flex__<typeof VigetLiom>;
+  embedHtml?: Flex__<typeof Embed>;
+  popover?: Flex__<typeof AntdPopover>;
+  button6?: Flex__<typeof Button>;
+  button7?: Flex__<typeof Button>;
+  switchbest?: Flex__<typeof Switchbest>;
   section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   number2?: Flex__<typeof AntdModal>;
   textInput?: Flex__<typeof TextInput>;
-  svg?: Flex__<"svg">;
   antdInput?: Flex__<typeof Input>;
   button2?: Flex__<typeof Button>;
   name2?: Flex__<typeof AntdModal>;
@@ -269,7 +281,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         path: "sms.open",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "button4.color",
@@ -279,6 +291,30 @@ function PlasmicHamyarAdd__RenderFunc(props: {
       },
       {
         path: "button5.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "switchbest.isChecked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "popover.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button6.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "button7.color",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
@@ -439,6 +475,251 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                 </div>
               </Button>
             </Stack__>
+            <VigetLiom
+              data-plasmic-name={"vigetLiom"}
+              data-plasmic-override={overrides.vigetLiom}
+              className={classNames("__wab_instance", sty.vigetLiom)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__sK8W
+                )}
+              >
+                {
+                  "\u0647\u0645\u06cc\u0627\u0631 \u0647\u0627\u06cc \u0645\u0646"
+                }
+              </div>
+              <Embed
+                data-plasmic-name={"embedHtml"}
+                data-plasmic-override={overrides.embedHtml}
+                className={classNames("__wab_instance", sty.embedHtml)}
+                code={"<hr></hr>"}
+              />
+
+              <div className={classNames(projectcss.all, sty.freeBox__uH41B)}>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__vkwjR)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ryj9
+                    )}
+                  >
+                    {"\u0639\u0644\u06cc\u0631\u0636\u0627"}
+                  </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__inBq9
+                    )}
+                  >
+                    {"(\u0646\u0633\u0628\u062a: \u0647\u0645\u0633\u0631)"}
+                  </div>
+                  <AntdPopover
+                    data-plasmic-name={"popover"}
+                    data-plasmic-override={overrides.popover}
+                    arrow={false}
+                    className={classNames("__wab_instance", sty.popover)}
+                    content={
+                      <Stack__
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox___7WG
+                        )}
+                      >
+                        <Button
+                          data-plasmic-name={"button6"}
+                          data-plasmic-override={overrides.button6}
+                          className={classNames("__wab_instance", sty.button6)}
+                          color={generateStateValueProp($state, [
+                            "button6",
+                            "color"
+                          ])}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button6",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          showStartIcon={true}
+                          size={"compact"}
+                          startIcon={
+                            <Icon156Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__gNq5H
+                              )}
+                              role={"img"}
+                            />
+                          }
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__gqCdA
+                            )}
+                          >
+                            {
+                              "\u0627\u0631\u0633\u0627\u0644 \u062f\u0639\u0648\u062a\u0646\u0627\u0645\u0647"
+                            }
+                          </div>
+                        </Button>
+                        <Button
+                          data-plasmic-name={"button7"}
+                          data-plasmic-override={overrides.button7}
+                          className={classNames("__wab_instance", sty.button7)}
+                          color={generateStateValueProp($state, [
+                            "button7",
+                            "color"
+                          ])}
+                          onColorChange={async (...eventArgs: any) => {
+                            ((...eventArgs) => {
+                              generateStateOnChangeProp($state, [
+                                "button7",
+                                "color"
+                              ])(eventArgs[0]);
+                            }).apply(null, eventArgs);
+
+                            if (
+                              eventArgs.length > 1 &&
+                              eventArgs[1] &&
+                              eventArgs[1]._plasmic_state_init_
+                            ) {
+                              return;
+                            }
+                          }}
+                          showStartIcon={true}
+                          size={"compact"}
+                          startIcon={
+                            <Icon155Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg___7RXc4
+                              )}
+                              role={"img"}
+                            />
+                          }
+                        >
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__exNo
+                            )}
+                          >
+                            {
+                              "\u062d\u0630\u0641 \u0647\u0645\u06cc\u0627\u0631"
+                            }
+                          </div>
+                        </Button>
+                      </Stack__>
+                    }
+                    contentText={"Popover contents"}
+                    defaultOpen={false}
+                    defaultStylesClassName={classNames(
+                      projectcss.root_reset,
+                      projectcss.plasmic_default_styles,
+                      projectcss.plasmic_mixins,
+                      projectcss.plasmic_tokens,
+                      plasmic_antd_5_hostless_css.plasmic_tokens,
+                      plasmic_plasmic_rich_components_css.plasmic_tokens
+                    )}
+                    mouseEnterDelay={0}
+                    mouseLeaveDelay={0}
+                    onOpenChange={async (...eventArgs: any) => {
+                      generateStateOnChangeProp($state, [
+                        "popover",
+                        "open"
+                      ]).apply(null, eventArgs);
+                    }}
+                    open={generateStateValueProp($state, ["popover", "open"])}
+                    placement={"bottomLeft"}
+                    popoverScopeClassName={sty["popover__popover"]}
+                    title={null}
+                    trigger={"click"}
+                  >
+                    <Icon153Icon
+                      className={classNames(projectcss.all, sty.svg__feOog)}
+                      role={"img"}
+                    />
+                  </AntdPopover>
+                </Stack__>
+                <div className={classNames(projectcss.all, sty.freeBox__gztJa)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__oMzwZ
+                    )}
+                  >
+                    {"09038854947"}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__yqgTw)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__ydQlg
+                      )}
+                    >
+                      {
+                        "\u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0628\u0627 \u067e\u06cc\u0627\u0645\u06a9"
+                      }
+                    </div>
+                    <Switchbest
+                      data-plasmic-name={"switchbest"}
+                      data-plasmic-override={overrides.switchbest}
+                      children={null}
+                      className={classNames("__wab_instance", sty.switchbest)}
+                      isChecked={
+                        generateStateValueProp($state, [
+                          "switchbest",
+                          "isChecked"
+                        ]) ?? false
+                      }
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "switchbest",
+                            "isChecked"
+                          ])(eventArgs[0]);
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </VigetLiom>
             <PlasmicImg__
               alt={""}
               className={classNames(sty.img__uuxvo)}
@@ -707,9 +988,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                           {"+98 "}
                         </div>
                         <Icon111Icon
-                          data-plasmic-name={"svg"}
-                          data-plasmic-override={overrides.svg}
-                          className={classNames(projectcss.all, sty.svg)}
+                          className={classNames(projectcss.all, sty.svg__fvBa)}
                           role={"img"}
                         />
                       </React.Fragment>
@@ -1450,6 +1729,40 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                         "invokeGlobalAction3"
                       ];
                     }
+
+                    $steps["updateSmsOpen"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["sms", "open"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateSmsOpen"] != null &&
+                      typeof $steps["updateSmsOpen"] === "object" &&
+                      typeof $steps["updateSmsOpen"].then === "function"
+                    ) {
+                      $steps["updateSmsOpen"] = await $steps["updateSmsOpen"];
+                    }
                   }}
                   onColorChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {
@@ -1576,21 +1889,6 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                   data-plasmic-override={overrides.button4}
                   className={classNames("__wab_instance", sty.button4)}
                   color={generateStateValueProp($state, ["button4", "color"])}
-                  isDisabled={(() => {
-                    try {
-                      return (
-                        $state.name.length == 0 || $state.relation.length == 0
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()}
                   onClick={async event => {
                     const $steps = {};
 
@@ -1661,21 +1959,6 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                   data-plasmic-override={overrides.button5}
                   className={classNames("__wab_instance", sty.button5)}
                   color={generateStateValueProp($state, ["button5", "color"])}
-                  isDisabled={(() => {
-                    try {
-                      return (
-                        $state.name.length == 0 || $state.relation.length == 0
-                      );
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return [];
-                      }
-                      throw e;
-                    }
-                  })()}
                   onClick={async event => {
                     const $steps = {};
 
@@ -1719,17 +2002,14 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                       ? (() => {
                           const actionArgs = {
                             args: [
-                              "PUT",
+                              "POST",
                               "https://n8n.staas.ir/webhook/rest/user/hamyar/add",
                               undefined,
                               (() => {
                                 try {
                                   return {
                                     authorization: $state.token,
-                                    mobile: $state.number,
-                                    name: $state.name,
-                                    type: $state.type,
-                                    relation: $state.relation
+                                    id: $state.masseg.id
                                   };
                                 } catch (e) {
                                   if (
@@ -1766,7 +2046,7 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                             const actionArgs = {
                               args: [
                                 "success",
-                                "\u062f\u0631\u062e\u0648\u0627\u0633\u062a \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u062b\u0628\u062a \u0634\u062f.",
+                                "\u067e\u06cc\u0627\u0645\u06a9 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0628\u0647 \u0647\u0645\u06cc\u0627\u0631\u062a \u0627\u0631\u0633\u0627\u0644 \u0634\u062f.",
                                 "bottom-center"
                               ]
                             };
@@ -1783,116 +2063,6 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                     ) {
                       $steps["invokeGlobalAction2"] = await $steps[
                         "invokeGlobalAction2"
-                      ];
-                    }
-
-                    $steps["updateMasseg"] =
-                      $steps.invokeGlobalAction?.data?.success == true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["masseg"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data.result
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["updateMasseg"] != null &&
-                      typeof $steps["updateMasseg"] === "object" &&
-                      typeof $steps["updateMasseg"].then === "function"
-                    ) {
-                      $steps["updateMasseg"] = await $steps["updateMasseg"];
-                    }
-
-                    $steps["updateErrror"] =
-                      $steps.invokeGlobalAction?.data?.success == false
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["errror"]
-                              },
-                              operation: 0,
-                              value: $steps.invokeGlobalAction.data.error
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                    if (
-                      $steps["updateErrror"] != null &&
-                      typeof $steps["updateErrror"] === "object" &&
-                      typeof $steps["updateErrror"].then === "function"
-                    ) {
-                      $steps["updateErrror"] = await $steps["updateErrror"];
-                    }
-
-                    $steps["invokeGlobalAction3"] =
-                      $steps.invokeGlobalAction?.data?.success == false
-                        ? (() => {
-                            const actionArgs = {
-                              args: [
-                                "error",
-                                (() => {
-                                  try {
-                                    return $state.errror.message;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
-                                "bottom-center",
-                                10000
-                              ]
-                            };
-                            return $globalActions["Fragment.showToast"]?.apply(
-                              null,
-                              [...actionArgs.args]
-                            );
-                          })()
-                        : undefined;
-                    if (
-                      $steps["invokeGlobalAction3"] != null &&
-                      typeof $steps["invokeGlobalAction3"] === "object" &&
-                      typeof $steps["invokeGlobalAction3"].then === "function"
-                    ) {
-                      $steps["invokeGlobalAction3"] = await $steps[
-                        "invokeGlobalAction3"
                       ];
                     }
                   }}
@@ -1938,11 +2108,16 @@ const PlasmicDescendants = {
   root: [
     "root",
     "button",
+    "vigetLiom",
+    "embedHtml",
+    "popover",
+    "button6",
+    "button7",
+    "switchbest",
     "section",
     "headerLiom",
     "number2",
     "textInput",
-    "svg",
     "antdInput",
     "button2",
     "name2",
@@ -1955,11 +2130,23 @@ const PlasmicDescendants = {
     "button5"
   ],
   button: ["button"],
+  vigetLiom: [
+    "vigetLiom",
+    "embedHtml",
+    "popover",
+    "button6",
+    "button7",
+    "switchbest"
+  ],
+  embedHtml: ["embedHtml"],
+  popover: ["popover", "button6", "button7"],
+  button6: ["button6"],
+  button7: ["button7"],
+  switchbest: ["switchbest"],
   section: ["section", "headerLiom"],
   headerLiom: ["headerLiom"],
-  number2: ["number2", "textInput", "svg", "antdInput", "button2"],
-  textInput: ["textInput", "svg", "antdInput"],
-  svg: ["svg"],
+  number2: ["number2", "textInput", "antdInput", "button2"],
+  textInput: ["textInput", "antdInput"],
   antdInput: ["antdInput"],
   button2: ["button2"],
   name2: ["name2", "textInput2", "antdInput2", "radioGrop", "button3"],
@@ -1977,11 +2164,16 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
+  vigetLiom: typeof VigetLiom;
+  embedHtml: typeof Embed;
+  popover: typeof AntdPopover;
+  button6: typeof Button;
+  button7: typeof Button;
+  switchbest: typeof Switchbest;
   section: "section";
   headerLiom: typeof HeaderLiom;
   number2: typeof AntdModal;
   textInput: typeof TextInput;
-  svg: "svg";
   antdInput: typeof Input;
   button2: typeof Button;
   name2: typeof AntdModal;
@@ -2080,11 +2272,16 @@ export const PlasmicHamyarAdd = Object.assign(
   {
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
+    vigetLiom: makeNodeComponent("vigetLiom"),
+    embedHtml: makeNodeComponent("embedHtml"),
+    popover: makeNodeComponent("popover"),
+    button6: makeNodeComponent("button6"),
+    button7: makeNodeComponent("button7"),
+    switchbest: makeNodeComponent("switchbest"),
     section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     number2: makeNodeComponent("number2"),
     textInput: makeNodeComponent("textInput"),
-    svg: makeNodeComponent("svg"),
     antdInput: makeNodeComponent("antdInput"),
     button2: makeNodeComponent("button2"),
     name2: makeNodeComponent("name2"),

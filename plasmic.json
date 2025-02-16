@@ -1290,6 +1290,19 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/pregnancy-2"
+        },
+        {
+          "id": "BIrjMygSfTRI",
+          "name": "VigetLiom",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicVigetLiom.tsx",
+          "importSpec": {
+            "modulePath": "VigetLiom.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicVigetLiom.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2337,6 +2350,26 @@
           "id": "qr8jQCU8QOqy",
           "name": "Icon152Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon152.tsx"
+        },
+        {
+          "id": "P9oglo5LEXFz",
+          "name": "Icon153Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon153.tsx"
+        },
+        {
+          "id": "x-DDAbYM0dwk",
+          "name": "Icon154Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon154.tsx"
+        },
+        {
+          "id": "23a494aT3I5j",
+          "name": "Icon155Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon155.tsx"
+        },
+        {
+          "id": "1jjGssoVHwzo",
+          "name": "Icon156Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon156.tsx"
         }
       ],
       "images": [
