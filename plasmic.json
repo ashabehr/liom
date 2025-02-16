@@ -2370,6 +2370,11 @@
           "id": "1jjGssoVHwzo",
           "name": "Icon156Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon156.tsx"
+        },
+        {
+          "id": "pYMHtMPOTSpB",
+          "name": "Icon157Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon157.tsx"
         }
       ],
       "images": [

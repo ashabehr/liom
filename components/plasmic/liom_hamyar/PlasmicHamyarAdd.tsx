@@ -89,6 +89,7 @@ import Icon156Icon from "./icons/PlasmicIcon__Icon156"; // plasmic-import: 1jjGs
 import Icon155Icon from "./icons/PlasmicIcon__Icon155"; // plasmic-import: 23a494aT3I5j/icon
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
 import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ2D4OoXB/icon
+import Icon157Icon from "./icons/PlasmicIcon__Icon157"; // plasmic-import: pYMHtMPOTSpB/icon
 
 import __lib_copyToClipboard from "copy-to-clipboard";
 
@@ -107,7 +108,6 @@ export type PlasmicHamyarAdd__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
   vigetLiom?: Flex__<typeof VigetLiom>;
-  embedHtml?: Flex__<typeof Embed>;
   popover?: Flex__<typeof AntdPopover>;
   button6?: Flex__<typeof Button>;
   button7?: Flex__<typeof Button>;
@@ -126,6 +126,9 @@ export type PlasmicHamyarAdd__OverridesType = {
   sms?: Flex__<typeof AntdModal>;
   button4?: Flex__<typeof Button>;
   button5?: Flex__<typeof Button>;
+  remove?: Flex__<typeof AntdModal>;
+  button8?: Flex__<typeof Button>;
+  button9?: Flex__<typeof Button>;
 };
 
 export interface DefaultHamyarAddProps {}
@@ -318,6 +321,27 @@ function PlasmicHamyarAdd__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
+      },
+      {
+        path: "remove.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button8.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          hasVariant(globalVariants, "screen", "mobile")
+            ? "whiteYellowLine"
+            : "whiteYellowLine"
+      },
+      {
+        path: "button9.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "clear"
       }
     ],
     [$props, $ctx, $refs]
@@ -492,13 +516,15 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                 }
               </div>
               <Embed
-                data-plasmic-name={"embedHtml"}
-                data-plasmic-override={overrides.embedHtml}
-                className={classNames("__wab_instance", sty.embedHtml)}
+                className={classNames("__wab_instance", sty.embedHtml___0DzHz)}
                 code={"<hr></hr>"}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__uH41B)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__uH41B)}
+              >
                 <Stack__
                   as={"div"}
                   hasGap={true}
@@ -544,6 +570,45 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                             "button6",
                             "color"
                           ])}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updateButtonColor"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["button", "color"]
+                                    },
+                                    operation: 0
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateButtonColor"] != null &&
+                              typeof $steps["updateButtonColor"] === "object" &&
+                              typeof $steps["updateButtonColor"].then ===
+                                "function"
+                            ) {
+                              $steps["updateButtonColor"] = await $steps[
+                                "updateButtonColor"
+                              ];
+                            }
+                          }}
                           onColorChange={async (...eventArgs: any) => {
                             ((...eventArgs) => {
                               generateStateOnChangeProp($state, [
@@ -592,6 +657,83 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                             "button7",
                             "color"
                           ])}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["updatePopoverOpen"] = false
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["popover", "open"]
+                                    },
+                                    operation: 0,
+                                    value: false
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updatePopoverOpen"] != null &&
+                              typeof $steps["updatePopoverOpen"] === "object" &&
+                              typeof $steps["updatePopoverOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updatePopoverOpen"] = await $steps[
+                                "updatePopoverOpen"
+                              ];
+                            }
+
+                            $steps["updateRemoveOpen"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    variable: {
+                                      objRoot: $state,
+                                      variablePath: ["remove", "open"]
+                                    },
+                                    operation: 0,
+                                    value: true
+                                  };
+                                  return (({
+                                    variable,
+                                    value,
+                                    startIndex,
+                                    deleteCount
+                                  }) => {
+                                    if (!variable) {
+                                      return;
+                                    }
+                                    const { objRoot, variablePath } = variable;
+
+                                    $stateSet(objRoot, variablePath, value);
+                                    return value;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["updateRemoveOpen"] != null &&
+                              typeof $steps["updateRemoveOpen"] === "object" &&
+                              typeof $steps["updateRemoveOpen"].then ===
+                                "function"
+                            ) {
+                              $steps["updateRemoveOpen"] = await $steps[
+                                "updateRemoveOpen"
+                              ];
+                            }
+                          }}
                           onColorChange={async (...eventArgs: any) => {
                             ((...eventArgs) => {
                               generateStateOnChangeProp($state, [
@@ -718,7 +860,11 @@ function PlasmicHamyarAdd__RenderFunc(props: {
                     />
                   </div>
                 </div>
-              </div>
+                <Embed
+                  className={classNames("__wab_instance", sty.embedHtml__u7Wp)}
+                  code={"<hr></hr>"}
+                />
+              </Stack__>
             </VigetLiom>
             <PlasmicImg__
               alt={""}
@@ -2098,6 +2244,228 @@ function PlasmicHamyarAdd__RenderFunc(props: {
               </Stack__>
             </Stack__>
           </AntdModal>
+          <AntdModal
+            data-plasmic-name={"remove"}
+            data-plasmic-override={overrides.remove}
+            className={classNames("__wab_instance", sty.remove)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            hideFooter={true}
+            modalContentClassName={classNames({
+              [sty["pcls_gYTfcx2OxZGf"]]: true,
+              [sty["pcls_w5dAfaQVKkM0"]]: hasVariant(
+                globalVariants,
+                "screen",
+                "mobile"
+              )
+            })}
+            modalScopeClassName={sty["remove__modal"]}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["remove", "open"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            open={generateStateValueProp($state, ["remove", "open"])}
+            title={
+              <div className={classNames(projectcss.all, sty.freeBox__iCdfj)}>
+                <Icon157Icon
+                  className={classNames(projectcss.all, sty.svg__oe9Ho)}
+                  role={"img"}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___8D9Gn
+                  )}
+                >
+                  {"\u062d\u0630\u0641 \u0647\u0645\u06cc\u0627\u0631"}
+                </div>
+              </div>
+            }
+            trigger={null}
+            wrapClassName={classNames({ [sty["pcls_rDRWK3YhJHGw"]]: true })}
+          >
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__z1KFv)}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__u4WeR
+                )}
+              >
+                {
+                  "\u0628\u0627 \u062d\u0630\u0641 \u0647\u0645\u06cc\u0627\u0631\u060c \u062f\u06cc\u06af\u0647 \u067e\u06cc\u0627\u0645\u06a9\u06cc \u0628\u0631\u0627\u0634 \u0627\u0631\u0633\u0627\u0644 \u0646\u0645\u06cc\u0634\u0647. \u0627\u0632 \u0627\u0646\u062c\u0627\u0645 \u0627\u06cc\u0646\u06a9\u0627\u0631 \u0645\u0637\u0645\u0626\u0646\u06cc \u061f"
+                }
+              </div>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__ovDxF)}
+              >
+                <Button
+                  data-plasmic-name={"button8"}
+                  data-plasmic-override={overrides.button8}
+                  className={classNames("__wab_instance", sty.button8)}
+                  color={generateStateValueProp($state, ["button8", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                let shareText = $state.masseg.message;
+                                if (navigator.share) {
+                                  return navigator.share({
+                                    title: "لیوم | تقویم قاعدگی",
+                                    text: shareText,
+                                    url: "https://liom.app/link"
+                                  });
+                                } else {
+                                  $$.copyToClipboard(shareText);
+                                  return alert(
+                                    "مرورگر شما از قابلیت اشتراک‌گذاری پشتیبانی نمی‌کند.\nمتن در کلیپ‌بورد کپی شد. حالا می‌توانید آن را در برنامه‌های دیگر به اشتراک بگذارید."
+                                  );
+                                }
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button8", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  size={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? "minimal"
+                      : undefined
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__iaKjk
+                    )}
+                  >
+                    {"\u062d\u0630\u0641"}
+                  </div>
+                </Button>
+                <Button
+                  data-plasmic-name={"button9"}
+                  data-plasmic-override={overrides.button9}
+                  className={classNames("__wab_instance", sty.button9)}
+                  color={generateStateValueProp($state, ["button9", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateName2Open"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["remove", "open"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateName2Open"] != null &&
+                      typeof $steps["updateName2Open"] === "object" &&
+                      typeof $steps["updateName2Open"].then === "function"
+                    ) {
+                      $steps["updateName2Open"] = await $steps[
+                        "updateName2Open"
+                      ];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button9", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                  size={
+                    hasVariant(globalVariants, "screen", "mobile")
+                      ? "compact"
+                      : "compact"
+                  }
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__yk8Xc
+                    )}
+                  >
+                    {"\u0641\u0639\u0644\u0627 \u0646\u0647"}
+                  </div>
+                </Button>
+              </Stack__>
+            </Stack__>
+          </AntdModal>
         </div>
       </div>
     </React.Fragment>
@@ -2109,7 +2477,6 @@ const PlasmicDescendants = {
     "root",
     "button",
     "vigetLiom",
-    "embedHtml",
     "popover",
     "button6",
     "button7",
@@ -2127,18 +2494,13 @@ const PlasmicDescendants = {
     "button3",
     "sms",
     "button4",
-    "button5"
+    "button5",
+    "remove",
+    "button8",
+    "button9"
   ],
   button: ["button"],
-  vigetLiom: [
-    "vigetLiom",
-    "embedHtml",
-    "popover",
-    "button6",
-    "button7",
-    "switchbest"
-  ],
-  embedHtml: ["embedHtml"],
+  vigetLiom: ["vigetLiom", "popover", "button6", "button7", "switchbest"],
   popover: ["popover", "button6", "button7"],
   button6: ["button6"],
   button7: ["button7"],
@@ -2156,7 +2518,10 @@ const PlasmicDescendants = {
   button3: ["button3"],
   sms: ["sms", "button4", "button5"],
   button4: ["button4"],
-  button5: ["button5"]
+  button5: ["button5"],
+  remove: ["remove", "button8", "button9"],
+  button8: ["button8"],
+  button9: ["button9"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -2165,7 +2530,6 @@ type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
   vigetLiom: typeof VigetLiom;
-  embedHtml: typeof Embed;
   popover: typeof AntdPopover;
   button6: typeof Button;
   button7: typeof Button;
@@ -2184,6 +2548,9 @@ type NodeDefaultElementType = {
   sms: typeof AntdModal;
   button4: typeof Button;
   button5: typeof Button;
+  remove: typeof AntdModal;
+  button8: typeof Button;
+  button9: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -2273,7 +2640,6 @@ export const PlasmicHamyarAdd = Object.assign(
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
     vigetLiom: makeNodeComponent("vigetLiom"),
-    embedHtml: makeNodeComponent("embedHtml"),
     popover: makeNodeComponent("popover"),
     button6: makeNodeComponent("button6"),
     button7: makeNodeComponent("button7"),
@@ -2292,6 +2658,9 @@ export const PlasmicHamyarAdd = Object.assign(
     sms: makeNodeComponent("sms"),
     button4: makeNodeComponent("button4"),
     button5: makeNodeComponent("button5"),
+    remove: makeNodeComponent("remove"),
+    button8: makeNodeComponent("button8"),
+    button9: makeNodeComponent("button9"),
 
     // Metadata about props expected for PlasmicHamyarAdd
     internalVariantProps: PlasmicHamyarAdd__VariantProps,

@@ -84,7 +84,7 @@ export const PlasmicNoname3__ArgProps = new Array<ArgPropType>();
 export type PlasmicNoname3__OverridesType = {
   root?: Flex__<"div">;
   halamanUtama?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
+  text?: Flex__<"div">;
   img?: Flex__<typeof PlasmicImg__>;
 };
 
@@ -186,11 +186,20 @@ function PlasmicNoname3__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.halamanUtama)}
           >
-            <div
-              data-plasmic-name={"freeBox"}
-              data-plasmic-override={overrides.freeBox}
-              className={classNames(projectcss.all, sty.freeBox)}
-            >
+            <div className={classNames(projectcss.all, sty.freeBox__ggEJ)}>
+              <div className={classNames(projectcss.all, sty.freeBox__mcPtg)}>
+                <div
+                  data-plasmic-name={"text"}
+                  data-plasmic-override={overrides.text}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text
+                  )}
+                >
+                  {"\u0630\u06a9\u0631 \u0647\u0627\u06cc \u0645\u0646"}
+                </div>
+              </div>
               <PlasmicImg__
                 data-plasmic-name={"img"}
                 data-plasmic-override={overrides.img}
@@ -201,7 +210,11 @@ function PlasmicNoname3__RenderFunc(props: {
                 displayMaxWidth={"100%"}
                 displayMinHeight={"0"}
                 displayMinWidth={"0"}
-                displayWidth={"250px"}
+                displayWidth={
+                  hasVariant(globalVariants, "screen", "mobile")
+                    ? "150px"
+                    : "200px"
+                }
                 loading={"lazy"}
                 src={{
                   src: "/plasmic/liom_hamyar/images/image79.svg",
@@ -219,9 +232,9 @@ function PlasmicNoname3__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "halamanUtama", "freeBox", "img"],
-  halamanUtama: ["halamanUtama", "freeBox", "img"],
-  freeBox: ["freeBox", "img"],
+  root: ["root", "halamanUtama", "text", "img"],
+  halamanUtama: ["halamanUtama", "text", "img"],
+  text: ["text"],
   img: ["img"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -230,7 +243,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   halamanUtama: "div";
-  freeBox: "div";
+  text: "div";
   img: typeof PlasmicImg__;
 };
 
@@ -320,7 +333,7 @@ export const PlasmicNoname3 = Object.assign(
   {
     // Helper components rendering sub-elements
     halamanUtama: makeNodeComponent("halamanUtama"),
-    freeBox: makeNodeComponent("freeBox"),
+    text: makeNodeComponent("text"),
     img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicNoname3

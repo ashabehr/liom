@@ -97,7 +97,8 @@ export type PlasmicButton__VariantMembers = {
     | "link"
     | "perper"
     | "line"
-    | "orange";
+    | "orange"
+    | "whiteYellowLine";
   unnamedVariant: "unnamedVariant";
   loading: "loading";
 };
@@ -124,6 +125,7 @@ export type PlasmicButton__VariantsArgs = {
     | "perper"
     | "line"
     | "orange"
+    | "whiteYellowLine"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   loading?: SingleBooleanChoiceArg<"loading">;
@@ -194,6 +196,7 @@ export interface DefaultButtonProps extends pp.BaseButtonProps {
     | "perper"
     | "line"
     | "orange"
+    | "whiteYellowLine"
   >;
   unnamedVariant?: SingleBooleanChoiceArg<"unnamedVariant">;
   loading?: SingleBooleanChoiceArg<"loading">;
@@ -347,6 +350,11 @@ function PlasmicButton__RenderFunc(props: {
           [sty.rootcolor_softRed]: hasVariant($state, "color", "softRed"),
           [sty.rootcolor_softSand]: hasVariant($state, "color", "softSand"),
           [sty.rootcolor_softYellow]: hasVariant($state, "color", "softYellow"),
+          [sty.rootcolor_whiteYellowLine]: hasVariant(
+            $state,
+            "color",
+            "whiteYellowLine"
+          ),
           [sty.rootcolor_white]: hasVariant($state, "color", "white"),
           [sty.rootcolor_yellow]: hasVariant($state, "color", "yellow"),
           [sty.rootisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),

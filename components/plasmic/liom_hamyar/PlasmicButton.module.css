@@ -105,6 +105,11 @@
 .rootcolor_orange {
   background: #fa8214;
 }
+.rootcolor_whiteYellowLine {
+  background: var(--token-R_Rsn0nP9oIv);
+  border-width: 1px;
+  border-color: var(--token-2ObYh10hZuCh);
+}
 .rootloading {
   padding-top: 0px;
   padding-bottom: 0px;
