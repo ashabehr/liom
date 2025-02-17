@@ -6467,53 +6467,55 @@ function PlasmicPregnancy__RenderFunc(props: {
                         onClick={async event => {
                           const $steps = {};
 
-                          $steps["goToPage"] = (() => {
-                            if ($ctx.query?.inApp == "true") return false;
-                            else return true;
-                          })()
-                            ? (() => {
-                                const actionArgs = {
-                                  destination: (() => {
-                                    try {
-                                      return (
-                                        "https://apps.liom.app/weekByWeek/?token=" +
-                                        $ctx.query.token +
-                                        "&userId=" +
-                                        $ctx.query.userId +
-                                        "&theme=" +
-                                        $ctx.query.theme +
-                                        "&weekNum=" +
-                                        $state.weeksPregnant +
-                                        "&days=" +
-                                        $state.daysPregnant +
-                                        "&inApp=false"
-                                      );
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
+                          $steps["goToPage"] =
+                            // if ($ctx.query?.inApp == "true")
+                            //   false;
+                            // else
+                            //   true
+                            false
+                              ? (() => {
+                                  const actionArgs = {
+                                    destination: (() => {
+                                      try {
+                                        return (
+                                          "https://apps.liom.app/weekByWeek/?token=" +
+                                          $ctx.query.token +
+                                          "&userId=" +
+                                          $ctx.query.userId +
+                                          "&theme=" +
+                                          $ctx.query.theme +
+                                          "&weekNum=" +
+                                          $state.weeksPregnant +
+                                          "&days=" +
+                                          $state.daysPregnant +
+                                          "&inApp=false"
+                                        );
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
                                       }
-                                      throw e;
+                                    })()
+                                  };
+                                  return (({ destination }) => {
+                                    if (
+                                      typeof destination === "string" &&
+                                      destination.startsWith("#")
+                                    ) {
+                                      document
+                                        .getElementById(destination.substr(1))
+                                        .scrollIntoView({ behavior: "smooth" });
+                                    } else {
+                                      __nextRouter?.push(destination);
                                     }
-                                  })()
-                                };
-                                return (({ destination }) => {
-                                  if (
-                                    typeof destination === "string" &&
-                                    destination.startsWith("#")
-                                  ) {
-                                    document
-                                      .getElementById(destination.substr(1))
-                                      .scrollIntoView({ behavior: "smooth" });
-                                  } else {
-                                    __nextRouter?.push(destination);
-                                  }
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                           if (
                             $steps["goToPage"] != null &&
                             typeof $steps["goToPage"] === "object" &&
@@ -6586,39 +6588,41 @@ function PlasmicPregnancy__RenderFunc(props: {
                             ];
                           }
 
-                          $steps["runCode"] = (() => {
-                            if ($ctx.query?.inApp == "true") return true;
-                            else return false;
-                          })()
-                            ? (() => {
-                                const actionArgs = {
-                                  customFunction: async () => {
-                                    return (() => {
-                                      var link =
-                                        "https://apps.liom.app/weekByWeek/?token=" +
-                                        $ctx.query.token +
-                                        "&userId=" +
-                                        $ctx.query.userId +
-                                        "&theme=" +
-                                        $ctx.query.theme +
-                                        "&weekNum=" +
-                                        $state.weeksPregnant +
-                                        "&days=" +
-                                        $state.daysPregnant +
-                                        "&inApp=true";
-                                      console.log(link);
-                                      return window.FlutterChannel.postMessage(
-                                        "#inAppWebView**@@**ابزار هفته به هفته**@@**" +
-                                          link
-                                      );
-                                    })();
-                                  }
-                                };
-                                return (({ customFunction }) => {
-                                  return customFunction();
-                                })?.apply(null, [actionArgs]);
-                              })()
-                            : undefined;
+                          $steps["runCode"] =
+                            // if ($ctx.query?.inApp == "true")
+                            //   true;
+                            // else
+                            //   false
+                            false
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        var link =
+                                          "https://apps.liom.app/weekByWeek/?token=" +
+                                          $ctx.query.token +
+                                          "&userId=" +
+                                          $ctx.query.userId +
+                                          "&theme=" +
+                                          $ctx.query.theme +
+                                          "&weekNum=" +
+                                          $state.weeksPregnant +
+                                          "&days=" +
+                                          $state.daysPregnant +
+                                          "&inApp=true";
+                                        console.log(link);
+                                        return window.FlutterChannel.postMessage(
+                                          "#inAppWebView**@@**ابزار هفته به هفته**@@**" +
+                                            link
+                                        );
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
                           if (
                             $steps["runCode"] != null &&
                             typeof $steps["runCode"] === "object" &&
