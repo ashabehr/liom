@@ -1086,7 +1086,7 @@
   max-width: 100%;
   overflow: auto;
   min-width: 0;
-  padding: 0px 8px 8px;
+  padding: 5px 8px 8px;
 }
 .freeBox__brt1W > :global(.__wab_flex-container) {
   flex-direction: row;

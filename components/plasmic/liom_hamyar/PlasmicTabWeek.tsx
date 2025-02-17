@@ -72,17 +72,20 @@ export type PlasmicTabWeek__VariantMembers = {
   selected: "selected";
   dark: "dark";
   darkSelected: "darkSelected";
+  currentWeek: "currentWeek";
 };
 export type PlasmicTabWeek__VariantsArgs = {
   selected?: SingleBooleanChoiceArg<"selected">;
   dark?: SingleBooleanChoiceArg<"dark">;
   darkSelected?: SingleBooleanChoiceArg<"darkSelected">;
+  currentWeek?: SingleBooleanChoiceArg<"currentWeek">;
 };
 type VariantPropType = keyof PlasmicTabWeek__VariantsArgs;
 export const PlasmicTabWeek__VariantProps = new Array<VariantPropType>(
   "selected",
   "dark",
-  "darkSelected"
+  "darkSelected",
+  "currentWeek"
 );
 
 export type PlasmicTabWeek__ArgsType = {
@@ -105,6 +108,7 @@ export interface DefaultTabWeekProps {
   selected?: SingleBooleanChoiceArg<"selected">;
   dark?: SingleBooleanChoiceArg<"dark">;
   darkSelected?: SingleBooleanChoiceArg<"darkSelected">;
+  currentWeek?: SingleBooleanChoiceArg<"currentWeek">;
   className?: string;
 }
 
@@ -167,6 +171,12 @@ function PlasmicTabWeek__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.darkSelected
+      },
+      {
+        path: "currentWeek",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.currentWeek
       }
     ],
     [$props, $ctx, $refs]
@@ -194,6 +204,11 @@ function PlasmicTabWeek__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
         {
+          [sty.rootcurrentWeek]: hasVariant(
+            $state,
+            "currentWeek",
+            "currentWeek"
+          ),
           [sty.rootdarkSelected]: hasVariant(
             $state,
             "darkSelected",

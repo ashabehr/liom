@@ -6233,6 +6233,22 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   throw e;
                                 }
                               })()}
+                              currentWeek={(() => {
+                                try {
+                                  return (
+                                    $state.weeksPregnant - 1 == currentIndex
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return [];
+                                  }
+                                  throw e;
+                                }
+                              })()}
                               dark={(() => {
                                 try {
                                   return false;
@@ -6967,7 +6983,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             height={
                               hasVariant(globalVariants, "screen", "mobile")
                                 ? "160"
-                                : "210"
+                                : "200"
                             }
                             loading={"lazy"}
                             src={(() => {
@@ -7001,7 +7017,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             width={
                               hasVariant(globalVariants, "screen", "mobile")
                                 ? "160"
-                                : "210"
+                                : "200"
                             }
                           />
                         </div>
