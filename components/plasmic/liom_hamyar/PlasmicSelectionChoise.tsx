@@ -80,26 +80,27 @@ export const PlasmicSelectionChoise__VariantProps = new Array<VariantPropType>(
 );
 
 export type PlasmicSelectionChoise__ArgsType = {
-  children?: React.ReactNode;
   onClick?: (event: any) => void;
   selected?: boolean;
+  text?: string;
 };
 type ArgPropType = keyof PlasmicSelectionChoise__ArgsType;
 export const PlasmicSelectionChoise__ArgProps = new Array<ArgPropType>(
-  "children",
   "onClick",
-  "selected"
+  "selected",
+  "text"
 );
 
 export type PlasmicSelectionChoise__OverridesType = {
   root?: Flex__<"div">;
   freeBox?: Flex__<"div">;
+  text?: Flex__<"div">;
 };
 
 export interface DefaultSelectionChoiseProps {
-  children?: React.ReactNode;
   onClick?: (event: any) => void;
   selected?: boolean;
+  text?: string;
   select?: SingleBooleanChoiceArg<"select">;
   className?: string;
 }
@@ -225,25 +226,41 @@ function PlasmicSelectionChoise__RenderFunc(props: {
           }
         }}
       >
-        {renderPlasmicSlot({
-          defaultContents: "Enter some text",
-          value: args.children,
-          className: classNames(sty.slotTargetChildren, {
-            [sty.slotTargetChildrenselect]: hasVariant(
-              $state,
-              "select",
-              "select"
-            )
-          })
-        })}
+        <div
+          data-plasmic-name={"text"}
+          data-plasmic-override={overrides.text}
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text,
+            { [sty.textselect]: hasVariant($state, "select", "select") }
+          )}
+        >
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.text;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox"],
-  freeBox: ["freeBox"]
+  root: ["root", "freeBox", "text"],
+  freeBox: ["freeBox", "text"],
+  text: ["text"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -251,6 +268,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   freeBox: "div";
+  text: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -314,6 +332,7 @@ export const PlasmicSelectionChoise = Object.assign(
   {
     // Helper components rendering sub-elements
     freeBox: makeNodeComponent("freeBox"),
+    text: makeNodeComponent("text"),
 
     // Metadata about props expected for PlasmicSelectionChoise
     internalVariantProps: PlasmicSelectionChoise__VariantProps,

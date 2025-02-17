@@ -61,6 +61,9 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
+
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
 
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -69,6 +72,10 @@ import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css";
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicNoname3.module.css"; // plasmic-import: B6yNtMobOT_E/css
+
+import Icon160Icon from "./icons/PlasmicIcon__Icon160"; // plasmic-import: cU7PVNSdSlaD/icon
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -84,8 +91,10 @@ export const PlasmicNoname3__ArgProps = new Array<ArgPropType>();
 export type PlasmicNoname3__OverridesType = {
   root?: Flex__<"div">;
   halamanUtama?: Flex__<"div">;
-  text?: Flex__<"div">;
-  img?: Flex__<typeof PlasmicImg__>;
+  svg?: Flex__<"svg">;
+  button2?: Flex__<typeof Button>;
+  info?: Flex__<typeof Dialog>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultNoname3Props {}
@@ -137,6 +146,24 @@ function PlasmicNoname3__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "info.opendialog",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "button2.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "white"
       }
     ],
     [$props, $ctx, $refs]
@@ -187,24 +214,151 @@ function PlasmicNoname3__RenderFunc(props: {
             className={classNames(projectcss.all, sty.halamanUtama)}
           >
             <div className={classNames(projectcss.all, sty.freeBox__ggEJ)}>
-              <div className={classNames(projectcss.all, sty.freeBox__mcPtg)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__mcPtg)}
+              >
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__crqnW)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateInfoOpendialog"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["info", "opendialog"]
+                            },
+                            operation: 0,
+                            value: true
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateInfoOpendialog"] != null &&
+                      typeof $steps["updateInfoOpendialog"] === "object" &&
+                      typeof $steps["updateInfoOpendialog"].then === "function"
+                    ) {
+                      $steps["updateInfoOpendialog"] = await $steps[
+                        "updateInfoOpendialog"
+                      ];
+                    }
+                  }}
+                >
+                  <Icon160Icon
+                    data-plasmic-name={"svg"}
+                    data-plasmic-override={overrides.svg}
+                    className={classNames(projectcss.all, sty.svg)}
+                    role={"img"}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__cdcuc
+                    )}
+                  >
+                    {"\u0630\u06a9\u0631 \u0647\u0627\u06cc \u0645\u0646"}
+                  </div>
+                </Stack__>
                 <div
-                  data-plasmic-name={"text"}
-                  data-plasmic-override={overrides.text}
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text
+                    sty.text___7GueD
                   )}
                 >
-                  {"\u0630\u06a9\u0631 \u0647\u0627\u06cc \u0645\u0646"}
+                  {
+                    "\u0630\u06a9\u0631 \u0648\u06cc\u0698\u0647\u200c\u06cc \u0646\u0627\u0645 \u0634\u0645\u0627 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062d\u0631\u0648\u0641 \u0627\u0628\u062c\u062f"
+                  }
                 </div>
-              </div>
+                <Button
+                  data-plasmic-name={"button2"}
+                  data-plasmic-override={overrides.button2}
+                  className={classNames("__wab_instance", sty.button2)}
+                  color={generateStateValueProp($state, ["button2", "color"])}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateInfoOpendialog"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["info", "opendialog"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateInfoOpendialog"] != null &&
+                      typeof $steps["updateInfoOpendialog"] === "object" &&
+                      typeof $steps["updateInfoOpendialog"].then === "function"
+                    ) {
+                      $steps["updateInfoOpendialog"] = await $steps[
+                        "updateInfoOpendialog"
+                      ];
+                    }
+                  }}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button2", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                >
+                  {
+                    "\u0645\u062d\u0627\u0633\u0628\u0647 \u0648 \u062f\u0631\u06cc\u0627\u0641\u062a \u0630\u06a9\u0631"
+                  }
+                </Button>
+              </Stack__>
               <PlasmicImg__
-                data-plasmic-name={"img"}
-                data-plasmic-override={overrides.img}
                 alt={""}
-                className={classNames(sty.img)}
+                className={classNames(sty.img__dzZGh)}
                 displayHeight={"auto"}
                 displayMaxHeight={"none"}
                 displayMaxWidth={"100%"}
@@ -224,7 +378,239 @@ function PlasmicNoname3__RenderFunc(props: {
                 }}
               />
             </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__mPwwe
+              )}
+            >
+              {"\u0627\u0628\u0632\u0627\u0631 \u0647\u0627"}
+            </div>
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__vu1Qr)}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__wGn1)}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___1A3Gl)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__anIl
+                    )}
+                  >
+                    {"\u0646\u0627\u0645 \u0647\u0645\u0633\u0631"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__h7WIm)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___0Isee
+                    )}
+                  >
+                    {"\u0646\u0627\u0645 \u0641\u0631\u0632\u0646\u062f"}
+                  </div>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__hbLYm)}
+                  >
+                    <PlasmicImg__
+                      alt={""}
+                      className={classNames(sty.img__qizC6)}
+                      displayHeight={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "auto"
+                          : "80px"
+                      }
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={
+                        hasVariant(globalVariants, "screen", "mobile")
+                          ? "50px"
+                          : "100px"
+                      }
+                      loading={"lazy"}
+                      src={{
+                        src: "/plasmic/liom_hamyar/images/image87.png",
+                        fullWidth: 450,
+                        fullHeight: 450,
+                        aspectRatio: undefined
+                      }}
+                    />
+                  </div>
+                </div>
+              </Stack__>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__rithk)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__cvRP)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__gk5SX
+                    )}
+                  >
+                    {"\u062a\u063a\u06cc\u06cc\u0631 \u0646\u0627\u0645"}
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__o8OpC)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__w0AJ
+                    )}
+                  >
+                    {"\u0627\u0646\u0631\u0698\u06cc \u0646\u0627\u0645"}
+                  </div>
+                </div>
+              </Stack__>
+            </Stack__>
           </Stack__>
+          <Dialog
+            data-plasmic-name={"info"}
+            data-plasmic-override={overrides.info}
+            className={classNames("__wab_instance", sty.info)}
+            onOpendialogChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["info", "opendialog"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            opendialog={generateStateValueProp($state, ["info", "opendialog"])}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__mx1V)}>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__stxkR
+                )}
+              >
+                <div
+                  className={projectcss.__wab_expr_html_text}
+                  dangerouslySetInnerHTML={{
+                    __html: (() => {
+                      try {
+                        return ` <h5>📿 ذکر ویژه‌ی نام شما بر اساس حروف ابجد </h5>
+       <br>
+        <p>
+            هر نام، فرکانس و انرژی مخصوص به خود را دارد! در علوم عرفانی و معنوی، حروف ابجد یکی از روش‌های کهن برای کشف اسرار نام‌ها و دریافت ذکرهای هماهنگ با آن‌هاست. 
+            با محاسبه‌ی عدد ابجدی نامتان، ذکری خاص و متناسب با ارتعاشات وجودی شما مشخص می‌شود که می‌تواند تأثیرات شگفت‌انگیزی بر زندگی‌تان بگذارد.
+        </p>
+               <br>
+
+        <ul style="margin: 0 28px 0 0;">
+            <li>آیا به دنبال آرامش و تمرکز بیشتر هستید؟</li>
+            <li>می‌خواهید انرژی مثبت و برکت را در زندگی خود افزایش دهید؟</li>
+            <li>به تأثیر تکرار اذکار در جذب خواسته‌ها و بهبود حال روحی اعتقاد دارید؟</li>
+        </ul>
+               <br>
+
+        <p>تنها کافیست نام خود را وارد کنید تا ذکر منحصر‌به‌فرد خود را دریافت کنید. 
+           این ذکر بر اساس محاسبه‌ی دقیق حروف ابجد تعیین شده و می‌تواند راهی برای تعادل درونی، آرامش ذهن و ارتباطی عمیق‌تر با بعد معنوی شما باشد.</p>
+                  <br>`;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()
+                  }}
+                />
+              </div>
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={generateStateValueProp($state, ["button", "color"])}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["updateInfoOpendialog"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["info", "opendialog"]
+                          },
+                          operation: 0,
+                          value: false
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
+
+                          $stateSet(objRoot, variablePath, value);
+                          return value;
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["updateInfoOpendialog"] != null &&
+                    typeof $steps["updateInfoOpendialog"] === "object" &&
+                    typeof $steps["updateInfoOpendialog"].then === "function"
+                  ) {
+                    $steps["updateInfoOpendialog"] = await $steps[
+                      "updateInfoOpendialog"
+                    ];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+              >
+                {
+                  "\u0647\u0645\u06cc\u0646 \u062d\u0627\u0644\u0627 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f! "
+                }
+              </Button>
+            </div>
+          </Dialog>
         </div>
       </div>
     </React.Fragment>
@@ -232,10 +618,12 @@ function PlasmicNoname3__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "halamanUtama", "text", "img"],
-  halamanUtama: ["halamanUtama", "text", "img"],
-  text: ["text"],
-  img: ["img"]
+  root: ["root", "halamanUtama", "svg", "button2", "info", "button"],
+  halamanUtama: ["halamanUtama", "svg", "button2"],
+  svg: ["svg"],
+  button2: ["button2"],
+  info: ["info", "button"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -243,8 +631,10 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   halamanUtama: "div";
-  text: "div";
-  img: typeof PlasmicImg__;
+  svg: "svg";
+  button2: typeof Button;
+  info: typeof Dialog;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -333,8 +723,10 @@ export const PlasmicNoname3 = Object.assign(
   {
     // Helper components rendering sub-elements
     halamanUtama: makeNodeComponent("halamanUtama"),
-    text: makeNodeComponent("text"),
-    img: makeNodeComponent("img"),
+    svg: makeNodeComponent("svg"),
+    button2: makeNodeComponent("button2"),
+    info: makeNodeComponent("info"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicNoname3
     internalVariantProps: PlasmicNoname3__VariantProps,

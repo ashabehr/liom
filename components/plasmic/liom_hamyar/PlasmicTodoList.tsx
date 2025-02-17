@@ -315,22 +315,36 @@ function PlasmicTodoList__RenderFunc(props: {
                     {$props.title.replace(":", "")}
                   </React.Fragment>
                 </div>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___01IeR,
-                    {
-                      [sty.textdarkMod___01IeRkgh4P]: hasVariant(
-                        $state,
-                        "darkMod",
-                        "darkMod"
-                      )
+                {(() => {
+                  try {
+                    return $state.collapse.open;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return false;
                     }
-                  )}
-                >
-                  <React.Fragment>{"هفته " + $props.week}</React.Fragment>
-                </div>
+                    throw e;
+                  }
+                })() ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___01IeR,
+                      {
+                        [sty.textdarkMod___01IeRkgh4P]: hasVariant(
+                          $state,
+                          "darkMod",
+                          "darkMod"
+                        )
+                      }
+                    )}
+                  >
+                    <React.Fragment>{"هفته " + $props.week}</React.Fragment>
+                  </div>
+                ) : null}
               </div>
             ),
             onChange: async (...eventArgs: any) => {

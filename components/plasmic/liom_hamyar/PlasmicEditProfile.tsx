@@ -631,33 +631,20 @@ function PlasmicEditProfile__RenderFunc(props: {
       {
         path: "variableForJob",
         type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "variableForMarrideStutuse",
         type: "private",
         variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $state.getInfo.data.result.user.married ? "متاهل" : "مجرد";
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return false;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
         path: "variableForGraduateAndStudying",
         type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ``
       },
       {
         path: "getInfo.data",
@@ -680,21 +667,8 @@ function PlasmicEditProfile__RenderFunc(props: {
       {
         path: "variableForLastPeriod",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return undefined;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0
       },
       {
         path: "token",
@@ -746,15 +720,23 @@ function PlasmicEditProfile__RenderFunc(props: {
                       today.getDate()
                     );
                     const monthName = monthNames[jalaaliDate.jm - 1];
+                    const formattedDay = String(jalaaliDate.jd).padStart(
+                      2,
+                      "0"
+                    );
+                    const formattedMonth = String(jalaaliDate.jm).padStart(
+                      2,
+                      "0"
+                    );
                     return {
-                      label: `${dayOfWeek} ${jalaaliDate.jd} ${monthName}`,
+                      label: `${dayOfWeek} ${formattedDay} ${monthName}`,
                       value: 0,
-                      date:
-                        today.getFullYear() +
-                        "-" +
-                        (today.getMonth() + 1) +
-                        "-" +
-                        today.getDate()
+                      date: `${today.getFullYear()}-${String(
+                        today.getMonth() + 1
+                      ).padStart(2, "0")}-${String(today.getDate()).padStart(
+                        2,
+                        "0"
+                      )}`
                     };
                   })(),
                   ...Array.from(
@@ -774,16 +756,19 @@ function PlasmicEditProfile__RenderFunc(props: {
                         date.getDate()
                       );
                       const monthName = monthNames[jalaaliDate.jm - 1];
-                      const label = `${dayOfWeek} ${jalaaliDate.jd} ${monthName}`;
+                      const formattedDay = String(jalaaliDate.jd).padStart(
+                        2,
+                        "0"
+                      );
+                      const formattedMonth = String(jalaaliDate.jm).padStart(
+                        2,
+                        "0"
+                      );
+                      const label = `${dayOfWeek} ${formattedDay} ${monthName}`;
                       return {
                         label,
                         value: -(i + 1),
-                        date:
-                          date.getFullYear() +
-                          "-" +
-                          (date.getMonth() + 1) +
-                          "-" +
-                          date.getDate()
+                        date: `${date.getFullYear()}-${formattedMonth}-${formattedDay}`
                       };
                     }
                   )
@@ -1624,7 +1609,16 @@ function PlasmicEditProfile__RenderFunc(props: {
                                 variablePath: ["dateOfBrith"]
                               },
                               operation: 0,
-                              value: $state.datePickersBirthDay.value
+                              value: (() => {
+                                var hbd = window.jalaali.toGregorian(
+                                  $state.datePickersBirthDay.value.year,
+                                  $state.datePickersBirthDay.value.month,
+                                  $state.datePickersBirthDay.value.day
+                                );
+                                hbd.gm = String(hbd.gm).padStart(2, "0");
+                                hbd.gd = String(hbd.gd).padStart(2, "0");
+                                return hbd;
+                              })()
                             };
                             return (({
                               variable,
@@ -4317,14 +4311,18 @@ function PlasmicEditProfile__RenderFunc(props: {
               </div>
             </ApiRequest>
           </Dialog>
-          <div
+          <Stack__
+            as={"div"}
             data-plasmic-name={"verticalIdentity"}
             data-plasmic-override={overrides.verticalIdentity}
+            hasGap={true}
             className={classNames(projectcss.all, sty.verticalIdentity)}
           >
-            <div
+            <Stack__
+              as={"div"}
               data-plasmic-name={"verticalForNameInput"}
               data-plasmic-override={overrides.verticalForNameInput}
+              hasGap={true}
               className={classNames(projectcss.all, sty.verticalForNameInput)}
             >
               <div
@@ -4414,10 +4412,12 @@ function PlasmicEditProfile__RenderFunc(props: {
                   generateStateValueProp($state, ["nameInput", "value"]) ?? ""
                 }
               />
-            </div>
-            <div
+            </Stack__>
+            <Stack__
+              as={"div"}
               data-plasmic-name={"verticalForDateInput"}
               data-plasmic-override={overrides.verticalForDateInput}
+              hasGap={true}
               className={classNames(projectcss.all, sty.verticalForDateInput)}
             >
               <div
@@ -4514,10 +4514,12 @@ function PlasmicEditProfile__RenderFunc(props: {
                   role={"img"}
                 />
               </div>
-            </div>
-            <div
+            </Stack__>
+            <Stack__
+              as={"div"}
               data-plasmic-name={"verticalForSelection"}
               data-plasmic-override={overrides.verticalForSelection}
+              hasGap={true}
               className={classNames(projectcss.all, sty.verticalForSelection)}
             >
               <div
@@ -4529,9 +4531,11 @@ function PlasmicEditProfile__RenderFunc(props: {
               >
                 {"\u0634\u063a\u0644"}
               </div>
-              <div
+              <Stack__
+                as={"div"}
                 data-plasmic-name={"horizontalForButton"}
                 data-plasmic-override={overrides.horizontalForButton}
+                hasGap={true}
                 className={classNames(projectcss.all, sty.horizontalForButton)}
               >
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -4564,7 +4568,10 @@ function PlasmicEditProfile__RenderFunc(props: {
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return ["شاغلم", "شاغل نیستم"];
+                      return [
+                        { label: "شاغلم", value: "Employed" },
+                        { label: "شاغل نیستم", value: "unEmployed" }
+                      ];
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -4596,7 +4603,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                                   variablePath: ["variableForJob"]
                                 },
                                 operation: 0,
-                                value: currentItem
+                                value: currentItem.value
                               };
                               return (({
                                 variable,
@@ -4627,45 +4634,34 @@ function PlasmicEditProfile__RenderFunc(props: {
                       }}
                       select={(() => {
                         try {
-                          return $state.variableForJob == currentItem;
+                          return $state.variableForJob == currentItem.value;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return "select";
+                            return [];
                           }
                           throw e;
                         }
                       })()}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__dL2Ka
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </SelectionChoise>
+                      text={(() => {
+                        try {
+                          return currentItem.label;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
                   );
                 })}
-              </div>
+              </Stack__>
               <div
                 className={classNames(
                   projectcss.all,
@@ -4675,15 +4671,20 @@ function PlasmicEditProfile__RenderFunc(props: {
               >
                 {"\u0648\u0636\u0639\u06cc\u062a \u062a\u0627\u0647\u0644"}
               </div>
-              <div
+              <Stack__
+                as={"div"}
                 data-plasmic-name={"horizontalForButton2"}
                 data-plasmic-override={overrides.horizontalForButton2}
+                hasGap={true}
                 className={classNames(projectcss.all, sty.horizontalForButton2)}
               >
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return ["مجرد", "متاهل"];
+                      return [
+                        { label: "متاهل", value: true },
+                        { label: " مجرد", value: false }
+                      ];
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -4715,7 +4716,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                                   variablePath: ["variableForMarrideStutuse"]
                                 },
                                 operation: 0,
-                                value: currentItem
+                                value: currentItem.value
                               };
                               return (({
                                 variable,
@@ -4747,7 +4748,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                       select={(() => {
                         try {
                           return (
-                            $state.variableForMarrideStutuse == currentItem
+                            $state.variableForMarrideStutuse ==
+                            currentItem.value
                           );
                         } catch (e) {
                           if (
@@ -4759,34 +4761,23 @@ function PlasmicEditProfile__RenderFunc(props: {
                           throw e;
                         }
                       })()}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text___7ChhP
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </SelectionChoise>
+                      text={(() => {
+                        try {
+                          return currentItem.label;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
                   );
                 })}
-              </div>
+              </Stack__>
               <div
                 className={classNames(
                   projectcss.all,
@@ -4796,15 +4787,20 @@ function PlasmicEditProfile__RenderFunc(props: {
               >
                 {"\u062a\u062d\u0635\u06cc\u0644\u0627\u062a "}
               </div>
-              <div
+              <Stack__
+                as={"div"}
                 data-plasmic-name={"horizontalForButton3"}
                 data-plasmic-override={overrides.horizontalForButton3}
+                hasGap={true}
                 className={classNames(projectcss.all, sty.horizontalForButton3)}
               >
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
-                      return ["درحال تحصیل", "فارغ تحصیل"];
+                      return [
+                        { label: "فارغ تحصیل", value: " Graduated" },
+                        { label: " درحال تحصیل", value: "student" }
+                      ];
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -4838,7 +4834,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                                   ]
                                 },
                                 operation: 0,
-                                value: currentItem
+                                value: currentItem.value
                               };
                               return (({
                                 variable,
@@ -4874,7 +4870,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                       select={(() => {
                         try {
                           return (
-                            $state.variableForGraduateAndStudying == currentItem
+                            $state.variableForGraduateAndStudying ==
+                            currentItem.value
                           );
                         } catch (e) {
                           if (
@@ -4886,35 +4883,24 @@ function PlasmicEditProfile__RenderFunc(props: {
                           throw e;
                         }
                       })()}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__ffiFm
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return currentItem;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    </SelectionChoise>
+                      text={(() => {
+                        try {
+                          return currentItem.label;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
                   );
                 })}
-              </div>
-            </div>
+              </Stack__>
+            </Stack__>
             <div
               data-plasmic-name={"verticalForProbabilityOfGettingPregnant"}
               data-plasmic-override={
@@ -5032,9 +5018,11 @@ function PlasmicEditProfile__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <div
+            <Stack__
+              as={"div"}
               data-plasmic-name={"verticalForMenstrualCycle"}
               data-plasmic-override={overrides.verticalForMenstrualCycle}
+              hasGap={true}
               className={classNames(
                 projectcss.all,
                 sty.verticalForMenstrualCycle
@@ -5051,9 +5039,11 @@ function PlasmicEditProfile__RenderFunc(props: {
                   "\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
                 }
               </div>
-              <div
+              <Stack__
+                as={"div"}
                 data-plasmic-name={"numberOfDaysOfBleeding2"}
                 data-plasmic-override={overrides.numberOfDaysOfBleeding2}
+                hasGap={true}
                 className={classNames(
                   projectcss.all,
                   sty.numberOfDaysOfBleeding2
@@ -5147,8 +5137,12 @@ function PlasmicEditProfile__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                 </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__rribl)}>
+              </Stack__>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__rribl)}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
@@ -5246,8 +5240,12 @@ function PlasmicEditProfile__RenderFunc(props: {
                     "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632  \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a (\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc)  \u0631\u0648 \u0647\u0645  \u062c\u0633\u0627\u0628 \u06a9\u0646\u06cc."
                   }
                 </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__xSZgy)}>
+              </Stack__>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__xSZgy)}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
@@ -5340,14 +5338,20 @@ function PlasmicEditProfile__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div
+              </Stack__>
+            </Stack__>
+            <Stack__
+              as={"div"}
               data-plasmic-name={"heightAndWeight"}
               data-plasmic-override={overrides.heightAndWeight}
+              hasGap={true}
               className={classNames(projectcss.all, sty.heightAndWeight)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__kzzDw)}>
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__kzzDw)}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
@@ -5429,10 +5433,12 @@ function PlasmicEditProfile__RenderFunc(props: {
                     role={"img"}
                   />
                 </div>
-              </div>
-              <div
+              </Stack__>
+              <Stack__
+                as={"div"}
                 data-plasmic-name={"weight"}
                 data-plasmic-override={overrides.weight}
+                hasGap={true}
                 className={classNames(projectcss.all, sty.weight)}
               >
                 <div
@@ -5518,8 +5524,8 @@ function PlasmicEditProfile__RenderFunc(props: {
                     role={"img"}
                   />
                 </div>
-              </div>
-            </div>
+              </Stack__>
+            </Stack__>
             <Button
               data-plasmic-name={"button19"}
               data-plasmic-override={overrides.button19}
@@ -5575,7 +5581,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                               return {
                                 authorization: $state.token,
                                 name: $state.name || "",
-                                birthDate: $state.dateOfBrith,
+                                birthDate: `${$state.dateOfBrith.gy}-${$state.dateOfBrith.gm}-${$state.dateOfBrith.gd}`,
                                 height: $state.height || "",
                                 weight: $state.weight3 || "",
                                 cycle: $state.periodCycleLength,
@@ -5644,7 +5650,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                 {"\u0630\u062e\u06cc\u0631\u0647"}
               </div>
             </Button>
-          </div>
+          </Stack__>
           <ApiRequest
             data-plasmic-name={"getInfo"}
             data-plasmic-override={overrides.getInfo}

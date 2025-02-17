@@ -66,8 +66,6 @@ import SelectionChoise from "../../SelectionChoise"; // plasmic-import: kjK-J97S
 import ReactionBar from "../../ReactionBar"; // plasmic-import: 4BabvpvQ8lyP/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
-import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
-import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -77,8 +75,6 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicSocialPage.module.css"; // plasmic-import: iNHFQ5RIM3Tb/css
 
 import Icon146Icon from "./icons/PlasmicIcon__Icon146"; // plasmic-import: oL3Gq5u9-MHL/icon
-import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
-import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 
 createPlasmicElementProxy;
 
@@ -97,10 +93,6 @@ export type PlasmicSocialPage__OverridesType = {
   selectionChoise?: Flex__<typeof SelectionChoise>;
   reactionBar?: Flex__<typeof ReactionBar>;
   textArea?: Flex__<typeof AntdTextArea>;
-  popover?: Flex__<typeof AntdPopover>;
-  button3?: Flex__<typeof Button>;
-  button?: Flex__<typeof Button>;
-  button2?: Flex__<typeof Button>;
 };
 
 export interface DefaultSocialPageProps {}
@@ -154,30 +146,6 @@ function PlasmicSocialPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
-      },
-      {
-        path: "popover.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => true
-      },
-      {
-        path: "button.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button2.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
-      },
-      {
-        path: "button3.color",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -304,19 +272,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                       "__wab_instance",
                       sty.selectionChoise
                     )}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__t9Tok
-                      )}
-                    >
-                      {
-                        "\u062f\u0646\u0628\u0627\u0644 \u06a9\u0631\u062f\u0646 "
-                      }
-                    </div>
-                  </SelectionChoise>
+                  />
                 </div>
               </div>
               <div className={classNames(projectcss.all, sty.freeBox__uC3N)}>
@@ -444,160 +400,6 @@ function PlasmicSocialPage__RenderFunc(props: {
               role={"img"}
             />
 
-            <AntdPopover
-              data-plasmic-name={"popover"}
-              data-plasmic-override={overrides.popover}
-              arrow={true}
-              className={classNames("__wab_instance", sty.popover)}
-              color={true ? "#FEE2E2" : undefined}
-              content={null}
-              contentText={"Popover contents"}
-              defaultOpen={true}
-              defaultStylesClassName={classNames(
-                projectcss.root_reset,
-                projectcss.plasmic_default_styles,
-                projectcss.plasmic_mixins,
-                projectcss.plasmic_tokens,
-                plasmic_antd_5_hostless_css.plasmic_tokens,
-                plasmic_plasmic_rich_components_css.plasmic_tokens
-              )}
-              mouseEnterDelay={0}
-              mouseLeaveDelay={0}
-              onOpenChange={async (...eventArgs: any) => {
-                generateStateOnChangeProp($state, ["popover", "open"]).apply(
-                  null,
-                  eventArgs
-                );
-
-                (async open => {
-                  const $steps = {};
-
-                  $steps["updateTextAreaValue"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["textArea", "value"]
-                          },
-                          operation: 0
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateTextAreaValue"] != null &&
-                    typeof $steps["updateTextAreaValue"] === "object" &&
-                    typeof $steps["updateTextAreaValue"].then === "function"
-                  ) {
-                    $steps["updateTextAreaValue"] = await $steps[
-                      "updateTextAreaValue"
-                    ];
-                  }
-                }).apply(null, eventArgs);
-              }}
-              open={generateStateValueProp($state, ["popover", "open"])}
-              placement={"bottom"}
-              popoverScopeClassName={sty["popover__popover"]}
-              title={null}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___6DGp0
-                )}
-                onClick={async event => {
-                  const $steps = {};
-
-                  $steps["updateTextAreaValue"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["textArea", "value"]
-                          },
-                          operation: 0
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateTextAreaValue"] != null &&
-                    typeof $steps["updateTextAreaValue"] === "object" &&
-                    typeof $steps["updateTextAreaValue"].then === "function"
-                  ) {
-                    $steps["updateTextAreaValue"] = await $steps[
-                      "updateTextAreaValue"
-                    ];
-                  }
-
-                  $steps["updateTextAreaValue2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          variable: {
-                            objRoot: $state,
-                            variablePath: ["textArea", "value"]
-                          },
-                          operation: 0
-                        };
-                        return (({
-                          variable,
-                          value,
-                          startIndex,
-                          deleteCount
-                        }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          $stateSet(objRoot, variablePath, value);
-                          return value;
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["updateTextAreaValue2"] != null &&
-                    typeof $steps["updateTextAreaValue2"] === "object" &&
-                    typeof $steps["updateTextAreaValue2"].then === "function"
-                  ) {
-                    $steps["updateTextAreaValue2"] = await $steps[
-                      "updateTextAreaValue2"
-                    ];
-                  }
-                }}
-              >
-                {
-                  "\u0645\u0631\u062a\u0628 \u0633\u0627\u0632\u06cc \u0628\u0631\u0627\u0633\u0627\u0633 :"
-                }
-              </div>
-            </AntdPopover>
             <div
               className={classNames(
                 projectcss.all,
@@ -608,81 +410,6 @@ function PlasmicSocialPage__RenderFunc(props: {
               {"Enter some text"}
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__pkeF0)} />
-
-          <div className={classNames(projectcss.all, sty.freeBox__qPbxH)} />
-
-          <div className={classNames(projectcss.all, sty.freeBox__pyoRg)}>
-            <Button
-              data-plasmic-name={"button3"}
-              data-plasmic-override={overrides.button3}
-              className={classNames("__wab_instance", sty.button3)}
-              color={generateStateValueProp($state, ["button3", "color"])}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button3", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-            />
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox___8NH0N)}>
-            <div className={classNames(projectcss.all, sty.freeBox___9YKXl)}>
-              <Button
-                data-plasmic-name={"button"}
-                data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button)}
-                color={generateStateValueProp($state, ["button", "color"])}
-                onColorChange={async (...eventArgs: any) => {
-                  ((...eventArgs) => {
-                    generateStateOnChangeProp($state, ["button", "color"])(
-                      eventArgs[0]
-                    );
-                  }).apply(null, eventArgs);
-
-                  if (
-                    eventArgs.length > 1 &&
-                    eventArgs[1] &&
-                    eventArgs[1]._plasmic_state_init_
-                  ) {
-                    return;
-                  }
-                }}
-              />
-            </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__nvliW)}>
-            <Button
-              data-plasmic-name={"button2"}
-              data-plasmic-override={overrides.button2}
-              className={classNames("__wab_instance", sty.button2)}
-              color={generateStateValueProp($state, ["button2", "color"])}
-              onColorChange={async (...eventArgs: any) => {
-                ((...eventArgs) => {
-                  generateStateOnChangeProp($state, ["button2", "color"])(
-                    eventArgs[0]
-                  );
-                }).apply(null, eventArgs);
-
-                if (
-                  eventArgs.length > 1 &&
-                  eventArgs[1] &&
-                  eventArgs[1]._plasmic_state_init_
-                ) {
-                  return;
-                }
-              }}
-            />
-          </div>
         </div>
       </div>
     </React.Fragment>
@@ -690,25 +417,11 @@ function PlasmicSocialPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "headerLiom",
-    "selectionChoise",
-    "reactionBar",
-    "textArea",
-    "popover",
-    "button3",
-    "button",
-    "button2"
-  ],
+  root: ["root", "headerLiom", "selectionChoise", "reactionBar", "textArea"],
   headerLiom: ["headerLiom"],
   selectionChoise: ["selectionChoise"],
   reactionBar: ["reactionBar"],
-  textArea: ["textArea"],
-  popover: ["popover"],
-  button3: ["button3"],
-  button: ["button"],
-  button2: ["button2"]
+  textArea: ["textArea"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -719,10 +432,6 @@ type NodeDefaultElementType = {
   selectionChoise: typeof SelectionChoise;
   reactionBar: typeof ReactionBar;
   textArea: typeof AntdTextArea;
-  popover: typeof AntdPopover;
-  button3: typeof Button;
-  button: typeof Button;
-  button2: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -814,10 +523,6 @@ export const PlasmicSocialPage = Object.assign(
     selectionChoise: makeNodeComponent("selectionChoise"),
     reactionBar: makeNodeComponent("reactionBar"),
     textArea: makeNodeComponent("textArea"),
-    popover: makeNodeComponent("popover"),
-    button3: makeNodeComponent("button3"),
-    button: makeNodeComponent("button"),
-    button2: makeNodeComponent("button2"),
 
     // Metadata about props expected for PlasmicSocialPage
     internalVariantProps: PlasmicSocialPage__VariantProps,
