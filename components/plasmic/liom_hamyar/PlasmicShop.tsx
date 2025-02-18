@@ -652,6 +652,7 @@ function PlasmicShop__RenderFunc(props: {
                             new URLSearchParams(window.location.search).get(
                               "token"
                             );
+                          app = app.slice(6, app.length - 3);
                           return localStorage.setItem("token", app);
                         }
                       })();

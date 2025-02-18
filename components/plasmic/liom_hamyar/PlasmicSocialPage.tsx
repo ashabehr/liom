@@ -62,8 +62,9 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
-import SelectionChoise from "../../SelectionChoise"; // plasmic-import: kjK-J97SUWLJ/component
 import ReactionBar from "../../ReactionBar"; // plasmic-import: 4BabvpvQ8lyP/component
+import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
+import Comment from "../../Comment"; // plasmic-import: Q00r5f4C3XYv/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 
@@ -90,8 +91,9 @@ export const PlasmicSocialPage__ArgProps = new Array<ArgPropType>();
 export type PlasmicSocialPage__OverridesType = {
   root?: Flex__<"div">;
   headerLiom?: Flex__<typeof HeaderLiom>;
-  selectionChoise?: Flex__<typeof SelectionChoise>;
   reactionBar?: Flex__<typeof ReactionBar>;
+  popover?: Flex__<typeof AntdPopover>;
+  comment?: Flex__<typeof Comment>;
   textArea?: Flex__<typeof AntdTextArea>;
 };
 
@@ -146,6 +148,12 @@ function PlasmicSocialPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("value", AntdTextArea_Helpers)
+      },
+      {
+        path: "popover.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -184,230 +192,329 @@ function PlasmicSocialPage__RenderFunc(props: {
             sty.root
           )}
         >
-          <HeaderLiom
-            data-plasmic-name={"headerLiom"}
-            data-plasmic-override={overrides.headerLiom}
-            className={classNames("__wab_instance", sty.headerLiom)}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__fnC1S)}>
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img__rWa8Z)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"20px"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/liom_hamyar/images/image38.svg",
-                  fullWidth: 24,
-                  fullHeight: 24,
-                  aspectRatio: 1
-                }}
-              />
+          <div className={classNames(projectcss.all, sty.freeBox__v5VDg)}>
+            <section className={classNames(projectcss.all, sty.section__fKamc)}>
+              <HeaderLiom
+                data-plasmic-name={"headerLiom"}
+                data-plasmic-override={overrides.headerLiom}
+                className={classNames("__wab_instance", sty.headerLiom)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__fnC1S)}>
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__rWa8Z)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"20px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image38.svg",
+                      fullWidth: 24,
+                      fullHeight: 24,
+                      aspectRatio: 1
+                    }}
+                  />
+                </div>
+              </HeaderLiom>
+            </section>
+            <div className={classNames(projectcss.all, sty.freeBox__f0Ap)}>
+              <div className={classNames(projectcss.all, sty.freeBox__utoeo)}>
+                <div className={classNames(projectcss.all, sty.freeBox__oUuo3)}>
+                  <PlasmicImg__
+                    alt={""}
+                    className={classNames(sty.img__jZmxt)}
+                    displayHeight={"auto"}
+                    displayMaxHeight={"none"}
+                    displayMaxWidth={"100%"}
+                    displayMinHeight={"0"}
+                    displayMinWidth={"0"}
+                    displayWidth={"48px"}
+                    loading={"lazy"}
+                    src={{
+                      src: "/plasmic/liom_hamyar/images/image10.ico",
+                      fullWidth: 256,
+                      fullHeight: 256,
+                      aspectRatio: undefined
+                    }}
+                  />
 
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__iV3Z6)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zv2Av
+                      )}
+                    >
+                      {"name"}
+                    </div>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__zdN81
+                      )}
+                    >
+                      {"username"}
+                    </div>
+                  </Stack__>
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__qtk4Z)}
+                  >
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__h8Wt9)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__gQyB
+                        )}
+                      >
+                        {
+                          "\u062f\u0646\u0628\u0627\u0644 \u06a9\u0631\u062f\u0646 "
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className={classNames(projectcss.all, sty.freeBox__uC3N)}>
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__tfdqU)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text___0ZQha
+                      )}
+                    >
+                      {
+                        "\u0632\u0645\u0627\u0646 \u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc "
+                      }
+                    </div>
+                    <Icon146Icon
+                      className={classNames(projectcss.all, sty.svg__jVevt)}
+                      role={"img"}
+                    />
+                  </Stack__>
+                  <svg
+                    className={classNames(projectcss.all, sty.svg___2Yunl)}
+                    role={"img"}
+                  />
+                </div>
+              </div>
               <div
                 className={classNames(
                   projectcss.all,
                   projectcss.__wab_text,
-                  sty.text__ppytu
+                  sty.text__kwkzd
                 )}
               >
-                {""}
+                {"title"}
+              </div>
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__jcgMs
+                )}
+              >
+                {"text"}
+              </div>
+              <div
+                className={classNames(projectcss.all, sty.freeBox___03Hh9)}
+                style={(() => {
+                  try {
+                    return {
+                      position: window.scrollY > 1 ? "fixed;" : ""
+                    };
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+              >
+                <ReactionBar
+                  data-plasmic-name={"reactionBar"}
+                  data-plasmic-override={overrides.reactionBar}
+                  className={classNames("__wab_instance", sty.reactionBar)}
+                />
               </div>
             </div>
-          </HeaderLiom>
-          <div className={classNames(projectcss.all, sty.freeBox__f0Ap)}>
-            <div className={classNames(projectcss.all, sty.freeBox__utoeo)}>
-              <div className={classNames(projectcss.all, sty.freeBox__oUuo3)}>
-                <PlasmicImg__
-                  alt={""}
-                  className={classNames(sty.img__jZmxt)}
-                  displayHeight={"auto"}
-                  displayMaxHeight={"none"}
-                  displayMaxWidth={"100%"}
-                  displayMinHeight={"0"}
-                  displayMinWidth={"0"}
-                  displayWidth={"48px"}
-                  loading={"lazy"}
-                  src={{
-                    src: "/plasmic/liom_hamyar/images/image10.ico",
-                    fullWidth: 256,
-                    fullHeight: 256,
-                    aspectRatio: undefined
-                  }}
-                />
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox___6AbeA)}
+            >
+              <svg
+                className={classNames(projectcss.all, sty.svg__dDsbb)}
+                role={"img"}
+              />
 
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__iV3Z6)}
+              <AntdPopover
+                data-plasmic-name={"popover"}
+                data-plasmic-override={overrides.popover}
+                arrow={true}
+                className={classNames("__wab_instance", sty.popover)}
+                content={
+                  <React.Fragment>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___9QlIf
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__qitKu
+                        )}
+                      >
+                        {"Enter some text"}
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__ptukc)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___8Homq
+                        )}
+                      >
+                        {"Enter some text"}
+                      </div>
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__es2Oy)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__eoSs
+                        )}
+                      >
+                        {"Enter some text"}
+                      </div>
+                    </div>
+                  </React.Fragment>
+                }
+                contentText={"Popover contents"}
+                defaultOpen={false}
+                defaultStylesClassName={classNames(
+                  projectcss.root_reset,
+                  projectcss.plasmic_default_styles,
+                  projectcss.plasmic_mixins,
+                  projectcss.plasmic_tokens,
+                  plasmic_antd_5_hostless_css.plasmic_tokens,
+                  plasmic_plasmic_rich_components_css.plasmic_tokens
+                )}
+                mouseEnterDelay={0}
+                mouseLeaveDelay={0}
+                onOpenChange={async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, ["popover", "open"]).apply(
+                    null,
+                    eventArgs
+                  );
+                }}
+                open={generateStateValueProp($state, ["popover", "open"])}
+                placement={"bottom"}
+                popoverScopeClassName={sty["popover__popover"]}
+                title={null}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__ft6Ek
+                  )}
                 >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zv2Av
-                    )}
-                  >
-                    {"name"}
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zdN81
-                    )}
-                  >
-                    {"username"}
-                  </div>
-                </Stack__>
-                <div className={classNames(projectcss.all, sty.freeBox__qtk4Z)}>
-                  <SelectionChoise
-                    data-plasmic-name={"selectionChoise"}
-                    data-plasmic-override={overrides.selectionChoise}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.selectionChoise
-                    )}
-                  />
+                  {
+                    "\u0645\u0631\u062a\u0628 \u0633\u0627\u0632\u06cc \u0628\u0631 \u0627\u0633\u0627\u0633 :"
+                  }
                 </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__uC3N)}>
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__tfdqU)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___0ZQha
-                    )}
-                  >
-                    {
-                      "\u0632\u0645\u0627\u0646 \u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc "
-                    }
-                  </div>
-                  <Icon146Icon
-                    className={classNames(projectcss.all, sty.svg__jVevt)}
+              </AntdPopover>
+            </Stack__>
+            <div className={classNames(projectcss.all, sty.freeBox__sB24Y)}>
+              <Comment
+                data-plasmic-name={"comment"}
+                data-plasmic-override={overrides.comment}
+                className={classNames("__wab_instance", sty.comment)}
+              />
+
+              <section
+                className={classNames(projectcss.all, sty.section__l5Nnd)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__dnSli)}>
+                  <svg
+                    className={classNames(projectcss.all, sty.svg__vNfKk)}
                     role={"img"}
                   />
-                </Stack__>
-                <svg
-                  className={classNames(projectcss.all, sty.svg___2Yunl)}
-                  role={"img"}
-                />
-              </div>
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__kwkzd
-              )}
-            >
-              {"title"}
-            </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__jcgMs
-              )}
-            >
-              {"text"}
-            </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox___03Hh9)}
-              style={(() => {
-                try {
-                  return {
-                    position: window.scrollY > 1 ? "fixed;" : ""
-                  };
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return undefined;
-                  }
-                  throw e;
-                }
-              })()}
-            >
-              <ReactionBar
-                data-plasmic-name={"reactionBar"}
-                data-plasmic-override={overrides.reactionBar}
-                className={classNames("__wab_instance", sty.reactionBar)}
-              />
-            </div>
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox__dnSli)}>
-            <svg
-              className={classNames(projectcss.all, sty.svg__vNfKk)}
-              role={"img"}
-            />
 
-            {(() => {
-              const child$Props = {
-                autoSize: true,
-                className: classNames("__wab_instance", sty.textArea),
-                onChange: async (...eventArgs: any) => {
-                  generateStateOnChangePropForCodeComponents(
-                    $state,
-                    "value",
-                    ["textArea", "value"],
-                    AntdTextArea_Helpers
-                  ).apply(null, eventArgs);
-                },
-                placeholder:
-                  "\u06a9\u0627\u0645\u0646\u062a \u0631\u0648 \u0628\u0646\u0648\u06cc\u0633",
-                value: generateStateValueProp($state, ["textArea", "value"])
-              };
-              initializeCodeComponentStates(
-                $state,
-                [
-                  {
-                    name: "value",
-                    plasmicStateName: "textArea.value"
-                  }
-                ],
-                [],
-                AntdTextArea_Helpers ?? {},
-                child$Props
-              );
+                  {(() => {
+                    const child$Props = {
+                      autoSize: true,
+                      className: classNames("__wab_instance", sty.textArea),
+                      onChange: async (...eventArgs: any) => {
+                        generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["textArea", "value"],
+                          AntdTextArea_Helpers
+                        ).apply(null, eventArgs);
+                      },
+                      placeholder:
+                        "\u06a9\u0627\u0645\u0646\u062a \u0631\u0648 \u0628\u0646\u0648\u06cc\u0633",
+                      value: generateStateValueProp($state, [
+                        "textArea",
+                        "value"
+                      ])
+                    };
+                    initializeCodeComponentStates(
+                      $state,
+                      [
+                        {
+                          name: "value",
+                          plasmicStateName: "textArea.value"
+                        }
+                      ],
+                      [],
+                      AntdTextArea_Helpers ?? {},
+                      child$Props
+                    );
 
-              return (
-                <AntdTextArea
-                  data-plasmic-name={"textArea"}
-                  data-plasmic-override={overrides.textArea}
-                  {...child$Props}
-                />
-              );
-            })()}
-            <svg
-              className={classNames(projectcss.all, sty.svg__o8F2W)}
-              role={"img"}
-            />
-          </div>
-          <div className={classNames(projectcss.all, sty.freeBox___6AbeA)}>
-            <svg
-              className={classNames(projectcss.all, sty.svg__dDsbb)}
-              role={"img"}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ft6Ek
-              )}
-            >
-              {"Enter some text"}
+                    return (
+                      <AntdTextArea
+                        data-plasmic-name={"textArea"}
+                        data-plasmic-override={overrides.textArea}
+                        {...child$Props}
+                      />
+                    );
+                  })()}
+                  <svg
+                    className={classNames(projectcss.all, sty.svg__o8F2W)}
+                    role={"img"}
+                  />
+                </div>
+              </section>
             </div>
           </div>
         </div>
@@ -417,10 +524,11 @@ function PlasmicSocialPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "headerLiom", "selectionChoise", "reactionBar", "textArea"],
+  root: ["root", "headerLiom", "reactionBar", "popover", "comment", "textArea"],
   headerLiom: ["headerLiom"],
-  selectionChoise: ["selectionChoise"],
   reactionBar: ["reactionBar"],
+  popover: ["popover"],
+  comment: ["comment"],
   textArea: ["textArea"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -429,8 +537,9 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   headerLiom: typeof HeaderLiom;
-  selectionChoise: typeof SelectionChoise;
   reactionBar: typeof ReactionBar;
+  popover: typeof AntdPopover;
+  comment: typeof Comment;
   textArea: typeof AntdTextArea;
 };
 
@@ -520,8 +629,9 @@ export const PlasmicSocialPage = Object.assign(
   {
     // Helper components rendering sub-elements
     headerLiom: makeNodeComponent("headerLiom"),
-    selectionChoise: makeNodeComponent("selectionChoise"),
     reactionBar: makeNodeComponent("reactionBar"),
+    popover: makeNodeComponent("popover"),
+    comment: makeNodeComponent("comment"),
     textArea: makeNodeComponent("textArea"),
 
     // Metadata about props expected for PlasmicSocialPage

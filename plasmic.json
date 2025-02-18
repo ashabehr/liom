@@ -1303,6 +1303,59 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicVigetLiom.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "U8eK2HQ9FI5q",
+          "name": "SignsPage",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSignsPage.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/Signs-page.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSignsPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/Signs-page"
+        },
+        {
+          "id": "rV9-uXl-J5jS",
+          "name": "ButtonWithNote",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicButtonWithNote.tsx",
+          "importSpec": {
+            "modulePath": "ButtonWithNote.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicButtonWithNote.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "kqjrVA4cMqR_",
+          "name": "Choices",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicChoices.tsx",
+          "importSpec": {
+            "modulePath": "Choices.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicChoices.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Q00r5f4C3XYv",
+          "name": "Comment",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicComment.tsx",
+          "importSpec": {
+            "modulePath": "Comment.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicComment.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2390,6 +2443,11 @@
           "id": "cU7PVNSdSlaD",
           "name": "Icon160Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon160.tsx"
+        },
+        {
+          "id": "pOIvV5VzgUcj",
+          "name": "SardardIcSvgIcon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__SardardIcSvg.tsx"
         }
       ],
       "images": [
