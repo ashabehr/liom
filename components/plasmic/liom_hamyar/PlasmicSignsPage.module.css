@@ -27,7 +27,7 @@
     grid-column: 4;
   }
 }
-.section {
+.section__gfKhl {
   display: grid;
   position: fixed;
   align-content: flex-start;
@@ -47,11 +47,11 @@
     )
     minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
 }
-.section > * {
+.section__gfKhl > * {
   grid-column: 4;
 }
 @media (max-width: 640px) {
-  .section {
+  .section__gfKhl {
     left: 0;
     top: 0;
     right: 0;
@@ -59,7 +59,7 @@
   }
 }
 @media (max-width: 640px) {
-  .section > * {
+  .section__gfKhl > * {
     grid-column: 4;
   }
 }
@@ -1261,7 +1261,7 @@
   max-width: 100%;
   min-width: 0;
   min-height: 0;
-  padding: 64px 12px 12px;
+  padding: 64px 12px 100px;
 }
 .freeBox__pomKc > :global(.__wab_flex-container) {
   flex-direction: column;
@@ -1704,27 +1704,63 @@
 .choices7:global(.__wab_instance) {
   position: relative;
 }
+.section__nkbVb {
+  display: grid;
+  position: fixed;
+  align-content: flex-start;
+  justify-items: center;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+  left: 0;
+  top: auto;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  grid-template-columns:
+    var(--plsmc-viewport-gap) 1fr minmax(0, var(--plsmc-wide-chunk))
+    min(
+      var(--plsmc-standard-width),
+      calc(100% - var(--plsmc-viewport-gap) - var(--plsmc-viewport-gap))
+    )
+    minmax(0, var(--plsmc-wide-chunk)) 1fr var(--plsmc-viewport-gap);
+}
+.section__nkbVb > * {
+  grid-column: 4;
+}
 .freeBox__aZ6Jv {
   display: flex;
   flex-direction: row;
-  position: fixed;
+  position: relative;
   align-items: center;
   justify-content: center;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
-  background: var(--token-55cSeNPovQFh);
+  background: none;
   margin-right: 0px;
   margin-left: 0px;
-  left: 20px;
+  left: auto;
   top: auto;
   z-index: 1;
-  right: 20px;
-  bottom: 10px;
+  right: auto;
+  bottom: auto;
+  min-width: 0;
   border-radius: 8px;
-  padding: 8px;
+  padding: 12px;
 }
-.text__vGOqz {
+.button:global(.__wab_instance) {
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.svg___7Cltt {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.text__ya8SZ {
   position: relative;
   width: 100%;
   height: auto;
@@ -1740,4 +1776,18 @@
   letter-spacing: normal;
   white-space: pre-wrap;
   min-width: 0;
+}
+.svg__kpiky {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40px;
+  height: 50px;
+  position: relative;
+  left: auto;
+  top: auto;
+  z-index: 1;
+  color: var(--token-jgohepLVeKvh);
+  right: auto;
+  bottom: auto;
+  display: none;
 }

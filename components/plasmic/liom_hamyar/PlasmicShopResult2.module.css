@@ -863,18 +863,17 @@
 .fragmentApiRequestfailed:global(.__wab_instance) {
   display: flex;
 }
-.lottie:global(.__wab_instance) {
-  max-width: 200%;
+.svg___1IBkk {
   object-fit: cover;
-  color: #964242;
-  background: none;
-  height: 200px;
-  width: 200px;
+  max-width: 100%;
+  width: 60px;
+  height: 60px;
+  color: var(--token-55cSeNPovQFh);
 }
-.lottiefailed:global(.__wab_instance) {
+.svgfailed___1IBkka1WOe {
   display: none;
 }
-.lottiesuccessful:global(.__wab_instance) {
+.svgsuccessful___1IBkk41VpB {
   display: none;
 }
 .button4:global(.__wab_instance) {

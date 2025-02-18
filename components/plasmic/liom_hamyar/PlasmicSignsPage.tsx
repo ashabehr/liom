@@ -101,7 +101,6 @@ export const PlasmicSignsPage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicSignsPage__OverridesType = {
   root?: Flex__<"div">;
-  section?: Flex__<"section">;
   headerLiom?: Flex__<typeof HeaderLiom>;
   img?: Flex__<typeof PlasmicImg__>;
   number2?: Flex__<typeof AntdModal>;
@@ -134,6 +133,7 @@ export type PlasmicSignsPage__OverridesType = {
   choices6?: Flex__<typeof Choices>;
   selectionBox7?: Flex__<"div">;
   choices7?: Flex__<typeof Choices>;
+  button?: Flex__<typeof Button>;
 };
 
 export interface DefaultSignsPageProps {}
@@ -866,6 +866,12 @@ function PlasmicSignsPage__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -908,11 +914,7 @@ function PlasmicSignsPage__RenderFunc(props: {
             sty.root
           )}
         >
-          <section
-            data-plasmic-name={"section"}
-            data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
-          >
+          <section className={classNames(projectcss.all, sty.section__gfKhl)}>
             {(
               hasVariant(globalVariants, "screen", "mobile")
                 ? true
@@ -3570,19 +3572,45 @@ function PlasmicSignsPage__RenderFunc(props: {
                   }}
                 />
               </Stack__>
-              <div className={classNames(projectcss.all, sty.freeBox__aZ6Jv)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__vGOqz
-                  )}
-                >
-                  {
-                    "\u0630\u062e\u06cc\u0631\u0647 \u0639\u0644\u0627\u0626\u0645"
-                  }
+              <section
+                className={classNames(projectcss.all, sty.section__nkbVb)}
+              >
+                <div className={classNames(projectcss.all, sty.freeBox__aZ6Jv)}>
+                  <Button
+                    data-plasmic-name={"button"}
+                    data-plasmic-override={overrides.button}
+                    className={classNames("__wab_instance", sty.button)}
+                    color={generateStateValueProp($state, ["button", "color"])}
+                    onColorChange={async (...eventArgs: any) => {
+                      ((...eventArgs) => {
+                        generateStateOnChangeProp($state, ["button", "color"])(
+                          eventArgs[0]
+                        );
+                      }).apply(null, eventArgs);
+
+                      if (
+                        eventArgs.length > 1 &&
+                        eventArgs[1] &&
+                        eventArgs[1]._plasmic_state_init_
+                      ) {
+                        return;
+                      }
+                    }}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__ya8SZ
+                      )}
+                    >
+                      {
+                        "\u0630\u062e\u06cc\u0631\u0647 \u0639\u0644\u0627\u0626\u0645"
+                      }
+                    </div>
+                  </Button>
                 </div>
-              </div>
+              </section>
             </Stack__>
           </ApiRequest>
         </div>
@@ -3594,7 +3622,6 @@ function PlasmicSignsPage__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
-    "section",
     "headerLiom",
     "img",
     "number2",
@@ -3626,9 +3653,9 @@ const PlasmicDescendants = {
     "selectionBox6",
     "choices6",
     "selectionBox7",
-    "choices7"
+    "choices7",
+    "button"
   ],
-  section: ["section", "headerLiom", "img"],
   headerLiom: ["headerLiom", "img"],
   img: ["img"],
   number2: ["number2", "textInput", "antdInput", "button2"],
@@ -3661,7 +3688,8 @@ const PlasmicDescendants = {
     "selectionBox6",
     "choices6",
     "selectionBox7",
-    "choices7"
+    "choices7",
+    "button"
   ],
   selectionBox: ["selectionBox", "choices"],
   choices: ["choices"],
@@ -3676,14 +3704,14 @@ const PlasmicDescendants = {
   selectionBox6: ["selectionBox6", "choices6"],
   choices6: ["choices6"],
   selectionBox7: ["selectionBox7", "choices7"],
-  choices7: ["choices7"]
+  choices7: ["choices7"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  section: "section";
   headerLiom: typeof HeaderLiom;
   img: typeof PlasmicImg__;
   number2: typeof AntdModal;
@@ -3716,6 +3744,7 @@ type NodeDefaultElementType = {
   choices6: typeof Choices;
   selectionBox7: "div";
   choices7: typeof Choices;
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -3803,7 +3832,6 @@ export const PlasmicSignsPage = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
-    section: makeNodeComponent("section"),
     headerLiom: makeNodeComponent("headerLiom"),
     img: makeNodeComponent("img"),
     number2: makeNodeComponent("number2"),
@@ -3836,6 +3864,7 @@ export const PlasmicSignsPage = Object.assign(
     choices6: makeNodeComponent("choices6"),
     selectionBox7: makeNodeComponent("selectionBox7"),
     choices7: makeNodeComponent("choices7"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicSignsPage
     internalVariantProps: PlasmicSignsPage__VariantProps,

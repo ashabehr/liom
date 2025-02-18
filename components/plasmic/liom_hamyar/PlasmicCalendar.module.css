@@ -2836,6 +2836,11 @@
   > img {
   margin-top: 4px;
 }
+@media (max-width: 640px) {
+  .freeBox__mfHlh {
+    margin-left: calc(8px + 0px) !important;
+  }
+}
 .text__jg7I {
   position: relative;
   width: auto;
