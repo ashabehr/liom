@@ -819,7 +819,9 @@ function PlasmicPregnancy__RenderFunc(props: {
                 )
               })}
             >
-              <div
+              <Stack__
+                as={"div"}
+                hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__sY11Y)}
                 id={"reloadButton"}
                 onClick={async event => {
@@ -884,7 +886,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     "\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f \u0635\u0641\u062d\u0647"
                   }
                 </Button>
-              </div>
+              </Stack__>
               <Embed
                 data-plasmic-name={"favIcone"}
                 data-plasmic-override={overrides.favIcone}
@@ -1512,7 +1514,26 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {})();
+                            return (() => {
+                              window.onerror = function () {
+                                document.getElementById(
+                                  "reloadButton"
+                                ).style.display = "block";
+                                document.getElementById("main").style.display =
+                                  "none";
+                              };
+                              return window.addEventListener(
+                                "unhandledrejection",
+                                function () {
+                                  document.getElementById(
+                                    "reloadButton"
+                                  ).style.display = "block";
+                                  document.getElementById(
+                                    "main"
+                                  ).style.display = "none";
+                                }
+                              );
+                            })();
                           }
                         };
                         return (({ customFunction }) => {
@@ -1748,7 +1769,26 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {})();
+                            return (() => {
+                              const list =
+                                document.getElementById("my-scroll-list");
+                              const list2 = list.children[0];
+                              const fourthItem =
+                                list2.children[$state.selectedWeek];
+                              console.log(list);
+                              console.log(list2);
+                              console.log(fourthItem);
+                              if (fourthItem) {
+                                const itemPosition =
+                                  fourthItem.offsetLeft -
+                                  list.offsetWidth * 0.35 +
+                                  fourthItem.offsetWidth / 2;
+                                return list.scrollTo({
+                                  left: itemPosition,
+                                  behavior: "smooth"
+                                });
+                              }
+                            })();
                           }
                         };
                         return (({ customFunction }) => {
@@ -1860,123 +1900,133 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return setTimeout(() => {
-                              console.log($state.getUserInfo.data);
-                              var name =
-                                $state.getUserInfo.data?.[0]?.result?.user
-                                  ?.name ?? "";
-                              var mobile =
-                                $state.getUserInfo.data?.[0]?.result?.user
-                                  ?.mobile ?? "";
-                              var email =
-                                $state.getUserInfo.data?.[0]?.result?.user
-                                  ?.email ?? "";
-                              if (typeof mobile == "undefined") {
-                                mobile = "";
-                              }
-                              if (typeof email == "undefined") {
-                                email = "";
-                              }
-                              if (typeof name == "undefined") {
-                                name = "";
-                              }
-                              if (
-                                typeof $state.getUserInfo.data[0].result
-                                  .hamyars == "undefined"
-                              ) {
-                                $state.getUserInfo.data[0].result.hamyars = [];
-                              }
-                              if (
-                                typeof $state.getUserInfo.data[0].result
-                                  .allowance == "undefined"
-                              ) {
-                                $state.getUserInfo.data[0].result.allowance =
-                                  [];
-                              }
-                              var gy = parseInt(
-                                $state.user?.[0]?.dueDate.split("-")[0]
-                              );
-                              var gm = parseInt(
-                                $state.user?.[0]?.dueDate.split("-")[1]
-                              );
-                              var gd = parseInt(
-                                $state.user?.[0]?.dueDate.split("-")[2]
-                              );
-                              let hamyarsData = [];
-                              for (
-                                let i = 0;
-                                i <
-                                $state.getUserInfo.data[0].result.hamyars
-                                  .length;
-                                i++
-                              ) {
-                                hamyarsData.push({
-                                  name: $state.getUserInfo.data[0].result
-                                    .hamyars[i].user.name,
-                                  id: $state.getUserInfo.data[0].result.hamyars[
-                                    i
-                                  ].user.id,
-                                  mobile:
-                                    $state.getUserInfo.data[0].result.hamyars[i]
-                                      .user.mobile,
-                                  statusSms:
-                                    $state.getUserInfo.data[0].result.hamyars[i]
-                                      .rel.statusSms,
-                                  hamyarStatus:
-                                    $state.getUserInfo.data[0].result.hamyars[i]
-                                      .user.hamyarStatus,
-                                  hamyarTime:
-                                    $state.getUserInfo.data[0].result.hamyars[i]
-                                      .user.hamyarTime,
-                                  email:
-                                    $state.getUserInfo.data[0].result.hamyars[i]
-                                      .user.email
-                                });
-                              }
-                              let allowance = [];
-                              for (
-                                let i = 0;
-                                i <
-                                $state.getUserInfo.data[0].result.allowance
-                                  .length;
-                                i++
-                              ) {
-                                allowance.push(
-                                  $state.getUserInfo.data[0].result.allowance[i]
-                                );
-                              }
-                              fetch("https://n8n.staas.ir/webhook/status", {
-                                method: "POST",
-                                headers: {
-                                  "Content-Type": "application/json",
-                                  Authorization:
-                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                },
-                                body: JSON.stringify({
-                                  area: "pregnancy",
-                                  duDate:
-                                    gy + "-" + gm + "-" + gd + " 10:10:10",
-                                  userId: $ctx.query.userId.slice(
-                                    4,
-                                    +$ctx.query.userId.length - 4
-                                  ),
-                                  name: name,
-                                  mobile: mobile,
-                                  email: email,
-                                  hamyarData: { hamyarsData },
-                                  allowance: { allowance }
-                                })
-                              })
-                                .then(response => {
-                                  return response.json();
-                                })
-                                .then(data => {
-                                  console.log("user send");
-                                })
-                                .catch(error => {
-                                  console.error("Error3333:", error);
-                                });
-                            }, 3000);
+                            return (() => {
+                              return setTimeout(() => {
+                                try {
+                                  console.log($state.getUserInfo.data);
+                                  var name =
+                                    $state.getUserInfo.data?.[0]?.result?.user
+                                      ?.name ?? "";
+                                  var mobile =
+                                    $state.getUserInfo.data?.[0]?.result?.user
+                                      ?.mobile ?? "";
+                                  var email =
+                                    $state.getUserInfo.data?.[0]?.result?.user
+                                      ?.email ?? "";
+                                  if (typeof mobile == "undefined") {
+                                    mobile = "";
+                                  }
+                                  if (typeof email == "undefined") {
+                                    email = "";
+                                  }
+                                  if (typeof name == "undefined") {
+                                    name = "";
+                                  }
+                                  if (
+                                    typeof $state.getUserInfo.data[0].result
+                                      .hamyars == "undefined"
+                                  ) {
+                                    $state.getUserInfo.data[0].result.hamyars =
+                                      [];
+                                  }
+                                  if (
+                                    typeof $state.getUserInfo.data[0].result
+                                      .allowance == "undefined"
+                                  ) {
+                                    $state.getUserInfo.data[0].result.allowance =
+                                      [];
+                                  }
+                                  var gy = parseInt(
+                                    $state.user?.[0]?.dueDate.split("-")[0]
+                                  );
+                                  var gm = parseInt(
+                                    $state.user?.[0]?.dueDate.split("-")[1]
+                                  );
+                                  var gd = parseInt(
+                                    $state.user?.[0]?.dueDate.split("-")[2]
+                                  );
+                                  let hamyarsData = [];
+                                  for (
+                                    let i = 0;
+                                    i <
+                                    $state.getUserInfo.data[0].result.hamyars
+                                      .length;
+                                    i++
+                                  ) {
+                                    hamyarsData.push({
+                                      name: $state.getUserInfo.data[0].result
+                                        .hamyars[i].user.name,
+                                      id: $state.getUserInfo.data[0].result
+                                        .hamyars[i].user.id,
+                                      mobile:
+                                        $state.getUserInfo.data[0].result
+                                          .hamyars[i].user.mobile,
+                                      statusSms:
+                                        $state.getUserInfo.data[0].result
+                                          .hamyars[i].rel.statusSms,
+                                      hamyarStatus:
+                                        $state.getUserInfo.data[0].result
+                                          .hamyars[i].user.hamyarStatus,
+                                      hamyarTime:
+                                        $state.getUserInfo.data[0].result
+                                          .hamyars[i].user.hamyarTime,
+                                      email:
+                                        $state.getUserInfo.data[0].result
+                                          .hamyars[i].user.email
+                                    });
+                                  }
+                                  let allowance = [];
+                                  for (
+                                    let i = 0;
+                                    i <
+                                    $state.getUserInfo.data[0].result.allowance
+                                      .length;
+                                    i++
+                                  ) {
+                                    allowance.push(
+                                      $state.getUserInfo.data[0].result
+                                        .allowance[i]
+                                    );
+                                  }
+                                  fetch("https://n8n.staas.ir/webhook/status", {
+                                    method: "POST",
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization:
+                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                    },
+                                    body: JSON.stringify({
+                                      area: "pregnancy",
+                                      duDate:
+                                        gy + "-" + gm + "-" + gd + " 10:10:10",
+                                      userId: $ctx.query.userId.slice(
+                                        4,
+                                        +$ctx.query.userId.length - 4
+                                      ),
+                                      name: name,
+                                      mobile: mobile,
+                                      email: email,
+                                      hamyarData: { hamyarsData },
+                                      allowance: { allowance }
+                                    })
+                                  })
+                                    .then(response => {
+                                      return response.json();
+                                    })
+                                    .then(data => {
+                                      console.log("user send");
+                                    })
+                                    .catch(error => {
+                                      console.error("Error3333:", error);
+                                    });
+                                } catch (error) {
+                                  console.log(
+                                    "\u274C خطا مدیریت شد:",
+                                    error.message
+                                  );
+                                }
+                              }, 3000);
+                            })();
                           }
                         };
                         return (({ customFunction }) => {
@@ -2079,6 +2129,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                       "darkMod"
                     )
                   })}
+                  id={"main"}
                 >
                   <Embed
                     data-plasmic-name={"embedHtml"}
@@ -2120,6 +2171,36 @@ function PlasmicPregnancy__RenderFunc(props: {
                             projectcss.all,
                             sty.freeBox__tB5TF
                           )}
+                          onClick={async event => {
+                            const $steps = {};
+
+                            $steps["runCode"] = true
+                              ? (() => {
+                                  const actionArgs = {
+                                    customFunction: async () => {
+                                      return (() => {
+                                        document.getElementById(
+                                          "reloadButton"
+                                        ).style.display = "block";
+                                        return (document.getElementById(
+                                          "main"
+                                        ).style.display = "none");
+                                      })();
+                                    }
+                                  };
+                                  return (({ customFunction }) => {
+                                    return customFunction();
+                                  })?.apply(null, [actionArgs]);
+                                })()
+                              : undefined;
+                            if (
+                              $steps["runCode"] != null &&
+                              typeof $steps["runCode"] === "object" &&
+                              typeof $steps["runCode"].then === "function"
+                            ) {
+                              $steps["runCode"] = await $steps["runCode"];
+                            }
+                          }}
                         >
                           <div
                             className={classNames(
