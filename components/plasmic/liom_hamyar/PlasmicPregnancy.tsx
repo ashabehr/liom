@@ -66,6 +66,7 @@ import {
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 
+import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { PullToRefresh } from "@/components/PullToRefresh"; // plasmic-import: nYteXVWDlYDv/codeComponent
 import { LottieWrapper } from "@plasmicpkgs/lottie-react";
@@ -91,6 +92,9 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPregnancy.module.css"; // plasmic-import: PDbEkiKHzqMX/css
 
+import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
+import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
+
 createPlasmicElementProxy;
 
 export type PlasmicPregnancy__VariantMembers = {
@@ -111,6 +115,7 @@ export const PlasmicPregnancy__ArgProps = new Array<ArgPropType>();
 export type PlasmicPregnancy__OverridesType = {
   root?: Flex__<"div">;
   section?: Flex__<"section">;
+  button?: Flex__<typeof Button>;
   favIcone?: Flex__<typeof Embed>;
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   timer?: Flex__<typeof Timer>;
@@ -749,6 +754,12 @@ function PlasmicPregnancy__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "button.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -808,6 +819,72 @@ function PlasmicPregnancy__RenderFunc(props: {
                 )
               })}
             >
+              <div
+                className={classNames(projectcss.all, sty.freeBox__sY11Y)}
+                id={"reloadButton"}
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              return location.reload();
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__qivmg
+                  )}
+                >
+                  {
+                    "\u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0622\u0645\u062f\u0647 \u0644\u0637\u0641\u0627 \u0628\u0631\u0627\u06cc \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f \u0635\u0642\u062d\u0647 \u0631\u0648 \u062f\u06a9\u0645\u0647 \u0632\u06cc\u0631 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f"
+                  }
+                </div>
+                <Button
+                  data-plasmic-name={"button"}
+                  data-plasmic-override={overrides.button}
+                  className={classNames("__wab_instance", sty.button)}
+                  color={generateStateValueProp($state, ["button", "color"])}
+                  onColorChange={async (...eventArgs: any) => {
+                    ((...eventArgs) => {
+                      generateStateOnChangeProp($state, ["button", "color"])(
+                        eventArgs[0]
+                      );
+                    }).apply(null, eventArgs);
+
+                    if (
+                      eventArgs.length > 1 &&
+                      eventArgs[1] &&
+                      eventArgs[1]._plasmic_state_init_
+                    ) {
+                      return;
+                    }
+                  }}
+                >
+                  {
+                    "\u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc \u0645\u062c\u062f\u062f \u0635\u0641\u062d\u0647"
+                  }
+                </Button>
+              </div>
               <Embed
                 data-plasmic-name={"favIcone"}
                 data-plasmic-override={overrides.favIcone}
@@ -1431,6 +1508,26 @@ function PlasmicPregnancy__RenderFunc(props: {
                 onTick={async () => {
                   const $steps = {};
 
+                  $steps["runCode6"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {})();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode6"] != null &&
+                    typeof $steps["runCode6"] === "object" &&
+                    typeof $steps["runCode6"].then === "function"
+                  ) {
+                    $steps["runCode6"] = await $steps["runCode6"];
+                  }
+
                   $steps["updateIsTimer"] = true
                     ? (() => {
                         const actionArgs = {
@@ -1651,26 +1748,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {
-                              const list =
-                                document.getElementById("my-scroll-list");
-                              const list2 = list.children[0];
-                              const fourthItem =
-                                list2.children[$state.selectedWeek];
-                              console.log(list);
-                              console.log(list2);
-                              console.log(fourthItem);
-                              if (fourthItem) {
-                                const itemPosition =
-                                  fourthItem.offsetLeft -
-                                  list.offsetWidth * 0.35 +
-                                  fourthItem.offsetWidth / 2;
-                                return list.scrollTo({
-                                  left: itemPosition,
-                                  behavior: "smooth"
-                                });
-                              }
-                            })();
+                            return (() => {})();
                           }
                         };
                         return (({ customFunction }) => {
@@ -1783,6 +1861,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return setTimeout(() => {
+                              console.log($state.getUserInfo.data);
                               var name =
                                 $state.getUserInfo.data?.[0]?.result?.user
                                   ?.name ?? "";
@@ -1960,7 +2039,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     throw e;
                   }
                 })()}
-                url={"https://n8n.staas.ir/webhook-test/userInfo"}
+                url={"https://n8n.staas.ir/webhook/userInfo"}
               />
 
               {(
@@ -10043,6 +10122,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "section",
+    "button",
     "favIcone",
     "pullToRefresh",
     "timer",
@@ -10061,6 +10141,7 @@ const PlasmicDescendants = {
   ],
   section: [
     "section",
+    "button",
     "favIcone",
     "pullToRefresh",
     "timer",
@@ -10077,6 +10158,7 @@ const PlasmicDescendants = {
     "collapseHealth",
     "buySub2"
   ],
+  button: ["button"],
   favIcone: ["favIcone"],
   pullToRefresh: ["pullToRefresh"],
   timer: ["timer"],
@@ -10099,6 +10181,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   section: "section";
+  button: typeof Button;
   favIcone: typeof Embed;
   pullToRefresh: typeof PullToRefresh;
   timer: typeof Timer;
@@ -10202,6 +10285,7 @@ export const PlasmicPregnancy = Object.assign(
   {
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
+    button: makeNodeComponent("button"),
     favIcone: makeNodeComponent("favIcone"),
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     timer: makeNodeComponent("timer"),
