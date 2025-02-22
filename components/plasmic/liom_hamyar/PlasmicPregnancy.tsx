@@ -1515,6 +1515,58 @@ function PlasmicPregnancy__RenderFunc(props: {
                 onTick={async () => {
                   const $steps = {};
 
+                  $steps["runCode6"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              if (
+                                new URLSearchParams(window.location.search).has(
+                                  "inBot"
+                                )
+                              ) {
+                                if (
+                                  new URLSearchParams(
+                                    window.location.search
+                                  ).get("inBot") != "true"
+                                ) {
+                                  window.onerror = function () {
+                                    document.getElementById(
+                                      "reloadButton"
+                                    ).style.display = "block";
+                                    document.getElementById(
+                                      "main"
+                                    ).style.display = "none";
+                                  };
+                                  return window.addEventListener(
+                                    "unhandledrejection",
+                                    function () {
+                                      document.getElementById(
+                                        "reloadButton"
+                                      ).style.display = "block";
+                                      document.getElementById(
+                                        "main"
+                                      ).style.display = "none";
+                                    }
+                                  );
+                                }
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode6"] != null &&
+                    typeof $steps["runCode6"] === "object" &&
+                    typeof $steps["runCode6"].then === "function"
+                  ) {
+                    $steps["runCode6"] = await $steps["runCode6"];
+                  }
+
                   $steps["updateIsTimer"] = true
                     ? (() => {
                         const actionArgs = {
@@ -1616,45 +1668,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                     typeof $steps["showToast"].then === "function"
                   ) {
                     $steps["showToast"] = await $steps["showToast"];
-                  }
-
-                  $steps["runCode6"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {
-                              console.log(
-                                "aaa" +
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("inBot")
-                              );
-                              console.log(
-                                "aaa" +
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("token")
-                              );
-                              return console.log(
-                                "aaa" +
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).has("inBot")
-                              );
-                            })();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode6"] != null &&
-                    typeof $steps["runCode6"] === "object" &&
-                    typeof $steps["runCode6"].then === "function"
-                  ) {
-                    $steps["runCode6"] = await $steps["runCode6"];
                   }
 
                   $steps["goToPage"] = $state.isNoData
