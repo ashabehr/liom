@@ -320,6 +320,12 @@
   bottom: auto;
   right: auto;
 }
+.svgloading_size_compact {
+  height: 40px;
+}
+.svgsize_minimal_loading {
+  height: 30px;
+}
 .slotTargetChildren {
   color: #ededec;
   font-weight: 500;

@@ -359,6 +359,9 @@ function PlasmicButton__RenderFunc(props: {
           [sty.rootcolor_yellow]: hasVariant($state, "color", "yellow"),
           [sty.rootisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
           [sty.rootloading]: hasVariant($state, "loading", "loading"),
+          [sty.rootloading_size_compact]:
+            hasVariant($state, "loading", "loading") &&
+            hasVariant($state, "size", "compact"),
           [sty.rootshape_round]: hasVariant($state, "shape", "round"),
           [sty.rootshape_round_size_compact]:
             hasVariant($state, "shape", "round") &&
@@ -526,7 +529,13 @@ function PlasmicButton__RenderFunc(props: {
             data-plasmic-name={"svg"}
             data-plasmic-override={overrides.svg}
             className={classNames(projectcss.all, sty.svg, {
-              [sty.svgloading]: hasVariant($state, "loading", "loading")
+              [sty.svgloading]: hasVariant($state, "loading", "loading"),
+              [sty.svgloading_size_compact]:
+                hasVariant($state, "loading", "loading") &&
+                hasVariant($state, "size", "compact"),
+              [sty.svgsize_minimal_loading]:
+                hasVariant($state, "loading", "loading") &&
+                hasVariant($state, "size", "minimal")
             })}
             role={"img"}
           />

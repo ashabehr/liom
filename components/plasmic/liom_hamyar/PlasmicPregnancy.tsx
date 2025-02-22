@@ -120,7 +120,6 @@ export type PlasmicPregnancy__OverridesType = {
   pullToRefresh?: Flex__<typeof PullToRefresh>;
   timer?: Flex__<typeof Timer>;
   getUserInfo?: Flex__<typeof ApiRequest>;
-  embedHtml?: Flex__<typeof Embed>;
   switchbest?: Flex__<typeof Switchbest>;
   progress?: Flex__<typeof AntdProgress>;
   tabWeek?: Flex__<typeof TabWeek>;
@@ -346,6 +345,9 @@ function PlasmicPregnancy__RenderFunc(props: {
           (() => {
             if ($state.user?.[0]?.dueDate) {
               let initialDate = new Date($state.user?.[0]?.dueDate);
+              initialDate.setHours(23);
+              initialDate.setMinutes(59);
+              initialDate.setSeconds(59);
               let daysToSubtract = 280;
               let resultDate = new Date(initialDate);
               resultDate.setDate(resultDate.getDate() - daysToSubtract);
@@ -370,6 +372,9 @@ function PlasmicPregnancy__RenderFunc(props: {
           (() => {
             if ($state.user?.[0]?.dueDate) {
               let initialDate = new Date($state.user?.[0]?.dueDate);
+              initialDate.setHours(23);
+              initialDate.setMinutes(59);
+              initialDate.setSeconds(59);
               let daysToSubtract = 280;
               let resultDate = new Date(initialDate);
               resultDate.setDate(resultDate.getDate() - daysToSubtract);
@@ -2132,9 +2137,20 @@ function PlasmicPregnancy__RenderFunc(props: {
                   id={"main"}
                 >
                   <Embed
-                    data-plasmic-name={"embedHtml"}
-                    data-plasmic-override={overrides.embedHtml}
-                    className={classNames("__wab_instance", sty.embedHtml)}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.embedHtml___1Z5Og
+                    )}
+                    code={
+                      '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>'
+                    }
+                  />
+
+                  <Embed
+                    className={classNames(
+                      "__wab_instance",
+                      sty.embedHtml__pbDw1
+                    )}
                     code={
                       "<script>\n    (function(h,o,t,j,a,r){\n        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};\n        h._hjSettings={hjid:5222936,hjsv:6};\n        a=o.getElementsByTagName('head')[0];\n        r=o.createElement('script');r.async=1;\n        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;\n        a.appendChild(r);\n    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');\n</script>"
                     }
@@ -5249,8 +5265,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       item.type !=
                                       "pregnancy_sub_better_relation"
                                   ).active ??
-                                    false) &&
-                                  false
+                                    false)
                                 );
                               } catch (e) {
                                 if (
@@ -10208,7 +10223,6 @@ const PlasmicDescendants = {
     "pullToRefresh",
     "timer",
     "getUserInfo",
-    "embedHtml",
     "switchbest",
     "progress",
     "tabWeek",
@@ -10227,7 +10241,6 @@ const PlasmicDescendants = {
     "pullToRefresh",
     "timer",
     "getUserInfo",
-    "embedHtml",
     "switchbest",
     "progress",
     "tabWeek",
@@ -10244,7 +10257,6 @@ const PlasmicDescendants = {
   pullToRefresh: ["pullToRefresh"],
   timer: ["timer"],
   getUserInfo: ["getUserInfo"],
-  embedHtml: ["embedHtml"],
   switchbest: ["switchbest"],
   progress: ["progress"],
   tabWeek: ["tabWeek"],
@@ -10267,7 +10279,6 @@ type NodeDefaultElementType = {
   pullToRefresh: typeof PullToRefresh;
   timer: typeof Timer;
   getUserInfo: typeof ApiRequest;
-  embedHtml: typeof Embed;
   switchbest: typeof Switchbest;
   progress: typeof AntdProgress;
   tabWeek: typeof TabWeek;
@@ -10371,7 +10382,6 @@ export const PlasmicPregnancy = Object.assign(
     pullToRefresh: makeNodeComponent("pullToRefresh"),
     timer: makeNodeComponent("timer"),
     getUserInfo: makeNodeComponent("getUserInfo"),
-    embedHtml: makeNodeComponent("embedHtml"),
     switchbest: makeNodeComponent("switchbest"),
     progress: makeNodeComponent("progress"),
     tabWeek: makeNodeComponent("tabWeek"),

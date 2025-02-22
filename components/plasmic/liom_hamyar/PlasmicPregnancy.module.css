@@ -197,7 +197,11 @@
     display: flex;
   }
 }
-.embedHtml:global(.__wab_instance) {
+.embedHtml___1Z5Og:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.embedHtml__pbDw1:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }
@@ -752,7 +756,6 @@
   max-width: 100%;
 }
 .freeBox__bcQKk {
-  display: flex;
   flex-direction: row;
   position: relative;
   align-items: stretch;
@@ -761,6 +764,7 @@
   height: auto;
   max-width: 100%;
   background: none;
+  display: none;
   padding: 0px;
 }
 @media (max-width: 640px) {
@@ -793,9 +797,10 @@
   height: 100%;
   max-width: 100%;
   background: none;
+  margin-top: 15px;
   min-height: 0;
   border-radius: 8px;
-  padding: 8px;
+  padding: 16px 8px 8px;
 }
 .freeBox__ekpIz > :global(.__wab_flex-container) {
   flex-direction: column;

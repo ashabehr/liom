@@ -1356,6 +1356,46 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicComment.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "38exw8bGQf_v",
+          "name": "VigetLiom2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicVigetLiom2.tsx",
+          "importSpec": {
+            "modulePath": "VigetLiom2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicVigetLiom2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "PI7WftNbPWTI",
+          "name": "StatusDay",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicStatusDay.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/Status-day.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicStatusDay.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/Status-day"
+        },
+        {
+          "id": "kgxwt1SHeMmu",
+          "name": "Water",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicWater.tsx",
+          "importSpec": {
+            "modulePath": "Water.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicWater.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2448,6 +2488,26 @@
           "id": "pOIvV5VzgUcj",
           "name": "SardardIcSvgIcon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__SardardIcSvg.tsx"
+        },
+        {
+          "id": "RDv-pcdtwLHX",
+          "name": "Icon161Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon161.tsx"
+        },
+        {
+          "id": "yKJJCRzSc6Ld",
+          "name": "Icon162Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon162.tsx"
+        },
+        {
+          "id": "3LzFbRV5Q8L4",
+          "name": "Icon163Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon163.tsx"
+        },
+        {
+          "id": "syByyVprhgER",
+          "name": "Icon164Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon164.tsx"
         }
       ],
       "images": [
