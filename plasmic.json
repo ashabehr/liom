@@ -1278,20 +1278,6 @@
           "componentType": "component"
         },
         {
-          "id": "t-szDQJTPj1c",
-          "name": "Pregnancy2",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicPregnancy2.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/pregnancy-2.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicPregnancy2.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/pregnancy-2"
-        },
-        {
           "id": "BIrjMygSfTRI",
           "name": "VigetLiom",
           "type": "managed",
@@ -4882,7 +4868,8 @@
           "componentImportPath": "@plasmicpkgs/react-aria/skinny/registerDialog"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {

@@ -1520,24 +1520,32 @@ function PlasmicPregnancy__RenderFunc(props: {
                         const actionArgs = {
                           customFunction: async () => {
                             return (() => {
-                              window.onerror = function () {
-                                document.getElementById(
-                                  "reloadButton"
-                                ).style.display = "block";
-                                document.getElementById("main").style.display =
-                                  "none";
-                              };
-                              return window.addEventListener(
-                                "unhandledrejection",
-                                function () {
-                                  document.getElementById(
-                                    "reloadButton"
-                                  ).style.display = "block";
-                                  document.getElementById(
-                                    "main"
-                                  ).style.display = "none";
-                                }
+                              const queryParams = new URLSearchParams(
+                                window.location.search
                               );
+                              if (queryParams.has("inBot")) {
+                                if ($ctx.query.inBot != "true") {
+                                  window.onerror = function () {
+                                    document.getElementById(
+                                      "reloadButton"
+                                    ).style.display = "block";
+                                    document.getElementById(
+                                      "main"
+                                    ).style.display = "none";
+                                  };
+                                  return window.addEventListener(
+                                    "unhandledrejection",
+                                    function () {
+                                      document.getElementById(
+                                        "reloadButton"
+                                      ).style.display = "block";
+                                      document.getElementById(
+                                        "main"
+                                      ).style.display = "none";
+                                    }
+                                  );
+                                }
+                              }
                             })();
                           }
                         };
@@ -1780,9 +1788,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                               const list2 = list.children[0];
                               const fourthItem =
                                 list2.children[$state.selectedWeek];
-                              console.log(list);
-                              console.log(list2);
-                              console.log(fourthItem);
                               if (fourthItem) {
                                 const itemPosition =
                                   fourthItem.offsetLeft -
@@ -7272,27 +7277,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   customFunction: async () => {
                                     return (() => {
                                       var link;
-                                      if ($ctx.query.version > 286) {
-                                        link =
-                                          "https://tools.liom.app/self-medication/?type=danger&inApp=true&token=" +
-                                          $ctx.query.token +
-                                          "&selectStep=" +
-                                          ($state.weeksPregnant - 1) +
-                                          "&userId=" +
-                                          ($ctx?.query?.userId ?? "") +
-                                          "&version=" +
-                                          $ctx.query.version;
-                                      } else {
-                                        link =
-                                          "https://tools.liom.app/self-medication/?type=danger&inApp=true&token=" +
-                                          $ctx.query.token +
-                                          "&selectStep=" +
-                                          "0" +
-                                          "&userId=" +
-                                          ($ctx?.query?.userId ?? "") +
-                                          "&version=" +
-                                          $ctx.query.version;
-                                      }
+                                      link =
+                                        "https://tools.liom.app/self-medication/?type=danger&inApp=true&token=" +
+                                        $ctx.query.token +
+                                        "&selectStep=" +
+                                        ($state.weeksPregnant - 1) +
+                                        "&userId=" +
+                                        ($ctx?.query?.userId ?? "") +
+                                        "&version=" +
+                                        $ctx.query.version;
                                       return window.FlutterChannel.postMessage(
                                         "#inAppWebView**@@**ابزار خطرناکه یانه **@@**" +
                                           link
