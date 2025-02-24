@@ -69,6 +69,7 @@ import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/register
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
 import VigetLiom2 from "../../VigetLiom2"; // plasmic-import: 38exw8bGQf_v/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Choices from "../../Choices"; // plasmic-import: kqjrVA4cMqR_/component
@@ -134,6 +135,7 @@ export type PlasmicStatusDay__OverridesType = {
   removeBtn?: Flex__<typeof Button>;
   button9?: Flex__<typeof Button>;
   getSign?: Flex__<typeof ApiRequest>;
+  tabWeek?: Flex__<typeof TabWeek>;
   selectionBox?: Flex__<"div">;
   choices?: Flex__<typeof Choices>;
   selectionBox2?: Flex__<"div">;
@@ -3619,6 +3621,13 @@ function PlasmicStatusDay__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__akQn)}
             >
+              <div className={classNames(projectcss.all, sty.freeBox__zFbgt)}>
+                <TabWeek
+                  data-plasmic-name={"tabWeek"}
+                  data-plasmic-override={overrides.tabWeek}
+                  className={classNames("__wab_instance", sty.tabWeek)}
+                />
+              </div>
               <Stack__
                 as={"div"}
                 data-plasmic-name={"selectionBox"}
@@ -6797,6 +6806,7 @@ const PlasmicDescendants = {
     "removeBtn",
     "button9",
     "getSign",
+    "tabWeek",
     "selectionBox",
     "choices",
     "selectionBox2",
@@ -6858,6 +6868,7 @@ const PlasmicDescendants = {
   button9: ["button9"],
   getSign: [
     "getSign",
+    "tabWeek",
     "selectionBox",
     "choices",
     "selectionBox2",
@@ -6878,6 +6889,7 @@ const PlasmicDescendants = {
     "antdInputTextArea",
     "button"
   ],
+  tabWeek: ["tabWeek"],
   selectionBox: ["selectionBox", "choices"],
   choices: ["choices"],
   selectionBox2: ["selectionBox2", "choices2"],
@@ -6956,6 +6968,7 @@ type NodeDefaultElementType = {
   removeBtn: typeof Button;
   button9: typeof Button;
   getSign: typeof ApiRequest;
+  tabWeek: typeof TabWeek;
   selectionBox: "div";
   choices: typeof Choices;
   selectionBox2: "div";
@@ -7102,6 +7115,7 @@ export const PlasmicStatusDay = Object.assign(
     removeBtn: makeNodeComponent("removeBtn"),
     button9: makeNodeComponent("button9"),
     getSign: makeNodeComponent("getSign"),
+    tabWeek: makeNodeComponent("tabWeek"),
     selectionBox: makeNodeComponent("selectionBox"),
     choices: makeNodeComponent("choices"),
     selectionBox2: makeNodeComponent("selectionBox2"),

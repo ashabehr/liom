@@ -168,6 +168,9 @@ export type PlasmicEditProfile__OverridesType = {
   verticalForMenstrualCycle?: Flex__<"div">;
   numberOfDaysOfBleeding2?: Flex__<"div">;
   numberOfDaysOfBleeding3?: Flex__<"div">;
+  nameInput2?: Flex__<typeof TextInput>;
+  nameInput3?: Flex__<typeof TextInput>;
+  nameInput4?: Flex__<typeof TextInput>;
   heightAndWeight?: Flex__<"div">;
   weight?: Flex__<"div">;
   weight2?: Flex__<"div">;
@@ -406,7 +409,7 @@ function PlasmicEditProfile__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getInfo.data.result.user.length;
+              return $state.getInfo.data.result.user.length || "";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -475,7 +478,7 @@ function PlasmicEditProfile__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getInfo.data.result.user.cycle;
+              return $state.getInfo.data.result.user.cycle || "";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -911,7 +914,29 @@ function PlasmicEditProfile__RenderFunc(props: {
         path: "empty",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          name: true,
+          lenght: true,
+          cyclel: true
+        })
+      },
+      {
+        path: "nameInput2.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "nameInput3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "nameInput4.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -4511,7 +4536,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                   }
                   error={(() => {
                     try {
-                      return $state.empty.neme == false;
+                      return $state.empty.name == false;
                     } catch (e) {
                       if (
                         e instanceof TypeError ||
@@ -5298,29 +5323,129 @@ function PlasmicEditProfile__RenderFunc(props: {
                       }
                     }}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__liNza
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.numberOfDaysOfBleedingPicker;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
+                    <TextInput
+                      data-plasmic-name={"nameInput2"}
+                      data-plasmic-override={overrides.nameInput2}
+                      antdInput2={
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__liNza
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.numberOfDaysOfBleedingPicker;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      }
+                      className={classNames("__wab_instance", sty.nameInput2)}
+                      endIcon={
+                        <CheckSvgIcon
+                          className={classNames(
+                            projectcss.all,
+                            sty.svg___2Yc3Q
+                          )}
+                          role={"img"}
+                        />
+                      }
+                      error={(() => {
+                        try {
+                          return $state.empty.lenght == false;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
                           }
-                        })()}
-                      </React.Fragment>
-                    </div>
+                          throw e;
+                        }
+                      })()}
+                      errorText={
+                        "\u067e\u0631 \u06a9\u0631\u062f\u0646  \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a"
+                      }
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "nameInput2",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+
+                        (async event => {
+                          const $steps = {};
+
+                          $steps["updateName"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["name"]
+                                  },
+                                  operation: 0,
+                                  value: $state.nameInput2.value
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateName"] != null &&
+                            typeof $steps["updateName"] === "object" &&
+                            typeof $steps["updateName"].then === "function"
+                          ) {
+                            $steps["updateName"] = await $steps["updateName"];
+                          }
+                        }).apply(null, eventArgs);
+                      }}
+                      showEndIcon={true}
+                      startIcon={
+                        <SearchSvgIcon
+                          className={classNames(projectcss.all, sty.svg__bfkIg)}
+                          role={"img"}
+                        />
+                      }
+                      type={"tel"}
+                      value={
+                        generateStateValueProp($state, [
+                          "nameInput2",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
                   </div>
                 </Stack__>
                 <Stack__
@@ -5391,29 +5516,126 @@ function PlasmicEditProfile__RenderFunc(props: {
                       }
                     }}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__qfJn9
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.periodCycleLength;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
+                    <TextInput
+                      data-plasmic-name={"nameInput3"}
+                      data-plasmic-override={overrides.nameInput3}
+                      antdInput2={
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__qfJn9
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.periodCycleLength;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      }
+                      className={classNames("__wab_instance", sty.nameInput3)}
+                      endIcon={
+                        <CheckSvgIcon
+                          className={classNames(projectcss.all, sty.svg__hFpF)}
+                          role={"img"}
+                        />
+                      }
+                      error={(() => {
+                        try {
+                          return $state.empty.cyclel == false;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
                           }
-                        })()}
-                      </React.Fragment>
-                    </div>
+                          throw e;
+                        }
+                      })()}
+                      errorText={
+                        "\u067e\u0631 \u06a9\u0631\u062f\u0646  \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a"
+                      }
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "nameInput3",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+
+                        (async event => {
+                          const $steps = {};
+
+                          $steps["updateName"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["name"]
+                                  },
+                                  operation: 0,
+                                  value: $state.nameInput3.value
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateName"] != null &&
+                            typeof $steps["updateName"] === "object" &&
+                            typeof $steps["updateName"].then === "function"
+                          ) {
+                            $steps["updateName"] = await $steps["updateName"];
+                          }
+                        }).apply(null, eventArgs);
+                      }}
+                      showEndIcon={true}
+                      startIcon={
+                        <SearchSvgIcon
+                          className={classNames(projectcss.all, sty.svg__zkzMm)}
+                          role={"img"}
+                        />
+                      }
+                      type={"tel"}
+                      value={
+                        generateStateValueProp($state, [
+                          "nameInput3",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
                   </div>
                   <div
                     className={classNames(
@@ -5498,31 +5720,128 @@ function PlasmicEditProfile__RenderFunc(props: {
                       }
                     }}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__cL78D
-                      )}
-                    >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
-                              a => a.value === $state.variableForLastPeriod
-                            ).label;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "";
-                            }
-                            throw e;
+                    <TextInput
+                      data-plasmic-name={"nameInput4"}
+                      data-plasmic-override={overrides.nameInput4}
+                      antdInput2={
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__cL78D
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return $state.variableForTheDateOfTheFirstDayOfYourLastPeriod.find(
+                                  a => a.value === $state.variableForLastPeriod
+                                ).label;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      }
+                      className={classNames("__wab_instance", sty.nameInput4)}
+                      endIcon={
+                        <CheckSvgIcon
+                          className={classNames(projectcss.all, sty.svg___3RnG)}
+                          role={"img"}
+                        />
+                      }
+                      error={(() => {
+                        try {
+                          return $state.empty.name == false;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
                           }
-                        })()}
-                      </React.Fragment>
-                    </div>
+                          throw e;
+                        }
+                      })()}
+                      errorText={
+                        "\u067e\u0631 \u06a9\u0631\u062f\u0646  \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a"
+                      }
+                      onChange={async (...eventArgs: any) => {
+                        ((...eventArgs) => {
+                          generateStateOnChangeProp($state, [
+                            "nameInput4",
+                            "value"
+                          ])((e => e.target?.value).apply(null, eventArgs));
+                        }).apply(null, eventArgs);
+
+                        if (
+                          eventArgs.length > 1 &&
+                          eventArgs[1] &&
+                          eventArgs[1]._plasmic_state_init_
+                        ) {
+                          return;
+                        }
+
+                        (async event => {
+                          const $steps = {};
+
+                          $steps["updateName"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  variable: {
+                                    objRoot: $state,
+                                    variablePath: ["name"]
+                                  },
+                                  operation: 0,
+                                  value: $state.nameInput4.value
+                                };
+                                return (({
+                                  variable,
+                                  value,
+                                  startIndex,
+                                  deleteCount
+                                }) => {
+                                  if (!variable) {
+                                    return;
+                                  }
+                                  const { objRoot, variablePath } = variable;
+
+                                  $stateSet(objRoot, variablePath, value);
+                                  return value;
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["updateName"] != null &&
+                            typeof $steps["updateName"] === "object" &&
+                            typeof $steps["updateName"].then === "function"
+                          ) {
+                            $steps["updateName"] = await $steps["updateName"];
+                          }
+                        }).apply(null, eventArgs);
+                      }}
+                      showEndIcon={true}
+                      startIcon={
+                        <SearchSvgIcon
+                          className={classNames(projectcss.all, sty.svg__pxRsM)}
+                          role={"img"}
+                        />
+                      }
+                      type={"tel"}
+                      value={
+                        generateStateValueProp($state, [
+                          "nameInput4",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
                   </div>
                 </Stack__>
               </Stack__>
@@ -5829,12 +6148,10 @@ function PlasmicEditProfile__RenderFunc(props: {
                                   $state.empty.name = false;
                                 }
                                 if ($state.numberOfDaysOfBleedingPicker == "") {
-                                  $state.empty.numberOfDaysOfBleedingPicker =
-                                    false;
+                                  $state.empty.lenght = false;
                                 }
                                 if ($state.periodCycleLength == "") {
-                                  return ($state.empty.periodCycleLength =
-                                    false);
+                                  return ($state.empty.cyclel = false);
                                 }
                               })()
                             };
@@ -5962,6 +6279,9 @@ const PlasmicDescendants = {
     "verticalForMenstrualCycle",
     "numberOfDaysOfBleeding2",
     "numberOfDaysOfBleeding3",
+    "nameInput2",
+    "nameInput3",
+    "nameInput4",
     "heightAndWeight",
     "weight",
     "weight2",
@@ -6120,6 +6440,9 @@ const PlasmicDescendants = {
     "verticalForMenstrualCycle",
     "numberOfDaysOfBleeding2",
     "numberOfDaysOfBleeding3",
+    "nameInput2",
+    "nameInput3",
+    "nameInput4",
     "heightAndWeight",
     "weight",
     "weight2",
@@ -6140,6 +6463,9 @@ const PlasmicDescendants = {
     "verticalForMenstrualCycle",
     "numberOfDaysOfBleeding2",
     "numberOfDaysOfBleeding3",
+    "nameInput2",
+    "nameInput3",
+    "nameInput4",
     "heightAndWeight",
     "weight",
     "weight2",
@@ -6166,13 +6492,20 @@ const PlasmicDescendants = {
   verticalForMenstrualCycle: [
     "verticalForMenstrualCycle",
     "numberOfDaysOfBleeding2",
-    "numberOfDaysOfBleeding3"
+    "numberOfDaysOfBleeding3",
+    "nameInput2",
+    "nameInput3",
+    "nameInput4"
   ],
   numberOfDaysOfBleeding2: [
     "numberOfDaysOfBleeding2",
-    "numberOfDaysOfBleeding3"
+    "numberOfDaysOfBleeding3",
+    "nameInput2"
   ],
-  numberOfDaysOfBleeding3: ["numberOfDaysOfBleeding3"],
+  numberOfDaysOfBleeding3: ["numberOfDaysOfBleeding3", "nameInput2"],
+  nameInput2: ["nameInput2"],
+  nameInput3: ["nameInput3"],
+  nameInput4: ["nameInput4"],
   heightAndWeight: ["heightAndWeight", "weight", "weight2"],
   weight: ["weight", "weight2"],
   weight2: ["weight2"],
@@ -6243,6 +6576,9 @@ type NodeDefaultElementType = {
   verticalForMenstrualCycle: "div";
   numberOfDaysOfBleeding2: "div";
   numberOfDaysOfBleeding3: "div";
+  nameInput2: typeof TextInput;
+  nameInput3: typeof TextInput;
+  nameInput4: typeof TextInput;
   heightAndWeight: "div";
   weight: "div";
   weight2: "div";
@@ -6406,6 +6742,9 @@ export const PlasmicEditProfile = Object.assign(
     verticalForMenstrualCycle: makeNodeComponent("verticalForMenstrualCycle"),
     numberOfDaysOfBleeding2: makeNodeComponent("numberOfDaysOfBleeding2"),
     numberOfDaysOfBleeding3: makeNodeComponent("numberOfDaysOfBleeding3"),
+    nameInput2: makeNodeComponent("nameInput2"),
+    nameInput3: makeNodeComponent("nameInput3"),
+    nameInput4: makeNodeComponent("nameInput4"),
     heightAndWeight: makeNodeComponent("heightAndWeight"),
     weight: makeNodeComponent("weight"),
     weight2: makeNodeComponent("weight2"),

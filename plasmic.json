@@ -1409,6 +1409,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicMedisene.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "-tuOknPDFuNb",
+          "name": "TabWeek2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicTabWeek2.tsx",
+          "importSpec": {
+            "modulePath": "TabWeek2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicTabWeek2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
