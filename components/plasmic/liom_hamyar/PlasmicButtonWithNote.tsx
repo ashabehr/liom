@@ -72,11 +72,11 @@ createPlasmicElementProxy;
 
 export type PlasmicButtonWithNote__VariantMembers = {
   select: "select";
-  shaoe: "circle";
+  shaoe: "circle" | "rectangle";
 };
 export type PlasmicButtonWithNote__VariantsArgs = {
   select?: SingleBooleanChoiceArg<"select">;
-  shaoe?: MultiChoiceArg<"circle">;
+  shaoe?: MultiChoiceArg<"circle" | "rectangle">;
 };
 type VariantPropType = keyof PlasmicButtonWithNote__VariantsArgs;
 export const PlasmicButtonWithNote__VariantProps = new Array<VariantPropType>(
@@ -91,6 +91,8 @@ export type PlasmicButtonWithNote__ArgsType = {
   name?: string;
   onClick?: (event: any) => void;
   html?: string;
+  text?: string;
+  onTextChange?: (val: string) => void;
   slot?: React.ReactNode;
   children?: React.ReactNode;
 };
@@ -102,6 +104,8 @@ export const PlasmicButtonWithNote__ArgProps = new Array<ArgPropType>(
   "name",
   "onClick",
   "html",
+  "text",
+  "onTextChange",
   "slot",
   "children"
 );
@@ -109,6 +113,7 @@ export const PlasmicButtonWithNote__ArgProps = new Array<ArgPropType>(
 export type PlasmicButtonWithNote__OverridesType = {
   butWithNote?: Flex__<"div">;
   butBox?: Flex__<"div">;
+  text?: Flex__<"div">;
   freeBox?: Flex__<"div">;
 };
 
@@ -119,10 +124,12 @@ export interface DefaultButtonWithNoteProps {
   name?: string;
   onClick?: (event: any) => void;
   html?: string;
+  text?: string;
+  onTextChange?: (val: string) => void;
   slot?: React.ReactNode;
   children?: React.ReactNode;
   select?: SingleBooleanChoiceArg<"select">;
-  shaoe?: MultiChoiceArg<"circle">;
+  shaoe?: MultiChoiceArg<"circle" | "rectangle">;
   className?: string;
 }
 
@@ -197,6 +204,14 @@ function PlasmicButtonWithNote__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.shaoe
+      },
+      {
+        path: "text",
+        type: "writable",
+        variableType: "text",
+
+        valueProp: "text",
+        onChangeProp: "onTextChange"
       }
     ],
     [$props, $ctx, $refs]
@@ -230,7 +245,12 @@ function PlasmicButtonWithNote__RenderFunc(props: {
           [sty.butWithNoteselect_shaoe_circle]:
             hasVariant($state, "shaoe", "circle") &&
             hasVariant($state, "select", "select"),
-          [sty.butWithNoteshaoe_circle]: hasVariant($state, "shaoe", "circle")
+          [sty.butWithNoteshaoe_circle]: hasVariant($state, "shaoe", "circle"),
+          [sty.butWithNoteshaoe_rectangle]: hasVariant(
+            $state,
+            "shaoe",
+            "rectangle"
+          )
         }
       )}
       onClick={async event => {
@@ -245,20 +265,73 @@ function PlasmicButtonWithNote__RenderFunc(props: {
           [sty.butBoxselect_shaoe_circle]:
             hasVariant($state, "shaoe", "circle") &&
             hasVariant($state, "select", "select"),
-          [sty.butBoxshaoe_circle]: hasVariant($state, "shaoe", "circle")
+          [sty.butBoxselect_shaoe_rectangle]:
+            hasVariant($state, "shaoe", "rectangle") &&
+            hasVariant($state, "select", "select"),
+          [sty.butBoxselect_shaoe_rectangle_shaoe_circle]:
+            hasVariant($state, "shaoe", "rectangle") &&
+            hasVariant($state, "select", "select") &&
+            hasVariant($state, "shaoe", "circle"),
+          [sty.butBoxshaoe_circle]: hasVariant($state, "shaoe", "circle"),
+          [sty.butBoxshaoe_rectangle]: hasVariant($state, "shaoe", "rectangle")
         })}
         onClick={args.onClick}
       >
         {renderPlasmicSlot({
           defaultContents: (
             <Icon29Icon
-              className={classNames(projectcss.all, sty.svg__klQw5)}
+              className={classNames(projectcss.all, sty.svg__klQw5, {
+                [sty.svgshaoe_rectangle__klQw5NmugW]: hasVariant(
+                  $state,
+                  "shaoe",
+                  "rectangle"
+                )
+              })}
               role={"img"}
             />
           ),
 
           value: args.slot
         })}
+        <div
+          data-plasmic-name={"text"}
+          data-plasmic-override={overrides.text}
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text,
+            {
+              [sty.textselect_shaoe_rectangle]:
+                hasVariant($state, "shaoe", "rectangle") &&
+                hasVariant($state, "select", "select"),
+              [sty.textshaoe_rectangle]: hasVariant(
+                $state,
+                "shaoe",
+                "rectangle"
+              )
+            }
+          )}
+        >
+          {hasVariant($state, "shaoe", "rectangle") ? (
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $state.text;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          ) : (
+            "Enter some text"
+          )}
+        </div>
       </div>
       <div
         data-plasmic-name={"freeBox"}
@@ -267,7 +340,15 @@ function PlasmicButtonWithNote__RenderFunc(props: {
           [sty.freeBoxselect]: hasVariant($state, "select", "select"),
           [sty.freeBoxselect_shaoe_circle]:
             hasVariant($state, "shaoe", "circle") &&
-            hasVariant($state, "select", "select")
+            hasVariant($state, "select", "select"),
+          [sty.freeBoxselect_shaoe_rectangle]:
+            hasVariant($state, "shaoe", "rectangle") &&
+            hasVariant($state, "select", "select"),
+          [sty.freeBoxselect_shaoe_rectangle_shaoe_circle]:
+            hasVariant($state, "shaoe", "rectangle") &&
+            hasVariant($state, "select", "select") &&
+            hasVariant($state, "shaoe", "circle"),
+          [sty.freeBoxshaoe_rectangle]: hasVariant($state, "shaoe", "rectangle")
         })}
       >
         {renderPlasmicSlot({
@@ -286,6 +367,11 @@ function PlasmicButtonWithNote__RenderFunc(props: {
               $state,
               "shaoe",
               "circle"
+            ),
+            [sty.slotTargetChildrenshaoe_rectangle]: hasVariant(
+              $state,
+              "shaoe",
+              "rectangle"
             )
           })
         })}
@@ -295,8 +381,9 @@ function PlasmicButtonWithNote__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  butWithNote: ["butWithNote", "butBox", "freeBox"],
-  butBox: ["butBox"],
+  butWithNote: ["butWithNote", "butBox", "text", "freeBox"],
+  butBox: ["butBox", "text"],
+  text: ["text"],
   freeBox: ["freeBox"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -305,6 +392,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   butWithNote: "div";
   butBox: "div";
+  text: "div";
   freeBox: "div";
 };
 
@@ -369,6 +457,7 @@ export const PlasmicButtonWithNote = Object.assign(
   {
     // Helper components rendering sub-elements
     butBox: makeNodeComponent("butBox"),
+    text: makeNodeComponent("text"),
     freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicButtonWithNote

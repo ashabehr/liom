@@ -71,6 +71,8 @@ import sty from "./PlasmicCheckbox.module.css"; // plasmic-import: IwXl9xUH-ZMp/
 import SquareSvgIcon from "./icons/PlasmicIcon__SquareSvg"; // plasmic-import: 3C1XYJAwQsTb/icon
 import SquareCheckFilledSvgIcon from "./icons/PlasmicIcon__SquareCheckFilledSvg"; // plasmic-import: p6YfH-sngYmY/icon
 import SquareMinusSvgIcon from "./icons/PlasmicIcon__SquareMinusSvg"; // plasmic-import: 1zgY9O889QK_/icon
+import Icon166Icon from "./icons/PlasmicIcon__Icon166"; // plasmic-import: lK-q_V9OAZsC/icon
+import Icon167Icon from "./icons/PlasmicIcon__Icon167"; // plasmic-import: lE5NtGpQvjFY/icon
 
 createPlasmicElementProxy;
 
@@ -79,19 +81,22 @@ export type PlasmicCheckbox__VariantMembers = {
   isDisabled: "isDisabled";
   isChecked: "isChecked";
   isIndeterminate: "isIndeterminate";
+  circle: "circle";
 };
 export type PlasmicCheckbox__VariantsArgs = {
   noLabel?: SingleBooleanChoiceArg<"noLabel">;
   isDisabled?: SingleBooleanChoiceArg<"isDisabled">;
   isChecked?: SingleBooleanChoiceArg<"isChecked">;
   isIndeterminate?: SingleBooleanChoiceArg<"isIndeterminate">;
+  circle?: SingleBooleanChoiceArg<"circle">;
 };
 type VariantPropType = keyof PlasmicCheckbox__VariantsArgs;
 export const PlasmicCheckbox__VariantProps = new Array<VariantPropType>(
   "noLabel",
   "isDisabled",
   "isChecked",
-  "isIndeterminate"
+  "isIndeterminate",
+  "circle"
 );
 
 export type PlasmicCheckbox__ArgsType = {
@@ -123,6 +128,7 @@ export interface DefaultCheckboxProps extends pp.CheckboxProps {
   "aria-label"?: string;
   "aria-labelledby"?: string;
   onChange?: (isChecked: boolean) => void;
+  circle?: SingleBooleanChoiceArg<"circle">;
 }
 
 const $$ = {};
@@ -192,6 +198,12 @@ function PlasmicCheckbox__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.isIndeterminate
+      },
+      {
+        path: "circle",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.circle
       }
     ],
     [$props, $ctx, $refs]
@@ -230,6 +242,13 @@ function PlasmicCheckbox__RenderFunc(props: {
         sty.root,
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
+          [sty.root___focusVisibleWithin_circle]:
+            hasVariant($state, "circle", "circle") &&
+            triggers.focusVisibleWithin_root,
+          [sty.rootcircle]: hasVariant($state, "circle", "circle"),
+          [sty.rootcircle_isChecked]:
+            hasVariant($state, "circle", "circle") &&
+            hasVariant($state, "isChecked", "isChecked"),
           [sty.rootisChecked]: hasVariant($state, "isChecked", "isChecked"),
           [sty.rootisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
           [sty.rootisIndeterminate]: hasVariant(
@@ -247,6 +266,14 @@ function PlasmicCheckbox__RenderFunc(props: {
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox, {
           [sty.freeBox___focusVisibleWithin]: triggers.focusVisibleWithin_root,
+          [sty.freeBox___focusVisibleWithin_circle]:
+            hasVariant($state, "circle", "circle") &&
+            triggers.focusVisibleWithin_root,
+          [sty.freeBox___focusVisibleWithin_circle_isChecked]:
+            hasVariant($state, "circle", "circle") &&
+            hasVariant($state, "isChecked", "isChecked") &&
+            triggers.focusVisibleWithin_root,
+          [sty.freeBoxcircle]: hasVariant($state, "circle", "circle"),
           [sty.freeBoxisChecked]: hasVariant($state, "isChecked", "isChecked"),
           [sty.freeBoxisDisabled]: hasVariant(
             $state,
@@ -265,7 +292,12 @@ function PlasmicCheckbox__RenderFunc(props: {
           data-plasmic-name={"svg"}
           data-plasmic-override={overrides.svg}
           PlasmicIconType={
-            hasVariant($state, "isIndeterminate", "isIndeterminate")
+            hasVariant($state, "circle", "circle") &&
+            hasVariant($state, "isChecked", "isChecked")
+              ? Icon167Icon
+              : hasVariant($state, "circle", "circle")
+              ? Icon166Icon
+              : hasVariant($state, "isIndeterminate", "isIndeterminate")
               ? SquareMinusSvgIcon
               : hasVariant($state, "isChecked", "isChecked")
               ? SquareCheckFilledSvgIcon
@@ -273,6 +305,17 @@ function PlasmicCheckbox__RenderFunc(props: {
           }
           className={classNames(projectcss.all, sty.svg, {
             [sty.svg___focusVisibleWithin]: triggers.focusVisibleWithin_root,
+            [sty.svg___focusVisibleWithin_circle]:
+              hasVariant($state, "circle", "circle") &&
+              triggers.focusVisibleWithin_root,
+            [sty.svg___focusVisibleWithin_circle_isChecked]:
+              hasVariant($state, "circle", "circle") &&
+              hasVariant($state, "isChecked", "isChecked") &&
+              triggers.focusVisibleWithin_root,
+            [sty.svgcircle]: hasVariant($state, "circle", "circle"),
+            [sty.svgcircle_isChecked]:
+              hasVariant($state, "circle", "circle") &&
+              hasVariant($state, "isChecked", "isChecked"),
             [sty.svgisChecked]: hasVariant($state, "isChecked", "isChecked"),
             [sty.svgisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
             [sty.svgisIndeterminate]: hasVariant(
@@ -310,6 +353,14 @@ function PlasmicCheckbox__RenderFunc(props: {
             className: classNames(sty.slotTargetChildren, {
               [sty.slotTargetChildren___focusVisibleWithin]:
                 triggers.focusVisibleWithin_root,
+              [sty.slotTargetChildrencircle]: hasVariant(
+                $state,
+                "circle",
+                "circle"
+              ),
+              [sty.slotTargetChildrencircle_isChecked]:
+                hasVariant($state, "circle", "circle") &&
+                hasVariant($state, "isChecked", "isChecked"),
               [sty.slotTargetChildrenisChecked]: hasVariant(
                 $state,
                 "isChecked",

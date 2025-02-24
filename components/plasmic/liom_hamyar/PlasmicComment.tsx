@@ -66,7 +66,10 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicComment.module.css"; // plasmic-import: Q00r5f4C3XYv/css
 
+import Icon170Icon from "./icons/PlasmicIcon__Icon170"; // plasmic-import: dXN8uxxnP9W_/icon
+import Icon146Icon from "./icons/PlasmicIcon__Icon146"; // plasmic-import: oL3Gq5u9-MHL/icon
 import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: qr8jQCU8QOqy/icon
+import Icon172Icon from "./icons/PlasmicIcon__Icon172"; // plasmic-import: ZAoJbp8dTvtu/icon
 
 createPlasmicElementProxy;
 
@@ -153,7 +156,7 @@ function PlasmicComment__RenderFunc(props: {
             data-plasmic-override={overrides.img}
             alt={""}
             className={classNames(sty.img)}
-            displayHeight={"auto"}
+            displayHeight={"48px"}
             displayMaxHeight={"none"}
             displayMaxWidth={"100%"}
             displayMinHeight={"0"}
@@ -168,26 +171,32 @@ function PlasmicComment__RenderFunc(props: {
             }}
           />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___3Z12B
-            )}
-          >
-            {"name"}
-          </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__q2Vv
-            )}
-          >
-            {"username"}
+          <div className={classNames(projectcss.all, sty.freeBox__abKqr)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___3Z12B
+              )}
+            >
+              {"name"}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__q2Vv
+              )}
+            >
+              {"username"}
+            </div>
           </div>
         </div>
-        <div className={classNames(projectcss.all, sty.freeBox__fSs)}>
+        <Stack__
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__fSs)}
+        >
           <div
             className={classNames(
               projectcss.all,
@@ -197,17 +206,17 @@ function PlasmicComment__RenderFunc(props: {
           >
             {"5h ago"}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox___96TZ9)}>
-            <svg
+          <div className={classNames(projectcss.all, sty.freeBox__ewqKl)}>
+            <Icon170Icon
               className={classNames(projectcss.all, sty.svg__btbrw)}
               role={"img"}
             />
           </div>
-          <svg
+          <Icon146Icon
             className={classNames(projectcss.all, sty.svg__ekfpl)}
             role={"img"}
           />
-        </div>
+        </Stack__>
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__bb4BN)}>
         <div
@@ -226,6 +235,29 @@ function PlasmicComment__RenderFunc(props: {
         as={"div"}
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__nHfCa)}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["updateStateVariable"] = true
+            ? (() => {
+                const actionArgs = {};
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+                  undefined;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateStateVariable"] != null &&
+            typeof $steps["updateStateVariable"] === "object" &&
+            typeof $steps["updateStateVariable"].then === "function"
+          ) {
+            $steps["updateStateVariable"] = await $steps["updateStateVariable"];
+          }
+        }}
       >
         <div
           className={classNames(
@@ -251,7 +283,7 @@ function PlasmicComment__RenderFunc(props: {
         >
           {"\u067e\u0627\u0633\u062e"}
         </div>
-        <svg
+        <Icon172Icon
           className={classNames(projectcss.all, sty.svg__ebdV)}
           role={"img"}
         />

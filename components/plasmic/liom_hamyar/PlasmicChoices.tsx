@@ -73,12 +73,17 @@ createPlasmicElementProxy;
 
 export type PlasmicChoices__VariantMembers = {
   circl: "circl";
+  rectangle: "rectangle";
 };
 export type PlasmicChoices__VariantsArgs = {
   circl?: SingleBooleanChoiceArg<"circl">;
+  rectangle?: SingleBooleanChoiceArg<"rectangle">;
 };
 type VariantPropType = keyof PlasmicChoices__VariantsArgs;
-export const PlasmicChoices__VariantProps = new Array<VariantPropType>("circl");
+export const PlasmicChoices__VariantProps = new Array<VariantPropType>(
+  "circl",
+  "rectangle"
+);
 
 export type PlasmicChoices__ArgsType = {
   beforList?: any;
@@ -116,6 +121,7 @@ export interface DefaultChoicesProps {
   selectOne?: boolean;
   onSelectOneChange?: (val: string) => void;
   circl?: SingleBooleanChoiceArg<"circl">;
+  rectangle?: SingleBooleanChoiceArg<"rectangle">;
   className?: string;
 }
 
@@ -237,6 +243,17 @@ function PlasmicChoices__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.circl
+      },
+      {
+        path: "buttonWithNote[].text",
+        type: "private",
+        variableType: "text"
+      },
+      {
+        path: "rectangle",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.rectangle
       }
     ],
     [$props, $ctx, $refs]
@@ -265,7 +282,13 @@ function PlasmicChoices__RenderFunc(props: {
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.choices,
-        { [sty.choicescircl]: hasVariant($state, "circl", "circl") }
+        {
+          [sty.choicescircl]: hasVariant($state, "circl", "circl"),
+          [sty.choicesrectangle]: hasVariant($state, "rectangle", "rectangle"),
+          [sty.choicesrectangle_circl]:
+            hasVariant($state, "rectangle", "rectangle") &&
+            hasVariant($state, "circl", "circl")
+        }
       )}
     >
       {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -292,6 +315,11 @@ function PlasmicChoices__RenderFunc(props: {
                 $state,
                 "circl",
                 "circl"
+              ),
+              [sty.freeBoxrectangle__mBxAb5DUuO]: hasVariant(
+                $state,
+                "rectangle",
+                "rectangle"
               )
             })}
             key={currentIndex}
@@ -308,6 +336,11 @@ function PlasmicChoices__RenderFunc(props: {
                     $state,
                     "circl",
                     "circl"
+                  ),
+                  [sty.buttonWithNoterectangle]: hasVariant(
+                    $state,
+                    "rectangle",
+                    "rectangle"
                   )
                 }),
                 html: (() => {
@@ -424,6 +457,21 @@ function PlasmicChoices__RenderFunc(props: {
                     return;
                   }
                 },
+                onTextChange: async (...eventArgs: any) => {
+                  generateStateOnChangeProp($state, [
+                    "buttonWithNote",
+                    __plasmic_idx_0,
+                    "text"
+                  ]).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                },
                 select: generateStateValueProp($state, [
                   "buttonWithNote",
                   __plasmic_idx_0,
@@ -446,26 +494,45 @@ function PlasmicChoices__RenderFunc(props: {
                   <div
                     className={classNames(projectcss.all, sty.freeBox__ndUob)}
                   >
-                    <Embed
-                      data-plasmic-name={"embedHtml"}
-                      data-plasmic-override={overrides.embedHtml}
-                      className={classNames("__wab_instance", sty.embedHtml)}
-                      code={(() => {
-                        try {
-                          return currentItem.icon;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return "<div>Paste your embed code via the right sidebar</div>";
-                          }
-                          throw e;
+                    {(() => {
+                      try {
+                        return $props.shape != "rectangle";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
                         }
-                      })()}
-                    />
+                        throw e;
+                      }
+                    })() ? (
+                      <Embed
+                        data-plasmic-name={"embedHtml"}
+                        data-plasmic-override={overrides.embedHtml}
+                        className={classNames("__wab_instance", sty.embedHtml)}
+                        code={(() => {
+                          try {
+                            return currentItem.icon;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "<div>Paste your embed code via the right sidebar</div>";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      />
+                    ) : null}
                   </div>
-                )
+                ),
+                text: generateStateValueProp($state, [
+                  "buttonWithNote",
+                  __plasmic_idx_0,
+                  "text"
+                ])
               };
 
               initializePlasmicStates(
@@ -491,6 +558,23 @@ function PlasmicChoices__RenderFunc(props: {
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
                             return [];
+                          }
+                          throw e;
+                        }
+                      })()
+                  },
+                  {
+                    name: "buttonWithNote[].text",
+                    initFunc: ({ $props, $state, $queries }) =>
+                      (() => {
+                        try {
+                          return currentItem.meaning;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
                           }
                           throw e;
                         }

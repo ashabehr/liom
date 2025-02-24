@@ -329,17 +329,15 @@ function PlasmicEditProfile__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (() => {
-                var hbd = {
-                  gy: $state.getInfo.data.result.user.birthDate.year,
-                  gm: $state.getInfo.data.result.user.birthDate.month,
-                  gd: $state.getInfo.data.result.user.birthDate.day
-                };
-                hbd.gy = String(hbd.gy);
-                hbd.gm = String(hbd.gm).padStart(2, "0");
-                hbd.gd = String(hbd.gd).padStart(2, "0");
-                return hbd;
-              })();
+              return {
+                gy: $state.getInfo.data.result.user.birthDate.year.toString(),
+                gm: $state.getInfo.data.result.user.birthDate.month
+                  .toString()
+                  .padStart(2, "0"),
+                gd: $state.getInfo.data.result.user.birthDate.day
+                  .toString()
+                  .padStart(2, "0")
+              };
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -508,7 +506,7 @@ function PlasmicEditProfile__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return "";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -627,7 +625,7 @@ function PlasmicEditProfile__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return "";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -908,6 +906,12 @@ function PlasmicEditProfile__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "empty",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -5796,6 +5800,44 @@ function PlasmicEditProfile__RenderFunc(props: {
                         $steps["invokeGlobalAction"] = await $steps[
                           "invokeGlobalAction"
                         ];
+                      }
+
+                      $steps["updateEmpty"] = true
+                        ? (() => {
+                            const actionArgs = {
+                              variable: {
+                                objRoot: $state,
+                                variablePath: ["empty"]
+                              },
+                              operation: 0,
+                              value: (() => {
+                                if ($state.name == "") {
+                                  return $state.empty.name == false;
+                                }
+                              })()
+                            };
+                            return (({
+                              variable,
+                              value,
+                              startIndex,
+                              deleteCount
+                            }) => {
+                              if (!variable) {
+                                return;
+                              }
+                              const { objRoot, variablePath } = variable;
+
+                              $stateSet(objRoot, variablePath, value);
+                              return value;
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                      if (
+                        $steps["updateEmpty"] != null &&
+                        typeof $steps["updateEmpty"] === "object" &&
+                        typeof $steps["updateEmpty"].then === "function"
+                      ) {
+                        $steps["updateEmpty"] = await $steps["updateEmpty"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
