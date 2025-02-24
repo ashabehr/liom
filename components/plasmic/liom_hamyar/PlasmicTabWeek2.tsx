@@ -91,24 +91,25 @@ export const PlasmicTabWeek2__VariantProps = new Array<VariantPropType>(
 export type PlasmicTabWeek2__ArgsType = {
   currentItem?: any;
   onClick?: (event: any) => void;
+  slot?: React.ReactNode;
   children?: React.ReactNode;
 };
 type ArgPropType = keyof PlasmicTabWeek2__ArgsType;
 export const PlasmicTabWeek2__ArgProps = new Array<ArgPropType>(
   "currentItem",
   "onClick",
+  "slot",
   "children"
 );
 
 export type PlasmicTabWeek2__OverridesType = {
   root?: Flex__<"div">;
-  text?: Flex__<"div">;
-  freeBox?: Flex__<"div">;
 };
 
 export interface DefaultTabWeek2Props {
   currentItem?: any;
   onClick?: (event: any) => void;
+  slot?: React.ReactNode;
   children?: React.ReactNode;
   selected?: SingleBooleanChoiceArg<"selected">;
   dark?: SingleBooleanChoiceArg<"dark">;
@@ -223,84 +224,155 @@ function PlasmicTabWeek2__RenderFunc(props: {
           [sty.rootselected]: hasVariant($state, "selected", "selected")
         }
       )}
-      onClick={args.onClick}
     >
-      <div
-        data-plasmic-name={"text"}
-        data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
-          [sty.textdarkSelected]: hasVariant(
-            $state,
-            "darkSelected",
-            "darkSelected"
-          ),
-          [sty.textdark]: hasVariant($state, "dark", "dark"),
-          [sty.textselected]: hasVariant($state, "selected", "selected")
+      <div className={classNames(projectcss.all, sty.freeBox__zg8Bk)}>
+        {renderPlasmicSlot({
+          defaultContents: "Enter some text",
+          value: args.slot,
+          className: classNames(sty.slotTargetSlot)
         })}
-      >
-        <React.Fragment>
-          {(() => {
-            try {
-              return $props.currentItem;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "";
-              }
-              throw e;
-            }
-          })()}
-        </React.Fragment>
       </div>
       <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBoxdarkSelected]: hasVariant(
+        className={classNames(projectcss.all, sty.freeBox__cxVuc, {
+          [sty.freeBoxcurrentWeek__cxVucMNoLj]: hasVariant(
             $state,
-            "darkSelected",
-            "darkSelected"
-          ),
-          [sty.freeBoxdark]: hasVariant($state, "dark", "dark"),
-          [sty.freeBoxselected]: hasVariant($state, "selected", "selected")
+            "currentWeek",
+            "currentWeek"
+          )
         })}
       >
-        {renderPlasmicSlot({
-          defaultContents: "\u0647\u0641\u062a\u0647",
-          value: args.children,
-          className: classNames(sty.slotTargetChildren, {
-            [sty.slotTargetChildrendarkSelected]: hasVariant(
+        <div
+          className={classNames(projectcss.all, sty.freeBox__z7MRq, {
+            [sty.freeBoxcurrentWeek__z7MRqMNoLj]: hasVariant(
+              $state,
+              "currentWeek",
+              "currentWeek"
+            ),
+            [sty.freeBoxcurrentWeek_selected__z7MRqMNoLjBlp4]:
+              hasVariant($state, "selected", "selected") &&
+              hasVariant($state, "currentWeek", "currentWeek"),
+            [sty.freeBoxdarkSelected__z7MRqkEYvD]: hasVariant(
               $state,
               "darkSelected",
               "darkSelected"
             ),
-            [sty.slotTargetChildrendark]: hasVariant($state, "dark", "dark"),
-            [sty.slotTargetChildrenselected]: hasVariant(
+            [sty.freeBoxdark__z7MRqwBfVe]: hasVariant($state, "dark", "dark"),
+            [sty.freeBoxselected__z7MRqBlp4]: hasVariant(
               $state,
               "selected",
               "selected"
             )
-          })
-        })}
+          })}
+          onClick={args.onClick}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__gJiGf,
+              {
+                [sty.textdarkSelected__gJiGfkEYvD]: hasVariant(
+                  $state,
+                  "darkSelected",
+                  "darkSelected"
+                ),
+                [sty.textdark__gJiGfwBfVe]: hasVariant($state, "dark", "dark"),
+                [sty.textselected__gJiGfBlp4]: hasVariant(
+                  $state,
+                  "selected",
+                  "selected"
+                )
+              }
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return $props.currentItem;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </div>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__xlwI1, {
+              [sty.freeBoxcurrentWeek__xlwI1MNoLj]: hasVariant(
+                $state,
+                "currentWeek",
+                "currentWeek"
+              ),
+              [sty.freeBoxdarkSelected__xlwI1KEYvD]: hasVariant(
+                $state,
+                "darkSelected",
+                "darkSelected"
+              ),
+              [sty.freeBoxdark__xlwI1WBfVe]: hasVariant($state, "dark", "dark"),
+              [sty.freeBoxselected__xlwI1Blp4]: hasVariant(
+                $state,
+                "selected",
+                "selected"
+              )
+            })}
+          >
+            {renderPlasmicSlot({
+              defaultContents: "\u0647\u0641\u062a\u0647",
+              value: args.children,
+              className: classNames(sty.slotTargetChildren, {
+                [sty.slotTargetChildrendarkSelected]: hasVariant(
+                  $state,
+                  "darkSelected",
+                  "darkSelected"
+                ),
+                [sty.slotTargetChildrendark]: hasVariant(
+                  $state,
+                  "dark",
+                  "dark"
+                ),
+                [sty.slotTargetChildrenselected]: hasVariant(
+                  $state,
+                  "selected",
+                  "selected"
+                )
+              })
+            })}
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__oQsdd,
+                {
+                  [sty.textcurrentWeek__oQsddMNoLj]: hasVariant(
+                    $state,
+                    "currentWeek",
+                    "currentWeek"
+                  )
+                }
+              )}
+            >
+              {"\u0627\u0645\u0631\u0648\u0632"}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text", "freeBox"],
-  text: ["text"],
-  freeBox: ["freeBox"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  text: "div";
-  freeBox: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -363,8 +435,6 @@ export const PlasmicTabWeek2 = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    text: makeNodeComponent("text"),
-    freeBox: makeNodeComponent("freeBox"),
 
     // Metadata about props expected for PlasmicTabWeek2
     internalVariantProps: PlasmicTabWeek2__VariantProps,

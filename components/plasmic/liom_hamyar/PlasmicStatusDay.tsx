@@ -69,7 +69,7 @@ import { inputHelpers as Input_Helpers } from "@plasmicpkgs/antd/skinny/register
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
-import TabWeek from "../../TabWeek"; // plasmic-import: IgINnoB13B8X/component
+import TabWeek2 from "../../TabWeek2"; // plasmic-import: -tuOknPDFuNb/component
 import VigetLiom2 from "../../VigetLiom2"; // plasmic-import: 38exw8bGQf_v/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Choices from "../../Choices"; // plasmic-import: kqjrVA4cMqR_/component
@@ -135,7 +135,7 @@ export type PlasmicStatusDay__OverridesType = {
   removeBtn?: Flex__<typeof Button>;
   button9?: Flex__<typeof Button>;
   getSign?: Flex__<typeof ApiRequest>;
-  tabWeek?: Flex__<typeof TabWeek>;
+  tabWeek2?: Flex__<typeof TabWeek2>;
   selectionBox?: Flex__<"div">;
   choices?: Flex__<typeof Choices>;
   selectionBox2?: Flex__<"div">;
@@ -1502,6 +1502,50 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("value", TextArea_Helpers)
+      },
+      {
+        path: "month",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const daysOfWeek = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
+
+                const today = new Date();
+                const currentYear = today.getFullYear();
+                const currentMonth = today.getMonth();
+                const daysInMonth = new Date(
+                  currentYear,
+                  currentMonth + 1,
+                  0
+                ).getDate();
+                let options = [];
+                for (let day = 1; day <= daysInMonth; day++) {
+                  const date = new Date(currentYear, currentMonth, day);
+                  const originalDate = new Date(date);
+                  date.setDate(date.getDate() - 1);
+                  const dayOfWeek = originalDate.getDay();
+                  options.push({
+                    value: originalDate.toISOString().split("T")[0],
+                    label: `${daysOfWeek[dayOfWeek]} - ${
+                      date.toLocaleString("fa-IR").split("/")[2]
+                    } `
+                  });
+                }
+                return options;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -3621,13 +3665,115 @@ function PlasmicStatusDay__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__akQn)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__zFbgt)}>
-                <TabWeek
-                  data-plasmic-name={"tabWeek"}
-                  data-plasmic-override={overrides.tabWeek}
-                  className={classNames("__wab_instance", sty.tabWeek)}
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__zFbgt)}
+              >
+                {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                  (() => {
+                    try {
+                      return $state.month;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()
+                ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                  const currentItem = __plasmic_item_0;
+                  const currentIndex = __plasmic_idx_0;
+                  return (
+                    <TabWeek2
+                      data-plasmic-name={"tabWeek2"}
+                      data-plasmic-override={overrides.tabWeek2}
+                      className={classNames("__wab_instance", sty.tabWeek2)}
+                      currentWeek={(() => {
+                        try {
+                          return (() => {
+                            const today = new Date();
+                            return (
+                              today.toLocaleString("en-CA").split(",")[0] ==
+                              currentItem.value
+                            );
+                          })();
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return [];
+                          }
+                          throw e;
+                        }
+                      })()}
+                      key={currentIndex}
+                      slot={
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__baZoo
+                          )}
+                        >
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return (() => {
+                                  var a = currentItem.label.split("-");
+                                  return `${a[0]}`;
+                                })();
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
+                        </div>
+                      }
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___1VfrJ
+                        )}
+                      >
+                        <React.Fragment>
+                          {(() => {
+                            try {
+                              return (() => {
+                                var a = currentItem.label.split("-");
+                                return `${a[1].split(",")[0].trim()}`;
+                              })();
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return "\u0627\u0645\u0631\u0648\u0632";
+                              }
+                              throw e;
+                            }
+                          })()}
+                        </React.Fragment>
+                      </div>
+                    </TabWeek2>
+                  );
+                })}
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__fhD8)}
                 />
-              </div>
+              </Stack__>
               <Stack__
                 as={"div"}
                 data-plasmic-name={"selectionBox"}
@@ -5154,7 +5300,47 @@ function PlasmicStatusDay__RenderFunc(props: {
               <section
                 className={classNames(projectcss.all, sty.section__jr0Da)}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__lwpfQ)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__lwpfQ)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateNumber2Open"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["number2", "open"]
+                            },
+                            operation: 0
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateNumber2Open"] != null &&
+                      typeof $steps["updateNumber2Open"] === "object" &&
+                      typeof $steps["updateNumber2Open"].then === "function"
+                    ) {
+                      $steps["updateNumber2Open"] = await $steps[
+                        "updateNumber2Open"
+                      ];
+                    }
+                  }}
+                >
                   <Button
                     data-plasmic-name={"button"}
                     data-plasmic-override={overrides.button}
@@ -6806,7 +6992,7 @@ const PlasmicDescendants = {
     "removeBtn",
     "button9",
     "getSign",
-    "tabWeek",
+    "tabWeek2",
     "selectionBox",
     "choices",
     "selectionBox2",
@@ -6868,7 +7054,7 @@ const PlasmicDescendants = {
   button9: ["button9"],
   getSign: [
     "getSign",
-    "tabWeek",
+    "tabWeek2",
     "selectionBox",
     "choices",
     "selectionBox2",
@@ -6889,7 +7075,7 @@ const PlasmicDescendants = {
     "antdInputTextArea",
     "button"
   ],
-  tabWeek: ["tabWeek"],
+  tabWeek2: ["tabWeek2"],
   selectionBox: ["selectionBox", "choices"],
   choices: ["choices"],
   selectionBox2: ["selectionBox2", "choices2"],
@@ -6968,7 +7154,7 @@ type NodeDefaultElementType = {
   removeBtn: typeof Button;
   button9: typeof Button;
   getSign: typeof ApiRequest;
-  tabWeek: typeof TabWeek;
+  tabWeek2: typeof TabWeek2;
   selectionBox: "div";
   choices: typeof Choices;
   selectionBox2: "div";
@@ -7115,7 +7301,7 @@ export const PlasmicStatusDay = Object.assign(
     removeBtn: makeNodeComponent("removeBtn"),
     button9: makeNodeComponent("button9"),
     getSign: makeNodeComponent("getSign"),
-    tabWeek: makeNodeComponent("tabWeek"),
+    tabWeek2: makeNodeComponent("tabWeek2"),
     selectionBox: makeNodeComponent("selectionBox"),
     choices: makeNodeComponent("choices"),
     selectionBox2: makeNodeComponent("selectionBox2"),

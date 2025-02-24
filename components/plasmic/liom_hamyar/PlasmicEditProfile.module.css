@@ -4558,11 +4558,9 @@
   min-height: 0;
   border-radius: 8px;
   padding: 8px;
-  border-width: 1px;
 }
 .nameInput4:global(.__wab_instance) {
   max-width: 100%;
-  z-index: 4;
 }
 .svg__pxRsM {
   position: relative;

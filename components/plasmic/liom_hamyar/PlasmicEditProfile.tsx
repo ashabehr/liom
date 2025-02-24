@@ -917,7 +917,8 @@ function PlasmicEditProfile__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => ({
           name: true,
           lenght: true,
-          cyclel: true
+          cyclel: true,
+          lasttime: true
         })
       },
       {
@@ -4685,13 +4686,15 @@ function PlasmicEditProfile__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return (
-                            $state.getInfo.data.result.user.birthDate.year +
-                            "/" +
-                            $state.getInfo.data.result.user.birthDate.month +
-                            "/" +
-                            $state.getInfo.data.result.user.birthDate.day
-                          );
+                          return (() => {
+                            const birthDateObject = $state.dateOfBrith;
+                            const jalaaliDate = window.jalaali.toJalaali(
+                              parseInt(birthDateObject.gy),
+                              parseInt(birthDateObject.gm),
+                              parseInt(birthDateObject.gd)
+                            );
+                            return `${jalaaliDate.jy}/${jalaaliDate.jm}/${jalaaliDate.jd}`;
+                          })();
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -5759,7 +5762,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                       }
                       error={(() => {
                         try {
-                          return $state.empty.name == false;
+                          return $state.empty.lasttime == false;
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -6135,48 +6138,47 @@ function PlasmicEditProfile__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["updateEmpty"] = true
+                      $steps["runCode"] = true
                         ? (() => {
                             const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["empty"]
-                              },
-                              operation: 0,
-                              value: (() => {
-                                if ($state.name == "") {
-                                  $state.empty.name = false;
-                                }
-                                if ($state.numberOfDaysOfBleedingPicker == "") {
-                                  $state.empty.lenght = false;
-                                }
-                                if ($state.periodCycleLength == "") {
-                                  return ($state.empty.cyclel = false);
-                                }
-                              })()
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
+                              customFunction: async () => {
+                                return (() => {
+                                  if ($state.name === "") {
+                                    $state.empty.name = false;
+                                  } else {
+                                    $state.empty.name = true;
+                                  }
+                                  if (
+                                    $state.numberOfDaysOfBleedingPicker === ""
+                                  ) {
+                                    $state.empty.lenght = false;
+                                  } else {
+                                    $state.empty.lenght = true;
+                                  }
+                                  if ($state.periodCycleLength === "") {
+                                    $state.empty.cyclel = false;
+                                  } else {
+                                    $state.empty.cyclel = true;
+                                  }
+                                  if ($state.variableForLastPeriod === "") {
+                                    return ($state.empty.lasttime = false);
+                                  } else {
+                                    return ($state.empty.lasttime = true);
+                                  }
+                                })();
                               }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
+                            };
+                            return (({ customFunction }) => {
+                              return customFunction();
                             })?.apply(null, [actionArgs]);
                           })()
                         : undefined;
                       if (
-                        $steps["updateEmpty"] != null &&
-                        typeof $steps["updateEmpty"] === "object" &&
-                        typeof $steps["updateEmpty"].then === "function"
+                        $steps["runCode"] != null &&
+                        typeof $steps["runCode"] === "object" &&
+                        typeof $steps["runCode"].then === "function"
                       ) {
-                        $steps["updateEmpty"] = await $steps["updateEmpty"];
+                        $steps["runCode"] = await $steps["runCode"];
                       }
                     }}
                     onColorChange={async (...eventArgs: any) => {
