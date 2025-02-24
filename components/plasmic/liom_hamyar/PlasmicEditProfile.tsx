@@ -4509,6 +4509,22 @@ function PlasmicEditProfile__RenderFunc(props: {
                       role={"img"}
                     />
                   }
+                  error={(() => {
+                    try {
+                      return $state.empty.neme == false;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return [];
+                      }
+                      throw e;
+                    }
+                  })()}
+                  errorText={
+                    "\u067e\u0631 \u06a9\u0631\u062f\u0646  \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a"
+                  }
                   onChange={async (...eventArgs: any) => {
                     ((...eventArgs) => {
                       generateStateOnChangeProp($state, ["nameInput", "value"])(
@@ -4644,15 +4660,13 @@ function PlasmicEditProfile__RenderFunc(props: {
                     <React.Fragment>
                       {(() => {
                         try {
-                          return (() => {
-                            const birthDateObject = $state.dateOfBrith;
-                            const jalaaliDate = window.jalaali.toJalaali(
-                              parseInt(birthDateObject.gy),
-                              parseInt(birthDateObject.gm),
-                              parseInt(birthDateObject.gd)
-                            );
-                            return `${jalaaliDate.jy}/${jalaaliDate.jm}/${jalaaliDate.jd}`;
-                          })();
+                          return (
+                            $state.getInfo.data.result.user.birthDate.year +
+                            "/" +
+                            $state.getInfo.data.result.user.birthDate.month +
+                            "/" +
+                            $state.getInfo.data.result.user.birthDate.day
+                          );
                         } catch (e) {
                           if (
                             e instanceof TypeError ||
@@ -5812,7 +5826,15 @@ function PlasmicEditProfile__RenderFunc(props: {
                               operation: 0,
                               value: (() => {
                                 if ($state.name == "") {
-                                  return $state.empty.name == false;
+                                  $state.empty.name = false;
+                                }
+                                if ($state.numberOfDaysOfBleedingPicker == "") {
+                                  $state.empty.numberOfDaysOfBleedingPicker =
+                                    false;
+                                }
+                                if ($state.periodCycleLength == "") {
+                                  return ($state.empty.periodCycleLength =
+                                    false);
                                 }
                               })()
                             };

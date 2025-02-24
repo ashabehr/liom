@@ -265,7 +265,7 @@
 .textInput:global(.__wab_instance) {
   max-width: 100%;
 }
-.svg__qelqn {
+.svg__m7OLt {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -506,7 +506,7 @@
 .textInput2:global(.__wab_instance) {
   max-width: 100%;
 }
-.svg__tqBir {
+.svg__wfXpo {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -2152,9 +2152,39 @@
   width: 100%;
   min-width: 0;
 }
-.textArea:global(.__wab_instance) {
+.freeBox___9JS7M {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.textInput7:global(.__wab_instance) {
+  max-width: 100%;
+}
+.svg__vBf8M {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
+}
+.antdInputTextArea:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+  width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.svg__kT0Si {
+  position: relative;
+  object-fit: cover;
+  width: auto;
+  height: 1em;
 }
 .section__jr0Da {
   display: grid;
@@ -2431,7 +2461,7 @@
 .textInput3:global(.__wab_instance) {
   max-width: 100%;
 }
-.svg__voGfX {
+.svg__dsxpl {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -2470,7 +2500,7 @@
 .textinput:global(.__wab_instance) {
   max-width: 100%;
 }
-.svg__nOXcR {
+.svg__rgpAh {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -2643,7 +2673,7 @@
 .textInput4:global(.__wab_instance) {
   max-width: 100%;
 }
-.svg__pXr6J {
+.svg__w6L8D {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -2653,7 +2683,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.svg__ociPb {
+.svg__aEX7 {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -2844,7 +2874,7 @@
 .textInput6:global(.__wab_instance) {
   max-width: 100%;
 }
-.svg__n3FM1 {
+.svg__myA {
   position: relative;
   object-fit: cover;
   width: auto;
@@ -2854,7 +2884,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.svg__y2G7M {
+.svg__qxQvk {
   position: relative;
   object-fit: cover;
   width: auto;

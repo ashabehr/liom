@@ -7307,7 +7307,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           $ctx.query.version;
                                       }
                                       return window.FlutterChannel.postMessage(
-                                        "#inAppWebView**@@**ابزار خطرناکه یانه **@@**" +
+                                        "#inAppWebView**@@** ابزار خطرناکه یانه! **@@**" +
                                           link
                                       );
                                     })();

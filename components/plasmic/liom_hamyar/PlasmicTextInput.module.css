@@ -1,32 +1,56 @@
 .root {
   display: flex;
+  flex-direction: column;
+  position: sticky;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  padding: 8px;
+}
+.rooterror {
+  padding: 0px;
+}
+.root:focus-within {
+  outline: none;
+}
+.root___focusVisibleWithin {
+  outline: none;
+}
+.freeBox {
+  display: flex;
   flex-direction: row;
   width: 100%;
   height: auto;
   align-items: center;
   justify-content: flex-start;
   background: var(--token-R_Rsn0nP9oIv);
-  position: sticky;
   min-width: 0;
   border-radius: 8px;
   padding: 7px 8px;
   border-width: 1px;
 }
-.rootcolor_dark {
+.freeBoxcolor_dark {
   background: #232320;
   border-color: #717069;
 }
-.root:hover {
+.freeBoxerror {
+  border-style: solid;
+  border-color: var(--token-4RAe7M2gInqR);
+}
+.root:hover .freeBox {
   border-color: #c8c7c1;
 }
-.root:focus-within {
+.root:focus-within .freeBox {
   box-shadow: none;
   outline: none;
   border-radius: 6px;
   border-width: 1px;
   border-color: var(--token-55cSeNPovQFh);
 }
-.root___focusVisibleWithin {
+.root .freeBox___focusVisibleWithin {
   box-shadow: none;
   padding-left: 5px;
   padding-right: 5px;
@@ -96,4 +120,19 @@
   object-fit: cover;
   width: auto;
   height: 1em;
+}
+.text {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  text-align: right;
+  padding-right: 8px;
+  padding-top: 8px;
+  color: var(--token-4RAe7M2gInqR);
+  min-width: 0;
+  display: none;
+}
+.texterror {
+  display: block;
 }
