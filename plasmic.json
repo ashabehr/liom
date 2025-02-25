@@ -1422,6 +1422,19 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicTabWeek2.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "lWxUKYG03CLw",
+          "name": "SocialIcon",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSocialIcon.tsx",
+          "importSpec": {
+            "modulePath": "SocialIcon.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialIcon.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -2574,6 +2587,11 @@
           "id": "ZAoJbp8dTvtu",
           "name": "Icon172Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon172.tsx"
+        },
+        {
+          "id": "wcLaoBjM9dJX",
+          "name": "Icon173Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon173.tsx"
         }
       ],
       "images": [
@@ -4971,6 +4989,18 @@
         "name": "Screen",
         "projectId": "6HBcNwr8dz9LuS1Qe36xa5",
         "contextFilePath": "plasmic/paziresh_24_design_system/PlasmicGlobalVariant__Screen.tsx"
+      },
+      {
+        "id": "KxW4cp8YkYr1",
+        "name": "UnnamedGroup",
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "contextFilePath": "plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGroup.tsx"
+      },
+      {
+        "id": "twCpjSM414Wi",
+        "name": "UnnamedGlobalGroupOfVariants3",
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "contextFilePath": "plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants3.tsx"
       }
     ]
   },

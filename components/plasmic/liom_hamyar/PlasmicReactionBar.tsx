@@ -59,6 +59,8 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import SocialIcon from "../../SocialIcon"; // plasmic-import: lWxUKYG03CLw/component
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -66,7 +68,6 @@ import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plas
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReactionBar.module.css"; // plasmic-import: 4BabvpvQ8lyP/css
 
-import Icon152Icon from "./icons/PlasmicIcon__Icon152"; // plasmic-import: qr8jQCU8QOqy/icon
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: 4NJq6NYKqIPu/icon
 import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: bJ7kVZQK3ovZ/icon
 import Icon148Icon from "./icons/PlasmicIcon__Icon148"; // plasmic-import: YYRtcISwKaqe/icon
@@ -91,6 +92,7 @@ export const PlasmicReactionBar__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicReactionBar__OverridesType = {
   root?: Flex__<"div">;
+  socialIcon?: Flex__<typeof SocialIcon>;
 };
 
 export interface DefaultReactionBarProps {
@@ -136,6 +138,8 @@ function PlasmicReactionBar__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
+  const $globalActions = useGlobalActions?.();
+
   const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
@@ -145,6 +149,56 @@ function PlasmicReactionBar__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.like
+      },
+      {
+        path: "socialIcon.click",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.cick;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "socialIcon.unnamedVariant",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $state.animio;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "socialIcon.cick",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "socialIcon.animio",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -173,66 +227,190 @@ function PlasmicReactionBar__RenderFunc(props: {
         sty.root,
         { [sty.rootlike]: hasVariant($state, "like", "like") }
       )}
-      onClick={async event => {
-        const $steps = {};
-
-        $steps["updateLike"] = true
-          ? (() => {
-              const actionArgs = {
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["like"]
-                },
-                operation: 0,
-                value: true
-              };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateLike"] != null &&
-          typeof $steps["updateLike"] === "object" &&
-          typeof $steps["updateLike"].then === "function"
-        ) {
-          $steps["updateLike"] = await $steps["updateLike"];
-        }
-      }}
     >
-      <div
-        className={classNames(projectcss.all, sty.freeBox__ajmkK, {
-          [sty.freeBoxlike__ajmkKMfVcN]: hasVariant($state, "like", "like")
+      <SocialIcon
+        data-plasmic-name={"socialIcon"}
+        data-plasmic-override={overrides.socialIcon}
+        animio={generateStateValueProp($state, ["socialIcon", "animio"])}
+        cick={generateStateValueProp($state, ["socialIcon", "cick"])}
+        className={classNames("__wab_instance", sty.socialIcon, {
+          [sty.socialIconlike]: hasVariant($state, "like", "like")
         })}
-      >
-        <div
-          className={classNames(projectcss.all, sty.freeBox__rvTwI, {
-            [sty.freeBoxlike__rvTwIMfVcN]: hasVariant($state, "like", "like")
-          })}
-        >
-          <Icon152Icon
-            className={classNames(projectcss.all, sty.svg__e9Gnf, {
-              [sty.svglike__e9GnfMfVcN]: hasVariant($state, "like", "like")
-            })}
-            role={"img"}
-          />
-        </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__iyMp9
-          )}
-        >
-          {"1000"}
-        </div>
-      </div>
+        click={generateStateValueProp($state, ["socialIcon", "click"])}
+        onAnimioChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["socialIcon", "animio"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onCickChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["socialIcon", "cick"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["updateSocialIconClick2"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["socialIcon", "animio"]
+                  },
+                  operation: 0,
+                  value: true
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateSocialIconClick2"] != null &&
+            typeof $steps["updateSocialIconClick2"] === "object" &&
+            typeof $steps["updateSocialIconClick2"].then === "function"
+          ) {
+            $steps["updateSocialIconClick2"] = await $steps[
+              "updateSocialIconClick2"
+            ];
+          }
+
+          $steps["invokeGlobalAction"] = true
+            ? (() => {
+                const actionArgs = { args: [300] };
+                return $globalActions["Fragment.wait"]?.apply(null, [
+                  ...actionArgs.args
+                ]);
+              })()
+            : undefined;
+          if (
+            $steps["invokeGlobalAction"] != null &&
+            typeof $steps["invokeGlobalAction"] === "object" &&
+            typeof $steps["invokeGlobalAction"].then === "function"
+          ) {
+            $steps["invokeGlobalAction"] = await $steps["invokeGlobalAction"];
+          }
+
+          $steps["updateSocialIconAnimio"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["socialIcon", "animio"]
+                  },
+                  operation: 0,
+                  value: false
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  $stateSet(objRoot, variablePath, value);
+                  return value;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateSocialIconAnimio"] != null &&
+            typeof $steps["updateSocialIconAnimio"] === "object" &&
+            typeof $steps["updateSocialIconAnimio"].then === "function"
+          ) {
+            $steps["updateSocialIconAnimio"] = await $steps[
+              "updateSocialIconAnimio"
+            ];
+          }
+
+          $steps["updateSocialIconCick"] = true
+            ? (() => {
+                const actionArgs = {
+                  variable: {
+                    objRoot: $state,
+                    variablePath: ["socialIcon", "cick"]
+                  },
+                  operation: 4
+                };
+                return (({ variable, value, startIndex, deleteCount }) => {
+                  if (!variable) {
+                    return;
+                  }
+                  const { objRoot, variablePath } = variable;
+
+                  const oldValue = $stateGet(objRoot, variablePath);
+                  $stateSet(objRoot, variablePath, !oldValue);
+                  return !oldValue;
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["updateSocialIconCick"] != null &&
+            typeof $steps["updateSocialIconCick"] === "object" &&
+            typeof $steps["updateSocialIconCick"].then === "function"
+          ) {
+            $steps["updateSocialIconCick"] = await $steps[
+              "updateSocialIconCick"
+            ];
+          }
+        }}
+        onClickChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, ["socialIcon", "click"]).apply(
+            null,
+            eventArgs
+          );
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        onUnnamedVariantChange={async (...eventArgs: any) => {
+          generateStateOnChangeProp($state, [
+            "socialIcon",
+            "unnamedVariant"
+          ]).apply(null, eventArgs);
+
+          if (
+            eventArgs.length > 1 &&
+            eventArgs[1] &&
+            eventArgs[1]._plasmic_state_init_
+          ) {
+            return;
+          }
+        }}
+        unnamedVariant={generateStateValueProp($state, [
+          "socialIcon",
+          "unnamedVariant"
+        ])}
+      />
+
       <div className={classNames(projectcss.all, sty.freeBox__wtyMg)}>
         <Icon150Icon
           className={classNames(projectcss.all, sty.svg__akMaT)}
@@ -302,13 +480,15 @@ function PlasmicReactionBar__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root"]
+  root: ["root", "socialIcon"],
+  socialIcon: ["socialIcon"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  socialIcon: typeof SocialIcon;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -371,6 +551,7 @@ export const PlasmicReactionBar = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    socialIcon: makeNodeComponent("socialIcon"),
 
     // Metadata about props expected for PlasmicReactionBar
     internalVariantProps: PlasmicReactionBar__VariantProps,

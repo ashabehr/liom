@@ -127,6 +127,7 @@ export type PlasmicPregnancy__OverridesType = {
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   todoList?: Flex__<typeof TodoList>;
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
+  collapseTest?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
   buySub2?: Flex__<typeof AntdModal>;
@@ -488,7 +489,13 @@ function PlasmicPregnancy__RenderFunc(props: {
         path: "getAdvice",
         type: "private",
         variableType: "object",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ({ text: "" })
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          id: 0,
+          text: ".",
+          weekNumber: 0,
+          type: "",
+          priority: 0
+        })
       },
       {
         path: "getTask",
@@ -765,6 +772,14 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "collapseTest.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       }
     ],
     [$props, $ctx, $refs]
@@ -1519,39 +1534,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {
-                              if (
-                                new URLSearchParams(window.location.search).has(
-                                  "inBot"
-                                )
-                              ) {
-                                if (
-                                  new URLSearchParams(
-                                    window.location.search
-                                  ).get("inBot") != "true"
-                                ) {
-                                  window.onerror = function () {
-                                    document.getElementById(
-                                      "reloadButton"
-                                    ).style.display = "block";
-                                    document.getElementById(
-                                      "main"
-                                    ).style.display = "none";
-                                  };
-                                  return window.addEventListener(
-                                    "unhandledrejection",
-                                    function () {
-                                      document.getElementById(
-                                        "reloadButton"
-                                      ).style.display = "block";
-                                      document.getElementById(
-                                        "main"
-                                      ).style.display = "none";
-                                    }
-                                  );
-                                }
-                              }
-                            })();
+                            return (() => {})();
                           }
                         };
                         return (({ customFunction }) => {
@@ -1726,7 +1709,8 @@ function PlasmicPregnancy__RenderFunc(props: {
                           customFunction: async () => {
                             return fetch(
                               "https://n8n.staas.ir/webhook/getAdvice/?weekNumber=" +
-                                $state.weeksPregnant,
+                                $state.weeksPregnant +
+                                "&type=daily",
                               { method: "GET" }
                             )
                               .then(response => response.json())
@@ -1735,6 +1719,11 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 $state.getAdvice = data;
                               })
                               .catch(error => console.error("Error2:", error));
+
+                            //  fetch("https://n8n.staas.ir/webhook/getAdvice-v2/?weekNumber=" + $state.weeksPregnant , { method: "GET" }).then(response => response.json()).then(data => {
+                            //   console.log("adviceee");
+                            //   $state.getAdvice = data
+                            // }).catch(error => console.error("Error2:", error))
                           }
                         };
                         return (({ customFunction }) => {
@@ -4247,9 +4236,12 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   }
                                 )}
                               >
-                                <React.Fragment>
-                                  {$state.getAdvice.text}
-                                </React.Fragment>
+                                <div
+                                  className={projectcss.__wab_expr_html_text}
+                                  dangerouslySetInnerHTML={{
+                                    __html: $state.getAdvice.text
+                                  }}
+                                />
                               </div>
                             ) : null}
                             {(() => {
@@ -6538,22 +6530,20 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   ? (() => {
                                       const actionArgs = {
                                         customFunction: async () => {
-                                          return (() => {
-                                            $state.getAdvice.text = "";
-                                            return fetch(
-                                              "https://n8n.staas.ir/webhook/getAdvice/?weekNumber=" +
-                                                $state.selectedWeek,
-                                              { method: "GET" }
-                                            )
-                                              .then(response => response.json())
-                                              .then(data => {
-                                                console.log("advice");
-                                                $state.getAdvice = data;
-                                              })
-                                              .catch(error =>
-                                                console.error("Error2:", error)
-                                              );
-                                          })();
+                                          return fetch(
+                                            "https://n8n.staas.ir/webhook/getAdvice/?weekNumber=" +
+                                              $state.weeksPregnant +
+                                              "&type=daily",
+                                            { method: "GET" }
+                                          )
+                                            .then(response => response.json())
+                                            .then(data => {
+                                              console.log("advice");
+                                              $state.getAdvice = data;
+                                            })
+                                            .catch(error =>
+                                              console.error("Error2:", error)
+                                            );
                                         }
                                       };
                                       return (({ customFunction }) => {
@@ -6624,6 +6614,15 @@ function PlasmicPregnancy__RenderFunc(props: {
                             />
                           );
                         })}
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__ju6Rg
+                          )}
+                        >
+                          {"Enter some text"}
+                        </div>
                         <SideEffect
                           data-plasmic-name={"sideEffect"}
                           data-plasmic-override={overrides.sideEffect}
@@ -9183,6 +9182,424 @@ function PlasmicPregnancy__RenderFunc(props: {
                       })()}
                     </div>
                     <div
+                      className={classNames(projectcss.all, sty.freeBox__yjwq6)}
+                    >
+                      {(() => {
+                        const child$Props = {
+                          bordered: true,
+                          className: classNames(
+                            "__wab_instance",
+                            sty.collapseTest
+                          ),
+                          expandIcon: (
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return $state.collapseTest.open != true;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <PlasmicImg__
+                                  alt={""}
+                                  className={classNames(sty.img___9N1R0)}
+                                  displayHeight={"auto"}
+                                  displayMaxHeight={"none"}
+                                  displayMaxWidth={"100%"}
+                                  displayMinHeight={"0"}
+                                  displayMinWidth={"0"}
+                                  displayWidth={"15px"}
+                                  loading={"lazy"}
+                                  src={{
+                                    src: "/plasmic/liom_hamyar/images/image32.svg",
+                                    fullWidth: 16,
+                                    fullHeight: 16,
+                                    aspectRatio: 1
+                                  }}
+                                />
+                              ) : null}
+                              {(() => {
+                                try {
+                                  return $state.collapseTest.open == true;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return true;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <PlasmicImg__
+                                  alt={""}
+                                  className={classNames(sty.img__e5Haa)}
+                                  displayHeight={"auto"}
+                                  displayMaxHeight={"none"}
+                                  displayMaxWidth={"100%"}
+                                  displayMinHeight={"0"}
+                                  displayMinWidth={"0"}
+                                  displayWidth={"25px"}
+                                  loading={"lazy"}
+                                  src={{
+                                    src: "/plasmic/liom_hamyar/images/image31.svg",
+                                    fullWidth: 16,
+                                    fullHeight: 16,
+                                    aspectRatio: 1
+                                  }}
+                                />
+                              ) : null}
+                            </React.Fragment>
+                          ),
+                          expandIconPosition: "end",
+                          ghost: true,
+                          label2: (
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox___4BiI4
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__nnPza
+                                )}
+                              >
+                                <React.Fragment>
+                                  <span
+                                    className={
+                                      "plasmic_default__all plasmic_default__span"
+                                    }
+                                    style={{ color: "#000000" }}
+                                  >
+                                    {
+                                      "\u063a\u0631\u0628\u0627\u0644\u06af\u0631\u06cc\u060c \u0622\u0632\u0645\u0627\u06cc\u0634 \u0648 \u0633\u0648\u0646\u0648\u06af\u0631\u0627\u0641\u06cc"
+                                    }
+                                  </span>
+                                </React.Fragment>
+                              </div>
+                              {(() => {
+                                try {
+                                  return $state.collapseTest.open;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__j6RYb
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    {(() => {
+                                      try {
+                                        return "هفته " + $state.selectedWeek;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return "";
+                                        }
+                                        throw e;
+                                      }
+                                    })()}
+                                  </React.Fragment>
+                                </div>
+                              ) : null}
+                            </Stack__>
+                          ),
+                          onChange: async (...eventArgs: any) => {
+                            generateStateOnChangePropForCodeComponents(
+                              $state,
+                              "open",
+                              ["collapseTest", "open"],
+                              AntdSingleCollapse_Helpers
+                            ).apply(null, eventArgs);
+
+                            (async activeIds => {
+                              const $steps = {};
+
+                              $steps["invokeGlobalAction2"] =
+                                $state.collapseTest.open &&
+                                $state.weeksPregnant >= 12 &&
+                                false
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["buySub2", "open"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["invokeGlobalAction2"] != null &&
+                                typeof $steps["invokeGlobalAction2"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction2"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction2"] = await $steps[
+                                  "invokeGlobalAction2"
+                                ];
+                              }
+
+                              $steps["invokeGlobalAction"] =
+                                ($state.collapseTest.open ? true : false) &&
+                                $ctx.query.userId.slice(
+                                  4,
+                                  $ctx.query.userId.length - 4
+                                ) != "314149" &&
+                                $ctx.query.userId.slice(
+                                  4,
+                                  $ctx.query.userId.length - 4
+                                ) != "1"
+                                  ? (() => {
+                                      const actionArgs = {
+                                        args: [
+                                          "POST",
+                                          "https://api.liom.app/service/log",
+                                          undefined,
+                                          (() => {
+                                            try {
+                                              return {
+                                                userId:
+                                                  $ctx.query.userId?.length > 0
+                                                    ? $ctx.query.userId.slice(
+                                                        4,
+                                                        $ctx.query.userId
+                                                          .length - 4
+                                                      )
+                                                    : "guest",
+                                                pageName: "weekByWeekPage",
+                                                action: "clickOpen-babyAdvice",
+                                                extraData: {}
+                                              };
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return undefined;
+                                              }
+                                              throw e;
+                                            }
+                                          })(),
+                                          {
+                                            headers: {
+                                              "Content-Type":
+                                                "application/json",
+                                              Authorization:
+                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                            }
+                                          }
+                                        ]
+                                      };
+                                      return $globalActions[
+                                        "Fragment.apiRequest"
+                                      ]?.apply(null, [...actionArgs.args]);
+                                    })()
+                                  : undefined;
+                              if (
+                                $steps["invokeGlobalAction"] != null &&
+                                typeof $steps["invokeGlobalAction"] ===
+                                  "object" &&
+                                typeof $steps["invokeGlobalAction"].then ===
+                                  "function"
+                              ) {
+                                $steps["invokeGlobalAction"] = await $steps[
+                                  "invokeGlobalAction"
+                                ];
+                              }
+                            }).apply(null, eventArgs);
+                          },
+                          open: generateStateValueProp($state, [
+                            "collapseTest",
+                            "open"
+                          ]),
+                          showArrow: true,
+                          size: "large"
+                        };
+                        initializeCodeComponentStates(
+                          $state,
+                          [
+                            {
+                              name: "open",
+                              plasmicStateName: "collapseTest.open"
+                            }
+                          ],
+                          [],
+                          AntdSingleCollapse_Helpers ?? {},
+                          child$Props
+                        );
+
+                        return (
+                          <AntdSingleCollapse
+                            data-plasmic-name={"collapseTest"}
+                            data-plasmic-override={overrides.collapseTest}
+                            {...child$Props}
+                          >
+                            {(() => {
+                              try {
+                                return true;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__co626
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return $state.textBaby[
+                                        $state.selectedWeek - 1
+                                      ];
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </div>
+                            ) : null}
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__q6UM8
+                              )}
+                              onClick={async event => {
+                                const $steps = {};
+
+                                $steps["updateBuySub2Open"] =
+                                  $state.weeksPregnant >= 12
+                                    ? (() => {
+                                        const actionArgs = {
+                                          variable: {
+                                            objRoot: $state,
+                                            variablePath: ["buySub2", "open"]
+                                          },
+                                          operation: 0,
+                                          value: true
+                                        };
+                                        return (({
+                                          variable,
+                                          value,
+                                          startIndex,
+                                          deleteCount
+                                        }) => {
+                                          if (!variable) {
+                                            return;
+                                          }
+                                          const { objRoot, variablePath } =
+                                            variable;
+
+                                          $stateSet(
+                                            objRoot,
+                                            variablePath,
+                                            value
+                                          );
+                                          return value;
+                                        })?.apply(null, [actionArgs]);
+                                      })()
+                                    : undefined;
+                                if (
+                                  $steps["updateBuySub2Open"] != null &&
+                                  typeof $steps["updateBuySub2Open"] ===
+                                    "object" &&
+                                  typeof $steps["updateBuySub2Open"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateBuySub2Open"] = await $steps[
+                                    "updateBuySub2Open"
+                                  ];
+                                }
+                              }}
+                            >
+                              {(() => {
+                                try {
+                                  return $state.weeksPregnant >= 12;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return false;
+                                  }
+                                  throw e;
+                                }
+                              })() ? (
+                                <BuyComponenct
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.buyComponenct__or6OV
+                                  )}
+                                />
+                              ) : null}
+                            </div>
+                          </AntdSingleCollapse>
+                        );
+                      })()}
+                    </div>
+                    <div
                       className={classNames(projectcss.all, sty.freeBox__wcbU2)}
                     >
                       {(() => {
@@ -10244,6 +10661,7 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "todoList",
     "collapseBaby",
+    "collapseTest",
     "collapseMother",
     "collapseHealth",
     "buySub2"
@@ -10262,6 +10680,7 @@ const PlasmicDescendants = {
     "collapseAdvice",
     "todoList",
     "collapseBaby",
+    "collapseTest",
     "collapseMother",
     "collapseHealth",
     "buySub2"
@@ -10278,6 +10697,7 @@ const PlasmicDescendants = {
   collapseAdvice: ["collapseAdvice"],
   todoList: ["todoList"],
   collapseBaby: ["collapseBaby"],
+  collapseTest: ["collapseTest"],
   collapseMother: ["collapseMother"],
   collapseHealth: ["collapseHealth"],
   buySub2: ["buySub2"]
@@ -10300,6 +10720,7 @@ type NodeDefaultElementType = {
   collapseAdvice: typeof AntdSingleCollapse;
   todoList: typeof TodoList;
   collapseBaby: typeof AntdSingleCollapse;
+  collapseTest: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
   collapseHealth: typeof AntdSingleCollapse;
   buySub2: typeof AntdModal;
@@ -10403,6 +10824,7 @@ export const PlasmicPregnancy = Object.assign(
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     todoList: makeNodeComponent("todoList"),
     collapseBaby: makeNodeComponent("collapseBaby"),
+    collapseTest: makeNodeComponent("collapseTest"),
     collapseMother: makeNodeComponent("collapseMother"),
     collapseHealth: makeNodeComponent("collapseHealth"),
     buySub2: makeNodeComponent("buySub2"),
