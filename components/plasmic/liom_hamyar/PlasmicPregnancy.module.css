@@ -1196,6 +1196,13 @@
   max-width: 100%;
   object-fit: cover;
 }
+.text__mzWpD {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
 .freeBox__j56U7 {
   display: flex;
   flex-direction: column;
@@ -1995,7 +2002,6 @@
 .freeBox__yjwq6 {
   display: flex;
   flex-direction: column;
-  position: relative;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
@@ -2003,6 +2009,7 @@
   max-width: 100%;
   background: var(--token-jgohepLVeKvh);
   margin-top: 16px;
+  position: relative;
   min-width: 0;
   border-radius: 8px;
   padding: 0px;

@@ -1703,26 +1703,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["goToPage"] = await $steps["goToPage"];
                   }
 
-                  $steps["runCode2"] = true
-                    ? (() => {
-                        const actionArgs = {
-                          customFunction: async () => {
-                            return (() => {})();
-                          }
-                        };
-                        return (({ customFunction }) => {
-                          return customFunction();
-                        })?.apply(null, [actionArgs]);
-                      })()
-                    : undefined;
-                  if (
-                    $steps["runCode2"] != null &&
-                    typeof $steps["runCode2"] === "object" &&
-                    typeof $steps["runCode2"].then === "function"
-                  ) {
-                    $steps["runCode2"] = await $steps["runCode2"];
-                  }
-
                   $steps["runCode7"] = true
                     ? (() => {
                         const actionArgs = {
@@ -1735,7 +1715,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                               .then(response => response.json())
                               .then(data => {
                                 console.log("adviceee");
-                                console.log(data);
                                 $state.getAdvice = data;
                               })
                               .catch(error => console.error("Error2:", error));
@@ -6559,14 +6538,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       const actionArgs = {
                                         customFunction: async () => {
                                           return fetch(
-                                            "https://n8n.staas.ir/webhook/getAdvice/?weekNumber=" +
-                                              $state.weeksPregnant +
-                                              "&type=daily",
+                                            "https://n8n.staas.ir/webhook/getAdvice-v2/?weekNumber=" +
+                                              $state.weeksPregnant,
                                             { method: "GET" }
                                           )
                                             .then(response => response.json())
                                             .then(data => {
-                                              console.log("advice");
+                                              console.log("adviceee");
                                               $state.getAdvice = data;
                                             })
                                             .catch(error =>
@@ -6659,6 +6637,16 @@ function PlasmicPregnancy__RenderFunc(props: {
                             sty.sideEffect
                           )}
                         />
+
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__mzWpD
+                          )}
+                        >
+                          {"Enter some text"}
+                        </div>
                       </Stack__>
                     </div>
                     <div
