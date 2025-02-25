@@ -6539,12 +6539,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         customFunction: async () => {
                                           return fetch(
                                             "https://n8n.staas.ir/webhook/getAdvice-v2/?weekNumber=" +
-                                              $state.weeksPregnant,
+                                              $state.selectedWeek,
                                             { method: "GET" }
                                           )
                                             .then(response => response.json())
                                             .then(data => {
                                               console.log("adviceee");
+                                              console.log(data);
                                               $state.getAdvice = data;
                                             })
                                             .catch(error =>
@@ -9216,7 +9217,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                             e instanceof TypeError ||
                             e?.plasmicType === "PlasmicUndefinedDataError"
                           ) {
-                            return true;
+                            return false;
                           }
                           throw e;
                         }
