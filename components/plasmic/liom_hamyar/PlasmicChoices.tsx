@@ -492,7 +492,13 @@ function PlasmicChoices__RenderFunc(props: {
                 })(),
                 slot: (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__ndUob)}
+                    className={classNames(projectcss.all, sty.freeBox__ndUob, {
+                      [sty.freeBoxcircl__ndUoBjkoGr]: hasVariant(
+                        $state,
+                        "circl",
+                        "circl"
+                      )
+                    })}
                   >
                     {(() => {
                       try {
@@ -510,7 +516,13 @@ function PlasmicChoices__RenderFunc(props: {
                       <Embed
                         data-plasmic-name={"embedHtml"}
                         data-plasmic-override={overrides.embedHtml}
-                        className={classNames("__wab_instance", sty.embedHtml)}
+                        className={classNames("__wab_instance", sty.embedHtml, {
+                          [sty.embedHtmlcircl]: hasVariant(
+                            $state,
+                            "circl",
+                            "circl"
+                          )
+                        })}
                         code={(() => {
                           try {
                             return currentItem.icon;

@@ -27,13 +27,13 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 100%;
+  width: auto;
   height: auto;
   max-width: 100%;
   justify-content: flex-start;
   align-items: center;
-  min-width: 0;
-  padding: 8px;
+  background: var(--token-R_Rsn0nP9oIv);
+  padding: 0px;
 }
 .freeBoxcurrentWeek__cxVucMNoLj {
   width: auto;
@@ -71,11 +71,11 @@
   box-shadow: none;
   background: none;
   border-radius: 100px;
-  border: 1px solid var(--token-kjnzcds1FoVY);
+  border-width: 1px;
 }
 .freeBoxcurrentWeek_selected__z7MRqMNoLjBlp4 {
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
 }
 .text__gJiGf {
   position: relative;
@@ -126,5 +126,21 @@
   display: none;
 }
 .textcurrentWeek__oQsddMNoLj {
+  margin-right: -4px;
   display: block;
+}
+.freeBox__bK0Ni {
+  display: block;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  max-width: 100%;
+  background: linear-gradient(145deg, #7345b6 0%, #c34991 93%) 0% 0% / 100% 100%
+    repeat;
+  left: auto;
+  top: -2px;
+  right: 2px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  padding: 0px;
 }

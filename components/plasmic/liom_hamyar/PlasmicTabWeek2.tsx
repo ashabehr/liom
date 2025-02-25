@@ -73,19 +73,22 @@ export type PlasmicTabWeek2__VariantMembers = {
   dark: "dark";
   darkSelected: "darkSelected";
   currentWeek: "currentWeek";
+  haveData: "haveData";
 };
 export type PlasmicTabWeek2__VariantsArgs = {
   selected?: SingleBooleanChoiceArg<"selected">;
   dark?: SingleBooleanChoiceArg<"dark">;
   darkSelected?: SingleBooleanChoiceArg<"darkSelected">;
   currentWeek?: SingleBooleanChoiceArg<"currentWeek">;
+  haveData?: SingleBooleanChoiceArg<"haveData">;
 };
 type VariantPropType = keyof PlasmicTabWeek2__VariantsArgs;
 export const PlasmicTabWeek2__VariantProps = new Array<VariantPropType>(
   "selected",
   "dark",
   "darkSelected",
-  "currentWeek"
+  "currentWeek",
+  "haveData"
 );
 
 export type PlasmicTabWeek2__ArgsType = {
@@ -115,6 +118,7 @@ export interface DefaultTabWeek2Props {
   dark?: SingleBooleanChoiceArg<"dark">;
   darkSelected?: SingleBooleanChoiceArg<"darkSelected">;
   currentWeek?: SingleBooleanChoiceArg<"currentWeek">;
+  haveData?: SingleBooleanChoiceArg<"haveData">;
   className?: string;
 }
 
@@ -183,6 +187,12 @@ function PlasmicTabWeek2__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.currentWeek
+      },
+      {
+        path: "haveData",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.haveData
       }
     ],
     [$props, $ctx, $refs]
@@ -221,6 +231,7 @@ function PlasmicTabWeek2__RenderFunc(props: {
             "darkSelected"
           ),
           [sty.rootdark]: hasVariant($state, "dark", "dark"),
+          [sty.roothaveData]: hasVariant($state, "haveData", "haveData"),
           [sty.rootselected]: hasVariant($state, "selected", "selected")
         }
       )}
@@ -238,6 +249,17 @@ function PlasmicTabWeek2__RenderFunc(props: {
             $state,
             "currentWeek",
             "currentWeek"
+          ),
+          [sty.freeBoxcurrentWeek_darkSelected__cxVucMNoLjKEYvD]:
+            hasVariant($state, "currentWeek", "currentWeek") &&
+            hasVariant($state, "darkSelected", "darkSelected"),
+          [sty.freeBoxcurrentWeek_selected__cxVucMNoLjBlp4]:
+            hasVariant($state, "currentWeek", "currentWeek") &&
+            hasVariant($state, "selected", "selected"),
+          [sty.freeBoxselected__cxVucBlp4]: hasVariant(
+            $state,
+            "selected",
+            "selected"
           )
         })}
       >
@@ -257,6 +279,11 @@ function PlasmicTabWeek2__RenderFunc(props: {
               "darkSelected"
             ),
             [sty.freeBoxdark__z7MRqwBfVe]: hasVariant($state, "dark", "dark"),
+            [sty.freeBoxhaveData__z7MRqDmqlu]: hasVariant(
+              $state,
+              "haveData",
+              "haveData"
+            ),
             [sty.freeBoxselected__z7MRqBlp4]: hasVariant(
               $state,
               "selected",
@@ -359,6 +386,17 @@ function PlasmicTabWeek2__RenderFunc(props: {
               {"\u0627\u0645\u0631\u0648\u0632"}
             </div>
           </div>
+          {(hasVariant($state, "haveData", "haveData") ? true : false) ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__bK0Ni, {
+                [sty.freeBoxhaveData__bK0NiDmqlu]: hasVariant(
+                  $state,
+                  "haveData",
+                  "haveData"
+                )
+              })}
+            />
+          ) : null}
         </div>
       </div>
     </div>
