@@ -25,12 +25,35 @@
   align-items: center;
   padding: 8px;
 }
+.freeBoxlike__ajmkKMfVcN {
+  background: none;
+}
+.freeBox__rvTwI {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 8px;
+}
+.freeBoxlike__rvTwIMfVcN {
+  justify-content: center;
+  align-items: center;
+  background: var(--token-j-ZwOKbpUCqd);
+  padding: 0px;
+}
 .svg__e9Gnf {
   object-fit: cover;
   max-width: 100%;
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+}
+.svglike__e9GnfMfVcN {
+  color: var(--token-j-ZwOKbpUCqd);
 }
 .text__iyMp9 {
   position: relative;

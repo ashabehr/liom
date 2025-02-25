@@ -648,7 +648,8 @@
 }
 .nameInput:global(.__wab_instance) {
   max-width: 100%;
-  z-index: 4;
+  width: 100%;
+  min-width: 0;
 }
 .svg__k5G2 {
   position: relative;

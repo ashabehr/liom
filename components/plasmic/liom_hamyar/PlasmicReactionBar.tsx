@@ -74,10 +74,16 @@ import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: 2SO3B
 
 createPlasmicElementProxy;
 
-export type PlasmicReactionBar__VariantMembers = {};
-export type PlasmicReactionBar__VariantsArgs = {};
+export type PlasmicReactionBar__VariantMembers = {
+  like: "like";
+};
+export type PlasmicReactionBar__VariantsArgs = {
+  like?: SingleBooleanChoiceArg<"like">;
+};
 type VariantPropType = keyof PlasmicReactionBar__VariantsArgs;
-export const PlasmicReactionBar__VariantProps = new Array<VariantPropType>();
+export const PlasmicReactionBar__VariantProps = new Array<VariantPropType>(
+  "like"
+);
 
 export type PlasmicReactionBar__ArgsType = {};
 type ArgPropType = keyof PlasmicReactionBar__ArgsType;
@@ -88,6 +94,7 @@ export type PlasmicReactionBar__OverridesType = {
 };
 
 export interface DefaultReactionBarProps {
+  like?: SingleBooleanChoiceArg<"like">;
   className?: string;
 }
 
@@ -131,6 +138,24 @@ function PlasmicReactionBar__RenderFunc(props: {
 
   const currentUser = useCurrentUser?.() || {};
 
+  const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
+    () => [
+      {
+        path: "like",
+        type: "private",
+        variableType: "variant",
+        initFunc: ({ $props, $state, $queries, $ctx }) => $props.like
+      }
+    ],
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
+
   return (
     <div
       data-plasmic-name={"root"}
@@ -145,15 +170,59 @@ function PlasmicReactionBar__RenderFunc(props: {
         projectcss.plasmic_tokens,
         plasmic_antd_5_hostless_css.plasmic_tokens,
         plasmic_plasmic_rich_components_css.plasmic_tokens,
-        sty.root
+        sty.root,
+        { [sty.rootlike]: hasVariant($state, "like", "like") }
       )}
-    >
-      <div className={classNames(projectcss.all, sty.freeBox__ajmkK)}>
-        <Icon152Icon
-          className={classNames(projectcss.all, sty.svg__e9Gnf)}
-          role={"img"}
-        />
+      onClick={async event => {
+        const $steps = {};
 
+        $steps["updateLike"] = true
+          ? (() => {
+              const actionArgs = {
+                variable: {
+                  objRoot: $state,
+                  variablePath: ["like"]
+                },
+                operation: 0,
+                value: true
+              };
+              return (({ variable, value, startIndex, deleteCount }) => {
+                if (!variable) {
+                  return;
+                }
+                const { objRoot, variablePath } = variable;
+
+                $stateSet(objRoot, variablePath, value);
+                return value;
+              })?.apply(null, [actionArgs]);
+            })()
+          : undefined;
+        if (
+          $steps["updateLike"] != null &&
+          typeof $steps["updateLike"] === "object" &&
+          typeof $steps["updateLike"].then === "function"
+        ) {
+          $steps["updateLike"] = await $steps["updateLike"];
+        }
+      }}
+    >
+      <div
+        className={classNames(projectcss.all, sty.freeBox__ajmkK, {
+          [sty.freeBoxlike__ajmkKMfVcN]: hasVariant($state, "like", "like")
+        })}
+      >
+        <div
+          className={classNames(projectcss.all, sty.freeBox__rvTwI, {
+            [sty.freeBoxlike__rvTwIMfVcN]: hasVariant($state, "like", "like")
+          })}
+        >
+          <Icon152Icon
+            className={classNames(projectcss.all, sty.svg__e9Gnf, {
+              [sty.svglike__e9GnfMfVcN]: hasVariant($state, "like", "like")
+            })}
+            role={"img"}
+          />
+        </div>
         <div
           className={classNames(
             projectcss.all,

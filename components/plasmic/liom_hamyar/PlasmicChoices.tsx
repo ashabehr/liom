@@ -345,7 +345,11 @@ function PlasmicChoices__RenderFunc(props: {
                 }),
                 html: (() => {
                   try {
-                    return currentItem.icon;
+                    return $state.list.filter(
+                      item => item === currentItem.value
+                    ).length === 1
+                      ? currentItem.iconselect ?? currentItem.icon
+                      : currentItem.icon;
                   } catch (e) {
                     if (
                       e instanceof TypeError ||
@@ -525,7 +529,13 @@ function PlasmicChoices__RenderFunc(props: {
                         })}
                         code={(() => {
                           try {
-                            return currentItem.icon;
+                            return $state.list.filter(
+                              item => item === currentItem.value
+                            ).length === 1
+                              ? currentItem.iconselect
+                                ? currentItem.iconselect
+                                : currentItem.icon
+                              : currentItem.icon;
                           } catch (e) {
                             if (
                               e instanceof TypeError ||

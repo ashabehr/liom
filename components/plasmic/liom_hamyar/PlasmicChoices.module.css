@@ -48,7 +48,7 @@
   overflow: hidden;
 }
 .choicesrectangle > :global(.__wab_flex-container) {
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   margin-left: calc(0px - 8px);
   width: calc(100% + 8px);
