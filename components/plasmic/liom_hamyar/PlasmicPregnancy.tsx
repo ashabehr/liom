@@ -1707,23 +1707,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return fetch(
-                              "https://n8n.staas.ir/webhook/getAdvice/?weekNumber=" +
-                                $state.weeksPregnant +
-                                "&type=daily",
-                              { method: "GET" }
-                            )
-                              .then(response => response.json())
-                              .then(data => {
-                                console.log("advice");
-                                $state.getAdvice = data;
-                              })
-                              .catch(error => console.error("Error2:", error));
-
-                            //  fetch("https://n8n.staas.ir/webhook/getAdvice-v2/?weekNumber=" + $state.weeksPregnant , { method: "GET" }).then(response => response.json()).then(data => {
-                            //   console.log("adviceee");
-                            //   $state.getAdvice = data
-                            // }).catch(error => console.error("Error2:", error))
+                            return (() => {})();
                           }
                         };
                         return (({ customFunction }) => {
@@ -1737,6 +1721,37 @@ function PlasmicPregnancy__RenderFunc(props: {
                     typeof $steps["runCode2"].then === "function"
                   ) {
                     $steps["runCode2"] = await $steps["runCode2"];
+                  }
+
+                  $steps["runCode7"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return fetch(
+                              "https://n8n.staas.ir/webhook/getAdvice-v2/?weekNumber=" +
+                                $state.weeksPregnant,
+                              { method: "GET" }
+                            )
+                              .then(response => response.json())
+                              .then(data => {
+                                console.log("adviceee");
+                                console.log(data);
+                                $state.getAdvice = data;
+                              })
+                              .catch(error => console.error("Error2:", error));
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode7"] != null &&
+                    typeof $steps["runCode7"] === "object" &&
+                    typeof $steps["runCode7"].then === "function"
+                  ) {
+                    $steps["runCode7"] = await $steps["runCode7"];
                   }
 
                   $steps["runCode3"] = true
@@ -1904,133 +1919,137 @@ function PlasmicPregnancy__RenderFunc(props: {
                     ? (() => {
                         const actionArgs = {
                           customFunction: async () => {
-                            return (() => {
-                              return setTimeout(() => {
-                                try {
-                                  console.log($state.getUserInfo.data);
-                                  var name =
-                                    $state.getUserInfo.data?.[0]?.result?.user
-                                      ?.name ?? "";
-                                  var mobile =
-                                    $state.getUserInfo.data?.[0]?.result?.user
-                                      ?.mobile ?? "";
-                                  var email =
-                                    $state.getUserInfo.data?.[0]?.result?.user
-                                      ?.email ?? "";
-                                  if (typeof mobile == "undefined") {
-                                    mobile = "";
-                                  }
-                                  if (typeof email == "undefined") {
-                                    email = "";
-                                  }
-                                  if (typeof name == "undefined") {
-                                    name = "";
-                                  }
-                                  if (
-                                    typeof $state.getUserInfo.data[0].result
-                                      .hamyars == "undefined"
-                                  ) {
-                                    $state.getUserInfo.data[0].result.hamyars =
-                                      [];
-                                  }
-                                  if (
-                                    typeof $state.getUserInfo.data[0].result
-                                      .allowance == "undefined"
-                                  ) {
-                                    $state.getUserInfo.data[0].result.allowance =
-                                      [];
-                                  }
-                                  var gy = parseInt(
-                                    $state.user?.[0]?.dueDate.split("-")[0]
-                                  );
-                                  var gm = parseInt(
-                                    $state.user?.[0]?.dueDate.split("-")[1]
-                                  );
-                                  var gd = parseInt(
-                                    $state.user?.[0]?.dueDate.split("-")[2]
-                                  );
-                                  let hamyarsData = [];
-                                  for (
-                                    let i = 0;
-                                    i <
-                                    $state.getUserInfo.data[0].result.hamyars
-                                      .length;
-                                    i++
-                                  ) {
-                                    hamyarsData.push({
-                                      name: $state.getUserInfo.data[0].result
-                                        .hamyars[i].user.name,
-                                      id: $state.getUserInfo.data[0].result
-                                        .hamyars[i].user.id,
-                                      mobile:
-                                        $state.getUserInfo.data[0].result
-                                          .hamyars[i].user.mobile,
-                                      statusSms:
-                                        $state.getUserInfo.data[0].result
-                                          .hamyars[i].rel.statusSms,
-                                      hamyarStatus:
-                                        $state.getUserInfo.data[0].result
-                                          .hamyars[i].user.hamyarStatus,
-                                      hamyarTime:
-                                        $state.getUserInfo.data[0].result
-                                          .hamyars[i].user.hamyarTime,
-                                      email:
-                                        $state.getUserInfo.data[0].result
-                                          .hamyars[i].user.email
-                                    });
-                                  }
-                                  let allowance = [];
-                                  for (
-                                    let i = 0;
-                                    i <
-                                    $state.getUserInfo.data[0].result.allowance
-                                      .length;
-                                    i++
-                                  ) {
-                                    allowance.push(
-                                      $state.getUserInfo.data[0].result
-                                        .allowance[i]
-                                    );
-                                  }
-                                  fetch("https://n8n.staas.ir/webhook/status", {
-                                    method: "POST",
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization:
-                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
-                                    },
-                                    body: JSON.stringify({
-                                      area: "pregnancy",
-                                      duDate:
-                                        gy + "-" + gm + "-" + gd + " 10:10:10",
-                                      userId: $ctx.query.userId.slice(
-                                        4,
-                                        +$ctx.query.userId.length - 4
-                                      ),
-                                      name: name,
-                                      mobile: mobile,
-                                      email: email,
-                                      hamyarData: { hamyarsData },
-                                      allowance: { allowance }
-                                    })
-                                  })
-                                    .then(response => {
-                                      return response.json();
-                                    })
-                                    .then(data => {
-                                      console.log("user send");
-                                    })
-                                    .catch(error => {
-                                      console.error("Error3333:", error);
-                                    });
-                                } catch (error) {
-                                  console.log(
-                                    "\u274C خطا مدیریت شد:",
-                                    error.message
+                            return setTimeout(() => {
+                              try {
+                                console.log($state.getUserInfo.data);
+                                var name =
+                                  $state.getUserInfo.data?.[0]?.result?.user
+                                    ?.name ?? "";
+                                var mobile =
+                                  $state.getUserInfo.data?.[0]?.result?.user
+                                    ?.mobile ?? "";
+                                var email =
+                                  $state.getUserInfo.data?.[0]?.result?.user
+                                    ?.email ?? "";
+                                if (typeof mobile == "undefined") {
+                                  mobile = "";
+                                }
+                                if (typeof email == "undefined") {
+                                  email = "";
+                                }
+                                if (typeof name == "undefined") {
+                                  name = "";
+                                }
+                                if (
+                                  typeof $state.getUserInfo.data[0].result
+                                    .hamyars == "undefined"
+                                ) {
+                                  $state.getUserInfo.data[0].result.hamyars =
+                                    [];
+                                }
+                                if (
+                                  typeof $state.getUserInfo.data[0].result
+                                    .allowance == "undefined"
+                                ) {
+                                  $state.getUserInfo.data[0].result.allowance =
+                                    [];
+                                }
+                                var gy = parseInt(
+                                  $state.user?.[0]?.dueDate.split("-")[0]
+                                );
+                                var gm = parseInt(
+                                  $state.user?.[0]?.dueDate.split("-")[1]
+                                );
+                                var gd = parseInt(
+                                  $state.user?.[0]?.dueDate.split("-")[2]
+                                );
+                                let hamyarsData = [];
+                                for (
+                                  let i = 0;
+                                  i <
+                                  $state.getUserInfo.data[0].result.hamyars
+                                    .length;
+                                  i++
+                                ) {
+                                  hamyarsData.push({
+                                    name: $state.getUserInfo.data[0].result
+                                      .hamyars[i].user.name,
+                                    id: $state.getUserInfo.data[0].result
+                                      .hamyars[i].user.id,
+                                    mobile:
+                                      $state.getUserInfo.data[0].result.hamyars[
+                                        i
+                                      ].user.mobile,
+                                    statusSms:
+                                      $state.getUserInfo.data[0].result.hamyars[
+                                        i
+                                      ].rel.statusSms,
+                                    hamyarStatus:
+                                      $state.getUserInfo.data[0].result.hamyars[
+                                        i
+                                      ].user.hamyarStatus,
+                                    hamyarTime:
+                                      $state.getUserInfo.data[0].result.hamyars[
+                                        i
+                                      ].user.hamyarTime,
+                                    email:
+                                      $state.getUserInfo.data[0].result.hamyars[
+                                        i
+                                      ].user.email
+                                  });
+                                }
+                                let allowance = [];
+                                for (
+                                  let i = 0;
+                                  i <
+                                  $state.getUserInfo.data[0].result.allowance
+                                    .length;
+                                  i++
+                                ) {
+                                  allowance.push(
+                                    $state.getUserInfo.data[0].result.allowance[
+                                      i
+                                    ]
                                   );
                                 }
-                              }, 3000);
-                            })();
+                                fetch("https://n8n.staas.ir/webhook/status", {
+                                  method: "POST",
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOiJsaW9tIn0.Tuzd74LOuzwCnvvh8Wsa99DIW-NRs1LLHPhayXSZ3Wk"
+                                  },
+                                  body: JSON.stringify({
+                                    area: "pregnancy",
+                                    duDate:
+                                      gy + "-" + gm + "-" + gd + " 10:10:10",
+                                    userId: $ctx.query.userId.slice(
+                                      4,
+                                      +$ctx.query.userId.length - 4
+                                    ),
+                                    name: name,
+                                    mobile: mobile,
+                                    email: email,
+                                    hamyarData: { hamyarsData },
+                                    allowance: { allowance }
+                                  })
+                                })
+                                  .then(response => {
+                                    return response.json();
+                                  })
+                                  .then(data => {
+                                    console.log("user send");
+                                  })
+                                  .catch(error => {
+                                    console.error("Error3333:", error);
+                                  });
+                              } catch (error) {
+                                console.log(
+                                  "\u274C خطا مدیریت شد:",
+                                  error.message
+                                );
+                              }
+                            }, 3000);
                           }
                         };
                         return (({ customFunction }) => {
@@ -4211,7 +4230,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                             </div>
                             {(() => {
                               try {
-                                return $state.getAdvice.text != "";
+                                return (
+                                  $state.getAdvice?.length > 0 &&
+                                  $state.getAdvice?.[0].text != ""
+                                );
                               } catch (e) {
                                 if (
                                   e instanceof TypeError ||
@@ -4239,7 +4261,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 <div
                                   className={projectcss.__wab_expr_html_text}
                                   dangerouslySetInnerHTML={{
-                                    __html: $state.getAdvice.text
+                                    __html: (() => {
+                                      const advice = $state?.getAdvice;
+                                      const filteredItem = advice.find(item =>
+                                        item.type.includes("daily")
+                                      );
+                                      return filteredItem?.text;
+                                    })()
                                   }}
                                 />
                               </div>
@@ -7282,7 +7310,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     return (() => {
                                       var link;
                                       if (
-                                        $ctx.query.userId ==
+                                        $ctx.query.userId.slice(
+                                          4,
+                                          $ctx.query.userId.length - 4
+                                        ) ==
                                         "4ddd1fab-100c-49f0-b843-e70bff8add34"
                                       ) {
                                         link =
@@ -9185,419 +9216,455 @@ function PlasmicPregnancy__RenderFunc(props: {
                       className={classNames(projectcss.all, sty.freeBox__yjwq6)}
                     >
                       {(() => {
-                        const child$Props = {
-                          bordered: true,
-                          className: classNames(
-                            "__wab_instance",
-                            sty.collapseTest
-                          ),
-                          expandIcon: (
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return $state.collapseTest.open != true;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return false;
-                                  }
-                                  throw e;
-                                }
-                              })() ? (
-                                <PlasmicImg__
-                                  alt={""}
-                                  className={classNames(sty.img___9N1R0)}
-                                  displayHeight={"auto"}
-                                  displayMaxHeight={"none"}
-                                  displayMaxWidth={"100%"}
-                                  displayMinHeight={"0"}
-                                  displayMinWidth={"0"}
-                                  displayWidth={"15px"}
-                                  loading={"lazy"}
-                                  src={{
-                                    src: "/plasmic/liom_hamyar/images/image32.svg",
-                                    fullWidth: 16,
-                                    fullHeight: 16,
-                                    aspectRatio: 1
-                                  }}
-                                />
-                              ) : null}
-                              {(() => {
-                                try {
-                                  return $state.collapseTest.open == true;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return true;
-                                  }
-                                  throw e;
-                                }
-                              })() ? (
-                                <PlasmicImg__
-                                  alt={""}
-                                  className={classNames(sty.img__e5Haa)}
-                                  displayHeight={"auto"}
-                                  displayMaxHeight={"none"}
-                                  displayMaxWidth={"100%"}
-                                  displayMinHeight={"0"}
-                                  displayMinWidth={"0"}
-                                  displayWidth={"25px"}
-                                  loading={"lazy"}
-                                  src={{
-                                    src: "/plasmic/liom_hamyar/images/image31.svg",
-                                    fullWidth: 16,
-                                    fullHeight: 16,
-                                    aspectRatio: 1
-                                  }}
-                                />
-                              ) : null}
-                            </React.Fragment>
-                          ),
-                          expandIconPosition: "end",
-                          ghost: true,
-                          label2: (
-                            <Stack__
-                              as={"div"}
-                              hasGap={true}
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___4BiI4
-                              )}
-                            >
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__nnPza
-                                )}
-                              >
-                                <React.Fragment>
-                                  <span
-                                    className={
-                                      "plasmic_default__all plasmic_default__span"
-                                    }
-                                    style={{ color: "#000000" }}
-                                  >
-                                    {
-                                      "\u063a\u0631\u0628\u0627\u0644\u06af\u0631\u06cc\u060c \u0622\u0632\u0645\u0627\u06cc\u0634 \u0648 \u0633\u0648\u0646\u0648\u06af\u0631\u0627\u0641\u06cc"
-                                    }
-                                  </span>
-                                </React.Fragment>
-                              </div>
-                              {(() => {
-                                try {
-                                  return $state.collapseTest.open;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return false;
-                                  }
-                                  throw e;
-                                }
-                              })() ? (
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__j6RYb
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return "هفته " + $state.selectedWeek;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </div>
-                              ) : null}
-                            </Stack__>
-                          ),
-                          onChange: async (...eventArgs: any) => {
-                            generateStateOnChangePropForCodeComponents(
-                              $state,
-                              "open",
-                              ["collapseTest", "open"],
-                              AntdSingleCollapse_Helpers
-                            ).apply(null, eventArgs);
-
-                            (async activeIds => {
-                              const $steps = {};
-
-                              $steps["invokeGlobalAction2"] =
-                                $state.collapseTest.open &&
-                                $state.weeksPregnant >= 12 &&
-                                false
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["buySub2", "open"]
-                                        },
-                                        operation: 0,
-                                        value: true
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                              if (
-                                $steps["invokeGlobalAction2"] != null &&
-                                typeof $steps["invokeGlobalAction2"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction2"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction2"] = await $steps[
-                                  "invokeGlobalAction2"
-                                ];
-                              }
-
-                              $steps["invokeGlobalAction"] =
-                                ($state.collapseTest.open ? true : false) &&
-                                $ctx.query.userId.slice(
-                                  4,
-                                  $ctx.query.userId.length - 4
-                                ) != "314149" &&
-                                $ctx.query.userId.slice(
-                                  4,
-                                  $ctx.query.userId.length - 4
-                                ) != "1"
-                                  ? (() => {
-                                      const actionArgs = {
-                                        args: [
-                                          "POST",
-                                          "https://api.liom.app/service/log",
-                                          undefined,
-                                          (() => {
-                                            try {
-                                              return {
-                                                userId:
-                                                  $ctx.query.userId?.length > 0
-                                                    ? $ctx.query.userId.slice(
-                                                        4,
-                                                        $ctx.query.userId
-                                                          .length - 4
-                                                      )
-                                                    : "guest",
-                                                pageName: "weekByWeekPage",
-                                                action: "clickOpen-babyAdvice",
-                                                extraData: {}
-                                              };
-                                            } catch (e) {
-                                              if (
-                                                e instanceof TypeError ||
-                                                e?.plasmicType ===
-                                                  "PlasmicUndefinedDataError"
-                                              ) {
-                                                return undefined;
-                                              }
-                                              throw e;
-                                            }
-                                          })(),
-                                          {
-                                            headers: {
-                                              "Content-Type":
-                                                "application/json",
-                                              Authorization:
-                                                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                            }
-                                          }
-                                        ]
-                                      };
-                                      return $globalActions[
-                                        "Fragment.apiRequest"
-                                      ]?.apply(null, [...actionArgs.args]);
-                                    })()
-                                  : undefined;
-                              if (
-                                $steps["invokeGlobalAction"] != null &&
-                                typeof $steps["invokeGlobalAction"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction"] = await $steps[
-                                  "invokeGlobalAction"
-                                ];
-                              }
-                            }).apply(null, eventArgs);
-                          },
-                          open: generateStateValueProp($state, [
-                            "collapseTest",
-                            "open"
-                          ]),
-                          showArrow: true,
-                          size: "large"
-                        };
-                        initializeCodeComponentStates(
-                          $state,
-                          [
-                            {
-                              name: "open",
-                              plasmicStateName: "collapseTest.open"
-                            }
-                          ],
-                          [],
-                          AntdSingleCollapse_Helpers ?? {},
-                          child$Props
-                        );
-
-                        return (
-                          <AntdSingleCollapse
-                            data-plasmic-name={"collapseTest"}
-                            data-plasmic-override={overrides.collapseTest}
-                            {...child$Props}
-                          >
-                            {(() => {
-                              try {
-                                return true;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return false;
-                                }
-                                throw e;
-                              }
-                            })() ? (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
-                                  sty.text__co626
-                                )}
-                              >
+                        try {
+                          return (
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return true;
+                          }
+                          throw e;
+                        }
+                      })()
+                        ? (() => {
+                            const child$Props = {
+                              bordered: true,
+                              className: classNames(
+                                "__wab_instance",
+                                sty.collapseTest
+                              ),
+                              expandIcon: (
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return $state.textBaby[
-                                        $state.selectedWeek - 1
-                                      ];
+                                      return $state.collapseTest.open != true;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
                                         e?.plasmicType ===
                                           "PlasmicUndefinedDataError"
                                       ) {
-                                        return "";
+                                        return false;
                                       }
                                       throw e;
                                     }
-                                  })()}
+                                  })() ? (
+                                    <PlasmicImg__
+                                      alt={""}
+                                      className={classNames(sty.img___9N1R0)}
+                                      displayHeight={"auto"}
+                                      displayMaxHeight={"none"}
+                                      displayMaxWidth={"100%"}
+                                      displayMinHeight={"0"}
+                                      displayMinWidth={"0"}
+                                      displayWidth={"15px"}
+                                      loading={"lazy"}
+                                      src={{
+                                        src: "/plasmic/liom_hamyar/images/image32.svg",
+                                        fullWidth: 16,
+                                        fullHeight: 16,
+                                        aspectRatio: 1
+                                      }}
+                                    />
+                                  ) : null}
+                                  {(() => {
+                                    try {
+                                      return $state.collapseTest.open == true;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <PlasmicImg__
+                                      alt={""}
+                                      className={classNames(sty.img__e5Haa)}
+                                      displayHeight={"auto"}
+                                      displayMaxHeight={"none"}
+                                      displayMaxWidth={"100%"}
+                                      displayMinHeight={"0"}
+                                      displayMinWidth={"0"}
+                                      displayWidth={"25px"}
+                                      loading={"lazy"}
+                                      src={{
+                                        src: "/plasmic/liom_hamyar/images/image31.svg",
+                                        fullWidth: 16,
+                                        fullHeight: 16,
+                                        aspectRatio: 1
+                                      }}
+                                    />
+                                  ) : null}
                                 </React.Fragment>
-                              </div>
-                            ) : null}
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__q6UM8
-                              )}
-                              onClick={async event => {
-                                const $steps = {};
-
-                                $steps["updateBuySub2Open"] =
-                                  $state.weeksPregnant >= 12
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["buySub2", "open"]
-                                          },
-                                          operation: 0,
-                                          value: true
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                if (
-                                  $steps["updateBuySub2Open"] != null &&
-                                  typeof $steps["updateBuySub2Open"] ===
-                                    "object" &&
-                                  typeof $steps["updateBuySub2Open"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateBuySub2Open"] = await $steps[
-                                    "updateBuySub2Open"
-                                  ];
-                                }
-                              }}
-                            >
-                              {(() => {
-                                try {
-                                  return $state.weeksPregnant >= 12;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return false;
-                                  }
-                                  throw e;
-                                }
-                              })() ? (
-                                <BuyComponenct
+                              ),
+                              expandIconPosition: "end",
+                              ghost: true,
+                              label2: (
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
                                   className={classNames(
-                                    "__wab_instance",
-                                    sty.buyComponenct__or6OV
+                                    projectcss.all,
+                                    sty.freeBox___4BiI4
                                   )}
-                                />
-                              ) : null}
-                            </div>
-                          </AntdSingleCollapse>
-                        );
-                      })()}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__nnPza
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      <span
+                                        className={
+                                          "plasmic_default__all plasmic_default__span"
+                                        }
+                                        style={{ color: "#000000" }}
+                                      >
+                                        {
+                                          "\u063a\u0631\u0628\u0627\u0644\u06af\u0631\u06cc\u060c \u0622\u0632\u0645\u0627\u06cc\u0634 \u0648 \u0633\u0648\u0646\u0648\u06af\u0631\u0627\u0641\u06cc"
+                                        }
+                                      </span>
+                                    </React.Fragment>
+                                  </div>
+                                  {(() => {
+                                    try {
+                                      return $state.collapseTest.open;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__j6RYb
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return (
+                                              "هفته " + $state.selectedWeek
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  ) : null}
+                                </Stack__>
+                              ),
+                              onChange: async (...eventArgs: any) => {
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "open",
+                                  ["collapseTest", "open"],
+                                  AntdSingleCollapse_Helpers
+                                ).apply(null, eventArgs);
+
+                                (async activeIds => {
+                                  const $steps = {};
+
+                                  $steps["invokeGlobalAction2"] =
+                                    $state.collapseTest.open &&
+                                    $state.weeksPregnant >= 12 &&
+                                    false
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["buySub2", "open"]
+                                            },
+                                            operation: 0,
+                                            value: true
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                  if (
+                                    $steps["invokeGlobalAction2"] != null &&
+                                    typeof $steps["invokeGlobalAction2"] ===
+                                      "object" &&
+                                    typeof $steps["invokeGlobalAction2"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["invokeGlobalAction2"] =
+                                      await $steps["invokeGlobalAction2"];
+                                  }
+
+                                  $steps["invokeGlobalAction"] =
+                                    ($state.collapseTest.open ? true : false) &&
+                                    $ctx.query.userId.slice(
+                                      4,
+                                      $ctx.query.userId.length - 4
+                                    ) != "314149" &&
+                                    $ctx.query.userId.slice(
+                                      4,
+                                      $ctx.query.userId.length - 4
+                                    ) != "1"
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "POST",
+                                              "https://api.liom.app/service/log",
+                                              undefined,
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    userId:
+                                                      $ctx.query.userId
+                                                        ?.length > 0
+                                                        ? $ctx.query.userId.slice(
+                                                            4,
+                                                            $ctx.query.userId
+                                                              .length - 4
+                                                          )
+                                                        : "guest",
+                                                    pageName: "weekByWeekPage",
+                                                    action:
+                                                      "clickOpen-babyAdvice",
+                                                    extraData: {}
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              {
+                                                headers: {
+                                                  "Content-Type":
+                                                    "application/json",
+                                                  Authorization:
+                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                }
+                                              }
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.apiRequest"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                  if (
+                                    $steps["invokeGlobalAction"] != null &&
+                                    typeof $steps["invokeGlobalAction"] ===
+                                      "object" &&
+                                    typeof $steps["invokeGlobalAction"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["invokeGlobalAction"] = await $steps[
+                                      "invokeGlobalAction"
+                                    ];
+                                  }
+                                }).apply(null, eventArgs);
+                              },
+                              open: generateStateValueProp($state, [
+                                "collapseTest",
+                                "open"
+                              ]),
+                              showArrow: true,
+                              size: "large"
+                            };
+                            initializeCodeComponentStates(
+                              $state,
+                              [
+                                {
+                                  name: "open",
+                                  plasmicStateName: "collapseTest.open"
+                                }
+                              ],
+                              [],
+                              AntdSingleCollapse_Helpers ?? {},
+                              child$Props
+                            );
+
+                            return (
+                              <AntdSingleCollapse
+                                data-plasmic-name={"collapseTest"}
+                                data-plasmic-override={overrides.collapseTest}
+                                {...child$Props}
+                              >
+                                {(() => {
+                                  try {
+                                    return true;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return false;
+                                    }
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__co626
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      {(() => {
+                                        try {
+                                          return (() => {
+                                            const advice = $state?.getAdvice;
+                                            const filteredItem = advice.find(
+                                              item =>
+                                                item.type.includes("ultrasound")
+                                            );
+                                            return filteredItem?.text == ""
+                                              ? "نداریم"
+                                              : filteredItem?.text;
+                                          })();
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return "";
+                                          }
+                                          throw e;
+                                        }
+                                      })()}
+                                    </React.Fragment>
+                                  </div>
+                                ) : null}
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__q6UM8
+                                  )}
+                                  onClick={async event => {
+                                    const $steps = {};
+
+                                    $steps["updateBuySub2Open"] =
+                                      $state.weeksPregnant >= 12
+                                        ? (() => {
+                                            const actionArgs = {
+                                              variable: {
+                                                objRoot: $state,
+                                                variablePath: [
+                                                  "buySub2",
+                                                  "open"
+                                                ]
+                                              },
+                                              operation: 0,
+                                              value: true
+                                            };
+                                            return (({
+                                              variable,
+                                              value,
+                                              startIndex,
+                                              deleteCount
+                                            }) => {
+                                              if (!variable) {
+                                                return;
+                                              }
+                                              const { objRoot, variablePath } =
+                                                variable;
+
+                                              $stateSet(
+                                                objRoot,
+                                                variablePath,
+                                                value
+                                              );
+                                              return value;
+                                            })?.apply(null, [actionArgs]);
+                                          })()
+                                        : undefined;
+                                    if (
+                                      $steps["updateBuySub2Open"] != null &&
+                                      typeof $steps["updateBuySub2Open"] ===
+                                        "object" &&
+                                      typeof $steps["updateBuySub2Open"]
+                                        .then === "function"
+                                    ) {
+                                      $steps["updateBuySub2Open"] =
+                                        await $steps["updateBuySub2Open"];
+                                    }
+                                  }}
+                                >
+                                  {(() => {
+                                    try {
+                                      return $state.weeksPregnant >= 12;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <BuyComponenct
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.buyComponenct__or6OV
+                                      )}
+                                    />
+                                  ) : null}
+                                </div>
+                              </AntdSingleCollapse>
+                            );
+                          })()
+                        : null}
                     </div>
                     <div
                       className={classNames(projectcss.all, sty.freeBox__wcbU2)}
