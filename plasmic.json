@@ -1363,7 +1363,7 @@
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
           "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicStatusDay.tsx",
           "importSpec": {
-            "modulePath": "../src/pages/Status-day.tsx"
+            "modulePath": "../src/pages/status-day.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicStatusDay.module.css",
           "scheme": "blackbox",
@@ -1433,6 +1433,46 @@
             "modulePath": "SocialIcon.tsx"
           },
           "cssFilePath": "plasmic/liom_hamyar/PlasmicSocialIcon.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "fbOsb2VJnT5d",
+          "name": "SmsMessages",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSmsMessages.tsx",
+          "importSpec": {
+            "modulePath": "../src/pages/sms-messages.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSmsMessages.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/sms-messages"
+        },
+        {
+          "id": "zuZ91wbmspN9",
+          "name": "LineClomp2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicLineClomp2.tsx",
+          "importSpec": {
+            "modulePath": "LineClomp2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicLineClomp2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "dHc4RrEGN9st",
+          "name": "StepsLayout",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicStepsLayout.tsx",
+          "importSpec": {
+            "modulePath": "StepsLayout.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicStepsLayout.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -2592,6 +2632,11 @@
           "id": "wcLaoBjM9dJX",
           "name": "Icon173Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon173.tsx"
+        },
+        {
+          "id": "js1F4yxsXuC5",
+          "name": "Icon174Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon174.tsx"
         }
       ],
       "images": [

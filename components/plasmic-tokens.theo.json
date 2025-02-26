@@ -151,6 +151,16 @@
       }
     },
     {
+      "name": "8",
+      "type": "spacing",
+      "value": "2rem",
+      "category": "spacing",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "s1TaIRhT4ThU"
+      }
+    },
+    {
       "name": "9",
       "type": "spacing",
       "value": "2.25rem",
@@ -2868,6 +2878,16 @@
       "meta": {
         "projectId": "6HBcNwr8dz9LuS1Qe36xa5",
         "id": "P2saABvfDCPH"
+      }
+    },
+    {
+      "name": "X Small",
+      "type": "fontsize",
+      "value": "0.75rem",
+      "category": "fontsize",
+      "meta": {
+        "projectId": "suVPi77vb6vv9K5rYJwyxC",
+        "id": "OuIr9F3wieyv"
       }
     },
     {

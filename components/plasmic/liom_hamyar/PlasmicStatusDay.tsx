@@ -61,6 +61,7 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
+import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import TextInput from "../../TextInput"; // plasmic-import: cOSV4CnhD7mN/component
@@ -70,7 +71,6 @@ import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import RadioGrop from "../../RadioGrop"; // plasmic-import: mcNKMbL_6N75/component
 import TabWeek2 from "../../TabWeek2"; // plasmic-import: -tuOknPDFuNb/component
 import VigetLiom2 from "../../VigetLiom2"; // plasmic-import: 38exw8bGQf_v/component
-import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import Choices from "../../Choices"; // plasmic-import: kqjrVA4cMqR_/component
 import Water from "../../Water"; // plasmic-import: kgxwt1SHeMmu/component
 import Checkbox from "../../Checkbox"; // plasmic-import: IwXl9xUH-ZMp/component
@@ -1492,7 +1492,9 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.inDay.todolist || [];
+              return ($state.inDay.todolist || []).filter(
+                item => item !== null
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1592,25 +1594,52 @@ function PlasmicStatusDay__RenderFunc(props: {
               return (() => {
                 const daysOfWeek = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
 
+                const persianMonths = [
+                  "فروردین",
+                  "اردیبهشت",
+                  "خرداد",
+                  "تیر",
+                  "مرداد",
+                  "شهریور",
+                  "مهر",
+                  "آبان",
+                  "آذر",
+                  "دی",
+                  "بهمن",
+                  "اسفند"
+                ];
+
                 const today = new Date();
                 const currentYear = today.getFullYear();
-                const currentMonth = today.getMonth();
-                const daysInMonth = new Date(
+                const currentMonth = today.getMonth() + 1;
+                const currentDay = today.getDate();
+                const jalali = window.jalaali.toJalaali(
                   currentYear,
-                  currentMonth + 1,
-                  0
-                ).getDate();
+                  currentMonth,
+                  currentDay
+                );
+                const daysInMonth = window.jalaali.jalaaliMonthLength(
+                  jalali.jy,
+                  jalali.jm
+                );
                 let options = [];
                 for (let day = 1; day <= daysInMonth; day++) {
-                  const date = new Date(currentYear, currentMonth, day);
-                  const originalDate = new Date(date);
-                  date.setDate(date.getDate() - 1);
-                  const dayOfWeek = originalDate.getDay();
+                  const gregorian = window.jalaali.toGregorian(
+                    jalali.jy,
+                    jalali.jm,
+                    day
+                  );
+                  const date = new Date(
+                    gregorian.gy,
+                    gregorian.gm - 1,
+                    gregorian.gd
+                  );
+                  const timezoneOffset = date.getTimezoneOffset() * 60000;
+                  const localDate = new Date(date.getTime() - timezoneOffset);
+                  const dayOfWeek = date.getDay();
                   options.push({
-                    value: originalDate.toISOString().split("T")[0],
-                    label: `${daysOfWeek[dayOfWeek]} - ${
-                      date.toLocaleString("fa-IR").split("/")[2]
-                    } `
+                    value: localDate.toISOString().split("T")[0],
+                    label: `${daysOfWeek[dayOfWeek]} - ${day}`
                   });
                 }
                 return options;
@@ -1728,6 +1757,13 @@ function PlasmicStatusDay__RenderFunc(props: {
             sty.root
           )}
         >
+          <Embed
+            className={classNames("__wab_instance", sty.embedHtml__bv9VP)}
+            code={
+              '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>\r\n'
+            }
+          />
+
           <section className={classNames(projectcss.all, sty.section___4ZTIh)}>
             {(
               hasVariant(globalVariants, "screen", "mobile")
@@ -5245,6 +5281,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         autoSize: { minRows: 5, maxRows: 100 },
                         bordered: false,
                         className: classNames("__wab_instance", sty.memory),
+                        id: "inputMobile",
                         onChange: async (...eventArgs: any) => {
                           generateStateOnChangePropForCodeComponents(
                             $state,
@@ -5931,6 +5968,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           sty.inputnameMedicine
                         ),
                         disabled: false,
+                        id: "inputMobile",
                         onChange: async (...eventArgs: any) => {
                           generateStateOnChangePropForCodeComponents(
                             $state,
@@ -6091,6 +6129,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           sty.nameMedicine
                         ),
                         disabled: false,
+                        id: "inputMobile",
                         onChange: async (...eventArgs: any) => {
                           generateStateOnChangePropForCodeComponents(
                             $state,
@@ -6524,6 +6563,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           "__wab_instance",
                           sty.numberOfMedicin
                         ),
+                        id: "inputMobile",
                         onChange: async (...eventArgs: any) => {
                           generateStateOnChangePropForCodeComponents(
                             $state,
@@ -6907,6 +6947,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         "aria-label": ``,
                         bordered: false,
                         className: classNames("__wab_instance", sty.jobinput),
+                        id: "inputMobile",
                         onChange: async (...eventArgs: any) => {
                           generateStateOnChangePropForCodeComponents(
                             $state,
