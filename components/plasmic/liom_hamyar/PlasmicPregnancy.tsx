@@ -10812,46 +10812,41 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         sty.text___10Ysc
                                       )}
                                     >
-                                      <React.Fragment>
-                                        {(() => {
-                                          try {
-                                            return (() => {
-                                              var vitamin = "";
-                                              var supplement = "";
-                                              const advice = $state?.getAdvice;
-                                              var filteredItem;
-                                              filteredItem = advice.find(item =>
-                                                item.type.includes("vitamin")
-                                              );
-                                              vitamin =
-                                                filteredItem?.text ?? "";
-                                              filteredItem = advice.find(item =>
-                                                item.type.includes("supplement")
-                                              );
-                                              supplement =
-                                                filteredItem?.text ?? "";
-                                              if (supplement == vitamin)
-                                                return supplement + "aaa";
-                                              else
-                                                return (
-                                                  vitamin +
-                                                  (supplement == ""
-                                                    ? ""
-                                                    : "/n/n" + supplement)
+                                      <div
+                                        className={
+                                          projectcss.__wab_expr_html_text
+                                        }
+                                        dangerouslySetInnerHTML={{
+                                          __html: (() => {
+                                            try {
+                                              return (() => {
+                                                var supplement = "";
+                                                const advice =
+                                                  $state?.getAdvice;
+                                                var filteredItem;
+                                                filteredItem = advice.find(
+                                                  item =>
+                                                    item.type.includes(
+                                                      "supplement"
+                                                    )
                                                 );
-                                            })();
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return "";
+                                                supplement =
+                                                  filteredItem?.text ?? "";
+                                                return supplement;
+                                              })();
+                                            } catch (e) {
+                                              if (
+                                                e instanceof TypeError ||
+                                                e?.plasmicType ===
+                                                  "PlasmicUndefinedDataError"
+                                              ) {
+                                                return "";
+                                              }
+                                              throw e;
                                             }
-                                            throw e;
-                                          }
-                                        })()}
-                                      </React.Fragment>
+                                          })()
+                                        }}
+                                      />
                                     </div>
                                   ) : null}
                                   {(() => {
