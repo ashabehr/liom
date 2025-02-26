@@ -856,6 +856,56 @@ function PlasmicLogin__RenderFunc(props: {
             ) {
               $steps["goToPage"] = await $steps["goToPage"];
             }
+
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return (() => {
+                        function getQueryParam(param) {
+                          const urlParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          return urlParams.get(param);
+                        }
+                        function isValidDomain(url) {
+                          try {
+                            const domain = new URL(url).hostname;
+                            return (
+                              domain === "https://apps.liom.app/" ||
+                              domain === "https://tools.liom.app/"
+                            );
+                          } catch (e) {
+                            return false;
+                          }
+                        }
+                        function removeAllParamsFromUrl() {
+                          const url = new URL(window.location.href);
+                          url.search = "";
+                          history.replaceState({}, "", url.toString());
+                        }
+                        const redirectUrl = getQueryParam("redirect_url");
+                        if (redirectUrl && isValidDomain(redirectUrl)) {
+                          console.log("ok");
+                        } else if (redirectUrl) {
+                          window.location.href = "/expired";
+                        }
+                        return removeAllParamsFromUrl();
+                      })();
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
           }}
         >
           <Reveal
