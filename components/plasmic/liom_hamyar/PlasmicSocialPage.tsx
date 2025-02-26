@@ -76,6 +76,7 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicSocialPage.module.css"; // plasmic-import: iNHFQ5RIM3Tb/css
 
 import Icon146Icon from "./icons/PlasmicIcon__Icon146"; // plasmic-import: oL3Gq5u9-MHL/icon
+import Icon175Icon from "./icons/PlasmicIcon__Icon175"; // plasmic-import: Lt-K75cYDcq0/icon
 
 createPlasmicElementProxy;
 
@@ -464,7 +465,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.section__l5Nnd)}
               >
                 <div className={classNames(projectcss.all, sty.freeBox__dnSli)}>
-                  <svg
+                  <Icon175Icon
                     className={classNames(projectcss.all, sty.svg__vNfKk)}
                     role={"img"}
                   />
