@@ -83,7 +83,7 @@ export const PlasmicPost__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicPost__OverridesType = {
   root?: Flex__<"div">;
-  frst?: Flex__<typeof PlasmicImg__>;
+  firstFreamOfVideo?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultPostProps {
@@ -207,11 +207,15 @@ function PlasmicPost__RenderFunc(props: {
         {"text"}
       </div>
       <PlasmicImg__
-        data-plasmic-name={"frst"}
-        data-plasmic-override={overrides.frst}
+        data-plasmic-name={"firstFreamOfVideo"}
+        data-plasmic-override={overrides.firstFreamOfVideo}
         alt={""}
-        className={classNames(sty.frst, {
-          [sty.frstpostType_video]: hasVariant($state, "postType", "video")
+        className={classNames(sty.firstFreamOfVideo, {
+          [sty.firstFreamOfVideopostType_video]: hasVariant(
+            $state,
+            "postType",
+            "video"
+          )
         })}
         displayHeight={"auto"}
         displayMaxHeight={"none"}
@@ -260,15 +264,15 @@ function PlasmicPost__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "frst"],
-  frst: ["frst"]
+  root: ["root", "firstFreamOfVideo"],
+  firstFreamOfVideo: ["firstFreamOfVideo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  frst: typeof PlasmicImg__;
+  firstFreamOfVideo: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -331,7 +335,7 @@ export const PlasmicPost = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    frst: makeNodeComponent("frst"),
+    firstFreamOfVideo: makeNodeComponent("firstFreamOfVideo"),
 
     // Metadata about props expected for PlasmicPost
     internalVariantProps: PlasmicPost__VariantProps,

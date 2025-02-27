@@ -39,15 +39,15 @@
   min-width: 0;
   padding: 0px 16px;
 }
-.frst {
+.firstFreamOfVideo {
   object-fit: cover;
   max-width: 100%;
   display: none !important;
   border-radius: 8px;
 }
-.frst > picture > img {
+.firstFreamOfVideo > picture > img {
   object-fit: cover;
 }
-.frstpostType_video {
+.firstFreamOfVideopostType_video {
   display: block !important;
 }
