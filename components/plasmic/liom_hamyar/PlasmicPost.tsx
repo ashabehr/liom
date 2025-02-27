@@ -59,12 +59,17 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
+import Slider from "../../Slider"; // plasmic-import: oLfFGmnGqOxC/component
+import SliderThumb from "../../SliderThumb"; // plasmic-import: 4_2oYeLXENm4/component
+
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPost.module.css"; // plasmic-import: PIFHnFLcunkZ/css
+
+import PlayIcon from "./icons/PlasmicIcon__Play"; // plasmic-import: L7ZyLxyE87PQ/icon
 
 createPlasmicElementProxy;
 
@@ -85,6 +90,8 @@ export type PlasmicPost__OverridesType = {
   root?: Flex__<"div">;
   firstFreamOfVideo?: Flex__<typeof PlasmicImg__>;
   image?: Flex__<typeof PlasmicImg__>;
+  slider?: Flex__<typeof Slider>;
+  svg?: Flex__<"svg">;
 };
 
 export interface DefaultPostProps {
@@ -139,6 +146,12 @@ function PlasmicPost__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.postType
+      },
+      {
+        path: "slider.value",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -182,6 +195,11 @@ function PlasmicPost__RenderFunc(props: {
               $state,
               "postType",
               "video"
+            ),
+            [sty.textpostType_voise__nhmSsVlsyu]: hasVariant(
+              $state,
+              "postType",
+              "voise"
             )
           }
         )}
@@ -203,6 +221,11 @@ function PlasmicPost__RenderFunc(props: {
               $state,
               "postType",
               "video"
+            ),
+            [sty.textpostType_voise__rkw2Vlsyu]: hasVariant(
+              $state,
+              "postType",
+              "voise"
             )
           }
         )}
@@ -337,14 +360,94 @@ function PlasmicPost__RenderFunc(props: {
           }}
         />
       </div>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__fbVqi, {
+          [sty.freeBoxpostType_voise__fbVqiVlsyu]: hasVariant(
+            $state,
+            "postType",
+            "voise"
+          )
+        })}
+      >
+        <div
+          className={classNames(projectcss.all, sty.freeBox__jhH8, {
+            [sty.freeBoxpostType_voise__jhH8Vlsyu]: hasVariant(
+              $state,
+              "postType",
+              "voise"
+            )
+          })}
+        >
+          <Slider
+            data-plasmic-name={"slider"}
+            data-plasmic-override={overrides.slider}
+            className={classNames("__wab_instance", sty.slider, {
+              [sty.sliderpostType_voise]: hasVariant(
+                $state,
+                "postType",
+                "voise"
+              )
+            })}
+            onChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["slider", "value"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
+
+          <div
+            className={classNames(projectcss.all, sty.freeBox__kj9Wr, {
+              [sty.freeBoxpostType_voise__kj9WrVlsyu]: hasVariant(
+                $state,
+                "postType",
+                "voise"
+              )
+            })}
+          >
+            <div
+              className={classNames(projectcss.all, sty.freeBox__lcehn, {
+                [sty.freeBoxpostType_voise__lcehnVlsyu]: hasVariant(
+                  $state,
+                  "postType",
+                  "voise"
+                )
+              })}
+            >
+              <PlayIcon
+                data-plasmic-name={"svg"}
+                data-plasmic-override={overrides.svg}
+                className={classNames(projectcss.all, sty.svg, {
+                  [sty.svgpostType_voise]: hasVariant(
+                    $state,
+                    "postType",
+                    "voise"
+                  )
+                })}
+                role={"img"}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "firstFreamOfVideo", "image"],
+  root: ["root", "firstFreamOfVideo", "image", "slider", "svg"],
   firstFreamOfVideo: ["firstFreamOfVideo"],
-  image: ["image"]
+  image: ["image"],
+  slider: ["slider"],
+  svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -353,6 +456,8 @@ type NodeDefaultElementType = {
   root: "div";
   firstFreamOfVideo: typeof PlasmicImg__;
   image: typeof PlasmicImg__;
+  slider: typeof Slider;
+  svg: "svg";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -417,6 +522,8 @@ export const PlasmicPost = Object.assign(
     // Helper components rendering sub-elements
     firstFreamOfVideo: makeNodeComponent("firstFreamOfVideo"),
     image: makeNodeComponent("image"),
+    slider: makeNodeComponent("slider"),
+    svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicPost
     internalVariantProps: PlasmicPost__VariantProps,
