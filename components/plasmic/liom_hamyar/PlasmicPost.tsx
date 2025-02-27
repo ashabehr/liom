@@ -69,10 +69,10 @@ import sty from "./PlasmicPost.module.css"; // plasmic-import: PIFHnFLcunkZ/css
 createPlasmicElementProxy;
 
 export type PlasmicPost__VariantMembers = {
-  postType: "video" | "unnamedVariant";
+  postType: "video" | "image";
 };
 export type PlasmicPost__VariantsArgs = {
-  postType?: SingleChoiceArg<"video" | "unnamedVariant">;
+  postType?: SingleChoiceArg<"video" | "image">;
 };
 type VariantPropType = keyof PlasmicPost__VariantsArgs;
 export const PlasmicPost__VariantProps = new Array<VariantPropType>("postType");
@@ -84,10 +84,11 @@ export const PlasmicPost__ArgProps = new Array<ArgPropType>();
 export type PlasmicPost__OverridesType = {
   root?: Flex__<"div">;
   firstFreamOfVideo?: Flex__<typeof PlasmicImg__>;
+  image?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultPostProps {
-  postType?: SingleChoiceArg<"video" | "unnamedVariant">;
+  postType?: SingleChoiceArg<"video" | "image">;
   className?: string;
 }
 
@@ -165,11 +166,7 @@ function PlasmicPost__RenderFunc(props: {
         plasmic_plasmic_rich_components_css.plasmic_tokens,
         sty.root,
         {
-          [sty.rootpostType_unnamedVariant]: hasVariant(
-            $state,
-            "postType",
-            "unnamedVariant"
-          ),
+          [sty.rootpostType_image]: hasVariant($state, "postType", "image"),
           [sty.rootpostType_video]: hasVariant($state, "postType", "video")
         }
       )}
@@ -206,24 +203,19 @@ function PlasmicPost__RenderFunc(props: {
       >
         {"text"}
       </div>
-      <PlasmicImg__
-        data-plasmic-name={"firstFreamOfVideo"}
-        data-plasmic-override={overrides.firstFreamOfVideo}
-        alt={""}
-        className={classNames(sty.firstFreamOfVideo, {
-          [sty.firstFreamOfVideopostType_video]: hasVariant(
+      <div
+        className={classNames(projectcss.all, sty.freeBox__eUk9V, {
+          [sty.freeBoxpostType_image__eUk9V2TCWu]: hasVariant(
+            $state,
+            "postType",
+            "image"
+          ),
+          [sty.freeBoxpostType_video__eUk9VpFlEv]: hasVariant(
             $state,
             "postType",
             "video"
           )
         })}
-        displayHeight={"auto"}
-        displayMaxHeight={"none"}
-        displayMaxWidth={"100%"}
-        displayMinHeight={"0"}
-        displayMinWidth={"0"}
-        displayWidth={"auto"}
-        loading={"lazy"}
         onClick={async event => {
           const $steps = {};
 
@@ -252,20 +244,101 @@ function PlasmicPost__RenderFunc(props: {
             $steps["goToPage"] = await $steps["goToPage"];
           }
         }}
-        src={{
-          src: "/plasmic/liom_hamyar/images/bitmap3.png",
-          fullWidth: 1250,
-          fullHeight: 1000,
-          aspectRatio: undefined
+      >
+        <PlasmicImg__
+          data-plasmic-name={"firstFreamOfVideo"}
+          data-plasmic-override={overrides.firstFreamOfVideo}
+          alt={""}
+          className={classNames(sty.firstFreamOfVideo, {
+            [sty.firstFreamOfVideopostType_video]: hasVariant(
+              $state,
+              "postType",
+              "video"
+            )
+          })}
+          displayHeight={"auto"}
+          displayMaxHeight={"100%"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"auto"}
+          loading={"lazy"}
+          src={{
+            src: "/plasmic/liom_hamyar/images/newProjectPng.png",
+            fullWidth: 1080,
+            fullHeight: 764,
+            aspectRatio: undefined
+          }}
+        />
+      </div>
+      <div
+        className={classNames(projectcss.all, sty.freeBox__r7DUg, {
+          [sty.freeBoxpostType_image__r7DUg2TCWu]: hasVariant(
+            $state,
+            "postType",
+            "image"
+          )
+        })}
+        onClick={async event => {
+          const $steps = {};
+
+          $steps["goToPage"] = true
+            ? (() => {
+                const actionArgs = {};
+                return (({ destination }) => {
+                  if (
+                    typeof destination === "string" &&
+                    destination.startsWith("#")
+                  ) {
+                    document
+                      .getElementById(destination.substr(1))
+                      .scrollIntoView({ behavior: "smooth" });
+                  } else {
+                    __nextRouter?.push(destination);
+                  }
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["goToPage"] != null &&
+            typeof $steps["goToPage"] === "object" &&
+            typeof $steps["goToPage"].then === "function"
+          ) {
+            $steps["goToPage"] = await $steps["goToPage"];
+          }
         }}
-      />
+      >
+        <PlasmicImg__
+          data-plasmic-name={"image"}
+          data-plasmic-override={overrides.image}
+          alt={""}
+          className={classNames(sty.image, {
+            [sty.imagepostType_image]: hasVariant($state, "postType", "image"),
+            [sty.imagepostType_video]: hasVariant($state, "postType", "video")
+          })}
+          displayHeight={"auto"}
+          displayMaxHeight={"none"}
+          displayMaxWidth={"100%"}
+          displayMinHeight={"0"}
+          displayMinWidth={"0"}
+          displayWidth={"auto"}
+          loading={"lazy"}
+          src={{
+            src: "/plasmic/liom_hamyar/images/image88.webp",
+            fullWidth: 1024,
+            fullHeight: 1024,
+            aspectRatio: undefined
+          }}
+        />
+      </div>
     </div>
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "firstFreamOfVideo"],
-  firstFreamOfVideo: ["firstFreamOfVideo"]
+  root: ["root", "firstFreamOfVideo", "image"],
+  firstFreamOfVideo: ["firstFreamOfVideo"],
+  image: ["image"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -273,6 +346,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   firstFreamOfVideo: typeof PlasmicImg__;
+  image: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -336,6 +410,7 @@ export const PlasmicPost = Object.assign(
   {
     // Helper components rendering sub-elements
     firstFreamOfVideo: makeNodeComponent("firstFreamOfVideo"),
+    image: makeNodeComponent("image"),
 
     // Metadata about props expected for PlasmicPost
     internalVariantProps: PlasmicPost__VariantProps,
