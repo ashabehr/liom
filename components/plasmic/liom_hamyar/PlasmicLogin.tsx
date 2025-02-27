@@ -803,36 +803,30 @@ function PlasmicLogin__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
-                        function getQueryParam(param) {
-                          const urlParams = new URLSearchParams(
-                            window.location.search
-                          );
-                          return urlParams.get(param);
-                        }
-                        function isValidDomain(url) {
+                        const urlParams = new URLSearchParams(
+                          window.location.search
+                        );
+                        const redirectUrl = urlParams.get("redirect_url");
+                        let isValid = false;
+                        if (redirectUrl) {
                           try {
-                            const domain = new URL(url).hostname;
-                            return (
+                            const domain = new URL(redirectUrl).hostname;
+                            isValid =
                               domain === "apps.liom.app" ||
-                              domain === "tools.liom.app"
-                            );
+                              domain === "tools.liom.app";
                           } catch (e) {
-                            return false;
+                            isValid = false;
                           }
                         }
-                        function removeAllParamsFromUrl() {
-                          const url = new URL(window.location.href);
-                          url.search = "";
-                          history.replaceState({}, "", url.toString());
-                        }
-                        const redirectUrl = getQueryParam("redirect_url");
-                        if (redirectUrl && isValidDomain(redirectUrl)) {
+                        if (redirectUrl && isValid) {
                           console.log("ok");
                         } else if (redirectUrl) {
                           window.location.href = "/expired";
                           console.log("no");
                         }
-                        return removeAllParamsFromUrl();
+                        const url = new URL(window.location.href);
+                        url.search = "";
+                        return history.replaceState({}, "", url.toString());
                       })();
                     }
                   };
