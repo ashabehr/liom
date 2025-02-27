@@ -62,6 +62,7 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import Post from "../../Post"; // plasmic-import: PIFHnFLcunkZ/component
 import ReactionBar from "../../ReactionBar"; // plasmic-import: 4BabvpvQ8lyP/component
 import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Comment from "../../Comment"; // plasmic-import: Q00r5f4C3XYv/component
@@ -95,6 +96,7 @@ export const PlasmicSocialPage__ArgProps = new Array<ArgPropType>();
 export type PlasmicSocialPage__OverridesType = {
   root?: Flex__<"div">;
   headerLiom?: Flex__<typeof HeaderLiom>;
+  post?: Flex__<typeof Post>;
   reactionBar?: Flex__<typeof ReactionBar>;
   popover?: Flex__<typeof AntdPopover>;
   comment?: Flex__<typeof Comment>;
@@ -304,7 +306,21 @@ function PlasmicSocialPage__RenderFunc(props: {
                         sty.text__zdN81
                       )}
                     >
-                      {"username"}
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "username";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
                     </div>
                   </Stack__>
                   <div
@@ -359,24 +375,12 @@ function PlasmicSocialPage__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__kwkzd
-                )}
-              >
-                {"title"}
-              </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__jcgMs
-                )}
-              >
-                {"text"}
-              </div>
+              <Post
+                data-plasmic-name={"post"}
+                data-plasmic-override={overrides.post}
+                className={classNames("__wab_instance", sty.post)}
+              />
+
               <div
                 className={classNames(projectcss.all, sty.freeBox___03Hh9)}
                 style={(() => {
@@ -620,6 +624,7 @@ const PlasmicDescendants = {
   root: [
     "root",
     "headerLiom",
+    "post",
     "reactionBar",
     "popover",
     "comment",
@@ -627,6 +632,7 @@ const PlasmicDescendants = {
     "apiRequest"
   ],
   headerLiom: ["headerLiom"],
+  post: ["post"],
   reactionBar: ["reactionBar"],
   popover: ["popover"],
   comment: ["comment"],
@@ -639,6 +645,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   headerLiom: typeof HeaderLiom;
+  post: typeof Post;
   reactionBar: typeof ReactionBar;
   popover: typeof AntdPopover;
   comment: typeof Comment;
@@ -732,6 +739,7 @@ export const PlasmicSocialPage = Object.assign(
   {
     // Helper components rendering sub-elements
     headerLiom: makeNodeComponent("headerLiom"),
+    post: makeNodeComponent("post"),
     reactionBar: makeNodeComponent("reactionBar"),
     popover: makeNodeComponent("popover"),
     comment: makeNodeComponent("comment"),

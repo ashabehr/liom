@@ -795,68 +795,6 @@ function PlasmicLogin__RenderFunc(props: {
               )
             }
           )}
-          onClick={async event => {
-            const $steps = {};
-
-            $steps["goToPage"] = true
-              ? (() => {
-                  const actionArgs = {
-                    destination: (() => {
-                      try {
-                        return (() => {
-                          if (window.location.href.includes("?token")) {
-                            const urlParams = new URLSearchParams(
-                              window.location.search
-                            );
-                            const redirectUrl = urlParams.get("redirect_url");
-                            if (redirectUrl) {
-                              let newUrl = window.location.href;
-                              if (newUrl.includes("?")) {
-                                newUrl +=
-                                  "&redirect_url=" +
-                                  encodeURIComponent(redirectUrl);
-                              } else {
-                                newUrl +=
-                                  "?redirect_url=" +
-                                  encodeURIComponent(redirectUrl);
-                              }
-                              return (window.location.href = newUrl);
-                            }
-                          }
-                        })();
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()
-                  };
-                  return (({ destination }) => {
-                    if (
-                      typeof destination === "string" &&
-                      destination.startsWith("#")
-                    ) {
-                      document
-                        .getElementById(destination.substr(1))
-                        .scrollIntoView({ behavior: "smooth" });
-                    } else {
-                      __nextRouter?.push(destination);
-                    }
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["goToPage"] != null &&
-              typeof $steps["goToPage"] === "object" &&
-              typeof $steps["goToPage"].then === "function"
-            ) {
-              $steps["goToPage"] = await $steps["goToPage"];
-            }
-          }}
           onLoad={async event => {
             const $steps = {};
 
@@ -865,29 +803,36 @@ function PlasmicLogin__RenderFunc(props: {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
-                        const urlParams = new URLSearchParams(
-                          window.location.search
-                        );
-                        const redirectUrl = urlParams.get("redirect_url");
-                        let isValidDomain = false;
-                        if (redirectUrl) {
+                        function getQueryParam(param) {
+                          const urlParams = new URLSearchParams(
+                            window.location.search
+                          );
+                          return urlParams.get(param);
+                        }
+                        function isValidDomain(url) {
                           try {
-                            const domain = new URL(redirectUrl).hostname;
-                            isValidDomain =
+                            const domain = new URL(url).hostname;
+                            return (
                               domain === "apps.liom.app" ||
-                              domain === "tools.liom.app";
+                              domain === "tools.liom.app"
+                            );
                           } catch (e) {
-                            isValidDomain = false;
+                            return false;
                           }
                         }
-                        if (redirectUrl && isValidDomain) {
+                        function removeAllParamsFromUrl() {
+                          const url = new URL(window.location.href);
+                          url.search = "";
+                          history.replaceState({}, "", url.toString());
+                        }
+                        const redirectUrl = getQueryParam("redirect_url");
+                        if (redirectUrl && isValidDomain(redirectUrl)) {
                           console.log("ok");
                         } else if (redirectUrl) {
-                          window.open("/expired");
+                          window.location.href = "/expired";
+                          console.log("no");
                         }
-                        const url = new URL(window.location.href);
-                        url.search = "";
-                        return history.replaceState({}, "", url.toString());
+                        return removeAllParamsFromUrl();
                       })();
                     }
                   };
