@@ -69,10 +69,10 @@ import sty from "./PlasmicPost.module.css"; // plasmic-import: PIFHnFLcunkZ/css
 createPlasmicElementProxy;
 
 export type PlasmicPost__VariantMembers = {
-  postType: "video" | "image";
+  postType: "video" | "image" | "voise";
 };
 export type PlasmicPost__VariantsArgs = {
-  postType?: SingleChoiceArg<"video" | "image">;
+  postType?: SingleChoiceArg<"video" | "image" | "voise">;
 };
 type VariantPropType = keyof PlasmicPost__VariantsArgs;
 export const PlasmicPost__VariantProps = new Array<VariantPropType>("postType");
@@ -88,7 +88,7 @@ export type PlasmicPost__OverridesType = {
 };
 
 export interface DefaultPostProps {
-  postType?: SingleChoiceArg<"video" | "image">;
+  postType?: SingleChoiceArg<"video" | "image" | "voise">;
   className?: string;
 }
 
@@ -167,7 +167,8 @@ function PlasmicPost__RenderFunc(props: {
         sty.root,
         {
           [sty.rootpostType_image]: hasVariant($state, "postType", "image"),
-          [sty.rootpostType_video]: hasVariant($state, "postType", "video")
+          [sty.rootpostType_video]: hasVariant($state, "postType", "video"),
+          [sty.rootpostType_voise]: hasVariant($state, "postType", "voise")
         }
       )}
     >
@@ -193,6 +194,11 @@ function PlasmicPost__RenderFunc(props: {
           projectcss.__wab_text,
           sty.text__rkw2,
           {
+            [sty.textpostType_image__rkw22TCWu]: hasVariant(
+              $state,
+              "postType",
+              "image"
+            ),
             [sty.textpostType_video__rkw2PFlEv]: hasVariant(
               $state,
               "postType",

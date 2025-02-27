@@ -819,14 +819,11 @@ function PlasmicLogin__RenderFunc(props: {
                           }
                         }
                         if (redirectUrl && isValid) {
-                          console.log("ok");
+                          return console.log("ok");
                         } else if (redirectUrl) {
                           window.location.href = "/expired";
-                          console.log("no");
+                          return console.log("no");
                         }
-                        const url = new URL(window.location.href);
-                        url.search = "";
-                        return history.replaceState({}, "", url.toString());
                       })();
                     }
                   };
