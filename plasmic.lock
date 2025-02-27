@@ -1627,12 +1627,12 @@
         {
           "type": "renderModule",
           "assetId": "9yeKzhziT4oA",
-          "checksum": "2de433d81ee9c9b38e2a432bc37b176e"
+          "checksum": "3428953e58f00de3cb2de323b40f4359"
         },
         {
           "type": "cssRules",
           "assetId": "9yeKzhziT4oA",
-          "checksum": "2de433d81ee9c9b38e2a432bc37b176e"
+          "checksum": "3428953e58f00de3cb2de323b40f4359"
         },
         {
           "type": "renderModule",
@@ -2462,12 +2462,12 @@
         {
           "type": "renderModule",
           "assetId": "iNHFQ5RIM3Tb",
-          "checksum": "2d85faadbefac217f7d5d08cce7b1887"
+          "checksum": "bddabeabb08731e30070a6bc6aca1989"
         },
         {
           "type": "cssRules",
           "assetId": "iNHFQ5RIM3Tb",
-          "checksum": "2d85faadbefac217f7d5d08cce7b1887"
+          "checksum": "bddabeabb08731e30070a6bc6aca1989"
         },
         {
           "type": "icon",
@@ -2702,12 +2702,12 @@
         {
           "type": "renderModule",
           "assetId": "PI7WftNbPWTI",
-          "checksum": "89ed41e63433e07cd9c90aacd0c9a008"
+          "checksum": "ef9ba5acdba53821a22c462cd0e541d8"
         },
         {
           "type": "cssRules",
           "assetId": "PI7WftNbPWTI",
-          "checksum": "89ed41e63433e07cd9c90aacd0c9a008"
+          "checksum": "ef9ba5acdba53821a22c462cd0e541d8"
         },
         {
           "type": "renderModule",
@@ -2802,12 +2802,12 @@
         {
           "type": "renderModule",
           "assetId": "-tuOknPDFuNb",
-          "checksum": "c83e3467c1137a807e81b3253d111039"
+          "checksum": "4ada10e3ca0f36e4608925b6ccfc9d48"
         },
         {
           "type": "cssRules",
           "assetId": "-tuOknPDFuNb",
-          "checksum": "c83e3467c1137a807e81b3253d111039"
+          "checksum": "4ada10e3ca0f36e4608925b6ccfc9d48"
         },
         {
           "type": "globalVariant",
@@ -2878,6 +2878,16 @@
           "assetId": "suVPi77vb6vv9K5rYJwyxC",
           "type": "projectCss",
           "checksum": "badfc85b5ae99629501165b74459a443"
+        },
+        {
+          "type": "icon",
+          "assetId": "elrgas2UYaHC",
+          "checksum": "564fabc8c3e664a743a3175fda25ca60"
+        },
+        {
+          "type": "icon",
+          "assetId": "I0EM88peJVoH",
+          "checksum": "943fd32274a02f62b6a0c6fcf33a06be"
         }
       ],
       "codegenVersion": "0.0.1"

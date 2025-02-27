@@ -67,6 +67,7 @@ import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Comment from "../../Comment"; // plasmic-import: Q00r5f4C3XYv/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -76,7 +77,9 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicSocialPage.module.css"; // plasmic-import: iNHFQ5RIM3Tb/css
 
 import Icon146Icon from "./icons/PlasmicIcon__Icon146"; // plasmic-import: oL3Gq5u9-MHL/icon
+import Icon177Icon from "./icons/PlasmicIcon__Icon177"; // plasmic-import: I0EM88peJVoH/icon
 import Icon175Icon from "./icons/PlasmicIcon__Icon175"; // plasmic-import: Lt-K75cYDcq0/icon
+import Icon176Icon from "./icons/PlasmicIcon__Icon176"; // plasmic-import: elrgas2UYaHC/icon
 
 createPlasmicElementProxy;
 
@@ -96,6 +99,7 @@ export type PlasmicSocialPage__OverridesType = {
   popover?: Flex__<typeof AntdPopover>;
   comment?: Flex__<typeof Comment>;
   textArea?: Flex__<typeof AntdTextArea>;
+  apiRequest?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSocialPageProps {}
@@ -155,6 +159,43 @@ function PlasmicSocialPage__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "apiRequest.data",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.error",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "apiRequest.loading",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "token",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -308,10 +349,14 @@ function PlasmicSocialPage__RenderFunc(props: {
                       role={"img"}
                     />
                   </Stack__>
-                  <svg
-                    className={classNames(projectcss.all, sty.svg___2Yunl)}
-                    role={"img"}
-                  />
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__fiSpi)}
+                  >
+                    <Icon177Icon
+                      className={classNames(projectcss.all, sty.svg___2Yunl)}
+                      role={"img"}
+                    />
+                  </div>
                 </div>
               </div>
               <div
@@ -510,7 +555,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                       />
                     );
                   })()}
-                  <svg
+                  <Icon176Icon
                     className={classNames(projectcss.all, sty.svg__o8F2W)}
                     role={"img"}
                   />
@@ -518,6 +563,53 @@ function PlasmicSocialPage__RenderFunc(props: {
               </section>
             </div>
           </div>
+          <ApiRequest
+            data-plasmic-name={"apiRequest"}
+            data-plasmic-override={overrides.apiRequest}
+            className={classNames("__wab_instance", sty.apiRequest)}
+            errorDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__zgkMo
+                )}
+              >
+                {"Error fetching data"}
+              </div>
+            }
+            loadingDisplay={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__kaQmx
+                )}
+              >
+                {"Loading..."}
+              </div>
+            }
+            method={"PUT"}
+            onError={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            onLoading={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "apiRequest",
+                "loading"
+              ]).apply(null, eventArgs);
+            }}
+            onSuccess={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+                null,
+                eventArgs
+              );
+            }}
+            url={"https://n8n.staas.ir/webhook/rest/social"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -525,12 +617,21 @@ function PlasmicSocialPage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "headerLiom", "reactionBar", "popover", "comment", "textArea"],
+  root: [
+    "root",
+    "headerLiom",
+    "reactionBar",
+    "popover",
+    "comment",
+    "textArea",
+    "apiRequest"
+  ],
   headerLiom: ["headerLiom"],
   reactionBar: ["reactionBar"],
   popover: ["popover"],
   comment: ["comment"],
-  textArea: ["textArea"]
+  textArea: ["textArea"],
+  apiRequest: ["apiRequest"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -542,6 +643,7 @@ type NodeDefaultElementType = {
   popover: typeof AntdPopover;
   comment: typeof Comment;
   textArea: typeof AntdTextArea;
+  apiRequest: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -634,6 +736,7 @@ export const PlasmicSocialPage = Object.assign(
     popover: makeNodeComponent("popover"),
     comment: makeNodeComponent("comment"),
     textArea: makeNodeComponent("textArea"),
+    apiRequest: makeNodeComponent("apiRequest"),
 
     // Metadata about props expected for PlasmicSocialPage
     internalVariantProps: PlasmicSocialPage__VariantProps,

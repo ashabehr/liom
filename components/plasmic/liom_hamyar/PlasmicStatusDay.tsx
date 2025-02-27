@@ -96,6 +96,8 @@ import Icon111Icon from "./icons/PlasmicIcon__Icon111"; // plasmic-import: rjflJ
 import CheckSvgIcon from "../todo_mvc_app/icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
 import Icon157Icon from "./icons/PlasmicIcon__Icon157"; // plasmic-import: pYMHtMPOTSpB/icon
+import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
+import ChevronLeftIcon from "./icons/PlasmicIcon__ChevronLeft"; // plasmic-import: DnjmD0szshuz/icon
 import Icon161Icon from "./icons/PlasmicIcon__Icon161"; // plasmic-import: RDv-pcdtwLHX/icon
 import Icon164Icon from "./icons/PlasmicIcon__Icon164"; // plasmic-import: syByyVprhgER/icon
 import Icon165Icon from "./icons/PlasmicIcon__Icon165"; // plasmic-import: BbakN6wLCJed/icon
@@ -134,7 +136,9 @@ export type PlasmicStatusDay__OverridesType = {
   remove?: Flex__<typeof AntdModal>;
   removeBtn?: Flex__<typeof Button>;
   button9?: Flex__<typeof Button>;
+  button14?: Flex__<typeof Button>;
   tabWeek2?: Flex__<typeof TabWeek2>;
+  button12?: Flex__<typeof Button>;
   selectionBox?: Flex__<"div">;
   color?: Flex__<typeof Choices>;
   selectionBox2?: Flex__<"div">;
@@ -1594,39 +1598,15 @@ function PlasmicStatusDay__RenderFunc(props: {
               return (() => {
                 const daysOfWeek = ["ش", "ی", "د", "س", "چ", "پ", "ج"];
 
-                const persianMonths = [
-                  "فروردین",
-                  "اردیبهشت",
-                  "خرداد",
-                  "تیر",
-                  "مرداد",
-                  "شهریور",
-                  "مهر",
-                  "آبان",
-                  "آذر",
-                  "دی",
-                  "بهمن",
-                  "اسفند"
-                ];
-
-                const today = new Date();
-                const currentYear = today.getFullYear();
-                const currentMonth = today.getMonth() + 1;
-                const currentDay = today.getDate();
-                const jalali = window.jalaali.toJalaali(
-                  currentYear,
-                  currentMonth,
-                  currentDay
-                );
                 const daysInMonth = window.jalaali.jalaaliMonthLength(
-                  jalali.jy,
-                  jalali.jm
+                  $state.jalali.jy,
+                  $state.jalali.jm
                 );
                 let options = [];
                 for (let day = 1; day <= daysInMonth; day++) {
                   const gregorian = window.jalaali.toGregorian(
-                    jalali.jy,
-                    jalali.jm,
+                    $state.jalali.jy,
+                    $state.jalali.jm,
                     day
                   );
                   const date = new Date(
@@ -1741,24 +1721,62 @@ function PlasmicStatusDay__RenderFunc(props: {
       {
         path: "currentMonth",
         type: "private",
-        variableType: "number",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => [
+          "\u0641\u0631\u0648\u0631\u062f\u06cc\u0646",
+          "\u0627\u0631\u062f\u06cc\u0628\u0647\u0634\u062a",
+          "\u062e\u0631\u062f\u0627\u062f",
+          "\u062a\u06cc\u0631",
+          "\u0645\u0631\u062f\u0627\u062f",
+          "\u0634\u0647\u0631\u06cc\u0648\u0631",
+          "\u0645\u0647\u0631",
+          "\u0622\u0628\u0627\u0646",
+          "\u0622\u0630\u0631",
+          "\u062f\u06cc",
+          "\u0628\u0647\u0645\u0646",
+          "\u0627\u0633\u0641\u0646\u062f"
+        ]
+      },
+      {
+        path: "jalali",
+        type: "private",
+        variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
               return (() => {
-                var today = new Date();
-                return today.getMonth();
+                const today = new Date();
+                const currentYear = today.getFullYear();
+                const currentMonth = today.getMonth() + 1;
+                const currentDay = today.getDate();
+                return window.jalaali.toJalaali(
+                  currentYear,
+                  currentMonth,
+                  currentDay
+                );
               })();
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return 0;
+                return {};
               }
               throw e;
             }
           })()
+      },
+      {
+        path: "button12.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "white"
+      },
+      {
+        path: "button14.color",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "white"
       }
     ],
     [$props, $ctx, $refs]
@@ -1809,93 +1827,119 @@ function PlasmicStatusDay__RenderFunc(props: {
           />
 
           <section className={classNames(projectcss.all, sty.section___4ZTIh)}>
-            {(
-              hasVariant(globalVariants, "screen", "mobile")
-                ? true
-                : (() => {
-                    try {
-                      return true;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return true;
-                      }
-                      throw e;
-                    }
-                  })()
-            ) ? (
-              <HeaderLiom
-                data-plasmic-name={"headerLiom"}
-                data-plasmic-override={overrides.headerLiom}
-                className={classNames("__wab_instance", sty.headerLiom)}
-                slot={null}
+            <HeaderLiom
+              data-plasmic-name={"headerLiom"}
+              data-plasmic-override={overrides.headerLiom}
+              className={classNames("__wab_instance", sty.headerLiom)}
+              slot={null}
+            >
+              <Stack__
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__upa1J)}
               >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__upa1J)}
-                >
-                  <PlasmicImg__
-                    data-plasmic-name={"img"}
-                    data-plasmic-override={overrides.img}
-                    alt={""}
-                    className={classNames(sty.img)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"20px"}
-                    loading={"lazy"}
-                    onClick={async event => {
-                      const $steps = {};
+                <PlasmicImg__
+                  data-plasmic-name={"img"}
+                  data-plasmic-override={overrides.img}
+                  alt={""}
+                  className={classNames(sty.img)}
+                  displayHeight={"auto"}
+                  displayMaxHeight={"none"}
+                  displayMaxWidth={"100%"}
+                  displayMinHeight={"0"}
+                  displayMinWidth={"0"}
+                  displayWidth={"20px"}
+                  loading={"lazy"}
+                  onClick={async event => {
+                    const $steps = {};
 
-                      $steps["runCode"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              customFunction: async () => {
-                                return (() => {
-                                  return window.history.back();
-                                })();
-                              }
-                            };
-                            return (({ customFunction }) => {
-                              return customFunction();
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["runCode"] != null &&
-                        typeof $steps["runCode"] === "object" &&
-                        typeof $steps["runCode"].then === "function"
-                      ) {
-                        $steps["runCode"] = await $steps["runCode"];
-                      }
-                    }}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image38.svg",
-                      fullWidth: 24,
-                      fullHeight: 24,
-                      aspectRatio: 1
-                    }}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__tlOS
-                    )}
-                  >
-                    {
-                      "\u0648\u0636\u0639\u06cc\u062a \u0627\u0645\u0631\u0648\u0632"
+                    $steps["runCode"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            customFunction: async () => {
+                              return (() => {
+                                return window.history.back();
+                              })();
+                            }
+                          };
+                          return (({ customFunction }) => {
+                            return customFunction();
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["runCode"] != null &&
+                      typeof $steps["runCode"] === "object" &&
+                      typeof $steps["runCode"].then === "function"
+                    ) {
+                      $steps["runCode"] = await $steps["runCode"];
                     }
-                  </div>
-                </Stack__>
-              </HeaderLiom>
-            ) : null}
+                  }}
+                  src={{
+                    src: "/plasmic/liom_hamyar/images/image38.svg",
+                    fullWidth: 24,
+                    fullHeight: 24,
+                    aspectRatio: 1
+                  }}
+                />
+
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__tlOS
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (() => {
+                          var today = new Date();
+                          const daysOfWeekFull = [
+                            "شنبه",
+                            "یکشنبه",
+                            "دوشنبه",
+                            "سه‌شنبه",
+                            "چهارشنبه",
+                            "پنجشنبه",
+                            "جمعه"
+                          ];
+
+                          if (
+                            today.toLocaleString("en-CA").split(",")[0] ==
+                            $state.date
+                          )
+                            return "وضعیت امروز";
+                          else {
+                            today = new Date($state.date);
+                            const currentYear = today.getFullYear();
+                            const currentMonth = today.getMonth() + 1;
+                            const currentDay = today.getDate();
+                            const week = today.getDay();
+                            var j = window.jalaali.toJalaali(
+                              currentYear,
+                              currentMonth,
+                              currentDay
+                            );
+                            return `وضعیت ${daysOfWeekFull[week]} ${j.jd} ${
+                              $state.currentMonth[j.jm - 1]
+                            } ${j.jy}`;
+                          }
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "\u0648\u0636\u0639\u06cc\u062a \u0627\u0645\u0631\u0648\u0632";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </Stack__>
+            </HeaderLiom>
           </section>
           <AntdModal
             data-plasmic-name={"number2"}
@@ -3771,6 +3815,101 @@ function PlasmicStatusDay__RenderFunc(props: {
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__zFbgt)}
             >
+              <Button
+                data-plasmic-name={"button14"}
+                data-plasmic-override={overrides.button14}
+                className={classNames("__wab_instance", sty.button14)}
+                color={generateStateValueProp($state, ["button14", "color"])}
+                endIcon={
+                  <ChevronLeftIcon
+                    className={classNames(projectcss.all, sty.svg__kjov)}
+                    role={"img"}
+                  />
+                }
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              $state.jalali.jm -= 1;
+                              if ($state.jalali.jm < 1) {
+                                $state.jalali.jm = 12;
+                                return ($state.jalali.jy -= 1);
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button14", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                shape={"rounded"}
+                showStartIcon={true}
+                size={"compact"}
+                startIcon={
+                  <ChevronRightIcon
+                    className={classNames(projectcss.all, sty.svg__n2Svi)}
+                    role={"img"}
+                  />
+                }
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__bphj1
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (() => {
+                          var m = $state.jalali.jm - 1;
+                          if (m < 1) {
+                            m = 12;
+                          }
+                          return $state.currentMonth[m - 1];
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return " ";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </Button>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -3938,7 +4077,95 @@ function PlasmicStatusDay__RenderFunc(props: {
                   </TabWeek2>
                 );
               })}
-              <div className={classNames(projectcss.all, sty.freeBox__fhD8)} />
+              <Button
+                data-plasmic-name={"button12"}
+                data-plasmic-override={overrides.button12}
+                className={classNames("__wab_instance", sty.button12)}
+                color={generateStateValueProp($state, ["button12", "color"])}
+                endIcon={
+                  <ChevronLeftIcon
+                    className={classNames(projectcss.all, sty.svg__glXeh)}
+                    role={"img"}
+                  />
+                }
+                onClick={async event => {
+                  const $steps = {};
+
+                  $steps["runCode"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return (() => {
+                              $state.jalali.jm += 1;
+                              if ($state.jalali.jm > 12) {
+                                $state.jalali.jm = 1;
+                                return ($state.jalali.jy += 1);
+                              }
+                            })();
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode"] != null &&
+                    typeof $steps["runCode"] === "object" &&
+                    typeof $steps["runCode"].then === "function"
+                  ) {
+                    $steps["runCode"] = await $steps["runCode"];
+                  }
+                }}
+                onColorChange={async (...eventArgs: any) => {
+                  ((...eventArgs) => {
+                    generateStateOnChangeProp($state, ["button12", "color"])(
+                      eventArgs[0]
+                    );
+                  }).apply(null, eventArgs);
+
+                  if (
+                    eventArgs.length > 1 &&
+                    eventArgs[1] &&
+                    eventArgs[1]._plasmic_state_init_
+                  ) {
+                    return;
+                  }
+                }}
+                shape={"rounded"}
+                showEndIcon={true}
+                size={"compact"}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___8Sq5C
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return (() => {
+                          var m = $state.jalali.jm + 1;
+                          if (m > 12) {
+                            m = 1;
+                          }
+                          return $state.currentMonth[m - 1];
+                        })();
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return " ";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </Button>
             </Stack__>
             <Stack__
               as={"div"}
@@ -7225,7 +7452,9 @@ const PlasmicDescendants = {
     "remove",
     "removeBtn",
     "button9",
+    "button14",
     "tabWeek2",
+    "button12",
     "selectionBox",
     "color",
     "selectionBox2",
@@ -7286,7 +7515,9 @@ const PlasmicDescendants = {
   remove: ["remove", "removeBtn", "button9"],
   removeBtn: ["removeBtn"],
   button9: ["button9"],
+  button14: ["button14"],
   tabWeek2: ["tabWeek2"],
+  button12: ["button12"],
   selectionBox: ["selectionBox", "color"],
   color: ["color"],
   selectionBox2: ["selectionBox2", "intensity"],
@@ -7365,7 +7596,9 @@ type NodeDefaultElementType = {
   remove: typeof AntdModal;
   removeBtn: typeof Button;
   button9: typeof Button;
+  button14: typeof Button;
   tabWeek2: typeof TabWeek2;
+  button12: typeof Button;
   selectionBox: "div";
   color: typeof Choices;
   selectionBox2: "div";
@@ -7512,7 +7745,9 @@ export const PlasmicStatusDay = Object.assign(
     remove: makeNodeComponent("remove"),
     removeBtn: makeNodeComponent("removeBtn"),
     button9: makeNodeComponent("button9"),
+    button14: makeNodeComponent("button14"),
     tabWeek2: makeNodeComponent("tabWeek2"),
+    button12: makeNodeComponent("button12"),
     selectionBox: makeNodeComponent("selectionBox"),
     color: makeNodeComponent("color"),
     selectionBox2: makeNodeComponent("selectionBox2"),

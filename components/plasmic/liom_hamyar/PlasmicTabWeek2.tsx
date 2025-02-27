@@ -256,11 +256,37 @@ function PlasmicTabWeek2__RenderFunc(props: {
           [sty.freeBoxcurrentWeek_selected__cxVucMNoLjBlp4]:
             hasVariant($state, "currentWeek", "currentWeek") &&
             hasVariant($state, "selected", "selected"),
+          [sty.freeBoxdarkSelected__cxVuckEYvD]: hasVariant(
+            $state,
+            "darkSelected",
+            "darkSelected"
+          ),
+          [sty.freeBoxhaveData__cxVucDmqlu]: hasVariant(
+            $state,
+            "haveData",
+            "haveData"
+          ),
+          [sty.freeBoxhaveData_currentWeek__cxVucDmqluMNoLj]:
+            hasVariant($state, "currentWeek", "currentWeek") &&
+            hasVariant($state, "haveData", "haveData"),
+          [sty.freeBoxhaveData_darkSelected__cxVucDmqluKEYvD]:
+            hasVariant($state, "haveData", "haveData") &&
+            hasVariant($state, "darkSelected", "darkSelected"),
           [sty.freeBoxselected__cxVucBlp4]: hasVariant(
             $state,
             "selected",
             "selected"
-          )
+          ),
+          [sty.freeBoxselected_darkSelected__cxVucBlp4KEYvD]:
+            hasVariant($state, "selected", "selected") &&
+            hasVariant($state, "darkSelected", "darkSelected"),
+          [sty.freeBoxselected_darkSelected_dark__cxVucBlp4KEYvDWBfVe]:
+            hasVariant($state, "selected", "selected") &&
+            hasVariant($state, "dark", "dark") &&
+            hasVariant($state, "darkSelected", "darkSelected"),
+          [sty.freeBoxselected_dark__cxVucBlp4WBfVe]:
+            hasVariant($state, "selected", "selected") &&
+            hasVariant($state, "dark", "dark")
         })}
       >
         <div

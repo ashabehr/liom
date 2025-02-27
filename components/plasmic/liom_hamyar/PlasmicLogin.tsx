@@ -856,41 +856,38 @@ function PlasmicLogin__RenderFunc(props: {
             ) {
               $steps["goToPage"] = await $steps["goToPage"];
             }
+          }}
+          onLoad={async event => {
+            const $steps = {};
 
             $steps["runCode"] = true
               ? (() => {
                   const actionArgs = {
                     customFunction: async () => {
                       return (() => {
-                        function getQueryParam(param) {
-                          const urlParams = new URLSearchParams(
-                            window.location.search
-                          );
-                          return urlParams.get(param);
-                        }
-                        function isValidDomain(url) {
+                        const urlParams = new URLSearchParams(
+                          window.location.search
+                        );
+                        const redirectUrl = urlParams.get("redirect_url");
+                        let isValidDomain = false;
+                        if (redirectUrl) {
                           try {
-                            const domain = new URL(url).hostname;
-                            return (
-                              domain === "https://apps.liom.app/" ||
-                              domain === "https://tools.liom.app/"
-                            );
+                            const domain = new URL(redirectUrl).hostname;
+                            isValidDomain =
+                              domain === "apps.liom.app" ||
+                              domain === "tools.liom.app";
                           } catch (e) {
-                            return false;
+                            isValidDomain = false;
                           }
                         }
-                        function removeAllParamsFromUrl() {
-                          const url = new URL(window.location.href);
-                          url.search = "";
-                          history.replaceState({}, "", url.toString());
-                        }
-                        const redirectUrl = getQueryParam("redirect_url");
-                        if (redirectUrl && isValidDomain(redirectUrl)) {
+                        if (redirectUrl && isValidDomain) {
                           console.log("ok");
                         } else if (redirectUrl) {
-                          window.location.href = "/expired";
+                          window.open("/expired");
                         }
-                        return removeAllParamsFromUrl();
+                        const url = new URL(window.location.href);
+                        url.search = "";
+                        return history.replaceState({}, "", url.toString());
                       })();
                     }
                   };
