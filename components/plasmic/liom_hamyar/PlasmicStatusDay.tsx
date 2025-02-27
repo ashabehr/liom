@@ -1715,6 +1715,50 @@ function PlasmicStatusDay__RenderFunc(props: {
               throw e;
             }
           })()
+      },
+      {
+        path: "currentYear",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                var today = new Date();
+                return today.getFullYear();
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "currentMonth",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                var today = new Date();
+                return today.getMonth();
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return 0;
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
