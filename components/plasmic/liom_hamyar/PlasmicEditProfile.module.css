@@ -27,6 +27,10 @@
     grid-column: 4;
   }
 }
+.embedHtml:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .section__bl29K {
   display: grid;
   position: fixed;
@@ -99,10 +103,6 @@
   height: auto;
   max-width: 100%;
   min-width: 0;
-}
-.embedHtml:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
 }
 .dialogNumberOfDaysOfBleeding:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;

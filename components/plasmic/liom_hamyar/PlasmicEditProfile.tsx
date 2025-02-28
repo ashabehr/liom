@@ -61,8 +61,8 @@ import {
 import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
-import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import { Embed } from "@plasmicpkgs/plasmic-basic-components";
+import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
 import Dialog from "../../Dialog"; // plasmic-import: 6XHfwWx1PCn8/component
 import { Pickers } from "@/components/Pickers"; // plasmic-import: htE-oGSeNx82/codeComponent
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
@@ -103,9 +103,9 @@ export const PlasmicEditProfile__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicEditProfile__OverridesType = {
   root?: Flex__<"div">;
+  embedHtml?: Flex__<typeof Embed>;
   headerLiom?: Flex__<typeof HeaderLiom>;
   img?: Flex__<typeof PlasmicImg__>;
-  embedHtml?: Flex__<typeof Embed>;
   dialogNumberOfDaysOfBleeding?: Flex__<typeof Dialog>;
   pickersForNumberOfDaysOfBleeding?: Flex__<typeof Pickers>;
   button6?: Flex__<typeof Button>;
@@ -266,13 +266,9 @@ function PlasmicEditProfile__RenderFunc(props: {
           (() => {
             try {
               return {
-                gy: $state.getInfo.data.result.user.birthDate.year.toString(),
-                gm: $state.getInfo.data.result.user.birthDate.month
-                  .toString()
-                  .padStart(2, "0"),
+                gy: $state.getInfo.data.result.user.birthDate.year,
+                gm: $state.getInfo.data.result.user.birthDate.month,
                 gd: $state.getInfo.data.result.user.birthDate.day
-                  .toString()
-                  .padStart(2, "0")
               };
             } catch (e) {
               if (
@@ -719,6 +715,15 @@ function PlasmicEditProfile__RenderFunc(props: {
             sty.root
           )}
         >
+          <Embed
+            data-plasmic-name={"embedHtml"}
+            data-plasmic-override={overrides.embedHtml}
+            className={classNames("__wab_instance", sty.embedHtml)}
+            code={
+              '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>\r\n'
+            }
+          />
+
           <section className={classNames(projectcss.all, sty.section__bl29K)}>
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
@@ -769,15 +774,6 @@ function PlasmicEditProfile__RenderFunc(props: {
           >
             {"Enter some text"}
           </div>
-          <Embed
-            data-plasmic-name={"embedHtml"}
-            data-plasmic-override={overrides.embedHtml}
-            className={classNames("__wab_instance", sty.embedHtml)}
-            code={
-              '<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>\r\n'
-            }
-          />
-
           <Dialog
             data-plasmic-name={"dialogNumberOfDaysOfBleeding"}
             data-plasmic-override={overrides.dialogNumberOfDaysOfBleeding}
@@ -2176,12 +2172,23 @@ function PlasmicEditProfile__RenderFunc(props: {
                         try {
                           return (() => {
                             const birthDateObject = $state.dateOfBrith;
-                            const jalaaliDate = window.jalaali.toJalaali(
-                              parseInt(birthDateObject.gy),
-                              parseInt(birthDateObject.gm),
-                              parseInt(birthDateObject.gd)
-                            );
-                            return `${jalaaliDate.jy}/${jalaaliDate.jm}/${jalaaliDate.jd}`;
+                            var jalaaliDate;
+                            if (
+                              window.jalaali.isValidJalaaliDate(
+                                birthDateObject.gy,
+                                birthDateObject.gm,
+                                birthDateObject.gd
+                              )
+                            ) {
+                              jalaaliDate = window.jalaali.toJalaali(
+                                birthDateObject.gy,
+                                birthDateObject.gm,
+                                birthDateObject.gd
+                              );
+                              return `${jalaaliDate.jy}/${jalaaliDate.jm}/${jalaaliDate.jd}`;
+                            } else {
+                              return (jalaaliDate = "lujfv kdsj");
+                            }
                           })();
                         } catch (e) {
                           if (
@@ -3709,9 +3716,9 @@ function PlasmicEditProfile__RenderFunc(props: {
 const PlasmicDescendants = {
   root: [
     "root",
+    "embedHtml",
     "headerLiom",
     "img",
-    "embedHtml",
     "dialogNumberOfDaysOfBleeding",
     "pickersForNumberOfDaysOfBleeding",
     "button6",
@@ -3753,9 +3760,9 @@ const PlasmicDescendants = {
     "weight2",
     "button19"
   ],
+  embedHtml: ["embedHtml"],
   headerLiom: ["headerLiom", "img"],
   img: ["img"],
-  embedHtml: ["embedHtml"],
   dialogNumberOfDaysOfBleeding: [
     "dialogNumberOfDaysOfBleeding",
     "pickersForNumberOfDaysOfBleeding",
@@ -3880,9 +3887,9 @@ type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "div";
+  embedHtml: typeof Embed;
   headerLiom: typeof HeaderLiom;
   img: typeof PlasmicImg__;
-  embedHtml: typeof Embed;
   dialogNumberOfDaysOfBleeding: typeof Dialog;
   pickersForNumberOfDaysOfBleeding: typeof Pickers;
   button6: typeof Button;
@@ -4010,9 +4017,9 @@ export const PlasmicEditProfile = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("root")),
   {
     // Helper components rendering sub-elements
+    embedHtml: makeNodeComponent("embedHtml"),
     headerLiom: makeNodeComponent("headerLiom"),
     img: makeNodeComponent("img"),
-    embedHtml: makeNodeComponent("embedHtml"),
     dialogNumberOfDaysOfBleeding: makeNodeComponent(
       "dialogNumberOfDaysOfBleeding"
     ),
