@@ -2175,15 +2175,13 @@ function PlasmicEditProfile__RenderFunc(props: {
                       {(() => {
                         try {
                           return (() => {
-                            return (() => {
-                              const birthDateObject = $state.dateOfBrith;
-                              const jalaaliDate = window.jalaali.toJalaali(
-                                parseInt(birthDateObject.gy, 10),
-                                parseInt(birthDateObject.gm, 10),
-                                parseInt(birthDateObject.gd, 10)
-                              );
-                              return `${jalaaliDate.jy}/${jalaaliDate.jm}/${jalaaliDate.jd}`;
-                            })();
+                            const birthDateObject = $state.dateOfBrith;
+                            const jalaaliDate = window.jalaali.toJalaali(
+                              parseInt(birthDateObject.gy),
+                              parseInt(birthDateObject.gm),
+                              parseInt(birthDateObject.gd)
+                            );
+                            return `${jalaaliDate.jy}/${jalaaliDate.jm}/${jalaaliDate.jd}`;
                           })();
                         } catch (e) {
                           if (

@@ -59,9 +59,6 @@ import {
   useGlobalActions
 } from "@plasmicapp/react-web/lib/host";
 
-import Slider from "../../Slider"; // plasmic-import: oLfFGmnGqOxC/component
-import SliderThumb from "../../SliderThumb"; // plasmic-import: 4_2oYeLXENm4/component
-
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -90,7 +87,6 @@ export type PlasmicPost__OverridesType = {
   root?: Flex__<"div">;
   firstFreamOfVideo?: Flex__<typeof PlasmicImg__>;
   image?: Flex__<typeof PlasmicImg__>;
-  slider?: Flex__<typeof Slider>;
   svg?: Flex__<"svg">;
 };
 
@@ -146,12 +142,6 @@ function PlasmicPost__RenderFunc(props: {
         type: "private",
         variableType: "variant",
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.postType
-      },
-      {
-        path: "slider.value",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
     [$props, $ctx, $refs]
@@ -378,32 +368,6 @@ function PlasmicPost__RenderFunc(props: {
             )
           })}
         >
-          <Slider
-            data-plasmic-name={"slider"}
-            data-plasmic-override={overrides.slider}
-            className={classNames("__wab_instance", sty.slider, {
-              [sty.sliderpostType_voise]: hasVariant(
-                $state,
-                "postType",
-                "voise"
-              )
-            })}
-            onChange={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["slider", "value"]).apply(
-                null,
-                eventArgs
-              );
-
-              if (
-                eventArgs.length > 1 &&
-                eventArgs[1] &&
-                eventArgs[1]._plasmic_state_init_
-              ) {
-                return;
-              }
-            }}
-          />
-
           <div
             className={classNames(projectcss.all, sty.freeBox__kj9Wr, {
               [sty.freeBoxpostType_voise__kj9WrVlsyu]: hasVariant(
@@ -443,10 +407,9 @@ function PlasmicPost__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "firstFreamOfVideo", "image", "slider", "svg"],
+  root: ["root", "firstFreamOfVideo", "image", "svg"],
   firstFreamOfVideo: ["firstFreamOfVideo"],
   image: ["image"],
-  slider: ["slider"],
   svg: ["svg"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
@@ -456,7 +419,6 @@ type NodeDefaultElementType = {
   root: "div";
   firstFreamOfVideo: typeof PlasmicImg__;
   image: typeof PlasmicImg__;
-  slider: typeof Slider;
   svg: "svg";
 };
 
@@ -522,7 +484,6 @@ export const PlasmicPost = Object.assign(
     // Helper components rendering sub-elements
     firstFreamOfVideo: makeNodeComponent("firstFreamOfVideo"),
     image: makeNodeComponent("image"),
-    slider: makeNodeComponent("slider"),
     svg: makeNodeComponent("svg"),
 
     // Metadata about props expected for PlasmicPost

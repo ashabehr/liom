@@ -73,6 +73,7 @@ import { Embed } from "@plasmicpkgs/plasmic-basic-components";
 import { Timer } from "@plasmicpkgs/plasmic-basic-components";
 import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { ApiRequest } from "@/fragment/components/api-request"; // plasmic-import: GNNZ3K7lFVGd/codeComponent
+import { SideEffect } from "@plasmicpkgs/plasmic-basic-components";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -170,6 +171,7 @@ export type PlasmicLogin__OverridesType = {
   rules?: Flex__<typeof AntdModal>;
   top?: Flex__<"div">;
   apiRequest?: Flex__<typeof ApiRequest>;
+  sideEffect?: Flex__<typeof SideEffect>;
 };
 
 export interface DefaultLoginProps {}
@@ -721,6 +723,12 @@ function PlasmicLogin__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => true
+      },
+      {
+        path: "paramsObject",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
       }
     ],
     [$props, $ctx, $refs]
@@ -797,48 +805,6 @@ function PlasmicLogin__RenderFunc(props: {
           )}
           onLoad={async event => {
             const $steps = {};
-
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return (() => {
-                        const urlParams = new URLSearchParams(
-                          window.location.search
-                        );
-                        const redirectUrl = urlParams.get("redirect_url");
-                        let isValid = false;
-                        if (redirectUrl) {
-                          try {
-                            const domain = new URL(redirectUrl).hostname;
-                            isValid =
-                              domain === "apps.liom.app" ||
-                              domain === "tools.liom.app";
-                          } catch (e) {
-                            isValid = false;
-                          }
-                        }
-                        if (redirectUrl && isValid) {
-                          return console.log("ok");
-                        } else if (redirectUrl) {
-                          window.location.href = "/expired";
-                          return console.log("no");
-                        }
-                      })();
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
           }}
         >
           <Reveal
@@ -14921,6 +14887,41 @@ function PlasmicLogin__RenderFunc(props: {
               </Stack__>
             </div>
           ) : null}
+          <SideEffect
+            data-plasmic-name={"sideEffect"}
+            data-plasmic-override={overrides.sideEffect}
+            className={classNames("__wab_instance", sty.sideEffect)}
+            onMount={async () => {
+              const $steps = {};
+
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          const queryString = window.location.search;
+                          const urlParams = new URLSearchParams(queryString);
+                          urlParams.forEach((value, key) => {
+                            $state.paramsObject[key] = value;
+                          });
+                          return console.log(paramsObject);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -14965,7 +14966,8 @@ const PlasmicDescendants = {
     "button5",
     "rules",
     "top",
-    "apiRequest"
+    "apiRequest",
+    "sideEffect"
   ],
   textInput: ["textInput", "antdInput"],
   antdInput: ["antdInput"],
@@ -15002,7 +15004,8 @@ const PlasmicDescendants = {
   button5: ["button5"],
   rules: ["rules", "top"],
   top: ["top"],
-  apiRequest: ["apiRequest"]
+  apiRequest: ["apiRequest"],
+  sideEffect: ["sideEffect"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -15045,6 +15048,7 @@ type NodeDefaultElementType = {
   rules: typeof AntdModal;
   top: "div";
   apiRequest: typeof ApiRequest;
+  sideEffect: typeof SideEffect;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -15168,6 +15172,7 @@ export const PlasmicLogin = Object.assign(
     rules: makeNodeComponent("rules"),
     top: makeNodeComponent("top"),
     apiRequest: makeNodeComponent("apiRequest"),
+    sideEffect: makeNodeComponent("sideEffect"),
 
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,
