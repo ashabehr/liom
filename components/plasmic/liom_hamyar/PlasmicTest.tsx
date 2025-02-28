@@ -62,6 +62,8 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
+import Slider from "../../Slider"; // plasmic-import: CZfgJ-mOopJF/component
+import SliderThumb from "../../SliderThumb"; // plasmic-import: Ib122mDXcfPx/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -87,6 +89,7 @@ export const PlasmicTest__ArgProps = new Array<ArgPropType>();
 export type PlasmicTest__OverridesType = {
   root?: Flex__<"div">;
   button?: Flex__<typeof Button>;
+  slider?: Flex__<typeof Slider>;
 };
 
 export interface DefaultTestProps {}
@@ -156,6 +159,12 @@ function PlasmicTest__RenderFunc(props: {
         path: "button.color",
         type: "private",
         variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "slider.value",
+        type: "private",
+        variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
@@ -242,6 +251,26 @@ function PlasmicTest__RenderFunc(props: {
               }
             }}
           />
+
+          <Slider
+            data-plasmic-name={"slider"}
+            data-plasmic-override={overrides.slider}
+            className={classNames("__wab_instance", sty.slider)}
+            onChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["slider", "value"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -249,8 +278,9 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button"],
-  button: ["button"]
+  root: ["root", "button", "slider"],
+  button: ["button"],
+  slider: ["slider"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -258,6 +288,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   button: typeof Button;
+  slider: typeof Slider;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -346,6 +377,7 @@ export const PlasmicTest = Object.assign(
   {
     // Helper components rendering sub-elements
     button: makeNodeComponent("button"),
+    slider: makeNodeComponent("slider"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,

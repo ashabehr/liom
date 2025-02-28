@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  align-content: center;
+  align-content: flex-start;
   justify-items: center;
   justify-content: flex-start;
   align-items: center;
@@ -96,13 +96,6 @@
   white-space: pre-wrap;
   min-height: 0;
   padding: 8px 8px 0px 16px;
-}
-.text__q9G4E {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
 }
 .dialogNumberOfDaysOfBleeding:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
@@ -199,7 +192,7 @@
   height: 100%;
   min-width: 0;
   min-height: 0;
-  padding: 8px;
+  padding: 0px;
 }
 .datePickersBirthDay:global(.__wab_instance) {
   max-width: 100%;
@@ -243,8 +236,7 @@
 }
 .button3:global(.__wab_instance) {
   max-width: 100%;
-  width: 100%;
-  min-width: 0;
+  width: 70%;
 }
 .svg___2Ssoz {
   position: relative;
@@ -278,7 +270,7 @@
   position: relative;
   align-items: center;
   justify-content: center;
-  width: auto;
+  width: 30%;
   height: auto;
   max-width: 100%;
   background: none;
@@ -291,9 +283,10 @@
   height: auto;
   max-width: 100%;
   background: #ffffff;
-  color: var(--token-zeOmhvqK1boB);
-  font-weight: 400;
+  color: var(--token-55cSeNPovQFh);
+  font-weight: 500;
   text-align: center;
+  font-size: 18px;
 }
 .dialogForPeriodCycleLength:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
@@ -552,6 +545,774 @@
 .getInfo:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+}
+.verticalIdentity2 {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  max-width: 100%;
+  top: auto;
+  left: auto;
+  z-index: 1;
+  margin-left: 5px;
+  background: #f8f8f8;
+  min-width: 0;
+  padding: 100px 16px;
+}
+.verticalIdentity2 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-top: calc(0px - 16px);
+  height: calc(100% + 16px);
+}
+.verticalIdentity2 > :global(.__wab_flex-container) > *,
+.verticalIdentity2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.verticalIdentity2 > :global(.__wab_flex-container) > picture > img,
+.verticalIdentity2
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 16px;
+}
+@media (max-width: 640px) {
+  .verticalIdentity2 {
+    width: 100%;
+    left: auto;
+    top: auto;
+    min-width: 0;
+    margin: 0px;
+  }
+}
+@media (max-width: 640px) {
+  .verticalIdentity2 > :global(.__wab_flex-container) {
+    min-width: 0;
+  }
+}
+.verticalForNameInput2 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.verticalForNameInput2 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput2 > :global(.__wab_flex-container) > *,
+.verticalForNameInput2
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput2 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput2
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput3 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 30%;
+  height: 25px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 0px;
+}
+.verticalForNameInput3 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput3 > :global(.__wab_flex-container) > *,
+.verticalForNameInput3
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput3 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput3
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput4 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  min-width: 0;
+  flex-shrink: 0;
+  border-radius: 8px;
+  padding: 0px;
+}
+.verticalForNameInput4 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput4 > :global(.__wab_flex-container) > *,
+.verticalForNameInput4
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput4 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput4
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput5 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.verticalForNameInput5 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput5 > :global(.__wab_flex-container) > *,
+.verticalForNameInput5
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput5 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput5
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput6 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 30%;
+  height: 25px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 0px;
+}
+.verticalForNameInput6 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput6 > :global(.__wab_flex-container) > *,
+.verticalForNameInput6
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput6 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput6
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput7 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  min-width: 0;
+  flex-shrink: 0;
+  border-radius: 8px;
+  padding: 0px;
+}
+.verticalForNameInput7 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput7 > :global(.__wab_flex-container) > *,
+.verticalForNameInput7
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput7 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput7
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput8 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.verticalForNameInput8 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput8 > :global(.__wab_flex-container) > *,
+.verticalForNameInput8
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput8 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput8
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput9 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 30%;
+  height: 25px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 0px;
+}
+.verticalForNameInput9 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput9 > :global(.__wab_flex-container) > *,
+.verticalForNameInput9
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput9 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput9
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.freeBox__rORo {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__rORo > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-left: calc(0px - 12px);
+  width: calc(100% + 12px);
+}
+.freeBox__rORo > :global(.__wab_flex-container) > *,
+.freeBox__rORo > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__rORo > :global(.__wab_flex-container) > picture > img,
+.freeBox__rORo
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 12px;
+}
+.verticalForNameInput10 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 0px;
+}
+.verticalForNameInput10 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput10 > :global(.__wab_flex-container) > *,
+.verticalForNameInput10
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput10 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput10
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput11 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 0px;
+}
+.verticalForNameInput11 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput11 > :global(.__wab_flex-container) > *,
+.verticalForNameInput11
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput11 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput11
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput12 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.verticalForNameInput12 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput12 > :global(.__wab_flex-container) > *,
+.verticalForNameInput12
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput12 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput12
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput13 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 30%;
+  height: 25px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 0px;
+}
+.verticalForNameInput13 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput13 > :global(.__wab_flex-container) > *,
+.verticalForNameInput13
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput13 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput13
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.freeBox__vywJf {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__vywJf > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-left: calc(0px - 12px);
+  width: calc(100% + 12px);
+}
+.freeBox__vywJf > :global(.__wab_flex-container) > *,
+.freeBox__vywJf > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__vywJf > :global(.__wab_flex-container) > picture > img,
+.freeBox__vywJf
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 12px;
+}
+.verticalForNameInput14 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 0px;
+}
+.verticalForNameInput14 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput14 > :global(.__wab_flex-container) > *,
+.verticalForNameInput14
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput14 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput14
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput15 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 0px;
+}
+.verticalForNameInput15 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput15 > :global(.__wab_flex-container) > *,
+.verticalForNameInput15
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput15 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput15
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput16 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.verticalForNameInput16 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput16 > :global(.__wab_flex-container) > *,
+.verticalForNameInput16
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput16 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput16
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput17 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 30%;
+  height: 25px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 0px;
+}
+.verticalForNameInput17 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput17 > :global(.__wab_flex-container) > *,
+.verticalForNameInput17
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput17 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput17
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.freeBox__sK8Op {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__sK8Op > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  margin-left: calc(0px - 12px);
+  width: calc(100% + 12px);
+}
+.freeBox__sK8Op > :global(.__wab_flex-container) > *,
+.freeBox__sK8Op > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__sK8Op > :global(.__wab_flex-container) > picture > img,
+.freeBox__sK8Op
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 12px;
+}
+.verticalForNameInput18 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 0px;
+}
+.verticalForNameInput18 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput18 > :global(.__wab_flex-container) > *,
+.verticalForNameInput18
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput18 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput18
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput19 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  min-width: 0;
+  border-radius: 8px;
+  padding: 0px;
+}
+.verticalForNameInput19 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput19 > :global(.__wab_flex-container) > *,
+.verticalForNameInput19
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput19 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput19
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput20 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  background: var(--token-R_Rsn0nP9oIv);
+  min-width: 0;
+  padding: 16px;
+}
+.verticalForNameInput20 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 16px);
+  height: calc(100% + 16px);
+}
+.verticalForNameInput20 > :global(.__wab_flex-container) > *,
+.verticalForNameInput20
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput20 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput20
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 16px;
+}
+.verticalForNameInput21 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 50%;
+  height: 25px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 0px;
+}
+.verticalForNameInput21 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput21 > :global(.__wab_flex-container) > *,
+.verticalForNameInput21
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput21 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput21
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
+}
+.verticalForNameInput22 {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+  height: 20px;
+  min-width: 0;
+  flex-shrink: 0;
+  border-radius: 50px;
+  padding: 0px;
+}
+.verticalForNameInput22 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+  margin-top: calc(0px - 8px);
+  height: calc(100% + 8px);
+}
+.verticalForNameInput22 > :global(.__wab_flex-container) > *,
+.verticalForNameInput22
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > *,
+.verticalForNameInput22 > :global(.__wab_flex-container) > picture > img,
+.verticalForNameInput22
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 8px;
 }
 .verticalIdentity {
   display: flex;

@@ -125,6 +125,28 @@ export type PlasmicEditProfile__OverridesType = {
   pickersForTheDateOfTheFirstDayOfYourLastPeriod?: Flex__<typeof Pickers>;
   button18?: Flex__<typeof Button>;
   getInfo?: Flex__<typeof ApiRequest>;
+  verticalIdentity2?: Flex__<"div">;
+  verticalForNameInput2?: Flex__<"div">;
+  verticalForNameInput3?: Flex__<"div">;
+  verticalForNameInput4?: Flex__<"div">;
+  verticalForNameInput5?: Flex__<"div">;
+  verticalForNameInput6?: Flex__<"div">;
+  verticalForNameInput7?: Flex__<"div">;
+  verticalForNameInput8?: Flex__<"div">;
+  verticalForNameInput9?: Flex__<"div">;
+  verticalForNameInput10?: Flex__<"div">;
+  verticalForNameInput11?: Flex__<"div">;
+  verticalForNameInput12?: Flex__<"div">;
+  verticalForNameInput13?: Flex__<"div">;
+  verticalForNameInput14?: Flex__<"div">;
+  verticalForNameInput15?: Flex__<"div">;
+  verticalForNameInput16?: Flex__<"div">;
+  verticalForNameInput17?: Flex__<"div">;
+  verticalForNameInput18?: Flex__<"div">;
+  verticalForNameInput19?: Flex__<"div">;
+  verticalForNameInput20?: Flex__<"div">;
+  verticalForNameInput21?: Flex__<"div">;
+  verticalForNameInput22?: Flex__<"div">;
   verticalIdentity?: Flex__<"div">;
   verticalForNameInput?: Flex__<"div">;
   nameInput?: Flex__<typeof TextInput>;
@@ -677,6 +699,33 @@ function PlasmicEditProfile__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => ""
+      },
+      {
+        path: "dateOfBrithFa",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const birthDateObject = $state.dateOfBrith;
+                var jalaaliDate = window.jalaali.toJalaali(
+                  birthDateObject.gy,
+                  birthDateObject.gm,
+                  birthDateObject.gd
+                );
+                return jalaaliDate;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       }
     ],
     [$props, $ctx, $refs]
@@ -765,15 +814,6 @@ function PlasmicEditProfile__RenderFunc(props: {
               </div>
             </HeaderLiom>
           </section>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__q9G4E
-            )}
-          >
-            {"Enter some text"}
-          </div>
           <Dialog
             data-plasmic-name={"dialogNumberOfDaysOfBleeding"}
             data-plasmic-override={overrides.dialogNumberOfDaysOfBleeding}
@@ -1002,9 +1042,45 @@ function PlasmicEditProfile__RenderFunc(props: {
                 <DatePickers
                   data-plasmic-name={"datePickersBirthDay"}
                   data-plasmic-override={overrides.datePickersBirthDay}
-                  SelectedDay={10}
-                  SelectedMonth={10}
-                  SelectedYear={1379}
+                  SelectedDay={(() => {
+                    try {
+                      return $state.dateOfBrithFa.jy || 10;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return 10;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  SelectedMonth={(() => {
+                    try {
+                      return $state.dateOfBrithFa.jm || 10;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return 10;
+                      }
+                      throw e;
+                    }
+                  })()}
+                  SelectedYear={(() => {
+                    try {
+                      return $state.dateOfBrithFa.jy || 1379;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return 1379;
+                      }
+                      throw e;
+                    }
+                  })()}
                   className={classNames(
                     "__wab_instance",
                     sty.datePickersBirthDay
@@ -1049,8 +1125,6 @@ function PlasmicEditProfile__RenderFunc(props: {
                                 $state.datePickersBirthDay.value.month,
                                 $state.datePickersBirthDay.value.day
                               );
-                              hbd.gm = String(hbd.gm).padStart(2, "0");
-                              hbd.gd = String(hbd.gd).padStart(2, "0");
                               return hbd;
                             })()
                           };
@@ -1144,7 +1218,49 @@ function PlasmicEditProfile__RenderFunc(props: {
                     {"\u0627\u0646\u062a\u062e\u0627\u0628"}
                   </div>
                 </Button>
-                <div className={classNames(projectcss.all, sty.freeBox__iImgd)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__iImgd)}
+                  onClick={async event => {
+                    const $steps = {};
+
+                    $steps["updateDialogDateOfBrithOpendialog"] = true
+                      ? (() => {
+                          const actionArgs = {
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["dialogDateOfBrith", "opendialog"]
+                            },
+                            operation: 0,
+                            value: false
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
+
+                            $stateSet(objRoot, variablePath, value);
+                            return value;
+                          })?.apply(null, [actionArgs]);
+                        })()
+                      : undefined;
+                    if (
+                      $steps["updateDialogDateOfBrithOpendialog"] != null &&
+                      typeof $steps["updateDialogDateOfBrithOpendialog"] ===
+                        "object" &&
+                      typeof $steps["updateDialogDateOfBrithOpendialog"]
+                        .then === "function"
+                    ) {
+                      $steps["updateDialogDateOfBrithOpendialog"] =
+                        await $steps["updateDialogDateOfBrithOpendialog"];
+                    }
+                  }}
+                >
                   <div
                     className={classNames(
                       projectcss.all,
@@ -1867,7 +1983,274 @@ function PlasmicEditProfile__RenderFunc(props: {
             data-plasmic-override={overrides.getInfo}
             className={classNames("__wab_instance", sty.getInfo)}
             errorDisplay={null}
-            loadingDisplay={null}
+            loadingDisplay={
+              <Stack__
+                as={"div"}
+                data-plasmic-name={"verticalIdentity2"}
+                data-plasmic-override={overrides.verticalIdentity2}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.verticalIdentity2)}
+              >
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"verticalForNameInput2"}
+                  data-plasmic-override={overrides.verticalForNameInput2}
+                  hasGap={true}
+                  className={classNames(
+                    projectcss.all,
+                    sty.verticalForNameInput2
+                  )}
+                >
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"verticalForNameInput3"}
+                    data-plasmic-override={overrides.verticalForNameInput3}
+                    hasGap={true}
+                    className={classNames(
+                      projectcss.all,
+                      sty.verticalForNameInput3,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"verticalForNameInput4"}
+                    data-plasmic-override={overrides.verticalForNameInput4}
+                    hasGap={true}
+                    className={classNames(
+                      projectcss.all,
+                      sty.verticalForNameInput4,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"verticalForNameInput5"}
+                  data-plasmic-override={overrides.verticalForNameInput5}
+                  hasGap={true}
+                  className={classNames(
+                    projectcss.all,
+                    sty.verticalForNameInput5
+                  )}
+                >
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"verticalForNameInput6"}
+                    data-plasmic-override={overrides.verticalForNameInput6}
+                    hasGap={true}
+                    className={classNames(
+                      projectcss.all,
+                      sty.verticalForNameInput6,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"verticalForNameInput7"}
+                    data-plasmic-override={overrides.verticalForNameInput7}
+                    hasGap={true}
+                    className={classNames(
+                      projectcss.all,
+                      sty.verticalForNameInput7,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"verticalForNameInput8"}
+                  data-plasmic-override={overrides.verticalForNameInput8}
+                  hasGap={true}
+                  className={classNames(
+                    projectcss.all,
+                    sty.verticalForNameInput8
+                  )}
+                >
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"verticalForNameInput9"}
+                    data-plasmic-override={overrides.verticalForNameInput9}
+                    hasGap={true}
+                    className={classNames(
+                      projectcss.all,
+                      sty.verticalForNameInput9,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__rORo)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"verticalForNameInput10"}
+                      data-plasmic-override={overrides.verticalForNameInput10}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.verticalForNameInput10,
+                        "shimmer"
+                      )}
+                    />
+
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"verticalForNameInput11"}
+                      data-plasmic-override={overrides.verticalForNameInput11}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.verticalForNameInput11,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"verticalForNameInput12"}
+                  data-plasmic-override={overrides.verticalForNameInput12}
+                  hasGap={true}
+                  className={classNames(
+                    projectcss.all,
+                    sty.verticalForNameInput12
+                  )}
+                >
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"verticalForNameInput13"}
+                    data-plasmic-override={overrides.verticalForNameInput13}
+                    hasGap={true}
+                    className={classNames(
+                      projectcss.all,
+                      sty.verticalForNameInput13,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__vywJf)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"verticalForNameInput14"}
+                      data-plasmic-override={overrides.verticalForNameInput14}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.verticalForNameInput14,
+                        "shimmer"
+                      )}
+                    />
+
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"verticalForNameInput15"}
+                      data-plasmic-override={overrides.verticalForNameInput15}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.verticalForNameInput15,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"verticalForNameInput16"}
+                  data-plasmic-override={overrides.verticalForNameInput16}
+                  hasGap={true}
+                  className={classNames(
+                    projectcss.all,
+                    sty.verticalForNameInput16
+                  )}
+                >
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"verticalForNameInput17"}
+                    data-plasmic-override={overrides.verticalForNameInput17}
+                    hasGap={true}
+                    className={classNames(
+                      projectcss.all,
+                      sty.verticalForNameInput17,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__sK8Op)}
+                  >
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"verticalForNameInput18"}
+                      data-plasmic-override={overrides.verticalForNameInput18}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.verticalForNameInput18,
+                        "shimmer"
+                      )}
+                    />
+
+                    <Stack__
+                      as={"div"}
+                      data-plasmic-name={"verticalForNameInput19"}
+                      data-plasmic-override={overrides.verticalForNameInput19}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.verticalForNameInput19,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  data-plasmic-name={"verticalForNameInput20"}
+                  data-plasmic-override={overrides.verticalForNameInput20}
+                  hasGap={true}
+                  className={classNames(
+                    projectcss.all,
+                    sty.verticalForNameInput20
+                  )}
+                >
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"verticalForNameInput21"}
+                    data-plasmic-override={overrides.verticalForNameInput21}
+                    hasGap={true}
+                    className={classNames(
+                      projectcss.all,
+                      sty.verticalForNameInput21,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    data-plasmic-name={"verticalForNameInput22"}
+                    data-plasmic-override={overrides.verticalForNameInput22}
+                    hasGap={true}
+                    className={classNames(
+                      projectcss.all,
+                      sty.verticalForNameInput22,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+              </Stack__>
+            }
             method={"GET"}
             onError={async (...eventArgs: any) => {
               generateStateOnChangeProp($state, ["getInfo", "error"]).apply(
@@ -2171,24 +2554,7 @@ function PlasmicEditProfile__RenderFunc(props: {
                       {(() => {
                         try {
                           return (() => {
-                            const birthDateObject = $state.dateOfBrith;
-                            var jalaaliDate;
-                            if (
-                              window.jalaali.isValidJalaaliDate(
-                                birthDateObject.gy,
-                                birthDateObject.gm,
-                                birthDateObject.gd
-                              )
-                            ) {
-                              jalaaliDate = window.jalaali.toJalaali(
-                                birthDateObject.gy,
-                                birthDateObject.gm,
-                                birthDateObject.gd
-                              );
-                              return `${jalaaliDate.jy}/${jalaaliDate.jm}/${jalaaliDate.jd}`;
-                            } else {
-                              return (jalaaliDate = "lujfv kdsj");
-                            }
+                            return `${$state.dateOfBrithFa.jy}/${$state.dateOfBrithFa.jm}/${$state.dateOfBrithFa.jd}`;
                           })();
                         } catch (e) {
                           if (
@@ -3738,6 +4104,28 @@ const PlasmicDescendants = {
     "pickersForTheDateOfTheFirstDayOfYourLastPeriod",
     "button18",
     "getInfo",
+    "verticalIdentity2",
+    "verticalForNameInput2",
+    "verticalForNameInput3",
+    "verticalForNameInput4",
+    "verticalForNameInput5",
+    "verticalForNameInput6",
+    "verticalForNameInput7",
+    "verticalForNameInput8",
+    "verticalForNameInput9",
+    "verticalForNameInput10",
+    "verticalForNameInput11",
+    "verticalForNameInput12",
+    "verticalForNameInput13",
+    "verticalForNameInput14",
+    "verticalForNameInput15",
+    "verticalForNameInput16",
+    "verticalForNameInput17",
+    "verticalForNameInput18",
+    "verticalForNameInput19",
+    "verticalForNameInput20",
+    "verticalForNameInput21",
+    "verticalForNameInput22",
     "verticalIdentity",
     "verticalForNameInput",
     "nameInput",
@@ -3797,6 +4185,28 @@ const PlasmicDescendants = {
   button18: ["button18"],
   getInfo: [
     "getInfo",
+    "verticalIdentity2",
+    "verticalForNameInput2",
+    "verticalForNameInput3",
+    "verticalForNameInput4",
+    "verticalForNameInput5",
+    "verticalForNameInput6",
+    "verticalForNameInput7",
+    "verticalForNameInput8",
+    "verticalForNameInput9",
+    "verticalForNameInput10",
+    "verticalForNameInput11",
+    "verticalForNameInput12",
+    "verticalForNameInput13",
+    "verticalForNameInput14",
+    "verticalForNameInput15",
+    "verticalForNameInput16",
+    "verticalForNameInput17",
+    "verticalForNameInput18",
+    "verticalForNameInput19",
+    "verticalForNameInput20",
+    "verticalForNameInput21",
+    "verticalForNameInput22",
     "verticalIdentity",
     "verticalForNameInput",
     "nameInput",
@@ -3819,6 +4229,78 @@ const PlasmicDescendants = {
     "weight2",
     "button19"
   ],
+  verticalIdentity2: [
+    "verticalIdentity2",
+    "verticalForNameInput2",
+    "verticalForNameInput3",
+    "verticalForNameInput4",
+    "verticalForNameInput5",
+    "verticalForNameInput6",
+    "verticalForNameInput7",
+    "verticalForNameInput8",
+    "verticalForNameInput9",
+    "verticalForNameInput10",
+    "verticalForNameInput11",
+    "verticalForNameInput12",
+    "verticalForNameInput13",
+    "verticalForNameInput14",
+    "verticalForNameInput15",
+    "verticalForNameInput16",
+    "verticalForNameInput17",
+    "verticalForNameInput18",
+    "verticalForNameInput19",
+    "verticalForNameInput20",
+    "verticalForNameInput21",
+    "verticalForNameInput22"
+  ],
+  verticalForNameInput2: [
+    "verticalForNameInput2",
+    "verticalForNameInput3",
+    "verticalForNameInput4"
+  ],
+  verticalForNameInput3: ["verticalForNameInput3"],
+  verticalForNameInput4: ["verticalForNameInput4"],
+  verticalForNameInput5: [
+    "verticalForNameInput5",
+    "verticalForNameInput6",
+    "verticalForNameInput7"
+  ],
+  verticalForNameInput6: ["verticalForNameInput6"],
+  verticalForNameInput7: ["verticalForNameInput7"],
+  verticalForNameInput8: [
+    "verticalForNameInput8",
+    "verticalForNameInput9",
+    "verticalForNameInput10",
+    "verticalForNameInput11"
+  ],
+  verticalForNameInput9: ["verticalForNameInput9"],
+  verticalForNameInput10: ["verticalForNameInput10"],
+  verticalForNameInput11: ["verticalForNameInput11"],
+  verticalForNameInput12: [
+    "verticalForNameInput12",
+    "verticalForNameInput13",
+    "verticalForNameInput14",
+    "verticalForNameInput15"
+  ],
+  verticalForNameInput13: ["verticalForNameInput13"],
+  verticalForNameInput14: ["verticalForNameInput14"],
+  verticalForNameInput15: ["verticalForNameInput15"],
+  verticalForNameInput16: [
+    "verticalForNameInput16",
+    "verticalForNameInput17",
+    "verticalForNameInput18",
+    "verticalForNameInput19"
+  ],
+  verticalForNameInput17: ["verticalForNameInput17"],
+  verticalForNameInput18: ["verticalForNameInput18"],
+  verticalForNameInput19: ["verticalForNameInput19"],
+  verticalForNameInput20: [
+    "verticalForNameInput20",
+    "verticalForNameInput21",
+    "verticalForNameInput22"
+  ],
+  verticalForNameInput21: ["verticalForNameInput21"],
+  verticalForNameInput22: ["verticalForNameInput22"],
   verticalIdentity: [
     "verticalIdentity",
     "verticalForNameInput",
@@ -3909,6 +4391,28 @@ type NodeDefaultElementType = {
   pickersForTheDateOfTheFirstDayOfYourLastPeriod: typeof Pickers;
   button18: typeof Button;
   getInfo: typeof ApiRequest;
+  verticalIdentity2: "div";
+  verticalForNameInput2: "div";
+  verticalForNameInput3: "div";
+  verticalForNameInput4: "div";
+  verticalForNameInput5: "div";
+  verticalForNameInput6: "div";
+  verticalForNameInput7: "div";
+  verticalForNameInput8: "div";
+  verticalForNameInput9: "div";
+  verticalForNameInput10: "div";
+  verticalForNameInput11: "div";
+  verticalForNameInput12: "div";
+  verticalForNameInput13: "div";
+  verticalForNameInput14: "div";
+  verticalForNameInput15: "div";
+  verticalForNameInput16: "div";
+  verticalForNameInput17: "div";
+  verticalForNameInput18: "div";
+  verticalForNameInput19: "div";
+  verticalForNameInput20: "div";
+  verticalForNameInput21: "div";
+  verticalForNameInput22: "div";
   verticalIdentity: "div";
   verticalForNameInput: "div";
   nameInput: typeof TextInput;
@@ -4049,6 +4553,28 @@ export const PlasmicEditProfile = Object.assign(
     ),
     button18: makeNodeComponent("button18"),
     getInfo: makeNodeComponent("getInfo"),
+    verticalIdentity2: makeNodeComponent("verticalIdentity2"),
+    verticalForNameInput2: makeNodeComponent("verticalForNameInput2"),
+    verticalForNameInput3: makeNodeComponent("verticalForNameInput3"),
+    verticalForNameInput4: makeNodeComponent("verticalForNameInput4"),
+    verticalForNameInput5: makeNodeComponent("verticalForNameInput5"),
+    verticalForNameInput6: makeNodeComponent("verticalForNameInput6"),
+    verticalForNameInput7: makeNodeComponent("verticalForNameInput7"),
+    verticalForNameInput8: makeNodeComponent("verticalForNameInput8"),
+    verticalForNameInput9: makeNodeComponent("verticalForNameInput9"),
+    verticalForNameInput10: makeNodeComponent("verticalForNameInput10"),
+    verticalForNameInput11: makeNodeComponent("verticalForNameInput11"),
+    verticalForNameInput12: makeNodeComponent("verticalForNameInput12"),
+    verticalForNameInput13: makeNodeComponent("verticalForNameInput13"),
+    verticalForNameInput14: makeNodeComponent("verticalForNameInput14"),
+    verticalForNameInput15: makeNodeComponent("verticalForNameInput15"),
+    verticalForNameInput16: makeNodeComponent("verticalForNameInput16"),
+    verticalForNameInput17: makeNodeComponent("verticalForNameInput17"),
+    verticalForNameInput18: makeNodeComponent("verticalForNameInput18"),
+    verticalForNameInput19: makeNodeComponent("verticalForNameInput19"),
+    verticalForNameInput20: makeNodeComponent("verticalForNameInput20"),
+    verticalForNameInput21: makeNodeComponent("verticalForNameInput21"),
+    verticalForNameInput22: makeNodeComponent("verticalForNameInput22"),
     verticalIdentity: makeNodeComponent("verticalIdentity"),
     verticalForNameInput: makeNodeComponent("verticalForNameInput"),
     nameInput: makeNodeComponent("nameInput"),

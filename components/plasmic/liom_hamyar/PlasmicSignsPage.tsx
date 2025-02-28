@@ -380,7 +380,7 @@ function PlasmicSignsPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getSign.data.result.before;
+              return $state.getSign.data.result.before || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -399,7 +399,7 @@ function PlasmicSignsPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getSign.data.result.psychological;
+              return $state.getSign.data.result.psychological || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -418,7 +418,7 @@ function PlasmicSignsPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getSign.data.result.vaginal;
+              return $state.getSign.data.result.vaginal || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -437,7 +437,7 @@ function PlasmicSignsPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getSign.data.result.womans;
+              return $state.getSign.data.result.womans || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -456,7 +456,7 @@ function PlasmicSignsPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getSign.data.result.hereditary;
+              return $state.getSign.data.result.hereditary || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -475,7 +475,7 @@ function PlasmicSignsPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getSign.data.result.venereal;
+              return $state.getSign.data.result.venereal || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -854,7 +854,7 @@ function PlasmicSignsPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $state.getSign.data.result.current;
+              return $state.getSign.data.result.current || [];
             } catch (e) {
               if (
                 e instanceof TypeError ||
