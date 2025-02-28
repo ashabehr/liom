@@ -1488,19 +1488,6 @@
           "cssFilePath": "plasmic/liom_hamyar/PlasmicPost.module.css",
           "scheme": "blackbox",
           "componentType": "component"
-        },
-        {
-          "id": "4_2oYeLXENm4",
-          "name": "SliderThumb",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSliderThumb.tsx",
-          "importSpec": {
-            "modulePath": "SliderThumb.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSliderThumb.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
         }
       ],
       "icons": [
