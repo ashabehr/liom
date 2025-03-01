@@ -185,24 +185,7 @@ function PlasmicSocialPage__RenderFunc(props: {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (
-                $ctx.query.token ==
-                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-                  .eyJpZCI6IjMiLCJpYXQiOjE3MTY0NDYwMjB9.lqQ0 -
-                  BMpH_aQlm4qm4cUpNA2Y90wjV_Jw42rmGjjoZw
-              );
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjYjg4M2NkLWI3ODYtNGMzZS1iYjhiLTA5ZTgyNzVkYTk4YyIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzM5NjA2MjI2fQ.F7OWRYuvRw2zxjIXAiFCtUVG9fLGRPgvYtPpLWUsz4k"
       }
     ],
     [$props, $ctx, $refs]
@@ -302,7 +285,21 @@ function PlasmicSocialPage__RenderFunc(props: {
                         sty.text__zv2Av
                       )}
                     >
-                      {"name"}
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "name";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
                     </div>
                     <div
                       className={classNames(
@@ -311,7 +308,21 @@ function PlasmicSocialPage__RenderFunc(props: {
                         sty.text__zdN81
                       )}
                     >
-                      {"username"}
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return undefined;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "username";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
                     </div>
                   </Stack__>
                   <div
@@ -561,12 +572,29 @@ function PlasmicSocialPage__RenderFunc(props: {
           <ApiRequest
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
-            body={{
-              postId: "798941",
-              commentId: "string",
-              orderBy: "newest",
-              authorization: "token"
-            }}
+            body={(() => {
+              try {
+                return {
+                  postId: "798941",
+                  commentId: "string",
+                  orderBy: "newest",
+                  authorization: $state.token
+                };
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return {
+                    postId: "798941",
+                    commentId: "string",
+                    orderBy: "newest",
+                    authorization: "$state.token"
+                  };
+                }
+                throw e;
+              }
+            })()}
             className={classNames("__wab_instance", sty.apiRequest)}
             errorDisplay={
               <div

@@ -11500,9 +11500,24 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return $state.textBaby[
-                                        $state.selectedWeek - 1
-                                      ];
+                                      return (() => {
+                                        if (
+                                          $ctx.query.userId.slice(
+                                            4,
+                                            $ctx.query.userId.length - 4
+                                          ) ==
+                                          "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                        ) {
+                                          const advice = $state?.getAdvice;
+                                          const filteredItem = advice.find(
+                                            item => item.type.includes("baby")
+                                          );
+                                          return filteredItem?.text ?? "";
+                                        } else
+                                          return $state.textBaby[
+                                            $state.selectedWeek - 1
+                                          ];
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -11933,9 +11948,24 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return $state.textMother[
-                                        $state.selectedWeek - 1
-                                      ];
+                                      return (() => {
+                                        if (
+                                          $ctx.query.userId.slice(
+                                            4,
+                                            $ctx.query.userId.length - 4
+                                          ) ==
+                                          "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                                        ) {
+                                          const advice = $state?.getAdvice;
+                                          const filteredItem = advice.find(
+                                            item => item.type.includes("mother")
+                                          );
+                                          return filteredItem?.text ?? "";
+                                        } else
+                                          return $state.textMother[
+                                            $state.selectedWeek - 1
+                                          ];
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
