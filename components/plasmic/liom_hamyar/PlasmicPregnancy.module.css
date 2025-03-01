@@ -2277,6 +2277,12 @@
   display: none;
   padding: 0px;
 }
+.lottie__p7LfH:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 200px;
+  height: 80px;
+}
 .img___61GPq {
   object-fit: cover;
   max-width: 100%;
@@ -2377,6 +2383,12 @@
   min-width: 0;
   display: none;
   padding: 0px;
+}
+.lottie__z1B0C:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  width: 200px;
+  height: 80px;
 }
 .img__wX3Zo {
   object-fit: cover;

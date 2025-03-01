@@ -150,22 +150,7 @@ function PlasmicSave__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (() => {
-                let likeCount = 0;
-                let liked = false;
-                const likeButton = document.getElementById("likeButton");
-                const likeCountDisplay = document.getElementById("likeCount");
-                return likeButton.addEventListener("click", () => {
-                  if (liked) {
-                    likeCount--;
-                    liked = false;
-                  } else {
-                    likeCount++;
-                    liked = true;
-                  }
-                  likeCountDisplay.textContent = likeCount;
-                });
-              })();
+              return undefined;
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -204,31 +189,6 @@ function PlasmicSave__RenderFunc(props: {
         sty.root,
         { [sty.rootclick]: hasVariant($state, "click", "click") }
       )}
-      onClick={async event => {
-        const $steps = {};
-
-        $steps["updateStateVariable"] = true
-          ? (() => {
-              const actionArgs = { operation: 0 };
-              return (({ variable, value, startIndex, deleteCount }) => {
-                if (!variable) {
-                  return;
-                }
-                const { objRoot, variablePath } = variable;
-
-                $stateSet(objRoot, variablePath, value);
-                return value;
-              })?.apply(null, [actionArgs]);
-            })()
-          : undefined;
-        if (
-          $steps["updateStateVariable"] != null &&
-          typeof $steps["updateStateVariable"] === "object" &&
-          typeof $steps["updateStateVariable"].then === "function"
-        ) {
-          $steps["updateStateVariable"] = await $steps["updateStateVariable"];
-        }
-      }}
     >
       <PlasmicIcon__
         data-plasmic-name={"svg"}

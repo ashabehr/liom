@@ -447,7 +447,9 @@ function PlasmicReactionBar__RenderFunc(props: {
       <Save
         data-plasmic-name={"save"}
         data-plasmic-override={overrides.save}
-        className={classNames("__wab_instance", sty.save)}
+        className={classNames("__wab_instance", sty.save, {
+          [sty.savelike]: hasVariant($state, "like", "like")
+        })}
       />
 
       <div className={classNames(projectcss.all, sty.freeBox__kKk6V)}>
