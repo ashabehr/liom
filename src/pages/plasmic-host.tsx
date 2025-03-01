@@ -18,10 +18,6 @@ import { ApiRequest, apiRequestMeta } from "@/fragment/components/api-request";
 import { Slider, sliderMeta } from "@/fragment/components/slider";
 import { Chart, chartMeta } from "@/fragment/components/chart";
 import { Textarea, textareaMeta } from "@/fragment/components/textarea";
-import {DatePickers,DatePickersMeta} from "@/components/DatePickers";
-import {Pickers,PickersMeta} from "@/components/Pickers";
-import {PullToRefresh,PullToRefreshMeta} from "@/components/PullToRefresh";
-
 
 export default function PlasmicHost() {
   return <PlasmicCanvasHost />;
@@ -40,6 +36,3 @@ registerComponent(Slider, sliderMeta);
 registerComponent(ApiRequest, apiRequestMeta);
 registerComponent(Chart, chartMeta);
 registerComponent(Textarea, textareaMeta);
-registerComponent(DatePickers, DatePickersMeta);
-registerComponent(Pickers, PickersMeta);
-registerComponent(PullToRefresh, PullToRefreshMeta);
