@@ -10,7 +10,7 @@
   position: relative;
   justify-self: flex-start;
   border-radius: 8px;
-  padding: 0px 8px 0px 0px;
+  padding: 8px;
   border-width: 1px;
 }
 .freeBox__euKls {

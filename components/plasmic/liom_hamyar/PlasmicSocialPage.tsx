@@ -306,21 +306,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                         sty.text__zdN81
                       )}
                     >
-                      <React.Fragment>
-                        {(() => {
-                          try {
-                            return undefined;
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return "username";
-                            }
-                            throw e;
-                          }
-                        })()}
-                      </React.Fragment>
+                      {"username"}
                     </div>
                   </Stack__>
                   <div

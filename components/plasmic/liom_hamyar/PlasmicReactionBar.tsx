@@ -60,6 +60,7 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import SocialIcon from "../../SocialIcon"; // plasmic-import: lWxUKYG03CLw/component
+import Save from "../../Save"; // plasmic-import: _x22uBJ4ZqC9/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
@@ -70,7 +71,6 @@ import sty from "./PlasmicReactionBar.module.css"; // plasmic-import: 4BabvpvQ8l
 
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: 4NJq6NYKqIPu/icon
 import Icon149Icon from "./icons/PlasmicIcon__Icon149"; // plasmic-import: bJ7kVZQK3ovZ/icon
-import Icon148Icon from "./icons/PlasmicIcon__Icon148"; // plasmic-import: YYRtcISwKaqe/icon
 import Icon147Icon from "./icons/PlasmicIcon__Icon147"; // plasmic-import: 2SO3BEHlRKXI/icon
 
 createPlasmicElementProxy;
@@ -93,6 +93,7 @@ export const PlasmicReactionBar__ArgProps = new Array<ArgPropType>();
 export type PlasmicReactionBar__OverridesType = {
   root?: Flex__<"div">;
   socialIcon?: Flex__<typeof SocialIcon>;
+  save?: Flex__<typeof Save>;
 };
 
 export interface DefaultReactionBarProps {
@@ -443,22 +444,12 @@ function PlasmicReactionBar__RenderFunc(props: {
           {"32"}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__wic6Z)}>
-        <Icon148Icon
-          className={classNames(projectcss.all, sty.svg__tC3Tj)}
-          role={"img"}
-        />
+      <Save
+        data-plasmic-name={"save"}
+        data-plasmic-override={overrides.save}
+        className={classNames("__wab_instance", sty.save)}
+      />
 
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__joetn
-          )}
-        >
-          {"43"}
-        </div>
-      </div>
       <div className={classNames(projectcss.all, sty.freeBox__kKk6V)}>
         <Icon147Icon
           className={classNames(projectcss.all, sty.svg__pa8Vp)}
@@ -480,8 +471,9 @@ function PlasmicReactionBar__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "socialIcon"],
-  socialIcon: ["socialIcon"]
+  root: ["root", "socialIcon", "save"],
+  socialIcon: ["socialIcon"],
+  save: ["save"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -489,6 +481,7 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   socialIcon: typeof SocialIcon;
+  save: typeof Save;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -552,6 +545,7 @@ export const PlasmicReactionBar = Object.assign(
   {
     // Helper components rendering sub-elements
     socialIcon: makeNodeComponent("socialIcon"),
+    save: makeNodeComponent("save"),
 
     // Metadata about props expected for PlasmicReactionBar
     internalVariantProps: PlasmicReactionBar__VariantProps,

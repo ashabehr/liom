@@ -1490,28 +1490,15 @@
           "componentType": "component"
         },
         {
-          "id": "Ib122mDXcfPx",
-          "name": "SliderThumb",
+          "id": "_x22uBJ4ZqC9",
+          "name": "Save",
           "type": "managed",
           "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSliderThumb.tsx",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSave.tsx",
           "importSpec": {
-            "modulePath": "SliderThumb.tsx"
+            "modulePath": "Save.tsx"
           },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSliderThumb.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
-          "id": "CZfgJ-mOopJF",
-          "name": "Slider",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSlider.tsx",
-          "importSpec": {
-            "modulePath": "Slider.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSlider.module.css",
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSave.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }
@@ -2691,6 +2678,11 @@
           "id": "I0EM88peJVoH",
           "name": "Icon177Icon",
           "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon177.tsx"
+        },
+        {
+          "id": "IlRtbQwC4Aqw",
+          "name": "Icon178Icon",
+          "moduleFilePath": "plasmic/liom_hamyar/icons/PlasmicIcon__Icon178.tsx"
         }
       ],
       "images": [
