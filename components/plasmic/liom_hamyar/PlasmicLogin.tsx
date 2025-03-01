@@ -14904,7 +14904,7 @@ function PlasmicLogin__RenderFunc(props: {
                           urlParams.forEach((value, key) => {
                             $state.paramsObject[key] = value;
                           });
-                          return console.log(paramsObject);
+                          return console.log($state.paramsObject);
                         })();
                       }
                     };
