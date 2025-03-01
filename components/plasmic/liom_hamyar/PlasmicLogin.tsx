@@ -14904,7 +14904,25 @@ function PlasmicLogin__RenderFunc(props: {
                           urlParams.forEach((value, key) => {
                             $state.paramsObject[key] = value;
                           });
-                          return console.log($state.paramsObject);
+                          console.log($state.paramsObject);
+                          const redirectUrl = $state.paramsObject.redirect_url;
+                          let isValid = false;
+                          if (redirectUrl) {
+                            try {
+                              const domain = new URL(redirectUrl).hostname;
+                              isValid =
+                                domain === "apps.liom.app" ||
+                                domain === "tools.liom.app";
+                            } catch (e) {
+                              isValid = false;
+                            }
+                          }
+                          if (redirectUrl && isValid) {
+                            return console.log("ok");
+                          } else if (redirectUrl) {
+                            window.location.href = "/expired";
+                            return console.log("no");
+                          }
                         })();
                       }
                     };
