@@ -122,7 +122,6 @@ export type PlasmicEditProfile__OverridesType = {
   nameInput3?: Flex__<typeof TextInput>;
   nameInput4?: Flex__<typeof TextInput>;
   heightAndWeight?: Flex__<"div">;
-  nameInput5?: Flex__<typeof TextInput>;
   weight?: Flex__<"div">;
   weight2?: Flex__<"div">;
   button19?: Flex__<typeof Button>;
@@ -727,12 +726,6 @@ function PlasmicEditProfile__RenderFunc(props: {
               throw e;
             }
           })()
-      },
-      {
-        path: "nameInput5.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ""
       }
     ],
     [$props, $ctx, $refs]
@@ -2238,128 +2231,32 @@ function PlasmicEditProfile__RenderFunc(props: {
                     }
                   }}
                 >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__m5Ic
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return $state.height;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
                   <RulerIcSvgIcon
                     className={classNames(projectcss.all, sty.svg__y2YdS)}
                     role={"img"}
-                  />
-
-                  <TextInput
-                    data-plasmic-name={"nameInput5"}
-                    data-plasmic-override={overrides.nameInput5}
-                    antdInput2={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__m5Ic
-                        )}
-                      >
-                        <React.Fragment>
-                          {(() => {
-                            try {
-                              return undefined;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return "";
-                              }
-                              throw e;
-                            }
-                          })()}
-                        </React.Fragment>
-                      </div>
-                    }
-                    className={classNames("__wab_instance", sty.nameInput5)}
-                    endIcon={
-                      <CheckSvgIcon
-                        className={classNames(projectcss.all, sty.svg___055DY)}
-                        role={"img"}
-                      />
-                    }
-                    error={(() => {
-                      try {
-                        return $state.empty.lasttime == false;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return [];
-                        }
-                        throw e;
-                      }
-                    })()}
-                    errorText={
-                      "\u067e\u0631 \u06a9\u0631\u062f\u0646  \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0636\u0631\u0648\u0631\u06cc \u0627\u0633\u062a"
-                    }
-                    onChange={async (...eventArgs: any) => {
-                      ((...eventArgs) => {
-                        generateStateOnChangeProp($state, [
-                          "nameInput5",
-                          "value"
-                        ])((e => e.target?.value).apply(null, eventArgs));
-                      }).apply(null, eventArgs);
-
-                      if (
-                        eventArgs.length > 1 &&
-                        eventArgs[1] &&
-                        eventArgs[1]._plasmic_state_init_
-                      ) {
-                        return;
-                      }
-
-                      (async event => {
-                        const $steps = {};
-
-                        $steps["updateName"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                variable: {
-                                  objRoot: $state,
-                                  variablePath: ["name"]
-                                },
-                                operation: 0,
-                                value: $state.nameInput5.value
-                              };
-                              return (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
-
-                                $stateSet(objRoot, variablePath, value);
-                                return value;
-                              })?.apply(null, [actionArgs]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["updateName"] != null &&
-                          typeof $steps["updateName"] === "object" &&
-                          typeof $steps["updateName"].then === "function"
-                        ) {
-                          $steps["updateName"] = await $steps["updateName"];
-                        }
-                      }).apply(null, eventArgs);
-                    }}
-                    showEndIcon={true}
-                    startIcon={
-                      <SearchSvgIcon
-                        className={classNames(projectcss.all, sty.svg__sho0L)}
-                        role={"img"}
-                      />
-                    }
-                    type={"tel"}
-                    value={
-                      generateStateValueProp($state, ["nameInput5", "value"]) ??
-                      ""
-                    }
                   />
                 </div>
               </Stack__>
@@ -4171,7 +4068,6 @@ const PlasmicDescendants = {
     "nameInput3",
     "nameInput4",
     "heightAndWeight",
-    "nameInput5",
     "weight",
     "weight2",
     "button19",
@@ -4239,7 +4135,6 @@ const PlasmicDescendants = {
     "nameInput3",
     "nameInput4",
     "heightAndWeight",
-    "nameInput5",
     "weight",
     "weight2",
     "button19"
@@ -4279,8 +4174,7 @@ const PlasmicDescendants = {
   nameInput2: ["nameInput2"],
   nameInput3: ["nameInput3"],
   nameInput4: ["nameInput4"],
-  heightAndWeight: ["heightAndWeight", "nameInput5", "weight", "weight2"],
-  nameInput5: ["nameInput5"],
+  heightAndWeight: ["heightAndWeight", "weight", "weight2"],
   weight: ["weight", "weight2"],
   weight2: ["weight2"],
   button19: ["button19"],
@@ -4440,7 +4334,6 @@ type NodeDefaultElementType = {
   nameInput3: typeof TextInput;
   nameInput4: typeof TextInput;
   heightAndWeight: "div";
-  nameInput5: typeof TextInput;
   weight: "div";
   weight2: "div";
   button19: typeof Button;
@@ -4595,7 +4488,6 @@ export const PlasmicEditProfile = Object.assign(
     nameInput3: makeNodeComponent("nameInput3"),
     nameInput4: makeNodeComponent("nameInput4"),
     heightAndWeight: makeNodeComponent("heightAndWeight"),
-    nameInput5: makeNodeComponent("nameInput5"),
     weight: makeNodeComponent("weight"),
     weight2: makeNodeComponent("weight2"),
     button19: makeNodeComponent("button19"),

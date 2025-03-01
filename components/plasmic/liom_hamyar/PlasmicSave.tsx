@@ -207,15 +207,9 @@ function PlasmicSave__RenderFunc(props: {
       onClick={async event => {
         const $steps = {};
 
-        $steps["updateClick"] = true
+        $steps["updateStateVariable"] = true
           ? (() => {
-              const actionArgs = {
-                operation: 0,
-                variable: {
-                  objRoot: $state,
-                  variablePath: ["click"]
-                }
-              };
+              const actionArgs = { operation: 0 };
               return (({ variable, value, startIndex, deleteCount }) => {
                 if (!variable) {
                   return;
@@ -228,11 +222,11 @@ function PlasmicSave__RenderFunc(props: {
             })()
           : undefined;
         if (
-          $steps["updateClick"] != null &&
-          typeof $steps["updateClick"] === "object" &&
-          typeof $steps["updateClick"].then === "function"
+          $steps["updateStateVariable"] != null &&
+          typeof $steps["updateStateVariable"] === "object" &&
+          typeof $steps["updateStateVariable"].then === "function"
         ) {
-          $steps["updateClick"] = await $steps["updateClick"];
+          $steps["updateStateVariable"] = await $steps["updateStateVariable"];
         }
       }}
     >

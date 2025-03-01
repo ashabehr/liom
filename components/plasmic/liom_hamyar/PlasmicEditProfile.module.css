@@ -966,30 +966,6 @@
   padding: 8px;
   border-width: 1px;
 }
-.svg__y2YdS {
-  object-fit: cover;
-  max-width: 100%;
-  color: #1d1b1e;
-  width: 30px;
-  height: 30px;
-  flex-shrink: 0;
-}
-.nameInput5:global(.__wab_instance) {
-  max-width: 100%;
-}
-.svg__sho0L {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-}
-.svg___055DY {
-  position: relative;
-  object-fit: cover;
-  width: auto;
-  height: 1em;
-  display: none;
-}
 .text__m5Ic {
   position: relative;
   width: 100%;
@@ -999,6 +975,14 @@
   font-size: 16px;
   text-align: right;
   min-width: 0;
+}
+.svg__y2YdS {
+  object-fit: cover;
+  max-width: 100%;
+  color: #1d1b1e;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
 }
 .weight {
   display: flex;

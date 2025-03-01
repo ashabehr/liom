@@ -6819,7 +6819,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                           "4ddd1fab-100c-49f0-b843-e70bff8add34"
                                         ) {
                                           link =
-                                            "https://tools.liom.app/self-medication/?type=skinCare&inApp=true&token=" +
+                                            "https://tools.liom.app/self-medication/?type=irregular&inApp=true&token=" +
                                             $ctx.query.token +
                                             "&selectStep=" +
                                             "0" +

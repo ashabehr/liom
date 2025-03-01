@@ -187,7 +187,12 @@ function PlasmicSocialPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return undefined;
+              return (
+                $ctx.query.token ==
+                eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+                  .eyJpZCI6IjMiLCJpYXQiOjE3MTY0NDYwMjB9.lqQ0 -
+                  BMpH_aQlm4qm4cUpNA2Y90wjV_Jw42rmGjjoZw
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -556,6 +561,12 @@ function PlasmicSocialPage__RenderFunc(props: {
           <ApiRequest
             data-plasmic-name={"apiRequest"}
             data-plasmic-override={overrides.apiRequest}
+            body={{
+              postId: "798941",
+              commentId: "string",
+              orderBy: "newest",
+              authorization: "token"
+            }}
             className={classNames("__wab_instance", sty.apiRequest)}
             errorDisplay={
               <div
