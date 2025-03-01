@@ -14890,7 +14890,13 @@ function PlasmicLogin__RenderFunc(props: {
           <SideEffect
             data-plasmic-name={"sideEffect"}
             data-plasmic-override={overrides.sideEffect}
-            className={classNames("__wab_instance", sty.sideEffect)}
+            className={classNames("__wab_instance", sty.sideEffect, {
+              [sty.sideEffectloginPage_mobile]: hasVariant(
+                $state,
+                "loginPage",
+                "mobile"
+              )
+            })}
             onMount={async () => {
               const $steps = {};
 
