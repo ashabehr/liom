@@ -395,7 +395,19 @@ function PlasmicPregnancy__RenderFunc(props: {
         type: "private",
         variableType: "number",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
-          parseInt(($state.weeksPregnant / 4 + 1).toString().substring(0, 1))
+          (() => {
+            if (
+              parseInt(($state.weeksPregnant / 4).toString().substring(0, 1)) ==
+              0
+            )
+              return parseInt(
+                ($state.weeksPregnant / 4 + 1).toString().substring(0, 1)
+              );
+            else
+              return parseInt(
+                ($state.weeksPregnant / 4).toString().substring(0, 1)
+              );
+          })()
       },
       {
         path: "getUserInfo.data",
@@ -10627,7 +10639,10 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         const active = filteredItem
                                           ? filteredItem.active
                                           : false;
-                                        return !$state.loadingAdvice && active;
+                                        return (
+                                          !$state.loadingAdvice &&
+                                          (active || $state.selectedWeek < 12)
+                                        );
                                       })();
                                     } catch (e) {
                                       if (
@@ -11358,7 +11373,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       return (
                                         !$state.loadingAdvice &&
                                         !active &&
-                                        $state.weeksPregnant >= 12
+                                        $state.selectedWeek >= 12
                                       );
                                     })();
                                   } catch (e) {
