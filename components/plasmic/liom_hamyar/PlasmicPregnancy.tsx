@@ -126,7 +126,8 @@ export type PlasmicPregnancy__OverridesType = {
   sideEffect?: Flex__<typeof SideEffect>;
   collapseAdvice?: Flex__<typeof AntdSingleCollapse>;
   todoList?: Flex__<typeof TodoList>;
-  collapseMedicine?: Flex__<typeof AntdSingleCollapse>;
+  collapseDanger?: Flex__<typeof AntdSingleCollapse>;
+  collapseMedicine2?: Flex__<typeof AntdSingleCollapse>;
   collapseTest?: Flex__<typeof AntdSingleCollapse>;
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
@@ -609,7 +610,25 @@ function PlasmicPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "collapseMedicine.open",
+        path: "collapseDanger.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+
+        onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
+      },
+      {
+        path: "getDangerItem",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({
+          id: 0,
+          title: ".",
+          stepId: 0
+        })
+      },
+      {
+        path: "collapseMedicine2.open",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
@@ -1574,6 +1593,80 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["runCode7"] = await $steps["runCode7"];
                   }
 
+                  $steps["runCode2"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          customFunction: async () => {
+                            return fetch(
+                              "https://n8n.staas.ir/webhook/self/info/?token=" +
+                                $ctx.query.token.slice(
+                                  6,
+                                  (
+                                    $ctx.query.token ||
+                                    new URLSearchParams(
+                                      window.location.search
+                                    ).get("token")
+                                  ).length - 3
+                                ) +
+                                "&userId=" +
+                                $ctx.query.userId.slice(
+                                  4,
+                                  (
+                                    $ctx.query.userId ||
+                                    new URLSearchParams(
+                                      window.location.search
+                                    ).get("userId")
+                                  ).length - 4
+                                ) +
+                                "&type=danger",
+                              { method: "GET" }
+                            )
+                              .then(response => response.json())
+                              .then(data => {
+                                console.log("get step");
+
+                                fetch(
+                                  "https://n8n.staas.ir/webhook/selfTreatment/?stepId=" +
+                                    data.data[$state.weeksPregnant - 1].id +
+                                    "&userId=" +
+                                    $ctx.query.userId.slice(
+                                      4,
+                                      (
+                                        $ctx.query.userId ||
+                                        new URLSearchParams(
+                                          window.location.search
+                                        ).get("userId")
+                                      ).length - 4
+                                    ),
+                                  { method: "GET" }
+                                )
+                                  .then(response => response.json())
+                                  .then(data2 => {
+                                    console.log("get item");
+                                    $state.getDangerItem = data2;
+                                  })
+                                  .catch(error =>
+                                    console.error("Error-item:", error)
+                                  );
+                              })
+                              .catch(error =>
+                                console.error("Error-step:", error)
+                              );
+                          }
+                        };
+                        return (({ customFunction }) => {
+                          return customFunction();
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["runCode2"] != null &&
+                    typeof $steps["runCode2"] === "object" &&
+                    typeof $steps["runCode2"].then === "function"
+                  ) {
+                    $steps["runCode2"] = await $steps["runCode2"];
+                  }
+
                   $steps["runCode3"] = true
                     ? (() => {
                         const actionArgs = {
@@ -1664,67 +1757,61 @@ function PlasmicPregnancy__RenderFunc(props: {
                     $steps["refreshData"] = await $steps["refreshData"];
                   }
 
-                  $steps["invokeGlobalAction"] =
-                    $ctx.query.userId.slice(4, $ctx.query.userId.length - 4) !=
-                      "314149" &&
-                    $ctx.query.userId.slice(4, $ctx.query.userId.length - 4) !=
-                      "1"
-                      ? (() => {
-                          const actionArgs = {
-                            args: [
-                              "POST",
-                              "https://api.liom.app/service/log",
-                              undefined,
-                              (() => {
-                                try {
-                                  return {
-                                    userId: $ctx.query.userId.slice(
-                                      4,
-                                      $ctx.query.userId.length - 4
-                                    ),
-                                    pageName: "mainPage_pregnancy",
-                                    action: "loadPage",
-                                    extraData: {}
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
+                  $steps["invokeGlobalAction"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          args: [
+                            "POST",
+                            "https://api.liom.app/service/log",
+                            undefined,
+                            (() => {
+                              try {
+                                return {
+                                  userId: $ctx.query.userId.slice(
+                                    4,
+                                    $ctx.query.userId.length - 4
+                                  ),
+                                  pageName: "mainPage_pregnancy",
+                                  action: "loadPage",
+                                  extraData: {}
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
                                 }
-                              })(),
-                              (() => {
-                                try {
-                                  return {
-                                    headers: {
-                                      "Content-Type": "application/json",
-                                      Authorization:
-                                        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
-                                    }
-                                  };
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
+                                throw e;
+                              }
+                            })(),
+                            (() => {
+                              try {
+                                return {
+                                  headers: {
+                                    "Content-Type": "application/json",
+                                    Authorization:
+                                      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
                                   }
-                                  throw e;
+                                };
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
                                 }
-                              })()
-                            ]
-                          };
-                          return $globalActions["Fragment.apiRequest"]?.apply(
-                            null,
-                            [...actionArgs.args]
-                          );
-                        })()
-                      : undefined;
+                                throw e;
+                              }
+                            })()
+                          ]
+                        };
+                        return $globalActions["Fragment.apiRequest"]?.apply(
+                          null,
+                          [...actionArgs.args]
+                        );
+                      })()
+                    : undefined;
                   if (
                     $steps["invokeGlobalAction"] != null &&
                     typeof $steps["invokeGlobalAction"] === "object" &&
@@ -1741,7 +1828,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                           customFunction: async () => {
                             return setTimeout(() => {
                               try {
-                                console.log($state.getUserInfo.data);
                                 var name =
                                   $state.getUserInfo.data?.[0]?.result?.user
                                     ?.name ?? "";
@@ -8730,15 +8816,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                               bordered: true,
                               className: classNames(
                                 "__wab_instance",
-                                sty.collapseMedicine
+                                sty.collapseDanger
                               ),
                               expandIcon: (
                                 <React.Fragment>
                                   {(() => {
                                     try {
-                                      return (
-                                        $state.collapseMedicine.open != true
-                                      );
+                                      return $state.collapseDanger.open != true;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -8770,9 +8854,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   ) : null}
                                   {(() => {
                                     try {
-                                      return (
-                                        $state.collapseMedicine.open == true
-                                      );
+                                      return $state.collapseDanger.open == true;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -8830,14 +8912,14 @@ function PlasmicPregnancy__RenderFunc(props: {
                                         style={{ color: "#000000" }}
                                       >
                                         {
-                                          "\u0645\u06a9\u0645\u0644 \u0648 \u0648\u06cc\u062a\u0627\u0645\u06cc\u0646\u200c\u0647\u0627"
+                                          "\u062e\u0637\u0631\u0646\u0627\u06a9\u0647 \u06cc\u0627\u0646\u0647!"
                                         }
                                       </span>
                                     </React.Fragment>
                                   </div>
                                   {(() => {
                                     try {
-                                      return $state.collapseMedicine.open;
+                                      return $state.collapseDanger.open;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -8882,7 +8964,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 generateStateOnChangePropForCodeComponents(
                                   $state,
                                   "open",
-                                  ["collapseMedicine", "open"],
+                                  ["collapseDanger", "open"],
                                   AntdSingleCollapse_Helpers
                                 ).apply(null, eventArgs);
 
@@ -8890,7 +8972,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   const $steps = {};
 
                                   $steps["invokeGlobalAction2"] =
-                                    $state.collapseMedicine.open &&
+                                    $state.collapseDanger.open &&
                                     $state.weeksPregnant >= 12 &&
                                     false
                                       ? (() => {
@@ -8935,7 +9017,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   }
 
                                   $steps["invokeGlobalAction"] =
-                                    ($state.collapseMedicine.open
+                                    ($state.collapseDanger.open
                                       ? true
                                       : false) &&
                                     $ctx.query.userId.slice(
@@ -9009,7 +9091,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 }).apply(null, eventArgs);
                               },
                               open: generateStateValueProp($state, [
-                                "collapseMedicine",
+                                "collapseDanger",
                                 "open"
                               ]),
                               showArrow: true,
@@ -9020,7 +9102,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                               [
                                 {
                                   name: "open",
-                                  plasmicStateName: "collapseMedicine.open"
+                                  plasmicStateName: "collapseDanger.open"
                                 }
                               ],
                               [],
@@ -9030,10 +9112,8 @@ function PlasmicPregnancy__RenderFunc(props: {
 
                             return (
                               <AntdSingleCollapse
-                                data-plasmic-name={"collapseMedicine"}
-                                data-plasmic-override={
-                                  overrides.collapseMedicine
-                                }
+                                data-plasmic-name={"collapseDanger"}
+                                data-plasmic-override={overrides.collapseDanger}
                                 {...child$Props}
                               >
                                 <div
@@ -9044,7 +9124,1293 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 >
                                   {(() => {
                                     try {
-                                      return !$state.loadingAdvice;
+                                      return (() => {
+                                        const allowance =
+                                          $state?.getUser?.data?.[0]?.result
+                                            ?.allowance || [];
+                                        const filteredItem = allowance.find(
+                                          item => item.type.includes("danger")
+                                        );
+                                        const active = filteredItem
+                                          ? filteredItem.active
+                                          : false;
+                                        return !$state.loadingAdvice && !active;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.freeBox__vyOob
+                                      )}
+                                    >
+                                      {(_par =>
+                                        !_par
+                                          ? []
+                                          : Array.isArray(_par)
+                                          ? _par
+                                          : [_par])(
+                                        (() => {
+                                          try {
+                                            return $state?.getDangerItem
+                                              ?.length > 0
+                                              ? $state.getDangerItem
+                                              : [];
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return [];
+                                            }
+                                            throw e;
+                                          }
+                                        })()
+                                      ).map(
+                                        (__plasmic_item_0, __plasmic_idx_0) => {
+                                          const currentItem = __plasmic_item_0;
+                                          const currentIndex = __plasmic_idx_0;
+                                          return (
+                                            <div
+                                              className={classNames(
+                                                projectcss.all,
+                                                sty.freeBox__yYOhA
+                                              )}
+                                              key={currentIndex}
+                                              onClick={async event => {
+                                                const $steps = {};
+
+                                                $steps["goToPage"] = (() => {
+                                                  const allowance =
+                                                    $state?.getUser?.data?.[0]
+                                                      ?.result?.allowance || [];
+                                                  const filteredItem =
+                                                    allowance.find(item =>
+                                                      item.type.includes(
+                                                        $ctx.query.type
+                                                      )
+                                                    );
+                                                  const active = filteredItem
+                                                    ? filteredItem.active
+                                                    : false;
+                                                  return (
+                                                    (active ||
+                                                      !currentItem.vip) &&
+                                                    $ctx.query.inApp == "false"
+                                                  );
+                                                })()
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        destination: (() => {
+                                                          try {
+                                                            return (
+                                                              "https://tools.liom.app/self-medication-step/?secId=" +
+                                                              currentItem.id +
+                                                              "&stepId=" +
+                                                              currentItem.stepId +
+                                                              "&style=" +
+                                                              currentItem.styleType +
+                                                              "&type=" +
+                                                              $ctx.query.type +
+                                                              "&token=" +
+                                                              $ctx.query.token +
+                                                              "&inApp=" +
+                                                              $ctx.query.inApp +
+                                                              "&userId=" +
+                                                              $ctx.query
+                                                                .userId +
+                                                              "&selectStep=" +
+                                                              $state.selectedStep +
+                                                              "&version=" +
+                                                              $ctx.query.version
+                                                            );
+                                                          } catch (e) {
+                                                            if (
+                                                              e instanceof
+                                                                TypeError ||
+                                                              e?.plasmicType ===
+                                                                "PlasmicUndefinedDataError"
+                                                            ) {
+                                                              return undefined;
+                                                            }
+                                                            throw e;
+                                                          }
+                                                        })()
+                                                      };
+                                                      return (({
+                                                        destination
+                                                      }) => {
+                                                        if (
+                                                          typeof destination ===
+                                                            "string" &&
+                                                          destination.startsWith(
+                                                            "#"
+                                                          )
+                                                        ) {
+                                                          document
+                                                            .getElementById(
+                                                              destination.substr(
+                                                                1
+                                                              )
+                                                            )
+                                                            .scrollIntoView({
+                                                              behavior: "smooth"
+                                                            });
+                                                        } else {
+                                                          __nextRouter?.push(
+                                                            destination
+                                                          );
+                                                        }
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                                if (
+                                                  $steps["goToPage"] != null &&
+                                                  typeof $steps["goToPage"] ===
+                                                    "object" &&
+                                                  typeof $steps["goToPage"]
+                                                    .then === "function"
+                                                ) {
+                                                  $steps["goToPage"] =
+                                                    await $steps["goToPage"];
+                                                }
+
+                                                $steps["runCode"] = true
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        customFunction:
+                                                          async () => {
+                                                            return window.FlutterChannel.postMessage(
+                                                              "#directDialog-pregnancy_danger_sub"
+                                                            );
+                                                          }
+                                                      };
+                                                      return (({
+                                                        customFunction
+                                                      }) => {
+                                                        return customFunction();
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                                if (
+                                                  $steps["runCode"] != null &&
+                                                  typeof $steps["runCode"] ===
+                                                    "object" &&
+                                                  typeof $steps["runCode"]
+                                                    .then === "function"
+                                                ) {
+                                                  $steps["runCode"] =
+                                                    await $steps["runCode"];
+                                                }
+
+                                                $steps["showToast"] = (() => {
+                                                  const allowance =
+                                                    $state?.getUser?.data?.[0]
+                                                      ?.result?.allowance || [];
+                                                  const filteredItem =
+                                                    allowance.find(item =>
+                                                      item.type.includes(
+                                                        $ctx.query.type
+                                                      )
+                                                    );
+                                                  const active = filteredItem
+                                                    ? filteredItem.active
+                                                    : false;
+                                                  return (
+                                                    $ctx.query.inApp ==
+                                                      "false" &&
+                                                    !active &&
+                                                    currentItem.vip == 1
+                                                  );
+                                                })()
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        args: [
+                                                          "error",
+                                                          "\u0628\u0631\u0627\u06cc \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0644\u0637\u0641\u0627 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u0627\u0632 \u0645\u0627\u0631\u06a9\u062a \u0647\u0627\u06cc \u0645\u0639\u062a\u0628\u0631 \u062f\u0627\u0646\u0644\u0648\u062f \u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc\u062f"
+                                                        ]
+                                                      };
+                                                      return $globalActions[
+                                                        "Fragment.showToast"
+                                                      ]?.apply(null, [
+                                                        ...actionArgs.args
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                                if (
+                                                  $steps["showToast"] != null &&
+                                                  typeof $steps["showToast"] ===
+                                                    "object" &&
+                                                  typeof $steps["showToast"]
+                                                    .then === "function"
+                                                ) {
+                                                  $steps["showToast"] =
+                                                    await $steps["showToast"];
+                                                }
+
+                                                $steps["runCode2"] = (() => {
+                                                  const allowance =
+                                                    $state?.getUser?.data?.[0]
+                                                      ?.result?.allowance || [];
+                                                  const filteredItem =
+                                                    allowance.find(item =>
+                                                      item.type.includes(
+                                                        $ctx.query.type
+                                                      )
+                                                    );
+                                                  const active = filteredItem
+                                                    ? filteredItem.active
+                                                    : false;
+                                                  return (
+                                                    (active ||
+                                                      !currentItem.vip) &&
+                                                    $ctx.query.inApp == "true"
+                                                  );
+                                                })()
+                                                  ? (() => {
+                                                      const actionArgs = {
+                                                        customFunction:
+                                                          async () => {
+                                                            return (() => {
+                                                              var link =
+                                                                "https://tools.liom.app/self-medication-step/?secId=" +
+                                                                currentItem.id +
+                                                                "&stepId=" +
+                                                                currentItem.stepId +
+                                                                "&style=" +
+                                                                currentItem.styleType +
+                                                                "&type=" +
+                                                                $ctx.query
+                                                                  .type +
+                                                                "&token=" +
+                                                                $ctx.query
+                                                                  .token +
+                                                                "&inApp=" +
+                                                                $ctx.query
+                                                                  .inApp +
+                                                                "&userId=" +
+                                                                $ctx.query
+                                                                  .userId +
+                                                                "&selectStep=" +
+                                                                $state.selectedStep +
+                                                                "&version=" +
+                                                                $ctx.query
+                                                                  .version;
+                                                              return window.FlutterChannel.postMessage(
+                                                                "#inAppWebView**@@**" +
+                                                                  currentItem.title +
+                                                                  "|" +
+                                                                  "هفته " +
+                                                                  ($state.selectedStep +
+                                                                    1) +
+                                                                  " اُم" +
+                                                                  "**@@**" +
+                                                                  link
+                                                              );
+                                                            })();
+                                                          }
+                                                      };
+                                                      return (({
+                                                        customFunction
+                                                      }) => {
+                                                        return customFunction();
+                                                      })?.apply(null, [
+                                                        actionArgs
+                                                      ]);
+                                                    })()
+                                                  : undefined;
+                                                if (
+                                                  $steps["runCode2"] != null &&
+                                                  typeof $steps["runCode2"] ===
+                                                    "object" &&
+                                                  typeof $steps["runCode2"]
+                                                    .then === "function"
+                                                ) {
+                                                  $steps["runCode2"] =
+                                                    await $steps["runCode2"];
+                                                }
+                                              }}
+                                            >
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  projectcss.__wab_text,
+                                                  sty.text__uBuR0
+                                                )}
+                                              >
+                                                <React.Fragment>
+                                                  {(() => {
+                                                    try {
+                                                      return (
+                                                        "🟣  " +
+                                                        currentItem.title
+                                                      );
+                                                    } catch (e) {
+                                                      if (
+                                                        e instanceof
+                                                          TypeError ||
+                                                        e?.plasmicType ===
+                                                          "PlasmicUndefinedDataError"
+                                                      ) {
+                                                        return "";
+                                                      }
+                                                      throw e;
+                                                    }
+                                                  })()}
+                                                </React.Fragment>
+                                              </div>
+                                              <div
+                                                className={classNames(
+                                                  projectcss.all,
+                                                  sty.freeBox__tQ43U
+                                                )}
+                                              >
+                                                <div
+                                                  className={classNames(
+                                                    projectcss.all,
+                                                    projectcss.__wab_text,
+                                                    sty.text___8YgK8
+                                                  )}
+                                                >
+                                                  {
+                                                    "\u0645\u0634\u0627\u0647\u062f\u0647"
+                                                  }
+                                                </div>
+                                                <PlasmicImg__
+                                                  alt={""}
+                                                  className={classNames(
+                                                    sty.img__dteKm
+                                                  )}
+                                                  displayHeight={"auto"}
+                                                  displayMaxHeight={"none"}
+                                                  displayMaxWidth={"100%"}
+                                                  displayMinHeight={"0"}
+                                                  displayMinWidth={"0"}
+                                                  displayWidth={"12px"}
+                                                  loading={"lazy"}
+                                                  src={{
+                                                    src: "/plasmic/liom_hamyar/images/image32.svg",
+                                                    fullWidth: 16,
+                                                    fullHeight: 16,
+                                                    aspectRatio: 1
+                                                  }}
+                                                />
+                                              </div>
+                                            </div>
+                                          );
+                                        }
+                                      )}
+                                    </div>
+                                  ) : null}
+                                  {(() => {
+                                    try {
+                                      return $state.loadingAdvice;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <LottieWrapper
+                                      animationData={{
+                                        nm: "Loading Dots",
+                                        ddd: 0,
+                                        h: 50,
+                                        w: 100,
+                                        meta: {
+                                          g: "@lottiefiles/toolkit-js 0.33.2"
+                                        },
+                                        layers: [
+                                          {
+                                            ty: 4,
+                                            nm: "Dot4",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 25
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 39
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 55
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [59.48, 25, 0],
+                                                    t: 25
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [59.48, 23.15, 0],
+                                                    t: 39
+                                                  },
+                                                  { s: [59.48, 25, 0], t: 55 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 25
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 39
+                                                  },
+                                                  { s: [25], t: 55 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 1
+                                          },
+                                          {
+                                            ty: 4,
+                                            nm: "Dot3",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 17
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 31
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 47
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [53.23, 25, 0],
+                                                    t: 17
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [53.23, 23.15, 0],
+                                                    t: 31
+                                                  },
+                                                  { s: [53.23, 25, 0], t: 47 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 17
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 31
+                                                  },
+                                                  { s: [25], t: 47 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 2
+                                          },
+                                          {
+                                            ty: 4,
+                                            nm: "Dot2",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 9
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 23
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 39
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [46.98, 25, 0],
+                                                    t: 9
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [46.98, 23.15, 0],
+                                                    t: 23
+                                                  },
+                                                  { s: [46.98, 25, 0], t: 39 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 9
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 23
+                                                  },
+                                                  { s: [25], t: 39 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 3
+                                          },
+                                          {
+                                            ty: 4,
+                                            nm: "Dot1",
+                                            sr: 1,
+                                            st: 0,
+                                            op: 360,
+                                            ip: 0,
+                                            hd: false,
+                                            ddd: 0,
+                                            bm: 0,
+                                            hasMask: false,
+                                            ao: 0,
+                                            ks: {
+                                              a: {
+                                                a: 0,
+                                                k: [-284, 92, 0],
+                                                ix: 1
+                                              },
+                                              s: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 0
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [3.91, 3.47, 100],
+                                                    t: 14
+                                                  },
+                                                  {
+                                                    s: [2.61, 2.32, 100],
+                                                    t: 30
+                                                  }
+                                                ],
+                                                ix: 6
+                                              },
+                                              sk: { a: 0, k: 0 },
+                                              p: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [40.73, 25, 0],
+                                                    t: 0
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [40.73, 23.15, 0],
+                                                    t: 14
+                                                  },
+                                                  { s: [40.73, 25, 0], t: 30 }
+                                                ],
+                                                ix: 2
+                                              },
+                                              r: { a: 0, k: 0, ix: 10 },
+                                              sa: { a: 0, k: 0 },
+                                              o: {
+                                                a: 1,
+                                                k: [
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [25],
+                                                    t: 0
+                                                  },
+                                                  {
+                                                    o: { x: 0.333, y: 0 },
+                                                    i: { x: 0.667, y: 1 },
+                                                    s: [100],
+                                                    t: 14
+                                                  },
+                                                  { s: [25], t: 30 }
+                                                ],
+                                                ix: 11
+                                              }
+                                            },
+                                            ef: [],
+                                            shapes: [
+                                              {
+                                                ty: "gr",
+                                                bm: 0,
+                                                hd: false,
+                                                mn: "ADBE Vector Group",
+                                                nm: "Ellipse 1",
+                                                ix: 1,
+                                                cix: 2,
+                                                np: 3,
+                                                it: [
+                                                  {
+                                                    ty: "el",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Shape - Ellipse",
+                                                    nm: "Ellipse Path 1",
+                                                    d: 1,
+                                                    p: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 3
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [120, 120],
+                                                      ix: 2
+                                                    }
+                                                  },
+                                                  {
+                                                    ty: "fl",
+                                                    bm: 0,
+                                                    hd: false,
+                                                    mn: "ADBE Vector Graphic - Fill",
+                                                    nm: "Fill 1",
+                                                    c: {
+                                                      a: 0,
+                                                      k: [
+                                                        0.5098, 0.3294, 0.7765
+                                                      ],
+                                                      ix: 4
+                                                    },
+                                                    r: 1,
+                                                    o: { a: 0, k: 100, ix: 5 }
+                                                  },
+                                                  {
+                                                    ty: "tr",
+                                                    a: {
+                                                      a: 0,
+                                                      k: [0, 0],
+                                                      ix: 1
+                                                    },
+                                                    s: {
+                                                      a: 0,
+                                                      k: [100, 100],
+                                                      ix: 3
+                                                    },
+                                                    sk: { a: 0, k: 0, ix: 4 },
+                                                    p: {
+                                                      a: 0,
+                                                      k: [-284, 92],
+                                                      ix: 2
+                                                    },
+                                                    r: { a: 0, k: 0, ix: 6 },
+                                                    sa: { a: 0, k: 0, ix: 5 },
+                                                    o: { a: 0, k: 100, ix: 7 }
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            ind: 4
+                                          }
+                                        ],
+                                        v: "5.7.11",
+                                        fr: 60,
+                                        op: 81,
+                                        ip: 0,
+                                        assets: []
+                                      }}
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.lottie___71IZ
+                                      )}
+                                      preview={true}
+                                    />
+                                  ) : null}
+                                </div>
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      const allowance =
+                                        $state?.getUser?.data?.[0]?.result
+                                          ?.allowance || [];
+                                      const filteredItem = allowance.find(
+                                        item => item.type.includes("danger")
+                                      );
+                                      const active = filteredItem
+                                        ? filteredItem.active
+                                        : false;
+                                      return !$state.loadingAdvice && active;
+                                    })();
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return false;
+                                    }
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox___14ULo
+                                    )}
+                                    onClick={async event => {
+                                      const $steps = {};
+
+                                      $steps["updateBuySub2Open"] =
+                                        $state.weeksPregnant >= 12
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "buySub2",
+                                                    "open"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: true
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
+                                      if (
+                                        $steps["updateBuySub2Open"] != null &&
+                                        typeof $steps["updateBuySub2Open"] ===
+                                          "object" &&
+                                        typeof $steps["updateBuySub2Open"]
+                                          .then === "function"
+                                      ) {
+                                        $steps["updateBuySub2Open"] =
+                                          await $steps["updateBuySub2Open"];
+                                      }
+                                    }}
+                                  >
+                                    <BuyComponenct
+                                      className={classNames(
+                                        "__wab_instance",
+                                        sty.buyComponenct__rfA7
+                                      )}
+                                    />
+                                  </div>
+                                ) : null}
+                              </AntdSingleCollapse>
+                            );
+                          })()}
+                        </div>
+                      ) : null}
+                    </div>
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__d0ZUc)}
+                    >
+                      {(() => {
+                        try {
+                          return (
+                            $ctx.query.userId.slice(
+                              4,
+                              $ctx.query.userId.length - 4
+                            ) == "4ddd1fab-100c-49f0-b843-e70bff8add34"
+                          );
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return false;
+                          }
+                          throw e;
+                        }
+                      })() ? (
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__veeyn
+                          )}
+                        >
+                          {(() => {
+                            const child$Props = {
+                              bordered: true,
+                              className: classNames(
+                                "__wab_instance",
+                                sty.collapseMedicine2
+                              ),
+                              expandIcon: (
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return (
+                                        $state.collapseMedicine2.open != true
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <PlasmicImg__
+                                      alt={""}
+                                      className={classNames(sty.img__xP2T)}
+                                      displayHeight={"auto"}
+                                      displayMaxHeight={"none"}
+                                      displayMaxWidth={"100%"}
+                                      displayMinHeight={"0"}
+                                      displayMinWidth={"0"}
+                                      displayWidth={"15px"}
+                                      loading={"lazy"}
+                                      src={{
+                                        src: "/plasmic/liom_hamyar/images/image32.svg",
+                                        fullWidth: 16,
+                                        fullHeight: 16,
+                                        aspectRatio: 1
+                                      }}
+                                    />
+                                  ) : null}
+                                  {(() => {
+                                    try {
+                                      return (
+                                        $state.collapseMedicine2.open == true
+                                      );
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return true;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <PlasmicImg__
+                                      alt={""}
+                                      className={classNames(sty.img__cYJbc)}
+                                      displayHeight={"auto"}
+                                      displayMaxHeight={"none"}
+                                      displayMaxWidth={"100%"}
+                                      displayMinHeight={"0"}
+                                      displayMinWidth={"0"}
+                                      displayWidth={"25px"}
+                                      loading={"lazy"}
+                                      src={{
+                                        src: "/plasmic/liom_hamyar/images/image31.svg",
+                                        fullWidth: 16,
+                                        fullHeight: 16,
+                                        aspectRatio: 1
+                                      }}
+                                    />
+                                  ) : null}
+                                </React.Fragment>
+                              ),
+                              expandIconPosition: "end",
+                              ghost: true,
+                              label2: (
+                                <Stack__
+                                  as={"div"}
+                                  hasGap={true}
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__pWfZv
+                                  )}
+                                >
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__wmciC
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      <span
+                                        className={
+                                          "plasmic_default__all plasmic_default__span"
+                                        }
+                                        style={{ color: "#000000" }}
+                                      >
+                                        {
+                                          "\u0645\u06a9\u0645\u0644 \u0648 \u0648\u06cc\u062a\u0627\u0645\u06cc\u0646\u200c\u0647\u0627"
+                                        }
+                                      </span>
+                                    </React.Fragment>
+                                  </div>
+                                  {(() => {
+                                    try {
+                                      return $state.collapseMedicine2.open;
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -9060,7 +10426,225 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       className={classNames(
                                         projectcss.all,
                                         projectcss.__wab_text,
-                                        sty.text___10Ysc
+                                        sty.text___5FoHx
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return (
+                                              "هفته " + $state.selectedWeek
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </div>
+                                  ) : null}
+                                </Stack__>
+                              ),
+                              onChange: async (...eventArgs: any) => {
+                                generateStateOnChangePropForCodeComponents(
+                                  $state,
+                                  "open",
+                                  ["collapseMedicine2", "open"],
+                                  AntdSingleCollapse_Helpers
+                                ).apply(null, eventArgs);
+
+                                (async activeIds => {
+                                  const $steps = {};
+
+                                  $steps["invokeGlobalAction2"] =
+                                    $state.collapseMedicine2.open &&
+                                    $state.weeksPregnant >= 12 &&
+                                    false
+                                      ? (() => {
+                                          const actionArgs = {
+                                            variable: {
+                                              objRoot: $state,
+                                              variablePath: ["buySub2", "open"]
+                                            },
+                                            operation: 0,
+                                            value: true
+                                          };
+                                          return (({
+                                            variable,
+                                            value,
+                                            startIndex,
+                                            deleteCount
+                                          }) => {
+                                            if (!variable) {
+                                              return;
+                                            }
+                                            const { objRoot, variablePath } =
+                                              variable;
+
+                                            $stateSet(
+                                              objRoot,
+                                              variablePath,
+                                              value
+                                            );
+                                            return value;
+                                          })?.apply(null, [actionArgs]);
+                                        })()
+                                      : undefined;
+                                  if (
+                                    $steps["invokeGlobalAction2"] != null &&
+                                    typeof $steps["invokeGlobalAction2"] ===
+                                      "object" &&
+                                    typeof $steps["invokeGlobalAction2"]
+                                      .then === "function"
+                                  ) {
+                                    $steps["invokeGlobalAction2"] =
+                                      await $steps["invokeGlobalAction2"];
+                                  }
+
+                                  $steps["invokeGlobalAction"] =
+                                    ($state.collapseMedicine2.open
+                                      ? true
+                                      : false) &&
+                                    $ctx.query.userId.slice(
+                                      4,
+                                      $ctx.query.userId.length - 4
+                                    ) != "314149" &&
+                                    $ctx.query.userId.slice(
+                                      4,
+                                      $ctx.query.userId.length - 4
+                                    ) != "1"
+                                      ? (() => {
+                                          const actionArgs = {
+                                            args: [
+                                              "POST",
+                                              "https://api.liom.app/service/log",
+                                              undefined,
+                                              (() => {
+                                                try {
+                                                  return {
+                                                    userId:
+                                                      $ctx.query.userId
+                                                        ?.length > 0
+                                                        ? $ctx.query.userId.slice(
+                                                            4,
+                                                            $ctx.query.userId
+                                                              .length - 4
+                                                          )
+                                                        : "guest",
+                                                    pageName: "weekByWeekPage",
+                                                    action:
+                                                      "clickOpen-medicineAdvice",
+                                                    extraData: {}
+                                                  };
+                                                } catch (e) {
+                                                  if (
+                                                    e instanceof TypeError ||
+                                                    e?.plasmicType ===
+                                                      "PlasmicUndefinedDataError"
+                                                  ) {
+                                                    return undefined;
+                                                  }
+                                                  throw e;
+                                                }
+                                              })(),
+                                              {
+                                                headers: {
+                                                  "Content-Type":
+                                                    "application/json",
+                                                  Authorization:
+                                                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJuYW1lIjoicHJlZ25hbmN5In0.nE_MuQ821HUfFQAujqlhizJRCtnhZp4Y4DYHZzVGUe4"
+                                                }
+                                              }
+                                            ]
+                                          };
+                                          return $globalActions[
+                                            "Fragment.apiRequest"
+                                          ]?.apply(null, [...actionArgs.args]);
+                                        })()
+                                      : undefined;
+                                  if (
+                                    $steps["invokeGlobalAction"] != null &&
+                                    typeof $steps["invokeGlobalAction"] ===
+                                      "object" &&
+                                    typeof $steps["invokeGlobalAction"].then ===
+                                      "function"
+                                  ) {
+                                    $steps["invokeGlobalAction"] = await $steps[
+                                      "invokeGlobalAction"
+                                    ];
+                                  }
+                                }).apply(null, eventArgs);
+                              },
+                              open: generateStateValueProp($state, [
+                                "collapseMedicine2",
+                                "open"
+                              ]),
+                              showArrow: true,
+                              size: "large"
+                            };
+                            initializeCodeComponentStates(
+                              $state,
+                              [
+                                {
+                                  name: "open",
+                                  plasmicStateName: "collapseMedicine2.open"
+                                }
+                              ],
+                              [],
+                              AntdSingleCollapse_Helpers ?? {},
+                              child$Props
+                            );
+
+                            return (
+                              <AntdSingleCollapse
+                                data-plasmic-name={"collapseMedicine2"}
+                                data-plasmic-override={
+                                  overrides.collapseMedicine2
+                                }
+                                {...child$Props}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    sty.freeBox__xJGs
+                                  )}
+                                >
+                                  {(() => {
+                                    try {
+                                      return (() => {
+                                        const allowance =
+                                          $state?.getUser?.data?.[0]?.result
+                                            ?.allowance || [];
+                                        const filteredItem = allowance.find(
+                                          item => item.type.includes("danger")
+                                        );
+                                        const active = filteredItem
+                                          ? filteredItem.active
+                                          : false;
+                                        return !$state.loadingAdvice && active;
+                                      })();
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return false;
+                                      }
+                                      throw e;
+                                    }
+                                  })() ? (
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__xsR0
                                       )}
                                     >
                                       <div
@@ -9753,89 +11337,106 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       }}
                                       className={classNames(
                                         "__wab_instance",
-                                        sty.lottie___71IZ
+                                        sty.lottie__eCr6
                                       )}
                                       preview={true}
                                     />
                                   ) : null}
                                 </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox___14ULo
-                                  )}
-                                  onClick={async event => {
-                                    const $steps = {};
-
-                                    $steps["updateBuySub2Open"] =
-                                      $state.weeksPregnant >= 12
-                                        ? (() => {
-                                            const actionArgs = {
-                                              variable: {
-                                                objRoot: $state,
-                                                variablePath: [
-                                                  "buySub2",
-                                                  "open"
-                                                ]
-                                              },
-                                              operation: 0,
-                                              value: true
-                                            };
-                                            return (({
-                                              variable,
-                                              value,
-                                              startIndex,
-                                              deleteCount
-                                            }) => {
-                                              if (!variable) {
-                                                return;
-                                              }
-                                              const { objRoot, variablePath } =
-                                                variable;
-
-                                              $stateSet(
-                                                objRoot,
-                                                variablePath,
-                                                value
-                                              );
-                                              return value;
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      const allowance =
+                                        $state?.getUser?.data?.[0]?.result
+                                          ?.allowance || [];
+                                      const filteredItem = allowance.find(
+                                        item => item.type.includes("danger")
+                                      );
+                                      const active = filteredItem
+                                        ? filteredItem.active
+                                        : false;
+                                      return (
+                                        !$state.loadingAdvice &&
+                                        !active &&
+                                        $state.weeksPregnant >= 12
+                                      );
+                                    })();
+                                  } catch (e) {
                                     if (
-                                      $steps["updateBuySub2Open"] != null &&
-                                      typeof $steps["updateBuySub2Open"] ===
-                                        "object" &&
-                                      typeof $steps["updateBuySub2Open"]
-                                        .then === "function"
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
                                     ) {
+                                      return false;
+                                    }
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox___56Wkw
+                                    )}
+                                    onClick={async event => {
+                                      const $steps = {};
+
                                       $steps["updateBuySub2Open"] =
-                                        await $steps["updateBuySub2Open"];
-                                    }
-                                  }}
-                                >
-                                  {(() => {
-                                    try {
-                                      return $state.weeksPregnant >= 12;
-                                    } catch (e) {
+                                        $state.weeksPregnant >= 12
+                                          ? (() => {
+                                              const actionArgs = {
+                                                variable: {
+                                                  objRoot: $state,
+                                                  variablePath: [
+                                                    "buySub2",
+                                                    "open"
+                                                  ]
+                                                },
+                                                operation: 0,
+                                                value: true
+                                              };
+                                              return (({
+                                                variable,
+                                                value,
+                                                startIndex,
+                                                deleteCount
+                                              }) => {
+                                                if (!variable) {
+                                                  return;
+                                                }
+                                                const {
+                                                  objRoot,
+                                                  variablePath
+                                                } = variable;
+
+                                                $stateSet(
+                                                  objRoot,
+                                                  variablePath,
+                                                  value
+                                                );
+                                                return value;
+                                              })?.apply(null, [actionArgs]);
+                                            })()
+                                          : undefined;
                                       if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
+                                        $steps["updateBuySub2Open"] != null &&
+                                        typeof $steps["updateBuySub2Open"] ===
+                                          "object" &&
+                                        typeof $steps["updateBuySub2Open"]
+                                          .then === "function"
                                       ) {
-                                        return false;
+                                        $steps["updateBuySub2Open"] =
+                                          await $steps["updateBuySub2Open"];
                                       }
-                                      throw e;
-                                    }
-                                  })() ? (
+                                    }}
+                                  >
                                     <BuyComponenct
                                       className={classNames(
                                         "__wab_instance",
-                                        sty.buyComponenct__rfA7
+                                        sty.buyComponenct__lQlcS
                                       )}
                                     />
-                                  ) : null}
-                                </div>
+                                  </div>
+                                ) : null}
                               </AntdSingleCollapse>
                             );
                           })()}
@@ -14274,7 +15875,8 @@ const PlasmicDescendants = {
     "sideEffect",
     "collapseAdvice",
     "todoList",
-    "collapseMedicine",
+    "collapseDanger",
+    "collapseMedicine2",
     "collapseTest",
     "collapseBaby",
     "collapseMother",
@@ -14294,7 +15896,8 @@ const PlasmicDescendants = {
     "sideEffect",
     "collapseAdvice",
     "todoList",
-    "collapseMedicine",
+    "collapseDanger",
+    "collapseMedicine2",
     "collapseTest",
     "collapseBaby",
     "collapseMother",
@@ -14312,7 +15915,8 @@ const PlasmicDescendants = {
   sideEffect: ["sideEffect"],
   collapseAdvice: ["collapseAdvice"],
   todoList: ["todoList"],
-  collapseMedicine: ["collapseMedicine"],
+  collapseDanger: ["collapseDanger"],
+  collapseMedicine2: ["collapseMedicine2"],
   collapseTest: ["collapseTest"],
   collapseBaby: ["collapseBaby"],
   collapseMother: ["collapseMother"],
@@ -14336,7 +15940,8 @@ type NodeDefaultElementType = {
   sideEffect: typeof SideEffect;
   collapseAdvice: typeof AntdSingleCollapse;
   todoList: typeof TodoList;
-  collapseMedicine: typeof AntdSingleCollapse;
+  collapseDanger: typeof AntdSingleCollapse;
+  collapseMedicine2: typeof AntdSingleCollapse;
   collapseTest: typeof AntdSingleCollapse;
   collapseBaby: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
@@ -14441,7 +16046,8 @@ export const PlasmicPregnancy = Object.assign(
     sideEffect: makeNodeComponent("sideEffect"),
     collapseAdvice: makeNodeComponent("collapseAdvice"),
     todoList: makeNodeComponent("todoList"),
-    collapseMedicine: makeNodeComponent("collapseMedicine"),
+    collapseDanger: makeNodeComponent("collapseDanger"),
+    collapseMedicine2: makeNodeComponent("collapseMedicine2"),
     collapseTest: makeNodeComponent("collapseTest"),
     collapseBaby: makeNodeComponent("collapseBaby"),
     collapseMother: makeNodeComponent("collapseMother"),

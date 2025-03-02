@@ -299,20 +299,7 @@ function PlasmicStatusDay__RenderFunc(props: {
         path: "token",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return $ctx.query.token;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()
+        initFunc: ({ $props, $state, $queries, $ctx }) => "56565"
       },
       {
         path: "relation",
@@ -1662,7 +1649,9 @@ function PlasmicStatusDay__RenderFunc(props: {
           (() => {
             try {
               return (() => {
-                return JSON.parse(localStorage.getItem("Status-day")) || [];
+                return $state.getSign.data?.data
+                  ? JSON.parse($state.getSign.data.data)
+                  : [] || [];
               })();
             } catch (e) {
               if (
@@ -5625,54 +5614,70 @@ function PlasmicStatusDay__RenderFunc(props: {
                   onClick={async event => {
                     const $steps = {};
 
-                    $steps["runCode"] = true
+                    $steps["invokeGlobalAction2"] = true
                       ? (() => {
                           const actionArgs = {
-                            customFunction: async () => {
-                              return (() => {
-                                var status_day =
-                                  JSON.parse(
-                                    localStorage.getItem("Status-day")
-                                  ) || [];
-                                var new_data = {
-                                  date: $state.date,
-                                  color: $state.color.list,
-                                  Intensity: $state.intensity.list,
-                                  Discharge: $state.discharge.list,
-                                  Water: $state.water,
-                                  Waters: $state.waters,
-                                  Status: $state.status.list,
-                                  todolist: $state.todolist,
-                                  selectedMedicine: $state.selectedMedicine,
-                                  sex: $state.sex.list,
-                                  Memory: $state.memory.value
-                                };
-                                var foundIndex = status_day.findIndex(
-                                  item => item.date === new_data.date
-                                );
-                                if (foundIndex !== -1) {
-                                  status_day[foundIndex] = new_data;
-                                } else {
-                                  status_day.push(new_data);
+                            args: [
+                              "POST",
+                              "https://n8n.staas.ir/webhook/status_day",
+                              undefined,
+                              (() => {
+                                try {
+                                  return (() => {
+                                    var status_day = $state.statusDay;
+                                    var new_data = {
+                                      date: $state.date,
+                                      color: $state.color.list,
+                                      Intensity: $state.intensity.list,
+                                      Discharge: $state.discharge.list,
+                                      Water: $state.water,
+                                      Waters: $state.waters,
+                                      Status: $state.status.list,
+                                      todolist: $state.todolist,
+                                      selectedMedicine: $state.selectedMedicine,
+                                      sex: $state.sex.list,
+                                      Memory: $state.memory.value
+                                    };
+                                    var foundIndex = status_day.findIndex(
+                                      item => item.date === new_data.date
+                                    );
+                                    if (foundIndex !== -1) {
+                                      status_day[foundIndex] = new_data;
+                                    } else {
+                                      status_day.push(new_data);
+                                    }
+                                    return {
+                                      userId: $state.token,
+                                      data: status_day
+                                    };
+                                  })();
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
                                 }
-                                return localStorage.setItem(
-                                  "Status-day",
-                                  JSON.stringify(status_day)
-                                );
-                              })();
-                            }
+                              })()
+                            ]
                           };
-                          return (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]);
+                          return $globalActions["Fragment.apiRequest"]?.apply(
+                            null,
+                            [...actionArgs.args]
+                          );
                         })()
                       : undefined;
                     if (
-                      $steps["runCode"] != null &&
-                      typeof $steps["runCode"] === "object" &&
-                      typeof $steps["runCode"].then === "function"
+                      $steps["invokeGlobalAction2"] != null &&
+                      typeof $steps["invokeGlobalAction2"] === "object" &&
+                      typeof $steps["invokeGlobalAction2"].then === "function"
                     ) {
-                      $steps["runCode"] = await $steps["runCode"];
+                      $steps["invokeGlobalAction2"] = await $steps[
+                        "invokeGlobalAction2"
+                      ];
                     }
 
                     $steps["invokeGlobalAction"] = true
@@ -5820,7 +5825,7 @@ function PlasmicStatusDay__RenderFunc(props: {
             params={(() => {
               try {
                 return {
-                  authorization: $state.token
+                  userId: $state.token
                 };
               } catch (e) {
                 if (
@@ -5832,7 +5837,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 throw e;
               }
             })()}
-            url={"https://n8n.staas.ir/webhook/calendar/getSign"}
+            url={"https://n8n.staas.ir/webhook/status_day"}
           />
 
           <div className={classNames(projectcss.all, sty.freeBox__gxAUj)} />
