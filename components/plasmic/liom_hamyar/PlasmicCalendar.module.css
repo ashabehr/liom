@@ -6030,3 +6030,6 @@
   color: var(--token-64O07uLgKimi);
   align-self: center;
 }
+.directDialog:global(.__wab_instance) {
+  max-width: 100%;
+}

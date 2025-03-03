@@ -1437,20 +1437,6 @@
           "componentType": "component"
         },
         {
-          "id": "fbOsb2VJnT5d",
-          "name": "SmsMessages",
-          "type": "managed",
-          "projectId": "suVPi77vb6vv9K5rYJwyxC",
-          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSmsMessages.tsx",
-          "importSpec": {
-            "modulePath": "../src/pages/sms-messages.tsx"
-          },
-          "cssFilePath": "plasmic/liom_hamyar/PlasmicSmsMessages.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/sms-messages"
-        },
-        {
           "id": "zuZ91wbmspN9",
           "name": "LineClomp2",
           "type": "managed",
@@ -1528,6 +1514,45 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/hamyar-2"
+        },
+        {
+          "id": "j5op3vcM_4hJ",
+          "name": "Dialog3",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDialog3.tsx",
+          "importSpec": {
+            "modulePath": "Dialog3.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDialog3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "vcwQDI5OpjvX",
+          "name": "Subscription3",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicSubscription3.tsx",
+          "importSpec": {
+            "modulePath": "Subscription3.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicSubscription3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "TQdexUKMB_Ec",
+          "name": "DirectDialog2",
+          "type": "managed",
+          "projectId": "suVPi77vb6vv9K5rYJwyxC",
+          "renderModuleFilePath": "plasmic/liom_hamyar/PlasmicDirectDialog2.tsx",
+          "importSpec": {
+            "modulePath": "DirectDialog2.tsx"
+          },
+          "cssFilePath": "plasmic/liom_hamyar/PlasmicDirectDialog2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -3317,6 +3342,11 @@
           "id": "Hv0iuL54SE_F",
           "name": "image 87",
           "filePath": "../public/plasmic/liom_hamyar/images/image87.png"
+        },
+        {
+          "id": "OjINXfsP_hmX",
+          "name": "image 89",
+          "filePath": "../public/plasmic/liom_hamyar/images/image89.svg"
         }
       ],
       "indirect": false,

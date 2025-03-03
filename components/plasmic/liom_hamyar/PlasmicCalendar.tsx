@@ -88,6 +88,7 @@ import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import Subscription from "../../Subscription"; // plasmic-import: RkqUeSl2AMb8/component
+import DirectDialog2 from "../../DirectDialog2"; // plasmic-import: TQdexUKMB_Ec/component
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -178,6 +179,7 @@ export type PlasmicCalendar__OverridesType = {
   warning?: Flex__<typeof AntdModal>;
   button20?: Flex__<typeof Button>;
   button21?: Flex__<typeof Button>;
+  directDialog?: Flex__<typeof DirectDialog2>;
 };
 
 export interface DefaultCalendarProps {}
@@ -1625,6 +1627,12 @@ function PlasmicCalendar__RenderFunc(props: {
         path: "button22[].color",
         type: "private",
         variableType: "text"
+      },
+      {
+        path: "directDialog.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => true
       }
     ],
     [$props, $ctx, $refs]
@@ -32499,6 +32507,26 @@ function PlasmicCalendar__RenderFunc(props: {
               </Stack__>
             </Stack__>
           </AntdModal>
+          <DirectDialog2
+            data-plasmic-name={"directDialog"}
+            data-plasmic-override={overrides.directDialog}
+            className={classNames("__wab_instance", sty.directDialog)}
+            onOpenChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["directDialog", "open"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            open={generateStateValueProp($state, ["directDialog", "open"])}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -32551,7 +32579,8 @@ const PlasmicDescendants = {
     "wrong",
     "warning",
     "button20",
-    "button21"
+    "button21",
+    "directDialog"
   ],
   user: [
     "user",
@@ -32640,7 +32669,8 @@ const PlasmicDescendants = {
   wrong: ["wrong"],
   warning: ["warning", "button20", "button21"],
   button20: ["button20"],
-  button21: ["button21"]
+  button21: ["button21"],
+  directDialog: ["directDialog"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -32691,6 +32721,7 @@ type NodeDefaultElementType = {
   warning: typeof AntdModal;
   button20: typeof Button;
   button21: typeof Button;
+  directDialog: typeof DirectDialog2;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -32822,6 +32853,7 @@ export const PlasmicCalendar = Object.assign(
     warning: makeNodeComponent("warning"),
     button20: makeNodeComponent("button20"),
     button21: makeNodeComponent("button21"),
+    directDialog: makeNodeComponent("directDialog"),
 
     // Metadata about props expected for PlasmicCalendar
     internalVariantProps: PlasmicCalendar__VariantProps,
