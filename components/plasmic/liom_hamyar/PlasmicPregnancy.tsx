@@ -11128,11 +11128,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       const active = filteredItem
                                         ? filteredItem.active
                                         : false;
-                                      return (
-                                        !$state.loadingAdvice &&
-                                        !active &&
-                                        $state.selectedWeek >= 12
-                                      );
+                                      return !$state.loadingAdvice && !active;
                                     })();
                                   } catch (e) {
                                     if (

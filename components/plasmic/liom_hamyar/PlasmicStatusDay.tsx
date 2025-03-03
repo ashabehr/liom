@@ -302,7 +302,10 @@ function PlasmicStatusDay__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return $ctx.query.userId;
+              return (
+                $ctx.query.userId ||
+                new URLSearchParams(window.location.search).get("userId")
+              );
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -3834,7 +3837,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     className={classNames(
                       projectcss.all,
-                      sty.freeBox___9MuPa,
+                      sty.freeBox__zDo7U,
                       "shimmer"
                     )}
                   />
@@ -3842,7 +3845,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     className={classNames(
                       projectcss.all,
-                      sty.freeBox__iTf4H,
+                      sty.freeBox__hN9FN,
                       "shimmer"
                     )}
                   />
@@ -3850,7 +3853,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     className={classNames(
                       projectcss.all,
-                      sty.freeBox___6KpH,
+                      sty.freeBox__kdXez,
                       "shimmer"
                     )}
                   />
@@ -3858,7 +3861,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     className={classNames(
                       projectcss.all,
-                      sty.freeBox___2X8Md,
+                      sty.freeBox__aDi0X,
                       "shimmer"
                     )}
                   />
@@ -3866,10 +3869,203 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     className={classNames(
                       projectcss.all,
-                      sty.freeBox__vlev,
+                      sty.freeBox__vaXcx,
                       "shimmer"
                     )}
                   />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__mr6Gm,
+                      "shimmer"
+                    )}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__j8Mb8,
+                      "shimmer"
+                    )}
+                  />
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__h4QaM)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__hhNvG,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__flVtA)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__tyd3Y,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__utlHe,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__qUmcz,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__n3Tgr,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__yYfbw,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__wEkZo)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__xdZh7,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__dbsc0)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___28Qzm,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox___3YrZy,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__oueyp,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__cmDdw,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__rhMv3,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
+                </Stack__>
+                <Stack__
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__zg9Vl)}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      sty.freeBox__a7Y9C,
+                      "shimmer"
+                    )}
+                  />
+
+                  <Stack__
+                    as={"div"}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.freeBox__yQsGl)}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__ynPzn,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__q3VbU,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__kq1J1,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__muZOy,
+                        "shimmer"
+                      )}
+                    />
+
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__zUsXg,
+                        "shimmer"
+                      )}
+                    />
+                  </Stack__>
                 </Stack__>
               </Stack__>
             }
@@ -3891,6 +4087,122 @@ function PlasmicStatusDay__RenderFunc(props: {
                 null,
                 eventArgs
               );
+
+              (async data => {
+                const $steps = {};
+
+                $steps["updateStatusDay"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["statusDay"]
+                        },
+                        operation: 0,
+                        value: $state.getSign.data?.data
+                          ? JSON.parse($state.getSign.data.data)
+                          : [] || []
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateStatusDay"] != null &&
+                  typeof $steps["updateStatusDay"] === "object" &&
+                  typeof $steps["updateStatusDay"].then === "function"
+                ) {
+                  $steps["updateStatusDay"] = await $steps["updateStatusDay"];
+                }
+
+                $steps["invokeGlobalAction"] = true
+                  ? (() => {
+                      const actionArgs = { args: [800] };
+                      return $globalActions["Fragment.wait"]?.apply(null, [
+                        ...actionArgs.args
+                      ]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["invokeGlobalAction"] != null &&
+                  typeof $steps["invokeGlobalAction"] === "object" &&
+                  typeof $steps["invokeGlobalAction"].then === "function"
+                ) {
+                  $steps["invokeGlobalAction"] = await $steps[
+                    "invokeGlobalAction"
+                  ];
+                }
+
+                $steps["runCode"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        customFunction: async () => {
+                          return (() => {
+                            const list =
+                              document.getElementById("my-scroll-date");
+                            if (!list) {
+                              return;
+                            }
+                            const list2 = list.firstElementChild;
+                            if (!list2) {
+                              return;
+                            }
+                            if (!Array.isArray($state.month)) {
+                              return;
+                            }
+                            if (!$state.date) {
+                              return;
+                            }
+                            if ($state.month.length === 0) {
+                              return;
+                            }
+                            const index =
+                              $state.month.findIndex(
+                                item => item.value === $state.date
+                              ) + 1;
+                            if (index === -1) {
+                              return;
+                            }
+                            const fourthItem = list2.children[index];
+                            if (fourthItem) {
+                              const itemPosition =
+                                fourthItem.offsetLeft -
+                                list.offsetWidth / 2 +
+                                fourthItem.offsetWidth / 2;
+                              return list.scrollTo({
+                                left: itemPosition,
+                                behavior: "smooth"
+                              });
+                            } else {
+                            }
+                          })();
+                        }
+                      };
+                      return (({ customFunction }) => {
+                        return customFunction();
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["runCode"] != null &&
+                  typeof $steps["runCode"] === "object" &&
+                  typeof $steps["runCode"].then === "function"
+                ) {
+                  $steps["runCode"] = await $steps["runCode"];
+                }
+              }).apply(null, eventArgs);
             }}
             params={(() => {
               try {
@@ -3916,6 +4228,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__zFbgt)}
+                id={"my-scroll-date"}
               >
                 <Button
                   data-plasmic-name={"button14"}
@@ -4106,6 +4419,64 @@ function PlasmicStatusDay__RenderFunc(props: {
                           typeof $steps["updateDate"].then === "function"
                         ) {
                           $steps["updateDate"] = await $steps["updateDate"];
+                        }
+
+                        $steps["runCode"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                customFunction: async () => {
+                                  return (() => {
+                                    const list =
+                                      document.getElementById("my-scroll-date");
+                                    if (!list) {
+                                      return;
+                                    }
+                                    const list2 = list.firstElementChild;
+                                    if (!list2) {
+                                      return;
+                                    }
+                                    if (!Array.isArray($state.month)) {
+                                      return;
+                                    }
+                                    if (!$state.date) {
+                                      return;
+                                    }
+                                    if ($state.month.length === 0) {
+                                      return;
+                                    }
+                                    const index =
+                                      $state.month.findIndex(
+                                        item => item.value === $state.date
+                                      ) + 1;
+                                    if (index === -1) {
+                                      return;
+                                    }
+                                    const fourthItem = list2.children[index];
+                                    if (fourthItem) {
+                                      const itemPosition =
+                                        fourthItem.offsetLeft -
+                                        list.offsetWidth / 2 +
+                                        fourthItem.offsetWidth / 2;
+                                      return list.scrollTo({
+                                        left: itemPosition,
+                                        behavior: "smooth"
+                                      });
+                                    } else {
+                                    }
+                                  })();
+                                }
+                              };
+                              return (({ customFunction }) => {
+                                return customFunction();
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["runCode"] != null &&
+                          typeof $steps["runCode"] === "object" &&
+                          typeof $steps["runCode"].then === "function"
+                        ) {
+                          $steps["runCode"] = await $steps["runCode"];
                         }
                       }}
                       selected={(() => {
@@ -5808,10 +6179,10 @@ function PlasmicStatusDay__RenderFunc(props: {
                         $state.discharge.list.length > 0 ||
                         $state.water > 0 ||
                         $state.status.list.length > 0 ||
-                        $state.todolist ||
-                        $state.selectedMedicine ||
+                        $state.todolist.length > 0 ||
+                        $state.selectedMedicine.length > 1 ||
                         $state.sex.list.length > 0 ||
-                        $state.memory.value
+                        $state.memory.value != ""
                           ? (() => {
                               const actionArgs = {
                                 args: [
@@ -5877,12 +6248,55 @@ function PlasmicStatusDay__RenderFunc(props: {
                         ];
                       }
 
-                      $steps["invokeGlobalAction"] = true
+                      $steps["invokeGlobalAction"] =
+                        $state.color.list.length > 0 ||
+                        $state.intensity.list.length > 0 ||
+                        $state.discharge.list.length > 0 ||
+                        $state.water > 0 ||
+                        $state.status.list.length > 0 ||
+                        $state.todolist.length > 0 ||
+                        $state.selectedMedicine.length > 1 ||
+                        $state.sex.list.length > 0 ||
+                        $state.memory.value != ""
+                          ? (() => {
+                              const actionArgs = {
+                                args: [
+                                  undefined,
+                                  "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
+                                  "bottom-center"
+                                ]
+                              };
+                              return $globalActions[
+                                "Fragment.showToast"
+                              ]?.apply(null, [...actionArgs.args]);
+                            })()
+                          : undefined;
+                      if (
+                        $steps["invokeGlobalAction"] != null &&
+                        typeof $steps["invokeGlobalAction"] === "object" &&
+                        typeof $steps["invokeGlobalAction"].then === "function"
+                      ) {
+                        $steps["invokeGlobalAction"] = await $steps[
+                          "invokeGlobalAction"
+                        ];
+                      }
+
+                      $steps["invokeGlobalAction3"] = !(
+                        $state.color.list.length > 0 ||
+                        $state.intensity.list.length > 0 ||
+                        $state.discharge.list.length > 0 ||
+                        $state.water > 0 ||
+                        $state.status.list.length > 0 ||
+                        $state.todolist.length > 0 ||
+                        $state.selectedMedicine.length > 1 ||
+                        $state.sex.list.length > 0 ||
+                        $state.memory.value != ""
+                      )
                         ? (() => {
                             const actionArgs = {
                               args: [
-                                undefined,
-                                "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0630\u062e\u06cc\u0631\u0647 \u0634\u062f.",
+                                "error",
+                                "\u0627\u0637\u0644\u0627\u0639\u0627\u062a\u06cc \u0628\u0631\u0627\u06cc \u0630\u062e\u06cc\u0631\u0647 \u0648\u062c\u0648\u062f \u0646\u062f\u0627\u0631\u062f.",
                                 "bottom-center"
                               ]
                             };
@@ -5893,12 +6307,12 @@ function PlasmicStatusDay__RenderFunc(props: {
                           })()
                         : undefined;
                       if (
-                        $steps["invokeGlobalAction"] != null &&
-                        typeof $steps["invokeGlobalAction"] === "object" &&
-                        typeof $steps["invokeGlobalAction"].then === "function"
+                        $steps["invokeGlobalAction3"] != null &&
+                        typeof $steps["invokeGlobalAction3"] === "object" &&
+                        typeof $steps["invokeGlobalAction3"].then === "function"
                       ) {
-                        $steps["invokeGlobalAction"] = await $steps[
-                          "invokeGlobalAction"
+                        $steps["invokeGlobalAction3"] = await $steps[
+                          "invokeGlobalAction3"
                         ];
                       }
                     }}
