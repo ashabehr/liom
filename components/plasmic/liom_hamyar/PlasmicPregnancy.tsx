@@ -80,7 +80,6 @@ import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import BuyComponenct from "../../BuyComponenct"; // plasmic-import: Ww7_RchUYDdQ/component
 import TodoList from "../../TodoList"; // plasmic-import: 0x91e3BeeLCM/component
-import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 
 import { useScreenVariants as useScreenVariants_6BytLjmha8VC } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: 6BYTLjmha8vC/globalVariant
@@ -132,7 +131,6 @@ export type PlasmicPregnancy__OverridesType = {
   collapseBaby?: Flex__<typeof AntdSingleCollapse>;
   collapseMother?: Flex__<typeof AntdSingleCollapse>;
   collapseHealth?: Flex__<typeof AntdSingleCollapse>;
-  buySub2?: Flex__<typeof AntdModal>;
 };
 
 export interface DefaultPregnancyProps {}
@@ -575,12 +573,6 @@ function PlasmicPregnancy__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
 
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
-      },
-      {
-        path: "buySub2.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
         path: "selectedWeek",
@@ -7814,55 +7806,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 ["collapseAdvice", "open"],
                                 AntdSingleCollapse_Helpers
                               ).apply(null, eventArgs);
-
-                              (async activeIds => {
-                                const $steps = {};
-
-                                $steps["updateBuySub2Open"] =
-                                  $state.collapseAdvice.open &&
-                                  $state.weeksPregnant >= 12
-                                    ? (() => {
-                                        const actionArgs = {
-                                          variable: {
-                                            objRoot: $state,
-                                            variablePath: ["buySub2", "open"]
-                                          },
-                                          operation: 0,
-                                          value: true
-                                        };
-                                        return (({
-                                          variable,
-                                          value,
-                                          startIndex,
-                                          deleteCount
-                                        }) => {
-                                          if (!variable) {
-                                            return;
-                                          }
-                                          const { objRoot, variablePath } =
-                                            variable;
-
-                                          $stateSet(
-                                            objRoot,
-                                            variablePath,
-                                            value
-                                          );
-                                          return value;
-                                        })?.apply(null, [actionArgs]);
-                                      })()
-                                    : undefined;
-                                if (
-                                  $steps["updateBuySub2Open"] != null &&
-                                  typeof $steps["updateBuySub2Open"] ===
-                                    "object" &&
-                                  typeof $steps["updateBuySub2Open"].then ===
-                                    "function"
-                                ) {
-                                  $steps["updateBuySub2Open"] = await $steps[
-                                    "updateBuySub2Open"
-                                  ];
-                                }
-                              }).apply(null, eventArgs);
                             },
                             open: generateStateValueProp($state, [
                               "collapseAdvice",
@@ -8609,53 +8552,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   projectcss.all,
                                   sty.freeBox__heSqQ
                                 )}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["updateBuySub2Open"] =
-                                    $state.weeksPregnant >= 12
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["buySub2", "open"]
-                                            },
-                                            operation: 0,
-                                            value: true
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["updateBuySub2Open"] != null &&
-                                    typeof $steps["updateBuySub2Open"] ===
-                                      "object" &&
-                                    typeof $steps["updateBuySub2Open"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["updateBuySub2Open"] = await $steps[
-                                      "updateBuySub2Open"
-                                    ];
-                                  }
-                                }}
                               >
                                 {(() => {
                                   try {
@@ -8982,51 +8878,6 @@ function PlasmicPregnancy__RenderFunc(props: {
 
                                 (async activeIds => {
                                   const $steps = {};
-
-                                  $steps["invokeGlobalAction2"] =
-                                    $state.collapseDanger.open &&
-                                    $state.weeksPregnant >= 12 &&
-                                    false
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["buySub2", "open"]
-                                            },
-                                            operation: 0,
-                                            value: true
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction2"] != null &&
-                                    typeof $steps["invokeGlobalAction2"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction2"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["invokeGlobalAction2"] =
-                                      await $steps["invokeGlobalAction2"];
-                                  }
 
                                   $steps["invokeGlobalAction"] =
                                     ($state.collapseDanger.open
@@ -9468,7 +9319,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                                   {(() => {
                                                     try {
                                                       return (
-                                                        "🟣  " +
+                                                        //"🟣  " +
                                                         currentItem.title
                                                       );
                                                     } catch (e) {
@@ -10219,54 +10070,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     )}
                                     onClick={async event => {
                                       const $steps = {};
-
-                                      $steps["updateBuySub2Open"] =
-                                        $state.weeksPregnant >= 12
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: [
-                                                    "buySub2",
-                                                    "open"
-                                                  ]
-                                                },
-                                                operation: 0,
-                                                value: true
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                      if (
-                                        $steps["updateBuySub2Open"] != null &&
-                                        typeof $steps["updateBuySub2Open"] ===
-                                          "object" &&
-                                        typeof $steps["updateBuySub2Open"]
-                                          .then === "function"
-                                      ) {
-                                        $steps["updateBuySub2Open"] =
-                                          await $steps["updateBuySub2Open"];
-                                      }
                                     }}
                                   >
                                     <BuyComponenct
@@ -10474,51 +10277,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 (async activeIds => {
                                   const $steps = {};
 
-                                  $steps["invokeGlobalAction2"] =
-                                    $state.collapseMedicine2.open &&
-                                    $state.weeksPregnant >= 12 &&
-                                    false
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["buySub2", "open"]
-                                            },
-                                            operation: 0,
-                                            value: true
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction2"] != null &&
-                                    typeof $steps["invokeGlobalAction2"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction2"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["invokeGlobalAction2"] =
-                                      await $steps["invokeGlobalAction2"];
-                                  }
-
                                   $steps["invokeGlobalAction"] =
                                     ($state.collapseMedicine2.open
                                       ? true
@@ -10631,7 +10389,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     try {
                                       return (() => {
                                         const allowance =
-                                          $state?.getUser?.data?.[0]?.result
+                                          $state?.getUserInfo?.data?.[0]?.result
                                             ?.allowance || [];
                                         const filteredItem = allowance.find(
                                           item => item.type.includes("danger")
@@ -11362,7 +11120,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   try {
                                     return (() => {
                                       const allowance =
-                                        $state?.getUser?.data?.[0]?.result
+                                        $state?.getUserInfo?.data?.[0]?.result
                                           ?.allowance || [];
                                       const filteredItem = allowance.find(
                                         item => item.type.includes("danger")
@@ -11394,54 +11152,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     )}
                                     onClick={async event => {
                                       const $steps = {};
-
-                                      $steps["updateBuySub2Open"] =
-                                        $state.weeksPregnant >= 12
-                                          ? (() => {
-                                              const actionArgs = {
-                                                variable: {
-                                                  objRoot: $state,
-                                                  variablePath: [
-                                                    "buySub2",
-                                                    "open"
-                                                  ]
-                                                },
-                                                operation: 0,
-                                                value: true
-                                              };
-                                              return (({
-                                                variable,
-                                                value,
-                                                startIndex,
-                                                deleteCount
-                                              }) => {
-                                                if (!variable) {
-                                                  return;
-                                                }
-                                                const {
-                                                  objRoot,
-                                                  variablePath
-                                                } = variable;
-
-                                                $stateSet(
-                                                  objRoot,
-                                                  variablePath,
-                                                  value
-                                                );
-                                                return value;
-                                              })?.apply(null, [actionArgs]);
-                                            })()
-                                          : undefined;
-                                      if (
-                                        $steps["updateBuySub2Open"] != null &&
-                                        typeof $steps["updateBuySub2Open"] ===
-                                          "object" &&
-                                        typeof $steps["updateBuySub2Open"]
-                                          .then === "function"
-                                      ) {
-                                        $steps["updateBuySub2Open"] =
-                                          await $steps["updateBuySub2Open"];
-                                      }
                                     }}
                                   >
                                     <BuyComponenct
@@ -11645,51 +11355,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 (async activeIds => {
                                   const $steps = {};
 
-                                  $steps["invokeGlobalAction2"] =
-                                    $state.collapseTest.open &&
-                                    $state.weeksPregnant >= 12 &&
-                                    false
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["buySub2", "open"]
-                                            },
-                                            operation: 0,
-                                            value: true
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["invokeGlobalAction2"] != null &&
-                                    typeof $steps["invokeGlobalAction2"] ===
-                                      "object" &&
-                                    typeof $steps["invokeGlobalAction2"]
-                                      .then === "function"
-                                  ) {
-                                    $steps["invokeGlobalAction2"] =
-                                      await $steps["invokeGlobalAction2"];
-                                  }
-
                                   $steps["invokeGlobalAction"] =
                                     ($state.collapseTest.open ? true : false) &&
                                     $ctx.query.userId.slice(
@@ -11796,7 +11461,13 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 >
                                   {(() => {
                                     try {
-                                      return !$state.loadingAdvice;
+                                      return (
+                                        // const allowance = $state?.getUserInfo?.data?.[0]?.result?.allowance || [];
+                                        // const filteredItem = allowance.find(item => item.type.includes("danger"));
+                                        // const active = filteredItem ? filteredItem.active : false;
+                                        // return !$state.loadingAdvice && active ||
+                                        false
+                                      );
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -12528,83 +12199,48 @@ function PlasmicPregnancy__RenderFunc(props: {
                                     />
                                   ) : null}
                                 </div>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__q6UM8
-                                  )}
-                                  onClick={async event => {
-                                    const $steps = {};
-
-                                    $steps["updateBuySub2Open"] =
-                                      $state.weeksPregnant >= 12
-                                        ? (() => {
-                                            const actionArgs = {
-                                              variable: {
-                                                objRoot: $state,
-                                                variablePath: [
-                                                  "buySub2",
-                                                  "open"
-                                                ]
-                                              },
-                                              operation: 0,
-                                              value: true
-                                            };
-                                            return (({
-                                              variable,
-                                              value,
-                                              startIndex,
-                                              deleteCount
-                                            }) => {
-                                              if (!variable) {
-                                                return;
-                                              }
-                                              const { objRoot, variablePath } =
-                                                variable;
-
-                                              $stateSet(
-                                                objRoot,
-                                                variablePath,
-                                                value
-                                              );
-                                              return value;
-                                            })?.apply(null, [actionArgs]);
-                                          })()
-                                        : undefined;
+                                {(() => {
+                                  try {
+                                    return (() => {
+                                      const allowance =
+                                        $state?.getUserInfo?.data?.[0]?.result
+                                          ?.allowance || [];
+                                      const filteredItem = allowance.find(
+                                        item => item.type.includes("danger")
+                                      );
+                                      const active = filteredItem
+                                        ? filteredItem.active
+                                        : false;
+                                      return (
+                                        (!$state.loadingAdvice && !active) ||
+                                        true
+                                      );
+                                    })();
+                                  } catch (e) {
                                     if (
-                                      $steps["updateBuySub2Open"] != null &&
-                                      typeof $steps["updateBuySub2Open"] ===
-                                        "object" &&
-                                      typeof $steps["updateBuySub2Open"]
-                                        .then === "function"
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
                                     ) {
-                                      $steps["updateBuySub2Open"] =
-                                        await $steps["updateBuySub2Open"];
+                                      return false;
                                     }
-                                  }}
-                                >
-                                  {(() => {
-                                    try {
-                                      return $state.weeksPregnant >= 12;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return false;
-                                      }
-                                      throw e;
-                                    }
-                                  })() ? (
+                                    throw e;
+                                  }
+                                })() ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__q6UM8
+                                    )}
+                                  >
                                     <BuyComponenct
                                       className={classNames(
                                         "__wab_instance",
                                         sty.buyComponenct__or6OV
                                       )}
                                     />
-                                  ) : null}
-                                </div>
+                                  </div>
+                                ) : null}
                               </AntdSingleCollapse>
                             );
                           })()}
@@ -12772,48 +12408,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                             (async activeIds => {
                               const $steps = {};
 
-                              $steps["invokeGlobalAction2"] =
-                                $state.collapseBaby.open &&
-                                $state.weeksPregnant >= 12 &&
-                                false
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["buySub2", "open"]
-                                        },
-                                        operation: 0,
-                                        value: true
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                              if (
-                                $steps["invokeGlobalAction2"] != null &&
-                                typeof $steps["invokeGlobalAction2"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction2"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction2"] = await $steps[
-                                  "invokeGlobalAction2"
-                                ];
-                              }
-
                               $steps["invokeGlobalAction"] =
                                 ($state.collapseBaby.open ? true : false) &&
                                 $ctx.query.userId.slice(
@@ -12966,53 +12560,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   projectcss.all,
                                   sty.freeBox__i6CBe
                                 )}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["updateBuySub2Open"] =
-                                    $state.weeksPregnant >= 12
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["buySub2", "open"]
-                                            },
-                                            operation: 0,
-                                            value: true
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["updateBuySub2Open"] != null &&
-                                    typeof $steps["updateBuySub2Open"] ===
-                                      "object" &&
-                                    typeof $steps["updateBuySub2Open"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["updateBuySub2Open"] = await $steps[
-                                      "updateBuySub2Open"
-                                    ];
-                                  }
-                                }}
                               >
                                 {(() => {
                                   try {
@@ -13790,48 +13337,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                             (async activeIds => {
                               const $steps = {};
 
-                              $steps["invokeGlobalAction2"] =
-                                $state.collapseMother.open &&
-                                $state.weeksPregnant >= 12 &&
-                                false
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["buySub2", "open"]
-                                        },
-                                        operation: 0,
-                                        value: true
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                              if (
-                                $steps["invokeGlobalAction2"] != null &&
-                                typeof $steps["invokeGlobalAction2"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction2"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction2"] = await $steps[
-                                  "invokeGlobalAction2"
-                                ];
-                              }
-
                               $steps["invokeGlobalAction"] =
                                 ($state.collapseBaby.open ? true : false) &&
                                 $ctx.query.userId.slice(
@@ -13998,53 +13503,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   projectcss.all,
                                   sty.freeBox__uTmAc
                                 )}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["updateBuySub2Open"] =
-                                    $state.weeksPregnant >= 12
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["buySub2", "open"]
-                                            },
-                                            operation: 0,
-                                            value: true
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["updateBuySub2Open"] != null &&
-                                    typeof $steps["updateBuySub2Open"] ===
-                                      "object" &&
-                                    typeof $steps["updateBuySub2Open"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["updateBuySub2Open"] = await $steps[
-                                      "updateBuySub2Open"
-                                    ];
-                                  }
-                                }}
                               >
                                 {(() => {
                                   try {
@@ -14823,48 +14281,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                             (async activeIds => {
                               const $steps = {};
 
-                              $steps["invokeGlobalAction2"] =
-                                $state.collapseHealth.open &&
-                                $state.weeksPregnant >= 12 &&
-                                false
-                                  ? (() => {
-                                      const actionArgs = {
-                                        variable: {
-                                          objRoot: $state,
-                                          variablePath: ["buySub2", "open"]
-                                        },
-                                        operation: 0,
-                                        value: true
-                                      };
-                                      return (({
-                                        variable,
-                                        value,
-                                        startIndex,
-                                        deleteCount
-                                      }) => {
-                                        if (!variable) {
-                                          return;
-                                        }
-                                        const { objRoot, variablePath } =
-                                          variable;
-
-                                        $stateSet(objRoot, variablePath, value);
-                                        return value;
-                                      })?.apply(null, [actionArgs]);
-                                    })()
-                                  : undefined;
-                              if (
-                                $steps["invokeGlobalAction2"] != null &&
-                                typeof $steps["invokeGlobalAction2"] ===
-                                  "object" &&
-                                typeof $steps["invokeGlobalAction2"].then ===
-                                  "function"
-                              ) {
-                                $steps["invokeGlobalAction2"] = await $steps[
-                                  "invokeGlobalAction2"
-                                ];
-                              }
-
                               $steps["invokeGlobalAction"] =
                                 ($state.collapseBaby.open ? true : false) &&
                                 $ctx.query.userId.slice(
@@ -15608,53 +15024,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                                   projectcss.all,
                                   sty.freeBox__cUcvG
                                 )}
-                                onClick={async event => {
-                                  const $steps = {};
-
-                                  $steps["updateBuySub2Open"] =
-                                    $state.weeksPregnant >= 12
-                                      ? (() => {
-                                          const actionArgs = {
-                                            variable: {
-                                              objRoot: $state,
-                                              variablePath: ["buySub2", "open"]
-                                            },
-                                            operation: 0,
-                                            value: true
-                                          };
-                                          return (({
-                                            variable,
-                                            value,
-                                            startIndex,
-                                            deleteCount
-                                          }) => {
-                                            if (!variable) {
-                                              return;
-                                            }
-                                            const { objRoot, variablePath } =
-                                              variable;
-
-                                            $stateSet(
-                                              objRoot,
-                                              variablePath,
-                                              value
-                                            );
-                                            return value;
-                                          })?.apply(null, [actionArgs]);
-                                        })()
-                                      : undefined;
-                                  if (
-                                    $steps["updateBuySub2Open"] != null &&
-                                    typeof $steps["updateBuySub2Open"] ===
-                                      "object" &&
-                                    typeof $steps["updateBuySub2Open"].then ===
-                                      "function"
-                                  ) {
-                                    $steps["updateBuySub2Open"] = await $steps[
-                                      "updateBuySub2Open"
-                                    ];
-                                  }
-                                }}
                               >
                                 {(() => {
                                   try {
@@ -15686,187 +15055,6 @@ function PlasmicPregnancy__RenderFunc(props: {
                   </div>
                 </div>
               ) : null}
-              <AntdModal
-                data-plasmic-name={"buySub2"}
-                data-plasmic-override={overrides.buySub2}
-                className={classNames("__wab_instance", sty.buySub2)}
-                defaultStylesClassName={classNames(
-                  projectcss.root_reset,
-                  projectcss.plasmic_default_styles,
-                  projectcss.plasmic_mixins,
-                  projectcss.plasmic_tokens,
-                  plasmic_antd_5_hostless_css.plasmic_tokens,
-                  plasmic_plasmic_rich_components_css.plasmic_tokens
-                )}
-                footer={
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__j7VXe)}
-                    onClick={async event => {
-                      const $steps = {};
-
-                      $steps["updateBuySub2Open"] = true
-                        ? (() => {
-                            const actionArgs = {
-                              variable: {
-                                objRoot: $state,
-                                variablePath: ["buySub2", "open"]
-                              },
-                              operation: 0,
-                              value: false
-                            };
-                            return (({
-                              variable,
-                              value,
-                              startIndex,
-                              deleteCount
-                            }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
-
-                              $stateSet(objRoot, variablePath, value);
-                              return value;
-                            })?.apply(null, [actionArgs]);
-                          })()
-                        : undefined;
-                      if (
-                        $steps["updateBuySub2Open"] != null &&
-                        typeof $steps["updateBuySub2Open"] === "object" &&
-                        typeof $steps["updateBuySub2Open"].then === "function"
-                      ) {
-                        $steps["updateBuySub2Open"] = await $steps[
-                          "updateBuySub2Open"
-                        ];
-                      }
-                    }}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__bwPmw)}
-                      onClick={async event => {
-                        const $steps = {};
-
-                        $steps["invokeGlobalAction"] = true
-                          ? (() => {
-                              const actionArgs = {
-                                args: [undefined, "vxcvxcvxc"]
-                              };
-                              return $globalActions[
-                                "Fragment.showToast"
-                              ]?.apply(null, [...actionArgs.args]);
-                            })()
-                          : undefined;
-                        if (
-                          $steps["invokeGlobalAction"] != null &&
-                          typeof $steps["invokeGlobalAction"] === "object" &&
-                          typeof $steps["invokeGlobalAction"].then ===
-                            "function"
-                        ) {
-                          $steps["invokeGlobalAction"] = await $steps[
-                            "invokeGlobalAction"
-                          ];
-                        }
-                      }}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__jhFg
-                        )}
-                      >
-                        {
-                          "\u062e\u0631\u06cc\u062f \u0627\u0634\u062a\u0631\u0627\u06a9"
-                        }
-                      </div>
-                    </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__rgiNn)}
-                      onClick={async event => {
-                        const $steps = {};
-                      }}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__by2N
-                        )}
-                      >
-                        {"\u0628\u0633\u062a\u0646"}
-                      </div>
-                    </div>
-                  </Stack__>
-                }
-                modalContentClassName={classNames({
-                  [sty["pcls_1y2RaEpOQI8d"]]: true,
-                  [sty["pcls_4P0UiQe5MdDz"]]: hasVariant(
-                    globalVariants,
-                    "screen",
-                    "mobile"
-                  )
-                })}
-                modalScopeClassName={sty["buySub2__modal"]}
-                onOpenChange={async (...eventArgs: any) => {
-                  generateStateOnChangeProp($state, ["buySub2", "open"]).apply(
-                    null,
-                    eventArgs
-                  );
-                }}
-                open={generateStateValueProp($state, ["buySub2", "open"])}
-                title={
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ddguj
-                    )}
-                  >
-                    {
-                      "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0644\u06cc\u0648\u0645"
-                    }
-                  </div>
-                }
-                trigger={null}
-              >
-                <Stack__
-                  as={"div"}
-                  hasGap={true}
-                  className={classNames(projectcss.all, sty.freeBox__hwUm8)}
-                >
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__jgTS)}
-                    displayHeight={"250px"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image82.svg",
-                      fullWidth: 1060,
-                      fullHeight: 815,
-                      aspectRatio: 1.300613
-                    }}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___9U8Mq
-                    )}
-                  >
-                    {
-                      "\u0628\u0631\u0627\u06cc \u062f\u0633\u062a\u0631\u0633\u06cc \u0646\u0627\u0645\u062d\u062f\u0648\u062f \u0628\u0647 \u062a\u0645\u0627\u0645\u06cc \u062a\u0648\u0635\u06cc\u0647 \u0647\u0627\u06cc \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0644\u06cc\u0648\u0645 \u0631\u0648 \u062a\u0647\u06cc\u0647 \u0646\u0645\u0627\u06cc\u06cc\u062f."
-                    }
-                  </div>
-                </Stack__>
-              </AntdModal>
             </div>
           </section>
         </div>
@@ -15895,8 +15083,7 @@ const PlasmicDescendants = {
     "collapseTest",
     "collapseBaby",
     "collapseMother",
-    "collapseHealth",
-    "buySub2"
+    "collapseHealth"
   ],
   section: [
     "section",
@@ -15916,8 +15103,7 @@ const PlasmicDescendants = {
     "collapseTest",
     "collapseBaby",
     "collapseMother",
-    "collapseHealth",
-    "buySub2"
+    "collapseHealth"
   ],
   button: ["button"],
   favIcone: ["favIcone"],
@@ -15935,8 +15121,7 @@ const PlasmicDescendants = {
   collapseTest: ["collapseTest"],
   collapseBaby: ["collapseBaby"],
   collapseMother: ["collapseMother"],
-  collapseHealth: ["collapseHealth"],
-  buySub2: ["buySub2"]
+  collapseHealth: ["collapseHealth"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -15961,7 +15146,6 @@ type NodeDefaultElementType = {
   collapseBaby: typeof AntdSingleCollapse;
   collapseMother: typeof AntdSingleCollapse;
   collapseHealth: typeof AntdSingleCollapse;
-  buySub2: typeof AntdModal;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -16067,7 +15251,6 @@ export const PlasmicPregnancy = Object.assign(
     collapseBaby: makeNodeComponent("collapseBaby"),
     collapseMother: makeNodeComponent("collapseMother"),
     collapseHealth: makeNodeComponent("collapseHealth"),
-    buySub2: makeNodeComponent("buySub2"),
 
     // Metadata about props expected for PlasmicPregnancy
     internalVariantProps: PlasmicPregnancy__VariantProps,

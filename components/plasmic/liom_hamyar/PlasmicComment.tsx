@@ -78,9 +78,17 @@ export type PlasmicComment__VariantsArgs = {};
 type VariantPropType = keyof PlasmicComment__VariantsArgs;
 export const PlasmicComment__VariantProps = new Array<VariantPropType>();
 
-export type PlasmicComment__ArgsType = {};
+export type PlasmicComment__ArgsType = {
+  name?: string;
+  userName?: string;
+  text?: string;
+};
 type ArgPropType = keyof PlasmicComment__ArgsType;
-export const PlasmicComment__ArgProps = new Array<ArgPropType>();
+export const PlasmicComment__ArgProps = new Array<ArgPropType>(
+  "name",
+  "userName",
+  "text"
+);
 
 export type PlasmicComment__OverridesType = {
   root?: Flex__<"div">;
@@ -89,6 +97,9 @@ export type PlasmicComment__OverridesType = {
 };
 
 export interface DefaultCommentProps {
+  name?: string;
+  userName?: string;
+  text?: string;
   className?: string;
 }
 
@@ -171,7 +182,11 @@ function PlasmicComment__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__abKqr)}>
+          <Stack__
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__abKqr)}
+          >
             <div
               className={classNames(
                 projectcss.all,
@@ -179,7 +194,21 @@ function PlasmicComment__RenderFunc(props: {
                 sty.text___3Z12B
               )}
             >
-              {"name"}
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.name;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "name";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
             <div
               className={classNames(
@@ -188,9 +217,23 @@ function PlasmicComment__RenderFunc(props: {
                 sty.text__q2Vv
               )}
             >
-              {"username"}
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.userName;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "username";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
             </div>
-          </div>
+          </Stack__>
         </div>
         <Stack__
           as={"div"}
@@ -228,7 +271,21 @@ function PlasmicComment__RenderFunc(props: {
             sty.coment
           )}
         >
-          {"Enter some text"}
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.text;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
         </div>
       </div>
       <Stack__

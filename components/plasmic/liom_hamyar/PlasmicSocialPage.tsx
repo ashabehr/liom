@@ -62,9 +62,9 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 
 import HeaderLiom from "../../HeaderLiom"; // plasmic-import: wNUwxS5tO1GX/component
+import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Post from "../../Post"; // plasmic-import: PIFHnFLcunkZ/component
 import ReactionBar from "../../ReactionBar"; // plasmic-import: 4BabvpvQ8lyP/component
-import { AntdPopover } from "@plasmicpkgs/antd5/skinny/registerPopover";
 import Comment from "../../Comment"; // plasmic-import: Q00r5f4C3XYv/component
 import { AntdTextArea } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdTextArea_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -78,6 +78,12 @@ import projectcss from "../todo_mvc_app/plasmic.module.css"; // plasmic-import: 
 import sty from "./PlasmicSocialPage.module.css"; // plasmic-import: iNHFQ5RIM3Tb/css
 
 import Icon146Icon from "./icons/PlasmicIcon__Icon146"; // plasmic-import: oL3Gq5u9-MHL/icon
+import Icon180Icon from "./icons/PlasmicIcon__Icon180"; // plasmic-import: GPPgWNu-3jGf/icon
+import Icon179Icon from "./icons/PlasmicIcon__Icon179"; // plasmic-import: qlPLXoOalpf5/icon
+import Icon170Icon from "./icons/PlasmicIcon__Icon170"; // plasmic-import: dXN8uxxnP9W_/icon
+import Icon181Icon from "./icons/PlasmicIcon__Icon181"; // plasmic-import: wyvhRqZQxJDx/icon
+import Icon182Icon from "./icons/PlasmicIcon__Icon182"; // plasmic-import: lYF_tL7tdQDG/icon
+import Icon183Icon from "./icons/PlasmicIcon__Icon183"; // plasmic-import: 4xKMWXb86jEA/icon
 import Icon177Icon from "./icons/PlasmicIcon__Icon177"; // plasmic-import: I0EM88peJVoH/icon
 import Icon175Icon from "./icons/PlasmicIcon__Icon175"; // plasmic-import: Lt-K75cYDcq0/icon
 import Icon176Icon from "./icons/PlasmicIcon__Icon176"; // plasmic-import: elrgas2UYaHC/icon
@@ -96,12 +102,13 @@ export const PlasmicSocialPage__ArgProps = new Array<ArgPropType>();
 export type PlasmicSocialPage__OverridesType = {
   root?: Flex__<"div">;
   headerLiom?: Flex__<typeof HeaderLiom>;
+  popover2?: Flex__<typeof AntdPopover>;
   post?: Flex__<typeof Post>;
   reactionBar?: Flex__<typeof ReactionBar>;
   popover?: Flex__<typeof AntdPopover>;
   comment?: Flex__<typeof Comment>;
   textArea?: Flex__<typeof AntdTextArea>;
-  apiRequest?: Flex__<typeof ApiRequest>;
+  getInfo?: Flex__<typeof ApiRequest>;
 };
 
 export interface DefaultSocialPageProps {}
@@ -163,19 +170,19 @@ function PlasmicSocialPage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       },
       {
-        path: "apiRequest.data",
+        path: "getInfo.data",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "apiRequest.error",
+        path: "getInfo.error",
         type: "private",
         variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "apiRequest.loading",
+        path: "getInfo.loading",
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -186,6 +193,12 @@ function PlasmicSocialPage__RenderFunc(props: {
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImVjYjg4M2NkLWI3ODYtNGMzZS1iYjhiLTA5ZTgyNzVkYTk4YyIsInR5cGUiOiJzZXNzaW9uIiwiaWF0IjoxNzM5NjA2MjI2fQ.F7OWRYuvRw2zxjIXAiFCtUVG9fLGRPgvYtPpLWUsz4k"
+      },
+      {
+        path: "popover2.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
@@ -258,19 +271,31 @@ function PlasmicSocialPage__RenderFunc(props: {
                   <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__jZmxt)}
-                    displayHeight={"auto"}
+                    displayHeight={"48px"}
                     displayMaxHeight={"none"}
                     displayMaxWidth={"100%"}
                     displayMinHeight={"0"}
                     displayMinWidth={"0"}
                     displayWidth={"48px"}
                     loading={"lazy"}
-                    src={{
-                      src: "/plasmic/liom_hamyar/images/image10.ico",
-                      fullWidth: 256,
-                      fullHeight: 256,
-                      aspectRatio: undefined
-                    }}
+                    src={(() => {
+                      try {
+                        return "https://liom-app.ir/data/userUpload/images/Sep-2022/image_8871662560833.jpg";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return {
+                            src: "/plasmic/liom_hamyar/images/image10.ico",
+                            fullWidth: 256,
+                            fullHeight: 256,
+                            aspectRatio: undefined
+                          };
+                        }
+                        throw e;
+                      }
+                    })()}
                   />
 
                   <Stack__
@@ -285,7 +310,21 @@ function PlasmicSocialPage__RenderFunc(props: {
                         sty.text__zv2Av
                       )}
                     >
-                      {"name"}
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getInfo.data.result.details.user.name;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "name";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
                     </div>
                     <div
                       className={classNames(
@@ -294,7 +333,22 @@ function PlasmicSocialPage__RenderFunc(props: {
                         sty.text__zdN81
                       )}
                     >
-                      {"username"}
+                      <React.Fragment>
+                        {(() => {
+                          try {
+                            return $state.getInfo.data.result.details.user
+                              .username;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return "username";
+                            }
+                            throw e;
+                          }
+                        })()}
+                      </React.Fragment>
                     </div>
                   </Stack__>
                   <div
@@ -302,6 +356,45 @@ function PlasmicSocialPage__RenderFunc(props: {
                   >
                     <div
                       className={classNames(projectcss.all, sty.freeBox__h8Wt9)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updateTextAreaValue"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["textArea", "value"]
+                                },
+                                operation: 0
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updateTextAreaValue"] != null &&
+                          typeof $steps["updateTextAreaValue"] === "object" &&
+                          typeof $steps["updateTextAreaValue"].then ===
+                            "function"
+                        ) {
+                          $steps["updateTextAreaValue"] = await $steps[
+                            "updateTextAreaValue"
+                          ];
+                        }
+                      }}
                     >
                       <div
                         className={classNames(
@@ -318,27 +411,283 @@ function PlasmicSocialPage__RenderFunc(props: {
                   </div>
                 </div>
                 <div className={classNames(projectcss.all, sty.freeBox__uC3N)}>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__tfdqU)}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__lYbCo)}
                   >
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___0ZQha
-                      )}
+                      className={classNames(projectcss.all, sty.freeBox__cCsst)}
                     >
-                      {
-                        "\u0632\u0645\u0627\u0646 \u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc "
-                      }
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___0ZQha
+                        )}
+                      >
+                        {
+                          "\u0632\u0645\u0627\u0646 \u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc "
+                        }
+                      </div>
                     </div>
-                    <Icon146Icon
-                      className={classNames(projectcss.all, sty.svg__jVevt)}
-                      role={"img"}
-                    />
-                  </Stack__>
+                    <Stack__
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(projectcss.all, sty.freeBox__tfdqU)}
+                      onClick={async event => {
+                        const $steps = {};
+
+                        $steps["updatePopover2Open"] = true
+                          ? (() => {
+                              const actionArgs = {
+                                variable: {
+                                  objRoot: $state,
+                                  variablePath: ["popover2", "open"]
+                                },
+                                operation: 0,
+                                value: true
+                              };
+                              return (({
+                                variable,
+                                value,
+                                startIndex,
+                                deleteCount
+                              }) => {
+                                if (!variable) {
+                                  return;
+                                }
+                                const { objRoot, variablePath } = variable;
+
+                                $stateSet(objRoot, variablePath, value);
+                                return value;
+                              })?.apply(null, [actionArgs]);
+                            })()
+                          : undefined;
+                        if (
+                          $steps["updatePopover2Open"] != null &&
+                          typeof $steps["updatePopover2Open"] === "object" &&
+                          typeof $steps["updatePopover2Open"].then ===
+                            "function"
+                        ) {
+                          $steps["updatePopover2Open"] = await $steps[
+                            "updatePopover2Open"
+                          ];
+                        }
+                      }}
+                    >
+                      <AntdPopover
+                        data-plasmic-name={"popover2"}
+                        data-plasmic-override={overrides.popover2}
+                        arrow={true}
+                        className={classNames("__wab_instance", sty.popover2)}
+                        color={true ? "#FFFFFF" : undefined}
+                        content={
+                          <Stack__
+                            as={"div"}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__yPEo
+                            )}
+                          >
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__cwZ6
+                              )}
+                            >
+                              <Icon180Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__zjOdC
+                                )}
+                                role={"img"}
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__hOmR
+                                )}
+                              >
+                                {
+                                  "\u067e\u06cc\u0646 \u0628\u0631\u0627\u06cc \u0647\u0645\u0647"
+                                }
+                              </div>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__hDk3O
+                              )}
+                            >
+                              <Icon179Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg___0PVa8
+                                )}
+                                role={"img"}
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___1WtFf
+                                )}
+                              >
+                                {
+                                  "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0632\u0627\u0631\u06cc"
+                                }
+                              </div>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__s93L3
+                              )}
+                            >
+                              <Icon170Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__y63MI
+                                )}
+                                role={"img"}
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__fyy9R
+                                )}
+                              >
+                                {"\u06af\u0632\u0627\u0631\u0634"}
+                              </div>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__rtTu9
+                              )}
+                            >
+                              <Icon181Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__glwb
+                                )}
+                                role={"img"}
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___309O9
+                                )}
+                              >
+                                {
+                                  "\u062d\u0645\u0627\u06cc\u062a \u0627\u0632 \u067e\u0633\u062a"
+                                }
+                              </div>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__nqtIu
+                              )}
+                            >
+                              <Icon182Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg___1YUks
+                                )}
+                                role={"img"}
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__zc10M
+                                )}
+                              >
+                                {
+                                  "\u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0644\u0645\u0627\u062a \u0645\u062d\u062f\u0648\u062f \u0634\u062f\u0647"
+                                }
+                              </div>
+                            </Stack__>
+                            <Stack__
+                              as={"div"}
+                              hasGap={true}
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__n58C2
+                              )}
+                            >
+                              <Icon183Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg___3KB7O
+                                )}
+                                role={"img"}
+                              />
+
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___7KYcf
+                                )}
+                              >
+                                {"\u062f\u0627\u0646\u0644\u0648\u062f"}
+                              </div>
+                            </Stack__>
+                          </Stack__>
+                        }
+                        contentText={"Popover ttt"}
+                        defaultOpen={false}
+                        defaultStylesClassName={classNames(
+                          projectcss.root_reset,
+                          projectcss.plasmic_default_styles,
+                          projectcss.plasmic_mixins,
+                          projectcss.plasmic_tokens,
+                          plasmic_antd_5_hostless_css.plasmic_tokens,
+                          plasmic_plasmic_rich_components_css.plasmic_tokens
+                        )}
+                        mouseEnterDelay={0}
+                        mouseLeaveDelay={0}
+                        onOpenChange={async (...eventArgs: any) => {
+                          generateStateOnChangeProp($state, [
+                            "popover2",
+                            "open"
+                          ]).apply(null, eventArgs);
+                        }}
+                        open={generateStateValueProp($state, [
+                          "popover2",
+                          "open"
+                        ])}
+                        placement={"bottomLeft"}
+                        popoverScopeClassName={sty["popover2__popover"]}
+                        title={null}
+                      >
+                        <Icon146Icon
+                          className={classNames(projectcss.all, sty.svg__jVevt)}
+                          role={"img"}
+                        />
+                      </AntdPopover>
+                    </Stack__>
+                  </div>
                   <div
                     className={classNames(projectcss.all, sty.freeBox__fiSpi)}
                   >
@@ -353,6 +702,45 @@ function PlasmicSocialPage__RenderFunc(props: {
                 data-plasmic-name={"post"}
                 data-plasmic-override={overrides.post}
                 className={classNames("__wab_instance", sty.post)}
+                data={(() => {
+                  try {
+                    return $state.getInfo.data.result.details.post.title;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                image2={(() => {
+                  try {
+                    return $state.getInfo.data.result.details.user.image;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
+                text={(() => {
+                  try {
+                    return $state.getInfo.data.result.details.post.text;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return undefined;
+                    }
+                    throw e;
+                  }
+                })()}
               />
 
               <div
@@ -477,13 +865,78 @@ function PlasmicSocialPage__RenderFunc(props: {
                 </div>
               </AntdPopover>
             </Stack__>
-            <div className={classNames(projectcss.all, sty.freeBox__sB24Y)}>
-              <Comment
-                data-plasmic-name={"comment"}
-                data-plasmic-override={overrides.comment}
-                className={classNames("__wab_instance", sty.comment)}
-              />
-
+            <Stack__
+              as={"div"}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.freeBox__sB24Y)}
+            >
+              {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+                (() => {
+                  try {
+                    return (x = $state.getInfo.data.result.comments[0].comment);
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return [];
+                    }
+                    throw e;
+                  }
+                })()
+              ).map((__plasmic_item_0, __plasmic_idx_0) => {
+                const currentItem = __plasmic_item_0;
+                const currentIndex = __plasmic_idx_0;
+                return (
+                  <Comment
+                    data-plasmic-name={"comment"}
+                    data-plasmic-override={overrides.comment}
+                    className={classNames("__wab_instance", sty.comment)}
+                    key={currentIndex}
+                    name={(() => {
+                      try {
+                        return $state.getInfo.data.result.comments[0].user.name;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    text={(() => {
+                      try {
+                        return $state.getInfo.data.result.comments[0].comment
+                          .text_fa;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    userName={(() => {
+                      try {
+                        return $state.getInfo.data.result.comments[0].user
+                          .username;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                  />
+                );
+              })}
               <section
                 className={classNames(projectcss.all, sty.section__l5Nnd)}
               >
@@ -539,20 +992,18 @@ function PlasmicSocialPage__RenderFunc(props: {
                   />
                 </div>
               </section>
-            </div>
+            </Stack__>
           </div>
           <ApiRequest
-            data-plasmic-name={"apiRequest"}
-            data-plasmic-override={overrides.apiRequest}
+            data-plasmic-name={"getInfo"}
+            data-plasmic-override={overrides.getInfo}
             body={(() => {
               try {
                 return {
-                  data: {
-                    postId: "798941",
-                    commentId: "string",
-                    orderBy: "newest"
-                  },
-                  scrollId: "",
+                  postId: "798941",
+                  commentId: "string",
+                  orderBy: "newest",
+
                   authorization: $state.token
                 };
               } catch (e) {
@@ -570,7 +1021,7 @@ function PlasmicSocialPage__RenderFunc(props: {
                 throw e;
               }
             })()}
-            className={classNames("__wab_instance", sty.apiRequest)}
+            className={classNames("__wab_instance", sty.getInfo)}
             errorDisplay={
               <div
                 className={classNames(
@@ -595,19 +1046,19 @@ function PlasmicSocialPage__RenderFunc(props: {
             }
             method={"PUT"}
             onError={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["apiRequest", "error"]).apply(
+              generateStateOnChangeProp($state, ["getInfo", "error"]).apply(
                 null,
                 eventArgs
               );
             }}
             onLoading={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, [
-                "apiRequest",
-                "loading"
-              ]).apply(null, eventArgs);
+              generateStateOnChangeProp($state, ["getInfo", "loading"]).apply(
+                null,
+                eventArgs
+              );
             }}
             onSuccess={async (...eventArgs: any) => {
-              generateStateOnChangeProp($state, ["apiRequest", "data"]).apply(
+              generateStateOnChangeProp($state, ["getInfo", "data"]).apply(
                 null,
                 eventArgs
               );
@@ -624,20 +1075,22 @@ const PlasmicDescendants = {
   root: [
     "root",
     "headerLiom",
+    "popover2",
     "post",
     "reactionBar",
     "popover",
     "comment",
     "textArea",
-    "apiRequest"
+    "getInfo"
   ],
   headerLiom: ["headerLiom"],
+  popover2: ["popover2"],
   post: ["post"],
   reactionBar: ["reactionBar"],
   popover: ["popover"],
   comment: ["comment"],
   textArea: ["textArea"],
-  apiRequest: ["apiRequest"]
+  getInfo: ["getInfo"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -645,12 +1098,13 @@ type DescendantsType<T extends NodeNameType> =
 type NodeDefaultElementType = {
   root: "div";
   headerLiom: typeof HeaderLiom;
+  popover2: typeof AntdPopover;
   post: typeof Post;
   reactionBar: typeof ReactionBar;
   popover: typeof AntdPopover;
   comment: typeof Comment;
   textArea: typeof AntdTextArea;
-  apiRequest: typeof ApiRequest;
+  getInfo: typeof ApiRequest;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -739,12 +1193,13 @@ export const PlasmicSocialPage = Object.assign(
   {
     // Helper components rendering sub-elements
     headerLiom: makeNodeComponent("headerLiom"),
+    popover2: makeNodeComponent("popover2"),
     post: makeNodeComponent("post"),
     reactionBar: makeNodeComponent("reactionBar"),
     popover: makeNodeComponent("popover"),
     comment: makeNodeComponent("comment"),
     textArea: makeNodeComponent("textArea"),
-    apiRequest: makeNodeComponent("apiRequest"),
+    getInfo: makeNodeComponent("getInfo"),
 
     // Metadata about props expected for PlasmicSocialPage
     internalVariantProps: PlasmicSocialPage__VariantProps,

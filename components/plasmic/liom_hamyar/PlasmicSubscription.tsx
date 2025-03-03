@@ -266,7 +266,11 @@ function PlasmicSubscription__RenderFunc(props: {
           value: args.children
         })}
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox___0KpyE)}>
+      <div
+        className={classNames(projectcss.all, sty.freeBox___0KpyE, {
+          [sty.freeBoxclick___0KpyERb9KL]: hasVariant($state, "click", "click")
+        })}
+      >
         <div
           className={classNames(
             projectcss.all,

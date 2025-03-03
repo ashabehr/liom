@@ -12,6 +12,9 @@
 .rootpostType_video {
   padding: 16px 16px 8px;
 }
+.rootpostType_image {
+  max-width: 100em;
+}
 .text__nhmSs {
   width: 100%;
   height: auto;

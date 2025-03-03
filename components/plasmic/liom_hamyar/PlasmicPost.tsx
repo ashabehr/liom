@@ -79,9 +79,17 @@ export type PlasmicPost__VariantsArgs = {
 type VariantPropType = keyof PlasmicPost__VariantsArgs;
 export const PlasmicPost__VariantProps = new Array<VariantPropType>("postType");
 
-export type PlasmicPost__ArgsType = {};
+export type PlasmicPost__ArgsType = {
+  data?: string;
+  text?: string;
+  image2?: string;
+};
 type ArgPropType = keyof PlasmicPost__ArgsType;
-export const PlasmicPost__ArgProps = new Array<ArgPropType>();
+export const PlasmicPost__ArgProps = new Array<ArgPropType>(
+  "data",
+  "text",
+  "image2"
+);
 
 export type PlasmicPost__OverridesType = {
   root?: Flex__<"div">;
@@ -91,6 +99,9 @@ export type PlasmicPost__OverridesType = {
 };
 
 export interface DefaultPostProps {
+  data?: string;
+  text?: string;
+  image2?: string;
   postType?: SingleChoiceArg<"video" | "image" | "voise">;
   className?: string;
 }
@@ -181,6 +192,11 @@ function PlasmicPost__RenderFunc(props: {
           projectcss.__wab_text,
           sty.text__nhmSs,
           {
+            [sty.textpostType_image__nhmSs2TCWu]: hasVariant(
+              $state,
+              "postType",
+              "image"
+            ),
             [sty.textpostType_video__nhmSSpFlEv]: hasVariant(
               $state,
               "postType",
@@ -194,7 +210,21 @@ function PlasmicPost__RenderFunc(props: {
           }
         )}
       >
-        {"title"}
+        <React.Fragment>
+          {(() => {
+            try {
+              return $props.data;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "title";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
       </div>
       <div
         className={classNames(
@@ -220,7 +250,21 @@ function PlasmicPost__RenderFunc(props: {
           }
         )}
       >
-        {"text"}
+        <React.Fragment>
+          {(() => {
+            try {
+              return $props.text;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "text";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
       </div>
       <div
         className={classNames(projectcss.all, sty.freeBox__eUk9V, {
@@ -342,12 +386,24 @@ function PlasmicPost__RenderFunc(props: {
           displayMinWidth={"0"}
           displayWidth={"auto"}
           loading={"lazy"}
-          src={{
-            src: "/plasmic/liom_hamyar/images/image88.webp",
-            fullWidth: 1024,
-            fullHeight: 1024,
-            aspectRatio: undefined
-          }}
+          src={(() => {
+            try {
+              return $props.image2;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {
+                  src: "/plasmic/liom_hamyar/images/image88.webp",
+                  fullWidth: 1024,
+                  fullHeight: 1024,
+                  aspectRatio: undefined
+                };
+              }
+              throw e;
+            }
+          })()}
         />
       </div>
       <div

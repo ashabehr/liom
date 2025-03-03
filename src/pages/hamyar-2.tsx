@@ -3,7 +3,7 @@
 import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../../components/plasmic/todo_mvc_app/PlasmicGlobalContextsProvider";
-
+import { UnnamedGlobalGroupOfVariants4Context } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__UnnamedGlobalGroupOfVariants4";
 import { PlasmicHamyar2 } from "../../components/plasmic/liom_hamyar/PlasmicHamyar2";
 import { useRouter } from "next/router";
 
@@ -26,15 +26,17 @@ function Hamyar2() {
   // (https://nextjs.org/docs/advanced-features/custom-app).
 
   return (
-    <GlobalContextsProvider>
-      <PageParamsProvider__
-        route={useRouter()?.pathname}
-        params={useRouter()?.query}
-        query={useRouter()?.query}
-      >
-        <PlasmicHamyar2 />
-      </PageParamsProvider__>
-    </GlobalContextsProvider>
+    <UnnamedGlobalGroupOfVariants4Context.Provider value={undefined}>
+      <GlobalContextsProvider>
+        <PageParamsProvider__
+          route={useRouter()?.pathname}
+          params={useRouter()?.query}
+          query={useRouter()?.query}
+        >
+          <PlasmicHamyar2 />
+        </PageParamsProvider__>
+      </GlobalContextsProvider>
+    </UnnamedGlobalGroupOfVariants4Context.Provider>
   );
 }
 
