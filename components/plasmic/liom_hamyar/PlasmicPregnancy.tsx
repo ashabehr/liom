@@ -11461,13 +11461,18 @@ function PlasmicPregnancy__RenderFunc(props: {
                                 >
                                   {(() => {
                                     try {
-                                      return (
-                                        // const allowance = $state?.getUserInfo?.data?.[0]?.result?.allowance || [];
-                                        // const filteredItem = allowance.find(item => item.type.includes("danger"));
-                                        // const active = filteredItem ? filteredItem.active : false;
-                                        // return !$state.loadingAdvice && active ||
-                                        false
-                                      );
+                                      return (() => {
+                                        const allowance =
+                                          $state?.getUserInfo?.data?.[0]?.result
+                                            ?.allowance || [];
+                                        const filteredItem = allowance.find(
+                                          item => item.type.includes("danger")
+                                        );
+                                        const active = filteredItem
+                                          ? filteredItem.active
+                                          : false;
+                                        return !$state.loadingAdvice && active;
+                                      })();
                                     } catch (e) {
                                       if (
                                         e instanceof TypeError ||
@@ -12211,10 +12216,7 @@ function PlasmicPregnancy__RenderFunc(props: {
                                       const active = filteredItem
                                         ? filteredItem.active
                                         : false;
-                                      return (
-                                        (!$state.loadingAdvice && !active) ||
-                                        true
-                                      );
+                                      return !$state.loadingAdvice && !active;
                                     })();
                                   } catch (e) {
                                     if (
